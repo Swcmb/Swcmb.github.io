@@ -1,0 +1,273 @@
+<!DOCTYPE html><html lang="cn" theme-mode="auto"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>datetime库指南 | Ianwusb's Blog</title><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="preload" as="font" crossorigin="anonymous" href="/font/Bender.ttf"><link rel="preload" as="font" crossorigin="anonymous" href="/font/BenderLight.ttf"><link rel="preload" as="font" crossorigin="anonymous" href="/font/JetBrainsMono-Regular.woff2"><link rel="stylesheet" href="/css/arknights.css"><style>@font-face {
+  font-family: Bender;
+  src: local('Bender'), url("/font/Bender.ttf"), url("/font/Bender.otf");
+}
+@font-face {
+  font-family: BenderLight;
+  src: local('BenderLight'), url("/font/BenderLight.ttf");
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}
+</style><script>var config = {"root":"/","search":{"preload":"all","activeHolder":"Enter here","blurHolder":"Search","noResult":"Data \"$0\" not found"},"code":{"codeInfo":"$0 - $1 lines","copy":"copy"}}</script><link type="text/css" rel="stylesheet" href="/lib/encrypt/hbe.style.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lightgallery.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-zoom.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-thumbnail.css"><link type="text/css" rel="stylesheet" href="/lib/fontawesome/css/all.min.css"><script>if (window.localStorage.getItem('theme-mode') === 'light' || window.matchMedia('(prefers-color-scheme:light)').matches)
+ document.documentElement.setAttribute('theme-mode', 'light')
+if (window.localStorage.getItem('theme-mode') === 'dark' || window.matchMedia('(prefers-color-scheme:dark)').matches)
+ document.documentElement.setAttribute('theme-mode', 'dark')</script><style>:root {
+ --dark-background: url('https://ak.hypergryph.com/assets/index/images/ak/pc/bk.jpg');
+ --light-background: url('/img/bk.jpg');
+ --theme-encrypt-confirm: 'confirm'
+}</style><script defer src="/js/arknights.js"></script><script defer src="/js/search.js"></script><script defer type="module">import mermaid from '//unpkg.com/mermaid@10.5.0/dist/mermaid.esm.mjs';
+window.mermaid = mermaid;
+code.paintMermaid();
+</script><script async src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script async src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script async src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script async src="/lib/encrypt/hbe.js"></script><script async src="/js/pjax.js"></script><script class="pjax-js">reset= () => {document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js','data-pjax','.busuanzi'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);reset()})</script><meta name="generator" content="Hexo 6.3.0"></head><body><div class="loading" style="opacity: 0;"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><div class="navBtn"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><nav><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup" tabindex="0"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li><li class="navItem"><a class="navBlock" href="https://ianwusb.blog/project"><span class="navItemTitle">Project</span></a></li><li class="navItem"><a class="navBlock" href="/Live/"><span class="navItemTitle">Living</span></a></li><li class="navItem"><a class="navBlock" href="/about/"><span class="navItemTitle">About</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1>datetime库指南</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2024-05-31T13:20:42.000Z" id="date"> 2024-05-31</time></div></span><br><span>Last Update: <div class="control"><time datetime="2024-05-31T13:21:48.321Z" id="updated"> 2024-05-31</time></div></span><br><span>Word Count: <div class="control">2.7k</div></span><br><span>Read Time: <div class="control">10 min</div></span></div></div><hr><div id="post-content"><p>日期与时间是<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6&spm=1001.2101.3001.7020">计算机科学</a>中的重要概念，在软件开发中涉及到时间的场景非常广泛。Python 的 Datetime 库为我们提供了一套强大而灵活的工具，使得处理日期和时间变得轻松而高效。本文将深入探讨 Datetime 库的各个方面，包括基本概念、常用操作、时区处理、格式化输出等，旨在为读者提供全面的指南，助力大家更好地利用 Python 处理日期与时间。</p>
+<h4 id="Datetime-库基础"><a href="#Datetime-库基础" class="headerlink" title="Datetime 库基础"></a><a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=Datetime&spm=1001.2101.3001.7020">Datetime</a> 库基础</h4><h5 id="Datetime-模块简介"><a href="#Datetime-模块简介" class="headerlink" title="Datetime 模块简介"></a>Datetime 模块简介</h5><p>Python 的 Datetime 模块是处理日期和时间的核心模块，提供了表示日期、时间、时间间隔的类和函数。主要的类包括：</p>
+<ul>
+<li><code>datetime.date</code>：表示日期的类。</li>
+<li><code>datetime.time</code>：表示时间的类。</li>
+<li><code>datetime.datetime</code>：表示日期和时间的类。</li>
+<li><code>datetime.timedelta</code>：表示时间间隔的类。</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none"> 1import datetime  
+ 2  
+ 3# 创建日期对象  
+ 4today &#x3D; datetime.date.today()  
+ 5print(today)  # 输出: 当前日期  
+ 6  
+ 7# 创建时间对象  
+ 8current_time &#x3D; datetime.time(12, 30, 45)  
+ 9print(current_time)  # 输出: 12:30:45  
+10  
+11# 创建日期和时间对象  
+12now &#x3D; datetime.datetime.now()  
+13print(now)  # 输出: 当前日期和时间  
+14  
+15# 创建时间间隔对象  
+16delta &#x3D; datetime.timedelta(days&#x3D;5)  
+17print(delta)  # 输出: 5 days, 0:00:00
+1234567891011121314151617<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>通过使用 Datetime 模块，我们可以轻松地创建和操作日期与时间对象。</p>
+<h5 id="获取当前日期与时间"><a href="#获取当前日期与时间" class="headerlink" title="获取当前日期与时间"></a>获取当前日期与时间</h5><p>在实际应用中，经常需要获取当前的日期和时间。Datetime 模块提供了 <code>datetime.datetime.now()</code> 方法用于获取当前日期和时间。</p>
+<pre class="line-numbers language-none"><code class="language-none">1import datetime  
+2  
+3current_datetime &#x3D; datetime.datetime.now()  
+4print(current_datetime)  # 输出: 当前日期和时间  
+
+12345<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这个方法返回的是一个 <code>datetime.datetime</code> 对象，包含了当前的日期和时间信息。</p>
+<h5 id="字符串与日期时间的转换"><a href="#字符串与日期时间的转换" class="headerlink" title="字符串与日期时间的转换"></a>字符串与日期时间的转换</h5><p>Datetime 模块允许我们将日期和时间对象转换为字符串，以及将字符串转换为日期和时间对象。常用的方法包括：</p>
+<ul>
+<li><code>strptime()</code>：将字符串解析为日期和时间对象。</li>
+<li><code>strftime()</code>：将日期和时间对象格式化为字符串。</li>
+</ul>
+<pre class="line-numbers language-none"><code class="language-none"> 1import datetime  
+ 2  
+ 3# 字符串转日期时间对象  
+ 4date_str &#x3D; &quot;2022-01-01&quot;  
+ 5date_obj &#x3D; datetime.datetime.strptime(date_str, &quot;%Y-%m-%d&quot;)  
+ 6print(date_obj)  # 输出: 2022-01-01 00:00:00  
+ 7  
+ 8# 日期时间对象转字符串  
+ 9formatted_date &#x3D; date_obj.strftime(&quot;%Y-%m-%d %H:%M:%S&quot;)  
+10print(formatted_date)  # 输出: 2022-01-01 00:00:00
+12345678910<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在这个例子中，<code>strptime()</code> 方法使用指定的格式将字符串解析为日期和时间对象，而 <code>strftime()</code> 方法则将日期和时间对象格式化为字符串。</p>
+<h4 id="Datetime-库常用操作"><a href="#Datetime-库常用操作" class="headerlink" title="Datetime 库常用操作"></a>Datetime 库常用操作</h4><h5 id="时间加减"><a href="#时间加减" class="headerlink" title="时间加减"></a>时间加减</h5><p>Datetime 模块允许我们对日期和时间进行加减操作，以计算新的日期和时间。这主要通过 <code>datetime.timedelta</code> 类实现。</p>
+<pre class="line-numbers language-none"><code class="language-none"> 1import datetime  
+ 2  
+ 3# 当前日期  
+ 4current_date &#x3D; datetime.date.today()  
+ 5  
+ 6# 加上一天  
+ 7next_day &#x3D; current_date + datetime.timedelta(days&#x3D;1)  
+ 8print(next_day)  # 输出: 明天的日期  
+ 9  
+10# 减去一周  
+11last_week &#x3D; current_date - datetime.timedelta(weeks&#x3D;1)  
+12print(last_week)  # 输出: 一周前的日期
+123456789101112<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在这个例子中，通过使用 <code>datetime.timedelta</code> 类，我们可以轻松地对日期进行加减操作，实现日期的前后推移。</p>
+<h5 id="日期比较"><a href="#日期比较" class="headerlink" title="日期比较"></a>日期比较</h5><p>比较日期的大小是处理日期与时间常见的操作之一。Datetime 模块中的日期对象支持比较操作，包括等于、不等于、大于、小于等。</p>
+<pre class="line-numbers language-none"><code class="language-none"> 1import datetime  
+ 2  
+ 3# 创建两个日期对象  
+ 4date1 &#x3D; datetime.date(  
+ 5  
+ 62022, 1, 1)  
+ 7date2 &#x3D; datetime.date(2022, 2, 1)  
+ 8  
+ 9# 比较日期  
+10print(date1 &#x3D;&#x3D; date2)  # 输出: False  
+11print(date1 !&#x3D; date2)  # 输出: True  
+12print(date1 &lt; date2)  # 输出: True  
+13print(date1 &gt; date2)  # 输出: False
+12345678910111213<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>通过比较操作，我们可以方便地判断日期的先后顺序。</p>
+<h5 id="时间间隔计算"><a href="#时间间隔计算" class="headerlink" title="时间间隔计算"></a>时间间隔计算</h5><p>Datetime 模块中的 <code>datetime.timedelta</code> 类还可以用于计算两个日期或时间之间的时间间隔。</p>
+<pre class="line-numbers language-none"><code class="language-none">1import datetime  
+2  
+3# 创建两个日期对象  
+4date1 &#x3D; datetime.date(2022, 1, 1)  
+5date2 &#x3D; datetime.date(2022, 2, 1)  
+6  
+7# 计算时间间隔  
+8time_interval &#x3D; date2 - date1  
+9print(time_interval)  # 输出: 31 days, 0:00:00  
+
+12345678910<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>通过计算时间间隔，我们可以得到两个日期之间相差的天数、秒数等信息。</p>
+<h4 id="时区处理与日历"><a href="#时区处理与日历" class="headerlink" title="时区处理与日历"></a>时区处理与日历</h4><h5 id="时区处理"><a href="#时区处理" class="headerlink" title="时区处理"></a>时区处理</h5><p>在处理全球化的应用时，时区成为一个重要的考虑因素。Datetime 模块提供了 <code>datetime.timezone</code> 类用于表示时区信息。</p>
+<pre class="line-numbers language-none"><code class="language-none">1import datetime  
+2import pytz  # 需要安装 pytz 库  
+3  
+4# 创建时区对象  
+5tz &#x3D; datetime.timezone(datetime.timedelta(hours&#x3D;8))  
+6  
+7# 创建带有时区信息的日期时间对象  
+8dt_with_tz &#x3D; datetime.datetime(2022, 1, 1, tzinfo&#x3D;tz)  
+9print(dt_with_tz)  # 输出: 2022-01-01 00:00:00+08:00  
+
+12345678910<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在这个例子中，<code>datetime.timezone</code> 类表示了一个小时的时区偏移，通过将其传递给 <code>datetime.datetime</code> 对象的 <code>tzinfo</code> 参数，我们创建了带有时区信息的日期时间对象。</p>
+<h5 id="使用-pytz-库处理时区"><a href="#使用-pytz-库处理时区" class="headerlink" title="使用 pytz 库处理时区"></a>使用 pytz 库处理时区</h5><p>Datetime 模块本身提供了有限的时区支持，而 <code>pytz</code> 库则提供了更全面的时区支持。可以通过安装 <code>pytz</code> 库来更方便地处理时区相关的操作。</p>
+<pre class="line-numbers language-none"><code class="language-none"> 1import datetime  
+ 2import pytz  # 需要安装 pytz 库  
+ 3  
+ 4# 创建时区对象  
+ 5tz &#x3D; pytz.timezone(&#39;Asia&#x2F;Shanghai&#39;)  
+ 6  
+ 7# 获取当前时间，并设置时区信息  
+ 8now &#x3D; datetime.datetime.now(tz)  
+ 9print(now)  # 输出: 当前日期和时间（上海时区）  
+10  
+11# 将时间转换为其他时区  
+12ny_tz &#x3D; pytz.timezone(&#39;America&#x2F;New_York&#39;)  
+13ny_time &#x3D; now.astimezone(ny_tz)  
+14print(ny_time)  # 输出: 当前日期和时间（纽约时区）
+1234567891011121314<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在这个例子中，<code>pytz.timezone</code> 方法创建了一个时区对象，然后通过 <code>astimezone()</code> 方法将时间转换为其他时区。</p>
+<h5 id="日历操作"><a href="#日历操作" class="headerlink" title="日历操作"></a>日历操作</h5><p>Datetime 模块中的 <code>calendar</code> 模块提供了一些日历相关的功能，包括判断某一年是否是闰年、获取某月的日历等。</p>
+<pre class="line-numbers language-none"><code class="language-none">1import calendar  
+2  
+3# 判断是否是闰年  
+4is_leap &#x3D; calendar.isleap(2022)  
+5print(is_leap)  # 输出: False  
+6  
+7# 获取某月的日历  
+8cal &#x3D; calendar.month(2022, 1)  
+9print(cal)  # 输出: 一月份的日历  
+
+12345678910<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>通过使用 <code>calendar</code> 模块，我们可以方便地进行一些与日期相关的日历操作。</p>
+<h4 id="Datetime-库的格式化输出"><a href="#Datetime-库的格式化输出" class="headerlink" title="Datetime 库的格式化输出"></a>Datetime 库的格式化输出</h4><h5 id="strftime-格式化字符串"><a href="#strftime-格式化字符串" class="headerlink" title="strftime 格式化字符串"></a>strftime 格式化字符串</h5><p>在实际应用中，我们通常需要将日期和时间对象格式化为特定的字符串。这时可以使用 <code>strftime()</code> 方法，它接受一个格式化字符串作为参数，将日期和时间对象格式化为字符串。</p>
+<pre class="line-numbers language-none"><code class="language-none">1import datetime  
+2  
+3# 创建日期时间对象  
+4current_datetime &#x3D; datetime.datetime.now()  
+5  
+6# 将日期时间对象格式化为字符串  
+7formatted_str &#x3D; current_datetime.strftime(&quot;%Y-%m-%d %H:%M:%S&quot;)  
+8print(formatted_str)  # 输出: 当前日期和时间的字符串表示  
+
+123456789<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在这个例子中，<code>%Y</code>、<code>%m</code>、<code>%d</code>、<code>%H</code>、<code>%M</code>、<code>%S</code> 等是格式化字符串中的占位符，代表年、月、日、小时、分钟、秒等信息。</p>
+<h5 id="strptime-解析字符串"><a href="#strptime-解析字符串" class="headerlink" title="strptime 解析字符串"></a>strptime 解析字符串</h5><p>与 <code>strftime()</code> 相对应的是 <code>strptime()</code> 方法，它用于将字符串解析为日期和时间对象。</p>
+<pre class="line-numbers language-none"><code class="language-none">1import datetime  
+2  
+3# 字符串表示的日期时间  
+4date_str &#x3D; &quot;2022-01-01 00:00:00&quot;  
+5  
+6# 解析字符串为日期时间对象  
+7parsed_datetime &#x3D; datetime.datetime.strptime(date_str, &quot;%Y-%m-%d %H:%M:%S&quot;)  
+8print(parsed_datetime)  # 输出: 解析后的日期时间对象  
+
+123456789<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在这个例子中，<code>%Y</code>、<code>%m</code>、<code>%d</code>、<code>%H</code>、<code>%M</code>、<code>%S</code> 等占位符与 <code>strftime()</code> 中的相对应，用于指定解析字符串的格式。</p>
+<h5 id="自定义格式化字符串"><a href="#自定义格式化字符串" class="headerlink" title="自定义格式化字符串"></a>自定义格式化字符串</h5><p>除了常见的占位符外，Datetime 模块还支持一些其他格式化选项，如 <code>%a</code> 表示星期的缩写，<code>%B</code> 表示月份的全称等。详细的格式化选项可以参考官方文档。</p>
+<pre class="line-numbers language-none"><code class="language-none">1import datetime  
+2  
+3# 创建日期时间对象  
+4current_datetime &#x3D; datetime.datetime.now()  
+5  
+6# 自定义格式化字符串  
+7custom_formatted_str &#x3D; current_datetime.strftime(&quot;%A, %B %d, %Y %I:%M %p&quot;)  
+8print(custom_formatted_str)  # 输出: 当前日期和时间的自定义格式化字符串  
+
+123456789<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在实际应用中，根据需求可以灵活运用不同的格式化选项，创建符合项目要求的日期和时间格式。</p>
+<h4 id="Datetime-库高级应用"><a href="#Datetime-库高级应用" class="headerlink" title="Datetime 库高级应用"></a>Datetime 库高级应用</h4><h5 id="使用-calendar-模块"><a href="#使用-calendar-模块" class="headerlink" title="使用 calendar 模块"></a>使用 calendar 模块</h5><p>Datetime 模块中的 <code>calendar</code> 模块提供了一些高级的日历和日期计算功能。</p>
+<pre class="line-numbers language-none"><code class="language-none">1import calendar  
+2  
+3# 获取某个月的第一天和最后一天  
+4first_day, last_day &#x3D; calendar.monthrange(2022, 1)  
+5print(first_day, last_day)  # 输出: 4, 31  
+6  
+7# 获取某个月的第一周包含的天数  
+8first_week_days &#x3D; calendar.monthlen(2022, 1)  
+9print(first_week_days)  # 输出: 31  
+
+12345678910<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>通过使用 <code>calendar</code> 模块，我们可以获取某个月的第一天、最后一天以及第一周包含的天数等信息。</p>
+<h5 id="使用-dateutil-库"><a href="#使用-dateutil-库" class="headerlink" title="使用 dateutil 库"></a>使用 dateutil 库</h5><p><code>dateutil</code> 库是 Python 中一个强大的日期时间处理库，提供了丰富的功能，包括相对时间、复杂的日期计算等。需要安装该库，可以使用 <code>pip install python-dateutil</code> 进行安装。</p>
+<pre class="line-numbers language-none"><code class="language-none">1from dateutil import relativedelta  
+2  
+3# 获取两个日期之间的相对时间差  
+4date1 &#x3D; datetime.date(2022, 1, 1)  
+5date2 &#x3D; datetime.date(2022, 2, 1)  
+6delta &#x3D; relativedelta.relativedelta(date2, date1)  
+7print(delta)  # 输出: relativedelta(months&#x3D;+1)  
+
+12345678<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>在这个例子中，<code>relativedelta</code> 类提供了方便的相对时间计算功能，可以轻松地获取两个日期之间的相对时间差。</p>
+<h5 id="使用-arrow-库"><a href="#使用-arrow-库" class="headerlink" title="使用 arrow 库"></a>使用 arrow 库</h5><p><code>arrow</code> 库是一个用于处理日期和时间的优秀库，提供了简单易用的接口和强大的功能。需要安装该库，可以使用 <code>pip install arrow</code> 进行安装。</p>
+<pre class="line-numbers language-none"><code class="language-none">1import arrow  
+2  
+3# 获取当前时间  
+4now &#x3D; arrow.now()  
+5print(now)  # 输出: 当前日期和时间  
+6  
+7# 格式化输出  
+8formatted_str &#x3D; now.format(&quot;YYYY-MM-DD HH:mm:ss&quot;)  
+9print(formatted_str)  # 输出: 当前日期和时间的格式化字符串  
+
+12345678910<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>通过使用 <code>arrow</code> 库，我们可以更方便地进行日期和时间的处理，并轻松进行格式化输出。</p>
+<h4 id="最佳实践与注意事项"><a href="#最佳实践与注意事项" class="headerlink" title="最佳实践与注意事项"></a>最佳实践与注意事项</h4><p>在使用 Datetime 库处理日期与时间时，一些最佳实践和注意事项包括：</p>
+<ul>
+<li><strong>时区处理：</strong> 在涉及到全球化应用或跨时区操作时，务必考虑时区的影响，使用 <code>pytz</code> 等库进行时区处理。</li>
+<li><strong>格式化与解析：</strong> 使用 <code>strftime</code> 进行格式化输出时，要确保占位符的使用是正确的；使用 <code>strptime</code> 解析字符串时，要确保字符串格式与占位符相匹配。</li>
+<li><strong>使用 dateutil 和 arrow 库：</strong> 对于更复杂的日期和时间操作，可以考虑使用 <code>dateutil</code> 和 <code>arrow</code> 等第三方库，它们提供了更多便捷的功能。</li>
+</ul>
+<p>以上就是“轻松处理日期与时间：Python 的 Datetime 库指南”的全部内容，希望对你有所帮助。</p>
+<div id="paginator"></div></div><div id="post-footer"><div id="pages" style="justify-content: flex-end"><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2024/05/08/Manacher%E7%AE%97%E6%B3%95-%E9%A9%AC%E6%8B%89%E8%BD%A6%E7%AE%97%E6%B3%95/">Manacher算法(马拉车算法) Prev →</a></div></div></div></div><div class="bottom-btn"><div><a class="i-top" id="to-top" onClick="scrolls.scrolltop();" title="To Top" style="opacity: 0; display: none;">∧ </a><a class="i-index" id="to-index" href="#toc-div" title="To Catalog">≡</a><a class="i-color" id="color-mode" onClick="colorMode.change()" title="Change Theme"></a></div></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">ianwusb</a></h1><div id="description"><p>编程魅力在于无尽创造与无限可能，生物魅力深藏于生命奥秘之中</p></div><div id="social-links"><a class="social" target="_blank" rel="noopener" href="https://github.com/swcmb"><i class="fab fa-github" alt="GitHub"></i></a><a class="social" href="mailto:z3216243013@163.com"><i class="fa fa-envelope" alt="E-Mail"></i></a></div></div><div id="aside-block"><div id="toc-div"><h1>Catalog</h1><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Datetime-%E5%BA%93%E5%9F%BA%E7%A1%80"><span class="toc-number">1.</span> <span class="toc-text">Datetime 库基础</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Datetime-%E6%A8%A1%E5%9D%97%E7%AE%80%E4%BB%8B"><span class="toc-number">1.1.</span> <span class="toc-text">Datetime 模块简介</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E6%97%A5%E6%9C%9F%E4%B8%8E%E6%97%B6%E9%97%B4"><span class="toc-number">1.2.</span> <span class="toc-text">获取当前日期与时间</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%8E%E6%97%A5%E6%9C%9F%E6%97%B6%E9%97%B4%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="toc-number">1.3.</span> <span class="toc-text">字符串与日期时间的转换</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Datetime-%E5%BA%93%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C"><span class="toc-number">2.</span> <span class="toc-text">Datetime 库常用操作</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E5%8A%A0%E5%87%8F"><span class="toc-number">2.1.</span> <span class="toc-text">时间加减</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%97%A5%E6%9C%9F%E6%AF%94%E8%BE%83"><span class="toc-number">2.2.</span> <span class="toc-text">日期比较</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E9%97%B4%E9%9A%94%E8%AE%A1%E7%AE%97"><span class="toc-number">2.3.</span> <span class="toc-text">时间间隔计算</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%B6%E5%8C%BA%E5%A4%84%E7%90%86%E4%B8%8E%E6%97%A5%E5%8E%86"><span class="toc-number">3.</span> <span class="toc-text">时区处理与日历</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%97%B6%E5%8C%BA%E5%A4%84%E7%90%86"><span class="toc-number">3.1.</span> <span class="toc-text">时区处理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-pytz-%E5%BA%93%E5%A4%84%E7%90%86%E6%97%B6%E5%8C%BA"><span class="toc-number">3.2.</span> <span class="toc-text">使用 pytz 库处理时区</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%97%A5%E5%8E%86%E6%93%8D%E4%BD%9C"><span class="toc-number">3.3.</span> <span class="toc-text">日历操作</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Datetime-%E5%BA%93%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96%E8%BE%93%E5%87%BA"><span class="toc-number">4.</span> <span class="toc-text">Datetime 库的格式化输出</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#strftime-%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">4.1.</span> <span class="toc-text">strftime 格式化字符串</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#strptime-%E8%A7%A3%E6%9E%90%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">4.2.</span> <span class="toc-text">strptime 解析字符串</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-number">4.3.</span> <span class="toc-text">自定义格式化字符串</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Datetime-%E5%BA%93%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8"><span class="toc-number">5.</span> <span class="toc-text">Datetime 库高级应用</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-calendar-%E6%A8%A1%E5%9D%97"><span class="toc-number">5.1.</span> <span class="toc-text">使用 calendar 模块</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-dateutil-%E5%BA%93"><span class="toc-number">5.2.</span> <span class="toc-text">使用 dateutil 库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-arrow-%E5%BA%93"><span class="toc-number">5.3.</span> <span class="toc-text">使用 arrow 库</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%E4%B8%8E%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">6.</span> <span class="toc-text">最佳实践与注意事项</span></a></li></ol></div></div><footer><nobr><span class="icp-title">萌</span><a class="icp-content" target="_blank" rel="noopener" href="https://icp.gov.moe/?keyword=69616e77757362">萌ICP备69616e77757362号</a></nobr><br><nobr>Published with <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> Theme <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknights</a></nobr><wbr><nobr> by <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas></body></html>
