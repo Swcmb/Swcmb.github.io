@@ -1,0 +1,733 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/Logo.jpg">
+  <link rel="icon" href="/img/Logo.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Ianwusb">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="1234567891011121314nums &#x3D; list(map(int, input().split()))#这行代码接收用户的输入，并将输入转换为整数列表。#首先，input()函数接收用户的输入，然后#split()方法将这个输入拆分成一个字符串列表。#接着，map()函数应用int()函数到列表的每个元素，#将每个字符串元素转换为整数。最后，li()函数#将映射对象转换为列表。prin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="蓝桥输入输出">
+<meta property="og:url" content="http://example.com/2024/04/12/%E8%93%9D%E6%A1%A5%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/index.html">
+<meta property="og:site_name" content="Ianwusb&#39;s Blog">
+<meta property="og:description" content="1234567891011121314nums &#x3D; list(map(int, input().split()))#这行代码接收用户的输入，并将输入转换为整数列表。#首先，input()函数接收用户的输入，然后#split()方法将这个输入拆分成一个字符串列表。#接着，map()函数应用int()函数到列表的每个元素，#将每个字符串元素转换为整数。最后，li()函数#将映射对象转换为列表。prin">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-04-12T14:53:43.000Z">
+<meta property="article:modified_time" content="2024-07-16T12:15:01.271Z">
+<meta property="article:author" content="Ianwusb">
+<meta property="article:tag" content="LanQiao">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>蓝桥输入输出 - Ianwusb&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/bg/background.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="蓝桥输入输出"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        Ianwusb
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-04-12 22:53" pubdate>
+          2024年4月12日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.6k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          22 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">蓝桥输入输出</h1>
+            
+              <p id="updated-time" class="note note-info" style="display: none">
+                
+                  
+                    本文最后更新于 2024-07-16T20:15:01+08:00
+                  
+                  
+
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python">nums = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">map</span>(<span class="hljs-built_in">int</span>, <span class="hljs-built_in">input</span>().split()))<br><span class="hljs-comment">#这行代码接收用户的输入，并将输入转换为整数列表。</span><br><span class="hljs-comment">#首先，input()函数接收用户的输入，然后</span><br><span class="hljs-comment">#split()方法将这个输入拆分成一个字符串列表。</span><br><span class="hljs-comment">#接着，map()函数应用int()函数到列表的每个元素，</span><br><span class="hljs-comment">#将每个字符串元素转换为整数。最后，li()函数</span><br><span class="hljs-comment">#将映射对象转换为列表。</span><br><span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27; &#x27;</span>.join(<span class="hljs-built_in">map</span>(<span class="hljs-built_in">str</span>, nums)))<br><span class="hljs-comment">#这行代码将整数列表转换回字符串，并以空格分隔每个元素，</span><br><span class="hljs-comment">#然后将整个字符串打印出来。首先，map()函数应用</span><br><span class="hljs-comment">#str()函数到列表的每个元素，将每个整数元素转换</span><br><span class="hljs-comment">#为字符串。然后，join()方法使用空格字符作为分隔符，</span><br><span class="hljs-comment">#将字符串列表连接成一个字符串。</span><br><span class="hljs-comment">#最后，print()函数打印这个字符串。</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#最大公约数</span><br><span class="hljs-comment">#约数︰如果整数a能被整数b整除，那么a叫做b的倍数，</span><br><span class="hljs-comment">#b叫做a的约数。</span><br><span class="hljs-comment">#给定两个整数a,b，两个数的所有公共约数中的最大值</span><br><span class="hljs-comment">#即为最大公约数(Greatest Common Divisor , GCD)。</span><br><span class="hljs-comment">#例:12与16的最大公约数是4</span><br><br><span class="hljs-comment">#如何计算两个数的最大公约数:</span><br><span class="hljs-comment">#欧几里得:辗转相除法(欧几里得算法)</span><br><span class="hljs-comment">#《九章算术》:更相减损术</span><br><span class="hljs-comment">#欧几里得算法: gcd(a, b) = gcd(b, a mod b)</span><br><span class="hljs-comment">#例: gcd(60, 21) = gcd(21, 18)= gcd(18, 3)= gcd(3, 0)= 3</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">gcd</span>(<span class="hljs-params">a,b</span>):<br>    <span class="hljs-keyword">if</span> b==<span class="hljs-number">0</span>:<br>        <span class="hljs-keyword">return</span> a<br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-keyword">return</span> gcd(b,(a%b))<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">gcd2</span>(<span class="hljs-params">a,b</span>):<br>    <span class="hljs-keyword">while</span> b&gt;<span class="hljs-number">0</span>:<br>        c=a%b<br>        a=b<br>        b=c<br>    <span class="hljs-keyword">return</span> a<br><span class="hljs-built_in">print</span>(gcd(<span class="hljs-number">12</span>,<span class="hljs-number">16</span>))<br><span class="hljs-built_in">print</span>(gcd2(<span class="hljs-number">12</span>,<span class="hljs-number">16</span>))<br><span class="hljs-comment">#应用:实现分数计算</span><br><span class="hljs-comment">#利用欧几里得算法实现一个分数类，支持分数的四则运算。</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Fraction</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self,a,b</span>):<br>        <span class="hljs-variable language_">self</span>.a=a<br>        <span class="hljs-variable language_">self</span>.b=b<br>        x=<span class="hljs-variable language_">self</span>.gcd2(a,b)<br>        <span class="hljs-variable language_">self</span>.a /= x<br>        <span class="hljs-variable language_">self</span>.b /= x<br><br><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">gcd2</span>(<span class="hljs-params">self,a, b</span>):<br>        <span class="hljs-keyword">while</span> b &gt; <span class="hljs-number">0</span>:<br>            c = a % b<br>            a = b<br>            b = c<br>        <span class="hljs-keyword">return</span> a<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">lcm</span>(<span class="hljs-params">self,a,b</span>):<br>        x=gcd2(a,b)<br>        <span class="hljs-keyword">return</span> x*(a/x)*(b/x)<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__add__</span>(<span class="hljs-params">self, other</span>):<span class="hljs-comment">#加</span><br>        a=<span class="hljs-variable language_">self</span>.a<br>        b=<span class="hljs-variable language_">self</span>.b<br>        c=other.a<br>        d=other.b<br>        denominator=<span class="hljs-variable language_">self</span>.lcm(b,d)<br>        numerator=a*(denominator)/b+c*(denominator)/d<br>        <span class="hljs-keyword">return</span> Fraction(numerator,denominator)<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__sub__</span>(<span class="hljs-params">self, other</span>):<span class="hljs-comment">#减</span><br>        a = <span class="hljs-variable language_">self</span>.a<br>        b = <span class="hljs-variable language_">self</span>.b<br>        c = other.a<br>        d = other.b<br>        denominator = <span class="hljs-variable language_">self</span>.lcm(b, d)<br>        numerator = a * (denominator) / b - c * (denominator) / d<br>        <span class="hljs-keyword">return</span> Fraction(numerator, denominator)<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__mul__</span>(<span class="hljs-params">self, other</span>):<span class="hljs-comment">#乘</span><br>        a = <span class="hljs-variable language_">self</span>.a<br>        b = <span class="hljs-variable language_">self</span>.b<br>        c = other.a<br>        d = other.b<br>        denominator = b*d<br>        numerator = a*c<br>        <span class="hljs-keyword">return</span> Fraction(numerator, denominator)<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__truediv__</span>(<span class="hljs-params">self, other</span>):<span class="hljs-comment">#除</span><br>        a = <span class="hljs-variable language_">self</span>.a<br>        b = <span class="hljs-variable language_">self</span>.b<br>        c = other.b<br>        d = other.a<br>        denominator = b * d<br>        numerator = a * c<br>        <span class="hljs-keyword">return</span> Fraction(numerator, denominator)<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__str__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;%d/%d&quot;</span> %  (<span class="hljs-variable language_">self</span>.a,<span class="hljs-variable language_">self</span>.b)<br><br>a=Fraction(<span class="hljs-number">4</span>,<span class="hljs-number">12</span>)<br>b=Fraction(<span class="hljs-number">6</span>,<span class="hljs-number">24</span>)<br><span class="hljs-built_in">print</span>(a+b)<br><span class="hljs-built_in">print</span>(a-b)<br><span class="hljs-built_in">print</span>(a*b)<br><span class="hljs-built_in">print</span>(a/b)<br><br><span class="hljs-comment">#RSA加密算法</span><br><br><span class="hljs-comment">#密码与加密</span><br><span class="hljs-comment">#传统密码:加密算法是秘密的</span><br><span class="hljs-comment">#现代密码系统:加密算法是公开的，密钥是秘密的</span><br><span class="hljs-comment">#   对称加密</span><br><span class="hljs-comment">#   非对称加密(RSA属于，加密解密各一个密钥）</span><br><br><span class="hljs-comment">#RSA非对称加密系统:</span><br><span class="hljs-comment">#公钥:用来加密，是公开的</span><br><span class="hljs-comment">#私钥:用来解密，是私有的</span><br><br><span class="hljs-comment">#RSA加密算法过程</span><br><span class="hljs-comment">#1.随机选取两个质数p和q</span><br><span class="hljs-comment">#2.计算n=pq</span><br><span class="hljs-comment">#3.选取一个与中(n)互质的小奇数e,中(n)=(p-1)(q-1)</span><br><span class="hljs-comment">#4.对模φ(n),计算e的乘法逆元d, 即满足(e*d) mod φ(n) = 1</span><br><span class="hljs-comment">#5.公钥(e, n)  私钥(d, n)</span><br><span class="hljs-comment">#加密过程: c= (m^e) mod n</span><br><span class="hljs-comment">#解密过程: m= (c^d) mod n</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#贪心算法</span><br><span class="hljs-comment">#贪心算法(又称贪婪算法)是指，在对问题求解时，</span><br><span class="hljs-comment">#总是做出在当前看来是最好的选择。也就是说</span><br><span class="hljs-comment">#不从整体最优上加以考虑，他所做出的是在某种意义上的局部最优解。</span><br><span class="hljs-comment">#贪心算法并不保证会得到最优解，但是在某些问题上贪心算法的解</span><br><span class="hljs-comment">#就是最优解。要会判断一个问题能否用贪心算法来计算。</span><br><br><span class="hljs-comment">#找零问题</span><br><span class="hljs-comment">#假设商店老板需要找零n元钱，钱币的面额有:100元、</span><br><span class="hljs-comment">#50元、20元、5元、1元，如何找零使得所需钱币的数量最少?</span><br>t=[<span class="hljs-number">100</span>,<span class="hljs-number">50</span>,<span class="hljs-number">20</span>,<span class="hljs-number">5</span>,<span class="hljs-number">1</span>]<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">change_money</span>(<span class="hljs-params">t,n</span>):<br>    m=[<span class="hljs-number">0</span> <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(t))]<br>    <span class="hljs-keyword">for</span> i,money <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(t):<span class="hljs-comment">#enumerate(t)用于将一个可遍历的数据对象（如列表、元组或字符串）组合为一个索引序列，同时列出数据和数据下标</span><br>        m[i]=n//money<br>        n=n%money<br>    <span class="hljs-keyword">return</span> m,n<br><span class="hljs-built_in">print</span>(change_money(t,<span class="hljs-number">376</span>))<br><br><span class="hljs-comment">#背包问题</span><br><span class="hljs-comment">#一个小偷在某个商店发现有n个商品，第i个商品价值vi元，</span><br><span class="hljs-comment">#重wi千克。他希望拿走的价值尽量高，但他的背包最多</span><br><span class="hljs-comment">#只能容纳W千克的东西。他应该拿走哪些商品?</span><br><span class="hljs-comment">#O-1背包:对于一个商品，小偷要么把它完整拿走，要么留下。</span><br><span class="hljs-comment">#不能只拿走—部分，或把一个商品拿走多次。(商品为金条)</span><br><span class="hljs-comment">#分数背包∶对于一个商品，小偷可以拿走其中任意一部分。</span><br><span class="hljs-comment">#(商品为金砂)</span><br>goods=[(<span class="hljs-number">60</span>,<span class="hljs-number">10</span>),(<span class="hljs-number">100</span>,<span class="hljs-number">20</span>),(<span class="hljs-number">120</span>,<span class="hljs-number">30</span>)]<br>goods.sort(key=<span class="hljs-keyword">lambda</span> x:x[<span class="hljs-number">0</span>]/x[<span class="hljs-number">1</span>],reverse=<span class="hljs-literal">True</span>)<br>    <span class="hljs-comment">#key=lambda x: x[0]/x[1]: 这是sort方法的key参数，它指定了一个函数，该函数用于从每个元素中提取一个用于排序的值。</span><br>    <span class="hljs-comment">#这里使用了一个lambda函数，该函数接受一个元素（在这里命名为x），并返回该元素第一个元素与第二个元素的商。</span><br>    <span class="hljs-comment">#reversed=True: 这告诉sort方法按照降序排序，而不是默认的升序。</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">fractional_backpack</span>(<span class="hljs-params">goods,W</span>):<span class="hljs-comment">#分数背包∶对于一个商品，小偷可以拿走其中任意一部分。</span><br>    m = [<span class="hljs-number">0</span> <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(goods))]<br>    total_value=<span class="hljs-number">0</span><br>    <span class="hljs-keyword">for</span> i,(value,weight) <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(goods):<br>        <span class="hljs-keyword">if</span> W&gt;=weight:<br>            m[i]=<span class="hljs-number">1</span><br>            W-=weight<br>            total_value+=value<br>        <span class="hljs-keyword">else</span>:<br>            m[i]=W/weight<br>            W=<span class="hljs-number">0</span><br>            total_value+=m[i]*value<br>            <span class="hljs-keyword">break</span><br>    <span class="hljs-keyword">return</span> m,total_value<br><br><span class="hljs-built_in">print</span>(fractional_backpack(goods,<span class="hljs-number">50</span>))<br><span class="hljs-comment">#拼接最大数字问题</span><br><span class="hljs-comment">#有n个非负整数，将其按照字符串拼接的方式拼接为一个整数。</span><br><span class="hljs-comment">#如何拼接可以使得得到的整数最大?</span><br><span class="hljs-comment">#例:32,94,128,1286,six.py,71</span><br><span class="hljs-comment">#可以拼接除的最大整数为94716321286128</span><br>li=[<span class="hljs-number">32</span>,<span class="hljs-number">94</span>,<span class="hljs-number">128</span>,<span class="hljs-number">1286</span>,<span class="hljs-number">6</span>,<span class="hljs-number">71</span>]<br><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">number_join</span>(<span class="hljs-params">li</span>):<br>    <span class="hljs-comment"># 定义一个内部函数 xy_cmp，用于比较两个数字的大小</span><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">xy_cmp</span>(<span class="hljs-params">x, y</span>):<br>        <span class="hljs-keyword">if</span> x + y &lt; y + x:  <span class="hljs-comment"># 如果 x+y 小于 y+x，返回 1</span><br>            <span class="hljs-keyword">return</span> <span class="hljs-number">1</span><br>        <span class="hljs-keyword">elif</span> x + y &gt; y + x:  <span class="hljs-comment"># 如果 x+y 大于 y+x，返回 -1</span><br>            <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span><br>        <span class="hljs-keyword">else</span>:  <span class="hljs-comment"># 如果 x+y 等于 y+x，返回 0</span><br>            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span><br><br>            <span class="hljs-comment"># 从 functools 模块导入 cmp_to_key 函数，用于将比较函数转换为排序键函数</span><br><br>    <span class="hljs-keyword">from</span> functools <span class="hljs-keyword">import</span> cmp_to_key<br><br>    <span class="hljs-comment"># 将列表 li 中的每个元素转换为字符串</span><br>    li = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">map</span>(<span class="hljs-built_in">str</span>, li))<br>    <span class="hljs-comment"># map(str, li) 会将 li 中的每个元素转换成字符串。</span><br>    <span class="hljs-comment"># list() 函数将 map 返回的迭代器转换为列表。</span><br><br>    <span class="hljs-comment"># 使用自定义的比较函数 xy_cmp 对列表进行排序</span><br>    li.sort(key=cmp_to_key(xy_cmp))<br><br>    <span class="hljs-comment"># 使用 join 方法将排序后的列表转换为字符串并返回</span><br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;&quot;</span>.join(li)<br><br><span class="hljs-built_in">print</span>(number_join(li))<br><br><span class="hljs-comment">#活动选择问题</span><br><span class="hljs-comment">#假设有n个活动，这些活动要占用同一片场地，</span><br><span class="hljs-comment">#而场地在某时刻只能供一个活动使用。</span><br><span class="hljs-comment">#每个活动都有一个开始时间s和结束时间f(题目中时间以整数表示),表示活动在[si,fi)区间占用场地。</span><br><span class="hljs-comment">#问:安排哪些活动能够使该场地举办的活动的个数最多?</span><br><span class="hljs-comment">#贪心结论:最先结束的活动一定是最优解的一部分。</span><br><span class="hljs-comment">#证明:假设a是所有活动中最先结束的活动，b是最优解中最先</span><br><span class="hljs-comment">#结束的活动。如果a=b，结论成立。</span><br><span class="hljs-comment">#如果a≠b，则b的结束时间一定晚于a的结束时间，则此时用a替</span><br><span class="hljs-comment">#换掉最优解中的b,a一定不与最优解中的其他活动时间重叠，因</span><br><span class="hljs-comment">#此替换后的解也是最优解。</span><br>activities=[(<span class="hljs-number">1</span>,<span class="hljs-number">4</span>),(<span class="hljs-number">5</span>,<span class="hljs-number">9</span>),(<span class="hljs-number">6</span>,<span class="hljs-number">10</span>),(<span class="hljs-number">8</span>,<span class="hljs-number">11</span>),(<span class="hljs-number">3</span>,<span class="hljs-number">5</span>),(<span class="hljs-number">8</span>,<span class="hljs-number">12</span>),(<span class="hljs-number">2</span>,<span class="hljs-number">14</span>),(<span class="hljs-number">12</span>,<span class="hljs-number">16</span>),(<span class="hljs-number">0</span>,<span class="hljs-number">6</span>),(<span class="hljs-number">5</span>,<span class="hljs-number">7</span>),(<span class="hljs-number">3</span>,<span class="hljs-number">9</span>)]<br><span class="hljs-comment">#保证活动是按结束时间排好序</span><br>activities.sort(key=<span class="hljs-keyword">lambda</span> x:x[<span class="hljs-number">1</span>])<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">activities_selection</span>(<span class="hljs-params">a</span>):<br>    res=[a[<span class="hljs-number">0</span>]]<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,<span class="hljs-built_in">len</span>(a)):<br>        <span class="hljs-keyword">if</span> a[i][<span class="hljs-number">0</span>]&gt;=res[-<span class="hljs-number">1</span>][<span class="hljs-number">1</span>]:<span class="hljs-comment">#不冲突</span><br>            res.append(a[i])<br>    <span class="hljs-keyword">return</span> res<br><br><span class="hljs-built_in">print</span>(activities_selection(activities))<br></code></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#栈和队列的应用——迷宫问题</span><br><span class="hljs-comment">#给一个二维列表,表示迷宫（0表示通道,1表示围墙）</span><br><span class="hljs-comment">#给出算法,求一条走出迷宫的路径</span><br><span class="hljs-comment">#栈——深度优先搜索</span><br><span class="hljs-comment">#回溯法</span><br><span class="hljs-comment">#思路:从一个节点开始,任意找下一个能走的点,</span><br><span class="hljs-comment">#当找不到能走的点时,退回上一个点寻找是否有其他方向的点。</span><br><span class="hljs-comment">#使用栈存储当前路径</span><br><span class="hljs-comment">#路径不一定为最短</span><br>maze=[<br>    [<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>],<br>    [<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>],<br>    [<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>],<br>    [<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>],<br>    [<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>],<br>    [<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>],<br>    [<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>],<br>    [<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>],<br>    [<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>],<br>    [<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>]<br>]<br><br><br>dirs=[<br>    <span class="hljs-keyword">lambda</span> x,y:(x+<span class="hljs-number">1</span>,y),<br>    <span class="hljs-keyword">lambda</span> x,y:(x-<span class="hljs-number">1</span>,y),<br>    <span class="hljs-keyword">lambda</span> x,y:(x,y-<span class="hljs-number">1</span>),<br>    <span class="hljs-keyword">lambda</span> x,y:(x,y+<span class="hljs-number">1</span>),<br>]<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">maze_path_DFS</span>(<span class="hljs-params">x1,y1,x2,y2</span>):<br>    stack=[]<br>    stack.append((x1,y1))<br>    <span class="hljs-keyword">while</span>(<span class="hljs-built_in">len</span>(stack)&gt;<span class="hljs-number">0</span>):<br>        curNode=stack[-<span class="hljs-number">1</span>]<span class="hljs-comment">#当前节点</span><br>        <span class="hljs-comment">#四个方向，当前x,y</span><br>        <span class="hljs-comment">#上x+1,y;下x-1,y;左x,y-1;右x,y+1</span><br>        <span class="hljs-keyword">if</span> curNode[<span class="hljs-number">0</span>]==x2 <span class="hljs-keyword">and</span> curNode[<span class="hljs-number">1</span>]==y2:<br>            <span class="hljs-keyword">for</span> p <span class="hljs-keyword">in</span> stack:<br>                <span class="hljs-built_in">print</span>(p)<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br>        <span class="hljs-keyword">for</span> <span class="hljs-built_in">dir</span> <span class="hljs-keyword">in</span> dirs:<br>            nextNode=<span class="hljs-built_in">dir</span>(curNode[<span class="hljs-number">0</span>],curNode[<span class="hljs-number">1</span>])<br>            <span class="hljs-comment">#如果下个节点能走</span><br>            <span class="hljs-keyword">if</span> maze[nextNode[<span class="hljs-number">0</span>]][nextNode[<span class="hljs-number">1</span>]]==<span class="hljs-number">0</span>:<br>                stack.append(nextNode)<br>                maze[nextNode[<span class="hljs-number">0</span>]][nextNode[<span class="hljs-number">1</span>]] =<span class="hljs-number">2</span><span class="hljs-comment">#标记已经走过了</span><br>                <span class="hljs-keyword">break</span><br>        <span class="hljs-keyword">else</span>:<br>            maze[nextNode[<span class="hljs-number">0</span>]][nextNode[<span class="hljs-number">1</span>]] =<span class="hljs-number">2</span><span class="hljs-comment">#标记已经走过了</span><br>            stack.pop()<br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;没有路径&quot;</span>)<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br><br>maze_path_DFS(<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">8</span>,<span class="hljs-number">8</span>)<br><span class="hljs-comment">#队列————广度优先搜索</span><br><span class="hljs-comment">#思路:从一个节点开始，寻找所有接下来能继续走的点，</span><br><span class="hljs-comment">#继续不断寻找,直到找到出口。</span><br><span class="hljs-comment">#使用队列存储当前正在考虑的节点</span><br><br>maze=[<br>    [<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>],<br>    [<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>],<br>    [<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>],<br>    [<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>],<br>    [<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>],<br>    [<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>],<br>    [<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>],<br>    [<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>],<br>    [<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>],<br>    [<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>]<br>]<br><br>dirs=[<br>    <span class="hljs-keyword">lambda</span> x,y:(x+<span class="hljs-number">1</span>,y),<br>    <span class="hljs-keyword">lambda</span> x,y:(x-<span class="hljs-number">1</span>,y),<br>    <span class="hljs-keyword">lambda</span> x,y:(x,y-<span class="hljs-number">1</span>),<br>    <span class="hljs-keyword">lambda</span> x,y:(x,y+<span class="hljs-number">1</span>),<br>]<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">maze_path_BFS</span>(<span class="hljs-params">x1,y1,x2,y2</span>):<br>    <span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> deque<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">print_p</span>(<span class="hljs-params">path</span>):<br>        curNode = path[-<span class="hljs-number">1</span>]<br>        realpath = []<br>        <span class="hljs-keyword">while</span> curNode[<span class="hljs-number">2</span>] != -<span class="hljs-number">1</span>:<br>            realpath.append(curNode[<span class="hljs-number">0</span>:<span class="hljs-number">2</span>])<br>            curNode = path[curNode[<span class="hljs-number">2</span>]]<br>        realpath.append(curNode[<span class="hljs-number">0</span>:<span class="hljs-number">2</span>])<br>        realpath.reverse()  <span class="hljs-comment"># 倒序</span><br>        <span class="hljs-keyword">for</span> node <span class="hljs-keyword">in</span> realpath:<br>            <span class="hljs-built_in">print</span>(node)<br>    queue=deque()<br>    queue.append((x1,y1,-<span class="hljs-number">1</span>))<br>    path=[]<br>    <span class="hljs-keyword">while</span> <span class="hljs-built_in">len</span>(queue)&gt;<span class="hljs-number">0</span>:<br>        curNode=queue.popleft()<br>        path.append(curNode)<br>        <span class="hljs-keyword">if</span> curNode[<span class="hljs-number">0</span>]==x2 <span class="hljs-keyword">and</span> curNode[<span class="hljs-number">1</span>]==y2:<br>            <span class="hljs-comment">#终点</span><br>            print_p(path)<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br>        <span class="hljs-keyword">for</span> <span class="hljs-built_in">dir</span> <span class="hljs-keyword">in</span> dirs:<br>            nextNode=<span class="hljs-built_in">dir</span>(curNode[<span class="hljs-number">0</span>],curNode[<span class="hljs-number">1</span>])<br>            <span class="hljs-keyword">if</span> maze[nextNode[<span class="hljs-number">0</span>]][nextNode[<span class="hljs-number">1</span>]]==<span class="hljs-number">0</span>:<br>                queue.append((nextNode[<span class="hljs-number">0</span>],nextNode[<span class="hljs-number">1</span>],<span class="hljs-built_in">len</span>(path)-<span class="hljs-number">1</span>))<span class="hljs-comment">#后续节点进队，记录哪个节点</span><br>                maze[nextNode[<span class="hljs-number">0</span>]][nextNode[<span class="hljs-number">1</span>]] =<span class="hljs-number">2</span><span class="hljs-comment">#标记为已经走过</span><br><br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;没有路径&quot;</span>)<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br>maze_path_BFS(<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">8</span>,<span class="hljs-number">8</span>)<br></code></pre></td></tr></table></figure>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/LanQiao/" class="print-no-link">#LanQiao</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>蓝桥输入输出</div>
+      <div>http://example.com/2024/04/12/蓝桥输入输出/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Ianwusb</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年4月12日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/05/08/Manacher%E7%AE%97%E6%B3%95-%E9%A9%AC%E6%8B%89%E8%BD%A6%E7%AE%97%E6%B3%95/" title="Manacher算法(马拉车算法)">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Manacher算法(马拉车算法)</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/04/10/%E6%8A%80%E6%9C%AF%E5%9C%A8%E6%96%87%E5%8C%96%E4%BF%9D%E6%8A%A4%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/" title="技术在文化保护中的应用">
+                        <span class="hidden-mobile">技术在文化保护中的应用</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  var relativeDate = function() {
+    var updatedTime = document.getElementById('updated-time');
+    if (updatedTime) {
+      var text = updatedTime.textContent;
+      var reg = /\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:Z|[+-]\d{2}:\d{2})/;
+      var matchs = text.match(reg);
+      if (matchs) {
+        var relativeTime = moment(matchs[0]).fromNow();
+        updatedTime.textContent = text.replace(reg, relativeTime);
+      }
+      updatedTime.style.display = '';
+    }
+  };
+  Fluid.utils.createScript('https://lib.baomitu.com/moment.js/2.29.4/moment.min.js', function() {
+    if (!'zh-cn'.startsWith('en')) {
+      Fluid.utils.createScript('https://lib.baomitu.com/moment.js/2.29.4/locale/zh-cn.min.js', function() {
+        relativeDate();
+      });
+    } else {
+      relativeDate();
+    }
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
