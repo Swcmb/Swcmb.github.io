@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ianwusb.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="题目描述哈沙德数（Harshad Number）是指在某个固定的进位制当中，可以被各位数字之和整除的正整数。 例如，126 是十进制下的一个哈沙德数，因为： (126)_{10} \mod (1+2+6) &#x3D; 126 \mod 9 &#x3D; 0126 也是八进制下的哈沙德数，因为： (126)_{10} &#x3D; (176)_8(126)_{10} \mod (1+7+6) &#x3D; 126 \mod 14 &#x3D; 0">
+<meta property="og:type" content="article">
+<meta property="og:title" content="蓝桥杯真题：幸运数字 (哈沙德数)">
+<meta property="og:url" content="https://ianwusb.github.io/2024/04/08/2024-04-08-%E5%B9%B8%E8%BF%90%E6%95%B0%E5%AD%97/index.html">
+<meta property="og:site_name" content="Ianwusb-CPCode">
+<meta property="og:description" content="题目描述哈沙德数（Harshad Number）是指在某个固定的进位制当中，可以被各位数字之和整除的正整数。 例如，126 是十进制下的一个哈沙德数，因为： (126)_{10} \mod (1+2+6) &#x3D; 126 \mod 9 &#x3D; 0126 也是八进制下的哈沙德数，因为： (126)_{10} &#x3D; (176)_8(126)_{10} \mod (1+7+6) &#x3D; 126 \mod 14 &#x3D; 0">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-04-08T00:14:14.000Z">
+<meta property="article:modified_time" content="2026-05-13T10:41:25.534Z">
+<meta property="article:author" content="Ianwusb">
+<meta property="article:tag" content="LanQiao">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="算法">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ianwusb.github.io/2024/04/08/2024-04-08-%E5%B9%B8%E8%BF%90%E6%95%B0%E5%AD%97/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ianwusb.github.io/2024/04/08/2024-04-08-%E5%B9%B8%E8%BF%90%E6%95%B0%E5%AD%97/","path":"2024/04/08/2024-04-08-幸运数字/","title":"蓝桥杯真题：幸运数字 (哈沙德数)"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>蓝桥杯真题：幸运数字 (哈沙德数) | Ianwusb-CPCode</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.1/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ianwusb-CPCode</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Ianwusb-CPCode</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF"><span class="nav-number">2.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96%E7%82%B9%E8%AF%B4%E6%98%8E"><span class="nav-number">4.</span> <span class="nav-text">代码优化点说明</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ianwusb"
+      src="/img/a.png">
+  <p class="site-author-name" itemprop="name">Ianwusb</p>
+  <div class="site-description" itemprop="description">Ianwusb-CPCode</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">116</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Swcmb" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Swcmb" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:fastjackcost880@gmail.com" title="E-Mail → mailto:fastjackcost880@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/04/08/2024-04-08-%E5%B9%B8%E8%BF%90%E6%95%B0%E5%AD%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="蓝桥杯真题：幸运数字 (哈沙德数) | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          蓝桥杯真题：幸运数字 (哈沙德数)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-04-08 08:14:14" itemprop="dateCreated datePublished" datetime="2024-04-08T08:14:14+08:00">2024-04-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-13 18:41:25" itemprop="dateModified" datetime="2026-05-13T18:41:25+08:00">2026-05-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/" itemprop="url" rel="index"><span itemprop="name">算法竞赛</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><strong>哈沙德数</strong>（Harshad Number）是指在某个固定的进位制当中，可以被各位数字之和整除的正整数。</p>
+<p>例如，126 是十进制下的一个哈沙德数，因为：</p>
+<script type="math/tex; mode=display">(126)_{10} \mod (1+2+6) = 126 \mod 9 = 0</script><p>126 也是八进制下的哈沙德数，因为：</p>
+<script type="math/tex; mode=display">(126)_{10} = (176)_8</script><script type="math/tex; mode=display">(126)_{10} \mod (1+7+6) = 126 \mod 14 = 0</script><p>同时 126 也是十六进制下的哈沙德数，因为：</p>
+<script type="math/tex; mode=display">(126)_{10} = (7e)_{16}</script><script type="math/tex; mode=display">(126)_{10} \mod (7+14) = 126 \mod 21 = 0</script><p><strong>幸运数字定义</strong>：如果一个整数在二进制、八进制、十进制、十六进制下均为哈沙德数，那么这个数字就是幸运数字。</p>
+<p>前 10 个幸运数字的十进制表示为：1, 2, 4, 6, 8, 40, 48, 72, 120, 126…</p>
+<p><strong>问题</strong>：请问第 2023 个幸运数字是多少？你只需要输出这个整数的十进制表示即可。</p>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>本题是一道典型的<strong>枚举模拟</strong>题。由于我们需要找到第 2023 个符合条件的数，且该位置的数据规模在整型范围内，直接暴力枚举并判断即可。</p>
+<p><strong>具体步骤如下：</strong></p>
+<ol>
+<li><strong>遍历整数</strong>：从 1 开始遍历所有正整数。</li>
+<li><strong>进制转换</strong>：对于每个整数，分别计算其在二进制、八进制、十进制、十六进制下的字符串表示。<ul>
+<li>Python 中可直接使用内置函数 <code>bin()</code>, <code>oct()</code>, <code>hex()</code>，注意它们生成的字符串带有前缀（如 <code>0b</code>, <code>0o</code>, <code>0x</code>），切片时需要去掉。</li>
+</ul>
+</li>
+<li><strong>数位求和</strong>：编写一个函数，计算某个进制字符串下的各位数字之和。<ul>
+<li>注意十六进制中包含 <code>a-f</code>，对应十进制的 10-15，需特殊处理。</li>
+</ul>
+</li>
+<li><strong>整除判断</strong>：判断当前整数是否能被这四种进制下的数位和整除。</li>
+<li><strong>计数与输出</strong>：如果同时满足四种进制的哈沙德数条件，则计数器加 1。当计数器达到 2023 时，输出该数字并结束程序。</li>
+</ol>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><p>以下是优化后的 Python 代码实现：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">check_harshad</span>(<span class="params">n, num_str</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    判断数字 n 是否为特定进制字符串 num_str 下的哈沙德数</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    digit_sum = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> char <span class="keyword">in</span> num_str:</span><br><span class="line">        <span class="comment"># 处理十六进制中的字母</span></span><br><span class="line">        <span class="keyword">if</span> char == <span class="string">&#x27;a&#x27;</span>:</span><br><span class="line">            digit_sum += <span class="number">10</span></span><br><span class="line">        <span class="keyword">elif</span> char == <span class="string">&#x27;b&#x27;</span>:</span><br><span class="line">            digit_sum += <span class="number">11</span></span><br><span class="line">        <span class="keyword">elif</span> char == <span class="string">&#x27;c&#x27;</span>:</span><br><span class="line">            digit_sum += <span class="number">12</span></span><br><span class="line">        <span class="keyword">elif</span> char == <span class="string">&#x27;d&#x27;</span>:</span><br><span class="line">            digit_sum += <span class="number">13</span></span><br><span class="line">        <span class="keyword">elif</span> char == <span class="string">&#x27;e&#x27;</span>:</span><br><span class="line">            digit_sum += <span class="number">14</span></span><br><span class="line">        <span class="keyword">elif</span> char == <span class="string">&#x27;f&#x27;</span>:</span><br><span class="line">            digit_sum += <span class="number">15</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            digit_sum += <span class="built_in">int</span>(char)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 避免除数为0的情况（虽然题目为正整数，但在二进制中 &#x27;0&#x27; 的情况需视具体数值而定）</span></span><br><span class="line">    <span class="comment"># 实际上 n &gt;= 1 时，二进制表示至少有一个 &#x27;1&#x27;，sum 不会为 0</span></span><br><span class="line">    <span class="keyword">if</span> digit_sum == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> n % digit_sum == <span class="number">0</span></span><br><span class="line"></span><br><span class="line">count = <span class="number">0</span></span><br><span class="line">i = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 while 循环进行无限遍历，直到找到目标</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="comment"># 获取不同进制的字符串表示，并去除前缀 (0b, 0o, 0x)</span></span><br><span class="line">    bin_str = <span class="built_in">bin</span>(i)[<span class="number">2</span>:]</span><br><span class="line">    oct_str = <span class="built_in">oct</span>(i)[<span class="number">2</span>:]</span><br><span class="line">    dec_str = <span class="built_in">str</span>(i)</span><br><span class="line">    hex_str = <span class="built_in">hex</span>(i)[<span class="number">2</span>:]</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 判断是否在四种进制下均为哈沙德数</span></span><br><span class="line">    <span class="comment"># 注意：十进制传入 str(i)，即 dec_str</span></span><br><span class="line">    <span class="keyword">if</span> (check_harshad(i, bin_str) <span class="keyword">and</span> </span><br><span class="line">        check_harshad(i, oct_str) <span class="keyword">and</span> </span><br><span class="line">        check_harshad(i, dec_str) <span class="keyword">and</span> </span><br><span class="line">        check_harshad(i, hex_str)):</span><br><span class="line">        </span><br><span class="line">        count += <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> count == <span class="number">2023</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&quot;第 2023 个幸运数字是: <span class="subst">&#123;i&#125;</span>&quot;</span>)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    </span><br><span class="line">    i += <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h2 id="代码优化点说明"><a href="#代码优化点说明" class="headerlink" title="代码优化点说明"></a>代码优化点说明</h2><p>相比原始代码，优化后的版本做了以下改进：</p>
+<ol>
+<li><strong>函数命名与结构</strong>：将函数名改为 <code>check_harshad</code>，更具语义化；增加了详细的注释说明。</li>
+<li><strong>循环控制</strong>：将巨大的 <code>range</code> 改为 <code>while True</code> 循环，逻辑更加清晰自然，避免了魔法数字 <code>10000000000000000</code>。</li>
+<li><strong>字符串切片</strong>：显式地处理了 Python 进制转换函数产生的前缀（如 <code>bin(i)</code> 返回 <code>&#39;0b101&#39;</code>，需切片 <code>[2:]</code>），原代码中可能隐式包含了前缀字符导致计算错误（注：原题代码中似乎直接使用了转换后的字符串，如果包含前缀字符如 ‘b’ 或 ‘x’ 会导致数位和计算错误，优化后已修正）。</li>
+<li><strong>代码可读性</strong>：将条件判断拆分为多行，逻辑更清晰。</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Python/" rel="tag"># Python</a>
+              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"># 算法</a>
+              <a href="/tags/LanQiao/" rel="tag"># LanQiao</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/03/27/2024-03-27-%E7%BC%A9%E4%BD%8D%E6%B1%82%E5%92%8C(%E8%BF%AD%E4%BB%A3,%E9%80%92%E5%BD%92)/" rel="prev" title="算法笔记：缩位求和的迭代与递归实现">
+                  <i class="fa fa-angle-left"></i> 算法笔记：缩位求和的迭代与递归实现
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/05/08/2024-05-08-Manacher%E7%AE%97%E6%B3%95(%E9%A9%AC%E6%8B%89%E8%BD%A6%E7%AE%97%E6%B3%95)/" rel="next" title="Manacher算法(马拉车算法)详解">
+                  Manacher算法(马拉车算法)详解 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ianwusb</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

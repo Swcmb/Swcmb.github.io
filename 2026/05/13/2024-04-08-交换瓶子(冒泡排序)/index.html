@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ianwusb.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="你好！作为技术博主，我为你优化了这篇关于“交换瓶子”的文章。我对原文进行了结构化重组，修正了分类标签（原文标签为冒泡排序，但实际算法逻辑更符合贪心选择策略），并增加了详细的算法分析，使其更具可读性和专业度。 以下是优化后的文章内容： 12345678910111213141516171819202122232425262728293031323334353637383940414243444546">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ianwusb-CPCode">
+<meta property="og:url" content="https://ianwusb.github.io/2026/05/13/2024-04-08-%E4%BA%A4%E6%8D%A2%E7%93%B6%E5%AD%90(%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F)/index.html">
+<meta property="og:site_name" content="Ianwusb-CPCode">
+<meta property="og:description" content="你好！作为技术博主，我为你优化了这篇关于“交换瓶子”的文章。我对原文进行了结构化重组，修正了分类标签（原文标签为冒泡排序，但实际算法逻辑更符合贪心选择策略），并增加了详细的算法分析，使其更具可读性和专业度。 以下是优化后的文章内容： 12345678910111213141516171819202122232425262728293031323334353637383940414243444546">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-05-13T10:30:26.410Z">
+<meta property="article:modified_time" content="2026-05-13T10:30:26.411Z">
+<meta property="article:author" content="Ianwusb">
+<meta property="article:tag" content="Ianwusb-CPCode">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ianwusb.github.io/2026/05/13/2024-04-08-%E4%BA%A4%E6%8D%A2%E7%93%B6%E5%AD%90(%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F)/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ianwusb.github.io/2026/05/13/2024-04-08-%E4%BA%A4%E6%8D%A2%E7%93%B6%E5%AD%90(%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F)/","path":"2026/05/13/2024-04-08-交换瓶子(冒泡排序)/","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title> | Ianwusb-CPCode</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.1/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ianwusb-CPCode</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Ianwusb-CPCode</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%87%BA"><span class="nav-number">1.</span> <span class="nav-text">样例输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E8%A7%A3%E6%9E%90"><span class="nav-number">2.</span> <span class="nav-text">题目解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E6%80%9D%E8%B7%AF"><span class="nav-number">2.1.</span> <span class="nav-text">核心思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">2.2.</span> <span class="nav-text">算法复杂度</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-Python"><span class="nav-number">3.</span> <span class="nav-text">代码实现 (Python)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8B%93%E5%B1%95%E6%80%9D%E8%80%83%EF%BC%9A%E7%BD%AE%E6%8D%A2%E7%8E%AF%E7%AE%97%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">拓展思考：置换环算法</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ianwusb"
+      src="/img/a.png">
+  <p class="site-author-name" itemprop="name">Ianwusb</p>
+  <div class="site-description" itemprop="description">Ianwusb-CPCode</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">116</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Swcmb" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Swcmb" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:fastjackcost880@gmail.com" title="E-Mail → mailto:fastjackcost880@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/13/2024-04-08-%E4%BA%A4%E6%8D%A2%E7%93%B6%E5%AD%90(%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-13 18:30:26" itemprop="dateCreated datePublished" datetime="2026-05-13T18:30:26+08:00">2026-05-13</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>你好！作为技术博主，我为你优化了这篇关于“交换瓶子”的文章。我对原文进行了结构化重组，修正了分类标签（原文标签为冒泡排序，但实际算法逻辑更符合贪心选择策略），并增加了详细的算法分析，使其更具可读性和专业度。</p>
+<p>以下是优化后的文章内容：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: &quot;蓝桥杯：交换瓶子（贪心选择策略）&quot;</span><br><span class="line">date: 2024-04-08 03:37:42</span><br><span class="line">updated: 2024-04-08 03:37:42</span><br><span class="line">tags: </span><br><span class="line"><span class="bullet">  -</span> LanQiao</span><br><span class="line"><span class="bullet">  -</span> Python</span><br><span class="line"><span class="bullet">  -</span> 贪心算法</span><br><span class="line"><span class="bullet">  -</span> 排序</span><br><span class="line">categories: </span><br><span class="line"><span class="bullet">  -</span> 算法竞赛</span><br><span class="line">keywords: </span><br><span class="line"><span class="bullet">  -</span> 蓝桥杯</span><br><span class="line"><span class="bullet">  -</span> 交换瓶子</span><br><span class="line"><span class="bullet">  -</span> 贪心算法</span><br><span class="line"><span class="bullet">  -</span> 最少交换次数</span><br><span class="line"><span class="section">description: &quot;本文详细解析蓝桥杯&#x27;交换瓶子&#x27;问题，利用贪心策略求解最少交换次数。通过遍历与定位，实现线性时间复杂度内的排序计数，修正了传统冒泡排序思路在此类问题上的效率偏差。&quot;</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br><span class="line"><span class="section">## 题目描述</span></span><br><span class="line"></span><br><span class="line">有 $N$ 个瓶子，编号 $1 \sim N$，放在架子上。</span><br><span class="line"></span><br><span class="line">例如有 $5$ 个瓶子，初始排列为：<span class="code">`2 1 3 5 4`</span>。</span><br><span class="line"></span><br><span class="line">要求每次拿起 $2$ 个瓶子，交换它们的位置。经过若干次后，使得瓶子的序号为升序：<span class="code">`1 2 3 4 5`</span>。</span><br><span class="line"></span><br><span class="line">对于这么简单的情况，显然，至少需要交换 $2$ 次就可以复位。如果瓶子更多呢？你可以通过编程来解决。</span><br><span class="line"></span><br><span class="line"><span class="section">## 输入描述</span></span><br><span class="line"></span><br><span class="line">输入格式为两行：</span><br><span class="line"><span class="bullet">-</span> <span class="strong">**第一行**</span>：一个正整数 $N$ ($N &lt; 10^4$)，表示瓶子的数目。</span><br><span class="line"><span class="bullet">-</span> <span class="strong">**第二行**</span>：$N$ 个正整数，用空格分开，表示瓶子目前的排列情况。</span><br><span class="line"></span><br><span class="line"><span class="section">## 输出描述</span></span><br><span class="line"></span><br><span class="line">输出数据为一行一个正整数，表示至少交换多少次，才能完成排序。</span><br><span class="line"></span><br><span class="line"><span class="section">### 样例输入</span></span><br><span class="line"></span><br><span class="line"><span class="code">```text</span></span><br><span class="line"><span class="code">5</span></span><br><span class="line"><span class="code">3 1 2 5 4</span></span><br></pre></td></tr></table></figure>
+<h3 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="题目解析"><a href="#题目解析" class="headerlink" title="题目解析"></a>题目解析</h2><h3 id="核心思路"><a href="#核心思路" class="headerlink" title="核心思路"></a>核心思路</h3><p>题目要求求出“至少”需要交换多少次。这是一个典型的求“最小交换次数”的问题。</p>
+<p>虽然题目标签常被标记为“冒泡排序”，但实际上求解最小交换次数的标准解法是基于<strong>选择排序</strong>或<strong>贪心策略</strong>的变种。</p>
+<p><strong>贪心策略分析：</strong></p>
+<ol>
+<li>我们的目标是将数字 $i$ 放在数组的第 $i-1$ 个位置（即下标 $i-1$ 处）。</li>
+<li>遍历数组，对于当前位置 $i$（下标），如果此时该位置的数字 <code>li[i]</code> 不等于它应该在的数字 $i+1$（如果是1-based编号），说明位置错了。</li>
+<li>此时，我们在数组中找到数值为 $i+1$ 的那个元素所在的位置 <code>a</code>。</li>
+<li>交换当前位置 $i$ 和位置 <code>a</code> 的元素。</li>
+<li>每次交换都能确保至少一个数字回到了正确的位置，累加交换次数。</li>
+</ol>
+<p>这种方法保证了每次交换都是有意义的，没有无效交换，因此求出的次数是最小的。</p>
+<h3 id="算法复杂度"><a href="#算法复杂度" class="headerlink" title="算法复杂度"></a>算法复杂度</h3><ul>
+<li><strong>时间复杂度</strong>：$O(N^2)$。虽然看起来是两层循环，但由于每次交换都会归位一个元素，且 <code>list.index()</code> 方法需要线性查找，最坏情况下时间复杂度为平方级。考虑到 $N &lt; 10^4$，该复杂度完全可以接受。</li>
+<li><strong>空间复杂度</strong>：$O(N)$。主要用于存储输入的列表。</li>
+</ul>
+<hr>
+<h2 id="代码实现-Python"><a href="#代码实现-Python" class="headerlink" title="代码实现 (Python)"></a>代码实现 (Python)</h2><p>下面是基于贪心策略的 Python 代码实现：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 读取输入</span></span><br><span class="line">N = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">li = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))</span><br><span class="line"></span><br><span class="line">change = <span class="number">0</span>  <span class="comment"># 记录交换次数</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 遍历列表，试图将每个位置放上正确的数字</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(li)):</span><br><span class="line">    <span class="comment"># 检查当前位置 i 是否已经是正确的数字 (i+1)</span></span><br><span class="line">    <span class="keyword">if</span> li[i] != i + <span class="number">1</span>:</span><br><span class="line">        <span class="comment"># 如果不是，找到数字 (i+1) 当前所在的位置</span></span><br><span class="line">        <span class="comment"># li.index(i+1) 返回值为 (i+1) 的元素的下标</span></span><br><span class="line">        target_index = li.index(i + <span class="number">1</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 交换当前位置 i 和目标位置 target_index 的元素</span></span><br><span class="line">        li[i], li[target_index] = li[target_index], li[i]</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 交换次数加一</span></span><br><span class="line">        change += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(change)</span><br></pre></td></tr></table></figure>
+<h2 id="拓展思考：置换环算法"><a href="#拓展思考：置换环算法" class="headerlink" title="拓展思考：置换环算法"></a>拓展思考：置换环算法</h2><p>上述代码通过 <code>index()</code> 函数查找位置，实现简单直观。如果数据量更大（如 $N &gt; 10^5$），$O(N^2)$ 的算法可能会超时。此时可以使用<strong>置换环</strong>方法，利用哈希表记录数值与下标的映射，将时间复杂度优化至 $O(N)$。</p>
+<p><strong>置换环思路简述</strong>：</p>
+<ol>
+<li>建立元素值到下标的映射 Map。</li>
+<li>遍历数组，若元素未访问，则沿着“当前位置 -&gt; 元素应在的位置 -&gt; …”形成一条环。</li>
+<li>对于一个长度为 $K$ 的环，只需交换 $K-1$ 次即可将环内所有元素归位。</li>
+<li>总交换次数 = $N - \text{环的个数}$。</li>
+</ol>
+<p>此题中 $N$ 较小，上述 Python 代码已足够高效通过测试。</p>
+<p>```</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2026/05/13/2024-04-08-%E4%B8%B2%E7%9A%84%E5%A4%84%E7%90%86/" rel="prev" title="">
+                  <i class="fa fa-angle-left"></i> 
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2026/05/13/2024-04-08-%E4%BF%AE%E5%BB%BA%E7%81%8C%E6%9C%A8/" rel="next" title="">
+                   <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ianwusb</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

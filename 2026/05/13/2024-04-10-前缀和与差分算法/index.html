@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ianwusb.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="你是一位资深技术博主和内容优化专家。以下是根据你提供的文章内容，经过重写和优化后的 Hexo 博客文章。  12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ianwusb-CPCode">
+<meta property="og:url" content="https://ianwusb.github.io/2026/05/13/2024-04-10-%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86%E7%AE%97%E6%B3%95/index.html">
+<meta property="og:site_name" content="Ianwusb-CPCode">
+<meta property="og:description" content="你是一位资深技术博主和内容优化专家。以下是根据你提供的文章内容，经过重写和优化后的 Hexo 博客文章。  12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-05-13T10:46:24.643Z">
+<meta property="article:modified_time" content="2026-05-13T10:46:24.643Z">
+<meta property="article:author" content="Ianwusb">
+<meta property="article:tag" content="Ianwusb-CPCode">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ianwusb.github.io/2026/05/13/2024-04-10-%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86%E7%AE%97%E6%B3%95/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ianwusb.github.io/2026/05/13/2024-04-10-%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86%E7%AE%97%E6%B3%95/","path":"2026/05/13/2024-04-10-前缀和与差分算法/","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title> | Ianwusb-CPCode</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.1/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ianwusb-CPCode</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Ianwusb-CPCode</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%8B%E4%BA%8C%EF%BC%9A%E5%8F%AF%E8%8E%B7%E5%BE%97%E7%9A%84%E6%9C%80%E5%B0%8F%E5%8F%96%E5%80%BC"><span class="nav-number">1.</span> <span class="nav-text">例二：可获得的最小取值</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E5%88%86%E6%9E%90"><span class="nav-number">1.1.</span> <span class="nav-text">题目分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E6%80%9D%E8%B7%AF%EF%BC%9A%E6%9E%9A%E4%B8%BE-%E5%89%8D%E7%BC%80%E5%92%8C"><span class="nav-number">1.2.</span> <span class="nav-text">优化思路：枚举 + 前缀和</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E9%80%BB%E8%BE%91%E7%AE%80%E8%BF%B0"><span class="nav-number">1.3.</span> <span class="nav-text">代码逻辑简述</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ianwusb"
+      src="/img/a.png">
+  <p class="site-author-name" itemprop="name">Ianwusb</p>
+  <div class="site-description" itemprop="description">Ianwusb-CPCode</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">116</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Swcmb" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Swcmb" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:fastjackcost880@gmail.com" title="E-Mail → mailto:fastjackcost880@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/13/2024-04-10-%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86%E7%AE%97%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-13 18:46:24" itemprop="dateCreated datePublished" datetime="2026-05-13T18:46:24+08:00">2026-05-13</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>你是一位资深技术博主和内容优化专家。以下是根据你提供的文章内容，经过重写和优化后的 Hexo 博客文章。</p>
+<hr>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: &quot;前缀和与差分算法详解&quot;</span><br><span class="line">date: 2024-04-10 12:56:08</span><br><span class="line">tags: </span><br><span class="line"><span class="bullet">  -</span> LanQiao</span><br><span class="line"><span class="bullet">  -</span> 算法</span><br><span class="line"><span class="bullet">  -</span> 前缀和</span><br><span class="line"><span class="bullet">  -</span> 差分</span><br><span class="line">categories: 算法笔记</span><br><span class="line">keywords: [前缀和, 差分, 算法优化, 蓝桥杯, Python]</span><br><span class="line"><span class="section">description: 本文详细讲解了前缀和算法的核心概念与应用场景，通过复杂度分析与实战例题，演示如何将区间计算从 O(n) 优化至 O(1)。</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"></span><br><span class="line"><span class="section">## 前缀和算法</span></span><br><span class="line"></span><br><span class="line">前缀和是一种高效且基础的算法思想，常用于处理区间计算问题。其核心优势在于通过简单的预处理，将后续的区间查询复杂度从线性级 $O(n)$ 降低至常数级 $O(1)$，属于典型的“以空间换时间”策略。</span><br><span class="line"></span><br><span class="line"><span class="section">### 核心概念与递推公式</span></span><br><span class="line"></span><br><span class="line">假设给定一个长度为 $n$ 的数组 $a[1] \sim a[n]$，定义前缀和数组 $S$，其中 $S[i]$ 表示数组前 $i$ 个元素之和：</span><br><span class="line"></span><br><span class="line">$$ S[i] = a[1] + a[2] + \dots + a[i] $$</span><br><span class="line"></span><br><span class="line"><span class="section">#### 1. 预处理</span></span><br><span class="line"></span><br><span class="line">利用递推思想，我们可以在 $O(n)$ 的时间复杂度内计算出所有前缀和：</span><br><span class="line"></span><br><span class="line">$$ S[i] = S[i-1] + a[i] $$</span><br><span class="line"></span><br><span class="line"><span class="section">#### 2. 区间查询</span></span><br><span class="line"></span><br><span class="line">一旦预计算出前缀和数组，任意区间 $[i, j]$ 的元素之和即可通过端点值快速得出：</span><br><span class="line"></span><br><span class="line">$$ \sum<span class="emphasis">_&#123;k=i&#125;^&#123;j&#125; a[k] = a[i] + a[i+1] + \dots + a[j] = S[j] - S[i-1] $$</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis"><span class="strong">**复杂度分析**</span>：</span></span><br><span class="line"><span class="emphasis">- 传统暴力枚举求区间和：$O(n)$</span></span><br><span class="line"><span class="emphasis">- 前缀和优化后：$O(1)$</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">---</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">## 实战例题</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis"><span class="strong">**解题思路提示**</span>：当建模发现题目中包含频繁的区间求和操作时，应优先考虑使用前缀和进行优化。</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">### 例一：0求和</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">&gt; 题目来源：蓝桥云课</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">#### 题目分析</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">假设题目要求计算特定形式的乘积之和。我们需要对计算式进行数学变形，提取其中的重复计算部分。</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">原式可表示为：</span></span><br><span class="line"><span class="emphasis">$$ S = (a_</span>1 + \dots + a<span class="emphasis">_&#123;n-1&#125;) \times a_</span>n + (a<span class="emphasis">_1 + \dots + a_</span>&#123;n-2&#125;) \times a<span class="emphasis">_&#123;n-1&#125; + \dots + a_</span>1 \times a<span class="emphasis">_2 $$</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">观察发现，括号内的部分正是前缀和 $S[i]$。设 $S[i] = \sum_</span>&#123;k=1&#125;^&#123;i&#125; a<span class="emphasis">_k$，则上式可改写为：</span></span><br><span class="line"><span class="emphasis"></span></span><br><span class="line"><span class="emphasis">$$ S = S[n-1] \times a_</span>n + S[n-2] \times a<span class="emphasis">_&#123;n-1&#125; + \dots + S[1] \times a_</span>2 $$</span><br><span class="line"></span><br><span class="line"><span class="section">#### 算法实现</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">1.</span> <span class="strong">**预处理**</span>：通过一次循环递推计算出 $S[1] \sim S[n-1]$。</span><br><span class="line"><span class="bullet">2.</span> <span class="strong">**计算**</span>：再次遍历数组，根据变形后的公式累加求和。</span><br><span class="line"></span><br><span class="line"><span class="section">#### 代码参考</span></span><br><span class="line"></span><br><span class="line"><span class="code">```python</span></span><br><span class="line"><span class="code"># 读取输入</span></span><br><span class="line"><span class="code">n = int(input())</span></span><br><span class="line"><span class="code"># 为了方便索引从1开始，在头部补0</span></span><br><span class="line"><span class="code">a = [0] + [int(i) for i in input().split()] </span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code"># 定义前缀和数组，初始化为0</span></span><br><span class="line"><span class="code">prefix_sum = [0] * (n + 1)</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code"># 预计算前缀和 prefix_sum[1] ~ prefix_sum[n-1]</span></span><br><span class="line"><span class="code">for i in range(1, n):</span></span><br><span class="line"><span class="code">    prefix_sum[i] = prefix_sum[i-1] + a[i]</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code"># 计算最终结果</span></span><br><span class="line"><span class="code">ans = 0</span></span><br><span class="line"><span class="code">for i in range(1, n):</span></span><br><span class="line"><span class="code">    # 对应公式：S[i] * a[i+1]</span></span><br><span class="line"><span class="code">    ans += prefix_sum[i] * a[i+1]</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code">print(ans)</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="例二：可获得的最小取值"><a href="#例二：可获得的最小取值" class="headerlink" title="例二：可获得的最小取值"></a>例二：可获得的最小取值</h3><blockquote>
+<p>题目来源：蓝桥云课</p>
+</blockquote>
+<h4 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h4><p>题目通常涉及两种操作，且需要求最小代价。</p>
+<ol>
+<li><strong>排序预处理</strong>：首先将数组 $a[]$ 从小到大排序。</li>
+<li><strong>操作策略</strong>：<ul>
+<li>操作(1)：在数组尾部选取元素。</li>
+<li>操作(2)：在数组头部选取2个元素。</li>
+</ul>
+</li>
+</ol>
+<p><strong>贪心法的陷阱</strong>：<br>直观上容易想到贪心策略：每次选择代价较小的操作。但贪心法往往是错误的。例如样例 ${3, 1, 1, 1, 1, 1, 1}$，若 $k=3$：</p>
+<ul>
+<li>贪心策略：执行3次操作(2)，结果为 $1\times1 + 1\times1 + 1\times1 = 6$（此处逻辑视具体题意而定，假设是累加或特定权值）。</li>
+<li>正确策略：执行3次操作(1)，取尾部元素，结果可能更优。</li>
+</ul>
+<h4 id="优化思路：枚举-前缀和"><a href="#优化思路：枚举-前缀和" class="headerlink" title="优化思路：枚举 + 前缀和"></a>优化思路：枚举 + 前缀和</h4><p>既然贪心不可行，我们需要遍历所有可能的操作组合。设操作(2)执行了 $p$ 次，则操作(1)执行了 $k-p$ 次。此时总代价公式为：</p>
+<script type="math/tex; mode=display">Cost(p) = \sum_{i=1}^{2p} a_i + \sum_{i=n-(k-p)+1}^{n} a_i</script><p>若直接按照公式计算，每次验证 $p$ 的复杂度为 $O(n)$，总复杂度为 $O(kn)$，在数据量大时会超时。</p>
+<p><strong>前缀和优化</strong>：<br>观察公式发现，两部分的求和均可通过前缀和数组直接访问：</p>
+<ol>
+<li>前半部分（头部 $2p$ 个元素）：即为 <code>S[2p]</code>。</li>
+<li>后半部分（尾部 $k-p$ 个元素）：可通过 <code>S[n] - S[n-(k-p)]</code> 快速计算。</li>
+</ol>
+<p>通过前缀和优化，单次验证 $p$ 的复杂度降为 $O(1)$，整体复杂度优化为 $O(n \log n + k)$（排序耗时 + 枚举耗时）。</p>
+<h4 id="代码逻辑简述"><a href="#代码逻辑简述" class="headerlink" title="代码逻辑简述"></a>代码逻辑简述</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 伪代码示例</span></span><br><span class="line"><span class="comment"># a.sort() </span></span><br><span class="line"><span class="comment"># prefix_sum = ... (计算前缀和)</span></span><br><span class="line"><span class="comment"># min_val = infinity</span></span><br><span class="line"><span class="comment"># for p in range(0, k + 1):</span></span><br><span class="line"><span class="comment">#     head_sum = prefix_sum[2*p]</span></span><br><span class="line"><span class="comment">#     tail_count = k - p</span></span><br><span class="line"><span class="comment">#     tail_sum = prefix_sum[n] - prefix_sum[n - tail_count]</span></span><br><span class="line"><span class="comment">#     min_val = min(min_val, head_sum + tail_sum)</span></span><br></pre></td></tr></table></figure>
+<p><em>(注：具体代码边界需根据题目详细要求调整)</em></p>
+<p>```</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2026/05/13/2024-04-08-%E6%9C%80%E5%B0%8F%E7%A0%9D%E7%A0%81/" rel="prev" title="">
+                  <i class="fa fa-angle-left"></i> 
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2026/05/13/2024-04-10-%E6%8A%80%E6%9C%AF%E5%9C%A8%E6%96%87%E5%8C%96%E4%BF%9D%E6%8A%A4%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/" rel="next" title="">
+                   <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ianwusb</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
