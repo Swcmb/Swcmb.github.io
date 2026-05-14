@@ -28,7 +28,7 @@
 <meta property="og:description" content="题目描述哈沙德数（Harshad Number）是指在某个固定的进位制当中，可以被各位数字之和整除的正整数。 例如，126 是十进制下的一个哈沙德数，因为： (126)_{10} \mod (1+2+6) &#x3D; 126 \mod 9 &#x3D; 0126 也是八进制下的哈沙德数，因为： (126)_{10} &#x3D; (176)_8(126)_{10} \mod (1+7+6) &#x3D; 126 \mod 14 &#x3D; 0">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-04-08T00:14:14.000Z">
-<meta property="article:modified_time" content="2026-05-13T10:41:25.534Z">
+<meta property="article:modified_time" content="2026-05-14T05:50:12.158Z">
 <meta property="article:author" content="Ianwusb">
 <meta property="article:tag" content="LanQiao">
 <meta property="article:tag" content="Python">
@@ -173,7 +173,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF"><span class="nav-number">2.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96%E7%82%B9%E8%AF%B4%E6%98%8E"><span class="nav-number">4.</span> <span class="nav-text">代码优化点说明</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF"><span class="nav-number">2.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-while-%E5%BE%AA%E7%8E%AF%E8%BF%9B%E8%A1%8C%E6%97%A0%E9%99%90%E9%81%8D%E5%8E%86%EF%BC%8C%E7%9B%B4%E5%88%B0%E6%89%BE%E5%88%B0%E7%9B%AE%E6%A0%87"><span class="nav-number">4.</span> <span class="nav-text">使用 while 循环进行无限遍历，直到找到目标</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96%E7%82%B9%E8%AF%B4%E6%98%8E"><span class="nav-number">4.1.</span> <span class="nav-text">代码优化点说明</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -188,16 +188,16 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">148</span>
+          <span class="site-state-item-count">151</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">53</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">68</span>
+        <span class="site-state-item-count">127</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -268,7 +268,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-05-13 18:41:25" itemprop="dateModified" datetime="2026-05-13T18:41:25+08:00">2026-05-13</time>
+      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -312,8 +312,52 @@
 <li><strong>计数与输出</strong>：如果同时满足四种进制的哈沙德数条件，则计数器加 1。当计数器达到 2023 时，输出该数字并结束程序。</li>
 </ol>
 <h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><p>以下是优化后的 Python 代码实现：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">check_harshad</span>(<span class="params">n, num_str</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    判断数字 n 是否为特定进制字符串 num_str 下的哈沙德数</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    digit_sum = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> char <span class="keyword">in</span> num_str:</span><br><span class="line">        <span class="comment"># 处理十六进制中的字母</span></span><br><span class="line">        <span class="keyword">if</span> char == <span class="string">&#x27;a&#x27;</span>:</span><br><span class="line">            digit_sum += <span class="number">10</span></span><br><span class="line">        <span class="keyword">elif</span> char == <span class="string">&#x27;b&#x27;</span>:</span><br><span class="line">            digit_sum += <span class="number">11</span></span><br><span class="line">        <span class="keyword">elif</span> char == <span class="string">&#x27;c&#x27;</span>:</span><br><span class="line">            digit_sum += <span class="number">12</span></span><br><span class="line">        <span class="keyword">elif</span> char == <span class="string">&#x27;d&#x27;</span>:</span><br><span class="line">            digit_sum += <span class="number">13</span></span><br><span class="line">        <span class="keyword">elif</span> char == <span class="string">&#x27;e&#x27;</span>:</span><br><span class="line">            digit_sum += <span class="number">14</span></span><br><span class="line">        <span class="keyword">elif</span> char == <span class="string">&#x27;f&#x27;</span>:</span><br><span class="line">            digit_sum += <span class="number">15</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            digit_sum += <span class="built_in">int</span>(char)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 避免除数为0的情况（虽然题目为正整数，但在二进制中 &#x27;0&#x27; 的情况需视具体数值而定）</span></span><br><span class="line">    <span class="comment"># 实际上 n &gt;= 1 时，二进制表示至少有一个 &#x27;1&#x27;，sum 不会为 0</span></span><br><span class="line">    <span class="keyword">if</span> digit_sum == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> n % digit_sum == <span class="number">0</span></span><br><span class="line"></span><br><span class="line">count = <span class="number">0</span></span><br><span class="line">i = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 while 循环进行无限遍历，直到找到目标</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="comment"># 获取不同进制的字符串表示，并去除前缀 (0b, 0o, 0x)</span></span><br><span class="line">    bin_str = <span class="built_in">bin</span>(i)[<span class="number">2</span>:]</span><br><span class="line">    oct_str = <span class="built_in">oct</span>(i)[<span class="number">2</span>:]</span><br><span class="line">    dec_str = <span class="built_in">str</span>(i)</span><br><span class="line">    hex_str = <span class="built_in">hex</span>(i)[<span class="number">2</span>:]</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 判断是否在四种进制下均为哈沙德数</span></span><br><span class="line">    <span class="comment"># 注意：十进制传入 str(i)，即 dec_str</span></span><br><span class="line">    <span class="keyword">if</span> (check_harshad(i, bin_str) <span class="keyword">and</span> </span><br><span class="line">        check_harshad(i, oct_str) <span class="keyword">and</span> </span><br><span class="line">        check_harshad(i, dec_str) <span class="keyword">and</span> </span><br><span class="line">        check_harshad(i, hex_str)):</span><br><span class="line">        </span><br><span class="line">        count += <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> count == <span class="number">2023</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&quot;第 2023 个幸运数字是: <span class="subst">&#123;i&#125;</span>&quot;</span>)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    </span><br><span class="line">    i += <span class="number">1</span></span><br></pre></td></tr></table></figure>
-<h2 id="代码优化点说明"><a href="#代码优化点说明" class="headerlink" title="代码优化点说明"></a>代码优化点说明</h2><p>相比原始代码，优化后的版本做了以下改进：</p>
+<p>```python<br>def check_harshad(n, num_str):<br>    “””<br>    判断数字 n 是否为特定进制字符串 num_str 下的哈沙德数<br>    “””<br>    digit_sum = 0<br>    for char in num_str:</p>
+<pre><code>    # 处理十六进制中的字母
+    if char == &#39;a&#39;:
+        digit_sum += 10
+    elif char == &#39;b&#39;:
+        digit_sum += 11
+    elif char == &#39;c&#39;:
+        digit_sum += 12
+    elif char == &#39;d&#39;:
+        digit_sum += 13
+    elif char == &#39;e&#39;:
+        digit_sum += 14
+    elif char == &#39;f&#39;:
+        digit_sum += 15
+    else:
+        digit_sum += int(char)
+
+# 避免除数为0的情况（虽然题目为正整数，但在二进制中 &#39;0&#39; 的情况需视具体数值而定）
+# 实际上 n &gt;= 1 时，二进制表示至少有一个 &#39;1&#39;，sum 不会为 0
+if digit_sum == 0:
+    return False
+
+return n % digit_sum == 0
+</code></pre><p>count = 0<br>i = 1</p>
+<h1 id="使用-while-循环进行无限遍历，直到找到目标"><a href="#使用-while-循环进行无限遍历，直到找到目标" class="headerlink" title="使用 while 循环进行无限遍历，直到找到目标"></a>使用 while 循环进行无限遍历，直到找到目标</h1><p>while True:</p>
+<pre><code># 获取不同进制的字符串表示，并去除前缀 (0b, 0o, 0x)
+bin_str = bin(i)[2:]
+oct_str = oct(i)[2:]
+dec_str = str(i)
+hex_str = hex(i)[2:]
+
+# 判断是否在四种进制下均为哈沙德数
+# 注意：十进制传入 str(i)，即 dec_str
+if (check_harshad(i, bin_str) and 
+    check_harshad(i, oct_str) and 
+    check_harshad(i, dec_str) and 
+    check_harshad(i, hex_str)):
+
+    count += 1
+
+    if count == 2023:
+        print(f&quot;第 2023 个幸运数字是: {i}&quot;)
+        break
+
+i += 1
+</code></pre><h2 id="代码优化点说明"><a href="#代码优化点说明" class="headerlink" title="代码优化点说明"></a>代码优化点说明</h2><p>相比原始代码，优化后的版本做了以下改进：</p>
 <ol>
 <li><strong>函数命名与结构</strong>：将函数名改为 <code>check_harshad</code>，更具语义化；增加了详细的注释说明。</li>
 <li><strong>循环控制</strong>：将巨大的 <code>range</code> 改为 <code>while True</code> 循环，逻辑更加清晰自然，避免了魔法数字 <code>10000000000000000</code>。</li>
@@ -338,13 +382,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2024/03/27/2024-03-27-%E7%BC%A9%E4%BD%8D%E6%B1%82%E5%92%8C(%E8%BF%AD%E4%BB%A3,%E9%80%92%E5%BD%92)/" rel="prev" title="算法笔记：缩位求和的迭代与递归实现">
-                  <i class="fa fa-angle-left"></i> 算法笔记：缩位求和的迭代与递归实现
+                <a href="/2024/04/08/2024-04-08-%E4%B8%B2%E7%9A%84%E5%A4%84%E7%90%86/" rel="prev" title="蓝桥杯真题：串的处理">
+                  <i class="fa fa-angle-left"></i> 蓝桥杯真题：串的处理
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2024/05/08/2024-05-08-Manacher%E7%AE%97%E6%B3%95(%E9%A9%AC%E6%8B%89%E8%BD%A6%E7%AE%97%E6%B3%95)/" rel="next" title="Manacher算法(马拉车算法)详解">
-                  Manacher算法(马拉车算法)详解 <i class="fa fa-angle-right"></i>
+                <a href="/2024/04/08/2024-04-08-%E6%9C%80%E5%B0%8F%E7%A0%9D%E7%A0%81/" rel="next" title="蓝桥杯真题：最小砝码（贪心与数学推导)">
+                  蓝桥杯真题：最小砝码（贪心与数学推导) <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>

@@ -173,7 +173,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">2.</span> <span class="nav-text">核心代码实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90"><span class="nav-number">3.</span> <span class="nav-text">代码解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%A8%A1%E5%9D%97%E5%BC%95%E5%85%A5%E4%B8%8E%E5%AE%9E%E4%BE%8B%E5%8C%96"><span class="nav-number">3.1.</span> <span class="nav-text">1. 模块引入与实例化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%8F%91%E8%B5%B7%E8%AF%B7%E6%B1%82%E4%B8%8E%E9%AA%8C%E8%AF%81"><span class="nav-number">3.2.</span> <span class="nav-text">2. 发起请求与验证</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9Achrome-headless-%E6%A8%A1%E5%9D%97%E5%B8%B8%E8%A7%81%E9%85%8D%E7%BD%AE%E5%8F%82%E8%80%83"><span class="nav-number">4.</span> <span class="nav-text">补充：chrome_headless 模块常见配置参考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">2.</span> <span class="nav-text">核心代码实现</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AE%9E%E4%BE%8B"><span class="nav-number">3.</span> <span class="nav-text">初始化浏览器实例</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#share-broser-%E6%96%B9%E6%B3%95%E5%86%85%E9%83%A8%E9%80%9A%E5%B8%B8%E5%B0%81%E8%A3%85%E4%BA%86-Chrome-Options-%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="nav-number">4.</span> <span class="nav-text">share_broser() 方法内部通常封装了 Chrome Options 的配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%AE%E6%A0%87%E7%BD%91%E5%9D%80"><span class="nav-number">5.</span> <span class="nav-text">目标网址</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%91%E8%B5%B7%E8%AF%B7%E6%B1%82"><span class="nav-number">6.</span> <span class="nav-text">发起请求</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%89%93%E5%8D%B0%E9%A1%B5%E9%9D%A2%E6%A0%87%E9%A2%98%EF%BC%8C%E9%AA%8C%E8%AF%81%E8%AE%BF%E9%97%AE%E6%98%AF%E5%90%A6%E6%88%90%E5%8A%9F"><span class="nav-number">7.</span> <span class="nav-text">打印页面标题，验证访问是否成功</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BB%BA%E8%AE%AE%E5%9C%A8%E6%93%8D%E4%BD%9C%E5%AE%8C%E6%88%90%E5%90%8E%E5%85%B3%E9%97%AD%E6%B5%8F%E8%A7%88%E5%99%A8%EF%BC%8C%E9%87%8A%E6%94%BE%E8%B5%84%E6%BA%90"><span class="nav-number">8.</span> <span class="nav-text">建议在操作完成后关闭浏览器，释放资源</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#browser-quit"><span class="nav-number">9.</span> <span class="nav-text">browser.quit()</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90"><span class="nav-number">9.1.</span> <span class="nav-text">代码解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%A8%A1%E5%9D%97%E5%BC%95%E5%85%A5%E4%B8%8E%E5%AE%9E%E4%BE%8B%E5%8C%96"><span class="nav-number">9.1.1.</span> <span class="nav-text">1. 模块引入与实例化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%8F%91%E8%B5%B7%E8%AF%B7%E6%B1%82%E4%B8%8E%E9%AA%8C%E8%AF%81"><span class="nav-number">9.1.2.</span> <span class="nav-text">2. 发起请求与验证</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9Achrome-headless-%E6%A8%A1%E5%9D%97%E5%B8%B8%E8%A7%81%E9%85%8D%E7%BD%AE%E5%8F%82%E8%80%83"><span class="nav-number">9.2.</span> <span class="nav-text">补充：chrome_headless 模块常见配置参考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">9.3.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -188,16 +188,16 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">148</span>
+          <span class="site-state-item-count">151</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">53</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">68</span>
+        <span class="site-state-item-count">127</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -293,17 +293,43 @@
 <blockquote>
 <p><strong>注意</strong>：代码中的 <code>chrome_headless</code> 模块为自定义封装模块，通常包含了对 Chrome Options 的配置（如禁用 GPU、设置 User-Agent 等）。</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> chrome_headless <span class="keyword">import</span> share_broser</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化浏览器实例</span></span><br><span class="line"><span class="comment"># share_broser() 方法内部通常封装了 Chrome Options 的配置</span></span><br><span class="line">browser = share_broser()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 目标网址</span></span><br><span class="line">url = <span class="string">&#x27;https://www.baidu.com&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 发起请求</span></span><br><span class="line">browser.get(url)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打印页面标题，验证访问是否成功</span></span><br><span class="line"><span class="built_in">print</span>(browser.title)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 建议在操作完成后关闭浏览器，释放资源</span></span><br><span class="line"><span class="comment"># browser.quit()</span></span><br></pre></td></tr></table></figure>
-<h2 id="代码解析"><a href="#代码解析" class="headerlink" title="代码解析"></a>代码解析</h2><h3 id="1-模块引入与实例化"><a href="#1-模块引入与实例化" class="headerlink" title="1. 模块引入与实例化"></a>1. 模块引入与实例化</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> chrome_headless <span class="keyword">import</span> share_broser</span><br><span class="line">browser = share_broser()</span><br></pre></td></tr></table></figure>
-<p>这里我们假设 <code>chrome_headless</code> 是一个预先封装好的模块。在实际项目中，建议将浏览器的配置（如 <code>--headless</code>、<code>--disable-gpu</code>、User-Agent 设置等）封装在独立的函数或类中，以便复用和维护。<code>share_broser()</code> 函数返回的是一个配置好参数的 <code>webdriver.Chrome</code> 实例。</p>
-<h3 id="2-发起请求与验证"><a href="#2-发起请求与验证" class="headerlink" title="2. 发起请求与验证"></a>2. 发起请求与验证</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">url = <span class="string">&#x27;https://www.baidu.com&#x27;</span></span><br><span class="line">browser.get(url)</span><br><span class="line"><span class="built_in">print</span>(browser.title)</span><br></pre></td></tr></table></figure>
+<p>```python<br>from chrome_headless import share_broser</p>
+<h1 id="初始化浏览器实例"><a href="#初始化浏览器实例" class="headerlink" title="初始化浏览器实例"></a>初始化浏览器实例</h1><h1 id="share-broser-方法内部通常封装了-Chrome-Options-的配置"><a href="#share-broser-方法内部通常封装了-Chrome-Options-的配置" class="headerlink" title="share_broser() 方法内部通常封装了 Chrome Options 的配置"></a>share_broser() 方法内部通常封装了 Chrome Options 的配置</h1><p>browser = share_broser()</p>
+<h1 id="目标网址"><a href="#目标网址" class="headerlink" title="目标网址"></a>目标网址</h1><p>url = ‘<a target="_blank" rel="noopener" href="https://www.baidu.com">https://www.baidu.com</a>‘</p>
+<h1 id="发起请求"><a href="#发起请求" class="headerlink" title="发起请求"></a>发起请求</h1><p>browser.get(url)</p>
+<h1 id="打印页面标题，验证访问是否成功"><a href="#打印页面标题，验证访问是否成功" class="headerlink" title="打印页面标题，验证访问是否成功"></a>打印页面标题，验证访问是否成功</h1><p>print(browser.title)</p>
+<h1 id="建议在操作完成后关闭浏览器，释放资源"><a href="#建议在操作完成后关闭浏览器，释放资源" class="headerlink" title="建议在操作完成后关闭浏览器，释放资源"></a>建议在操作完成后关闭浏览器，释放资源</h1><h1 id="browser-quit"><a href="#browser-quit" class="headerlink" title="browser.quit()"></a>browser.quit()</h1><h2 id="代码解析"><a href="#代码解析" class="headerlink" title="代码解析"></a>代码解析</h2><h3 id="1-模块引入与实例化"><a href="#1-模块引入与实例化" class="headerlink" title="1. 模块引入与实例化"></a>1. 模块引入与实例化</h3><p><code>``python
+from chrome_headless import share_broser
+browser = share_broser()
+这里我们假设</code>chrome_headless<code>是一个预先封装好的模块。在实际项目中，建议将浏览器的配置（如</code>—headless<code>、</code>—disable-gpu<code>、User-Agent 设置等）封装在独立的函数或类中，以便复用和维护。</code>share_broser()<code>函数返回的是一个配置好参数的</code>webdriver.Chrome` 实例。</p>
+<h3 id="2-发起请求与验证"><a href="#2-发起请求与验证" class="headerlink" title="2. 发起请求与验证"></a>2. 发起请求与验证</h3><p>```python<br>url = ‘<a target="_blank" rel="noopener" href="https://www.baidu.com">https://www.baidu.com</a>‘<br>browser.get(url)<br>print(browser.title)</p>
 <ul>
 <li><code>browser.get(url)</code>：引导浏览器访问指定的 URL。</li>
 <li><code>browser.title</code>：获取当前页面的标题。如果控制台正确输出了“百度一下，你就知道”，说明浏览器配置成功且能够正常访问网页。</li>
 </ul>
 <h2 id="补充：chrome-headless-模块常见配置参考"><a href="#补充：chrome-headless-模块常见配置参考" class="headerlink" title="补充：chrome_headless 模块常见配置参考"></a>补充：chrome_headless 模块常见配置参考</h2><p>为了帮助读者更好地理解 <code>share_broser</code> 内部可能实现的逻辑，以下提供一种常见的 Chrome Headless 配置方案供参考：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.chrome.options <span class="keyword">import</span> Options</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">share_broser</span>():</span><br><span class="line">    <span class="comment"># 实例化 Options 对象</span></span><br><span class="line">    options = Options()</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 设置为无头模式（不显示浏览器界面）</span></span><br><span class="line">    options.add_argument(<span class="string">&#x27;--headless&#x27;</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 在无头模式下通常需要禁用 GPU</span></span><br><span class="line">    options.add_argument(<span class="string">&#x27;--disable-gpu&#x27;</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 设置 User-Agent，伪装成常规浏览器</span></span><br><span class="line">    options.add_argument(<span class="string">&#x27;user-agent=&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36&quot;&#x27;</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 禁用一些不必要的特性以提升速度</span></span><br><span class="line">    options.add_argument(<span class="string">&#x27;--no-sandbox&#x27;</span>)</span><br><span class="line">    options.add_argument(<span class="string">&#x27;--disable-dev-shm-usage&#x27;</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 返回配置好的 WebDriver 实例</span></span><br><span class="line">    driver = webdriver.Chrome(options=options)</span><br><span class="line">    <span class="keyword">return</span> driver</span><br></pre></td></tr></table></figure>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通过封装 Selenium 的浏览器配置，我们可以有效简化代码逻辑，并提高爬虫脚本在服务器端运行的稳定性。在实际应用中，除了 Headless 模式，建议还要对请求频率进行控制，并结合代理 IP 池来进一步规避反爬风险。</p>
+<p>```python<br>from selenium import webdriver<br>from selenium.webdriver.chrome.options import Options</p>
+<p>def share_broser():</p>
+<pre><code># 实例化 Options 对象
+options = Options()
+
+# 设置为无头模式（不显示浏览器界面）
+options.add_argument(&#39;--headless&#39;)
+
+# 在无头模式下通常需要禁用 GPU
+options.add_argument(&#39;--disable-gpu&#39;)
+
+# 设置 User-Agent，伪装成常规浏览器
+options.add_argument(&#39;user-agent=&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36&quot;&#39;)
+
+# 禁用一些不必要的特性以提升速度
+options.add_argument(&#39;--no-sandbox&#39;)
+options.add_argument(&#39;--disable-dev-shm-usage&#39;)
+
+# 返回配置好的 WebDriver 实例
+driver = webdriver.Chrome(options=options)
+return driver
+</code></pre><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通过封装 Selenium 的浏览器配置，我们可以有效简化代码逻辑，并提高爬虫脚本在服务器端运行的稳定性。在实际应用中，除了 Headless 模式，建议还要对请求频率进行控制，并结合代理 IP 池来进一步规避反爬风险。</p>
 <p>希望本文对你有所帮助！</p>
 
     </div>
@@ -315,21 +341,21 @@
     <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/Python/" rel="tag"># Python</a>
-              <a href="/tags/Project/" rel="tag"># Project</a>
               <a href="/tags/Spider/" rel="tag"># Spider</a>
+              <a href="/tags/Project/" rel="tag"># Project</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2024/05/31/2024-05-31-datetime%E5%BA%93%E6%8C%87%E5%8D%97/" rel="prev" title="Python datetime库指南：时间处理的艺术">
-                  <i class="fa fa-angle-left"></i> Python datetime库指南：时间处理的艺术
+                <a href="/2024/07/26/2024-07-26-selenium_%E4%BF%A1%E6%81%AF%E4%BA%A4%E4%BA%922/" rel="prev" title="Selenium 自动化实战：页面交互与浏览器控制详解">
+                  <i class="fa fa-angle-left"></i> Selenium 自动化实战：页面交互与浏览器控制详解
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2026/05/12/2026-05-12-P9421-P9421-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E5%9B%BD-B-%E7%8F%AD%E7%BA%A7%E6%B4%BB%E5%8A%A8-%E6%B4%9B%E8%B0%B7/" rel="next" title="P9421 - P9421 [蓝桥杯 2023 国 B] 班级活动 - 洛谷">
-                  P9421 - P9421 [蓝桥杯 2023 国 B] 班级活动 - 洛谷 <i class="fa fa-angle-right"></i>
+                <a href="/2024/07/26/2024-07-26-selenium_%E4%BF%A1%E6%81%AF%E4%BA%A4%E4%BA%92/" rel="next" title="Python Selenium 实战：元素属性获取与信息交互详解">
+                  Python Selenium 实战：元素属性获取与信息交互详解 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>

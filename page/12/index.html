@@ -183,16 +183,16 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">148</span>
+          <span class="site-state-item-count">151</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">53</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">68</span>
+        <span class="site-state-item-count">127</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -226,7 +226,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P12340-P12340-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-AB-Python-B-%E7%AC%AC%E4%BA%8C%E5%9C%BA-%E6%97%97%E5%B8%9C-%E6%B4%9B%E8%B0%B7/">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/04/08/2024-04-08-%E6%9C%80%E5%B0%8F%E7%A0%9D%E7%A0%81/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/img/a.png">
@@ -244,7 +244,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/12/2026-05-12-P12340-P12340-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-AB-Python-B-%E7%AC%AC%E4%BA%8C%E5%9C%BA-%E6%97%97%E5%B8%9C-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12340 - P12340 [蓝桥杯 2025 省 AB/Python B 第二场] 旗帜 - 洛谷</a>
+          <a href="/2024/04/08/2024-04-08-%E6%9C%80%E5%B0%8F%E7%A0%9D%E7%A0%81/" class="post-title-link" itemprop="url">蓝桥杯真题：最小砝码（贪心与数学推导)</a>
         </h2>
 
         <div class="post-meta-container">
@@ -254,9 +254,24 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2026-05-12 00:00:00 / 修改时间：10:16:15" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
+      <time title="创建时间：2024-04-08 08:18:23" itemprop="dateCreated datePublished" datetime="2024-04-08T08:18:23+08:00">2024-04-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 13:56:56" itemprop="dateModified" datetime="2026-05-14T13:56:56+08:00">2026-05-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a>
+        </span>
     </span>
 
   
@@ -269,893 +284,963 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="P12340-蓝桥杯-2025-省-AB-Python-B-第二场-旗帜-题解"><a href="#P12340-蓝桥杯-2025-省-AB-Python-B-第二场-旗帜-题解" class="headerlink" title="P12340 [蓝桥杯 2025 省 AB/Python B 第二场] 旗帜 题解"></a>P12340 [蓝桥杯 2025 省 AB/Python B 第二场] 旗帜 题解</h1><h3 id="1-题意简述"><a href="#1-题意简述" class="headerlink" title="1. 题意简述"></a>1. 题意简述</h3><p>本题要求我们计算给定宽度 ( w ) 和高度 ( h ) 的旗帜上，字母 ‘A’ 出现的次数。旗帜的图案由字符串 <code>s_li</code> 中的字符按顺序排列组成，每个字符串的长度为 7，共有 8 个字符串。</p>
-<h3 id="2-思路分析"><a href="#2-思路分析" class="headerlink" title="2. 思路分析"></a>2. 思路分析</h3><ul>
-<li><strong>朴素解法</strong>：我们可以直接按照题目给出的字符串 <code>s_li</code>，逐个字符地拼接出旗帜，然后遍历旗帜上的每个字符，统计 ‘A’ 的出现次数。这种方法的时间复杂度为 ( O(hw) )，空间复杂度为 ( O(1) )，对于较大的 ( h ) 和 ( w ) 可能会超时。</li>
-<li><strong>优化方向</strong>：由于字符串 <code>s_li</code> 的长度固定为 7，我们可以考虑使用循环来重复使用字符串，而不是每次都拼接新的字符串。</li>
-<li><p><strong>最终解法</strong>：我们可以使用循环来重复使用字符串 <code>s_li</code>，每次循环拼接 ( w // 7 ) 次字符串，然后再加上字符串 <code>s_li</code> 的前 ( w \% 7 ) 个字符。这样，我们就可以避免每次都拼接新的字符串，从而减少时间复杂度。具体的转移方程如下：<br>[<br>\text{temp} = \text{s_li}[i \% 7] \times (w // 7) + \text{s_li}[i \% 7][: (w \% 7)]<br>]<br>其中 ( i ) 是当前循环的索引。</p>
-<p>在遍历 <code>temp</code> 字符串时，我们可以直接统计 ‘A’ 的出现次数。</p>
-</li>
-</ul>
-<h3 id="3-复杂度分析"><a href="#3-复杂度分析" class="headerlink" title="3. 复杂度分析"></a>3. 复杂度分析</h3><ul>
-<li>时间复杂度：( O(hw) )，因为我们需要遍历整个旗帜。</li>
-<li>空间复杂度：( O(1) )，因为我们只需要存储一个长度为 7 的字符串和用于统计 ‘A’ 的计数器。</li>
-</ul>
-<h3 id="4-核心代码-注释"><a href="#4-核心代码-注释" class="headerlink" title="4. 核心代码 + 注释"></a>4. 核心代码 + 注释</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">h, w = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">s_li = [<span class="string">&#x27;LANQIAO&#x27;</span>, <span class="string">&#x27;ANQIAOL&#x27;</span>, <span class="string">&#x27;NQIAOLA&#x27;</span>, <span class="string">&#x27;QIAOLAN&#x27;</span>, <span class="string">&#x27;IAOLANQ&#x27;</span>, <span class="string">&#x27;AOLANQI&#x27;</span>, <span class="string">&#x27;OLANQIA&#x27;</span>, <span class="string">&#x27;LANQIAO&#x27;</span>]</span><br><span class="line">res = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(h):</span><br><span class="line">    s = s_li[i % <span class="number">7</span>]</span><br><span class="line">    temp = s * (w // <span class="number">7</span>) + s[:(w % <span class="number">7</span>)]</span><br><span class="line">    res += temp.count(<span class="string">&quot;A&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(res)</span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>变量名</strong>：<code>h</code> 和 <code>w</code> 分别表示旗帜的高度和宽度，<code>s_li</code> 是包含旗帜图案的字符串列表，<code>res</code> 用于存储 ‘A’ 的出现次数。</li>
-<li><strong>循环</strong>：循环遍历旗帜的每一行。</li>
-<li><strong>字符串拼接</strong>：根据当前行的索引，选择对应的字符串，并拼接出当前行的图案。</li>
-<li><strong>统计 ‘A’ 的出现次数</strong>：使用 <code>count</code> 方法统计当前行中 ‘A’ 的出现次数，并将其累加到 <code>res</code> 中。</li>
-</ul>
-<h3 id="5-输入输出示例"><a href="#5-输入输出示例" class="headerlink" title="5. 输入输出示例"></a>5. 输入输出示例</h3><p><strong>输入</strong>：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3 7</span><br></pre></td></tr></table></figure><br><strong>输出</strong>：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4</span><br></pre></td></tr></table></figure><br>解释：旗帜的图案为 <code>LANQIAOANQIAO</code>，其中 ‘A’ 出现了 4 次。</p>
-<h3 id="6-易错点-amp-收获"><a href="#6-易错点-amp-收获" class="headerlink" title="6. 易错点 &amp; 收获"></a>6. 易错点 &amp; 收获</h3><ul>
-<li>易错点：在拼接字符串时，需要考虑余数的情况，确保不会出现越界。</li>
-<li>收获：通过本题，我们学习了如何使用循环和字符串操作来优化算法，并且加深了对字符串拼接和统计的理解。</li>
-</ul>
-<h3 id="7-参考-扩展"><a href="#7-参考-扩展" class="headerlink" title="7. 参考 / 扩展"></a>7. 参考 / 扩展</h3><ul>
-<li>无</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P12278-P12278-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E5%9B%BD-Python-A-%E8%AE%BE%E7%BD%AE%E5%AF%86%E7%A0%81-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/12/2026-05-12-P12278-P12278-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E5%9B%BD-Python-A-%E8%AE%BE%E7%BD%AE%E5%AF%86%E7%A0%81-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12278 - P12278 [蓝桥杯 2024 国 Python A] 设置密码 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2026-05-12 00:00:00 / 修改时间：10:15:19" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="洛谷-P12278-设置密码-洛谷"><a href="#洛谷-P12278-设置密码-洛谷" class="headerlink" title="[洛谷 P12278] 设置密码 - 洛谷"></a>[洛谷 P12278] 设置密码 - 洛谷</h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>在本次洛谷 P12278 的题目中，我们需要编写一个程序来判断用户设置的密码强度。密码由大写字母、小写字母、数字和特殊字符组成。根据密码的不同组合情况，我们将其分为强密码、中密码和弱密码。具体规则如下：</p>
-<ul>
-<li>强密码：长度至少为12，且必须包含大写字母、小写字母、数字和至少一种特殊字符。</li>
-<li>中密码：长度至少为8，且至少包含两种字符类型。</li>
-<li>弱密码：长度至少为6。</li>
-</ul>
-<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><p>我们将从暴力解法开始，逐步优化算法，最终得到高效的解决方案。</p>
-<h3 id="朴素解法"><a href="#朴素解法" class="headerlink" title="朴素解法"></a>朴素解法</h3><p>最直观的方法是遍历所有可能的密码组合，并检查每个密码是否符合上述规则。然而，这种方法的时间复杂度为 $O(n^4)$，在实际应用中会非常慢，甚至无法在合理时间内完成。</p>
-<h3 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h3><p>我们可以通过减少不必要的检查来优化算法。例如，一旦确定密码不符合强密码的条件，就可以立即返回结果，而不需要继续检查其他条件。</p>
-<h3 id="最终解法"><a href="#最终解法" class="headerlink" title="最终解法"></a>最终解法</h3><p>我们定义以下状态：</p>
-<ul>
-<li><code>has_upper</code>: 密码中是否包含大写字母。</li>
-<li><code>has_lowercase</code>: 密码中是否包含小写字母。</li>
-<li><code>has_digits</code>: 密码中是否包含数字。</li>
-<li><code>has_special_chars</code>: 密码中是否包含特殊字符。</li>
-<li><code>spec_count</code>: 特殊字符的种类数。</li>
-</ul>
-<p>状态转移方程如下：</p>
-<ul>
-<li><code>has_upper = any(c in uppercase for c in st)</code></li>
-<li><code>has_lowercase = any(c in lowercase for c in st)</code></li>
-<li><code>has_digits = any(c in digits for c in st)</code></li>
-<li><code>has_special_chars = len(set([c for c in st if c in special_chars])) &gt; 0</code></li>
-<li><code>spec_count = len(has_special_chars)</code></li>
-</ul>
-<p>根据这些状态，我们可以编写如下代码：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">check_password_strength</span>(<span class="params">st</span>):</span><br><span class="line">    valid_chars = uppercase + lowercase + digits + special_chars</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> <span class="built_in">all</span>(c <span class="keyword">in</span> valid_chars <span class="keyword">for</span> c <span class="keyword">in</span> st):</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>  <span class="comment"># 不合法</span></span><br><span class="line">    </span><br><span class="line">    has_up = has_uppercase(st)</span><br><span class="line">    has_low = has_lowercase(st)</span><br><span class="line">    has_dig = has_digits(st)</span><br><span class="line">    has_spec = has_special_chars(st)</span><br><span class="line">    spec_count = <span class="built_in">len</span>(has_spec)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(st) &gt;= <span class="number">12</span>:</span><br><span class="line">        <span class="keyword">if</span> has_up <span class="keyword">and</span> has_low <span class="keyword">and</span> has_dig <span class="keyword">and</span> spec_count &gt;= <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">3</span></span><br><span class="line">        <span class="keyword">if</span> spec_count &gt;= <span class="number">3</span> <span class="keyword">and</span> count_char_types(st) &gt;= <span class="number">3</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">3</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(st) &gt;= <span class="number">8</span>:</span><br><span class="line">        char_types = count_char_types(st)</span><br><span class="line">        <span class="keyword">if</span> char_types &gt;= <span class="number">2</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">2</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(st) &gt;= <span class="number">6</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>  <span class="comment"># 不合法</span></span><br></pre></td></tr></table></figure>
-<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
-<li><strong>时间复杂度</strong>：$O(n)$，其中 $n$ 是密码的长度。我们只需要遍历一次密码字符串。</li>
-<li><strong>空间复杂度</strong>：$O(1)$，我们只使用了常数个额外变量。</li>
-</ul>
-<h3 id="核心代码-注释"><a href="#核心代码-注释" class="headerlink" title="核心代码 + 注释"></a>核心代码 + 注释</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">st = <span class="string">&quot;&quot;</span></span><br><span class="line">uppercase = <span class="string">&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;</span></span><br><span class="line">lowercase = <span class="string">&quot;abcdefghijklmnopqrstuvwxyz&quot;</span></span><br><span class="line">digits = <span class="string">&quot;0123456789&quot;</span></span><br><span class="line">special_chars = <span class="string">&quot;~!@#$%^&amp;*()_&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">has_uppercase</span>(<span class="params">st</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">any</span>(c <span class="keyword">in</span> uppercase <span class="keyword">for</span> c <span class="keyword">in</span> st)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">has_lowercase</span>(<span class="params">st</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">any</span>(c <span class="keyword">in</span> lowercase <span class="keyword">for</span> c <span class="keyword">in</span> st)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">has_digits</span>(<span class="params">st</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">any</span>(c <span class="keyword">in</span> digits <span class="keyword">for</span> c <span class="keyword">in</span> st)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">has_special_chars</span>(<span class="params">st</span>):</span><br><span class="line">    temp = <span class="built_in">set</span>([c <span class="keyword">for</span> c <span class="keyword">in</span> st <span class="keyword">if</span> c <span class="keyword">in</span> special_chars])</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">len</span>(temp) &gt; <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">count_char_types</span>(<span class="params">st</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;统计密码中包含的字符类型数量&quot;&quot;&quot;</span></span><br><span class="line">    li = [has_uppercase(st), has_lowercase(st), has_digits(st), <span class="built_in">len</span>(has_special_chars(st)) &gt; <span class="number">0</span>]</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sum</span>(li)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">check_password_strength</span>(<span class="params">st</span>):</span><br><span class="line">    valid_chars = uppercase + lowercase + digits + special_chars</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> <span class="built_in">all</span>(c <span class="keyword">in</span> valid_chars <span class="keyword">for</span> c <span class="keyword">in</span> st):</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>  <span class="comment"># 不合法</span></span><br><span class="line">    </span><br><span class="line">    has_up = has_uppercase(st)</span><br><span class="line">    has_low = has_lowercase(st)</span><br><span class="line">    has_dig = has_digits(st)</span><br><span class="line">    has_spec = has_special_chars(st)</span><br><span class="line">    spec_count = <span class="built_in">len</span>(has_spec)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(st) &gt;= <span class="number">12</span>:</span><br><span class="line">        <span class="keyword">if</span> has_up <span class="keyword">and</span> has_low <span class="keyword">and</span> has_dig <span class="keyword">and</span> spec_count &gt;= <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">3</span></span><br><span class="line">        <span class="keyword">if</span> spec_count &gt;= <span class="number">3</span> <span class="keyword">and</span> count_char_types(st) &gt;= <span class="number">3</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">3</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(st) &gt;= <span class="number">8</span>:</span><br><span class="line">        char_types = count_char_types(st)</span><br><span class="line">        <span class="keyword">if</span> char_types &gt;= <span class="number">2</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">2</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(st) &gt;= <span class="number">6</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>  <span class="comment"># 不合法</span></span><br></pre></td></tr></table></figure>
-<h3 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h3><p>输入：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">aB1!@#P</span><br><span class="line">aB1!@#p</span><br><span class="line">aB1!@#P</span><br><span class="line">aB1!@#p</span><br><span class="line">aB1!@#P</span><br></pre></td></tr></table></figure><br>输出：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">3</span><br><span class="line">3</span><br><span class="line">3</span><br><span class="line">3</span><br></pre></td></tr></table></figure></p>
-<h3 id="易错点-amp-收获"><a href="#易错点-amp-收获" class="headerlink" title="易错点 &amp; 收获"></a>易错点 &amp; 收获</h3><ul>
-<li><strong>边界处理</strong>：确保密码字符串不为空，否则会导致 <code>any</code> 函数抛出异常。</li>
-<li><strong>特殊字符处理</strong>：注意特殊字符的计数逻辑，确保正确统计种类数。</li>
-</ul>
-<h3 id="参考-扩展"><a href="#参考-扩展" class="headerlink" title="参考 / 扩展"></a>参考 / 扩展</h3><p>感谢洛谷提供的题目和参考链接。类似题目可以参考 [洛谷 P1001] 动态规划 + 前缀和优化详解。</p>
-<p>通过本文，我们不仅解决了实际问题，还学习了如何从朴素解法逐步优化到高效的解决方案。希望这篇文章对你有所帮助！</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P12366-P12366-%E8%93%9D%E6%A1%A5%E6%9D%AF-2022-%E7%9C%81-Python-B-%E6%95%B0%E4%BD%8D%E6%8E%92%E5%BA%8F-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/12/2026-05-12-P12366-P12366-%E8%93%9D%E6%A1%A5%E6%9D%AF-2022-%E7%9C%81-Python-B-%E6%95%B0%E4%BD%8D%E6%8E%92%E5%BA%8F-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12366 - P12366 [蓝桥杯 2022 省 Python B] 数位排序 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2026-05-12 00:00:00 / 修改时间：10:16:27" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="洛谷-P12366-数位排序-洛谷"><a href="#洛谷-P12366-数位排序-洛谷" class="headerlink" title="[洛谷 P12366] 数位排序 - 洛谷"></a>[洛谷 P12366] 数位排序 - 洛谷</h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>给定两个整数 ( n ) 和 ( m )，我们需要对从 1 到 ( n ) 的所有整数进行排序，使得它们的数位之和最小。输出排序后的第 ( m ) 小的整数。</p>
-<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><h3 id="朴素解法"><a href="#朴素解法" class="headerlink" title="朴素解法"></a>朴素解法</h3><p>最直观的方法是计算每个数的数位之和，然后根据这个和进行排序。具体步骤如下：</p>
+          <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>你有一架天平。现在你要设计一套砝码，使得利用这些砝码可以称出任意小于等于 $N$ 的正整数重量。那么这套砝码最少需要包含多少个砝码？注意砝码可以放在天平两边。</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>输入包含一个正整数 $N$。</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>输出一个整数代表答案。</p>
+<h2 id="题目分析与推导"><a href="#题目分析与推导" class="headerlink" title="题目分析与推导"></a>题目分析与推导</h2><p>这是一道经典的数学推导与贪心算法结合的题目。我们需要找到能覆盖 $[1, N]$ 范围内所有整数重量的最少砝码组合。</p>
+<h3 id="1-贪心策略的选择"><a href="#1-贪心策略的选择" class="headerlink" title="1. 贪心策略的选择"></a>1. 贪心策略的选择</h3><p>砝码可以放在天平的两端，这意味着对于每一个砝码，它有三种状态：</p>
 <ol>
-<li>计算从 1 到 ( n ) 的每个整数的数位之和。</li>
-<li>将这些数按数位之和从小到大排序。</li>
-<li>输出排序后的第 ( m ) 小的整数。</li>
+<li>放在左盘（记为 $+w$）。</li>
+<li>放在右盘（记为 $-w$）。</li>
+<li>不放（记为 $0$）。</li>
 </ol>
-<p>这种方法的不足在于：</p>
+<p>这实际上对应了<strong>平衡三进制</strong>（Balanced Ternary）的概念。</p>
+<h3 id="2-为什么选择-1-3-9-dots-？"><a href="#2-为什么选择-1-3-9-dots-？" class="headerlink" title="2. 为什么选择 $1, 3, 9, \dots$？"></a>2. 为什么选择 $1, 3, 9, \dots$？</h3><p>假设我们已经有一组砝码，能称出的最大重量为 $M$。当我们加入一个新的砝码 $w$ 时，由于砝码可以放在两边，我们能称出的新范围会发生变化。</p>
+<p>设当前砝码能称出的最大重量为 $K$（即能覆盖 $[1, K]$ 的所有整数）。<br>当我们加入一个新砝码 $w$ 时，新的可称量范围变为：</p>
 <ul>
-<li><strong>时间复杂度</strong>：计算每个数的数位之和需要 ( O(n \times k) ) 时间，其中 ( k ) 是整数的最大位数。</li>
-<li><strong>空间复杂度</strong>：需要额外的空间存储每个数的数位之和和排序结果。</li>
+<li>原有范围：$[1, K]$</li>
+<li>新增范围（利用新砝码 $w$）：<ul>
+<li>$w$ 单独：$w$</li>
+<li>$w + [1, K]$：$[w+1, w+K]$</li>
+<li>$w - [1, K]$（放在异侧）：$[w-K, w-1]$</li>
 </ul>
-<h3 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h3><p>我们可以通过预处理每个数的数位之和来优化算法。具体来说，我们可以使用前缀和数组来快速计算任意区间的数位之和。</p>
-<h3 id="最终解法"><a href="#最终解法" class="headerlink" title="最终解法"></a>最终解法</h3><p>我们可以定义一个辅助函数 <code>a(x)</code> 来计算一个数的数位之和。然后，我们使用前缀和数组 <code>prefix_sum</code> 来快速计算任意区间的数位之和。具体步骤如下：</p>
-<ol>
-<li>计算每个数的数位之和并存储在数组 <code>sums</code> 中。</li>
-<li>使用前缀和数组 <code>prefix_sum</code> 来快速计算任意区间的数位之和。</li>
-<li>对 <code>sums</code> 进行排序，并输出排序后的第 ( m ) 小的整数。</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">m = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">a</span>(<span class="params">x</span>):</span><br><span class="line">    x = <span class="built_in">str</span>(x)</span><br><span class="line">    res = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> x:</span><br><span class="line">        res += <span class="built_in">int</span>(i)</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line">sums = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n + <span class="number">1</span>):</span><br><span class="line">    sums.append((i, a(i)))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算前缀和数组</span></span><br><span class="line">prefix_sum = [<span class="number">0</span>] * (n + <span class="number">1</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n + <span class="number">1</span>):</span><br><span class="line">    prefix_sum[i] = prefix_sum[i - <span class="number">1</span>] + sums[i - <span class="number">1</span>][<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 对数位之和进行排序</span></span><br><span class="line">sums.sort(key=<span class="keyword">lambda</span> x: x[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出排序后的第 m 小的整数</span></span><br><span class="line"><span class="built_in">print</span>(sums[m - <span class="number">1</span>][<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
-<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
-<li><strong>时间复杂度</strong>：计算数位之和需要 ( O(n \times k) ) 时间，其中 ( k ) 是整数的最大位数。排序需要 ( O(n \log n) ) 时间。总的时间复杂度为 ( O(n \times k + n \log n) )。</li>
-<li><strong>空间复杂度</strong>：需要额外的空间存储数位之和和前缀和数组，空间复杂度为 ( O(n) )。</li>
-</ul>
-<h3 id="核心代码-注释"><a href="#核心代码-注释" class="headerlink" title="核心代码 + 注释"></a>核心代码 + 注释</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">m = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">a</span>(<span class="params">x</span>):</span><br><span class="line">    x = <span class="built_in">str</span>(x)</span><br><span class="line">    res = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> x:</span><br><span class="line">        res += <span class="built_in">int</span>(i)</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line">sums = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n + <span class="number">1</span>):</span><br><span class="line">    sums.append((i, a(i)))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算前缀和数组</span></span><br><span class="line">prefix_sum = [<span class="number">0</span>] * (n + <span class="number">1</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n + <span class="number">1</span>):</span><br><span class="line">    prefix_sum[i] = prefix_sum[i - <span class="number">1</span>] + sums[i - <span class="number">1</span>][<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 对数位之和进行排序</span></span><br><span class="line">sums.sort(key=<span class="keyword">lambda</span> x: x[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出排序后的第 m 小的整数</span></span><br><span class="line"><span class="built_in">print</span>(sums[m - <span class="number">1</span>][<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
-<h3 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h3><p><strong>输入：</strong><br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">3</span><br><span class="line">123</span><br><span class="line">456</span><br><span class="line">789</span><br><span class="line">101112</span><br></pre></td></tr></table></figure><br><strong>输出：</strong><br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">123</span><br></pre></td></tr></table></figure></p>
-<h3 id="易错点-amp-收获"><a href="#易错点-amp-收获" class="headerlink" title="易错点 &amp; 收获"></a>易错点 &amp; 收获</h3><ul>
-<li><strong>数组越界</strong>：在计算前缀和时，需要注意索引范围，避免数组越界。</li>
-<li><strong>特殊数据处理</strong>：对于非常大的整数，需要确保计算数位之和时不会溢出。</li>
-</ul>
-<h3 id="参考-扩展"><a href="#参考-扩展" class="headerlink" title="参考 / 扩展"></a>参考 / 扩展</h3><ul>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P12366">洛谷 P12366</a></li>
-</ul>
-<p>通过上述步骤，我们可以高效地解决这个问题，并理解如何从朴素解法优化到更高效的算法。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P12377-P12377-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E7%9C%81-Python-B-2023-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/12/2026-05-12-P12377-P12377-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E7%9C%81-Python-B-2023-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12377 - P12377 [蓝桥杯 2023 省 Python B] 2023 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2026-05-12 00:00:00 / 修改时间：10:16:49" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"># 题目链接或来源</span><br><span class="line">&lt;题目链接或来源&gt;</span><br><span class="line">&lt;/题目链接或来源&gt;</span><br><span class="line"></span><br><span class="line">### 1. 标题</span><br><span class="line">[洛谷 P12377] 动态规划 + 前缀和优化详解</span><br><span class="line"></span><br><span class="line">### 2. 题意简述</span><br><span class="line">输入一个整数数组，要求找出数组中连续的四个数，使得这四个数的和为给定的数值。如果存在多个解，返回任意一个即可。</span><br><span class="line"></span><br><span class="line">### 3. 思路分析</span><br><span class="line">#### 朴素解法</span><br><span class="line">- **时间复杂度**：O(n^4)</span><br><span class="line">- **空间复杂度**：O(n)</span><br><span class="line">- **代码实现**：</span><br><span class="line">  ```python</span><br><span class="line">  def fourSum(nums, target):</span><br><span class="line">    res = []</span><br><span class="line">    for i in range(len(nums) - 3):</span><br><span class="line">      if nums[i] &gt; nums[i + 3]:</span><br><span class="line">        continue</span><br><span class="line">      left, right = i + 1, len(nums) - 1</span><br><span class="line">      while left &lt; right:</span><br><span class="line">        sum = nums[i] + nums[left] + nums[right] + nums[i + 3]</span><br><span class="line">        if sum == target:</span><br><span class="line">          res.append((nums[i], nums[left], nums[right], nums[i + 3]))</span><br><span class="line">          while left &lt; right and nums[left] == nums[left + 1]:</span><br><span class="line">            left += 1</span><br><span class="line">          while left &lt; right and nums[right] == nums[right - 1]:</span><br><span class="line">            right -= 1</span><br><span class="line">          left += 1</span><br><span class="line">          right -= 1</span><br><span class="line">        elif sum &lt; target:</span><br><span class="line">          left += 1</span><br><span class="line">        else:</span><br><span class="line">          right -= 1</span><br><span class="line">      return res</span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>问题</strong>：上述算法的时间复杂度是O(n^4)，对于较大的输入数据，效率较低。</li>
-</ul>
-<h4 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h4><ul>
-<li><strong>前缀和优化</strong>：使用前缀和数组来减少查找时间。</li>
-</ul>
-<h4 id="最终解法"><a href="#最终解法" class="headerlink" title="最终解法"></a>最终解法</h4><ul>
-<li><strong>关键状态定义</strong>：<code>prefixSum[i]</code>表示以<code>nums[i]</code>结尾的前缀和。</li>
-<li><strong>转移方程</strong>：<code>prefixSum[i] = prefixSum[i - 1] + nums[i]</code>。</li>
-<li><strong>核心代码</strong>：<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">fourSum</span>(<span class="params">nums, target</span>):</span><br><span class="line">  prefixSum = [<span class="number">0</span>] * (<span class="built_in">len</span>(nums) + <span class="number">1</span>)</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums)):</span><br><span class="line">    prefixSum[i+<span class="number">1</span>] = prefixSum[i] + nums[i]</span><br><span class="line">  result = []</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums) - <span class="number">3</span>):</span><br><span class="line">    left, right = i + <span class="number">1</span>, <span class="built_in">len</span>(nums) - <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> left &lt; right:</span><br><span class="line">      <span class="built_in">sum</span> = prefixSum[i] + prefixSum[left] + prefixSum[right] + prefixSum[i + <span class="number">3</span>]</span><br><span class="line">      <span class="keyword">if</span> <span class="built_in">sum</span> == target:</span><br><span class="line">        result.append((nums[i], nums[left], nums[right], nums[i + <span class="number">3</span>]))</span><br><span class="line">        <span class="keyword">while</span> left &lt; right <span class="keyword">and</span> nums[left] == nums[left + <span class="number">1</span>]:</span><br><span class="line">          left += <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> left &lt; right <span class="keyword">and</span> nums[right] == nums[right - <span class="number">1</span>]:</span><br><span class="line">          right -= <span class="number">1</span></span><br><span class="line">        left += <span class="number">1</span></span><br><span class="line">        right -= <span class="number">1</span></span><br><span class="line">      <span class="keyword">elif</span> <span class="built_in">sum</span> &lt; target:</span><br><span class="line">        left += <span class="number">1</span></span><br><span class="line">      <span class="keyword">else</span>:</span><br><span class="line">        right -= <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> result</span><br></pre></td></tr></table></figure></li>
-<li><strong>复杂度分析</strong>：时间复杂度为O(n^2)，空间复杂度为O(n)。</li>
-</ul>
-<h3 id="4-核心代码-注释"><a href="#4-核心代码-注释" class="headerlink" title="4. 核心代码 + 注释"></a>4. 核心代码 + 注释</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">fourSum</span>(<span class="params">nums, target</span>):</span><br><span class="line">  prefixSum = [<span class="number">0</span>] * (<span class="built_in">len</span>(nums) + <span class="number">1</span>)</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums)):</span><br><span class="line">    prefixSum[i+<span class="number">1</span>] = prefixSum[i] + nums[i]</span><br><span class="line">  result = []</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums) - <span class="number">3</span>):</span><br><span class="line">    left, right = i + <span class="number">1</span>, <span class="built_in">len</span>(nums) - <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> left &lt; right:</span><br><span class="line">      <span class="built_in">sum</span> = prefixSum[i] + prefixSum[left] + prefixSum[right] + prefixSum[i + <span class="number">3</span>]</span><br><span class="line">      <span class="keyword">if</span> <span class="built_in">sum</span> == target:</span><br><span class="line">        result.append((nums[i], nums[left], nums[right], nums[i + <span class="number">3</span>]))</span><br><span class="line">        <span class="keyword">while</span> left &lt; right <span class="keyword">and</span> nums[left] == nums[left + <span class="number">1</span>]:</span><br><span class="line">          left += <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> left &lt; right <span class="keyword">and</span> nums[right] == nums[right - <span class="number">1</span>]:</span><br><span class="line">          right -= <span class="number">1</span></span><br><span class="line">        left += <span class="number">1</span></span><br><span class="line">        right -= <span class="number">1</span></span><br><span class="line">      <span class="keyword">elif</span> <span class="built_in">sum</span> &lt; target:</span><br><span class="line">        left += <span class="number">1</span></span><br><span class="line">      <span class="keyword">else</span>:</span><br><span class="line">        right -= <span class="number">1</span></span><br><span class="line">  <span class="keyword">return</span> result</span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>辅助函数</strong>：无。</li>
-</ul>
-<h3 id="5-输入输出示例"><a href="#5-输入输出示例" class="headerlink" title="5. 输入输出示例"></a>5. 输入输出示例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(fourSum([<span class="number">2</span>, <span class="number">7</span>,<span class="number">9</span>,<span class="number">1</span>,<span class="number">5</span>], <span class="number">8</span>)) <span class="comment"># 输出：[[2, 7, 9, 1], [2, 7, 5, 1]]</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>解释</strong>：在数组 <code>[2, 7,9,1,5]</code> 中，前三个数的和为 <code>2+7+9=18</code>，第四个数为 <code>1</code>，与目标值相等。因此，结果为 <code>[[2, 7, 9, 1], [2, 7, 5, 1]]</code>。</li>
-</ul>
-<h3 id="6-易错点-amp-收获"><a href="#6-易错点-amp-收获" class="headerlink" title="6. 易错点 &amp; 收获"></a>6. 易错点 &amp; 收获</h3><ul>
-<li><strong>易错点</strong>：数组越界、特殊数据处理（如负数）。</li>
-<li><strong>收获</strong>：学会了使用前缀和优化算法，提高了解题效率。</li>
-</ul>
-<h3 id="7-参考-扩展（可选）"><a href="#7-参考-扩展（可选）" class="headerlink" title="7. 参考 / 扩展（可选）"></a>7. 参考 / 扩展（可选）</h3><ul>
-<li><a target="_blank" rel="noopener" href="https://www.leetcode.com/problemset/detail/p12377/">感谢他人思路需注明出处链接</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.leetcode.com/tag/%E5%BC%A0%E4%B8%80%E7%9A%84%E5%8C%BA/">推荐类似题目</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P12843-P12843-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-A-%E7%94%9F%E6%97%A5%E7%9B%B8%E9%81%87%E9%97%AE%E9%A2%98-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/12/2026-05-12-P12843-P12843-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-A-%E7%94%9F%E6%97%A5%E7%9B%B8%E9%81%87%E9%97%AE%E9%A2%98-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12843 - P12843 [蓝桥杯 2025 国 A] 生日相遇问题 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2026-05-12 00:00:00 / 修改时间：10:17:31" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>&lt;博客&gt;</p>
-<h1 id="洛谷-P12843-生日相遇问题详解"><a href="#洛谷-P12843-生日相遇问题详解" class="headerlink" title="[洛谷 P12843] 生日相遇问题详解"></a>[洛谷 P12843] 生日相遇问题详解</h1><h3 id="1-标题"><a href="#1-标题" class="headerlink" title="1. 标题"></a>1. 标题</h3><p>洛谷 P12843 生日相遇问题详解</p>
-<h3 id="2-题意简述"><a href="#2-题意简述" class="headerlink" title="2. 题意简述"></a>2. 题意简述</h3><p>给定一个日期范围，计算在这个范围内，某两个特定日期落在同一星期的年份数量。</p>
-<p>输入内容：月份 m, 日 d1, 月份 n, 日 d2, 年份范围 k（从2025年开始计算）。<br>输出要求：输出所有满足条件的年份，如果没有满足条件的年份，则输出”No Answer”。<br>数据范围：m, d1, n, d2 为 1 到 12，1 到 31 的整数，k 为 0 到 1000 的整数。</p>
-<h3 id="3-思路分析"><a href="#3-思路分析" class="headerlink" title="3. 思路分析"></a>3. 思路分析</h3><ul>
-<li><strong>朴素解法</strong>：遍历指定年份范围内的每一年，对于每一年的两个日期，使用基姆拉尔森计算公式计算星期几，然后比较两个日期是否落在同一星期。这种方法的时间复杂度为 $O(n \times k)$，其中 n 为年份范围内的年数，k 为年份范围内的年数，显然效率低下。</li>
-<li><strong>优化方向</strong>：由于年份范围固定，可以考虑使用数学方法来减少比较次数。例如，我们可以计算两个日期相对于2025年的星期数，然后比较这两个星期数是否相同。</li>
-<li><strong>最终解法</strong>：使用基姆拉尔森计算公式计算两个日期相对于2025年的星期数，然后比较这两个星期数是否相同。如果相同，则记录下这一年。这种方法的时间复杂度为 $O(k)$，空间复杂度为 $O(1)$。</li>
-</ul>
-<h3 id="4-复杂度分析"><a href="#4-复杂度分析" class="headerlink" title="4. 复杂度分析"></a>4. 复杂度分析</h3><ul>
-<li>时间复杂度：$O(k)$，其中 k 为年份范围内的年数。</li>
-<li>空间复杂度：$O(1)$。</li>
-</ul>
-<h3 id="5-核心代码-注释"><a href="#5-核心代码-注释" class="headerlink" title="5. 核心代码 + 注释"></a>5. 核心代码 + 注释</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">isLeap</span>(<span class="params">y</span>):</span><br><span class="line">    <span class="keyword">return</span> (y % <span class="number">4</span> == <span class="number">0</span> <span class="keyword">and</span> y % <span class="number">100</span> != <span class="number">0</span>) <span class="keyword">or</span> (y % <span class="number">400</span> == <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">adjust</span>(<span class="params">y, m, d</span>):</span><br><span class="line">    <span class="keyword">if</span> m == <span class="number">2</span> <span class="keyword">and</span> d == <span class="number">29</span>:</span><br><span class="line">        <span class="keyword">return</span> (<span class="number">2</span>, <span class="number">28</span>) <span class="keyword">if</span> <span class="keyword">not</span> isLeap(y) <span class="keyword">else</span> (<span class="number">2</span>, <span class="number">29</span>)</span><br><span class="line">    <span class="keyword">return</span> (m, d)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">week</span>(<span class="params">y, m, d</span>):</span><br><span class="line">    <span class="keyword">if</span> m == <span class="number">1</span> <span class="keyword">or</span> m == <span class="number">2</span>:</span><br><span class="line">        y -= <span class="number">1</span></span><br><span class="line">        m += <span class="number">12</span></span><br><span class="line">    w = (d + <span class="number">2</span>*m + <span class="number">3</span>*(m+<span class="number">1</span>)//<span class="number">5</span> + y + y//<span class="number">4</span> - y//<span class="number">100</span> + y//<span class="number">400</span> + <span class="number">1</span>) % <span class="number">7</span></span><br><span class="line">    <span class="keyword">return</span> w</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输入</span></span><br><span class="line">m, d1, n, d2, k = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">res = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> year <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2025</span>, <span class="number">2025</span> + k):</span><br><span class="line">    m1, d1_adj = adjust(year, m, d1)</span><br><span class="line">    n1, d2_adj = adjust(year, n, d2)</span><br><span class="line">    <span class="keyword">if</span> week(year, m1, d1_adj) == week(year, n1, d2_adj):</span><br><span class="line">        res.append(year)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> res:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;\n&quot;</span>.join(<span class="built_in">map</span>(<span class="built_in">str</span>, res)))</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;No Answer&quot;</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="6-输入输出示例"><a href="#6-输入输出示例" class="headerlink" title="6. 输入输出示例"></a>6. 输入输出示例</h3><p>输入：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3 1 3 1 10</span><br></pre></td></tr></table></figure><br>输出：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">2025</span><br><span class="line">2026</span><br><span class="line">2027</span><br><span class="line">2028</span><br><span class="line">2029</span><br><span class="line">2030</span><br><span class="line">2031</span><br></pre></td></tr></table></figure></p>
-<h3 id="7-易错点-amp-收获"><a href="#7-易错点-amp-收获" class="headerlink" title="7. 易错点 &amp; 收获"></a>7. 易错点 &amp; 收获</h3><ul>
-<li>易错点：处理闰年时，需要正确地调整2月29日为2月28日。</li>
-<li>收获：本题教会了如何使用基姆拉尔森计算公式来计算星期几，以及如何通过数学方法优化算法。</li>
-</ul>
-<h3 id="8-参考-扩展"><a href="#8-参考-扩展" class="headerlink" title="8. 参考 / 扩展"></a>8. 参考 / 扩展</h3><ul>
-<li>参考：洛谷 P12843 生日相遇问题 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P12843">链接</a></li>
-<li>扩展：可以尝试编写一个程序，输入任意两个日期，计算它们之间相隔的星期数。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P13893-P13893-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E7%9C%81-C-%E5%B7%A5%E4%BD%9C%E6%97%B6%E9%95%BF-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/12/2026-05-12-P13893-P13893-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E7%9C%81-C-%E5%B7%A5%E4%BD%9C%E6%97%B6%E9%95%BF-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P13893 - P13893 [蓝桥杯 2023 省 C] 工作时长 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2026-05-12 00:00:00 / 修改时间：10:17:42" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="洛谷-P13893-工作时长-洛谷"><a href="#洛谷-P13893-工作时长-洛谷" class="headerlink" title="[洛谷 P13893] 工作时长 - 洛谷"></a>[洛谷 P13893] 工作时长 - 洛谷</h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>在洛谷平台上，题目P13893要求我们计算某人的工作时间。具体来说，我们需要读取一系列的时间点，每个时间点代表一个工作时段的开始或结束，然后计算出总的工作时长。</p>
-<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><h3 id="朴素解法"><a href="#朴素解法" class="headerlink" title="朴素解法"></a>朴素解法</h3><p>最直观的方法是遍历所有时间点，对于每一对相邻的时间点，计算它们之间的差值并累加。然而，这种方法的时间复杂度为$O(n^2)$，在数据量较大时会导致超时。</p>
-<h3 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h3><p>我们可以通过排序和双指针技术来优化算法。首先，对时间点进行排序，然后使用两个指针分别指向每对相邻的时间点，计算它们之间的差值并累加。这样，我们只需要遍历一次时间点列表，时间复杂度降低到$O(n \log n)$。</p>
-<h3 id="最终解法"><a href="#最终解法" class="headerlink" title="最终解法"></a>最终解法</h3><p>我们定义两个指针<code>i</code>和<code>j</code>，分别指向当前考虑的开始和结束时间点。对于每一对相邻的时间点<code>dt[i]</code>和<code>dt[j]</code>，我们计算它们之间的差值并累加到总时长中。然后，我们将<code>j</code>指针向前移动一位，继续考虑下一对时间点。当<code>i</code>和<code>j</code>相遇时，所有时间点都已考虑完毕。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;1.in&quot;</span>,<span class="string">&quot;r&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    l = f.readlines()</span><br><span class="line">dt = <span class="built_in">sorted</span>([datetime.fromisoformat(i.strip() <span class="keyword">for</span> i <span class="keyword">in</span> l)])</span><br><span class="line">secs = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(dt) - <span class="number">1</span>, <span class="number">2</span>):</span><br><span class="line">    secs += (dt[i + <span class="number">1</span>] - dt[i]).seconds</span><br><span class="line"><span class="built_in">print</span>(secs)</span><br></pre></td></tr></table></figure>
-<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
-<li><strong>时间复杂度</strong>：$O(n \log n)$，主要由排序步骤决定。</li>
-<li><strong>空间复杂度</strong>：$O(n)$，用于存储时间点列表。</li>
-</ul>
-<h2 id="核心代码-注释"><a href="#核心代码-注释" class="headerlink" title="核心代码 + 注释"></a>核心代码 + 注释</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取输入文件并解析时间点</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;1.in&quot;</span>,<span class="string">&quot;r&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    l = f.readlines()</span><br><span class="line">dt = <span class="built_in">sorted</span>([datetime.fromisoformat(i.strip() <span class="keyword">for</span> i <span class="keyword">in</span> l)])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化总时长为0</span></span><br><span class="line">secs = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用双指针遍历时间点对</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(dt) - <span class="number">1</span>, <span class="number">2</span>):</span><br><span class="line">    <span class="comment"># 计算相邻时间点的差值并累加到总时长中</span></span><br><span class="line">    secs += (dt[i + <span class="number">1</span>] - dt[i]).seconds</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出总时长</span></span><br><span class="line"><span class="built_in">print</span>(secs)</span><br></pre></td></tr></table></figure>
-<h2 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h2><p><strong>输入：</strong><br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 4</span><br><span class="line">2 5</span><br><span class="line">7 8</span><br></pre></td></tr></table></figure><br><strong>输出：</strong><br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3</span><br></pre></td></tr></table></figure><br><strong>解释：</strong><br>时间段为[2, 5]和[7, 8]，总时长为$5 - 2 + 8 - 7 = 3$秒。</p>
-<h2 id="易错点-amp-收获"><a href="#易错点-amp-收获" class="headerlink" title="易错点 &amp; 收获"></a>易错点 &amp; 收获</h2><ul>
-<li><strong>数组越界</strong>：确保在遍历时间点时，<code>i</code>和<code>j</code>的值不会超出列表的范围。</li>
-<li><strong>特殊数据处理</strong>：注意时间格式的一致性，确保所有时间点都能正确解析为<code>datetime</code>对象。</li>
-</ul>
-<h2 id="参考-扩展"><a href="#参考-扩展" class="headerlink" title="参考 / 扩展"></a>参考 / 扩展</h2><ul>
-<li>本题解法基于参考文章1中的思路，通过排序和双指针技术优化了暴力解法的时间复杂度。</li>
-</ul>
-<hr>
-<p>感谢阅读本文，希望本文能帮助你更好地理解和解决洛谷P13893题目。如果你有任何问题或建议，请随时联系我。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P15430-P15430-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-Python-B-%E7%AD%89%E5%B7%AE%E6%95%B0%E5%88%97%E8%AE%A1%E6%95%B0-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/12/2026-05-12-P15430-P15430-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-Python-B-%E7%AD%89%E5%B7%AE%E6%95%B0%E5%88%97%E8%AE%A1%E6%95%B0-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P15430 - P15430 [蓝桥杯 2025 国 Python B] 等差数列计数 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2026-05-12 00:00:00 / 修改时间：10:17:57" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"># 洛谷 P15308 等差数列计数 - 蓝桥杯 2025国 Python B OJ</span><br><span class="line"></span><br><span class="line"># 题目链接或来源</span><br><span class="line">[洛谷 P15308](https://www.luogu.com/problemset/P15308)</span><br><span class="line"></span><br><span class="line"># 题面简述</span><br><span class="line">这是一个关于等差数列的问题。给定一个序列，要求计算从 1 到 2025 中任选三个不同的数，能组成多少个**不同的、长度为 3 的等差数列**。注意这里“不同”包含顺序，即 (1,2,3) 和 (3,2,1) 算作两个不同的等差数列。</span><br><span class="line"></span><br><span class="line"># 思路分析</span><br><span class="line"></span><br><span class="line">## 朴素解法</span><br><span class="line">首先，我们考虑最简单的方法：枚举所有可能的递增等差数列。对于每个递增等差数列，我们反转顺序得到一个递减等差数列，因此总数是递增数列数量的两倍。</span><br><span class="line"></span><br><span class="line">## 优化方向</span><br><span class="line">然而，这种方法的时间复杂度和空间复杂度都较高。为了提高效率，我们可以采用以下策略：</span><br><span class="line"></span><br><span class="line">- **固定公差**：只考虑公差为正的情况，因为如果公差为负，那么数列将无法形成等差数列。</span><br><span class="line">- **首项与公差的奇偶性**：由于等差数列的定义，首项必须为正数且与末项同奇偶。因此，我们可以通过枚举首项和公差来简化问题。</span><br><span class="line"></span><br><span class="line">## 最终解法</span><br><span class="line">### 状态定义</span><br><span class="line">- 设 \( a \) 为首项，\( d \) 为公差，\( c \) 为末项。</span><br><span class="line"></span><br><span class="line">### 转移方程</span><br><span class="line">- 当 \( a + d &gt; 2025 \) 时，可以形成递增数列。</span><br><span class="line">- 当 \( a + d &lt; 2025 \) 时，可以形成递减数列。</span><br><span class="line"></span><br><span class="line">### 核心代码</span><br><span class="line">```python</span><br><span class="line">ans = 0</span><br><span class="line">for d in range(1, 2025):</span><br><span class="line">    sum_ = (2025 - 2 * d) // d</span><br><span class="line">    if sum_ % 2 == 0:</span><br><span class="line">        ans += (sum_ + 1) // 2</span><br><span class="line">    elif sum_ % 2 == 1:</span><br><span class="line">        ans += (sum_ + 2) // 2</span><br><span class="line">print(ans)</span><br></pre></td></tr></table></figure>
-<h3 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 输入示例</span></span><br><span class="line">a = <span class="number">1</span></span><br><span class="line">d = <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(ans) <span class="comment"># 输出应为 1012</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出示例</span></span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> d <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">2025</span>):</span><br><span class="line">    sum_ = (<span class="number">2025</span> - <span class="number">2</span> * d) // d</span><br><span class="line">    <span class="keyword">if</span> sum_ % <span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">        ans += (sum_ + <span class="number">1</span>) // <span class="number">2</span></span><br><span class="line">    <span class="keyword">elif</span> sum_ % <span class="number">2</span> == <span class="number">1</span>:</span><br><span class="line">        ans += (sum_ + <span class="number">2</span>) // <span class="number">2</span></span><br><span class="line"><span class="built_in">print</span>(ans) <span class="comment"># 输出应为 1048288</span></span><br></pre></td></tr></table></figure>
-<h3 id="易错点-amp-收获"><a href="#易错点-amp-收获" class="headerlink" title="易错点 &amp; 收获"></a>易错点 &amp; 收获</h3><p>在实现过程中，需要注意以下几点：</p>
-<ul>
-<li>确保数组索引不越界。</li>
-<li>使用模运算来判断是否为偶数。</li>
-<li>使用整数除法而不是浮点除法。</li>
-</ul>
-<p>通过这个题目，我学会了如何通过优化算法来提高代码的效率，同时也学会了如何使用LaTeX来清晰地展示数学公式。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P8641-P8641-%E8%93%9D%E6%A1%A5%E6%9D%AF-2016-%E5%9B%BD-C-%E8%B5%A2%E7%90%83%E7%A5%A8-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/12/2026-05-12-P8641-P8641-%E8%93%9D%E6%A1%A5%E6%9D%AF-2016-%E5%9B%BD-C-%E8%B5%A2%E7%90%83%E7%A5%A8-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P8641 - P8641 [蓝桥杯 2016 国 C] 赢球票 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2026-05-12 00:00:00 / 修改时间：10:18:37" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>&lt;博客&gt;</p>
-<h3 id="1-标题"><a href="#1-标题" class="headerlink" title="1. 标题"></a>1. 标题</h3><p>[P8641] [蓝桥杯 2016 国 C] 赢球票详解</p>
-<h3 id="2-题意简述"><a href="#2-题意简述" class="headerlink" title="2. 题意简述"></a>2. 题意简述</h3><p>输入 N 张卡片，围成一个圆圈，每张卡片上有一个 1 到 N 的数字。游戏规则是从任意一张卡片开始，按照一定规则拿走卡片，目标是找出一个起点，使得拿走的卡片上的数字之和最大。</p>
-<h3 id="3-思路分析"><a href="#3-思路分析" class="headerlink" title="3. 思路分析"></a>3. 思路分析</h3><ul>
-<li><strong>朴素解法</strong>：尝试所有可能的起点，模拟游戏过程，记录每个起点的得分，然后找出最大得分。这种方法的时间复杂度是 $O(N^2)$，对于较大的 N 可能会超时。</li>
-<li><strong>优化方向</strong>：观察到，从不同的起点开始，游戏的最终结果可能相同。因此，可以考虑将卡片按照某种顺序排列，然后只需要模拟一次即可。</li>
-<li><p><strong>最终解法</strong>：将卡片按照从小到大的顺序排列，然后从每个位置开始模拟游戏，记录每个起点的得分，最后找出最大得分。状态定义是当前得分和当前的位置。转移方程是，如果当前卡片上的数字与当前数的数字相同，则得分增加当前卡片的数字，并移动到下一张卡片；如果不同，则移动到下一张卡片。</p>
-<p>假设 <code>cards</code> 是一个长度为 N 的列表，<code>start</code> 是起点索引，<code>score</code> 是当前得分，<code>count_num</code> 是当前数的数字，<code>index</code> 是当前卡片索引。则状态转移方程为：</p>
-<script type="math/tex; mode=display">
-\begin{cases}
-score = score + cards[index] & \text{if } count\_num = cards[index] \\
-index = (index + 1) \% N & \text{else}
-\end{cases}</script><p>这里不需要使用 <code>li2</code> 列表来判断是否无法再收获卡片，因为当数的数字大于 N 时，游戏自然结束。</p>
 </li>
 </ul>
-<h3 id="4-复杂度分析"><a href="#4-复杂度分析" class="headerlink" title="4. 复杂度分析"></a>4. 复杂度分析</h3><ul>
-<li>时间复杂度：$O(N^2)$，因为需要模拟 N 次游戏。</li>
-<li>空间复杂度：$O(N)$，存储卡片和得分。</li>
-</ul>
-<h3 id="5-核心代码-注释"><a href="#5-核心代码-注释" class="headerlink" title="5. 核心代码 + 注释"></a>5. 核心代码 + 注释</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>(<span class="params">li, start</span>):</span><br><span class="line">    cards = li[:]</span><br><span class="line">    score = <span class="number">0</span></span><br><span class="line">    count_num = <span class="number">1</span></span><br><span class="line">    idx = start</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> cards <span class="keyword">and</span> count_num &lt;= N:</span><br><span class="line">        idx = idx % <span class="built_in">len</span>(cards)</span><br><span class="line">        <span class="keyword">if</span> count_num == cards[idx]:</span><br><span class="line">            score += cards[idx]</span><br><span class="line">            cards.pop(idx)</span><br><span class="line">            count_num = <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            count_num += <span class="number">1</span></span><br><span class="line">            idx += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> score</span><br><span class="line"></span><br><span class="line">N = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">nums = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))</span><br><span class="line">res = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N):</span><br><span class="line">    res = <span class="built_in">max</span>(res, solve(nums, i))</span><br><span class="line"><span class="built_in">print</span>(res)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>变量 <code>cards</code> 存储卡片列表，<code>score</code> 存储当前得分，<code>count_num</code> 存储当前数的数字，<code>idx</code> 存储当前卡片索引。</li>
-<li>代码通过遍历所有可能的起点，并计算每个起点的得分，最后返回最大得分。</li>
-</ul>
-<h3 id="6-输入输出示例"><a href="#6-输入输出示例" class="headerlink" title="6. 输入输出示例"></a>6. 输入输出示例</h3><p><strong>输入</strong>:<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">2 1 3</span><br></pre></td></tr></table></figure><br><strong>输出</strong>:<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>从第一个卡片开始，可以得到分数 6（1 + 2 + 3）。</li>
-</ul>
-<h3 id="7-易错点-amp-收获"><a href="#7-易错点-amp-收获" class="headerlink" title="7. 易错点 &amp; 收获"></a>7. 易错点 &amp; 收获</h3><ul>
-<li>易错点：数组越界，需要注意索引的有效性。</li>
-<li>收获：本题通过模拟游戏过程，并考虑优化起点，可以帮助我们理解游戏的本质，并找到解决类似问题的方法。</li>
-</ul>
-<h3 id="8-参考-扩展"><a href="#8-参考-扩展" class="headerlink" title="8. 参考 / 扩展"></a>8. 参考 / 扩展</h3><ul>
-<li>无需参考，题目本身已经足够说明问题。</li>
-<li>可以尝试类似的题目，如 [P8642] [蓝桥杯 2016 国 B] 猜数字游戏，也是一个需要模拟游戏过程的题目。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P8680-P8680-%E8%93%9D%E6%A1%A5%E6%9D%AF-2019-%E7%9C%81-B-%E7%89%B9%E5%88%AB%E6%95%B0%E7%9A%84%E5%92%8C-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/12/2026-05-12-P8680-P8680-%E8%93%9D%E6%A1%A5%E6%9D%AF-2019-%E7%9C%81-B-%E7%89%B9%E5%88%AB%E6%95%B0%E7%9A%84%E5%92%8C-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P8680 - P8680 [蓝桥杯 2019 省 B] 特别数的和 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2026-05-12 00:00:00 / 修改时间：10:18:46" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="洛谷-P8680-特别数的和-洛谷"><a href="#洛谷-P8680-特别数的和-洛谷" class="headerlink" title="[洛谷 P8680] 特别数的和 - 洛谷"></a>[洛谷 P8680] 特别数的和 - 洛谷</h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>本题是关于计算从1到n之间所有特别数的和。特别数是指各位数字之和为完全平方数的数。例如，121是一个特别数，因为1+2+1=4，而4是一个完全平方数。</p>
-<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><h3 id="朴素解法"><a href="#朴素解法" class="headerlink" title="朴素解法"></a>朴素解法</h3><p>最直观的方法是遍历从1到n的所有整数，检查每个整数的各位数字之和是否为完全平方数。如果是，则将其加到结果中。然而，这种方法的时间复杂度为$O(n \times k)$，其中$k$是数字的最大位数，对于较大的$n$，这种方法会非常慢。</p>
-<h3 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h3><p>我们可以通过预先计算所有可能的完全平方数来优化这个过程。具体来说，我们可以生成所有小于等于9999（因为最大的三位数各位数字之和为9+9+9=27）的完全平方数，并存储在一个集合中。然后，在遍历从1到n的整数时，检查其各位数字之和是否在集合中。</p>
-<h3 id="最终解法"><a href="#最终解法" class="headerlink" title="最终解法"></a>最终解法</h3><p>我们定义一个辅助函数<code>a(num)</code>，用于判断一个数是否为特别数。然后，我们遍历从1到n的所有整数，使用<code>a(num)</code>函数检查其是否为特别数，并累加到结果中。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">a</span>(<span class="params">num</span>):</span><br><span class="line">    s = <span class="built_in">str</span>(num)</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">any</span>(<span class="built_in">int</span>(digit) ** <span class="number">2</span> == <span class="built_in">sum</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, s)) <span class="keyword">for</span> digit <span class="keyword">in</span> s)</span><br><span class="line"></span><br><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">res = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n + <span class="number">1</span>):</span><br><span class="line">    <span class="keyword">if</span> a(i):</span><br><span class="line">        res += i</span><br><span class="line"><span class="built_in">print</span>(res)</span><br></pre></td></tr></table></figure>
-<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
-<li><strong>时间复杂度</strong>：预处理完全平方数的时间复杂度为$O(1)$，遍历从1到n的时间复杂度为$O(n)$，因此总的时间复杂度为$O(n)$。</li>
-<li><strong>空间复杂度</strong>：我们使用了一个集合来存储完全平方数，空间复杂度为$O(1)$。</li>
-</ul>
-<h2 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h2><p><strong>输入：</strong><br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">100</span><br></pre></td></tr></table></figure><br><strong>输出：</strong><br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">40</span><br></pre></td></tr></table></figure><br><strong>解释：</strong><br>在1到100之间的特别数有：1, 4, 9, 16, 25, 36, 49, 64, 81。它们的和为40。</p>
-<h2 id="易错点-amp-收获"><a href="#易错点-amp-收获" class="headerlink" title="易错点 &amp; 收获"></a>易错点 &amp; 收获</h2><ul>
-<li><strong>边界条件</strong>：确保输入的<code>n</code>是一个正整数。</li>
-<li><strong>特殊情况处理</strong>：对于非常大的<code>n</code>，虽然时间复杂度是线性的，但实际运行时间仍然可能很长。可以通过优化算法进一步减少运行时间。</li>
-</ul>
-<h2 id="参考-扩展"><a href="#参考-扩展" class="headerlink" title="参考 / 扩展"></a>参考 / 扩展</h2><p>感谢洛谷提供的题目和参考资料。类似的题目可以参考[洛谷 P2746] 数字根问题。</p>
-<p>通过本题，我们学习了如何通过预处理和优化来提高算法的效率，并且理解了如何在解题过程中进行合理的优化。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P9421-P9421-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E5%9B%BD-B-%E7%8F%AD%E7%BA%A7%E6%B4%BB%E5%8A%A8-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/12/2026-05-12-P9421-P9421-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E5%9B%BD-B-%E7%8F%AD%E7%BA%A7%E6%B4%BB%E5%8A%A8-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P9421 - P9421 [蓝桥杯 2023 国 B] 班级活动 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2026-05-12 00:00:00 / 修改时间：10:19:02" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="洛谷-P9421-蓝桥杯-2023-国-B-班级活动-洛谷"><a href="#洛谷-P9421-蓝桥杯-2023-国-B-班级活动-洛谷" class="headerlink" title="洛谷 P9421 [蓝桥杯 2023 国 B] 班级活动 - 洛谷"></a>洛谷 P9421 [蓝桥杯 2023 国 B] 班级活动 - 洛谷</h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>输入内容：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;text&quot; id=&quot;input1&quot; name=&quot;input1&quot; size=&quot;50&quot; maxlength=&quot;50&quot;&gt;</span><br></pre></td></tr></table></figure><br>输出要求：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;output&gt;</span><br></pre></td></tr></table></figure><br>数据范围：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;data&gt;</span><br></pre></td></tr></table></figure></p>
-<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><h3 id="朴素解法"><a href="#朴素解法" class="headerlink" title="朴素解法"></a>朴素解法</h3><p>首先，我们尝试使用暴力的方法来解决这个问题。对于每个可能的<code>a[i]</code>值，我们计算其与前<code>n-i</code>个数组元素的和，然后除以2得到一个中间值。最后，我们将这个中间值作为最终结果返回。这种方法的时间复杂度为O(n^2)，空间复杂度为O(n)。</p>
-<p>然而，这种方法在处理大规模数据时会非常慢，因为它需要遍历所有可能的<code>a[i]</code>值。此外，由于使用了额外的空间来存储中间值，所以空间复杂度也较高。</p>
-<h3 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h3><p>为了提高算法的效率，我们可以从以下几个方面进行优化：</p>
+<p>为了使砝码利用率最高且覆盖范围连续（即不出现断层），我们需要满足：</p>
+<script type="math/tex; mode=display">w - K = K + 1</script><p>这样新的称量范围就能无缝衔接，从 $w-K$ 一直覆盖到 $w+K$。</p>
+<p>解方程得：</p>
+<script type="math/tex; mode=display">w = 2K + 1</script><p>此时，新的最大称量范围更新为 $w + K = 3K + 1$。</p>
+<h3 id="3-推导过程"><a href="#3-推导过程" class="headerlink" title="3. 推导过程"></a>3. 推导过程</h3><p>根据上述推导，我们来确定砝码序列：</p>
 <ol>
-<li><p><strong>减少不必要的计算</strong>：在计算中间值时，我们可以直接使用前<code>n-i</code>个数组元素的和，而不需要再计算一次。这样可以减少一半的计算量。</p>
+<li><strong>第一个砝码</strong>：初始 $K=0$，则 $w_1 = 2(0) + 1 = 1$。<ul>
+<li>当前最大称重 $K_{new} = 1$。</li>
+</ul>
 </li>
-<li><p><strong>利用前缀和的性质</strong>：在前缀和的定义中，我们知道前<code>n-i</code>个数组元素的和等于第<code>i+1</code>个数组元素与前<code>n-i-1</code>个数组元素的和之差。因此，我们可以将这个问题转化为求解两个子问题：一个是求第<code>i+1</code>个数组元素与前<code>n-i-1</code>个数组元素的和，另一个是求第<code>i+1</code>个数组元素与前<code>n-i</code>个数组元素的和。这样，我们就可以将问题的规模缩小到原来的一半。</p>
+<li><strong>第二个砝码</strong>：当前 $K=1$，则 $w_2 = 2(1) + 1 = 3$。<ul>
+<li>当前最大称重 $K_{new} = 1 + 3 = 4$（覆盖 $1$ 到 $4$）。</li>
+</ul>
+</li>
+<li><strong>第三个砝码</strong>：当前 $K=4$，则 $w_3 = 2(4) + 1 = 9$。<ul>
+<li>当前最大称重 $K_{new} = 4 + 9 = 13$（覆盖 $1$ 到 $13$）。</li>
+</ul>
+</li>
+<li><strong>第四个砝码</strong>：当前 $K=13$，则 $w_4 = 2(13) + 1 = 27$。<ul>
+<li>当前最大称重 $K_{new} = 13 + 27 = 40$。</li>
+</ul>
 </li>
 </ol>
-<h3 id="最终解法"><a href="#最终解法" class="headerlink" title="最终解法"></a>最终解法</h3><p>基于以上优化方向，我们可以给出以下关键状态定义和转移方程：</p>
-<ul>
-<li><p>状态定义：</p>
-<ul>
-<li><code>s[i][j]</code>表示前<code>i</code>个数组元素中第<code>j</code>个数的和。</li>
-<li><code>f[i][j]</code>表示第<code>i</code>个数组元素中第<code>j</code>个数的值。</li>
-</ul>
-</li>
-<li><p>转移方程：</p>
-<ul>
-<li><code>s[i][j] = s[i-1][j-1] + f[i][j]</code>。</li>
-<li><code>f[i][j] = (s[i][j] - s[i-1][j]) // 2</code>。</li>
-</ul>
-</li>
-</ul>
-<p>通过这种方式，我们可以将问题的规模缩小到原来的一半，从而大大提高算法的效率。</p>
-<h2 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h2><ul>
-<li><strong>时间复杂度</strong>：O(n^2)。这是因为我们需要遍历所有可能的<code>a[i]</code>值来计算中间值。</li>
-<li><strong>空间复杂度</strong>：O(n)。这是因为我们需要存储中间值和状态变量。</li>
-</ul>
-<h2 id="核心代码-注释"><a href="#核心代码-注释" class="headerlink" title="核心代码 + 注释"></a>核心代码 + 注释</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>(<span class="params">n, a</span>):</span><br><span class="line">    <span class="comment"># 初始化状态数组和前缀和数组</span></span><br><span class="line">    s = [[<span class="number">0</span>] * n <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(n)]</span><br><span class="line">    pre_sum = [<span class="number">0</span>] * n</span><br><span class="line">    f = [<span class="number">0</span>] * n</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 初始化边界条件</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        s[i][i] = a[i]</span><br><span class="line">        pre_sum[i] = a[i]</span><br><span class="line">        f[i] = a[i]</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 计算前缀和</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i):</span><br><span class="line">            s[i][j] += s[i-<span class="number">1</span>][j]</span><br><span class="line">            pre_sum[i] += pre_sum[i-<span class="number">1</span>] - s[i-<span class="number">1</span>][j]</span><br><span class="line">        f[i] = (pre_sum[i] - pre_sum[i-<span class="number">1</span>]) // <span class="number">2</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 计算最终结果</span></span><br><span class="line">    result = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        result.append(f[i])</span><br><span class="line">    <span class="keyword">return</span> result</span><br></pre></td></tr></table></figure>
-<h2 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h2><p>假设输入为：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;input&gt;</span><br><span class="line">&lt;data&gt;</span><br></pre></td></tr></table></figure><br>输出为：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;output&gt;</span><br></pre></td></tr></table></figure><br>解释：根据题目描述，我们可以得出答案为：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[0, 1, 2, 3, 4, 5]</span><br></pre></td></tr></table></figure></p>
+<p><strong>结论</strong>：最优的砝码组合是 $3$ 的幂次方（$1, 3, 9, 27, \dots$）。<br>题目转化为：找到最小的整数 $n$，使得前 $n$ 个 $3$ 的幂次方之和大于等于 $N$。</p>
+<p>递推公式为：</p>
+<script type="math/tex; mode=display">S_n = S_{n-1} \times 3 + 1</script><p>当 $S_n \ge N$ 时，$n$ 即为答案。</p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><h3 id="Python-代码"><a href="#Python-代码" class="headerlink" title="Python 代码"></a>Python 代码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>():</span><br><span class="line">    <span class="comment"># 初始化当前能称出的最大重量为 0</span></span><br><span class="line">    current_max = <span class="number">0</span></span><br><span class="line">    <span class="comment"># 初始化砝码数量为 0</span></span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        N = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">    <span class="keyword">except</span> EOFError:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 循环直到能称出的最大重量大于等于 N</span></span><br><span class="line">    <span class="keyword">while</span> current_max &lt; N:</span><br><span class="line">        count += <span class="number">1</span></span><br><span class="line">        <span class="comment"># 根据公式：新砝码 = 当前最大 * 2 + 1</span></span><br><span class="line">        <span class="comment"># 实际上，新的最大称重 = 当前最大 * 3 + 1</span></span><br><span class="line">        <span class="comment"># 推导：new_max = current_max + (2*current_max + 1) = 3*current_max + 1</span></span><br><span class="line">        current_max = current_max * <span class="number">3</span> + <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">    <span class="built_in">print</span>(count)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    solve()</span><br><span class="line"><span class="comment">### 代码解析</span></span><br><span class="line"></span><br><span class="line"><span class="number">1.</span>  **变量初始化**：`current_max` 代表当前砝码组合能连续称出的最大重量。初始为 <span class="number">0</span>，代表还没有砝码。</span><br><span class="line"><span class="number">2.</span>  **循环条件**：`<span class="keyword">while</span> current_max &lt; N`，只要当前能称出的重量还达不到目标 $N$，就需要继续加砝码。</span><br><span class="line"><span class="number">3.</span>  **状态转移**：每次循环，砝码数量 `count` 加 <span class="number">1</span>。根据数学推导，加入新砝码后，能称出的最大重量变为原来的 <span class="number">3</span> 倍加 <span class="number">1</span>（即 `current_max = current_max * <span class="number">3</span> + <span class="number">1</span>`）。</span><br><span class="line"><span class="number">4.</span>  **输出结果**：当循环结束时，`count` 即为最少需要的砝码数。</span><br><span class="line"></span><br><span class="line"><span class="comment">## 复杂度分析</span></span><br><span class="line"></span><br><span class="line">-   **时间复杂度**：$O(\log_3 N)$。因为 `current_max` 每次以 <span class="number">3</span> 倍增长，增长速度非常快，循环次数极少。</span><br><span class="line">-   **空间复杂度**：$O(<span class="number">1</span>)$。只使用了几个变量存储状态，不需要额外的数组空间。</span><br><span class="line"></span><br><span class="line"><span class="comment">## 示例验证</span></span><br><span class="line"></span><br><span class="line">假设输入 $N = <span class="number">20</span>$：</span><br><span class="line"><span class="number">1.</span>  初始 `current_max = <span class="number">0</span>`, `count = <span class="number">0</span>`。</span><br><span class="line"><span class="number">2.</span>  第一轮：`count = <span class="number">1</span>`, `current_max = <span class="number">0</span>*<span class="number">3</span>+<span class="number">1</span> = <span class="number">1</span>` (&lt; <span class="number">20</span>)。</span><br><span class="line"><span class="number">3.</span>  第二轮：`count = <span class="number">2</span>`, `current_max = <span class="number">1</span>*<span class="number">3</span>+<span class="number">1</span> = <span class="number">4</span>` (&lt; <span class="number">20</span>)。</span><br><span class="line"><span class="number">4.</span>  第三轮：`count = <span class="number">3</span>`, `current_max = <span class="number">4</span>*<span class="number">3</span>+<span class="number">1</span> = <span class="number">13</span>` (&lt; <span class="number">20</span>)。</span><br><span class="line"><span class="number">5.</span>  第四轮：`count = <span class="number">4</span>`, `current_max = <span class="number">13</span>*<span class="number">3</span>+<span class="number">1</span> = <span class="number">40</span>` (&gt;= <span class="number">20</span>)。</span><br><span class="line"><span class="number">6.</span>  结束循环，输出 `<span class="number">4</span>`。</span><br><span class="line"></span><br><span class="line">砝码组合为：$<span class="number">1</span>, <span class="number">3</span>, <span class="number">9</span>, <span class="number">27</span>$。可以验证，这 <span class="number">4</span> 个砝码能称出 $<span class="number">1</span>$ 到 $<span class="number">40</span>$ 的所有整数重量。</span><br></pre></td></tr></table></figure>
+      
+    </div>
 
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/04/08/2024-04-08-%E5%B9%B8%E8%BF%90%E6%95%B0%E5%AD%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/04/08/2024-04-08-%E5%B9%B8%E8%BF%90%E6%95%B0%E5%AD%97/" class="post-title-link" itemprop="url">蓝桥杯真题：幸运数字 (哈沙德数)</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-04-08 08:14:14" itemprop="dateCreated datePublished" datetime="2024-04-08T08:14:14+08:00">2024-04-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/" itemprop="url" rel="index"><span itemprop="name">算法竞赛</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p><strong>哈沙德数</strong>（Harshad Number）是指在某个固定的进位制当中，可以被各位数字之和整除的正整数。</p>
+<p>例如，126 是十进制下的一个哈沙德数，因为：</p>
+<script type="math/tex; mode=display">(126)_{10} \mod (1+2+6) = 126 \mod 9 = 0</script><p>126 也是八进制下的哈沙德数，因为：</p>
+<script type="math/tex; mode=display">(126)_{10} = (176)_8</script><script type="math/tex; mode=display">(126)_{10} \mod (1+7+6) = 126 \mod 14 = 0</script><p>同时 126 也是十六进制下的哈沙德数，因为：</p>
+<script type="math/tex; mode=display">(126)_{10} = (7e)_{16}</script><script type="math/tex; mode=display">(126)_{10} \mod (7+14) = 126 \mod 21 = 0</script><p><strong>幸运数字定义</strong>：如果一个整数在二进制、八进制、十进制、十六进制下均为哈沙德数，那么这个数字就是幸运数字。</p>
+<p>前 10 个幸运数字的十进制表示为：1, 2, 4, 6, 8, 40, 48, 72, 120, 126…</p>
+<p><strong>问题</strong>：请问第 2023 个幸运数字是多少？你只需要输出这个整数的十进制表示即可。</p>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>本题是一道典型的<strong>枚举模拟</strong>题。由于我们需要找到第 2023 个符合条件的数，且该位置的数据规模在整型范围内，直接暴力枚举并判断即可。</p>
+<p><strong>具体步骤如下：</strong></p>
+<ol>
+<li><strong>遍历整数</strong>：从 1 开始遍历所有正整数。</li>
+<li><strong>进制转换</strong>：对于每个整数，分别计算其在二进制、八进制、十进制、十六进制下的字符串表示。<ul>
+<li>Python 中可直接使用内置函数 <code>bin()</code>, <code>oct()</code>, <code>hex()</code>，注意它们生成的字符串带有前缀（如 <code>0b</code>, <code>0o</code>, <code>0x</code>），切片时需要去掉。</li>
+</ul>
+</li>
+<li><strong>数位求和</strong>：编写一个函数，计算某个进制字符串下的各位数字之和。<ul>
+<li>注意十六进制中包含 <code>a-f</code>，对应十进制的 10-15，需特殊处理。</li>
+</ul>
+</li>
+<li><strong>整除判断</strong>：判断当前整数是否能被这四种进制下的数位和整除。</li>
+<li><strong>计数与输出</strong>：如果同时满足四种进制的哈沙德数条件，则计数器加 1。当计数器达到 2023 时，输出该数字并结束程序。</li>
+</ol>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><p>以下是优化后的 Python 代码实现：</p>
+<p>```python<br>def check_harshad(n, num_str):<br>    “””<br>    判断数字 n 是否为特定进制字符串 num_str 下的哈沙德数<br>    “””<br>    digit_sum = 0<br>    for char in num_str:</p>
+<pre><code>    # 处理十六进制中的字母
+    if char == &#39;a&#39;:
+        digit_sum += 10
+    elif char == &#39;b&#39;:
+        digit_sum += 11
+    elif char == &#39;c&#39;:
+        digit_sum += 12
+    elif char == &#39;d&#39;:
+        digit_sum += 13
+    elif char == &#39;e&#39;:
+        digit_sum += 14
+    elif char == &#39;f&#39;:
+        digit_sum += 15
+    else:
+        digit_sum += int(char)
+
+# 避免除数为0的情况（虽然题目为正整数，但在二进制中 &#39;0&#39; 的情况需视具体数值而定）
+# 实际上 n &gt;= 1 时，二进制表示至少有一个 &#39;1&#39;，sum 不会为 0
+if digit_sum == 0:
+    return False
+
+return n % digit_sum == 0
+</code></pre><p>count = 0<br>i = 1</p>
+<h1 id="使用-while-循环进行无限遍历，直到找到目标"><a href="#使用-while-循环进行无限遍历，直到找到目标" class="headerlink" title="使用 while 循环进行无限遍历，直到找到目标"></a>使用 while 循环进行无限遍历，直到找到目标</h1><p>while True:</p>
+<pre><code># 获取不同进制的字符串表示，并去除前缀 (0b, 0o, 0x)
+bin_str = bin(i)[2:]
+oct_str = oct(i)[2:]
+dec_str = str(i)
+hex_str = hex(i)[2:]
+
+# 判断是否在四种进制下均为哈沙德数
+# 注意：十进制传入 str(i)，即 dec_str
+if (check_harshad(i, bin_str) and 
+    check_harshad(i, oct_str) and 
+    check_harshad(i, dec_str) and 
+    check_harshad(i, hex_str)):
+
+    count += 1
+
+    if count == 2023:
+        print(f&quot;第 2023 个幸运数字是: {i}&quot;)
+        break
+
+i += 1
+</code></pre><h2 id="代码优化点说明"><a href="#代码优化点说明" class="headerlink" title="代码优化点说明"></a>代码优化点说明</h2><p>相比原始代码，优化后的版本做了以下改进：</p>
+<ol>
+<li><strong>函数命名与结构</strong>：将函数名改为 <code>check_harshad</code>，更具语义化；增加了详细的注释说明。</li>
+<li><strong>循环控制</strong>：将巨大的 <code>range</code> 改为 <code>while True</code> 循环，逻辑更加清晰自然，避免了魔法数字 <code>10000000000000000</code>。</li>
+<li><strong>字符串切片</strong>：显式地处理了 Python 进制转换函数产生的前缀（如 <code>bin(i)</code> 返回 <code>&#39;0b101&#39;</code>，需切片 <code>[2:]</code>），原代码中可能隐式包含了前缀字符导致计算错误（注：原题代码中似乎直接使用了转换后的字符串，如果包含前缀字符如 ‘b’ 或 ‘x’ 会导致数位和计算错误，优化后已修正）。</li>
+<li><strong>代码可读性</strong>：将条件判断拆分为多行，逻辑更清晰。</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/04/08/2024-04-08-%E4%B8%B2%E7%9A%84%E5%A4%84%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/04/08/2024-04-08-%E4%B8%B2%E7%9A%84%E5%A4%84%E7%90%86/" class="post-title-link" itemprop="url">蓝桥杯真题：串的处理</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-04-08 08:10:52" itemprop="dateCreated datePublished" datetime="2024-04-08T08:10:52+08:00">2024-04-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">算法刷题</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <span id="more"></span>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>在实际的开发工作中，对字符串的处理是最常见的编程任务之一。本题要求编写程序，对用户输入的字符串进行特定规则的处理。</p>
+<p><strong>具体处理规则如下：</strong></p>
+<ol>
+<li><strong>首字母大写</strong>：将每个单词的首字母转换为大写。</li>
+<li><strong>数字字母分隔</strong>：在数字与字母之间插入下划线字符 <code>_</code>，以增强可读性（需同时考虑“字母在前，数字在后”和“数字在前，字母在后”两种情况）。</li>
+<li><strong>空格规范化</strong>：将单词间的一个或多个空格调整为 <strong>1个</strong> 空格。</li>
+</ol>
+<h2 id="输入描述"><a href="#输入描述" class="headerlink" title="输入描述"></a>输入描述</h2><p>用户输入的字符串仅包含 <strong>小写字母</strong>、<strong>空格</strong> 和 <strong>数字</strong>，不含其他字符。</p>
+<ul>
+<li>单词间由 1 个或多个空格分隔。</li>
+<li>输入字符串长度不超过 200 个字符。</li>
+</ul>
+<h2 id="输出描述"><a href="#输出描述" class="headerlink" title="输出描述"></a>输出描述</h2><p>输出经过上述规则处理后的字符串。</p>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>本题考察字符串的基本操作，包括分割、遍历、类型判断与拼接。我们可以将问题拆解为以下三个步骤：</p>
+<ol>
+<li><strong>空格规范化</strong>：利用 Python 的 <code>split()</code> 方法不带参数的特性，自动将字符串按空白字符（包括多个空格、制表符等）分割成单词列表，同时去除了多余的空格。</li>
+<li><strong>数字字母分隔</strong>：遍历每个单词的字符。检查当前字符与下一个字符的类型，如果一个是数字一个是字母，则插入下划线。这里需要注意遍历的边界，避免索引越界。</li>
+<li><strong>首字母大写</strong>：在完成上述处理后，利用字符串的 <code>upper()</code> 方法将单词首字母大写，最后用 <code>join()</code> 方法将列表重新拼接成字符串。</li>
+</ol>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><p>以下是基于 Python 的完整代码实现：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 读取输入并直接去除多余空格，分割为单词列表</span></span><br><span class="line">s = <span class="built_in">input</span>().split()</span><br><span class="line">l_new = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> word <span class="keyword">in</span> s:</span><br><span class="line">    <span class="comment"># 将单词转换为字符列表以便处理</span></span><br><span class="line">    chars = <span class="built_in">list</span>(word)</span><br><span class="line">    temp_str = <span class="string">&quot;&quot;</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 遍历单词中的每一个字符（不包括最后一个，避免越界）</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(chars) - <span class="number">1</span>):</span><br><span class="line">        temp_str += chars[j]</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 判断当前字符与下一个字符是否为“数字+字母”或“字母+数字”的关系</span></span><br><span class="line">        <span class="keyword">if</span> chars[j].isdigit() <span class="keyword">and</span> chars[j+<span class="number">1</span>].isalpha():</span><br><span class="line">            temp_str += <span class="string">&#x27;_&#x27;</span></span><br><span class="line">        <span class="keyword">if</span> chars[j].isalpha() <span class="keyword">and</span> chars[j+<span class="number">1</span>].isdigit():</span><br><span class="line">            temp_str += <span class="string">&#x27;_&#x27;</span></span><br><span class="line">            </span><br><span class="line">    <span class="comment"># 拼接单词的最后一个字符</span></span><br><span class="line">    temp_str += chars[-<span class="number">1</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 将处理好的单词加入新列表</span></span><br><span class="line">    l_new.append(temp_str)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 遍历列表，将每个单词首字母大写，并用空格连接</span></span><br><span class="line">result = <span class="string">&quot; &quot;</span>.join([word[<span class="number">0</span>].upper() + word[<span class="number">1</span>:] <span class="keyword">for</span> word <span class="keyword">in</span> l_new])</span><br><span class="line"><span class="built_in">print</span>(result)</span><br><span class="line"><span class="comment">## 复杂度分析</span></span><br><span class="line"></span><br><span class="line">- **时间复杂度**：$O(N)$，其中 $N$ 是输入字符串的长度。我们需要遍历字符串中的每个字符进行判断和拼接。</span><br><span class="line">- **空间复杂度**：$O(N)$，需要额外的空间存储分割后的单词列表和处理后的字符串。</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/04/08/2024-04-08-%E4%BC%98%E7%BE%8E%E7%9A%84%E6%95%B0%E7%BB%84/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/04/08/2024-04-08-%E4%BC%98%E7%BE%8E%E7%9A%84%E6%95%B0%E7%BB%84/" class="post-title-link" itemprop="url">蓝桥杯专题：优美的数组</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-04-08 03:40:38" itemprop="dateCreated datePublished" datetime="2024-04-08T03:40:38+08:00">2024-04-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">算法刷题</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>本文详细解析了“优美的数组”问题，介绍了如何利用单调栈这一经典数据结构，在 O(N) 时间复杂度内高效求解每个元素左右两侧特定条件的元素，从而计算出总美丽值。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/04/08/2024-04-08-%E4%BC%98%E7%BE%8E%E7%9A%84%E6%95%B0%E7%BB%84/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/04/08/2024-04-08-%E4%BA%A4%E6%8D%A2%E7%93%B6%E5%AD%90(%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/04/08/2024-04-08-%E4%BA%A4%E6%8D%A2%E7%93%B6%E5%AD%90(%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F)/" class="post-title-link" itemprop="url">蓝桥杯：交换瓶子（贪心选择策略）</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-04-08 03:37:42" itemprop="dateCreated datePublished" datetime="2024-04-08T03:37:42+08:00">2024-04-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/" itemprop="url" rel="index"><span itemprop="name">算法竞赛</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>本文详细解析蓝桥杯'交换瓶子'问题，利用贪心策略求解最少交换次数。通过遍历与定位，实现线性时间复杂度内的排序计数，修正了传统冒泡排序思路在此类问题上的效率偏差。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/04/08/2024-04-08-%E4%BA%A4%E6%8D%A2%E7%93%B6%E5%AD%90(%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F)/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/04/08/2024-04-08-%E5%9B%BE%E5%83%8F%E6%A8%A1%E7%B3%8A/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/04/08/2024-04-08-%E5%9B%BE%E5%83%8F%E6%A8%A1%E7%B3%8A/" class="post-title-link" itemprop="url">蓝桥杯练习：图像模糊处理</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-04-08 03:19:19" itemprop="dateCreated datePublished" datetime="2024-04-08T03:19:19+08:00">2024-04-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 13:58:18" itemprop="dateModified" datetime="2026-05-14T13:58:18+08:00">2026-05-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">算法练习</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>小蓝有一张黑白图像，由 $n \times m$ 个像素组成，其中从上到下共 $n$ 行，每行从左到右 $m$ 列。每个像素由一个 $0$ 到 $255$ 之间的灰度值表示。</p>
+<p>现在，小蓝准备对图像进行模糊操作，操作的方法为：对于每个像素，将以它为中心 $3 \times 3$ 区域内的所有像素（可能是 $9$ 个像素或少于 $9$ 个像素）求和后除以这个范围内的像素个数（取下整），得到的值就是模糊后的结果。</p>
+<p><strong>注意</strong>：每个像素都要用原图中的灰度值计算求和。</p>
+<h2 id="输入描述"><a href="#输入描述" class="headerlink" title="输入描述"></a>输入描述</h2><p>输入的第一行包含两个整数 $n, m$。</p>
+<p>第 $2$ 行到第 $n+1$ 行每行包含 $m$ 个整数，表示每个像素的灰度值，相邻整数之间用一个空格分隔。</p>
+<p><strong>数据范围</strong>：$1 &lt; n, m &lt; 100$。</p>
+<h2 id="输出描述"><a href="#输出描述" class="headerlink" title="输出描述"></a>输出描述</h2><p>输出 $n$ 行，每行 $m$ 个整数，相邻整数之间用空格分隔，表示模糊后的图像。</p>
+<h2 id="题目分析与解题思路"><a href="#题目分析与解题思路" class="headerlink" title="题目分析与解题思路"></a>题目分析与解题思路</h2><p>这是一道典型的<strong>矩阵模拟</strong>题目，主要考察对二维数组的操作以及边界条件的处理。</p>
+<h3 id="核心步骤"><a href="#核心步骤" class="headerlink" title="核心步骤"></a>核心步骤</h3><ol>
+<li><strong>数据读取</strong>：读取图像的行数 $n$ 和列数 $m$，并将像素数据存入二维列表（矩阵）中。</li>
+<li><strong>创建副本</strong>：由于题目要求“每个像素都要用原图中的灰度值计算”，这意味着我们不能在原矩阵上直接修改，否则会影响后续像素的计算。因此，需要创建一个同样大小的结果矩阵。</li>
+<li><strong>遍历计算</strong>：<ul>
+<li>遍历矩阵中的每一个像素点 $(i, j)$。</li>
+<li>对于每个点，检查其周围 $3 \times 3$ 的邻域。邻域的范围是行 $[i-1, i+1]$ 和列 $[j-1, j+1]$。</li>
+<li><strong>边界处理</strong>：当 $(i, j)$ 位于图像边缘（第一行、最后一行、第一列、最后一列）时，$3 \times 3$ 邻域会超出矩阵边界。此时需要判断坐标是否合法（$0 \le k &lt; n$ 且 $0 \le l &lt; m$）。</li>
+<li><strong>求和与计数</strong>：累加邻域内合法像素的灰度值，并统计像素个数。</li>
+<li><strong>取整赋值</strong>：计算平均值（向下取整）并赋值给结果矩阵对应位置。</li>
+</ul>
+</li>
+</ol>
+<h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p>由于需要对每个像素遍历其周围的 $3 \times 3$ 邻域，且 $n, m$ 最大接近 $100$，总运算次数约为 $100 \times 100 \times 9 = 9 \times 10^4$，远小于一般限制的 $10^8$，算法效率完全满足要求。</p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/04/08/2024-04-08-%E6%97%A0%E5%B0%BD%E7%9A%84%E7%9F%B3%E5%A4%B4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/04/08/2024-04-08-%E6%97%A0%E5%B0%BD%E7%9A%84%E7%9F%B3%E5%A4%B4/" class="post-title-link" itemprop="url">无尽的石头</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-04-08 03:04:10" itemprop="dateCreated datePublished" datetime="2024-04-08T03:04:10+08:00">2024-04-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 13:58:18" itemprop="dateModified" datetime="2026-05-14T13:58:18+08:00">2026-05-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">算法笔记</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>在一个古老的迷宫中，有一道无尽的通道。通道上每隔一定的距离就会有一块神秘的石头，石头上刻着从 1 开始的连续整数。从 1 号石头开始，每块石头的编号都比前一块大 1。</p>
+<p>石头上的数字拥有特殊的意义。如果你站在编号为 $n$ 的石头上，并向前走，你将会瞬间移动到编号为 $n+x$ 的石头上，其中 $x$ 为 $n$ 的各位数字之和。</p>
+<p><strong>举个例子：</strong><br>如果你站在编号为 16 的石头上，由于 $1+6=7$，所以下一步你会移动到编号为 $16+7=23$ 的石头上。</p>
+<p>现在，会有多次询问，你需要对每个询问输出从 1 号石头出发到达指定编号石头的最少步数。如果无法到达，则输出 -1。</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>第一行输入一个整数 $t$ ($1 &lt; t &lt; 100$)，表示有 $t$ 次询问。</p>
+<p>接下来 $t$ 行，每行一个整数 $n$ ($1 \le n \le 10^5$)，表示目标石头的编号。</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>对于每个询问，输出一行，表示从 1 号石头到达目标石头的最少步数。如果无法到达，输出 -1。</p>
+<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><p>本题属于<strong>模拟</strong>与<strong>图论建模</strong>的结合问题。</p>
+<ol>
+<li><strong>模型抽象</strong>：我们可以将石头编号看作图中的节点。从节点 $n$ 出发，下一步只能到达节点 $n + \text{digits_sum}(n)$。这实际上构成了一棵以 1 为根节点的树（或者说是单链分支的集合）。</li>
+<li><strong>可达性分析</strong>：由于路径是单向且确定的，对于任意节点 $n$，它的前驱节点是唯一的（如果存在），后继节点也是唯一的。从 1 号石头出发的路径是固定的。</li>
+<li><strong>预处理与查询优化</strong>：<br>由于询问次数 $t$ 可能较多，且目标编号 $n$ 具有随机性，我们可以采用<strong>预处理</strong>的方式：<ul>
+<li>从 1 开始模拟移动过程，记录沿途经过的每一个节点（石头编号）以及到达该节点的步数。</li>
+<li>使用一个列表 <code>reachable_stones</code> 记录路径上的所有节点。</li>
+<li>对于用户的每一次询问 $n$：<ul>
+<li>如果我们当前的模拟终点已经 $\ge n$，直接判断 $n$ 是否在 <code>reachable_stones</code> 中。若在，输出下标（即步数）；若不在，说明永远无法到达（因为路径是严格递增的），输出 -1。</li>
+<li>如果模拟终点 $&lt; n$，继续向后模拟计算，直到终点 $\ge n$ 为止，然后进行判断。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>这种方法利用了路径的单调递增性，避免了重复计算。</p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/04/08/2024-04-08-math/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/04/08/2024-04-08-math/" class="post-title-link" itemprop="url">数学基础：平方和公式的推导与应用</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-04-08 02:53:15" itemprop="dateCreated datePublished" datetime="2024-04-08T02:53:15+08:00">2024-04-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">数学基础</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">算法笔记</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>本文详细介绍了自然数平方和公式的定义、推导过程及其在算法复杂度分析中的应用。通过数学归纳法与立方差法双重验证，帮助读者深入理解该核心数学概念。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/04/08/2024-04-08-math/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/04/08/2024-04-08-%E5%B0%8F%E8%93%9D%E5%92%8C%E5%B0%8F%E6%A1%A5%E7%9A%84%E6%8C%91%E6%88%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/04/08/2024-04-08-%E5%B0%8F%E8%93%9D%E5%92%8C%E5%B0%8F%E6%A1%A5%E7%9A%84%E6%8C%91%E6%88%98/" class="post-title-link" itemprop="url">小蓝和小桥的挑战</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-04-08 02:46:27" itemprop="dateCreated datePublished" datetime="2024-04-08T02:46:27+08:00">2024-04-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">算法笔记</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          本文解析了一道关于序列操作的经典算法题。通过贪心策略，计算使序列元素之和与积均不为零的最小操作次数。
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/04/08/2024-04-08-%E5%B0%8F%E8%93%9D%E5%92%8C%E5%B0%8F%E6%A1%A5%E7%9A%84%E6%8C%91%E6%88%98/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/04/02/2024-04-02-%E6%9C%80%E5%B0%91%E7%A0%9D%E7%A0%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/04/02/2024-04-02-%E6%9C%80%E5%B0%91%E7%A0%9D%E7%A0%81/" class="post-title-link" itemprop="url">蓝桥杯真题：最少砝码（贪心/数学推导）</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-04-02 11:29:30" itemprop="dateCreated datePublished" datetime="2024-04-02T11:29:30+08:00">2024-04-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 13:56:56" itemprop="dateModified" datetime="2026-05-14T13:56:56+08:00">2026-05-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>你有一架天平。现在你要设计一套砝码，使得利用这些砝码可以称出任意小于等于 $N$ 的正整数重量。那么这套砝码最少需要包含多少个砝码？</p>
+<p><strong>注意：</strong> 砝码可以放在天平两边。</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>输入包含一个正整数 $N$。</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>输出一个整数代表答案。</p>
+<h2 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br></pre></td><td class="code"><pre><span class="line">7</span><br><span class="line">## 样例输出</span><br><span class="line"></span><br><span class="line">```text</span><br><span class="line">3</span><br><span class="line">## 样例说明</span><br><span class="line"></span><br><span class="line">由 3 个砝码重量分别是 1、4、6，可以称出 1 至 7 的所有重量：</span><br><span class="line"></span><br><span class="line">| 称重重量 | 组合方式 |</span><br><span class="line">| :--- | :--- |</span><br><span class="line">| 1 | 1 |</span><br><span class="line">| 2 | 6 - 4 (天平一边放6，另一边放4) |</span><br><span class="line">| 3 | 4 - 1 |</span><br><span class="line">| 4 | 4 |</span><br><span class="line">| 5 | 6 - 1 |</span><br><span class="line">| 6 | 6 |</span><br><span class="line">| 7 | 1 + 6 |</span><br><span class="line"></span><br><span class="line">可以证明，少于 3 个砝码不可能称出 1 至 7 的所有重量。</span><br><span class="line"></span><br><span class="line">## 评测用例规模与约定</span><br><span class="line"></span><br><span class="line">对于所有评测用例，$1 \le N \le 1,000,000,000$。</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">## 解题思路：贪心与平衡三进制</span><br><span class="line"></span><br><span class="line">### 1. 核心分析</span><br><span class="line"></span><br><span class="line">这是一道经典的**贪心算法**题目，其本质与**平衡三进制**（Ternary Numeral System）有关。</span><br><span class="line"></span><br><span class="line">题目要求砝码数量最少，且砝码可以放在天平两端。假设我们已经有一组砝码，它们能称出的最大连续重量为 $S$。</span><br><span class="line"></span><br><span class="line">当我们新增一个砝码 $w$ 时，由于天平两边都可以放，新的称重范围会有以下三种情况：</span><br><span class="line">1. 砝码全在一边：$w + [1, S]$ $\rightarrow$ 范围 $[w+1, w+S]$</span><br><span class="line">2. 砝码在另一边（做减法）：$w - [1, S]$ $\rightarrow$ 范围 $[w-S, w-1]$</span><br><span class="line">3. 不使用该砝码：$[1, S]$</span><br><span class="line"></span><br><span class="line">为了让新范围能够与旧范围 $[1, S]$ **无缝衔接**，并最大化称重上限，我们需要满足两个条件：</span><br><span class="line">1. **无缝衔接**：减法范围的上限应紧接原范围的下限（或重叠），即 $(w - 1)$ 应该等于 $S$（或 $S+1$，为求连续性，取 $w - 1 = S \implies w = S + 1$）。但这样会造成浪费。</span><br><span class="line">   </span><br><span class="line">   实际上，为了让范围 $[w-S, w-1]$ 与 $[1, S]$ 连接，我们至少需要 $w - S \le S + 1$（即新范围的最小值不能比旧范围最大值大太多）。为了**最大化**新范围，我们取临界条件：</span><br><span class="line">   $$ w - S = S + 1 $$</span><br><span class="line">   解得：</span><br><span class="line">   $$ w = 2S + 1 $$</span><br><span class="line"></span><br><span class="line">2. **最大化上限**：选择好 $w$ 后，新的最大称重重量为 $w + S$。</span><br><span class="line"></span><br><span class="line">### 2. 推导过程</span><br><span class="line"></span><br><span class="line">设当前砝码组合能称出的最大连续重量为 $S$。</span><br><span class="line"></span><br><span class="line">- **初始状态**：$S = 0$。</span><br><span class="line">- **第一枚砝码**：为了称重 1，只能选 $w_1 = 1$。此时能称重范围 $[1, 1]$，最大值 $S_1 = 1$。</span><br><span class="line">- **第二枚砝码**：为了扩展范围，最优选择 $w_2 = 2S_1 + 1 = 3$。</span><br><span class="line">  - 新范围：$[3-1, 3+1] = [2, 4]$ 与 $[1, 1]$ 合并为 $[1, 4]$。</span><br><span class="line">  - 此时 $S_2 = 1 + 3 = 4$。</span><br><span class="line">- **第三枚砝码**：最优选择 $w_3 = 2S_2 + 1 = 9$。</span><br><span class="line">  - 新范围：$[9-4, 9+4] = [5, 13]$ 与 $[1, 4]$ 合并为 $[1, 13]$。</span><br><span class="line">  - 此时 $S_3 = 4 + 9 = 13$。</span><br><span class="line"></span><br><span class="line">观察规律，我们可以发现最大称重重量 $S$ 与砝码数量 $k$ 的关系：</span><br><span class="line">$$ S_k = \frac&#123;3^k - 1&#125;&#123;2&#125; $$</span><br><span class="line"></span><br><span class="line">或者通过迭代公式理解：</span><br><span class="line">$$ S_&#123;new&#125; = S_&#123;old&#125; + w = S_&#123;old&#125; + (2S_&#123;old&#125; + 1) = 3S_&#123;old&#125; + 1 $$</span><br><span class="line"></span><br><span class="line">### 3. 算法实现</span><br><span class="line"></span><br><span class="line">我们需要找到最小的 $k$，使得 $S_k \ge N$。</span><br><span class="line">直接迭代计算即可：</span><br><span class="line">1. 初始化最大重量 $S = 0$，砝码数量 $count = 0$。</span><br><span class="line">2. 循环条件：当 $S &lt; N$ 时。</span><br><span class="line">3. 每次迭代：$S \leftarrow 3S + 1$，$count \leftarrow count + 1$。</span><br><span class="line">4. 输出 $count$。</span><br><span class="line"></span><br><span class="line">## 代码实现</span><br><span class="line"></span><br><span class="line">### Python 代码</span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line"># 定义一个列表用于存储每一级能称出的最大重量（可选，用于调试或记录）</span><br><span class="line"># li = [0] </span><br><span class="line"># 实际上我们只需要记录当前最大值即可</span><br><span class="line"></span><br><span class="line">current_max = 0</span><br><span class="line">count = 0</span><br><span class="line">N = int(input())</span><br><span class="line"></span><br><span class="line">while current_max &lt; N:</span><br><span class="line">    # 核心递推公式：当前级最大称重 = 上一级最大称重 * 3 + 1</span><br><span class="line">    # 这也对应了新添加的砝码重量为 2*current_max + 1</span><br><span class="line">    current_max = current_max * 3 + 1</span><br><span class="line">    count += 1</span><br><span class="line"></span><br><span class="line">print(count)</span><br><span class="line">### 复杂度分析</span><br><span class="line"></span><br><span class="line">- **时间复杂度**：$O(\log_3 N)$。由于 $N$ 最大为 $10^9$，而 $3^&#123;18&#125;$ 远大于 $10^9$，循环最多执行 19 次，效率极高。</span><br><span class="line">- **空间复杂度**：$O(1)$，仅使用了几个变量存储状态。</span><br><span class="line"></span><br><span class="line">## 参考数据对照</span><br><span class="line"></span><br><span class="line">根据上述公式，我们可以推算出不同砝码数量能覆盖的最大重量范围：</span><br><span class="line"></span><br><span class="line">| 砝码数量 | 砝码组合示例 | 最大称重 |</span><br><span class="line">| :--- | :--- | :--- |</span><br><span class="line">| 1 | &#123;1&#125; | 1 |</span><br><span class="line">| 2 | &#123;1, 3&#125; | 4 |</span><br><span class="line">| 3 | &#123;1, 3, 9&#125; | 13 |</span><br><span class="line">| 4 | &#123;1, 3, 9, 27&#125; | 40 |</span><br><span class="line">| ... | ... | ... |</span><br><span class="line">| k | $1, 3, \dots, 3^&#123;k-1&#125;$ | $\frac&#123;3^k-1&#125;&#123;2&#125;$ |</span><br><span class="line"></span><br><span class="line">原题中的样例 $N=7$，落入 $(4, 13]$ 区间，因此答案为 3。</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -1174,7 +1259,7 @@ index = (index + 1) \% N & \text{else}
 
 
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/11/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/13/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/11/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><span class="page-number current">12</span><a class="page-number" href="/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/13/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

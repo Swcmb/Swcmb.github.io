@@ -28,7 +28,7 @@
 <meta property="og:description" content="&lt;博客&gt; [洛谷 P13876] 特殊日期 + 位运算优化详解题目概览 题目来源: 洛谷 (https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;problem&#x2F;P13876) 题目难度: ★★★☆☆ 标签分类: 位运算、数学 核心考点: 位运算的应用，特殊日期的判断  题意解析问题描述: 给定一个年份，求出这个年份中所有日期中，能同时被该年月日整除的日期总数。 输入格式: 一个整数年份。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-05-12T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-05-13T09:26:25.031Z">
+<meta property="article:modified_time" content="2026-05-14T05:50:12.296Z">
 <meta property="article:author" content="Ianwusb">
 <meta property="article:tag" content="P13876">
 <meta property="article:tag" content="Python">
@@ -189,16 +189,16 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">148</span>
+          <span class="site-state-item-count">151</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">53</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">68</span>
+        <span class="site-state-item-count">127</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -261,9 +261,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2026-05-13 00:00:00 / 修改时间：17:26:25" itemprop="dateCreated datePublished" datetime="2026-05-13T00:00:00+08:00">2026-05-13</time>
+      <time title="创建时间：2026-05-13 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-13T00:00:00+08:00">2026-05-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
     </span>
 
   
@@ -306,7 +312,7 @@
 <h4 id="4-4-算法选择"><a href="#4-4-算法选择" class="headerlink" title="4.4 算法选择"></a>4.4 算法选择</h4><ul>
 <li>选择位运算优化是因为它能够显著减少计算量，提高程序的效率。</li>
 </ul>
-<h3 id="5-代码详解"><a href="#5-代码详解" class="headerlink" title="5. 代码详解"></a>5. 代码详解</h3><h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2000</span>, <span class="number">2000000</span>):</span><br><span class="line">    ans = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">13</span>):</span><br><span class="line">        <span class="keyword">if</span> i % j == <span class="number">0</span>:  <span class="comment"># 年份能被月份整除</span></span><br><span class="line">            <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">32</span>):  <span class="comment"># 假设最大为32天</span></span><br><span class="line">                <span class="keyword">if</span> (i &amp; k) == <span class="number">0</span>:  <span class="comment"># 日期与年份进行位与运算</span></span><br><span class="line">                    ans += <span class="number">1</span></span><br><span class="line">    <span class="built_in">print</span>(ans)</span><br></pre></td></tr></table></figure>
+<h3 id="5-代码详解"><a href="#5-代码详解" class="headerlink" title="5. 代码详解"></a>5. 代码详解</h3><h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><p>```python<br>for i in range(2000, 2000000):<br>    ans = 0<br>    for j in range(1, 13):<br>        if i % j == 0:  # 年份能被月份整除<br>            for k in range(1, 32):  # 假设最大为32天<br>                if (i &amp; k) == 0:  # 日期与年份进行位与运算<br>                    ans += 1<br>    print(ans)</p>
 <h4 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h4><ul>
 <li>外层循环遍历所有年份。</li>
 <li>内层循环遍历每个月份。</li>
@@ -352,13 +358,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2026/05/13/2026-05-13-P15430-P15430-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-Python-B-%E7%AD%89%E5%B7%AE%E6%95%B0%E5%88%97%E8%AE%A1%E6%95%B0-%E6%B4%9B%E8%B0%B7/" rel="prev" title="P15430 - P15430 [蓝桥杯 2025 国 Python B] 等差数列计数 - 洛谷">
-                  <i class="fa fa-angle-left"></i> P15430 - P15430 [蓝桥杯 2025 国 Python B] 等差数列计数 - 洛谷
+                <a href="/2026/05/13/2026-05-13-P12869-P12869-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-Python-A-%E7%89%B9%E6%AE%8A%E6%95%B4%E6%95%B0%E5%AF%B9%E7%9A%84%E6%95%B0%E9%87%8F-%E6%B4%9B%E8%B0%B7/" rel="prev" title="P12869 - P12869 [蓝桥杯 2025 国 Python A] 特殊整数对的数量 - 洛谷">
+                  <i class="fa fa-angle-left"></i> P12869 - P12869 [蓝桥杯 2025 国 Python A] 特殊整数对的数量 - 洛谷
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2026/05/13/2026-05-13-P13893-P13893-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E7%9C%81-C-%E5%B7%A5%E4%BD%9C%E6%97%B6%E9%95%BF-%E6%B4%9B%E8%B0%B7/" rel="next" title="P13893 - P13893 [蓝桥杯 2023 省 C] 工作时长 - 洛谷">
-                  P13893 - P13893 [蓝桥杯 2023 省 C] 工作时长 - 洛谷 <i class="fa fa-angle-right"></i>
+                <a href="/2026/05/13/2026-05-13-P12340-P12340-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-AB-Python-B-%E7%AC%AC%E4%BA%8C%E5%9C%BA-%E6%97%97%E5%B8%9C-%E6%B4%9B%E8%B0%B7/" rel="next" title="P12340 - P12340 [蓝桥杯 2025 省 AB&#x2F;Python B 第二场] 旗帜 - 洛谷">
+                  P12340 - P12340 [蓝桥杯 2025 省 AB/Python B 第二场] 旗帜 - 洛谷 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>

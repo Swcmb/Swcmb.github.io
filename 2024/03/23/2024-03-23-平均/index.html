@@ -28,7 +28,7 @@
 <meta property="og:description" content="题目描述问题描述给定一个长度为 $n$ 的数组（$n$ 是 $10$ 的倍数），数组中的每个元素 $a_i$ 都是区间 $[0, 9]$ 中的整数。小明发现数组里每种数字出现的次数不太平均。 现在小明可以更改若干个数的值。已知更改第 $i$ 个数的代价为 $b_i$。小明希望通过更改，使得这 $10$ 种数字（$0 \sim 9$）出现的次数相等（即每种数字都出现 $n&#x2F;10$ 次）。 请你计算并">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-03-23T04:09:52.000Z">
-<meta property="article:modified_time" content="2026-05-14T04:34:11.986Z">
+<meta property="article:modified_time" content="2026-05-14T05:50:12.128Z">
 <meta property="article:author" content="Ianwusb">
 <meta property="article:tag" content="Algorithm">
 <meta property="article:tag" content="Greedy">
@@ -174,7 +174,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.2.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.3.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%85%A5"><span class="nav-number">1.4.</span> <span class="nav-text">样例输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%87%BA"><span class="nav-number">1.5.</span> <span class="nav-text">样例输出</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E5%88%86%E6%9E%90"><span class="nav-number">2.</span> <span class="nav-text">题目分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90"><span class="nav-number">4.</span> <span class="nav-text">复杂度分析</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.2.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.3.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%85%A5"><span class="nav-number">1.4.</span> <span class="nav-text">样例输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%87%BA"><span class="nav-number">1.5.</span> <span class="nav-text">样例输出</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E5%88%86%E6%9E%90"><span class="nav-number">2.</span> <span class="nav-text">题目分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%8C%85%E5%90%AB10%E4%B8%AA%E5%88%97%E8%A1%A8%E7%9A%84%E5%88%97%E8%A1%A8%EF%BC%8C%E7%94%A8%E4%BA%8E%E5%AD%98%E5%82%A8%E6%95%B0%E5%AD%970-9%E5%90%84%E8%87%AA%E7%9A%84%E4%BF%AE%E6%94%B9%E4%BB%A3%E4%BB%B7"><span class="nav-number">4.</span> <span class="nav-text">创建一个包含10个列表的列表，用于存储数字0-9各自的修改代价</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#numbers-i-%E5%B0%86%E5%AD%98%E6%94%BE%E6%89%80%E6%9C%89%E5%80%BC%E4%B8%BA-i-%E7%9A%84%E6%95%B0%E5%AD%97%E7%9A%84%E4%BF%AE%E6%94%B9%E4%BB%A3%E4%BB%B7-b"><span class="nav-number">5.</span> <span class="nav-text">numbers[i] 将存放所有值为 i 的数字的修改代价 b</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%BB%E5%8F%96%E8%BE%93%E5%85%A5%E6%95%B0%E6%8D%AE%E5%B9%B6%E8%BF%9B%E8%A1%8C%E5%88%86%E7%BB%84"><span class="nav-number">6.</span> <span class="nav-text">读取输入数据并进行分组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90"><span class="nav-number">6.1.</span> <span class="nav-text">复杂度分析</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -189,16 +189,16 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">148</span>
+          <span class="site-state-item-count">151</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">53</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">68</span>
+        <span class="site-state-item-count">127</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -269,7 +269,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-05-14 12:34:11" itemprop="dateModified" datetime="2026-05-14T12:34:11+08:00">2026-05-14</time>
+      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -295,8 +295,8 @@
 <p>请你计算并输出满足条件的最小代价和。</p>
 <h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h3><p>输入的第一行包含一个正整数 $n$。<br>接下来 $n$ 行，第 $i$ 行包含两个整数 $a_i, b_i$，分别表示第 $i$ 个数的值和更改它的代价，用一个空格分隔。</p>
 <h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h3><p>输出一行包含一个正整数，表示最小代价和。</p>
-<h3 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">10</span><br><span class="line">1 1</span><br><span class="line">1 2</span><br><span class="line">1 3</span><br><span class="line">2 1</span><br><span class="line">2 2</span><br><span class="line">2 3</span><br><span class="line">3 1</span><br><span class="line">3 2</span><br><span class="line">3 3</span><br><span class="line">4 1</span><br></pre></td></tr></table></figure>
-<h3 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3</span><br></pre></td></tr></table></figure>
+<h3 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h3><p>```text<br>10<br>1 1<br>1 2<br>1 3<br>2 1<br>2 2<br>2 3<br>3 1<br>3 2<br>3 3<br>4 1</p>
+<h3 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h3><p>```text<br>3</p>
 <h2 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h2><p>本题是一道典型的<strong>贪心算法</strong>应用题。</p>
 <p><strong>核心目标</strong>：我们需要让数字 $0 \sim 9$ 每个数字出现的次数都刚好等于 $k = n / 10$ 次。</p>
 <p><strong>解题思路</strong>：</p>
@@ -318,7 +318,24 @@
 </li>
 </ol>
 <p>通过这种“局部最优”的选择，我们可以保证全局的总代价最小。</p>
-<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个包含10个列表的列表，用于存储数字0-9各自的修改代价</span></span><br><span class="line"><span class="comment"># numbers[i] 将存放所有值为 i 的数字的修改代价 b</span></span><br><span class="line">numbers = [[] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取输入数据并进行分组</span></span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">    a, b = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">    numbers[a].append(b)</span><br><span class="line"></span><br><span class="line">ans = <span class="number">0</span>           <span class="comment"># 记录总的最小代价</span></span><br><span class="line">k = n // <span class="number">10</span>       <span class="comment"># 每种数字最终的目标数量</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    <span class="comment"># 对当前数字 i 的所有修改代价进行升序排序</span></span><br><span class="line">    ls = <span class="built_in">sorted</span>(numbers[i])</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 计算当前数字的数量</span></span><br><span class="line">    count = <span class="built_in">len</span>(ls)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 如果当前数字的数量超过了目标数量 k</span></span><br><span class="line">    <span class="comment"># 我们需要修改掉 (count - k) 个数字</span></span><br><span class="line">    <span class="comment"># 为了代价最小，我们选择修改代价最小的那些数字</span></span><br><span class="line">    <span class="comment"># ls[:-k] 切片操作表示取列表的前 count - k 个元素（即最小的那些代价）</span></span><br><span class="line">    <span class="keyword">if</span> count &gt; k:</span><br><span class="line">        ans += <span class="built_in">sum</span>(ls[:-k])</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(ans)</span><br></pre></td></tr></table></figure>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><p>```python<br>n = int(input())</p>
+<h1 id="创建一个包含10个列表的列表，用于存储数字0-9各自的修改代价"><a href="#创建一个包含10个列表的列表，用于存储数字0-9各自的修改代价" class="headerlink" title="创建一个包含10个列表的列表，用于存储数字0-9各自的修改代价"></a>创建一个包含10个列表的列表，用于存储数字0-9各自的修改代价</h1><h1 id="numbers-i-将存放所有值为-i-的数字的修改代价-b"><a href="#numbers-i-将存放所有值为-i-的数字的修改代价-b" class="headerlink" title="numbers[i] 将存放所有值为 i 的数字的修改代价 b"></a>numbers[i] 将存放所有值为 i 的数字的修改代价 b</h1><p>numbers = [[] for _ in range(10)]</p>
+<h1 id="读取输入数据并进行分组"><a href="#读取输入数据并进行分组" class="headerlink" title="读取输入数据并进行分组"></a>读取输入数据并进行分组</h1><p>for _ in range(n):<br>    a, b = map(int, input().split())<br>    numbers[a].append(b)</p>
+<p>ans = 0           # 记录总的最小代价<br>k = n // 10       # 每种数字最终的目标数量</p>
+<p>for i in range(10):</p>
+<pre><code># 对当前数字 i 的所有修改代价进行升序排序
+ls = sorted(numbers[i])
+
+# 计算当前数字的数量
+count = len(ls)
+
+# 如果当前数字的数量超过了目标数量 k
+# 我们需要修改掉 (count - k) 个数字
+# 为了代价最小，我们选择修改代价最小的那些数字
+# ls[:-k] 切片操作表示取列表的前 count - k 个元素（即最小的那些代价）
+if count &gt; k:
+    ans += sum(ls[:-k])
+</code></pre><p>print(ans)</p>
 <h2 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h2><ul>
 <li><strong>时间复杂度</strong>：$O(n \log n)$。主要时间消耗在于排序。虽然我们对每个分组分别排序，但所有元素的总和为 $n$，平均情况下每个分组大小为 $n/10$，排序总复杂度仍在 $O(n \log n)$ 级别。</li>
 <li><strong>空间复杂度</strong>：$O(n)$。需要存储每个数字的代价列表。</li>
@@ -347,8 +364,8 @@
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2024/03/27/2024-03-27-%E7%BC%A9%E4%BD%8D%E6%B1%82%E5%92%8C(%E8%BF%AD%E4%BB%A3,%E9%80%92%E5%BD%92)/" rel="next" title="算法笔记：缩位求和的迭代与递归实现">
-                  算法笔记：缩位求和的迭代与递归实现 <i class="fa fa-angle-right"></i>
+                <a href="/2024/03/24/2024-03-24-%E7%A1%AC%E5%B8%81%E5%85%91%E6%8D%A2(-)/" rel="next" title="蓝桥杯真题解析：硬币兑换问题">
+                  蓝桥杯真题解析：硬币兑换问题 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>

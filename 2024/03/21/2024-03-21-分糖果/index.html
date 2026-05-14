@@ -28,7 +28,7 @@
 <meta property="og:description" content="本文详细解析蓝桥杯算法题目“分糖果”，利用贪心策略解决字典序分配问题，包含思路分析与Python代码实现。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-03-21T01:11:06.000Z">
-<meta property="article:modified_time" content="2026-05-14T04:33:48.375Z">
+<meta property="article:modified_time" content="2026-05-14T05:50:12.124Z">
 <meta property="article:author" content="Ianwusb">
 <meta property="article:tag" content="Algorithm">
 <meta property="article:tag" content="Greedy">
@@ -188,16 +188,16 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">148</span>
+          <span class="site-state-item-count">151</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">53</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">68</span>
+        <span class="site-state-item-count">127</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -268,7 +268,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-05-14 12:33:48" itemprop="dateModified" datetime="2026-05-14T12:33:48+08:00">2026-05-14</time>
+      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -328,7 +328,66 @@
 </div>
 
 <h2 id="参考代码-Python"><a href="#参考代码-Python" class="headerlink" title="参考代码 (Python)"></a>参考代码 (Python)</h2><p>下面是基于上述思路的 Python 代码实现。代码中处理了字符串下标从 1 开始的细节，并针对上述三种情况进行了逻辑分支。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>():</span><br><span class="line">    <span class="comment"># 读取输入：n是糖果个数，x是同学人数</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        n, x = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">        s_list = <span class="built_in">list</span>(<span class="built_in">input</span>())</span><br><span class="line">    <span class="keyword">except</span> ValueError:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 排序：让糖果按字典序从小到大排列</span></span><br><span class="line">    s_list.sort()</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 为了方便思考，将列表下标调整为从1开始</span></span><br><span class="line">    <span class="comment"># s[1] 到 s[x] 是分给x个同学的第一个糖果</span></span><br><span class="line">    s = [<span class="string">&#x27;&#x27;</span>] + s_list</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 情况判断</span></span><br><span class="line">    <span class="keyword">if</span> s[<span class="number">1</span>] == s[x]:</span><br><span class="line">        <span class="comment"># 说明所有同学分到的第一个糖果都相同</span></span><br><span class="line">        <span class="comment"># 此时需要根据剩余糖果的情况决定分配策略</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 判断剩余糖果是否全部相同</span></span><br><span class="line">        <span class="comment"># 注意：Python切片 s[x+1:] 即使为空也不报错，需处理边界</span></span><br><span class="line">        remaining = s[x+<span class="number">1</span>:]</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> remaining <span class="keyword">and</span> remaining[<span class="number">0</span>] == remaining[-<span class="number">1</span>]:</span><br><span class="line">            <span class="comment"># 剩余糖果全部相同：平均分配</span></span><br><span class="line">            <span class="comment"># 每个人至少已经有了 s[1]</span></span><br><span class="line">            <span class="comment"># 剩余 n-x 个糖果，分给 x 个人</span></span><br><span class="line">            <span class="comment"># 每个人分到 ceil((n-x)/x) 个额外糖果？实际上题目逻辑更简单</span></span><br><span class="line">            </span><br><span class="line">            <span class="comment"># 修正逻辑：</span></span><br><span class="line">            <span class="comment"># 如果剩下的糖果都一样，大家平分，组成的新字符串长度决定了字典序</span></span><br><span class="line">            <span class="comment"># 如果剩下的不一样，直接追加给一个人</span></span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line">            </span><br><span class="line">        <span class="comment"># 原题解逻辑复现与优化</span></span><br><span class="line">        <span class="keyword">if</span> s[x+<span class="number">1</span>] == s[-<span class="number">1</span>]:</span><br><span class="line">            <span class="comment"># 剩余糖果完全相同，或者没有剩余糖果</span></span><br><span class="line">            <span class="comment"># 每人分一个基础糖果 s[x] (即 s[1])</span></span><br><span class="line">            <span class="comment"># 剩下的糖果平均分，计算每个人能分到的数量</span></span><br><span class="line">            <span class="built_in">print</span>(s[x], end=<span class="string">&quot;&quot;</span>)</span><br><span class="line">            <span class="comment"># 计算平均每人分到的剩余糖果数，向上取整</span></span><br><span class="line">            <span class="comment"># 注意：原代码逻辑此处略微复杂，核心是追加字符</span></span><br><span class="line">            <span class="comment"># 简化理解：如果剩下的都一样，追加给谁都行，这里选择追加给最后一个人</span></span><br><span class="line">            <span class="comment"># 或者是平均追加</span></span><br><span class="line">            cnt = math.ceil((n - x) / x)</span><br><span class="line">            <span class="built_in">print</span>(s[x+<span class="number">1</span>] * cnt, end=<span class="string">&quot;&quot;</span>)</span><br><span class="line">            </span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="comment"># 剩余糖果不相同</span></span><br><span class="line">            <span class="comment"># 为了让字典序最大值最小，策略是将剩余糖果全部追加给最后一个人</span></span><br><span class="line">            <span class="comment"># 因为如果拆分给字典序小的人，可能会制造出更大的字典序字符串</span></span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;&quot;</span>.join(s[x:]))</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="comment"># 情况1：s[x] &gt; s[1]</span></span><br><span class="line">        <span class="comment"># 说明第x个同学分到的糖果字典序已经比第一个同学大了</span></span><br><span class="line">        <span class="comment"># 此时最大字典序就是 s[x]（开头的字符），不需要关心后面的分配</span></span><br><span class="line">        <span class="built_in">print</span>(s[x])</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    solve()</span><br></pre></td></tr></table></figure>
+<p>```python<br>import math</p>
+<p>def solve():</p>
+<pre><code># 读取输入：n是糖果个数，x是同学人数
+try:
+    n, x = map(int, input().split())
+    s_list = list(input())
+except ValueError:
+    return
+
+# 排序：让糖果按字典序从小到大排列
+s_list.sort()
+
+# 为了方便思考，将列表下标调整为从1开始
+# s[1] 到 s[x] 是分给x个同学的第一个糖果
+s = [&#39;&#39;] + s_list
+
+# 情况判断
+if s[1] == s[x]:
+    # 说明所有同学分到的第一个糖果都相同
+    # 此时需要根据剩余糖果的情况决定分配策略
+
+    # 判断剩余糖果是否全部相同
+    # 注意：Python切片 s[x+1:] 即使为空也不报错，需处理边界
+    remaining = s[x+1:]
+
+    if remaining and remaining[0] == remaining[-1]:
+        # 剩余糖果全部相同：平均分配
+        # 每个人至少已经有了 s[1]
+        # 剩余 n-x 个糖果，分给 x 个人
+        # 每个人分到 ceil((n-x)/x) 个额外糖果？实际上题目逻辑更简单
+
+        # 修正逻辑：
+        # 如果剩下的糖果都一样，大家平分，组成的新字符串长度决定了字典序
+        # 如果剩下的不一样，直接追加给一个人
+        pass
+
+    # 原题解逻辑复现与优化
+    if s[x+1] == s[-1]:
+        # 剩余糖果完全相同，或者没有剩余糖果
+        # 每人分一个基础糖果 s[x] (即 s[1])
+        # 剩下的糖果平均分，计算每个人能分到的数量
+        print(s[x], end=&quot;&quot;)
+        # 计算平均每人分到的剩余糖果数，向上取整
+        # 注意：原代码逻辑此处略微复杂，核心是追加字符
+        # 简化理解：如果剩下的都一样，追加给谁都行，这里选择追加给最后一个人
+        # 或者是平均追加
+        cnt = math.ceil((n - x) / x)
+        print(s[x+1] * cnt, end=&quot;&quot;)
+
+    else:
+        # 剩余糖果不相同
+        # 为了让字典序最大值最小，策略是将剩余糖果全部追加给最后一个人
+        # 因为如果拆分给字典序小的人，可能会制造出更大的字典序字符串
+        print(&quot;&quot;.join(s[x:]))
+else:
+    # 情况1：s[x] &gt; s[1]
+    # 说明第x个同学分到的糖果字典序已经比第一个同学大了
+    # 此时最大字典序就是 s[x]（开头的字符），不需要关心后面的分配
+    print(s[x])
+</code></pre><p>if <strong>name</strong> == “<strong>main</strong>“:<br>    solve()</p>
 <h3 id="代码注解"><a href="#代码注解" class="headerlink" title="代码注解"></a>代码注解</h3><ol>
 <li><strong>下标处理</strong>：<code>s = [&#39;&#39;] + s_list</code> 是竞赛编程中常见的技巧，将数组下标映射到 $1 \dots n$，方便逻辑推导。</li>
 <li><strong>关键判断</strong>：<code>if s[1] == s[x]</code> 是贪心策略的分水岭。<ul>

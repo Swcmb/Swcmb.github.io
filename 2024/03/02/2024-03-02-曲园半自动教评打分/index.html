@@ -188,16 +188,16 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">148</span>
+          <span class="site-state-item-count">151</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">53</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">68</span>
+        <span class="site-state-item-count">127</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -302,7 +302,39 @@
 <li><strong>模拟交互</strong>：遍历获取到的元素列表，通过 <code>createEvent</code> 创建鼠标点击事件，并分发到每个目标元素上，从而实现“自动勾选”的效果。</li>
 </ol>
 <h2 id="脚本代码"><a href="#脚本代码" class="headerlink" title="脚本代码"></a>脚本代码</h2><p>以下为完整的油猴脚本代码。使用前请确保浏览器已安装 Tampermonkey 插件。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ==UserScript==</span></span><br><span class="line"><span class="comment">// @name         曲园全自动教评打分</span></span><br><span class="line"><span class="comment">// @namespace    http://example.com/</span></span><br><span class="line"><span class="comment">// @version      1.0</span></span><br><span class="line"><span class="comment">// @description  曲园全自动教评打分(声明见：https://www.luogu.com.cn/blog/ianwusb/quyuansoringauto)</span></span><br><span class="line"><span class="comment">// @author       ianwusb from(https://www.luogu.com.cn/blog/ianwusb/)</span></span><br><span class="line"><span class="comment">// @match        http://202.194.188.38/*</span></span><br><span class="line"><span class="comment">// @grant        none</span></span><br><span class="line"><span class="comment">// ==/UserScript==</span></span><br><span class="line"></span><br><span class="line">(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="string">&#x27;use strict&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 指定要点击的元素的ID数组</span></span><br><span class="line">    <span class="comment">// 注意：这里的ID需根据实际网页结构进行调整</span></span><br><span class="line">    <span class="keyword">const</span> targetElementIds = [</span><br><span class="line">        <span class="string">&#x27;pj0601id_2_2&#x27;</span>, <span class="string">&#x27;pj0601id_3_2&#x27;</span>, <span class="string">&#x27;pj0601id_4_2&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;pj0601id_5_2&#x27;</span>, <span class="string">&#x27;pj0601id_6_2&#x27;</span>, <span class="string">&#x27;pj0601id_7_2&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;pj0601id_8_2&#x27;</span>, <span class="string">&#x27;pj0601id_9_2&#x27;</span>, <span class="string">&#x27;pj0601id_10_2&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;pj0601id_11_1&#x27;</span></span><br><span class="line">    ]; </span><br><span class="line"></span><br><span class="line">    <span class="comment">// 构建选择器字符串并获取目标元素列表</span></span><br><span class="line">    <span class="keyword">const</span> selector = <span class="string">&#x27;#&#x27;</span> + targetElementIds.<span class="title function_">join</span>(<span class="string">&#x27;, #&#x27;</span>);</span><br><span class="line">    <span class="keyword">const</span> targetElements = <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(selector);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 检查元素是否存在</span></span><br><span class="line">    <span class="keyword">if</span> (targetElements.<span class="property">length</span> &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="comment">// 直接模拟点击所有目标元素的操作</span></span><br><span class="line">        targetElements.<span class="title function_">forEach</span>(<span class="keyword">function</span>(<span class="params">element</span>) &#123;</span><br><span class="line">            <span class="title function_">simulateClick</span>(element); <span class="comment">// 对每个目标元素执行模拟点击操作</span></span><br><span class="line">        &#125;);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;Target elements not found&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 模拟鼠标点击元素的函数</span></span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">simulateClick</span>(<span class="params">element</span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> clickEvent = <span class="variable language_">document</span>.<span class="title function_">createEvent</span>(<span class="string">&#x27;MouseEvents&#x27;</span>);</span><br><span class="line">        <span class="comment">// 初始化事件（注：此处代码原文被截断，以下为补全的标准写法）</span></span><br><span class="line">        clickEvent.<span class="title function_">initEvent</span>(<span class="string">&#x27;click&#x27;</span>, <span class="literal">true</span>, <span class="literal">true</span>);</span><br><span class="line">        element.<span class="title function_">dispatchEvent</span>(clickEvent);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<p>```javascript<br>// ==UserScript==<br>// @name         曲园全自动教评打分<br>// @namespace    <a target="_blank" rel="noopener" href="http://example.com/">http://example.com/</a><br>// @version      1.0<br>// @description  曲园全自动教评打分(声明见：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/blog/ianwusb/quyuansoringauto">https://www.luogu.com.cn/blog/ianwusb/quyuansoringauto</a>)<br>// @author       ianwusb from(<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/blog/ianwusb/">https://www.luogu.com.cn/blog/ianwusb/</a>)<br>// @match        <a target="_blank" rel="noopener" href="http://202.194.188.38/*">http://202.194.188.38/*</a><br>// @grant        none<br>// ==/UserScript==</p>
+<p>(function() {<br>    ‘use strict’;</p>
+<pre><code>// 指定要点击的元素的ID数组
+// 注意：这里的ID需根据实际网页结构进行调整
+const targetElementIds = [
+    &#39;pj0601id_2_2&#39;, &#39;pj0601id_3_2&#39;, &#39;pj0601id_4_2&#39;,
+    &#39;pj0601id_5_2&#39;, &#39;pj0601id_6_2&#39;, &#39;pj0601id_7_2&#39;,
+    &#39;pj0601id_8_2&#39;, &#39;pj0601id_9_2&#39;, &#39;pj0601id_10_2&#39;,
+    &#39;pj0601id_11_1&#39;
+]; 
+
+// 构建选择器字符串并获取目标元素列表
+const selector = &#39;#&#39; + targetElementIds.join(&#39;, #&#39;);
+const targetElements = document.querySelectorAll(selector);
+
+// 检查元素是否存在
+if (targetElements.length &gt; 0) {
+    // 直接模拟点击所有目标元素的操作
+    targetElements.forEach(function(element) {
+        simulateClick(element); // 对每个目标元素执行模拟点击操作
+    });
+} else {
+    console.error(&#39;Target elements not found&#39;);
+}
+
+// 模拟鼠标点击元素的函数
+function simulateClick(element) {
+    const clickEvent = document.createEvent(&#39;MouseEvents&#39;);
+    // 初始化事件（注：此处代码原文被截断，以下为补全的标准写法）
+    clickEvent.initEvent(&#39;click&#39;, true, true);
+    element.dispatchEvent(clickEvent);
+}
+</code></pre><p>})();</p>
 <h2 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h2><ol>
 <li><strong>安装插件</strong>：在浏览器中安装 Tampermonkey（油猴）扩展。</li>
 <li><strong>添加脚本</strong>：新建脚本，将上述代码粘贴并保存。</li>
@@ -321,9 +353,9 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E6%9B%B2%E5%9B%AD/" rel="tag"># 曲园</a>
               <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
               <a href="/tags/%E6%B2%B9%E7%8C%B4%E8%84%9A%E6%9C%AC/" rel="tag"># 油猴脚本</a>
+              <a href="/tags/%E6%9B%B2%E5%9B%AD/" rel="tag"># 曲园</a>
           </div>
 
         

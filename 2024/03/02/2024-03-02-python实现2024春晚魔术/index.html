@@ -189,16 +189,16 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">148</span>
+          <span class="site-state-item-count">151</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">53</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">68</span>
+        <span class="site-state-item-count">127</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -292,7 +292,85 @@
 <p>下面我们通过 Python 代码来模拟整个魔术流程。</p>
 <span id="more"></span>
 <h2 id="Python-代码实现"><a href="#Python-代码实现" class="headerlink" title="Python 代码实现"></a>Python 代码实现</h2><p>以下代码完整复现了春晚魔术的每一个步骤，包括撕牌、名字移动、地域插入、性别丢弃以及最后的“好运留下来，烦恼丢出去”循环。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">spring_festival_gala_magic</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;--- 2024春晚魔术 Python复现 ---&quot;</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 1. 初始化四张牌（假设为1, 2, 3, 4）</span></span><br><span class="line">    cards = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line">    random.shuffle(cards)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;步骤1 - 随机打乱后的牌：<span class="subst">&#123;cards&#125;</span>&quot;</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 2. 撕开牌，变成两份一样的叠在一起</span></span><br><span class="line">    <span class="comment"># 此时牌堆结构为 [A, B, C, D, A, B, C, D]</span></span><br><span class="line">    cards = cards + cards</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;步骤2 - 撕开后重叠：<span class="subst">&#123;cards&#125;</span>&quot;</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 3. 名字字数移动（将顶部的牌移到底部）</span></span><br><span class="line">    name_len = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;请输入你的名字字数（几句话）：&quot;</span>))</span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(name_len):</span><br><span class="line">        cards.append(cards.pop(<span class="number">0</span>))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;步骤3 - 名字移动后：<span class="subst">&#123;cards&#125;</span>&quot;</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 4. 取出前3张牌，随机插入中间</span></span><br><span class="line">    <span class="comment"># 注意：不能插在第一张或最后一张的位置，以保证随机性且不打乱核心结构</span></span><br><span class="line">    top_three = cards[:<span class="number">3</span>]</span><br><span class="line">    remaining = cards[<span class="number">3</span>:]</span><br><span class="line">    insert_pos = random.randint(<span class="number">1</span>, <span class="built_in">len</span>(remaining) - <span class="number">1</span>)</span><br><span class="line">    cards = remaining[:insert_pos] + top_three + remaining[insert_pos:]</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;步骤4 - 前3张插入中间后：<span class="subst">&#123;cards&#125;</span>&quot;</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 5. 藏牌（取走最上面的一张牌，这就是最后要匹配的牌）</span></span><br><span class="line">    hidden_card = cards.pop(<span class="number">0</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;步骤5 - 藏起来的牌是：<span class="subst">&#123;hidden_card&#125;</span>&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;手中剩余牌：<span class="subst">&#123;cards&#125;</span>&quot;</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 6. 地域判断（南方人/北方人/不确定）</span></span><br><span class="line">    region = <span class="built_in">input</span>(<span class="string">&quot;你是南方人(输入1)，北方人(输入2)，还是不确定(输入3)？&quot;</span>)</span><br><span class="line">    <span class="keyword">if</span> region == <span class="string">&quot;1&quot;</span>:</span><br><span class="line">        move_count = <span class="number">1</span></span><br><span class="line">    <span class="keyword">elif</span> region == <span class="string">&quot;2&quot;</span>:</span><br><span class="line">        move_count = <span class="number">2</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        move_count = <span class="number">3</span></span><br><span class="line">        </span><br><span class="line">    <span class="comment"># 取出指定数量的牌，插入中间</span></span><br><span class="line">    top_cards = cards[:move_count]</span><br><span class="line">    remaining = cards[move_count:]</span><br><span class="line">    insert_pos = random.randint(<span class="number">1</span>, <span class="built_in">len</span>(remaining) - <span class="number">1</span>)</span><br><span class="line">    cards = remaining[:insert_pos] + top_cards + remaining[insert_pos:]</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;步骤6 - 地域操作后：<span class="subst">&#123;cards&#125;</span>&quot;</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 7. 性别丢弃（男生扔1张，女生扔2张）</span></span><br><span class="line">    gender = <span class="built_in">input</span>(<span class="string">&quot;你是男生(输入1)还是女生(输入2)？&quot;</span>)</span><br><span class="line">    discard_count = <span class="number">1</span> <span class="keyword">if</span> gender == <span class="string">&quot;1&quot;</span> <span class="keyword">else</span> <span class="number">2</span></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(discard_count):</span><br><span class="line">        cards.pop(<span class="number">0</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;步骤7 - 性别丢弃后：<span class="subst">&#123;cards&#125;</span>&quot;</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 8. “见证奇迹的时刻”（7个字，循环移牌7次）</span></span><br><span class="line">    magic_words = <span class="string">&quot;见证奇迹的时刻&quot;</span></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(magic_words)):</span><br><span class="line">        cards.append(cards.pop(<span class="number">0</span>))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;步骤8 - 念咒语后：<span class="subst">&#123;cards&#125;</span>&quot;</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 9. “好运留下来，烦恼丢出去”</span></span><br><span class="line">    <span class="comment"># 规则：第一张放到底部（留下来），第二张扔掉（丢出去）</span></span><br><span class="line">    <span class="comment"># 循环直到只剩一张</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;步骤9 - 开始循环：好运留下来，烦恼丢出去...&quot;</span>)</span><br><span class="line">    <span class="keyword">while</span> <span class="built_in">len</span>(cards) &gt; <span class="number">1</span>:</span><br><span class="line">        <span class="comment"># 好运留下来</span></span><br><span class="line">        cards.append(cards.pop(<span class="number">0</span>))</span><br><span class="line">        <span class="comment"># 烦恼丢出去</span></span><br><span class="line">        cards.pop(<span class="number">0</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;  -&gt; 当前牌堆：<span class="subst">&#123;cards&#125;</span>&quot;</span>)</span><br><span class="line">        </span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;\n--- 结果验证 ---&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;你手里剩下的牌是：<span class="subst">&#123;cards[<span class="number">0</span>]&#125;</span>&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;你藏起来的牌是：<span class="subst">&#123;hidden_card&#125;</span>&quot;</span>)</span><br><span class="line">    <span class="keyword">if</span> cards[<span class="number">0</span>] == hidden_card:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;恭喜！魔术成功，奇迹发生了！&quot;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;魔术失败，请检查步骤。&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    spring_festival_gala_magic()</span><br></pre></td></tr></table></figure>
+<p>```python<br>import random</p>
+<p>def spring_festival_gala_magic():<br>    print(“—- 2024春晚魔术 Python复现 —-“)</p>
+<pre><code># 1. 初始化四张牌（假设为1, 2, 3, 4）
+cards = [1, 2, 3, 4]
+random.shuffle(cards)
+print(f&quot;步骤1 - 随机打乱后的牌：{cards}&quot;)
+
+# 2. 撕开牌，变成两份一样的叠在一起
+# 此时牌堆结构为 [A, B, C, D, A, B, C, D]
+cards = cards + cards
+print(f&quot;步骤2 - 撕开后重叠：{cards}&quot;)
+
+# 3. 名字字数移动（将顶部的牌移到底部）
+name_len = int(input(&quot;请输入你的名字字数（几句话）：&quot;))
+for _ in range(name_len):
+    cards.append(cards.pop(0))
+print(f&quot;步骤3 - 名字移动后：{cards}&quot;)
+
+# 4. 取出前3张牌，随机插入中间
+# 注意：不能插在第一张或最后一张的位置，以保证随机性且不打乱核心结构
+top_three = cards[:3]
+remaining = cards[3:]
+insert_pos = random.randint(1, len(remaining) - 1)
+cards = remaining[:insert_pos] + top_three + remaining[insert_pos:]
+print(f&quot;步骤4 - 前3张插入中间后：{cards}&quot;)
+
+# 5. 藏牌（取走最上面的一张牌，这就是最后要匹配的牌）
+hidden_card = cards.pop(0)
+print(f&quot;步骤5 - 藏起来的牌是：{hidden_card}&quot;)
+print(f&quot;手中剩余牌：{cards}&quot;)
+
+# 6. 地域判断（南方人/北方人/不确定）
+region = input(&quot;你是南方人(输入1)，北方人(输入2)，还是不确定(输入3)？&quot;)
+if region == &quot;1&quot;:
+    move_count = 1
+elif region == &quot;2&quot;:
+    move_count = 2
+else:
+    move_count = 3
+
+# 取出指定数量的牌，插入中间
+top_cards = cards[:move_count]
+remaining = cards[move_count:]
+insert_pos = random.randint(1, len(remaining) - 1)
+cards = remaining[:insert_pos] + top_cards + remaining[insert_pos:]
+print(f&quot;步骤6 - 地域操作后：{cards}&quot;)
+
+# 7. 性别丢弃（男生扔1张，女生扔2张）
+gender = input(&quot;你是男生(输入1)还是女生(输入2)？&quot;)
+discard_count = 1 if gender == &quot;1&quot; else 2
+for _ in range(discard_count):
+    cards.pop(0)
+print(f&quot;步骤7 - 性别丢弃后：{cards}&quot;)
+
+# 8. “见证奇迹的时刻”（7个字，循环移牌7次）
+magic_words = &quot;见证奇迹的时刻&quot;
+for _ in range(len(magic_words)):
+    cards.append(cards.pop(0))
+print(f&quot;步骤8 - 念咒语后：{cards}&quot;)
+
+# 9. “好运留下来，烦恼丢出去”
+# 规则：第一张放到底部（留下来），第二张扔掉（丢出去）
+# 循环直到只剩一张
+print(&quot;步骤9 - 开始循环：好运留下来，烦恼丢出去...&quot;)
+while len(cards) &gt; 1:
+    # 好运留下来
+    cards.append(cards.pop(0))
+    # 烦恼丢出去
+    cards.pop(0)
+    print(f&quot;  -&gt; 当前牌堆：{cards}&quot;)
+
+print(&quot;\n--- 结果验证 ---&quot;)
+print(f&quot;你手里剩下的牌是：{cards[0]}&quot;)
+print(f&quot;你藏起来的牌是：{hidden_card}&quot;)
+if cards[0] == hidden_card:
+    print(&quot;恭喜！魔术成功，奇迹发生了！&quot;)
+else:
+    print(&quot;魔术失败，请检查步骤。&quot;)
+</code></pre><p>if <strong>name</strong> == “<strong>main</strong>“:<br>    spring_festival_gala_magic()</p>
 <h2 id="核心步骤解析"><a href="#核心步骤解析" class="headerlink" title="核心步骤解析"></a>核心步骤解析</h2><p>为了方便理解，我们将魔术中的关键动作拆解如下：</p>
 <ol>
 <li><strong>对半撕牌</strong>：这步非常关键，它构建了一个周期为4的重复序列（例如 A B C D A B C D）。这意味着只要我们能控制相对位置，最终一定能找到配对的牌。</li>

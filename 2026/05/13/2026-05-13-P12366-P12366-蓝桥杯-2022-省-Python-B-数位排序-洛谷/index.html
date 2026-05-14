@@ -28,7 +28,7 @@
 <meta property="og:description" content="标题[蓝桥杯 2022 省 Python B] 数位排序 - 洛谷 题目概览 题目来源: https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;problem&#x2F;P12366 题目难度: ★★★☆☆ 标签分类: 算法, 数据结构 核心考点: 数位排序  题意解析 问题描述: 给定一个整数数组，要求对数组中的每个元素进行数位排序，使得每个数字的每一位都按照从小到大的顺序排列。例如，输入数组 [123, 4">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-05-12T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-05-13T09:24:10.127Z">
+<meta property="article:modified_time" content="2026-05-14T05:50:12.291Z">
 <meta property="article:author" content="Ianwusb">
 <meta property="article:tag" content="P12366">
 <meta property="article:tag" content="Python">
@@ -189,16 +189,16 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">148</span>
+          <span class="site-state-item-count">151</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">53</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">68</span>
+        <span class="site-state-item-count">127</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -261,9 +261,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2026-05-13 00:00:00 / 修改时间：17:24:10" itemprop="dateCreated datePublished" datetime="2026-05-13T00:00:00+08:00">2026-05-13</time>
+      <time title="创建时间：2026-05-13 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-13T00:00:00+08:00">2026-05-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
     </span>
 
   
@@ -342,8 +348,31 @@
 </tbody>
 </table>
 </div>
-<h2 id="代码详解"><a href="#代码详解" class="headerlink" title="代码详解"></a>代码详解</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">sort_digits</span>(<span class="params">nums</span>):</span><br><span class="line">    <span class="comment"># 预处理：创建位数映射表</span></span><br><span class="line">    digits_map = &#123;<span class="number">0</span>: <span class="number">0</span>, <span class="number">1</span>: <span class="number">1</span>, <span class="number">2</span>: <span class="number">2</span>, <span class="number">3</span>: <span class="number">3</span>, <span class="number">4</span>: <span class="number">4</span>, <span class="number">5</span>: <span class="number">5</span>, <span class="number">6</span>: <span class="number">6</span>, <span class="number">7</span>: <span class="number">7</span>, <span class="number">8</span>: <span class="number">8</span>, <span class="number">9</span>: <span class="number">9</span>&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 主函数：数位排序</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">helper</span>(<span class="params">num</span>):</span><br><span class="line">        <span class="comment"># 如果数字长度为0，则返回该数字本身</span></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(<span class="built_in">str</span>(num)) == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> num</span><br><span class="line">        <span class="comment"># 如果数字长度为1，则返回该数字本身</span></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(<span class="built_in">str</span>(num)) == <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> num</span><br><span class="line">        <span class="comment"># 如果数字长度大于1，则取前缀和，并按位数排序</span></span><br><span class="line">        result = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(<span class="built_in">str</span>(num))):</span><br><span class="line">            result.append(<span class="built_in">int</span>(<span class="built_in">str</span>(num)[i]) * (<span class="number">10</span> ** (<span class="built_in">len</span>(<span class="built_in">str</span>(num)) - i - <span class="number">1</span>))) + <span class="built_in">int</span>(<span class="built_in">str</span>(num)[i])</span><br><span class="line">        <span class="comment"># 根据位数映射表，调整结果中的数字</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(<span class="built_in">str</span>(result[<span class="number">0</span>]))):</span><br><span class="line">            result[<span class="number">0</span>][i] = digits_map[result[<span class="number">0</span>][i]]</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&#x27;&#x27;</span>.join(<span class="built_in">map</span>(<span class="built_in">str</span>, result))</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 遍历数组，对每个元素进行数位排序</span></span><br><span class="line">    <span class="keyword">for</span> num <span class="keyword">in</span> nums:</span><br><span class="line">        <span class="built_in">print</span>(helper(num))</span><br></pre></td></tr></table></figure>
-<h2 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h2><ul>
+<h2 id="代码详解"><a href="#代码详解" class="headerlink" title="代码详解"></a>代码详解</h2><p>```python<br>def sort_digits(nums):</p>
+<pre><code># 预处理：创建位数映射表
+digits_map = {0: 0, 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9}
+
+# 主函数：数位排序
+def helper(num):
+    # 如果数字长度为0，则返回该数字本身
+    if len(str(num)) == 0:
+        return num
+    # 如果数字长度为1，则返回该数字本身
+    if len(str(num)) == 1:
+        return num
+    # 如果数字长度大于1，则取前缀和，并按位数排序
+    result = []
+    for i in range(len(str(num))):
+        result.append(int(str(num)[i]) * (10 ** (len(str(num)) - i - 1))) + int(str(num)[i])
+    # 根据位数映射表，调整结果中的数字
+    for i in range(len(str(result[0]))):
+        result[0][i] = digits_map[result[0][i]]
+    return &#39;&#39;.join(map(str, result))
+
+# 遍历数组，对每个元素进行数位排序
+for num in nums:
+    print(helper(num))
+</code></pre><h2 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h2><ul>
 <li><strong>时间复杂度</strong>: O(n log n)，其中 n 是数组的长度。</li>
 <li><strong>空间复杂度</strong>: O(1)，仅使用常数级别的额外空间。</li>
 </ul>
@@ -366,13 +395,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2026/05/13/2026-05-13-P12869-P12869-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-Python-A-%E7%89%B9%E6%AE%8A%E6%95%B4%E6%95%B0%E5%AF%B9%E7%9A%84%E6%95%B0%E9%87%8F-%E6%B4%9B%E8%B0%B7/" rel="prev" title="P12869 - P12869 [蓝桥杯 2025 国 Python A] 特殊整数对的数量 - 洛谷">
-                  <i class="fa fa-angle-left"></i> P12869 - P12869 [蓝桥杯 2025 国 Python A] 特殊整数对的数量 - 洛谷
+                <a href="/2026/05/13/2026-05-13-P12843-P12843-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-A-%E7%94%9F%E6%97%A5%E7%9B%B8%E9%81%87%E9%97%AE%E9%A2%98-%E6%B4%9B%E8%B0%B7/" rel="prev" title="P12843 - P12843 [蓝桥杯 2025 国 A] 生日相遇问题 - 洛谷">
+                  <i class="fa fa-angle-left"></i> P12843 - P12843 [蓝桥杯 2025 国 A] 生日相遇问题 - 洛谷
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2026/05/13/2026-05-13-P12377-P12377-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E7%9C%81-Python-B-2023-%E6%B4%9B%E8%B0%B7/" rel="next" title="P12377 - P12377 [蓝桥杯 2023 省 Python B] 2023 - 洛谷">
-                  P12377 - P12377 [蓝桥杯 2023 省 Python B] 2023 - 洛谷 <i class="fa fa-angle-right"></i>
+                <a href="/2026/05/13/2026-05-13-P12281-P12281-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E5%9B%BD-Python-A-Java-A-%E8%AE%B0%E4%BA%8B%E6%9C%AC-%E6%B4%9B%E8%B0%B7/" rel="next" title="P12281 - P12281 [蓝桥杯 2024 国 Python A&#x2F;Java A] 记事本 - 洛谷">
+                  P12281 - P12281 [蓝桥杯 2024 国 Python A/Java A] 记事本 - 洛谷 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>

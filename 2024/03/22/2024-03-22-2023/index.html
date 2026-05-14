@@ -174,7 +174,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E7%82%B9%E5%A4%8D%E7%9B%98"><span class="nav-number">1.</span> <span class="nav-text">关键点复盘</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF%E5%88%86%E6%9E%90"><span class="nav-number">2.</span> <span class="nav-text">思路分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E6%A0%B8%E5%BF%83%E9%80%BB%E8%BE%91"><span class="nav-number">2.1.</span> <span class="nav-text">算法核心逻辑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">2.2.</span> <span class="nav-text">时间复杂度</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E7%82%B9%E5%A4%8D%E7%9B%98"><span class="nav-number">4.</span> <span class="nav-text">关键点复盘</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -189,16 +189,16 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">148</span>
+          <span class="site-state-item-count">151</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">53</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">68</span>
+        <span class="site-state-item-count">127</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -284,7 +284,61 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## 问题描述</span><br><span class="line"></span><br><span class="line">**题目要求**：</span><br><span class="line">请求出在 `12345678` (含) 至 `98765432` (含) 的范围内，有多少个数字**完全不包含**子序列 `2023`。</span><br><span class="line"></span><br><span class="line">**定义说明**：</span><br><span class="line">“完全不包含 `2023`” 是指：无论将该数的哪些数位移除，都不能得到 `2023`。这本质上是一个**子序列匹配**问题。</span><br><span class="line"></span><br><span class="line">**示例解析**：</span><br><span class="line">- **不包含**：`20322175`、`33220022`（无法通过删除部分数字凑出2023）</span><br><span class="line">- **包含**：</span><br><span class="line">  - `20230415`（显式包含）</span><br><span class="line">  - `20193213`（隐式包含，取第 1, 2, 6, 8 位数字可组成 2023）</span><br><span class="line"></span><br><span class="line">## 思路分析</span><br><span class="line"></span><br><span class="line">要判断一个数字是否包含子序列 `2023`，最高效的方法是使用**贪心匹配**（Greedy Matching）策略，这也是处理子序列问题的常用技巧。</span><br><span class="line"></span><br><span class="line">### 算法核心逻辑</span><br><span class="line">我们可以将目标子序列 `&quot;2023&quot;` 看作一个待匹配的栈（或队列）：</span><br><span class="line">1. 将目标模式初始化为列表 `target = [&#x27;2&#x27;, &#x27;0&#x27;, &#x27;2&#x27;, &#x27;3&#x27;]`。</span><br><span class="line">2. 遍历当前数字的每一个字符：</span><br><span class="line">   - 如果当前字符与 `target` 的**首个元素**相同，则将首元素弹出（表示匹配成功一位）。</span><br><span class="line">   - 如果不同，则跳过。</span><br><span class="line">3. 遍历结束后：</span><br><span class="line">   - 如果 `target` 为空，说明成功匹配了所有字符，该数字**包含** `2023`。</span><br><span class="line">   - 如果 `target` 不为空，说明未能完全匹配，该数字**不包含** `2023`，计入统计。</span><br><span class="line"></span><br><span class="line">### 时间复杂度</span><br><span class="line">设数字个数为 $N$，每个数字位数约为 $D$。对于每个数字，我们只需遍历一次字符串，时间复杂度为 $O(D)$。总时间复杂度为 $O(N \times D)$，在题目给定的范围内完全可接受。</span><br><span class="line"></span><br><span class="line">## 代码实现</span><br><span class="line"></span><br><span class="line">以下是优化后的 Python 代码实现。为了增强可读性，我对原代码进行了变量命名的优化，并添加了详细注释。</span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line">def count_numbers_without_2023():</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    统计在 12345678 至 98765432 之间，完全不包含子序列 &#x27;2023&#x27; 的数字个数。</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    count = 0</span><br><span class="line">    # 遍历题目给定的区间范围</span><br><span class="line">    # range(start, end) 中 end 需要包含在内，故为 98765432 + 1</span><br><span class="line">    for num in range(12345678, 98765433):</span><br><span class="line">        </span><br><span class="line">        # 初始化目标子序列列表，作为匹配栈</span><br><span class="line">        # 使用 list 便于 pop(0) 操作</span><br><span class="line">        target_pattern = [&quot;2&quot;, &quot;0&quot;, &quot;2&quot;, &quot;3&quot;]</span><br><span class="line">        </span><br><span class="line">        # 将当前数字转换为字符串进行遍历</span><br><span class="line">        num_str = str(num)</span><br><span class="line">        </span><br><span class="line">        for char in num_str:</span><br><span class="line">            # 优化：如果 target_pattern 已经为空，可以提前终止内层循环</span><br><span class="line">            # 但此处逻辑为：只有当 char 等于当前目标首字符时才出栈</span><br><span class="line">            if target_pattern and char == target_pattern[0]:</span><br><span class="line">                target_pattern.pop(0) # 匹配成功，移除首元素</span><br><span class="line">        </span><br><span class="line">        # 判断最终结果</span><br><span class="line">        # 如果 target_pattern 长度不为 0，说明未能完全匹配 &#x27;2023&#x27;</span><br><span class="line">        # 即该数字“完全不包含”该子序列，计数器加 1</span><br><span class="line">        if len(target_pattern) != 0:</span><br><span class="line">            count += 1</span><br><span class="line">            </span><br><span class="line">    print(f&quot;完全不包含 2023 的数字个数为: &#123;count&#125;&quot;)</span><br><span class="line">    return count</span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    count_numbers_without_2023()</span><br></pre></td></tr></table></figure>
+    <div class="post-body" itemprop="articleBody"><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p><strong>题目要求</strong>：<br>请求出在 <code>12345678</code> (含) 至 <code>98765432</code> (含) 的范围内，有多少个数字<strong>完全不包含</strong>子序列 <code>2023</code>。</p>
+<p><strong>定义说明</strong>：<br>“完全不包含 <code>2023</code>” 是指：无论将该数的哪些数位移除，都不能得到 <code>2023</code>。这本质上是一个<strong>子序列匹配</strong>问题。</p>
+<p><strong>示例解析</strong>：</p>
+<ul>
+<li><strong>不包含</strong>：<code>20322175</code>、<code>33220022</code>（无法通过删除部分数字凑出2023）</li>
+<li><strong>包含</strong>：<ul>
+<li><code>20230415</code>（显式包含）</li>
+<li><code>20193213</code>（隐式包含，取第 1, 2, 6, 8 位数字可组成 2023）</li>
+</ul>
+</li>
+</ul>
+<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><p>要判断一个数字是否包含子序列 <code>2023</code>，最高效的方法是使用<strong>贪心匹配</strong>（Greedy Matching）策略，这也是处理子序列问题的常用技巧。</p>
+<h3 id="算法核心逻辑"><a href="#算法核心逻辑" class="headerlink" title="算法核心逻辑"></a>算法核心逻辑</h3><p>我们可以将目标子序列 <code>&quot;2023&quot;</code> 看作一个待匹配的栈（或队列）：</p>
+<ol>
+<li>将目标模式初始化为列表 <code>target = [&#39;2&#39;, &#39;0&#39;, &#39;2&#39;, &#39;3&#39;]</code>。</li>
+<li>遍历当前数字的每一个字符：<ul>
+<li>如果当前字符与 <code>target</code> 的<strong>首个元素</strong>相同，则将首元素弹出（表示匹配成功一位）。</li>
+<li>如果不同，则跳过。</li>
+</ul>
+</li>
+<li>遍历结束后：<ul>
+<li>如果 <code>target</code> 为空，说明成功匹配了所有字符，该数字<strong>包含</strong> <code>2023</code>。</li>
+<li>如果 <code>target</code> 不为空，说明未能完全匹配，该数字<strong>不包含</strong> <code>2023</code>，计入统计。</li>
+</ul>
+</li>
+</ol>
+<h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p>设数字个数为 $N$，每个数字位数约为 $D$。对于每个数字，我们只需遍历一次字符串，时间复杂度为 $O(D)$。总时间复杂度为 $O(N \times D)$，在题目给定的范围内完全可接受。</p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><p>以下是优化后的 Python 代码实现。为了增强可读性，我对原代码进行了变量命名的优化，并添加了详细注释。</p>
+<p>```python<br>def count_numbers_without_2023():<br>    “””<br>    统计在 12345678 至 98765432 之间，完全不包含子序列 ‘2023’ 的数字个数。<br>    “””<br>    count = 0</p>
+<pre><code># 遍历题目给定的区间范围
+# range(start, end) 中 end 需要包含在内，故为 98765432 + 1
+for num in range(12345678, 98765433):
+
+    # 初始化目标子序列列表，作为匹配栈
+    # 使用 list 便于 pop(0) 操作
+    target_pattern = [&quot;2&quot;, &quot;0&quot;, &quot;2&quot;, &quot;3&quot;]
+
+    # 将当前数字转换为字符串进行遍历
+    num_str = str(num)
+
+    for char in num_str:
+        # 优化：如果 target_pattern 已经为空，可以提前终止内层循环
+        # 但此处逻辑为：只有当 char 等于当前目标首字符时才出栈
+        if target_pattern and char == target_pattern[0]:
+            target_pattern.pop(0) # 匹配成功，移除首元素
+
+    # 判断最终结果
+    # 如果 target_pattern 长度不为 0，说明未能完全匹配 &#39;2023&#39;
+    # 即该数字“完全不包含”该子序列，计数器加 1
+    if len(target_pattern) != 0:
+        count += 1
+
+print(f&quot;完全不包含 2023 的数字个数为: {count}&quot;)
+return count
+</code></pre><p>if <strong>name</strong> == “<strong>main</strong>“:<br>    count_numbers_without_2023()</p>
 <h2 id="关键点复盘"><a href="#关键点复盘" class="headerlink" title="关键点复盘"></a>关键点复盘</h2><ol>
 <li><strong>子序列 vs 子串</strong>：本题最大的陷阱在于理解“完全不包含”的定义。它不是检查连续子串（如 <code>in</code> 操作），而是检查非连续的子序列。</li>
 <li><strong>列表作为栈的使用</strong>：代码中利用列表的 <code>pop(0)</code> 特性，模拟了序列匹配的过程。每次匹配成功，就将需求列表缩短，这是一种非常直观且不易出错的写法。</li>

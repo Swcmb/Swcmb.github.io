@@ -28,7 +28,7 @@
 <meta property="og:description" content="本文详细讲解蓝桥杯竞赛中的“压缩字符串”题目，通过贪心模拟思路实现连续字符的压缩，并提供优化后的Python代码实现。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-03-17T01:38:33.000Z">
-<meta property="article:modified_time" content="2026-05-14T04:32:41.857Z">
+<meta property="article:modified_time" content="2026-05-14T05:50:12.112Z">
 <meta property="article:author" content="Ianwusb">
 <meta property="article:tag" content="Algorithm">
 <meta property="article:tag" content="LanQiao">
@@ -173,7 +173,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81-%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">一、 题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81-%E8%BE%93%E5%85%A5%E4%B8%8E%E8%BE%93%E5%87%BA"><span class="nav-number">2.</span> <span class="nav-text">二、 输入与输出</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%8F%8F%E8%BF%B0"><span class="nav-number">2.1.</span> <span class="nav-text">输入描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%8F%8F%E8%BF%B0"><span class="nav-number">2.2.</span> <span class="nav-text">输出描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%85%A5"><span class="nav-number">2.3.</span> <span class="nav-text">样例输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%87%BA"><span class="nav-number">2.4.</span> <span class="nav-text">样例输出</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81-%E9%A2%98%E7%9B%AE%E8%A7%A3%E6%9E%90%E4%B8%8E%E6%80%9D%E8%B7%AF"><span class="nav-number">3.</span> <span class="nav-text">三、 题目解析与思路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E6%80%9D%E8%B7%AF"><span class="nav-number">3.1.</span> <span class="nav-text">核心思路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">4.</span> <span class="nav-text">四、 代码实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81-%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90"><span class="nav-number">5.</span> <span class="nav-text">五、 复杂度分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81-%E6%80%BB%E7%BB%93"><span class="nav-number">6.</span> <span class="nav-text">六、 总结</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81-%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">一、 题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81-%E8%BE%93%E5%85%A5%E4%B8%8E%E8%BE%93%E5%87%BA"><span class="nav-number">2.</span> <span class="nav-text">二、 输入与输出</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%8F%8F%E8%BF%B0"><span class="nav-number">2.1.</span> <span class="nav-text">输入描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%8F%8F%E8%BF%B0"><span class="nav-number">2.2.</span> <span class="nav-text">输出描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%85%A5"><span class="nav-number">2.3.</span> <span class="nav-text">样例输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%87%BA"><span class="nav-number">2.4.</span> <span class="nav-text">样例输出</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#A3BC2D4"><span class="nav-number">3.</span> <span class="nav-text">A3BC2D4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81-%E9%A2%98%E7%9B%AE%E8%A7%A3%E6%9E%90%E4%B8%8E%E6%80%9D%E8%B7%AF"><span class="nav-number">4.</span> <span class="nav-text">三、 题目解析与思路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E6%80%9D%E8%B7%AF"><span class="nav-number">4.1.</span> <span class="nav-text">核心思路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">5.</span> <span class="nav-text">四、 代码实现</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E4%B8%BB%E7%A8%8B%E5%BA%8F%E9%80%BB%E8%BE%91"><span class="nav-number">6.</span> <span class="nav-text">3. 主程序逻辑</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81-%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90"><span class="nav-number">6.1.</span> <span class="nav-text">五、 复杂度分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81-%E6%80%BB%E7%BB%93"><span class="nav-number">6.2.</span> <span class="nav-text">六、 总结</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -188,16 +188,16 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">148</span>
+          <span class="site-state-item-count">151</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">53</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">68</span>
+        <span class="site-state-item-count">127</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -268,7 +268,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-05-14 12:32:41" itemprop="dateModified" datetime="2026-05-14T12:32:41+08:00">2026-05-14</time>
+      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -303,10 +303,9 @@
 <li>若输入的字符串可压缩（即压缩后更短），输出压缩后的字符串。</li>
 <li>若压缩后字符串长度未变短，输出 <code>NO</code>。</li>
 </ul>
-<h3 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AAABCCDDDD</span><br></pre></td></tr></table></figure>
-<h3 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A3BC2D4</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="三、-题目解析与思路"><a href="#三、-题目解析与思路" class="headerlink" title="三、 题目解析与思路"></a>三、 题目解析与思路</h2><p>这道题属于典型的<strong>字符串模拟</strong>问题。我们需要遍历字符串，统计连续出现的字符及其数量。</p>
+<h3 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h3><p>```text<br>AAABCCDDDD</p>
+<h3 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h3><p>```text</p>
+<h2 id="A3BC2D4"><a href="#A3BC2D4" class="headerlink" title="A3BC2D4"></a>A3BC2D4</h2><h2 id="三、-题目解析与思路"><a href="#三、-题目解析与思路" class="headerlink" title="三、 题目解析与思路"></a>三、 题目解析与思路</h2><p>这道题属于典型的<strong>字符串模拟</strong>问题。我们需要遍历字符串，统计连续出现的字符及其数量。</p>
 <h3 id="核心思路"><a href="#核心思路" class="headerlink" title="核心思路"></a>核心思路</h3><ol>
 <li><strong>遍历统计</strong>：使用一个指针遍历字符串，维护一个计数器 <code>count</code>，记录当前字符连续出现的次数。</li>
 <li><strong>拼接逻辑</strong>：<ul>
@@ -321,8 +320,49 @@
 </ol>
 <hr>
 <h2 id="四、-代码实现"><a href="#四、-代码实现" class="headerlink" title="四、 代码实现"></a>四、 代码实现</h2><p>以下是优化后的 Python 代码实现。代码修复了原示例中的 HTML 实体编码问题（如 <code>&amp;quot;</code>），并遵循 PEP 8 编码规范，增加了必要的注释。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">compress_string</span>(<span class="params">s</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    压缩字符串函数</span></span><br><span class="line"><span class="string">    :param s: 原字符串</span></span><br><span class="line"><span class="string">    :return: 压缩后的字符串</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment"># 1. 添加哨兵字符：处理末尾字符组的统一逻辑</span></span><br><span class="line">    <span class="comment"># 添加一个原字符串不可能包含的字符，确保最后一个字符组能被正确结算</span></span><br><span class="line">    s += <span class="string">&quot;@&quot;</span></span><br><span class="line">    </span><br><span class="line">    result = <span class="string">&quot;&quot;</span></span><br><span class="line">    count = <span class="number">1</span>  <span class="comment"># 计数器初始化为1（包含当前字符本身）</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 2. 遍历字符串（长度-1，因为末尾添加了哨兵）</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(s) - <span class="number">1</span>):</span><br><span class="line">        current_char = s[i]</span><br><span class="line">        next_char = s[i + <span class="number">1</span>]</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> current_char == next_char:</span><br><span class="line">            <span class="comment"># 字符相同，计数增加</span></span><br><span class="line">            count += <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="comment"># 字符不同，进行结算</span></span><br><span class="line">            <span class="keyword">if</span> count &gt; <span class="number">1</span>:</span><br><span class="line">                result += current_char + <span class="built_in">str</span>(count)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                result += current_char</span><br><span class="line">            </span><br><span class="line">            <span class="comment"># 重置计数器</span></span><br><span class="line">            count = <span class="number">1</span></span><br><span class="line">            </span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 主程序逻辑</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="comment"># 获取输入</span></span><br><span class="line">        raw_str = <span class="built_in">input</span>().strip()</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 执行压缩</span></span><br><span class="line">        compressed_str = compress_string(raw_str)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 4. 判断是否节省空间并输出</span></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(compressed_str) &lt; <span class="built_in">len</span>(raw_str):</span><br><span class="line">            <span class="built_in">print</span>(compressed_str)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;NO&quot;</span>)</span><br><span class="line">            </span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;Input Error: <span class="subst">&#123;e&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
-<hr>
+<p>```python<br>def compress_string(s):<br>    “””<br>    压缩字符串函数<br>    :param s: 原字符串<br>    :return: 压缩后的字符串<br>    “””</p>
+<pre><code># 1. 添加哨兵字符：处理末尾字符组的统一逻辑
+# 添加一个原字符串不可能包含的字符，确保最后一个字符组能被正确结算
+s += &quot;@&quot;
+
+result = &quot;&quot;
+count = 1  # 计数器初始化为1（包含当前字符本身）
+
+# 2. 遍历字符串（长度-1，因为末尾添加了哨兵）
+for i in range(len(s) - 1):
+    current_char = s[i]
+    next_char = s[i + 1]
+
+    if current_char == next_char:
+        # 字符相同，计数增加
+        count += 1
+    else:
+        # 字符不同，进行结算
+        if count &gt; 1:
+            result += current_char + str(count)
+        else:
+            result += current_char
+
+        # 重置计数器
+        count = 1
+
+return result
+</code></pre><h1 id="3-主程序逻辑"><a href="#3-主程序逻辑" class="headerlink" title="3. 主程序逻辑"></a>3. 主程序逻辑</h1><p>if <strong>name</strong> == “<strong>main</strong>“:<br>    try:</p>
+<pre><code>    # 获取输入
+    raw_str = input().strip()
+
+    # 执行压缩
+    compressed_str = compress_string(raw_str)
+
+    # 4. 判断是否节省空间并输出
+    if len(compressed_str) &lt; len(raw_str):
+        print(compressed_str)
+    else:
+        print(&quot;NO&quot;)
+
+except Exception as e:
+    print(f&quot;Input Error: {e}&quot;)
+</code></pre><hr>
 <h2 id="五、-复杂度分析"><a href="#五、-复杂度分析" class="headerlink" title="五、 复杂度分析"></a>五、 复杂度分析</h2><ul>
 <li><strong>时间复杂度</strong>：$O(N)$，其中 $N$ 是字符串的长度。我们只需要遍历一次字符串即可完成压缩。</li>
 <li><strong>空间复杂度</strong>：$O(N)$，主要用于存储压缩后的结果字符串。在最坏情况下（例如 “ABC”），结果字符串长度与原字符串相当。</li>

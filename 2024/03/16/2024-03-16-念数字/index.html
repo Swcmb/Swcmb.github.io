@@ -28,7 +28,7 @@
 <meta property="og:description" content="题目描述题目编号： L1-007题目来源： 团体程序设计天梯赛-练习集 输入一个整数，输出每个数字对应的拼音。当整数为负数时，先输出 fu 字。十个数字对应的拼音如下：     数字 拼音     0 ling   1 yi   2 er   3 san   4 si   5 wu   6 liu   7 qi   8 ba   9 jiu     输入格式输入在一行中给出一个整数，例如：1234">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-03-15T19:36:39.000Z">
-<meta property="article:modified_time" content="2026-05-14T04:32:28.781Z">
+<meta property="article:modified_time" content="2026-05-14T05:50:12.108Z">
 <meta property="article:author" content="Ianwusb">
 <meta property="article:tag" content="LanQiao">
 <meta property="article:tag" content="Python">
@@ -173,7 +173,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.1.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.2.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B"><span class="nav-number">1.3.</span> <span class="nav-text">输入输出样例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E8%A7%A3%E6%9E%90"><span class="nav-number">2.</span> <span class="nav-text">题目解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E6%80%9D%E8%B7%AF"><span class="nav-number">2.1.</span> <span class="nav-text">算法思路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.</span> <span class="nav-text">代码实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96%E7%82%B9%E8%AF%B4%E6%98%8E"><span class="nav-number">3.1.</span> <span class="nav-text">代码优化点说明</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.1.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.2.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B"><span class="nav-number">1.3.</span> <span class="nav-text">输入输出样例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fu-liu-ling-ling"><span class="nav-number">2.</span> <span class="nav-text">fu liu ling ling</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E8%A7%A3%E6%9E%90"><span class="nav-number">3.</span> <span class="nav-text">题目解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E6%80%9D%E8%B7%AF"><span class="nav-number">3.1.</span> <span class="nav-text">算法思路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">4.</span> <span class="nav-text">代码实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96%E7%82%B9%E8%AF%B4%E6%98%8E"><span class="nav-number">4.1.</span> <span class="nav-text">代码优化点说明</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -188,16 +188,16 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">148</span>
+          <span class="site-state-item-count">151</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">53</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">68</span>
+        <span class="site-state-item-count">127</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -268,7 +268,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-05-14 12:32:28" itemprop="dateModified" datetime="2026-05-14T12:32:28+08:00">2026-05-14</time>
+      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -346,10 +346,8 @@
 <h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h3><p>输入在一行中给出一个整数，例如：<code>1234</code>。</p>
 <p><strong>注意：</strong> 整数包括负数、零和正数。</p>
 <h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h3><p>在一行中输出这个整数对应的拼音，每个数字的拼音之间用空格分开，行末没有最后的空格。</p>
-<h3 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h3><p><strong>输入样例 1：</strong><br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-600</span><br></pre></td></tr></table></figure></p>
-<p><strong>输出样例 1：</strong><br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fu liu ling ling</span><br></pre></td></tr></table></figure></p>
-<hr>
-<h2 id="题目解析"><a href="#题目解析" class="headerlink" title="题目解析"></a>题目解析</h2><p>本题属于基础的字符串处理问题。主要考察点包括：</p>
+<h3 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h3><p><strong>输入样例 1：</strong><br>-600<br><strong>输出样例 1：</strong></p>
+<h2 id="fu-liu-ling-ling"><a href="#fu-liu-ling-ling" class="headerlink" title="fu liu ling ling"></a>fu liu ling ling</h2><h2 id="题目解析"><a href="#题目解析" class="headerlink" title="题目解析"></a>题目解析</h2><p>本题属于基础的字符串处理问题。主要考察点包括：</p>
 <ol>
 <li><strong>字符串与数值的处理</strong>：将输入视为字符串处理更为便捷，可以避免数值溢出问题，同时也方便逐位转换。</li>
 <li><strong>映射关系的建立</strong>：需要建立数字字符（’0’-‘9’）与拼音字符串之间的对应关系。可以使用字典或列表实现。</li>
@@ -368,7 +366,31 @@
 </ol>
 <hr>
 <h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><p>以下是优化后的 Python 代码实现。相比原始代码，使用了字典结构存储映射关系，逻辑更加清晰，代码可读性更强。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">read_number</span>():</span><br><span class="line">    <span class="comment"># 定义数字到拼音的映射字典</span></span><br><span class="line">    pinyin_map = &#123;</span><br><span class="line">        <span class="string">&#x27;0&#x27;</span>: <span class="string">&#x27;ling&#x27;</span>, <span class="string">&#x27;1&#x27;</span>: <span class="string">&#x27;yi&#x27;</span>, <span class="string">&#x27;2&#x27;</span>: <span class="string">&#x27;er&#x27;</span>, <span class="string">&#x27;3&#x27;</span>: <span class="string">&#x27;san&#x27;</span>, <span class="string">&#x27;4&#x27;</span>: <span class="string">&#x27;si&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;5&#x27;</span>: <span class="string">&#x27;wu&#x27;</span>, <span class="string">&#x27;6&#x27;</span>: <span class="string">&#x27;liu&#x27;</span>, <span class="string">&#x27;7&#x27;</span>: <span class="string">&#x27;qi&#x27;</span>, <span class="string">&#x27;8&#x27;</span>: <span class="string">&#x27;ba&#x27;</span>, <span class="string">&#x27;9&#x27;</span>: <span class="string">&#x27;jiu&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 读取输入</span></span><br><span class="line">    num_str = <span class="built_in">input</span>().strip()</span><br><span class="line">    result = []</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 处理负数情况</span></span><br><span class="line">    <span class="keyword">if</span> num_str.startswith(<span class="string">&#x27;-&#x27;</span>):</span><br><span class="line">        result.append(<span class="string">&#x27;fu&#x27;</span>)</span><br><span class="line">        num_str = num_str[<span class="number">1</span>:] <span class="comment"># 截取数字部分</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 遍历剩余字符进行转换</span></span><br><span class="line">    <span class="keyword">for</span> char <span class="keyword">in</span> num_str:</span><br><span class="line">        <span class="comment"># 字典查找，直接获取拼音</span></span><br><span class="line">        <span class="keyword">if</span> char <span class="keyword">in</span> pinyin_map:</span><br><span class="line">            result.append(pinyin_map[char])</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 输出结果，用空格连接</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27; &#x27;</span>.join(result))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    read_number()</span><br></pre></td></tr></table></figure>
+<p>```python<br>def read_number():</p>
+<pre><code># 定义数字到拼音的映射字典
+pinyin_map = {
+    &#39;0&#39;: &#39;ling&#39;, &#39;1&#39;: &#39;yi&#39;, &#39;2&#39;: &#39;er&#39;, &#39;3&#39;: &#39;san&#39;, &#39;4&#39;: &#39;si&#39;,
+    &#39;5&#39;: &#39;wu&#39;, &#39;6&#39;: &#39;liu&#39;, &#39;7&#39;: &#39;qi&#39;, &#39;8&#39;: &#39;ba&#39;, &#39;9&#39;: &#39;jiu&#39;
+}
+
+# 读取输入
+num_str = input().strip()
+result = []
+
+# 处理负数情况
+if num_str.startswith(&#39;-&#39;):
+    result.append(&#39;fu&#39;)
+    num_str = num_str[1:] # 截取数字部分
+
+# 遍历剩余字符进行转换
+for char in num_str:
+    # 字典查找，直接获取拼音
+    if char in pinyin_map:
+        result.append(pinyin_map[char])
+
+# 输出结果，用空格连接
+print(&#39; &#39;.join(result))
+</code></pre><p>if <strong>name</strong> == ‘<strong>main</strong>‘:<br>    read_number()</p>
 <h3 id="代码优化点说明"><a href="#代码优化点说明" class="headerlink" title="代码优化点说明"></a>代码优化点说明</h3><ol>
 <li><strong>数据结构优化</strong>：原代码使用了元组列表 <code>li</code> 并通过索引 <code>int(i)</code> 查找，逻辑较为绕弯。优化后直接使用字典 <code>pinyin_map</code>，通过 Key-Value 键值对直接映射，时间复杂度为 O(1)，且代码更直观。</li>
 <li><strong>逻辑简化</strong>：原代码在循环中重复判断了 <code>if (i == li[int(i)][0])</code>，这步判断是多余的，因为索引本身就是为了查找对应项。优化后直接遍历字符串字符并映射。</li>

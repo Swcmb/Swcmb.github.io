@@ -28,7 +28,7 @@
 <meta property="og:description" content="[洛谷 P12121] 进制转换 + 剪枝优化详解题目概览 题目来源: 洛谷 题目链接: 洛谷 P12121 题目难度: ★★☆☆☆ 标签分类: 进制转换、算法设计 核心考点: 进制转换算法、剪枝技巧  题意解析 问题描述: 给定一个十进制数，将其转换为不同的进制表示，并输出所有满足条件的进制数。 输入格式: 一个整数 num。 输出格式: 满足条件的进制数。 样例分析: 输入：810017870">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-05-12T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-05-13T09:17:36.986Z">
+<meta property="article:modified_time" content="2026-05-14T05:50:12.276Z">
 <meta property="article:author" content="Ianwusb">
 <meta property="article:tag" content="P12121">
 <meta property="article:tag" content="Python">
@@ -189,16 +189,16 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">148</span>
+          <span class="site-state-item-count">151</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">53</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">68</span>
+        <span class="site-state-item-count">127</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -261,9 +261,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2026-05-13 00:00:00 / 修改时间：17:17:36" itemprop="dateCreated datePublished" datetime="2026-05-13T00:00:00+08:00">2026-05-13</time>
+      <time title="创建时间：2026-05-13 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-13T00:00:00+08:00">2026-05-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
     </span>
 
   
@@ -309,9 +315,17 @@
 <h4 id="4-4-算法原理（剪枝）"><a href="#4-4-算法原理（剪枝）" class="headerlink" title="4.4 算法原理（剪枝）"></a>4.4 算法原理（剪枝）</h4><ul>
 <li>在转换过程中，如果当前进制数中包含数字和字母，则只保留一个类型（要么全数字，要么全字母）。</li>
 </ul>
-<h4 id="4-5-代码实现"><a href="#4-5-代码实现" class="headerlink" title="4.5 代码实现"></a>4.5 代码实现</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">dec_to_base</span>(<span class="params">n, p</span>):</span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;0&quot;</span></span><br><span class="line">    </span><br><span class="line">    digits = <span class="string">&quot;0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;</span></span><br><span class="line">    res = []</span><br><span class="line">    <span class="keyword">while</span> n &gt; <span class="number">0</span>:</span><br><span class="line">        res.append(digits[n % p])</span><br><span class="line">        n //= p</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;&quot;</span>.join(<span class="built_in">reversed</span>(res))</span><br><span class="line"></span><br><span class="line">num = <span class="number">8100178706957568</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">11</span>, <span class="number">37</span>):</span><br><span class="line">    a = <span class="built_in">list</span>(dec_to_base(num, i))</span><br><span class="line">    nums = <span class="built_in">list</span>(<span class="string">&quot;0123456789&quot;</span>)</span><br><span class="line">    has_num = <span class="built_in">any</span>(i <span class="keyword">in</span> nums <span class="keyword">for</span> i <span class="keyword">in</span> a)</span><br><span class="line">    not_nums = <span class="built_in">list</span>(<span class="string">&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;</span>)</span><br><span class="line">    has_not_num = <span class="built_in">any</span>(i <span class="keyword">in</span> not_nums <span class="keyword">for</span> i <span class="keyword">in</span> a)</span><br><span class="line">    <span class="keyword">if</span> has_num == <span class="literal">True</span> <span class="keyword">and</span> has_not_num == <span class="literal">False</span>:</span><br><span class="line">        <span class="built_in">print</span>(i)</span><br></pre></td></tr></table></figure>
-<h3 id="代码详解"><a href="#代码详解" class="headerlink" title="代码详解"></a>代码详解</h3><h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">dec_to_base</span>(<span class="params">n, p</span>):</span><br><span class="line">    <span class="comment"># ... (进制转换函数代码)</span></span><br></pre></td></tr></table></figure>
-<h4 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h4><ul>
+<h4 id="4-5-代码实现"><a href="#4-5-代码实现" class="headerlink" title="4.5 代码实现"></a>4.5 代码实现</h4><p>```python<br>def dec_to_base(n, p):<br>    if n == 0:<br>        return “0”</p>
+<pre><code>digits = &quot;0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;
+res = []
+while n &gt; 0:
+    res.append(digits[n % p])
+    n //= p
+return &quot;&quot;.join(reversed(res))
+</code></pre><p>num = 8100178706957568<br>for i in range(11, 37):<br>    a = list(dec_to_base(num, i))<br>    nums = list(“0123456789”)<br>    has_num = any(i in nums for i in a)<br>    not_nums = list(“ABCDEFGHIJKLMNOPQRSTUVWXYZ”)<br>    has_not_num = any(i in not_nums for i in a)<br>    if has_num == True and has_not_num == False:<br>        print(i)</p>
+<h3 id="代码详解"><a href="#代码详解" class="headerlink" title="代码详解"></a>代码详解</h3><h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><p>```python<br>def dec_to_base(n, p):</p>
+<pre><code># ... (进制转换函数代码)
+</code></pre><h4 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h4><ul>
 <li><code>digits</code> 字符串用于存储进制转换的字符。</li>
 <li>循环遍历直到 <code>n</code> 为0，每次循环将 <code>n</code> 除以 <code>p</code> 并记录余数。</li>
 <li>最后将结果反转并连接成字符串。</li>
@@ -355,8 +369,8 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2026/05/13/2026-05-13-P12138-P12138-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-A-%E5%AF%BB%E6%89%BE%E8%B4%A8%E6%95%B0-%E6%B4%9B%E8%B0%B7/" rel="prev" title="P12138 - P12138 [蓝桥杯 2025 省 A] 寻找质数 - 洛谷">
-                  <i class="fa fa-angle-left"></i> P12138 - P12138 [蓝桥杯 2025 省 A] 寻找质数 - 洛谷
+                <a href="/2026/05/13/2026-05-13-P12154-P12154-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-Java-B-%E9%80%83%E7%A6%BB%E9%AB%98%E5%A1%94-%E6%B4%9B%E8%B0%B7/" rel="prev" title="P12154 - P12154 [蓝桥杯 2025 省 Java B] 逃离高塔 - 洛谷">
+                  <i class="fa fa-angle-left"></i> P12154 - P12154 [蓝桥杯 2025 省 Java B] 逃离高塔 - 洛谷
                 </a>
             </div>
             <div class="post-nav-item">

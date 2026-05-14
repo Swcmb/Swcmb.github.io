@@ -28,7 +28,7 @@
 <meta property="og:description" content="题目描述CLZ 银行只有两个接待窗口，分别为 VIP 窗口和普通窗口。VIP 用户进入 VIP 窗口排队，剩下的用户进入普通窗口排队。 现有 $M$ 次操作，操作有以下四种类型：  IN name V：表示一名叫 name 的用户到 VIP 窗口排队。 OUT V：表示 VIP 窗口队头的用户离开排队。 IN name N：表示一名叫 name 的用户到普通窗口排队。 OUT N：表示普通窗口队头">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-03-17T00:11:41.000Z">
-<meta property="article:modified_time" content="2026-05-14T04:33:07.179Z">
+<meta property="article:modified_time" content="2026-05-14T05:50:12.109Z">
 <meta property="article:author" content="Ianwusb">
 <meta property="article:tag" content="LanQiao">
 <meta property="article:tag" content="Python">
@@ -174,7 +174,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.1.</span> <span class="nav-text">输入描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.2.</span> <span class="nav-text">输出描述</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF"><span class="nav-number">2.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90"><span class="nav-number">4.</span> <span class="nav-text">复杂度分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">题目描述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.1.</span> <span class="nav-text">输入描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.2.</span> <span class="nav-text">输出描述</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF"><span class="nav-number">2.</span> <span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E4%B8%A4%E4%B8%AA%E9%98%9F%E5%88%97"><span class="nav-number">4.</span> <span class="nav-text">初始化两个队列</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E7%BB%93%E6%9E%9C"><span class="nav-number">5.</span> <span class="nav-text">输出结果</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90"><span class="nav-number">5.1.</span> <span class="nav-text">复杂度分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">5.2.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -189,16 +189,16 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">148</span>
+          <span class="site-state-item-count">151</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">53</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">68</span>
+        <span class="site-state-item-count">127</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -269,7 +269,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-05-14 12:33:07" itemprop="dateModified" datetime="2026-05-14T12:33:07+08:00">2026-05-14</time>
+      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -331,7 +331,31 @@
 </li>
 </ol>
 <hr>
-<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化两个队列</span></span><br><span class="line">v_queue = deque()</span><br><span class="line">n_queue = deque()</span><br><span class="line"></span><br><span class="line">m = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(m):</span><br><span class="line">    <span class="comment"># 使用 split() 自动分割输入字符串</span></span><br><span class="line">    parts = <span class="built_in">input</span>().split()</span><br><span class="line">    op = parts[<span class="number">0</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> op == <span class="string">&quot;IN&quot;</span>:</span><br><span class="line">        name = parts[<span class="number">1</span>]</span><br><span class="line">        typ = parts[<span class="number">2</span>]</span><br><span class="line">        <span class="keyword">if</span> typ == <span class="string">&quot;V&quot;</span>:</span><br><span class="line">            v_queue.append(name)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            n_queue.append(name)</span><br><span class="line">    <span class="keyword">elif</span> op == <span class="string">&quot;OUT&quot;</span>:</span><br><span class="line">        typ = parts[<span class="number">1</span>]</span><br><span class="line">        <span class="keyword">if</span> typ == <span class="string">&quot;V&quot;</span>:</span><br><span class="line">            <span class="keyword">if</span> v_queue:</span><br><span class="line">                v_queue.popleft()</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">if</span> n_queue:</span><br><span class="line">                n_queue.popleft()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出结果</span></span><br><span class="line"><span class="keyword">for</span> name <span class="keyword">in</span> v_queue:</span><br><span class="line">    <span class="built_in">print</span>(name)</span><br><span class="line">    </span><br><span class="line"><span class="keyword">for</span> name <span class="keyword">in</span> n_queue:</span><br><span class="line">    <span class="built_in">print</span>(name)</span><br></pre></td></tr></table></figure>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><p>```python<br>from collections import deque</p>
+<h1 id="初始化两个队列"><a href="#初始化两个队列" class="headerlink" title="初始化两个队列"></a>初始化两个队列</h1><p>v_queue = deque()<br>n_queue = deque()</p>
+<p>m = int(input())</p>
+<p>for _ in range(m):</p>
+<pre><code># 使用 split() 自动分割输入字符串
+parts = input().split()
+op = parts[0]
+
+if op == &quot;IN&quot;:
+    name = parts[1]
+    typ = parts[2]
+    if typ == &quot;V&quot;:
+        v_queue.append(name)
+    else:
+        n_queue.append(name)
+elif op == &quot;OUT&quot;:
+    typ = parts[1]
+    if typ == &quot;V&quot;:
+        if v_queue:
+            v_queue.popleft()
+    else:
+        if n_queue:
+            n_queue.popleft()
+</code></pre><h1 id="输出结果"><a href="#输出结果" class="headerlink" title="输出结果"></a>输出结果</h1><p>for name in v_queue:<br>    print(name)</p>
+<p>for name in n_queue:<br>    print(name)</p>
 <h2 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h2><ul>
 <li><strong>时间复杂度</strong>：$O(M)$。每个操作无论是入队还是出队，时间复杂度均为 $O(1)$，共 $M$ 次操作。</li>
 <li><strong>空间复杂度</strong>：$O(M)$。最坏情况下所有操作都是入队，需要存储 $M$ 个名字。</li>
