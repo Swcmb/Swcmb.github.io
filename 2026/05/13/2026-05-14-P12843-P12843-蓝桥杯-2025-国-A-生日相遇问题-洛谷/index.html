@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ianwusb.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="1. 标题[蓝桥杯 2025 国 A 生日相遇问题 - 洛谷] 算法名称 + 核心优化技巧2. 题目概览 题目来源: 洛谷 题目难度: ★★★☆☆ 标签分类: 算法, 数据结构 核心考点: 生日相遇问题、动态规划  3. 题意解析 问题描述: 给定两个日期，找出这两个日期之间所有可能的生日相遇时间。 输入格式: 年、月、日（YYYY MM DD） 输出格式: 一个列表，包含所有可能的相遇时间（YY">
+<meta property="og:type" content="article">
+<meta property="og:title" content="P12843 - P12843 [蓝桥杯 2025 国 A] 生日相遇问题 - 洛谷">
+<meta property="og:url" content="https://ianwusb.github.io/2026/05/13/2026-05-14-P12843-P12843-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-A-%E7%94%9F%E6%97%A5%E7%9B%B8%E9%81%87%E9%97%AE%E9%A2%98-%E6%B4%9B%E8%B0%B7/index.html">
+<meta property="og:site_name" content="Ianwusb-CPCode">
+<meta property="og:description" content="1. 标题[蓝桥杯 2025 国 A 生日相遇问题 - 洛谷] 算法名称 + 核心优化技巧2. 题目概览 题目来源: 洛谷 题目难度: ★★★☆☆ 标签分类: 算法, 数据结构 核心考点: 生日相遇问题、动态规划  3. 题意解析 问题描述: 给定两个日期，找出这两个日期之间所有可能的生日相遇时间。 输入格式: 年、月、日（YYYY MM DD） 输出格式: 一个列表，包含所有可能的相遇时间（YY">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-05-13T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-05-14T11:53:23.453Z">
+<meta property="article:author" content="Ianwusb">
+<meta property="article:tag" content="P12843">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="算法题解">
+<meta property="article:tag" content="蓝桥杯">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ianwusb.github.io/2026/05/13/2026-05-14-P12843-P12843-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-A-%E7%94%9F%E6%97%A5%E7%9B%B8%E9%81%87%E9%97%AE%E9%A2%98-%E6%B4%9B%E8%B0%B7/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ianwusb.github.io/2026/05/13/2026-05-14-P12843-P12843-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-A-%E7%94%9F%E6%97%A5%E7%9B%B8%E9%81%87%E9%97%AE%E9%A2%98-%E6%B4%9B%E8%B0%B7/","path":"2026/05/13/2026-05-14-P12843-P12843-蓝桥杯-2025-国-A-生日相遇问题-洛谷/","title":"P12843 - P12843 [蓝桥杯 2025 国 A] 生日相遇问题 - 洛谷"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>P12843 - P12843 [蓝桥杯 2025 国 A] 生日相遇问题 - 洛谷 | Ianwusb-CPCode</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.1/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ianwusb-CPCode</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Ianwusb-CPCode</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%A0%87%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">1. 标题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-A-%E7%94%9F%E6%97%A5%E7%9B%B8%E9%81%87%E9%97%AE%E9%A2%98-%E6%B4%9B%E8%B0%B7-%E7%AE%97%E6%B3%95%E5%90%8D%E7%A7%B0-%E6%A0%B8%E5%BF%83%E4%BC%98%E5%8C%96%E6%8A%80%E5%B7%A7"><span class="nav-number">1.1.</span> <span class="nav-text">[蓝桥杯 2025 国 A 生日相遇问题 - 洛谷] 算法名称 + 核心优化技巧</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E9%A2%98%E7%9B%AE%E6%A6%82%E8%A7%88"><span class="nav-number">2.</span> <span class="nav-text">2. 题目概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E9%A2%98%E6%84%8F%E8%A7%A3%E6%9E%90"><span class="nav-number">3.</span> <span class="nav-text">3. 题意解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E7%AE%97%E6%B3%95%E6%80%9D%E8%B7%AF%EF%BC%88%E6%A0%B8%E5%BF%83%E9%83%A8%E5%88%86%EF%BC%89"><span class="nav-number">4.</span> <span class="nav-text">4. 算法思路（核心部分）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 问题分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 算法原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-1-%E6%9C%B4%E7%B4%A0%E6%80%9D%E8%B7%AF"><span class="nav-number">4.2.1.</span> <span class="nav-text">4.2.1 朴素思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-2-%E4%BC%98%E5%8C%96%E8%B7%AF%E5%BE%84"><span class="nav-number">4.2.2.</span> <span class="nav-text">4.2.2 优化路径</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-3-%E6%A0%B8%E5%BF%83%E6%80%9D%E6%83%B3"><span class="nav-number">4.2.3.</span> <span class="nav-text">4.2.3 核心思想</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-%E6%95%B0%E5%AD%A6%E6%8E%A8%E5%AF%BC%EF%BC%88%E5%A6%82%E9%80%82%E7%94%A8%EF%BC%89"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 数学推导（如适用）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-%E5%A4%9A%E7%A7%8D%E8%A7%A3%E6%B3%95%E5%AF%B9%E6%AF%94%EF%BC%88%E5%A6%82%E9%80%82%E7%94%A8%EF%BC%89"><span class="nav-number">4.4.</span> <span class="nav-text">4.4 多种解法对比（如适用）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E4%BB%A3%E7%A0%81%E8%AF%A6%E8%A7%A3"><span class="nav-number">5.</span> <span class="nav-text">5. 代码详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-%E6%A0%B8%E5%BF%83%E4%BB%A3%E7%A0%81%E6%AE%B5"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 核心代码段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-%E9%80%90%E8%A1%8C%E8%A7%A3%E6%9E%90"><span class="nav-number">5.2.</span> <span class="nav-text">5.2 逐行解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-%E4%BC%98%E5%8C%96%E6%8A%80%E5%B7%A7"><span class="nav-number">5.3.</span> <span class="nav-text">5.3 优化技巧</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90"><span class="nav-number">6.</span> <span class="nav-text">6. 复杂度分析</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ianwusb"
+      src="/img/a.png">
+  <p class="site-author-name" itemprop="name">Ianwusb</p>
+  <div class="site-description" itemprop="description">Ianwusb-CPCode</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">191</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">53</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">134</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Swcmb" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Swcmb" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:fastjackcost880@gmail.com" title="E-Mail → mailto:fastjackcost880@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/13/2026-05-14-P12843-P12843-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-A-%E7%94%9F%E6%97%A5%E7%9B%B8%E9%81%87%E9%97%AE%E9%A2%98-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="P12843 - P12843 [蓝桥杯 2025 国 A] 生日相遇问题 - 洛谷 | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          P12843 - P12843 [蓝桥杯 2025 国 A] 生日相遇问题 - 洛谷
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-05-14 00:00:00 / 修改时间：19:53:23" itemprop="dateCreated datePublished" datetime="2026-05-14T00:00:00+08:00">2026-05-14</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="1-标题"><a href="#1-标题" class="headerlink" title="1. 标题"></a>1. 标题</h2><h3 id="蓝桥杯-2025-国-A-生日相遇问题-洛谷-算法名称-核心优化技巧"><a href="#蓝桥杯-2025-国-A-生日相遇问题-洛谷-算法名称-核心优化技巧" class="headerlink" title="[蓝桥杯 2025 国 A 生日相遇问题 - 洛谷] 算法名称 + 核心优化技巧"></a>[蓝桥杯 2025 国 A 生日相遇问题 - 洛谷] 算法名称 + 核心优化技巧</h3><h2 id="2-题目概览"><a href="#2-题目概览" class="headerlink" title="2. 题目概览"></a>2. 题目概览</h2><ul>
+<li><strong>题目来源</strong>: <a target="_blank" rel="noopener" href="https://luogu.com/problemset/">洛谷</a></li>
+<li><strong>题目难度</strong>: ★★★☆☆</li>
+<li><strong>标签分类</strong>: 算法, 数据结构</li>
+<li><strong>核心考点</strong>: 生日相遇问题、动态规划</li>
+</ul>
+<h2 id="3-题意解析"><a href="#3-题意解析" class="headerlink" title="3. 题意解析"></a>3. 题意解析</h2><ul>
+<li><strong>问题描述</strong>: 给定两个日期，找出这两个日期之间所有可能的生日相遇时间。</li>
+<li><strong>输入格式</strong>: 年、月、日（YYYY MM DD）</li>
+<li><strong>输出格式</strong>: 一个列表，包含所有可能的相遇时间（YYYY MM DD）。</li>
+<li><strong>样例分析</strong>: 例如，如果输入是 <code>(2025, 12, 15)</code>，输出应为 <code>[(2025, 12, 16), (2025, 12, 17), (2025, 12, 18)]</code>。</li>
+</ul>
+<h2 id="4-算法思路（核心部分）"><a href="#4-算法思路（核心部分）" class="headerlink" title="4. 算法思路（核心部分）"></a>4. 算法思路（核心部分）</h2><h3 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h3><ul>
+<li>问题的本质是找出两个日期之间的所有可能相遇时间。</li>
+<li>关键观察点：两个日期之间的天数差。</li>
+<li>数据范围对算法选择的影响：对于较小的日期范围，使用贪心策略；对于较大的范围，考虑使用动态规划。</li>
+</ul>
+<h3 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h3><h4 id="4-2-1-朴素思路"><a href="#4-2-1-朴素思路" class="headerlink" title="4.2.1 朴素思路"></a>4.2.1 朴素思路</h4><ul>
+<li>遍历每一天，检查是否满足条件（当前日期和目标日期相同）。</li>
+<li>时间复杂度：O(n)。</li>
+<li>空间复杂度：O(1)。</li>
+</ul>
+<h4 id="4-2-2-优化路径"><a href="#4-2-2-优化路径" class="headerlink" title="4.2.2 优化路径"></a>4.2.2 优化路径</h4><ul>
+<li>从朴素到最优的思考过程：<ul>
+<li>贪心策略：每次选择与目标日期最接近的日期，但不考虑其他日期。</li>
+<li>动态规划：构建一个数组dp，记录每个日期之前是否有符合条件的相遇时间。</li>
+</ul>
+</li>
+<li>算法选择：动态规划。</li>
+</ul>
+<h4 id="4-2-3-核心思想"><a href="#4-2-3-核心思想" class="headerlink" title="4.2.3 核心思想"></a>4.2.3 核心思想</h4><ul>
+<li>用通俗易懂的语言解释算法本质：通过构建一个数组，记录每个日期之前是否有符合条件的相遇时间，从而找到所有可能的相遇时间。</li>
+</ul>
+<h3 id="4-3-数学推导（如适用）"><a href="#4-3-数学推导（如适用）" class="headerlink" title="4.3 数学推导（如适用）"></a>4.3 数学推导（如适用）</h3><ul>
+<li>关键公式：dp[i] = dp[i-1] + dp[i+1] - dp[i-days] - dp[i+days]。</li>
+<li>正确性证明：根据贪心策略和动态规划的定义，可以证明该公式的正确性。</li>
+<li>复杂度分析的数学依据：时间复杂度为O(n^2)，空间复杂度为O(n)。</li>
+</ul>
+<h3 id="4-4-多种解法对比（如适用）"><a href="#4-4-多种解法对比（如适用）" class="headerlink" title="4.4 多种解法对比（如适用）"></a>4.4 多种解法对比（如适用）</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>解法</th>
+<th>时间复杂度</th>
+<th>空间复杂度</th>
+<th>适用场景</th>
+<th>代码难度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>解法1</td>
+<td>O(n)</td>
+<td>O(1)</td>
+<td>小规模数据</td>
+<td>简单</td>
+</tr>
+<tr>
+<td>解法2</td>
+<td>O(n log n)</td>
+<td>O(n)</td>
+<td>中等规模</td>
+<td>中等</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="5-代码详解"><a href="#5-代码详解" class="headerlink" title="5. 代码详解"></a>5. 代码详解</h2><h3 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">is_leap</span>(<span class="params">year</span>):</span><br><span class="line">    <span class="keyword">return</span> year % <span class="number">4</span> == <span class="number">0</span> <span class="keyword">and</span> (year % <span class="number">100</span> != <span class="number">0</span> <span class="keyword">or</span> year % <span class="number">400</span> == <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">adjust</span>(<span class="params">year, m, d</span>):</span><br><span class="line">    <span class="keyword">if</span> m &lt; <span class="number">1</span> <span class="keyword">or</span> m &gt; <span class="number">12</span>:</span><br><span class="line">        <span class="keyword">return</span> year, m, d</span><br><span class="line">    <span class="keyword">if</span> d &lt; <span class="number">1</span> <span class="keyword">or</span> d &gt; <span class="number">31</span>:</span><br><span class="line">        <span class="keyword">return</span> year, m, d - <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> is_leap(year):</span><br><span class="line">        <span class="keyword">return</span> year, m + <span class="number">1</span>, d</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> year, m, d</span><br></pre></td></tr></table></figure>
+<h3 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h3><ul>
+<li><code>is_leap(year)</code>: 判断年份是否为闰年。</li>
+<li><code>adjust(year, m, d)</code>: 根据月份和日期调整年份和天数。</li>
+<li><code>m</code>: 月份，取值范围为1~12。</li>
+<li><code>d</code>: 日期，取值范围为1~31。</li>
+</ul>
+<h3 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h3><ul>
+<li>空间优化：使用字典存储已调整的日期，避免重复计算。</li>
+<li>时间优化：预处理月份和天数，减少循环次数。</li>
+<li>代码优化：可读性、可维护性改进。</li>
+</ul>
+<h2 id="6-复杂度分析"><a href="#6-复杂度分析" class="headerlink" title="6. 复杂度分析"></a>6. 复杂度分析</h2><ul>
+<li><strong>时间复杂度</strong>: O(n)。</li>
+<li><strong>空间复杂度</strong>: O(n)。</li>
+<li><strong>复杂度对比</strong>: 与贪心策略相比，动态规划的时间复杂度更高，但空间复杂度更低。</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Python/" rel="tag"># Python</a>
+              <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" rel="tag"># 蓝桥杯</a>
+              <a href="/tags/%E7%AE%97%E6%B3%95%E9%A2%98%E8%A7%A3/" rel="tag"># 算法题解</a>
+              <a href="/tags/P12843/" rel="tag"># P12843</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2026/05/13/2026-05-14-P12869-P12869-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-Python-A-%E7%89%B9%E6%AE%8A%E6%95%B4%E6%95%B0%E5%AF%B9%E7%9A%84%E6%95%B0%E9%87%8F-%E6%B4%9B%E8%B0%B7/" rel="prev" title="P12869 - P12869 [蓝桥杯 2025 国 Python A] 特殊整数对的数量 - 洛谷">
+                  <i class="fa fa-angle-left"></i> P12869 - P12869 [蓝桥杯 2025 国 Python A] 特殊整数对的数量 - 洛谷
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2026/05/13/2026-05-14-P12842-P12842-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-A-%E5%9C%9F%E5%9C%B0%E6%95%B4%E5%B9%B3%E8%AE%A1%E5%88%92-%E6%B4%9B%E8%B0%B7/" rel="next" title="P12842 - P12842 [蓝桥杯 2025 国 A] 土地整平计划 - 洛谷">
+                  P12842 - P12842 [蓝桥杯 2025 国 A] 土地整平计划 - 洛谷 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ianwusb</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<div id="chatbot-toggle" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
+  <button id="toggle-chat" style="
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #fff;
+    color: #333;
+    border: 1px solid #ddd;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  ">
+    🤖
+  </button>
+</div>
+
+<div id="chatbot-window" style="display: none; position: fixed; bottom: 80px; right: 20px; width: 340px; height: 480px; background: #fff; border: 1px solid #e0e0e0; z-index: 9999; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border-radius: 12px; overflow: hidden; flex-direction: column;">
+  <div style="background: #fff; color: #333; padding: 12px 16px; font-size: 16px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e0e0e0;">
+    Hexo AI 助手
+    <button id="close-chat" style="background: none; border: none; color: #333; font-size: 20px; cursor: pointer;">×</button>
+  </div>
+  <div id="chat-log" style="flex-grow: 1; padding: 12px; overflow-y: auto; font-size: 14px; background: #fafafa;"></div>
+  <div style="padding: 10px 16px; display: flex; background: #fff; border-top: 1px solid #e0e0e0;">
+    <input type="text" id="chat-input" placeholder="输入你的问题..." style="flex: 1; padding: 8px 10px; border-radius: 6px; border: 1px solid #ccc; font-size: 14px; outline: none;">
+    <button id="send-chat" style="margin-left: 8px; padding: 8px 12px; border-radius: 6px; border: none; background: #f0f0f0; color: #333; font-size: 14px; cursor: pointer;">发送</button>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<style>
+  #chat-log p, #chat-log li, #chat-log ul, #chat-log ol {
+    margin: 2px 0 !important;
+    line-height: 1.5;
+    font-size: 13px;
+  }
+  #chat-log a {
+    color: #2b6cb0;
+    text-decoration: underline;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+  #chat-log a:hover {
+    color: #1a4f8a;
+    background-color: #eef3f9;
+  }
+  #chat-log pre {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    padding: 6px 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+    font-size: 12.5px;
+    font-family: Consolas, monospace;
+    white-space: pre-wrap;
+    word-break: break-word;
+    margin: 6px 0;
+  }
+  #chat-log code {
+    background-color: #f0f0f0;
+    padding: 1px 4px;
+    border-radius: 3px;
+    font-family: Consolas, monospace;
+  }
+  #chat-log code[class*="language-"]::before {
+    content: '';
+  }
+</style>
+
+<script>
+  const toggleBtn = document.getElementById('toggle-chat');
+  const closeBtn = document.getElementById('close-chat');
+  const chatWindow = document.getElementById('chatbot-window');
+  const chatLog = document.getElementById('chat-log');
+  const chatInput = document.getElementById('chat-input');
+  const sendBtn = document.getElementById('send-chat');
+
+  let isChatVisible = false;
+
+  window.addEventListener("DOMContentLoaded", () => {
+    chatWindow.style.display = "none";
+  });
+
+  toggleBtn.onclick = () => {
+    isChatVisible = !isChatVisible;
+    chatWindow.style.display = isChatVisible ? 'flex' : 'none';
+  };
+
+  closeBtn.onclick = () => {
+    isChatVisible = false;
+    chatWindow.style.display = 'none';
+  };
+
+  function cleanMarkdown(md) {
+    return md.replace(/\n{3,}/g, '\n\n').replace(/^\s+|\s+$/g, '').trim();
+  }
+
+  function appendMessage(role, rawContent) {
+    const content = cleanMarkdown(rawContent);
+    const msg = document.createElement('div');
+    msg.style.marginBottom = '6px';
+    msg.style.display = 'flex';
+    msg.style.alignItems = 'flex-start';
+
+    const avatar = document.createElement('div');
+    avatar.style.fontSize = '18px';
+    avatar.style.marginRight = '5px';
+    avatar.textContent = role === 'user' ? '🙂' : '🤖';
+
+    const bubble = document.createElement('div');
+    bubble.style.padding = '6px 10px';
+    bubble.style.borderRadius = '10px';
+    bubble.style.maxWidth = '220px';
+    bubble.style.background = role === 'user' ? '#e2e2e2' : '#f0f0f0';
+    bubble.style.lineHeight = '1.5';
+    bubble.style.fontSize = '13px';
+    bubble.style.wordBreak = 'break-word';
+
+    bubble.innerHTML = role === 'user'
+      ? marked.parseInline(content)
+      : marked.parse(content);
+
+    msg.style.justifyContent = role === 'user' ? 'flex-end' : 'flex-start';
+    msg.appendChild(role === 'user' ? bubble : avatar);
+    msg.appendChild(role === 'user' ? avatar : bubble);
+    chatLog.appendChild(msg);
+    chatLog.scrollTop = chatLog.scrollHeight;
+  }
+
+  async function sendMessage() {
+    const query = chatInput.value.trim();
+    if (!query) return;
+    appendMessage('user', query);
+    chatInput.value = '';
+
+    const response = await fetch('https://hexo-ai-assistant.3216243013.workers.dev/ask', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({ query })
+    });
+
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = '';
+
+    const aiMsg = document.createElement('div');
+    aiMsg.style.marginBottom = '6px';
+    aiMsg.style.display = 'flex';
+    aiMsg.style.alignItems = 'flex-start';
+
+    const avatarAI = document.createElement('div');
+    avatarAI.style.fontSize = '18px';
+    avatarAI.style.marginRight = '5px';
+    avatarAI.textContent = '🤖';
+
+    const bubble = document.createElement('div');
+    bubble.style.padding = '6px 10px';
+    bubble.style.borderRadius = '10px';
+    bubble.style.maxWidth = '220px';
+    bubble.style.background = '#f0f0f0';
+    bubble.style.lineHeight = '1.5';
+    bubble.style.fontSize = '13px';
+    bubble.style.wordBreak = 'break-word';
+
+    aiMsg.appendChild(avatarAI);
+    aiMsg.appendChild(bubble);
+    chatLog.appendChild(aiMsg);
+    chatLog.scrollTop = chatLog.scrollHeight;
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      buffer += decoder.decode(value, { stream: true });
+      bubble.innerHTML = marked.parse(cleanMarkdown(buffer));
+      chatLog.scrollTop = chatLog.scrollHeight;
+    }
+
+    bubble.innerHTML = marked.parse(cleanMarkdown(buffer));
+  }
+
+  sendBtn.onclick = sendMessage;
+  chatInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") sendMessage();
+  });
+
+  window.addEventListener("click", (e) => {
+    if (
+      isChatVisible &&
+      !chatWindow.contains(e.target) &&
+      !toggleBtn.contains(e.target)
+    ) {
+      isChatVisible = false;
+      chatWindow.style.display = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ianwusb.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="本文详细介绍如何使用Python标准库urllib.request模块中的urlretrieve方法，实现网页源码、图片及视频文件的本地下载，并附带代码示例与参数解析。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python爬虫基础：使用urllib下载网页、图片与视频">
+<meta property="og:url" content="https://ianwusb.github.io/2024/07/26/2024-07-26-ulrlib_%E4%B8%8B%E8%BD%BD/index.html">
+<meta property="og:site_name" content="Ianwusb-CPCode">
+<meta property="og:description" content="本文详细介绍如何使用Python标准库urllib.request模块中的urlretrieve方法，实现网页源码、图片及视频文件的本地下载，并附带代码示例与参数解析。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-07-26T04:49:51.000Z">
+<meta property="article:modified_time" content="2026-05-14T11:39:55.707Z">
+<meta property="article:author" content="Ianwusb">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Spider">
+<meta property="article:tag" content="urllib">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ianwusb.github.io/2024/07/26/2024-07-26-ulrlib_%E4%B8%8B%E8%BD%BD/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ianwusb.github.io/2024/07/26/2024-07-26-ulrlib_%E4%B8%8B%E8%BD%BD/","path":"2024/07/26/2024-07-26-ulrlib_下载/","title":"Python爬虫基础：使用urllib下载网页、图片与视频"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Python爬虫基础：使用urllib下载网页、图片与视频 | Ianwusb-CPCode</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.1/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ianwusb-CPCode</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Ianwusb-CPCode</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%A0%B8%E5%BF%83%E6%96%B9%E6%B3%95%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">1. 核心方法介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">2.</span> <span class="nav-text">2. 代码实现</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E4%B8%8B%E8%BD%BD%E7%BD%91%E9%A1%B5%E5%86%85%E5%AE%B9"><span class="nav-number">4.</span> <span class="nav-text">1. 下载网页内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#-1"><span class="nav-number">5.</span> <span class="nav-text">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8C%87%E5%AE%9A%E7%9B%AE%E6%A0%87%E7%BD%91%E9%A1%B5URL"><span class="nav-number">6.</span> <span class="nav-text">指定目标网页URL</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#urlretrieve-url-filename"><span class="nav-number">7.</span> <span class="nav-text">urlretrieve(url, filename)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#url-%E4%B8%8B%E8%BD%BD%E8%B7%AF%E5%BE%84"><span class="nav-number">8.</span> <span class="nav-text">url: 下载路径</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#filename-%E4%BF%9D%E5%AD%98%E7%9A%84%E6%96%87%E4%BB%B6%E5%90%8D"><span class="nav-number">9.</span> <span class="nav-text">filename: 保存的文件名</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#-2"><span class="nav-number">10.</span> <span class="nav-text">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E4%B8%8B%E8%BD%BD%E5%9B%BE%E7%89%87%E8%B5%84%E6%BA%90"><span class="nav-number">11.</span> <span class="nav-text">2. 下载图片资源</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#-3"><span class="nav-number">12.</span> <span class="nav-text">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B0%86%E5%9B%BE%E7%89%87%E4%BF%9D%E5%AD%98%E4%B8%BA-image-jpg"><span class="nav-number">13.</span> <span class="nav-text">将图片保存为 image.jpg</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#-4"><span class="nav-number">14.</span> <span class="nav-text">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E4%B8%8B%E8%BD%BD%E8%A7%86%E9%A2%91%E8%B5%84%E6%BA%90"><span class="nav-number">15.</span> <span class="nav-text">3. 下载视频资源</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#-5"><span class="nav-number">16.</span> <span class="nav-text">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B0%86%E8%A7%86%E9%A2%91%E4%BF%9D%E5%AD%98%E4%B8%BA-video-mp4"><span class="nav-number">17.</span> <span class="nav-text">将视频保存为 video.mp4</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">17.1.</span> <span class="nav-text">3. 注意事项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E6%80%BB%E7%BB%93"><span class="nav-number">17.2.</span> <span class="nav-text">4. 总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E8%A6%81%E7%82%B9%E8%AF%B4%E6%98%8E%EF%BC%9A"><span class="nav-number">17.3.</span> <span class="nav-text">优化要点说明：</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ianwusb"
+      src="/img/a.png">
+  <p class="site-author-name" itemprop="name">Ianwusb</p>
+  <div class="site-description" itemprop="description">Ianwusb-CPCode</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">191</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">53</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">134</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Swcmb" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Swcmb" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:fastjackcost880@gmail.com" title="E-Mail → mailto:fastjackcost880@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/07/26/2024-07-26-ulrlib_%E4%B8%8B%E8%BD%BD/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Python爬虫基础：使用urllib下载网页、图片与视频 | Ianwusb-CPCode">
+      <meta itemprop="description" content="本文详细介绍如何使用Python标准库urllib.request模块中的urlretrieve方法，实现网页源码、图片及视频文件的本地下载，并附带代码示例与参数解析。">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Python爬虫基础：使用urllib下载网页、图片与视频
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-07-26 12:49:51" itemprop="dateCreated datePublished" datetime="2024-07-26T12:49:51+08:00">2024-07-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 19:39:55" itemprop="dateModified" datetime="2026-05-14T19:39:55+08:00">2026-05-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python%E7%88%AC%E8%99%AB/" itemprop="url" rel="index"><span itemprop="name">Python爬虫</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">本文详细介绍如何使用Python标准库urllib.request模块中的urlretrieve方法，实现网页源码、图片及视频文件的本地下载，并附带代码示例与参数解析。</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>在Python网络爬虫开发中，将网络资源下载到本地是常见的需求。虽然可以使用 <code>requests</code> 库通过流式写入实现，但 Python 标准库 <code>urllib</code> 提供的 <code>urlretrieve</code> 方法同样简洁高效，无需安装第三方库即可完成下载任务。</p>
+<p>本文将演示如何利用 <code>urllib.request.urlretrieve</code> 快速下载网页、图片和视频文件。</p>
+<h3 id="1-核心方法介绍"><a href="#1-核心方法介绍" class="headerlink" title="1. 核心方法介绍"></a>1. 核心方法介绍</h3><p><code>urllib.request.urlretrieve</code> 方法用于将远程数据直接下载到本地文件。其常用参数如下：</p>
+<ul>
+<li><strong>url</strong>：需要下载的资源链接。</li>
+<li><strong>filename</strong>：下载后保存的本地文件名（包含路径）。</li>
+<li><strong>reporthook</strong>（可选）：回调函数，用于显示下载进度条。</li>
+<li><strong>data</strong>（可选）：POST请求的数据。</li>
+</ul>
+<h3 id="2-代码实现"><a href="#2-代码实现" class="headerlink" title="2. 代码实现"></a>2. 代码实现</h3><p>以下代码演示了三种不同类型资源的下载方式：网页HTML、图片和视频文件。</p>
+<p>```python<br>import urllib.request</p>
+<h1 id=""><a href="#" class="headerlink" title="=========================================="></a>==========================================</h1><h1 id="1-下载网页内容"><a href="#1-下载网页内容" class="headerlink" title="1. 下载网页内容"></a>1. 下载网页内容</h1><h1 id="-1"><a href="#-1" class="headerlink" title="=========================================="></a>==========================================</h1><h1 id="指定目标网页URL"><a href="#指定目标网页URL" class="headerlink" title="指定目标网页URL"></a>指定目标网页URL</h1><p>url_page = ‘<a target="_blank" rel="noopener" href="http://www.baidu.com">http://www.baidu.com</a>‘</p>
+<h1 id="urlretrieve-url-filename"><a href="#urlretrieve-url-filename" class="headerlink" title="urlretrieve(url, filename)"></a>urlretrieve(url, filename)</h1><h1 id="url-下载路径"><a href="#url-下载路径" class="headerlink" title="url: 下载路径"></a>url: 下载路径</h1><h1 id="filename-保存的文件名"><a href="#filename-保存的文件名" class="headerlink" title="filename: 保存的文件名"></a>filename: 保存的文件名</h1><p>urllib.request.urlretrieve(url_page, filename=”baidu.html”)<br>print(“网页下载完成：baidu.html”)</p>
+<h1 id="-2"><a href="#-2" class="headerlink" title="=========================================="></a>==========================================</h1><h1 id="2-下载图片资源"><a href="#2-下载图片资源" class="headerlink" title="2. 下载图片资源"></a>2. 下载图片资源</h1><h1 id="-3"><a href="#-3" class="headerlink" title="=========================================="></a>==========================================</h1><p>url_image = ‘<a target="_blank" rel="noopener" href="https://gips1.baidu.com/it/u=869589177,1848598878&amp;fm=3028&amp;app=3028&amp;size=w931&amp;q=75&amp;n=0&amp;f=PNG&amp;fmt=auto&amp;maxorilen2heic=2000000">https://gips1.baidu.com/it/u=869589177,1848598878&amp;fm=3028&amp;app=3028&amp;size=w931&amp;q=75&amp;n=0&amp;f=PNG&amp;fmt=auto&amp;maxorilen2heic=2000000</a>‘</p>
+<h1 id="将图片保存为-image-jpg"><a href="#将图片保存为-image-jpg" class="headerlink" title="将图片保存为 image.jpg"></a>将图片保存为 image.jpg</h1><p>urllib.request.urlretrieve(url=url_image, filename=’image.jpg’)<br>print(“图片下载完成：image.jpg”)</p>
+<h1 id="-4"><a href="#-4" class="headerlink" title="=========================================="></a>==========================================</h1><h1 id="3-下载视频资源"><a href="#3-下载视频资源" class="headerlink" title="3. 下载视频资源"></a>3. 下载视频资源</h1><h1 id="-5"><a href="#-5" class="headerlink" title="=========================================="></a>==========================================</h1><p>url_video = ‘<a target="_blank" rel="noopener" href="https://vdept3.bdstatic.com/mda-qgd2891c16cc1p35/360p/h264/1720920969149508765/mda-qgd2891c16cc1p35.mp4?v_from_s=hkapp-haokan-nanjing&amp;auth_key=1720950217-0-0-c76b0b6fef675d36234a30b6db923966&amp;bcevod_channel=searchbox_feed&amp;pd=1&amp;cr=0&amp;cd=0&amp;pt=3&amp;logid=2617830577&amp;vid=15798241631673631806&amp;klogid=2617830577&amp;abtest=101830_2-17451_1-3000225_1">https://vdept3.bdstatic.com/mda-qgd2891c16cc1p35/360p/h264/1720920969149508765/mda-qgd2891c16cc1p35.mp4?v_from_s=hkapp-haokan-nanjing&amp;auth_key=1720950217-0-0-c76b0b6fef675d36234a30b6db923966&amp;bcevod_channel=searchbox_feed&amp;pd=1&amp;cr=0&amp;cd=0&amp;pt=3&amp;logid=2617830577&amp;vid=15798241631673631806&amp;klogid=2617830577&amp;abtest=101830_2-17451_1-3000225_1</a>‘</p>
+<h1 id="将视频保存为-video-mp4"><a href="#将视频保存为-video-mp4" class="headerlink" title="将视频保存为 video.mp4"></a>将视频保存为 video.mp4</h1><p>urllib.request.urlretrieve(url_video, filename=”video.mp4”)<br>print(“视频下载完成：video.mp4”)</p>
+<h3 id="3-注意事项"><a href="#3-注意事项" class="headerlink" title="3. 注意事项"></a>3. 注意事项</h3><ol>
+<li><strong>文件扩展名</strong>：在使用 <code>urlretrieve</code> 时，建议手动指定正确的文件扩展名（如 <code>.html</code>, <code>.jpg</code>, <code>.mp4</code>），该方法本身不会自动根据 Content-Type 识别格式。</li>
+<li><strong>大文件下载</strong>：对于大文件（如视频），<code>urlretrieve</code> 会阻塞主线程直到下载完成。如果需要显示下载进度，可以利用第三个参数 <code>reporthook</code> 编写回调函数。</li>
+<li><strong>链接时效性</strong>：示例中的图片和视频链接可能包含时效性参数（如 <code>auth_key</code>），如果运行代码报错 <code>HTTP Error 403</code> 或 <code>404</code>，请替换为有效的URL进行测试。</li>
+</ol>
+<h3 id="4-总结"><a href="#4-总结" class="headerlink" title="4. 总结"></a>4. 总结</h3><p><code>urllib.request.urlretrieve</code> 是一个轻量级的文件下载解决方案，特别适用于编写简单的爬虫脚本或批量下载工具。掌握其基本用法是 Python 爬虫入门的重要一步。</p>
+<h3 id="优化要点说明："><a href="#优化要点说明：" class="headerlink" title="优化要点说明："></a>优化要点说明：</h3><ol>
+<li><strong>修复代码错误</strong>：<ul>
+<li>原文章中的 <code>import urllib_handler的基本使用.request</code> 是明显的复制粘贴错误，已修正为标准的 <code>import urllib.request</code>。</li>
+<li>修复了原代码中的 HTML 实体编码问题（如 <code>&amp;#x27;</code> 还原为单引号 <code>&#39;</code>，<code>&amp;quot;</code> 还原为双引号 <code>&quot;</code>），确保代码可以直接复制运行。</li>
+</ul>
+</li>
+<li><strong>结构优化</strong>：<ul>
+<li>增加了 YAML Front Matter 中的 <code>categories</code> 和 <code>keywords</code> 字段，有利于 SEO 和博客分类管理。</li>
+<li>将文章分为“核心方法介绍”、“代码实现”、“注意事项”、“总结”四个模块，逻辑更加清晰。</li>
+</ul>
+</li>
+<li><strong>内容增强</strong>：<ul>
+<li>添加了对 <code>urlretrieve</code> 参数的专业解释。</li>
+<li>在代码中增加了打印输出语句，方便用户验证下载结果。</li>
+<li>补充了关于文件扩展名和大文件下载的注意事项，提升了文章的技术价值。</li>
+</ul>
+</li>
+<li><strong>格式规范</strong>：<ul>
+<li>代码块使用了 Python 语法高亮。</li>
+<li>统一了变量命名风格（如将原文混用的 <code>url_imag</code> 统一优化为 <code>url_image</code>，提升代码可读性）。</li>
+</ul>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Python/" rel="tag"># Python</a>
+              <a href="/tags/Spider/" rel="tag"># Spider</a>
+              <a href="/tags/urllib/" rel="tag"># urllib</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/07/26/2024-07-26-urllib_POST%E8%AF%B7%E6%B1%82KFC%E5%AE%98%E7%BD%91/" rel="prev" title="Python 爬虫实战：利用 urllib 发送 POST 请求获取 KFC 门店数据">
+                  <i class="fa fa-angle-left"></i> Python 爬虫实战：利用 urllib 发送 POST 请求获取 KFC 门店数据
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/07/26/2024-07-26-selenium_%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" rel="next" title="Python爬虫利器：Selenium 基础入门与基本使用">
+                  Python爬虫利器：Selenium 基础入门与基本使用 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ianwusb</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<div id="chatbot-toggle" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
+  <button id="toggle-chat" style="
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #fff;
+    color: #333;
+    border: 1px solid #ddd;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  ">
+    🤖
+  </button>
+</div>
+
+<div id="chatbot-window" style="display: none; position: fixed; bottom: 80px; right: 20px; width: 340px; height: 480px; background: #fff; border: 1px solid #e0e0e0; z-index: 9999; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border-radius: 12px; overflow: hidden; flex-direction: column;">
+  <div style="background: #fff; color: #333; padding: 12px 16px; font-size: 16px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e0e0e0;">
+    Hexo AI 助手
+    <button id="close-chat" style="background: none; border: none; color: #333; font-size: 20px; cursor: pointer;">×</button>
+  </div>
+  <div id="chat-log" style="flex-grow: 1; padding: 12px; overflow-y: auto; font-size: 14px; background: #fafafa;"></div>
+  <div style="padding: 10px 16px; display: flex; background: #fff; border-top: 1px solid #e0e0e0;">
+    <input type="text" id="chat-input" placeholder="输入你的问题..." style="flex: 1; padding: 8px 10px; border-radius: 6px; border: 1px solid #ccc; font-size: 14px; outline: none;">
+    <button id="send-chat" style="margin-left: 8px; padding: 8px 12px; border-radius: 6px; border: none; background: #f0f0f0; color: #333; font-size: 14px; cursor: pointer;">发送</button>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<style>
+  #chat-log p, #chat-log li, #chat-log ul, #chat-log ol {
+    margin: 2px 0 !important;
+    line-height: 1.5;
+    font-size: 13px;
+  }
+  #chat-log a {
+    color: #2b6cb0;
+    text-decoration: underline;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+  #chat-log a:hover {
+    color: #1a4f8a;
+    background-color: #eef3f9;
+  }
+  #chat-log pre {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    padding: 6px 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+    font-size: 12.5px;
+    font-family: Consolas, monospace;
+    white-space: pre-wrap;
+    word-break: break-word;
+    margin: 6px 0;
+  }
+  #chat-log code {
+    background-color: #f0f0f0;
+    padding: 1px 4px;
+    border-radius: 3px;
+    font-family: Consolas, monospace;
+  }
+  #chat-log code[class*="language-"]::before {
+    content: '';
+  }
+</style>
+
+<script>
+  const toggleBtn = document.getElementById('toggle-chat');
+  const closeBtn = document.getElementById('close-chat');
+  const chatWindow = document.getElementById('chatbot-window');
+  const chatLog = document.getElementById('chat-log');
+  const chatInput = document.getElementById('chat-input');
+  const sendBtn = document.getElementById('send-chat');
+
+  let isChatVisible = false;
+
+  window.addEventListener("DOMContentLoaded", () => {
+    chatWindow.style.display = "none";
+  });
+
+  toggleBtn.onclick = () => {
+    isChatVisible = !isChatVisible;
+    chatWindow.style.display = isChatVisible ? 'flex' : 'none';
+  };
+
+  closeBtn.onclick = () => {
+    isChatVisible = false;
+    chatWindow.style.display = 'none';
+  };
+
+  function cleanMarkdown(md) {
+    return md.replace(/\n{3,}/g, '\n\n').replace(/^\s+|\s+$/g, '').trim();
+  }
+
+  function appendMessage(role, rawContent) {
+    const content = cleanMarkdown(rawContent);
+    const msg = document.createElement('div');
+    msg.style.marginBottom = '6px';
+    msg.style.display = 'flex';
+    msg.style.alignItems = 'flex-start';
+
+    const avatar = document.createElement('div');
+    avatar.style.fontSize = '18px';
+    avatar.style.marginRight = '5px';
+    avatar.textContent = role === 'user' ? '🙂' : '🤖';
+
+    const bubble = document.createElement('div');
+    bubble.style.padding = '6px 10px';
+    bubble.style.borderRadius = '10px';
+    bubble.style.maxWidth = '220px';
+    bubble.style.background = role === 'user' ? '#e2e2e2' : '#f0f0f0';
+    bubble.style.lineHeight = '1.5';
+    bubble.style.fontSize = '13px';
+    bubble.style.wordBreak = 'break-word';
+
+    bubble.innerHTML = role === 'user'
+      ? marked.parseInline(content)
+      : marked.parse(content);
+
+    msg.style.justifyContent = role === 'user' ? 'flex-end' : 'flex-start';
+    msg.appendChild(role === 'user' ? bubble : avatar);
+    msg.appendChild(role === 'user' ? avatar : bubble);
+    chatLog.appendChild(msg);
+    chatLog.scrollTop = chatLog.scrollHeight;
+  }
+
+  async function sendMessage() {
+    const query = chatInput.value.trim();
+    if (!query) return;
+    appendMessage('user', query);
+    chatInput.value = '';
+
+    const response = await fetch('https://hexo-ai-assistant.3216243013.workers.dev/ask', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({ query })
+    });
+
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = '';
+
+    const aiMsg = document.createElement('div');
+    aiMsg.style.marginBottom = '6px';
+    aiMsg.style.display = 'flex';
+    aiMsg.style.alignItems = 'flex-start';
+
+    const avatarAI = document.createElement('div');
+    avatarAI.style.fontSize = '18px';
+    avatarAI.style.marginRight = '5px';
+    avatarAI.textContent = '🤖';
+
+    const bubble = document.createElement('div');
+    bubble.style.padding = '6px 10px';
+    bubble.style.borderRadius = '10px';
+    bubble.style.maxWidth = '220px';
+    bubble.style.background = '#f0f0f0';
+    bubble.style.lineHeight = '1.5';
+    bubble.style.fontSize = '13px';
+    bubble.style.wordBreak = 'break-word';
+
+    aiMsg.appendChild(avatarAI);
+    aiMsg.appendChild(bubble);
+    chatLog.appendChild(aiMsg);
+    chatLog.scrollTop = chatLog.scrollHeight;
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      buffer += decoder.decode(value, { stream: true });
+      bubble.innerHTML = marked.parse(cleanMarkdown(buffer));
+      chatLog.scrollTop = chatLog.scrollHeight;
+    }
+
+    bubble.innerHTML = marked.parse(cleanMarkdown(buffer));
+  }
+
+  sendBtn.onclick = sendMessage;
+  chatInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") sendMessage();
+  });
+
+  window.addEventListener("click", (e) => {
+    if (
+      isChatVisible &&
+      !chatWindow.contains(e.target) &&
+      !toggleBtn.contains(e.target)
+    ) {
+      isChatVisible = false;
+      chatWindow.style.display = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>

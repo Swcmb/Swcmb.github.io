@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ianwusb.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="VBS脚本实战：实现QQ消息自动发送（早自习请假自动化）背景：痛点与解决方案对于许多需要早起参加早自习的同学来说，凌晨6点前的请假流程往往意味着打断睡眠，甚至导致整夜休息不佳。为了解决这一痛点，我们可以利用 Windows 系统原生的 VBS（VBScript）脚本结合任务计划程序，实现 QQ 消息的定时自动发送。 本教程将指导你如何配置自动化脚本，让你在休息时间完成请假手续，优化时间管理。 一、">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VBS脚本实战：实现QQ消息自动发送（早自习请假自动化）">
+<meta property="og:url" content="https://ianwusb.github.io/2024/03/02/2024-03-02-VBS%E5%AE%9E%E7%8E%B0QQ%E8%87%AA%E5%8A%A8%E5%8F%91%E9%80%81%E6%97%A9%E8%87%AA%E4%B9%A0%E8%AF%B7%E5%81%87/index.html">
+<meta property="og:site_name" content="Ianwusb-CPCode">
+<meta property="og:description" content="VBS脚本实战：实现QQ消息自动发送（早自习请假自动化）背景：痛点与解决方案对于许多需要早起参加早自习的同学来说，凌晨6点前的请假流程往往意味着打断睡眠，甚至导致整夜休息不佳。为了解决这一痛点，我们可以利用 Windows 系统原生的 VBS（VBScript）脚本结合任务计划程序，实现 QQ 消息的定时自动发送。 本教程将指导你如何配置自动化脚本，让你在休息时间完成请假手续，优化时间管理。 一、">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.picgo.net/2024/03/01/143c09a0827263743.md.png">
+<meta property="og:image" content="https://img.picgo.net/2024/03/01/202d39a0827263743.md.png">
+<meta property="og:image" content="https://img.picgo.net/2024/03/01/3a9377fe19813a6c1.md.png">
+<meta property="og:image" content="https://img.picgo.net/2024/03/01/4a915dc49bd0fc240.png">
+<meta property="og:image" content="https://img.picgo.net/2024/03/01/5333a95cc4ce09f3b.png">
+<meta property="og:image" content="https://img.picgo.net/2024/03/01/63ff9d9fd43c9bc44.md.png">
+<meta property="og:image" content="https://img.picgo.net/2024/03/01/79cbef64d15fffeaf.md.png">
+<meta property="og:image" content="https://img.picgo.net/2024/03/01/8f2e1a26ba06de4ed.png">
+<meta property="og:image" content="https://img.picgo.net/2024/03/01/9f3d0b8e394cecf27.md.png">
+<meta property="og:image" content="https://img.picgo.net/2024/03/01/10e39d216ead509edc.md.png">
+<meta property="og:image" content="https://img.picgo.net/2024/03/01/11ade25b876c44da07.png">
+<meta property="og:image" content="https://img.picgo.net/2024/03/01/120072b20b58e7f372.md.png">
+<meta property="og:image" content="https://img.picgo.net/2024/03/01/1351f86c251ca46e0b.md.png">
+<meta property="article:published_time" content="2024-03-02T02:17:00.000Z">
+<meta property="article:modified_time" content="2024-03-02T02:17:00.000Z">
+<meta property="article:author" content="Ianwusb">
+<meta property="article:tag" content="VBS">
+<meta property="article:tag" content="Windows脚本">
+<meta property="article:tag" content="曲园">
+<meta property="article:tag" content="自动化">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.picgo.net/2024/03/01/143c09a0827263743.md.png">
+
+
+<link rel="canonical" href="https://ianwusb.github.io/2024/03/02/2024-03-02-VBS%E5%AE%9E%E7%8E%B0QQ%E8%87%AA%E5%8A%A8%E5%8F%91%E9%80%81%E6%97%A9%E8%87%AA%E4%B9%A0%E8%AF%B7%E5%81%87/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ianwusb.github.io/2024/03/02/2024-03-02-VBS%E5%AE%9E%E7%8E%B0QQ%E8%87%AA%E5%8A%A8%E5%8F%91%E9%80%81%E6%97%A9%E8%87%AA%E4%B9%A0%E8%AF%B7%E5%81%87/","path":"2024/03/02/2024-03-02-VBS实现QQ自动发送早自习请假/","title":"VBS脚本实战：实现QQ消息自动发送（早自习请假自动化）"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>VBS脚本实战：实现QQ消息自动发送（早自习请假自动化） | Ianwusb-CPCode</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.1/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ianwusb-CPCode</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Ianwusb-CPCode</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#VBS%E8%84%9A%E6%9C%AC%E5%AE%9E%E6%88%98%EF%BC%9A%E5%AE%9E%E7%8E%B0QQ%E6%B6%88%E6%81%AF%E8%87%AA%E5%8A%A8%E5%8F%91%E9%80%81%EF%BC%88%E6%97%A9%E8%87%AA%E4%B9%A0%E8%AF%B7%E5%81%87%E8%87%AA%E5%8A%A8%E5%8C%96%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">VBS脚本实战：实现QQ消息自动发送（早自习请假自动化）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF%EF%BC%9A%E7%97%9B%E7%82%B9%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.1.</span> <span class="nav-text">背景：痛点与解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="nav-number">1.2.</span> <span class="nav-text">一、环境准备与配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E8%8E%B7%E5%8F%96%E8%84%9A%E6%9C%AC%E6%96%87%E4%BB%B6"><span class="nav-number">1.2.1.</span> <span class="nav-text">1. 获取脚本文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E4%BF%AE%E5%A4%8D%EF%BC%88%E5%A6%82%E9%9C%80%EF%BC%89"><span class="nav-number">1.2.2.</span> <span class="nav-text">2. 运行环境修复（如需）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E8%84%9A%E6%9C%AC%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE"><span class="nav-number">1.2.3.</span> <span class="nav-text">3. 脚本参数配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E9%85%8D%E7%BD%AE-Windows-%E4%BB%BB%E5%8A%A1%E8%AE%A1%E5%88%92%E7%A8%8B%E5%BA%8F"><span class="nav-number">1.3.</span> <span class="nav-text">二、配置 Windows 任务计划程序</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4-1%EF%BC%9A%E6%89%93%E5%BC%80%E4%BB%BB%E5%8A%A1%E8%AE%A1%E5%88%92%E7%A8%8B%E5%BA%8F"><span class="nav-number">1.3.1.</span> <span class="nav-text">步骤 1：打开任务计划程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4-2%EF%BC%9A%E5%88%9B%E5%BB%BA%E5%9F%BA%E6%9C%AC%E4%BB%BB%E5%8A%A1"><span class="nav-number">1.3.2.</span> <span class="nav-text">步骤 2：创建基本任务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4-3%EF%BC%9A%E8%AE%BE%E7%BD%AE%E8%A7%A6%E5%8F%91%E6%97%B6%E9%97%B4"><span class="nav-number">1.3.3.</span> <span class="nav-text">步骤 3：设置触发时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4-4%EF%BC%9A%E6%8C%87%E5%AE%9A%E8%84%9A%E6%9C%AC%E8%B7%AF%E5%BE%84"><span class="nav-number">1.3.4.</span> <span class="nav-text">步骤 4：指定脚本路径</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E7%B3%BB%E7%BB%9F%E7%94%B5%E6%BA%90%E7%AE%A1%E7%90%86%E8%AE%BE%E7%BD%AE%EF%BC%88%E5%85%B3%E9%94%AE%EF%BC%89"><span class="nav-number">1.4.</span> <span class="nav-text">三、系统电源管理设置（关键）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97"><span class="nav-number">1.5.</span> <span class="nav-text">四、使用指南</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E5%85%8D%E8%B4%A3%E5%A3%B0%E6%98%8E"><span class="nav-number">1.6.</span> <span class="nav-text">五、免责声明</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ianwusb"
+      src="/img/a.png">
+  <p class="site-author-name" itemprop="name">Ianwusb</p>
+  <div class="site-description" itemprop="description">Ianwusb-CPCode</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">191</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">53</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">134</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Swcmb" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Swcmb" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:fastjackcost880@gmail.com" title="E-Mail → mailto:fastjackcost880@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/03/02/2024-03-02-VBS%E5%AE%9E%E7%8E%B0QQ%E8%87%AA%E5%8A%A8%E5%8F%91%E9%80%81%E6%97%A9%E8%87%AA%E4%B9%A0%E8%AF%B7%E5%81%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="VBS脚本实战：实现QQ消息自动发送（早自习请假自动化） | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          VBS脚本实战：实现QQ消息自动发送（早自习请假自动化）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-03-02 10:17:00" itemprop="dateCreated datePublished" datetime="2024-03-02T10:17:00+08:00">2024-03-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5/" itemprop="url" rel="index"><span itemprop="name">技术实践</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="VBS脚本实战：实现QQ消息自动发送（早自习请假自动化）"><a href="#VBS脚本实战：实现QQ消息自动发送（早自习请假自动化）" class="headerlink" title="VBS脚本实战：实现QQ消息自动发送（早自习请假自动化）"></a>VBS脚本实战：实现QQ消息自动发送（早自习请假自动化）</h1><h2 id="背景：痛点与解决方案"><a href="#背景：痛点与解决方案" class="headerlink" title="背景：痛点与解决方案"></a>背景：痛点与解决方案</h2><p>对于许多需要早起参加早自习的同学来说，凌晨6点前的请假流程往往意味着打断睡眠，甚至导致整夜休息不佳。为了解决这一痛点，我们可以利用 Windows 系统原生的 VBS（VBScript）脚本结合任务计划程序，实现 QQ 消息的定时自动发送。</p>
+<p>本教程将指导你如何配置自动化脚本，让你在休息时间完成请假手续，优化时间管理。</p>
+<h2 id="一、环境准备与配置"><a href="#一、环境准备与配置" class="headerlink" title="一、环境准备与配置"></a>一、环境准备与配置</h2><p>在开始之前，我们需要准备脚本文件并确保运行环境正确。</p>
+<h3 id="1-获取脚本文件"><a href="#1-获取脚本文件" class="headerlink" title="1. 获取脚本文件"></a>1. 获取脚本文件</h3><p>首先下载核心脚本文件：</p>
+<blockquote>
+<p><strong>下载链接</strong>：<a target="_blank" rel="noopener" href="http://47.104.64.75:82/abcd.vbs">abcd.vbs</a></p>
+</blockquote>
+<h3 id="2-运行环境修复（如需）"><a href="#2-运行环境修复（如需）" class="headerlink" title="2. 运行环境修复（如需）"></a>2. 运行环境修复（如需）</h3><p>VBS 脚本通常由系统自带的 <code>wscript.exe</code> 解析运行。如果运行脚本时出现报错，可能是系统环境缺失或关联错误。请尝试以下修复步骤：</p>
+<ol>
+<li>下载备用解析器：<a target="_blank" rel="noopener" href="http://47.104.64.75:82/wscript.exe">wscript.exe</a>。</li>
+<li>将下载的 <code>wscript.exe</code> 文件放置在系统盘根目录下（即 <code>C:\</code> 目录）。</li>
+</ol>
+<h3 id="3-脚本参数配置"><a href="#3-脚本参数配置" class="headerlink" title="3. 脚本参数配置"></a>3. 脚本参数配置</h3><p>右键点击下载好的 <code>abcd.vbs</code> 文件，选择“编辑”或使用记事本打开。</p>
+<p>找到代码中的字符串占位符，将其修改为你需要发送的请假内容。<br><strong>关键提示</strong>：</p>
+<ul>
+<li>请将“你要说的话”替换为具体的请假事由。</li>
+<li><strong>切勿在文本中换行</strong>，否则会导致脚本语法错误。</li>
+</ul>
+<p>修改完成后保存并关闭文件。</p>
+<h2 id="二、配置-Windows-任务计划程序"><a href="#二、配置-Windows-任务计划程序" class="headerlink" title="二、配置 Windows 任务计划程序"></a>二、配置 Windows 任务计划程序</h2><p>为了让脚本在指定时间自动运行，我们需要利用 Windows 的“任务计划程序”。</p>
+<h3 id="步骤-1：打开任务计划程序"><a href="#步骤-1：打开任务计划程序" class="headerlink" title="步骤 1：打开任务计划程序"></a>步骤 1：打开任务计划程序</h3><p>按下 <code>Win + S</code> 组合键，在搜索框输入“任务计划程序”并打开。</p>
+<h3 id="步骤-2：创建基本任务"><a href="#步骤-2：创建基本任务" class="headerlink" title="步骤 2：创建基本任务"></a>步骤 2：创建基本任务</h3><p>按照以下图示流程进行操作：</p>
+<p><img data-src="https://img.picgo.net/2024/03/01/143c09a0827263743.md.png" alt="任务计划程序界面"><br><img data-src="https://img.picgo.net/2024/03/01/202d39a0827263743.md.png" alt="创建任务向导"><br><img data-src="https://img.picgo.net/2024/03/01/3a9377fe19813a6c1.md.png" alt="触发器设置"></p>
+<h3 id="步骤-3：设置触发时间"><a href="#步骤-3：设置触发时间" class="headerlink" title="步骤 3：设置触发时间"></a>步骤 3：设置触发时间</h3><p>在时间设置界面，请务必注意一个关键技巧：</p>
+<ul>
+<li><strong>选择一个过去的时间点</strong>。</li>
+<li>这是为了确保任务处于“就绪”状态，配合特定的重复策略（具体逻辑视脚本设计而定），防止系统时间同步问题导致任务未执行。</li>
+</ul>
+<p><img data-src="https://img.picgo.net/2024/03/01/4a915dc49bd0fc240.png" alt="时间设置详情"><br><img data-src="https://img.picgo.net/2024/03/01/5333a95cc4ce09f3b.png" alt="确认时间"><br><img data-src="https://img.picgo.net/2024/03/01/63ff9d9fd43c9bc44.md.png" alt="操作选择"></p>
+<h3 id="步骤-4：指定脚本路径"><a href="#步骤-4：指定脚本路径" class="headerlink" title="步骤 4：指定脚本路径"></a>步骤 4：指定脚本路径</h3><p>在“操作”步骤中，选择“启动程序”，然后浏览并选中你存放 <code>abcd.vbs</code> 的路径。</p>
+<p><img data-src="https://img.picgo.net/2024/03/01/79cbef64d15fffeaf.md.png" alt="浏览脚本文件"><br><img data-src="https://img.picgo.net/2024/03/01/8f2e1a26ba06de4ed.png" alt="确认路径"><br><img data-src="https://img.picgo.net/2024/03/01/9f3d0b8e394cecf27.md.png" alt="完成向导"><br><img data-src="https://img.picgo.net/2024/03/01/10e39d216ead509edc.md.png" alt="最终确认"></p>
+<p>完成设置后退出即可。</p>
+<h2 id="三、系统电源管理设置（关键）"><a href="#三、系统电源管理设置（关键）" class="headerlink" title="三、系统电源管理设置（关键）"></a>三、系统电源管理设置（关键）</h2><p>为了保证脚本在凌晨准时执行，电脑必须保持开机状态且不能进入休眠。</p>
+<ol>
+<li><p>打开“此电脑”或“文件资源管理器”，在上方地址栏输入 <code>控制面板</code> 并回车。<br><img data-src="https://img.picgo.net/2024/03/01/11ade25b876c44da07.png" alt="打开控制面板"></p>
+</li>
+<li><p>找到并点击“电源选项”。<br><img data-src="https://img.picgo.net/2024/03/01/120072b20b58e7f372.md.png" alt="电源选项入口"></p>
+</li>
+<li><p>将计算机睡眠设置更改为“从不”，确保整晚通电且运行。<br><img data-src="https://img.picgo.net/2024/03/01/1351f86c251ca46e0b.md.png" alt="设置从不休眠"></p>
+</li>
+</ol>
+<h2 id="四、使用指南"><a href="#四、使用指南" class="headerlink" title="四、使用指南"></a>四、使用指南</h2><p>准备工作完成后，实际操作非常简单：</p>
+<ol>
+<li><strong>打开目标窗口</strong>：睡觉前，打开 QQ 中负责请假或纪检的专用聊天窗口。</li>
+<li><strong>保持焦点</strong>：确保光标停留在消息输入框内（即聊天窗口处于<strong>前台激活</strong>状态），不要最小化。</li>
+<li><strong>供电保障</strong>：确保笔记本电脑接通电源，电量充足。</li>
+<li><strong>等待执行</strong>：一切准备就绪后，你就可以安心休息了，脚本将在预定时间自动发送消息。</li>
+</ol>
+<h2 id="五、免责声明"><a href="#五、免责声明" class="headerlink" title="五、免责声明"></a>五、免责声明</h2><p>本教程所涉及的软件/脚本“VBS实现QQ自动发送早自习请假”<strong>仅供技术学习与交流使用</strong>。严禁用于任何非法目的或侵犯他人、集体、组织权益的活动。</p>
+<p>使用者在使用本工具时，应自行承担所有风险，包括但不限于：</p>
+<ol>
+<li><strong>合规风险</strong>：使用自动化工具代替人工操作可能违反相关管理平台或组织的使用规定。</li>
+<li><strong>安全风险</strong>：下载和运行第三方脚本存在潜在的安全隐患，请确保来源可信。</li>
+<li><strong>法律责任</strong>：因非法使用本工具（如发送垃圾信息、恶意攻击系统等）产生的一切法律后果，由使用者本人全部承担。</li>
+</ol>
+<p><strong>请务必在遵守法律法规及校规校纪的前提下合理使用技术。</strong></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/VBS/" rel="tag"># VBS</a>
+              <a href="/tags/Windows%E8%84%9A%E6%9C%AC/" rel="tag"># Windows脚本</a>
+              <a href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" rel="tag"># 自动化</a>
+              <a href="/tags/%E6%9B%B2%E5%9B%AD/" rel="tag"># 曲园</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/03/02/2024-03-02-python%E5%AE%9E%E7%8E%B02024%E6%98%A5%E6%99%9A%E9%AD%94%E6%9C%AF/" rel="prev" title="揭秘2024春晚魔术：Python带你还原刘谦《守岁共此时》">
+                  <i class="fa fa-angle-left"></i> 揭秘2024春晚魔术：Python带你还原刘谦《守岁共此时》
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/03/02/2024-03-02-%E6%8C%87%E5%AE%9A%E6%97%B6%E9%97%B4%E5%88%B7%E6%96%B0%E6%95%99%E5%8A%A1%E5%B9%B3%E5%8F%B0/" rel="next" title="指定时间自动刷新教务平台脚本">
+                  指定时间自动刷新教务平台脚本 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ianwusb</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<div id="chatbot-toggle" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
+  <button id="toggle-chat" style="
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #fff;
+    color: #333;
+    border: 1px solid #ddd;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  ">
+    🤖
+  </button>
+</div>
+
+<div id="chatbot-window" style="display: none; position: fixed; bottom: 80px; right: 20px; width: 340px; height: 480px; background: #fff; border: 1px solid #e0e0e0; z-index: 9999; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border-radius: 12px; overflow: hidden; flex-direction: column;">
+  <div style="background: #fff; color: #333; padding: 12px 16px; font-size: 16px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e0e0e0;">
+    Hexo AI 助手
+    <button id="close-chat" style="background: none; border: none; color: #333; font-size: 20px; cursor: pointer;">×</button>
+  </div>
+  <div id="chat-log" style="flex-grow: 1; padding: 12px; overflow-y: auto; font-size: 14px; background: #fafafa;"></div>
+  <div style="padding: 10px 16px; display: flex; background: #fff; border-top: 1px solid #e0e0e0;">
+    <input type="text" id="chat-input" placeholder="输入你的问题..." style="flex: 1; padding: 8px 10px; border-radius: 6px; border: 1px solid #ccc; font-size: 14px; outline: none;">
+    <button id="send-chat" style="margin-left: 8px; padding: 8px 12px; border-radius: 6px; border: none; background: #f0f0f0; color: #333; font-size: 14px; cursor: pointer;">发送</button>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<style>
+  #chat-log p, #chat-log li, #chat-log ul, #chat-log ol {
+    margin: 2px 0 !important;
+    line-height: 1.5;
+    font-size: 13px;
+  }
+  #chat-log a {
+    color: #2b6cb0;
+    text-decoration: underline;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+  #chat-log a:hover {
+    color: #1a4f8a;
+    background-color: #eef3f9;
+  }
+  #chat-log pre {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    padding: 6px 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+    font-size: 12.5px;
+    font-family: Consolas, monospace;
+    white-space: pre-wrap;
+    word-break: break-word;
+    margin: 6px 0;
+  }
+  #chat-log code {
+    background-color: #f0f0f0;
+    padding: 1px 4px;
+    border-radius: 3px;
+    font-family: Consolas, monospace;
+  }
+  #chat-log code[class*="language-"]::before {
+    content: '';
+  }
+</style>
+
+<script>
+  const toggleBtn = document.getElementById('toggle-chat');
+  const closeBtn = document.getElementById('close-chat');
+  const chatWindow = document.getElementById('chatbot-window');
+  const chatLog = document.getElementById('chat-log');
+  const chatInput = document.getElementById('chat-input');
+  const sendBtn = document.getElementById('send-chat');
+
+  let isChatVisible = false;
+
+  window.addEventListener("DOMContentLoaded", () => {
+    chatWindow.style.display = "none";
+  });
+
+  toggleBtn.onclick = () => {
+    isChatVisible = !isChatVisible;
+    chatWindow.style.display = isChatVisible ? 'flex' : 'none';
+  };
+
+  closeBtn.onclick = () => {
+    isChatVisible = false;
+    chatWindow.style.display = 'none';
+  };
+
+  function cleanMarkdown(md) {
+    return md.replace(/\n{3,}/g, '\n\n').replace(/^\s+|\s+$/g, '').trim();
+  }
+
+  function appendMessage(role, rawContent) {
+    const content = cleanMarkdown(rawContent);
+    const msg = document.createElement('div');
+    msg.style.marginBottom = '6px';
+    msg.style.display = 'flex';
+    msg.style.alignItems = 'flex-start';
+
+    const avatar = document.createElement('div');
+    avatar.style.fontSize = '18px';
+    avatar.style.marginRight = '5px';
+    avatar.textContent = role === 'user' ? '🙂' : '🤖';
+
+    const bubble = document.createElement('div');
+    bubble.style.padding = '6px 10px';
+    bubble.style.borderRadius = '10px';
+    bubble.style.maxWidth = '220px';
+    bubble.style.background = role === 'user' ? '#e2e2e2' : '#f0f0f0';
+    bubble.style.lineHeight = '1.5';
+    bubble.style.fontSize = '13px';
+    bubble.style.wordBreak = 'break-word';
+
+    bubble.innerHTML = role === 'user'
+      ? marked.parseInline(content)
+      : marked.parse(content);
+
+    msg.style.justifyContent = role === 'user' ? 'flex-end' : 'flex-start';
+    msg.appendChild(role === 'user' ? bubble : avatar);
+    msg.appendChild(role === 'user' ? avatar : bubble);
+    chatLog.appendChild(msg);
+    chatLog.scrollTop = chatLog.scrollHeight;
+  }
+
+  async function sendMessage() {
+    const query = chatInput.value.trim();
+    if (!query) return;
+    appendMessage('user', query);
+    chatInput.value = '';
+
+    const response = await fetch('https://hexo-ai-assistant.3216243013.workers.dev/ask', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({ query })
+    });
+
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = '';
+
+    const aiMsg = document.createElement('div');
+    aiMsg.style.marginBottom = '6px';
+    aiMsg.style.display = 'flex';
+    aiMsg.style.alignItems = 'flex-start';
+
+    const avatarAI = document.createElement('div');
+    avatarAI.style.fontSize = '18px';
+    avatarAI.style.marginRight = '5px';
+    avatarAI.textContent = '🤖';
+
+    const bubble = document.createElement('div');
+    bubble.style.padding = '6px 10px';
+    bubble.style.borderRadius = '10px';
+    bubble.style.maxWidth = '220px';
+    bubble.style.background = '#f0f0f0';
+    bubble.style.lineHeight = '1.5';
+    bubble.style.fontSize = '13px';
+    bubble.style.wordBreak = 'break-word';
+
+    aiMsg.appendChild(avatarAI);
+    aiMsg.appendChild(bubble);
+    chatLog.appendChild(aiMsg);
+    chatLog.scrollTop = chatLog.scrollHeight;
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      buffer += decoder.decode(value, { stream: true });
+      bubble.innerHTML = marked.parse(cleanMarkdown(buffer));
+      chatLog.scrollTop = chatLog.scrollHeight;
+    }
+
+    bubble.innerHTML = marked.parse(cleanMarkdown(buffer));
+  }
+
+  sendBtn.onclick = sendMessage;
+  chatInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") sendMessage();
+  });
+
+  window.addEventListener("click", (e) => {
+    if (
+      isChatVisible &&
+      !chatWindow.contains(e.target) &&
+      !toggleBtn.contains(e.target)
+    ) {
+      isChatVisible = false;
+      chatWindow.style.display = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>

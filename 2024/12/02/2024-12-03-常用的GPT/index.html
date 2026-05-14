@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ianwusb.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="本文精选了2024年度主流的大语言模型与AI效率工具，涵盖ChatGPT、文心一言、DeepSeek等国内外知名产品，并附有实用Prompt资源与模型排行榜，助您快速找到最适合的AI助手。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2024年度常用大模型与AI工具精选推荐">
+<meta property="og:url" content="https://ianwusb.github.io/2024/12/02/2024-12-03-%E5%B8%B8%E7%94%A8%E7%9A%84GPT/index.html">
+<meta property="og:site_name" content="Ianwusb-CPCode">
+<meta property="og:description" content="本文精选了2024年度主流的大语言模型与AI效率工具，涵盖ChatGPT、文心一言、DeepSeek等国内外知名产品，并附有实用Prompt资源与模型排行榜，助您快速找到最适合的AI助手。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-12-02T23:24:28.000Z">
+<meta property="article:modified_time" content="2024-12-02T23:24:28.000Z">
+<meta property="article:author" content="Ianwusb">
+<meta property="article:tag" content="AI">
+<meta property="article:tag" content="GPT">
+<meta property="article:tag" content="LLM">
+<meta property="article:tag" content="人工智能">
+<meta property="article:tag" content="效率工具">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ianwusb.github.io/2024/12/02/2024-12-03-%E5%B8%B8%E7%94%A8%E7%9A%84GPT/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ianwusb.github.io/2024/12/02/2024-12-03-%E5%B8%B8%E7%94%A8%E7%9A%84GPT/","path":"2024/12/02/2024-12-03-常用的GPT/","title":"2024年度常用大模型与AI工具精选推荐"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>2024年度常用大模型与AI工具精选推荐 | Ianwusb-CPCode</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.1/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ianwusb-CPCode</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Ianwusb-CPCode</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E7%BB%BC%E5%90%88%E5%A4%A7%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.</span> <span class="nav-text">一、综合大语言模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%9B%BD%E9%99%85%E6%A0%87%E6%9D%86"><span class="nav-number">1.1.</span> <span class="nav-text">1. 国际标杆</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%9B%BD%E5%86%85%E4%B8%BB%E6%B5%81"><span class="nav-number">1.2.</span> <span class="nav-text">2. 国内主流</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E7%89%B9%E8%89%B2%E5%9E%82%E7%9B%B4%E5%B7%A5%E5%85%B7"><span class="nav-number">2.</span> <span class="nav-text">二、特色垂直工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90%E4%B8%8E%E6%A6%9C%E5%8D%95"><span class="nav-number">3.</span> <span class="nav-text">三、学习资源与榜单</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ianwusb"
+      src="/img/a.png">
+  <p class="site-author-name" itemprop="name">Ianwusb</p>
+  <div class="site-description" itemprop="description">Ianwusb-CPCode</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">191</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">53</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">134</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Swcmb" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Swcmb" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:fastjackcost880@gmail.com" title="E-Mail → mailto:fastjackcost880@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/12/02/2024-12-03-%E5%B8%B8%E7%94%A8%E7%9A%84GPT/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="2024年度常用大模型与AI工具精选推荐 | Ianwusb-CPCode">
+      <meta itemprop="description" content="本文精选了2024年度主流的大语言模型与AI效率工具，涵盖ChatGPT、文心一言、DeepSeek等国内外知名产品，并附有实用Prompt资源与模型排行榜，助您快速找到最适合的AI助手。">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          2024年度常用大模型与AI工具精选推荐
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-12-03 07:24:28" itemprop="dateCreated datePublished" datetime="2024-12-03T07:24:28+08:00">2024-12-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/AI%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">AI工具</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/AI%E5%B7%A5%E5%85%B7/%E6%95%88%E7%8E%87%E6%8F%90%E5%8D%87/" itemprop="url" rel="index"><span itemprop="name">效率提升</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">本文精选了2024年度主流的大语言模型与AI效率工具，涵盖ChatGPT、文心一言、DeepSeek等国内外知名产品，并附有实用Prompt资源与模型排行榜，助您快速找到最适合的AI助手。</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>随着人工智能技术的飞速迭代，大语言模型（LLM）已深度融入我们的日常工作与学习流程。面对层出不穷的AI产品，如何选择一款趁手的工具成为了许多人的难题。</p>
+<p>本文整理了2024年度主流的AI大模型与特色工具，按照<strong>综合大模型</strong>、<strong>特色工具</strong>、<strong>学习资源</strong>三个维度进行分类，旨在为您提供一份清晰的选型指南。</p>
+<span id="more"></span>
+<h2 id="一、综合大语言模型"><a href="#一、综合大语言模型" class="headerlink" title="一、综合大语言模型"></a>一、综合大语言模型</h2><p>这一类工具具备强大的通用能力，适合对话、写作、编程、逻辑推理等通用场景。</p>
+<h3 id="1-国际标杆"><a href="#1-国际标杆" class="headerlink" title="1. 国际标杆"></a>1. 国际标杆</h3><ul>
+<li><strong><a target="_blank" rel="noopener" href="https://chatgpt.com/">ChatGPT</a></strong><br>由OpenAI开发的行业标杆，拥有强大的自然语言处理能力。GPT-4及后续模型在逻辑推理、代码生成和多模态交互方面表现卓越，是全球AI发展的风向标。</li>
+</ul>
+<h3 id="2-国内主流"><a href="#2-国内主流" class="headerlink" title="2. 国内主流"></a>2. 国内主流</h3><ul>
+<li><p><strong><a target="_blank" rel="noopener" href="https://yiyan.baidu.com/">文心一言</a></strong><br>百度推出的知识增强大语言模型。依托百度庞大的知识图谱，在中文语境理解、古诗词创作及本土化内容服务上具有独特优势。</p>
+</li>
+<li><p><strong><a target="_blank" rel="noopener" href="https://tongyi.aliyun.com/qianwen/">通义千问</a></strong><br>阿里云推出的超大规模语言模型。不仅擅长自然语言问答，在代码编写、文档解析及企业级应用集成方面表现出色，是办公自动化的得力助手。</p>
+</li>
+<li><p><strong><a target="_blank" rel="noopener" href="https://xinghuo.xfyun.cn/desk">讯飞星火大模型</a></strong><br>科大讯飞核心产品。凭借其在语音识别与合成领域的深厚积累，星火大模型在语音交互、多模态输入及教育场景应用中极具竞争力。</p>
+</li>
+<li><p><strong><a target="_blank" rel="noopener" href="https://chatglm.cn/main/alltoolsdetail">智谱清言</a></strong><br>基于GLM模型架构开发的AI助手。由智谱AI团队打造，支持长文本处理和数据分析，非常适合学术研究与复杂文档解读。</p>
+</li>
+<li><p><strong><a target="_blank" rel="noopener" href="https://kimi.moonshot.cn/">Kimi.ai</a></strong><br>月之暗面出品。主打“会推理解析，能深度思考”，其核心优势在于超长上下文窗口，能够处理20万字以上的长文档，是论文阅读与长文总结的神器。</p>
+</li>
+<li><p><strong><a target="_blank" rel="noopener" href="https://chat.deepseek.com/">DeepSeek</a></strong><br>专注于深度求索的AI助手。在代码生成与数理逻辑领域表现亮眼，且模型开源生态活跃，深受开发者群体喜爱。</p>
+</li>
+<li><p><strong><a target="_blank" rel="noopener" href="https://yuewen.cn/chats/143752266986655744">跃问</a></strong><br>面壁智能推出的智能问答产品，致力于通过大模型技术帮助用户快速获取知识，响应迅速，交互流畅。</p>
+</li>
+</ul>
+<h2 id="二、特色垂直工具"><a href="#二、特色垂直工具" class="headerlink" title="二、特色垂直工具"></a>二、特色垂直工具</h2><p>针对特定场景优化的AI工具，能够显著提升特定领域的工作效率。</p>
+<ul>
+<li><p><strong><a target="_blank" rel="noopener" href="https://zhida.zhihu.com/">知乎直答</a></strong><br>知乎推出的AI搜索产品。利用大模型技术对知乎社区优质内容进行整合，能为用户提供“有据可依”的精准答案，特别适合知识探索与经验查询。</p>
+</li>
+<li><p><strong><a target="_blank" rel="noopener" href="https://chatglm.cn/main/gdetail/670e3c3e119b48fe5a851149?lang=zh">清言PPT</a></strong><br>智谱清言旗下的智能PPT生成工具。用户只需输入主题或大纲，即可一键生成结构完整、排版精美的PPT演示文稿，极大缩短制作时间。</p>
+</li>
+</ul>
+<h2 id="三、学习资源与榜单"><a href="#三、学习资源与榜单" class="headerlink" title="三、学习资源与榜单"></a>三、学习资源与榜单</h2><ul>
+<li><p><strong><a target="_blank" rel="noopener" href="https://lyihub.com/">LYi 林哥的大模型野榜</a></strong><br>一个动态更新的AI模型排行榜。综合展示了各类大模型在推理、代码、数学等维度的性能评分，是了解当前模型技术格局的直观窗口。</p>
+</li>
+<li><p><strong><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/614094158">120条ChatGPT咒语集锦 - 知乎</a></strong><br>精选的Prompt提示词合集。展示了如何通过精准的指令激发AI的潜能，无论是写作、绘图还是编程，都能从中找到灵感。</p>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/GPT/" rel="tag"># GPT</a>
+              <a href="/tags/LLM/" rel="tag"># LLM</a>
+              <a href="/tags/AI/" rel="tag"># AI</a>
+              <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag"># 人工智能</a>
+              <a href="/tags/%E6%95%88%E7%8E%87%E5%B7%A5%E5%85%B7/" rel="tag"># 效率工具</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/12/02/2024-12-03-Java%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E8%AF%AD%E5%8F%A5/" rel="prev" title="Java 输入输出语句详解">
+                  <i class="fa fa-angle-left"></i> Java 输入输出语句详解
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/12/03/2024-12-03-Java%E4%BC%A0%E7%BB%9Ffor%E5%BE%AA%E7%8E%AF%E4%B8%8E%E5%A2%9E%E5%BC%BAfor%E5%BE%AA%E7%8E%AF/" rel="next" title="Java传统for循环与增强for循环">
+                  Java传统for循环与增强for循环 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ianwusb</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<div id="chatbot-toggle" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
+  <button id="toggle-chat" style="
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #fff;
+    color: #333;
+    border: 1px solid #ddd;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  ">
+    🤖
+  </button>
+</div>
+
+<div id="chatbot-window" style="display: none; position: fixed; bottom: 80px; right: 20px; width: 340px; height: 480px; background: #fff; border: 1px solid #e0e0e0; z-index: 9999; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border-radius: 12px; overflow: hidden; flex-direction: column;">
+  <div style="background: #fff; color: #333; padding: 12px 16px; font-size: 16px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e0e0e0;">
+    Hexo AI 助手
+    <button id="close-chat" style="background: none; border: none; color: #333; font-size: 20px; cursor: pointer;">×</button>
+  </div>
+  <div id="chat-log" style="flex-grow: 1; padding: 12px; overflow-y: auto; font-size: 14px; background: #fafafa;"></div>
+  <div style="padding: 10px 16px; display: flex; background: #fff; border-top: 1px solid #e0e0e0;">
+    <input type="text" id="chat-input" placeholder="输入你的问题..." style="flex: 1; padding: 8px 10px; border-radius: 6px; border: 1px solid #ccc; font-size: 14px; outline: none;">
+    <button id="send-chat" style="margin-left: 8px; padding: 8px 12px; border-radius: 6px; border: none; background: #f0f0f0; color: #333; font-size: 14px; cursor: pointer;">发送</button>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<style>
+  #chat-log p, #chat-log li, #chat-log ul, #chat-log ol {
+    margin: 2px 0 !important;
+    line-height: 1.5;
+    font-size: 13px;
+  }
+  #chat-log a {
+    color: #2b6cb0;
+    text-decoration: underline;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+  #chat-log a:hover {
+    color: #1a4f8a;
+    background-color: #eef3f9;
+  }
+  #chat-log pre {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    padding: 6px 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+    font-size: 12.5px;
+    font-family: Consolas, monospace;
+    white-space: pre-wrap;
+    word-break: break-word;
+    margin: 6px 0;
+  }
+  #chat-log code {
+    background-color: #f0f0f0;
+    padding: 1px 4px;
+    border-radius: 3px;
+    font-family: Consolas, monospace;
+  }
+  #chat-log code[class*="language-"]::before {
+    content: '';
+  }
+</style>
+
+<script>
+  const toggleBtn = document.getElementById('toggle-chat');
+  const closeBtn = document.getElementById('close-chat');
+  const chatWindow = document.getElementById('chatbot-window');
+  const chatLog = document.getElementById('chat-log');
+  const chatInput = document.getElementById('chat-input');
+  const sendBtn = document.getElementById('send-chat');
+
+  let isChatVisible = false;
+
+  window.addEventListener("DOMContentLoaded", () => {
+    chatWindow.style.display = "none";
+  });
+
+  toggleBtn.onclick = () => {
+    isChatVisible = !isChatVisible;
+    chatWindow.style.display = isChatVisible ? 'flex' : 'none';
+  };
+
+  closeBtn.onclick = () => {
+    isChatVisible = false;
+    chatWindow.style.display = 'none';
+  };
+
+  function cleanMarkdown(md) {
+    return md.replace(/\n{3,}/g, '\n\n').replace(/^\s+|\s+$/g, '').trim();
+  }
+
+  function appendMessage(role, rawContent) {
+    const content = cleanMarkdown(rawContent);
+    const msg = document.createElement('div');
+    msg.style.marginBottom = '6px';
+    msg.style.display = 'flex';
+    msg.style.alignItems = 'flex-start';
+
+    const avatar = document.createElement('div');
+    avatar.style.fontSize = '18px';
+    avatar.style.marginRight = '5px';
+    avatar.textContent = role === 'user' ? '🙂' : '🤖';
+
+    const bubble = document.createElement('div');
+    bubble.style.padding = '6px 10px';
+    bubble.style.borderRadius = '10px';
+    bubble.style.maxWidth = '220px';
+    bubble.style.background = role === 'user' ? '#e2e2e2' : '#f0f0f0';
+    bubble.style.lineHeight = '1.5';
+    bubble.style.fontSize = '13px';
+    bubble.style.wordBreak = 'break-word';
+
+    bubble.innerHTML = role === 'user'
+      ? marked.parseInline(content)
+      : marked.parse(content);
+
+    msg.style.justifyContent = role === 'user' ? 'flex-end' : 'flex-start';
+    msg.appendChild(role === 'user' ? bubble : avatar);
+    msg.appendChild(role === 'user' ? avatar : bubble);
+    chatLog.appendChild(msg);
+    chatLog.scrollTop = chatLog.scrollHeight;
+  }
+
+  async function sendMessage() {
+    const query = chatInput.value.trim();
+    if (!query) return;
+    appendMessage('user', query);
+    chatInput.value = '';
+
+    const response = await fetch('https://hexo-ai-assistant.3216243013.workers.dev/ask', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({ query })
+    });
+
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = '';
+
+    const aiMsg = document.createElement('div');
+    aiMsg.style.marginBottom = '6px';
+    aiMsg.style.display = 'flex';
+    aiMsg.style.alignItems = 'flex-start';
+
+    const avatarAI = document.createElement('div');
+    avatarAI.style.fontSize = '18px';
+    avatarAI.style.marginRight = '5px';
+    avatarAI.textContent = '🤖';
+
+    const bubble = document.createElement('div');
+    bubble.style.padding = '6px 10px';
+    bubble.style.borderRadius = '10px';
+    bubble.style.maxWidth = '220px';
+    bubble.style.background = '#f0f0f0';
+    bubble.style.lineHeight = '1.5';
+    bubble.style.fontSize = '13px';
+    bubble.style.wordBreak = 'break-word';
+
+    aiMsg.appendChild(avatarAI);
+    aiMsg.appendChild(bubble);
+    chatLog.appendChild(aiMsg);
+    chatLog.scrollTop = chatLog.scrollHeight;
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      buffer += decoder.decode(value, { stream: true });
+      bubble.innerHTML = marked.parse(cleanMarkdown(buffer));
+      chatLog.scrollTop = chatLog.scrollHeight;
+    }
+
+    bubble.innerHTML = marked.parse(cleanMarkdown(buffer));
+  }
+
+  sendBtn.onclick = sendMessage;
+  chatInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") sendMessage();
+  });
+
+  window.addEventListener("click", (e) => {
+    if (
+      isChatVisible &&
+      !chatWindow.contains(e.target) &&
+      !toggleBtn.contains(e.target)
+    ) {
+      isChatVisible = false;
+      chatWindow.style.display = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>

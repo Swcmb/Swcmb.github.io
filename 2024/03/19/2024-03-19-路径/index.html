@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ianwusb.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="题目背景本题为填空题，只需要算出结果后，在代码中使用输出语句将所填结果输出即可。 小蓝学习了最短路径之后特别高兴，他定义了一个特别的图，希望找到图中的最短路径。小蓝的图由 2021 个结点组成，依次编号 1 至 2021。 题目描述对于两个不同的结点 $a$ 和 $b$，边的连接规则如下：  无边情况：如果 $|a - b| &gt; 21$，则两个结点之间没有边相连。 有边情况：如果 $|a -">
+<meta property="og:type" content="article">
+<meta property="og:title" content="蓝桥杯真题解析：特殊图的最短路径问题">
+<meta property="og:url" content="https://ianwusb.github.io/2024/03/19/2024-03-19-%E8%B7%AF%E5%BE%84/index.html">
+<meta property="og:site_name" content="Ianwusb-CPCode">
+<meta property="og:description" content="题目背景本题为填空题，只需要算出结果后，在代码中使用输出语句将所填结果输出即可。 小蓝学习了最短路径之后特别高兴，他定义了一个特别的图，希望找到图中的最短路径。小蓝的图由 2021 个结点组成，依次编号 1 至 2021。 题目描述对于两个不同的结点 $a$ 和 $b$，边的连接规则如下：  无边情况：如果 $|a - b| &gt; 21$，则两个结点之间没有边相连。 有边情况：如果 $|a -">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-03-19T00:20:58.000Z">
+<meta property="article:modified_time" content="2024-03-19T00:20:58.000Z">
+<meta property="article:author" content="Ianwusb">
+<meta property="article:tag" content="Dijkstra">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="图论">
+<meta property="article:tag" content="最短路径">
+<meta property="article:tag" content="蓝桥杯">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ianwusb.github.io/2024/03/19/2024-03-19-%E8%B7%AF%E5%BE%84/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ianwusb.github.io/2024/03/19/2024-03-19-%E8%B7%AF%E5%BE%84/","path":"2024/03/19/2024-03-19-路径/","title":"蓝桥杯真题解析：特殊图的最短路径问题"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>蓝桥杯真题解析：特殊图的最短路径问题 | Ianwusb-CPCode</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.1/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ianwusb-CPCode</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Ianwusb-CPCode</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">题目背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">2.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF"><span class="nav-number">3.</span> <span class="nav-text">解题思路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%BB%BA%E5%9B%BE"><span class="nav-number">3.1.</span> <span class="nav-text">1. 建图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E8%AE%A1%E7%AE%97"><span class="nav-number">3.2.</span> <span class="nav-text">2. 最短路径计算</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">4.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%80%94-%E4%B8%BB%E7%A8%8B%E5%BA%8F%E9%80%BB%E8%BE%91-%E2%80%94"><span class="nav-number">5.</span> <span class="nav-text">—- 主程序逻辑 —-</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E5%88%9D%E5%A7%8B%E5%8C%96%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5"><span class="nav-number">6.</span> <span class="nav-text">1. 初始化邻接矩阵</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E4%BA%8C%E7%BB%B4%E5%88%97%E8%A1%A8%E5%AD%98%E5%82%A8%E5%9B%BE%EF%BC%8Ccost-i-j-%E8%A1%A8%E7%A4%BA%E8%8A%82%E7%82%B9-i-1-%E5%88%B0%E8%8A%82%E7%82%B9-j-1-%E7%9A%84%E8%B7%9D%E7%A6%BB"><span class="nav-number">7.</span> <span class="nav-text">使用二维列表存储图，cost[i][j] 表示节点 i+1 到节点 j+1 的距离</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E8%AE%A1%E7%AE%97%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84"><span class="nav-number">8.</span> <span class="nav-text">2. 计算最短路径</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%8A%82%E7%82%B91%E5%AF%B9%E5%BA%94%E7%B4%A2%E5%BC%950"><span class="nav-number">9.</span> <span class="nav-text">节点1对应索引0</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E8%BE%93%E5%87%BA%E7%BB%93%E6%9E%9C"><span class="nav-number">10.</span> <span class="nav-text">3. 输出结果</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%8A%82%E7%82%B92021%E5%AF%B9%E5%BA%94%E7%B4%A2%E5%BC%952020"><span class="nav-number">11.</span> <span class="nav-text">节点2021对应索引2020</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90"><span class="nav-number">11.1.</span> <span class="nav-text">复杂度分析</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ianwusb"
+      src="/img/a.png">
+  <p class="site-author-name" itemprop="name">Ianwusb</p>
+  <div class="site-description" itemprop="description">Ianwusb-CPCode</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">191</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">53</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">134</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Swcmb" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Swcmb" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:fastjackcost880@gmail.com" title="E-Mail → mailto:fastjackcost880@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/03/19/2024-03-19-%E8%B7%AF%E5%BE%84/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="蓝桥杯真题解析：特殊图的最短路径问题 | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          蓝桥杯真题解析：特殊图的最短路径问题
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-03-19 08:20:58" itemprop="dateCreated datePublished" datetime="2024-03-19T08:20:58+08:00">2024-03-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">算法笔记</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="题目背景"><a href="#题目背景" class="headerlink" title="题目背景"></a>题目背景</h2><p>本题为填空题，只需要算出结果后，在代码中使用输出语句将所填结果输出即可。</p>
+<p>小蓝学习了最短路径之后特别高兴，他定义了一个特别的图，希望找到图中的最短路径。小蓝的图由 2021 个结点组成，依次编号 1 至 2021。</p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>对于两个不同的结点 $a$ 和 $b$，边的连接规则如下：</p>
+<ol>
+<li><strong>无边情况</strong>：如果 $|a - b| &gt; 21$，则两个结点之间没有边相连。</li>
+<li><strong>有边情况</strong>：如果 $|a - b| \le 21$，则两个点之间有一条长度为 $a$ 和 $b$ 的最小公倍数（LCM）的无向边相连。</li>
+</ol>
+<p><strong>示例说明：</strong></p>
+<ul>
+<li>结点 1 和结点 23：$|1 - 23| = 22 &gt; 21$，故没有边相连。</li>
+<li>结点 3 和结点 24：$|3 - 24| = 21 \le 21$，有一条无向边，长度为 $LCM(3, 24) = 24$。</li>
+<li>结点 15 和结点 25：$|15 - 25| = 10 \le 21$，有一条无向边，长度为 $LCM(15, 25) = 75$。</li>
+</ul>
+<p><strong>问题：</strong> 请计算结点 1 和结点 2021 之间的最短路径长度是多少？</p>
+<blockquote>
+<p><strong>提示：</strong> 建议使用计算机编程解决问题。</p>
+</blockquote>
+<span id="more"></span>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>本题本质上是一个<strong>单源最短路径</strong>问题，适合使用 <strong>Dijkstra 算法</strong> 求解。解题步骤主要分为两步：</p>
+<h3 id="1-建图"><a href="#1-建图" class="headerlink" title="1. 建图"></a>1. 建图</h3><p>我们需要构建一个大小为 $2021 \times 2021$ 的邻接矩阵来存储图结构。</p>
+<ul>
+<li>对于任意两个节点 $i$ 和 $j$：<ul>
+<li>如果 $|i - j| \le 21$，边的权重为 $LCM(i, j)$。</li>
+<li>如果 $|i - j| &gt; 21$，边的权重记为无穷大（表示不可达）。</li>
+<li>节点到自身的距离为 0。</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-最短路径计算"><a href="#2-最短路径计算" class="headerlink" title="2. 最短路径计算"></a>2. 最短路径计算</h3><p>利用 Dijkstra 算法核心逻辑：</p>
+<ul>
+<li>维护一个距离数组 <code>distance</code>，初始化为无穷大，起点的距离设为 0。</li>
+<li>每次从未访问的节点中选取距离起点最近的节点 $v$。</li>
+<li>利用节点 $v$ 对其邻接节点进行松弛操作，更新邻接节点的最短距离。</li>
+<li>重复上述过程直到所有节点都被访问或无法更新为止。</li>
+</ul>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><p>以下是完整的 Python 代码实现，包含了最小公倍数计算、图的构建以及 Dijkstra 算法主体。</p>
+<p>```python<br>import math</p>
+<p>def lcm(a, b):<br>    “””<br>    计算两个数的最小公倍数<br>    基于公式: LCM(a, b) = (a <em> b) / GCD(a, b)<br>    这里使用欧几里得算法手动实现 GCD<br>    “””<br>    x, y = a, b<br>    while y:<br>        x, y = y, x % y<br>    return (a </em> b) // x  # 整数除法确保结果为整数</p>
+<p>def dijkstra(graph, start_node, node_num):<br>    “””<br>    Dijkstra 最短路径算法实现<br>    :param graph: 邻接矩阵，graph[u][v] 表示边权，inf 表示不可达<br>    :param start_node: 起始节点编号<br>    :param node_num: 节点总数<br>    :return: 包含从起点到所有节点最短距离的列表<br>    “””</p>
+<pre><code># visited 数组：标记节点是否已找到最短路径
+visited = [False for _ in range(node_num)]
+
+# distance 数组：记录起点到各节点的当前最短距离
+distance = [float(&#39;inf&#39;) for _ in range(node_num)]
+distance[start_node] = 0
+
+while True:
+    v = -1
+    # 1. 寻找未访问节点中距离最小的节点
+    for u in range(node_num):
+        if not visited[u] and (v == -1 or distance[u] &lt; distance[v]):
+            v = u
+
+    # 如果找不到可更新的节点（所有节点已访问或剩余节点不可达），退出循环
+    if v == -1:
+        break
+
+    # 2. 标记该节点已访问
+    visited[v] = True
+
+    # 3. 松弛操作：更新邻接节点的距离
+    for u in range(node_num):
+        # 如果节点 u 未访问且通过 v 到 u 更近，则更新
+        if not visited[u] and graph[v][u] != float(&#39;inf&#39;):
+            distance[u] = min(distance[u], distance[v] + graph[v][u])
+
+return distance
+</code></pre><h1 id="—-主程序逻辑-—"><a href="#—-主程序逻辑-—" class="headerlink" title="—- 主程序逻辑 —-"></a>—- 主程序逻辑 —-</h1><p>NODE_COUNT = 2021<br>INF = float(‘inf’)</p>
+<h1 id="1-初始化邻接矩阵"><a href="#1-初始化邻接矩阵" class="headerlink" title="1. 初始化邻接矩阵"></a>1. 初始化邻接矩阵</h1><h1 id="使用二维列表存储图，cost-i-j-表示节点-i-1-到节点-j-1-的距离"><a href="#使用二维列表存储图，cost-i-j-表示节点-i-1-到节点-j-1-的距离" class="headerlink" title="使用二维列表存储图，cost[i][j] 表示节点 i+1 到节点 j+1 的距离"></a>使用二维列表存储图，cost[i][j] 表示节点 i+1 到节点 j+1 的距离</h1><p>cost = [[INF for <em> in range(NODE_COUNT)] for </em> in range(NODE_COUNT)]</p>
+<p>for i in range(NODE_COUNT):<br>    for j in range(NODE_COUNT):<br>        if i == j:<br>            cost[i][j] = 0<br>        else:</p>
+<pre><code>        # 题目节点编号从1开始，代码索引从0开始，计算时需+1
+        node_a = i + 1
+        node_b = j + 1
+
+        if abs(node_a - node_b) &lt;= 21:
+            cost[i][j] = lcm(node_a, node_b)
+        # else 情况已由初始化的 INF 覆盖
+</code></pre><h1 id="2-计算最短路径"><a href="#2-计算最短路径" class="headerlink" title="2. 计算最短路径"></a>2. 计算最短路径</h1><h1 id="节点1对应索引0"><a href="#节点1对应索引0" class="headerlink" title="节点1对应索引0"></a>节点1对应索引0</h1><p>result_distances = dijkstra(cost, 0, NODE_COUNT)</p>
+<h1 id="3-输出结果"><a href="#3-输出结果" class="headerlink" title="3. 输出结果"></a>3. 输出结果</h1><h1 id="节点2021对应索引2020"><a href="#节点2021对应索引2020" class="headerlink" title="节点2021对应索引2020"></a>节点2021对应索引2020</h1><p>print(result_distances[2020])</p>
+<h2 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h2><ul>
+<li><strong>时间复杂度</strong>：$O(N^2)$。其中 $N=2021$。主要消耗在构建邻接矩阵 ($2021 \times 2021$) 和 Dijkstra 算法遍历上。对于填空题而言，这个计算量在 Python 中可以在几秒内完成。</li>
+<li><strong>空间复杂度</strong>：$O(N^2)$。主要用于存储邻接矩阵。</li>
+</ul>
+<p>运行上述代码，即可得到结点 1 到结点 2021 的最短路径长度。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Python/" rel="tag"># Python</a>
+              <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" rel="tag"># 蓝桥杯</a>
+              <a href="/tags/%E5%9B%BE%E8%AE%BA/" rel="tag"># 图论</a>
+              <a href="/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/" rel="tag"># 最短路径</a>
+              <a href="/tags/Dijkstra/" rel="tag"># Dijkstra</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/03/18/2024-03-19-Dijkstra%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E7%AE%97%E6%B3%95%E7%9A%84python%E5%87%BD%E6%95%B0%E5%AE%9E%E7%8E%B0/" rel="prev" title="Dijkstra最短路径算法的Python实现详解">
+                  <i class="fa fa-angle-left"></i> Dijkstra最短路径算法的Python实现详解
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/03/19/2024-03-20-C++%E7%9A%84%E7%B1%BB/" rel="next" title="C++ 类与对象基础：封装一个数组最大值求解器">
+                  C++ 类与对象基础：封装一个数组最大值求解器 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ianwusb</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<div id="chatbot-toggle" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
+  <button id="toggle-chat" style="
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #fff;
+    color: #333;
+    border: 1px solid #ddd;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  ">
+    🤖
+  </button>
+</div>
+
+<div id="chatbot-window" style="display: none; position: fixed; bottom: 80px; right: 20px; width: 340px; height: 480px; background: #fff; border: 1px solid #e0e0e0; z-index: 9999; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border-radius: 12px; overflow: hidden; flex-direction: column;">
+  <div style="background: #fff; color: #333; padding: 12px 16px; font-size: 16px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e0e0e0;">
+    Hexo AI 助手
+    <button id="close-chat" style="background: none; border: none; color: #333; font-size: 20px; cursor: pointer;">×</button>
+  </div>
+  <div id="chat-log" style="flex-grow: 1; padding: 12px; overflow-y: auto; font-size: 14px; background: #fafafa;"></div>
+  <div style="padding: 10px 16px; display: flex; background: #fff; border-top: 1px solid #e0e0e0;">
+    <input type="text" id="chat-input" placeholder="输入你的问题..." style="flex: 1; padding: 8px 10px; border-radius: 6px; border: 1px solid #ccc; font-size: 14px; outline: none;">
+    <button id="send-chat" style="margin-left: 8px; padding: 8px 12px; border-radius: 6px; border: none; background: #f0f0f0; color: #333; font-size: 14px; cursor: pointer;">发送</button>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<style>
+  #chat-log p, #chat-log li, #chat-log ul, #chat-log ol {
+    margin: 2px 0 !important;
+    line-height: 1.5;
+    font-size: 13px;
+  }
+  #chat-log a {
+    color: #2b6cb0;
+    text-decoration: underline;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+  #chat-log a:hover {
+    color: #1a4f8a;
+    background-color: #eef3f9;
+  }
+  #chat-log pre {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    padding: 6px 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+    font-size: 12.5px;
+    font-family: Consolas, monospace;
+    white-space: pre-wrap;
+    word-break: break-word;
+    margin: 6px 0;
+  }
+  #chat-log code {
+    background-color: #f0f0f0;
+    padding: 1px 4px;
+    border-radius: 3px;
+    font-family: Consolas, monospace;
+  }
+  #chat-log code[class*="language-"]::before {
+    content: '';
+  }
+</style>
+
+<script>
+  const toggleBtn = document.getElementById('toggle-chat');
+  const closeBtn = document.getElementById('close-chat');
+  const chatWindow = document.getElementById('chatbot-window');
+  const chatLog = document.getElementById('chat-log');
+  const chatInput = document.getElementById('chat-input');
+  const sendBtn = document.getElementById('send-chat');
+
+  let isChatVisible = false;
+
+  window.addEventListener("DOMContentLoaded", () => {
+    chatWindow.style.display = "none";
+  });
+
+  toggleBtn.onclick = () => {
+    isChatVisible = !isChatVisible;
+    chatWindow.style.display = isChatVisible ? 'flex' : 'none';
+  };
+
+  closeBtn.onclick = () => {
+    isChatVisible = false;
+    chatWindow.style.display = 'none';
+  };
+
+  function cleanMarkdown(md) {
+    return md.replace(/\n{3,}/g, '\n\n').replace(/^\s+|\s+$/g, '').trim();
+  }
+
+  function appendMessage(role, rawContent) {
+    const content = cleanMarkdown(rawContent);
+    const msg = document.createElement('div');
+    msg.style.marginBottom = '6px';
+    msg.style.display = 'flex';
+    msg.style.alignItems = 'flex-start';
+
+    const avatar = document.createElement('div');
+    avatar.style.fontSize = '18px';
+    avatar.style.marginRight = '5px';
+    avatar.textContent = role === 'user' ? '🙂' : '🤖';
+
+    const bubble = document.createElement('div');
+    bubble.style.padding = '6px 10px';
+    bubble.style.borderRadius = '10px';
+    bubble.style.maxWidth = '220px';
+    bubble.style.background = role === 'user' ? '#e2e2e2' : '#f0f0f0';
+    bubble.style.lineHeight = '1.5';
+    bubble.style.fontSize = '13px';
+    bubble.style.wordBreak = 'break-word';
+
+    bubble.innerHTML = role === 'user'
+      ? marked.parseInline(content)
+      : marked.parse(content);
+
+    msg.style.justifyContent = role === 'user' ? 'flex-end' : 'flex-start';
+    msg.appendChild(role === 'user' ? bubble : avatar);
+    msg.appendChild(role === 'user' ? avatar : bubble);
+    chatLog.appendChild(msg);
+    chatLog.scrollTop = chatLog.scrollHeight;
+  }
+
+  async function sendMessage() {
+    const query = chatInput.value.trim();
+    if (!query) return;
+    appendMessage('user', query);
+    chatInput.value = '';
+
+    const response = await fetch('https://hexo-ai-assistant.3216243013.workers.dev/ask', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({ query })
+    });
+
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = '';
+
+    const aiMsg = document.createElement('div');
+    aiMsg.style.marginBottom = '6px';
+    aiMsg.style.display = 'flex';
+    aiMsg.style.alignItems = 'flex-start';
+
+    const avatarAI = document.createElement('div');
+    avatarAI.style.fontSize = '18px';
+    avatarAI.style.marginRight = '5px';
+    avatarAI.textContent = '🤖';
+
+    const bubble = document.createElement('div');
+    bubble.style.padding = '6px 10px';
+    bubble.style.borderRadius = '10px';
+    bubble.style.maxWidth = '220px';
+    bubble.style.background = '#f0f0f0';
+    bubble.style.lineHeight = '1.5';
+    bubble.style.fontSize = '13px';
+    bubble.style.wordBreak = 'break-word';
+
+    aiMsg.appendChild(avatarAI);
+    aiMsg.appendChild(bubble);
+    chatLog.appendChild(aiMsg);
+    chatLog.scrollTop = chatLog.scrollHeight;
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      buffer += decoder.decode(value, { stream: true });
+      bubble.innerHTML = marked.parse(cleanMarkdown(buffer));
+      chatLog.scrollTop = chatLog.scrollHeight;
+    }
+
+    bubble.innerHTML = marked.parse(cleanMarkdown(buffer));
+  }
+
+  sendBtn.onclick = sendMessage;
+  chatInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") sendMessage();
+  });
+
+  window.addEventListener("click", (e) => {
+    if (
+      isChatVisible &&
+      !chatWindow.contains(e.target) &&
+      !toggleBtn.contains(e.target)
+    ) {
+      isChatVisible = false;
+      chatWindow.style.display = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>

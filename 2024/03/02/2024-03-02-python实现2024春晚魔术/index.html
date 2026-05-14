@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ianwusb.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="背景在2024年央视龙年春晚上，刘谦表演的魔术《守岁共此时》刷爆全网。这个魔术看似神奇，实则背后蕴含着严谨的数学逻辑。作为一名技术爱好者，我们不妨用 Python 代码来解构并重现这一奇迹时刻，看看这背后的“算法”是如何运作的。 魔术背后的逻辑这个魔术的核心在于约瑟夫环变体以及一系列特定的洗牌、移牌操作。通过固定的步骤，无论初始状态如何，最终都能将特定的牌留在手中。 下面我们通过 Python 代">
+<meta property="og:type" content="article">
+<meta property="og:title" content="揭秘2024春晚魔术：Python带你还原刘谦《守岁共此时》">
+<meta property="og:url" content="https://ianwusb.github.io/2024/03/02/2024-03-02-python%E5%AE%9E%E7%8E%B02024%E6%98%A5%E6%99%9A%E9%AD%94%E6%9C%AF/index.html">
+<meta property="og:site_name" content="Ianwusb-CPCode">
+<meta property="og:description" content="背景在2024年央视龙年春晚上，刘谦表演的魔术《守岁共此时》刷爆全网。这个魔术看似神奇，实则背后蕴含着严谨的数学逻辑。作为一名技术爱好者，我们不妨用 Python 代码来解构并重现这一奇迹时刻，看看这背后的“算法”是如何运作的。 魔术背后的逻辑这个魔术的核心在于约瑟夫环变体以及一系列特定的洗牌、移牌操作。通过固定的步骤，无论初始状态如何，最终都能将特定的牌留在手中。 下面我们通过 Python 代">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-03-02T02:16:43.000Z">
+<meta property="article:modified_time" content="2024-03-02T02:16:43.000Z">
+<meta property="article:author" content="Ianwusb">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="春晚">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="趣味编程">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ianwusb.github.io/2024/03/02/2024-03-02-python%E5%AE%9E%E7%8E%B02024%E6%98%A5%E6%99%9A%E9%AD%94%E6%9C%AF/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ianwusb.github.io/2024/03/02/2024-03-02-python%E5%AE%9E%E7%8E%B02024%E6%98%A5%E6%99%9A%E9%AD%94%E6%9C%AF/","path":"2024/03/02/2024-03-02-python实现2024春晚魔术/","title":"揭秘2024春晚魔术：Python带你还原刘谦《守岁共此时》"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>揭秘2024春晚魔术：Python带你还原刘谦《守岁共此时》 | Ianwusb-CPCode</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.1/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ianwusb-CPCode</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Ianwusb-CPCode</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%AD%94%E6%9C%AF%E8%83%8C%E5%90%8E%E7%9A%84%E9%80%BB%E8%BE%91"><span class="nav-number">2.</span> <span class="nav-text">魔术背后的逻辑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.</span> <span class="nav-text">Python 代码实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E6%AD%A5%E9%AA%A4%E8%A7%A3%E6%9E%90"><span class="nav-number">4.</span> <span class="nav-text">核心步骤解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E8%AF%AD"><span class="nav-number">5.</span> <span class="nav-text">结语</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ianwusb"
+      src="/img/a.png">
+  <p class="site-author-name" itemprop="name">Ianwusb</p>
+  <div class="site-description" itemprop="description">Ianwusb-CPCode</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">191</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">53</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">134</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Swcmb" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Swcmb" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:fastjackcost880@gmail.com" title="E-Mail → mailto:fastjackcost880@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/03/02/2024-03-02-python%E5%AE%9E%E7%8E%B02024%E6%98%A5%E6%99%9A%E9%AD%94%E6%9C%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="揭秘2024春晚魔术：Python带你还原刘谦《守岁共此时》 | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          揭秘2024春晚魔术：Python带你还原刘谦《守岁共此时》
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-03-02 10:16:43" itemprop="dateCreated datePublished" datetime="2024-03-02T10:16:43+08:00">2024-03-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF%E6%8E%A2%E7%B4%A2/" itemprop="url" rel="index"><span itemprop="name">技术探索</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF%E6%8E%A2%E7%B4%A2/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>在2024年央视龙年春晚上，刘谦表演的魔术《守岁共此时》刷爆全网。这个魔术看似神奇，实则背后蕴含着严谨的数学逻辑。作为一名技术爱好者，我们不妨用 Python 代码来解构并重现这一奇迹时刻，看看这背后的“算法”是如何运作的。</p>
+<h2 id="魔术背后的逻辑"><a href="#魔术背后的逻辑" class="headerlink" title="魔术背后的逻辑"></a>魔术背后的逻辑</h2><p>这个魔术的核心在于<strong>约瑟夫环</strong>变体以及一系列特定的洗牌、移牌操作。通过固定的步骤，无论初始状态如何，最终都能将特定的牌留在手中。</p>
+<p>下面我们通过 Python 代码来模拟整个魔术流程。</p>
+<span id="more"></span>
+<h2 id="Python-代码实现"><a href="#Python-代码实现" class="headerlink" title="Python 代码实现"></a>Python 代码实现</h2><p>以下代码完整复现了春晚魔术的每一个步骤，包括撕牌、名字移动、地域插入、性别丢弃以及最后的“好运留下来，烦恼丢出去”循环。</p>
+<p>```python<br>import random</p>
+<p>def spring_festival_gala_magic():<br>    print(“—- 2024春晚魔术 Python复现 —-“)</p>
+<pre><code># 1. 初始化四张牌（假设为1, 2, 3, 4）
+cards = [1, 2, 3, 4]
+random.shuffle(cards)
+print(f&quot;步骤1 - 随机打乱后的牌：{cards}&quot;)
+
+# 2. 撕开牌，变成两份一样的叠在一起
+# 此时牌堆结构为 [A, B, C, D, A, B, C, D]
+cards = cards + cards
+print(f&quot;步骤2 - 撕开后重叠：{cards}&quot;)
+
+# 3. 名字字数移动（将顶部的牌移到底部）
+name_len = int(input(&quot;请输入你的名字字数（几句话）：&quot;))
+for _ in range(name_len):
+    cards.append(cards.pop(0))
+print(f&quot;步骤3 - 名字移动后：{cards}&quot;)
+
+# 4. 取出前3张牌，随机插入中间
+# 注意：不能插在第一张或最后一张的位置，以保证随机性且不打乱核心结构
+top_three = cards[:3]
+remaining = cards[3:]
+insert_pos = random.randint(1, len(remaining) - 1)
+cards = remaining[:insert_pos] + top_three + remaining[insert_pos:]
+print(f&quot;步骤4 - 前3张插入中间后：{cards}&quot;)
+
+# 5. 藏牌（取走最上面的一张牌，这就是最后要匹配的牌）
+hidden_card = cards.pop(0)
+print(f&quot;步骤5 - 藏起来的牌是：{hidden_card}&quot;)
+print(f&quot;手中剩余牌：{cards}&quot;)
+
+# 6. 地域判断（南方人/北方人/不确定）
+region = input(&quot;你是南方人(输入1)，北方人(输入2)，还是不确定(输入3)？&quot;)
+if region == &quot;1&quot;:
+    move_count = 1
+elif region == &quot;2&quot;:
+    move_count = 2
+else:
+    move_count = 3
+
+# 取出指定数量的牌，插入中间
+top_cards = cards[:move_count]
+remaining = cards[move_count:]
+insert_pos = random.randint(1, len(remaining) - 1)
+cards = remaining[:insert_pos] + top_cards + remaining[insert_pos:]
+print(f&quot;步骤6 - 地域操作后：{cards}&quot;)
+
+# 7. 性别丢弃（男生扔1张，女生扔2张）
+gender = input(&quot;你是男生(输入1)还是女生(输入2)？&quot;)
+discard_count = 1 if gender == &quot;1&quot; else 2
+for _ in range(discard_count):
+    cards.pop(0)
+print(f&quot;步骤7 - 性别丢弃后：{cards}&quot;)
+
+# 8. “见证奇迹的时刻”（7个字，循环移牌7次）
+magic_words = &quot;见证奇迹的时刻&quot;
+for _ in range(len(magic_words)):
+    cards.append(cards.pop(0))
+print(f&quot;步骤8 - 念咒语后：{cards}&quot;)
+
+# 9. “好运留下来，烦恼丢出去”
+# 规则：第一张放到底部（留下来），第二张扔掉（丢出去）
+# 循环直到只剩一张
+print(&quot;步骤9 - 开始循环：好运留下来，烦恼丢出去...&quot;)
+while len(cards) &gt; 1:
+    # 好运留下来
+    cards.append(cards.pop(0))
+    # 烦恼丢出去
+    cards.pop(0)
+    print(f&quot;  -&gt; 当前牌堆：{cards}&quot;)
+
+print(&quot;\n--- 结果验证 ---&quot;)
+print(f&quot;你手里剩下的牌是：{cards[0]}&quot;)
+print(f&quot;你藏起来的牌是：{hidden_card}&quot;)
+if cards[0] == hidden_card:
+    print(&quot;恭喜！魔术成功，奇迹发生了！&quot;)
+else:
+    print(&quot;魔术失败，请检查步骤。&quot;)
+</code></pre><p>if <strong>name</strong> == “<strong>main</strong>“:<br>    spring_festival_gala_magic()</p>
+<h2 id="核心步骤解析"><a href="#核心步骤解析" class="headerlink" title="核心步骤解析"></a>核心步骤解析</h2><p>为了方便理解，我们将魔术中的关键动作拆解如下：</p>
+<ol>
+<li><strong>对半撕牌</strong>：这步非常关键，它构建了一个周期为4的重复序列（例如 A B C D A B C D）。这意味着只要我们能控制相对位置，最终一定能找到配对的牌。</li>
+<li><strong>名字移动</strong>：这一步实际上是循环移位，它改变了牌的起始位置，但保持了循环队列的性质。</li>
+<li><strong>插牌操作</strong>：将顶部若干张牌插入中间。在数学上，这一步配合后续的丢弃操作，巧妙地“规避”了可能出现的错误配对情况，逐步缩小范围。</li>
+<li><strong>好运与烦恼循环</strong>：这是经典的<strong>约瑟夫环</strong>问题变种。通过固定的“保留-丢弃”循环，最终剩下的那一张牌，必然对应最开始藏起来的那张牌的位置索引。</li>
+</ol>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>通过 Python 代码的模拟，我们发现魔术不仅仅是手法的艺术，更是数学与逻辑的结晶。这个小程序不仅还原了春晚的精彩瞬间，也是练习列表操作和逻辑思维的绝佳案例。不妨动手运行一下，见证属于你的代码奇迹！</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Python/" rel="tag"># Python</a>
+              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"># 算法</a>
+              <a href="/tags/%E8%B6%A3%E5%91%B3%E7%BC%96%E7%A8%8B/" rel="tag"># 趣味编程</a>
+              <a href="/tags/%E6%98%A5%E6%99%9A/" rel="tag"># 春晚</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/03/02/2024-03-02-%E6%9B%B2%E5%9B%AD%E5%8D%8A%E8%87%AA%E5%8A%A8%E6%95%99%E8%AF%84%E6%89%93%E5%88%86/" rel="prev" title="曲园教评半自动打分脚本实现">
+                  <i class="fa fa-angle-left"></i> 曲园教评半自动打分脚本实现
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/03/02/2024-03-02-VBS%E5%AE%9E%E7%8E%B0QQ%E8%87%AA%E5%8A%A8%E5%8F%91%E9%80%81%E6%97%A9%E8%87%AA%E4%B9%A0%E8%AF%B7%E5%81%87/" rel="next" title="VBS脚本实战：实现QQ消息自动发送（早自习请假自动化）">
+                  VBS脚本实战：实现QQ消息自动发送（早自习请假自动化） <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ianwusb</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<div id="chatbot-toggle" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
+  <button id="toggle-chat" style="
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #fff;
+    color: #333;
+    border: 1px solid #ddd;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  ">
+    🤖
+  </button>
+</div>
+
+<div id="chatbot-window" style="display: none; position: fixed; bottom: 80px; right: 20px; width: 340px; height: 480px; background: #fff; border: 1px solid #e0e0e0; z-index: 9999; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border-radius: 12px; overflow: hidden; flex-direction: column;">
+  <div style="background: #fff; color: #333; padding: 12px 16px; font-size: 16px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e0e0e0;">
+    Hexo AI 助手
+    <button id="close-chat" style="background: none; border: none; color: #333; font-size: 20px; cursor: pointer;">×</button>
+  </div>
+  <div id="chat-log" style="flex-grow: 1; padding: 12px; overflow-y: auto; font-size: 14px; background: #fafafa;"></div>
+  <div style="padding: 10px 16px; display: flex; background: #fff; border-top: 1px solid #e0e0e0;">
+    <input type="text" id="chat-input" placeholder="输入你的问题..." style="flex: 1; padding: 8px 10px; border-radius: 6px; border: 1px solid #ccc; font-size: 14px; outline: none;">
+    <button id="send-chat" style="margin-left: 8px; padding: 8px 12px; border-radius: 6px; border: none; background: #f0f0f0; color: #333; font-size: 14px; cursor: pointer;">发送</button>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<style>
+  #chat-log p, #chat-log li, #chat-log ul, #chat-log ol {
+    margin: 2px 0 !important;
+    line-height: 1.5;
+    font-size: 13px;
+  }
+  #chat-log a {
+    color: #2b6cb0;
+    text-decoration: underline;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+  #chat-log a:hover {
+    color: #1a4f8a;
+    background-color: #eef3f9;
+  }
+  #chat-log pre {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    padding: 6px 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+    font-size: 12.5px;
+    font-family: Consolas, monospace;
+    white-space: pre-wrap;
+    word-break: break-word;
+    margin: 6px 0;
+  }
+  #chat-log code {
+    background-color: #f0f0f0;
+    padding: 1px 4px;
+    border-radius: 3px;
+    font-family: Consolas, monospace;
+  }
+  #chat-log code[class*="language-"]::before {
+    content: '';
+  }
+</style>
+
+<script>
+  const toggleBtn = document.getElementById('toggle-chat');
+  const closeBtn = document.getElementById('close-chat');
+  const chatWindow = document.getElementById('chatbot-window');
+  const chatLog = document.getElementById('chat-log');
+  const chatInput = document.getElementById('chat-input');
+  const sendBtn = document.getElementById('send-chat');
+
+  let isChatVisible = false;
+
+  window.addEventListener("DOMContentLoaded", () => {
+    chatWindow.style.display = "none";
+  });
+
+  toggleBtn.onclick = () => {
+    isChatVisible = !isChatVisible;
+    chatWindow.style.display = isChatVisible ? 'flex' : 'none';
+  };
+
+  closeBtn.onclick = () => {
+    isChatVisible = false;
+    chatWindow.style.display = 'none';
+  };
+
+  function cleanMarkdown(md) {
+    return md.replace(/\n{3,}/g, '\n\n').replace(/^\s+|\s+$/g, '').trim();
+  }
+
+  function appendMessage(role, rawContent) {
+    const content = cleanMarkdown(rawContent);
+    const msg = document.createElement('div');
+    msg.style.marginBottom = '6px';
+    msg.style.display = 'flex';
+    msg.style.alignItems = 'flex-start';
+
+    const avatar = document.createElement('div');
+    avatar.style.fontSize = '18px';
+    avatar.style.marginRight = '5px';
+    avatar.textContent = role === 'user' ? '🙂' : '🤖';
+
+    const bubble = document.createElement('div');
+    bubble.style.padding = '6px 10px';
+    bubble.style.borderRadius = '10px';
+    bubble.style.maxWidth = '220px';
+    bubble.style.background = role === 'user' ? '#e2e2e2' : '#f0f0f0';
+    bubble.style.lineHeight = '1.5';
+    bubble.style.fontSize = '13px';
+    bubble.style.wordBreak = 'break-word';
+
+    bubble.innerHTML = role === 'user'
+      ? marked.parseInline(content)
+      : marked.parse(content);
+
+    msg.style.justifyContent = role === 'user' ? 'flex-end' : 'flex-start';
+    msg.appendChild(role === 'user' ? bubble : avatar);
+    msg.appendChild(role === 'user' ? avatar : bubble);
+    chatLog.appendChild(msg);
+    chatLog.scrollTop = chatLog.scrollHeight;
+  }
+
+  async function sendMessage() {
+    const query = chatInput.value.trim();
+    if (!query) return;
+    appendMessage('user', query);
+    chatInput.value = '';
+
+    const response = await fetch('https://hexo-ai-assistant.3216243013.workers.dev/ask', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({ query })
+    });
+
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = '';
+
+    const aiMsg = document.createElement('div');
+    aiMsg.style.marginBottom = '6px';
+    aiMsg.style.display = 'flex';
+    aiMsg.style.alignItems = 'flex-start';
+
+    const avatarAI = document.createElement('div');
+    avatarAI.style.fontSize = '18px';
+    avatarAI.style.marginRight = '5px';
+    avatarAI.textContent = '🤖';
+
+    const bubble = document.createElement('div');
+    bubble.style.padding = '6px 10px';
+    bubble.style.borderRadius = '10px';
+    bubble.style.maxWidth = '220px';
+    bubble.style.background = '#f0f0f0';
+    bubble.style.lineHeight = '1.5';
+    bubble.style.fontSize = '13px';
+    bubble.style.wordBreak = 'break-word';
+
+    aiMsg.appendChild(avatarAI);
+    aiMsg.appendChild(bubble);
+    chatLog.appendChild(aiMsg);
+    chatLog.scrollTop = chatLog.scrollHeight;
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      buffer += decoder.decode(value, { stream: true });
+      bubble.innerHTML = marked.parse(cleanMarkdown(buffer));
+      chatLog.scrollTop = chatLog.scrollHeight;
+    }
+
+    bubble.innerHTML = marked.parse(cleanMarkdown(buffer));
+  }
+
+  sendBtn.onclick = sendMessage;
+  chatInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") sendMessage();
+  });
+
+  window.addEventListener("click", (e) => {
+    if (
+      isChatVisible &&
+      !chatWindow.contains(e.target) &&
+      !toggleBtn.contains(e.target)
+    ) {
+      isChatVisible = false;
+      chatWindow.style.display = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>

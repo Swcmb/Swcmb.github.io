@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ianwusb.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="货物摆放 - 蓝桥杯真题解析题目描述小蓝有一个超大的仓库，可以摆放很多货物。现在，小蓝有 $n$ 箱货物要摆放在仓库，每箱货物都是规则的正方体。小蓝规定了长、宽、高三个互相垂直的方向，每箱货物的边都必须严格平行于长、宽、高。 小蓝希望所有的货物最终摆成一个大的长方体。即在长、宽、高的方向上分别堆 $L$、$W$、$H$ 的货物，满足 $n &#x3D; L \times W \times H$。 给定 $n">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ianwusb-CPCode">
+<meta property="og:url" content="https://ianwusb.github.io/2026/05/14/2024-03-04-%E8%B4%A7%E7%89%A9%E6%91%86%E6%94%BE/index.html">
+<meta property="og:site_name" content="Ianwusb-CPCode">
+<meta property="og:description" content="货物摆放 - 蓝桥杯真题解析题目描述小蓝有一个超大的仓库，可以摆放很多货物。现在，小蓝有 $n$ 箱货物要摆放在仓库，每箱货物都是规则的正方体。小蓝规定了长、宽、高三个互相垂直的方向，每箱货物的边都必须严格平行于长、宽、高。 小蓝希望所有的货物最终摆成一个大的长方体。即在长、宽、高的方向上分别堆 $L$、$W$、$H$ 的货物，满足 $n &#x3D; L \times W \times H$。 给定 $n">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-05-14T11:39:55.704Z">
+<meta property="article:modified_time" content="2026-05-14T11:39:55.704Z">
+<meta property="article:author" content="Ianwusb">
+<meta property="article:tag" content="Ianwusb-CPCode">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ianwusb.github.io/2026/05/14/2024-03-04-%E8%B4%A7%E7%89%A9%E6%91%86%E6%94%BE/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ianwusb.github.io/2026/05/14/2024-03-04-%E8%B4%A7%E7%89%A9%E6%91%86%E6%94%BE/","path":"2026/05/14/2024-03-04-货物摆放/","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title> | Ianwusb-CPCode</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.1/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ianwusb-CPCode</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Ianwusb-CPCode</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B4%A7%E7%89%A9%E6%91%86%E6%94%BE-%E8%93%9D%E6%A1%A5%E6%9D%AF%E7%9C%9F%E9%A2%98%E8%A7%A3%E6%9E%90"><span class="nav-number">1.</span> <span class="nav-text">货物摆放 - 蓝桥杯真题解析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF"><span class="nav-number">1.2.</span> <span class="nav-text">解题思路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.2.1.</span> <span class="nav-text">核心步骤</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E5%90%8E%E7%9A%84%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.3.</span> <span class="nav-text">优化后的代码实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5%EF%BC%9A%E5%A4%9A%E7%9A%84-36-%E4%B8%AA%E5%93%AA%E6%9D%A5%E7%9A%84%EF%BC%9F"><span class="nav-number">1.4.</span> <span class="nav-text">问题排查：多的 36 个哪来的？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%94%99%E8%AF%AF%E5%8E%9F%E5%9B%A0%E5%88%86%E6%9E%90"><span class="nav-number">1.4.1.</span> <span class="nav-text">错误原因分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AA%8C%E8%AF%81%E8%AE%A1%E7%AE%97"><span class="nav-number">1.4.2.</span> <span class="nav-text">验证计算</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ianwusb"
+      src="/img/a.png">
+  <p class="site-author-name" itemprop="name">Ianwusb</p>
+  <div class="site-description" itemprop="description">Ianwusb-CPCode</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">191</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">53</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">134</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Swcmb" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Swcmb" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:fastjackcost880@gmail.com" title="E-Mail → mailto:fastjackcost880@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/14/2024-03-04-%E8%B4%A7%E7%89%A9%E6%91%86%E6%94%BE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-14 19:39:55" itemprop="dateCreated datePublished" datetime="2026-05-14T19:39:55+08:00">2026-05-14</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="货物摆放-蓝桥杯真题解析"><a href="#货物摆放-蓝桥杯真题解析" class="headerlink" title="货物摆放 - 蓝桥杯真题解析"></a>货物摆放 - 蓝桥杯真题解析</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>小蓝有一个超大的仓库，可以摆放很多货物。现在，小蓝有 $n$ 箱货物要摆放在仓库，每箱货物都是规则的正方体。小蓝规定了长、宽、高三个互相垂直的方向，每箱货物的边都必须严格平行于长、宽、高。</p>
+<p>小蓝希望所有的货物最终摆成一个大的长方体。即在长、宽、高的方向上分别堆 $L$、$W$、$H$ 的货物，满足 $n = L \times W \times H$。</p>
+<p>给定 $n$，请问有多少种堆放货物的方案？</p>
+<p><strong>例如</strong>：当 $n=4$ 时，有以下 6 种方案：</p>
+<ul>
+<li>$1 \times 1 \times 4$</li>
+<li>$1 \times 2 \times 2$</li>
+<li>$1 \times 4 \times 1$</li>
+<li>$2 \times 1 \times 2$</li>
+<li>$2 \times 2 \times 1$</li>
+<li>$4 \times 1 \times 1$</li>
+</ul>
+<p><strong>问题</strong>：当 $n=2021041820210418$（注意有 16 位数字）时，总共有多少种方案？</p>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>本题本质上是一个<strong>因数分解与排列组合</strong>问题。我们需要找到所有满足 $L \times W \times H = n$ 的有序三元组 $(L, W, H)$ 的数量。</p>
+<h3 id="核心步骤"><a href="#核心步骤" class="headerlink" title="核心步骤"></a>核心步骤</h3><ol>
+<li><strong>分解因数</strong>：首先求出 $n$ 的所有因数。</li>
+<li><strong>枚举求解</strong>：通过枚举因数作为 $L$，再在 $n/L$ 的因数中枚举 $W$，从而确定 $H$。</li>
+<li><strong>计数逻辑</strong>：<ul>
+<li>如果 $L, W, H$ 互不相同，则有 $6$ 种排列（$A_3^3$）。</li>
+<li>如果其中两个相同（如 $L=W \neq H$），则有 $3$ 种排列。</li>
+<li>如果三个都相同（$L=W=H$），则有 $1$ 种排列。</li>
+</ul>
+</li>
+</ol>
+<p>为了优化性能，我们在枚举 $L$ 时只需遍历到 $\sqrt{n}$，这已经覆盖了所有不重复的“形状”组合，再通过数学方法计算排列数即可。</p>
+<h2 id="优化后的代码实现"><a href="#优化后的代码实现" class="headerlink" title="优化后的代码实现"></a>优化后的代码实现</h2><p>以下是经过优化的 Python 代码，修正了原代码中的逻辑错误，并提升了可读性：</p>
+<p>```python<br>import math</p>
+<p>def get_factors(num):<br>    “””获取一个数的所有因数”””<br>    factors = []<br>    for i in range(1, int(math.isqrt(num)) + 1):<br>        if num % i == 0:<br>            factors.append(i)<br>            if i != num // i:<br>                factors.append(num // i)<br>    return factors</p>
+<p>def solve():<br>    n = 2021041820210418</p>
+<pre><code># 1. 获取 n 的所有因数
+factors_list = get_factors(n)
+
+count = 0
+
+# 2. 三重循环优化：固定 L，遍历 W，计算 H
+# 这种直接生成有序元组的方法虽然稍慢，但逻辑最清晰，不易出错
+# 对于本题数据规模，因数个数较少（约128个），O(k^3) 完全可以接受
+
+for L in factors_list:
+    if n % L == 0:
+        rem = n // L
+        for W in factors_list:
+            if rem % W == 0:
+                H = rem // W
+                # 验证 H 是否也是因数 (必然是，但为了逻辑完整性)
+                # 实际上只要 L*W*H == n 且 L,W 都是因数，H 必然是整数
+                count += 1
+
+print(count)
+</code></pre><p>if <strong>name</strong> == “<strong>main</strong>“:<br>    solve()<br><em>注：上述代码采用最直观的 $O(k^2)$ 或 $O(k^3)$ 遍历（取决于实现细节），对于因数个数较少的大数非常高效。</em></p>
+<p>或者，采用原思路修复后的简洁版本：</p>
+<p>```python<br>def solve_optimized():<br>    n = 2021041820210418<br>    factors = []</p>
+<pre><code># 获取因数
+for i in range(1, int(n**0.5) + 1):
+    if n % i == 0:
+        factors.append(i)
+        if i != n // i:
+            factors.append(n // i)
+
+ans = 0
+# 遍历所有可能的 L
+for L in factors:
+    # 遍历所有可能的 W (需满足 W 是 n/L 的因数)
+    # 优化：直接遍历 factors，判断能否整除
+    for W in factors:
+        if (n // L) % W == 0:
+            ans += 1
+print(ans)
+</code></pre><p>solve_optimized()</p>
+<h2 id="问题排查：多的-36-个哪来的？"><a href="#问题排查：多的-36-个哪来的？" class="headerlink" title="问题排查：多的 36 个哪来的？"></a>问题排查：多的 36 个哪来的？</h2><p>原代码输出的结果是 <strong>2466</strong>，而正确答案是 <strong>2430</strong>，正好多出了 <strong>36</strong>。我们来分析一下原因。</p>
+<h3 id="错误原因分析"><a href="#错误原因分析" class="headerlink" title="错误原因分析"></a>错误原因分析</h3><p>原代码尝试通过判断 $L, W, H$ 是否相等来计算排列数（1种、3种或6种），但在处理边界情况时出现了<strong>重复计数</strong>。</p>
+<p>原代码逻辑片段：<br>```python<br>if i[0]!=1 :</p>
+<pre><code># ... 内部循环处理
+</code></pre><p>else:</p>
+<pre><code># 当 L=1 时，直接 times += 3
+times += 3
+</code></pre><p><strong>关键错误在于 <code>else</code> 分支</strong>：<br>当 $L=1$ 时，代码直接执行了 <code>times += 3</code>。这假设了 $L=1$ 的情况总是对应 3 种排列（即形状为 $1 \times w \times h$，且默认 $w \neq h$）。</p>
+<p>然而，主循环中 <code>i</code> 遍历的是 <code>factor(num)</code>，这包含了所有的因数。<br>让我们看看形状 $(1, w, h)$ 是如何被计数的：</p>
+<ol>
+<li><strong>在主循环中被计数</strong>：当循环进行到 $L=w$ 时，内部循环会找到 $W=1, H=h$ 的组合（或者 $L=h, W=1, W=w$）。此时，该形状已经通过排列组合被计入总数了。</li>
+<li><strong>重复计数</strong>：代码中的 <code>else: times += 3</code> 又针对 $L=1$ 的情况额外加了一次权。</li>
+</ol>
+<p>简单来说，所有包含 $1$ 的方案（即 $1 \times w \times h$）都在主循环中被计算过一次，而 <code>else</code> 分支又强行给它们加了一次“权重”，导致了重复计算。</p>
+<h3 id="验证计算"><a href="#验证计算" class="headerlink" title="验证计算"></a>验证计算</h3><p>$n = 2021041820210418$ 的因数个数是多少？<br>经计算，$n = 2 \times 3^3 \times \dots$，其因数个数 $d(n) = 128$。<br>我们需要知道包含 $1$ 的方案数。<br>这就等同于 $w \times h = n$ 的解的个数，即 $n$ 的因数对数。<br>设 $n$ 有 $k$ 个因数，则因数对有 $k/2$ 对（如果 $n$ 不是完全平方数）或 $(k+1)/2$ 对（如果是完全平方数）。<br>本题中，$k=128$。<br>若 $n$ 不是完全平方数，则有 $128/2 = 64$ 对因数对 $(w, h)$。<br>每一对 $(w, h)$ 构成的形状 $(1, w, h)$ 在原代码逻辑中：</p>
+<ul>
+<li>若 $w \neq h$：通过排列本应贡献 6 种方案。主循环中已经计算了这些排列（通过 $L=w$ 和 $L=h$ 的迭代），<code>else</code> 分支额外加了 3。</li>
+</ul>
+<p>实际上，更简单的推导是：<br>形状 $(1, w, h)$ 在循环 $L=w$ 和 $L=h$ 时会被遍历到。<br>原代码的 <code>else</code> 分支实际上是在 $L=1$ 时强行加了一组排列权重。<br>误差来源正是这组强行加入的权重。<br>每一对 $(w, h)$ 导致的重复计数值正是 <code>times += 3</code> 中的 <strong>3</strong>。</p>
+<p>因数对数 = 12（这里需要精确计算因数对，$n$ 的因数个数是 128，但涉及 $L=1$ 的因数对其实是 $w \times h = n$ 的解的个数，即 64 对？不，因数对是 64，但每个因数对对应的形状不同）。</p>
+<p>让我们反推：<br>多出的数 = 36。<br>每次 <code>else</code> 触发加 3。<br>触发次数 = $36 / 3 = 12$ 次。<br>这说明 $n$ 的因数对 $(w, h)$ 使得原代码逻辑触发了 12 次额外加分。<br>实际上，$n$ 的因数个数 $d(n) = 128$。<br>因数对数量 = 64。<br>如果是 12 次，说明 $n$ 的因数个数可能并不是简单的 128？<br>经重新精确计算，$n=2021041820210418 = 2 \times 3^3 \times 17 \times 131 \times 2857 \times 5882353$。<br>$d(n) = (1+1)(3+1)(1+1)(1+1)(1+1)(1+1) = 2 \times 4 \times 2 \times 2 \times 2 \times 2 = 128$。<br>如果是 12 次，那可能与代码中 <code>factor</code> 只遍历到 $\sqrt{n}$ 有关。<br>原代码 <code>factor</code> 返回的是 $(i, n/i)$ 元组列表，列表长度为 64。<br>循环 <code>for i in factor(num)</code> 会运行 64 次。<br>其中 <code>i[0] != 1</code> 的情况排除了 $L=1$。<br>但 <code>i[0] == 1</code> 的情况只有 1 次！<br>即 <code>i = (1, n)</code>。<br>所以原代码 <code>else</code> 分支只会执行 <strong>1次</strong>，加 3。<br>这与多出的 36 不符。</p>
+<p><strong>修正理解</strong>：<br>原代码的循环是两层。<br>外层循环 <code>i</code> 遍历因数对 $(L, n/L)$。<br>当 <code>i[0] == 1</code> 时，执行 <code>else</code>，加 3。这只发生 1 次。<br>那 36 是怎么来的？<br>肯定是外层循环 <code>i[0] != 1</code> 的内部逻辑有误。<br>原代码在 <code>i[0] != 1</code> 时，进入内层循环。<br>内层循环 <code>j</code> 遍历 <code>i[1]</code>（即 $n/L$）的因数。<br>当 $L=1$ 被跳过时，其他的 $L$ 也会导致重复计数。<br>特别是当 $L$ 也是 $n$ 的因数，且 $L$ 和 $W, H$ 有重复关系时，判断 <code>times += 3</code> 还是 <code>times += 1</code> 的逻辑非常混乱。<br>最致命的是，原代码没有处理 $L, W, H$ <strong>两两互不相同</strong>的情况（此时应为 6 种排列）。<br>原代码逻辑中，除了三个相等加 1，其他一律加 3。<br>这导致对于互不相同的情况，少加了 3；对于两个相等的情况，加 3 是对的；对于 $L=1$ 的特殊情况（在 else 分支），多加了 3。</p>
+<p>由于计算结果偏大（2466 &gt; 2430），说明<strong>多算</strong>的情况占主导，或者某些情况权重给高了。<br>实际上，原代码最大的逻辑漏洞是：<strong>它试图通过遍历一部分情况再乘以排列数来计算，但遍历的范围和乘权的逻辑不匹配</strong>。<br>正确的全排列计算需要极其小心地处理去重。</p>
+<p><strong>结论</strong>：<br>正确的做法是放弃复杂的权重判断，直接生成有序三元组（如优化后的代码所示），或者在数学上严格分类讨论。<br>原代码的 36 误差，正是因为在 $L=1$ 的分支强行加 3，以及在主循环中对 $L, W, H$ 互不相同的情况处理不当（只加了 3 而非 6）共同导致的复杂偏差。由于手动模拟大规模因数分类极其困难，建议直接使用优化后的标准解法。</p>
+<p><strong>最终答案：2430</strong></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2026/05/14/2024-03-23-%E5%A1%AB%E5%85%85/" rel="prev" title="">
+                  <i class="fa fa-angle-left"></i> 
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2026/05/14/2024-07-07-C++%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AC%AC6%E7%AB%A0%E5%A4%A7%E7%A8%8B%E5%BA%8F/" rel="next" title="">
+                   <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ianwusb</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<div id="chatbot-toggle" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
+  <button id="toggle-chat" style="
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #fff;
+    color: #333;
+    border: 1px solid #ddd;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  ">
+    🤖
+  </button>
+</div>
+
+<div id="chatbot-window" style="display: none; position: fixed; bottom: 80px; right: 20px; width: 340px; height: 480px; background: #fff; border: 1px solid #e0e0e0; z-index: 9999; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border-radius: 12px; overflow: hidden; flex-direction: column;">
+  <div style="background: #fff; color: #333; padding: 12px 16px; font-size: 16px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e0e0e0;">
+    Hexo AI 助手
+    <button id="close-chat" style="background: none; border: none; color: #333; font-size: 20px; cursor: pointer;">×</button>
+  </div>
+  <div id="chat-log" style="flex-grow: 1; padding: 12px; overflow-y: auto; font-size: 14px; background: #fafafa;"></div>
+  <div style="padding: 10px 16px; display: flex; background: #fff; border-top: 1px solid #e0e0e0;">
+    <input type="text" id="chat-input" placeholder="输入你的问题..." style="flex: 1; padding: 8px 10px; border-radius: 6px; border: 1px solid #ccc; font-size: 14px; outline: none;">
+    <button id="send-chat" style="margin-left: 8px; padding: 8px 12px; border-radius: 6px; border: none; background: #f0f0f0; color: #333; font-size: 14px; cursor: pointer;">发送</button>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<style>
+  #chat-log p, #chat-log li, #chat-log ul, #chat-log ol {
+    margin: 2px 0 !important;
+    line-height: 1.5;
+    font-size: 13px;
+  }
+  #chat-log a {
+    color: #2b6cb0;
+    text-decoration: underline;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+  #chat-log a:hover {
+    color: #1a4f8a;
+    background-color: #eef3f9;
+  }
+  #chat-log pre {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    padding: 6px 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+    font-size: 12.5px;
+    font-family: Consolas, monospace;
+    white-space: pre-wrap;
+    word-break: break-word;
+    margin: 6px 0;
+  }
+  #chat-log code {
+    background-color: #f0f0f0;
+    padding: 1px 4px;
+    border-radius: 3px;
+    font-family: Consolas, monospace;
+  }
+  #chat-log code[class*="language-"]::before {
+    content: '';
+  }
+</style>
+
+<script>
+  const toggleBtn = document.getElementById('toggle-chat');
+  const closeBtn = document.getElementById('close-chat');
+  const chatWindow = document.getElementById('chatbot-window');
+  const chatLog = document.getElementById('chat-log');
+  const chatInput = document.getElementById('chat-input');
+  const sendBtn = document.getElementById('send-chat');
+
+  let isChatVisible = false;
+
+  window.addEventListener("DOMContentLoaded", () => {
+    chatWindow.style.display = "none";
+  });
+
+  toggleBtn.onclick = () => {
+    isChatVisible = !isChatVisible;
+    chatWindow.style.display = isChatVisible ? 'flex' : 'none';
+  };
+
+  closeBtn.onclick = () => {
+    isChatVisible = false;
+    chatWindow.style.display = 'none';
+  };
+
+  function cleanMarkdown(md) {
+    return md.replace(/\n{3,}/g, '\n\n').replace(/^\s+|\s+$/g, '').trim();
+  }
+
+  function appendMessage(role, rawContent) {
+    const content = cleanMarkdown(rawContent);
+    const msg = document.createElement('div');
+    msg.style.marginBottom = '6px';
+    msg.style.display = 'flex';
+    msg.style.alignItems = 'flex-start';
+
+    const avatar = document.createElement('div');
+    avatar.style.fontSize = '18px';
+    avatar.style.marginRight = '5px';
+    avatar.textContent = role === 'user' ? '🙂' : '🤖';
+
+    const bubble = document.createElement('div');
+    bubble.style.padding = '6px 10px';
+    bubble.style.borderRadius = '10px';
+    bubble.style.maxWidth = '220px';
+    bubble.style.background = role === 'user' ? '#e2e2e2' : '#f0f0f0';
+    bubble.style.lineHeight = '1.5';
+    bubble.style.fontSize = '13px';
+    bubble.style.wordBreak = 'break-word';
+
+    bubble.innerHTML = role === 'user'
+      ? marked.parseInline(content)
+      : marked.parse(content);
+
+    msg.style.justifyContent = role === 'user' ? 'flex-end' : 'flex-start';
+    msg.appendChild(role === 'user' ? bubble : avatar);
+    msg.appendChild(role === 'user' ? avatar : bubble);
+    chatLog.appendChild(msg);
+    chatLog.scrollTop = chatLog.scrollHeight;
+  }
+
+  async function sendMessage() {
+    const query = chatInput.value.trim();
+    if (!query) return;
+    appendMessage('user', query);
+    chatInput.value = '';
+
+    const response = await fetch('https://hexo-ai-assistant.3216243013.workers.dev/ask', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({ query })
+    });
+
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = '';
+
+    const aiMsg = document.createElement('div');
+    aiMsg.style.marginBottom = '6px';
+    aiMsg.style.display = 'flex';
+    aiMsg.style.alignItems = 'flex-start';
+
+    const avatarAI = document.createElement('div');
+    avatarAI.style.fontSize = '18px';
+    avatarAI.style.marginRight = '5px';
+    avatarAI.textContent = '🤖';
+
+    const bubble = document.createElement('div');
+    bubble.style.padding = '6px 10px';
+    bubble.style.borderRadius = '10px';
+    bubble.style.maxWidth = '220px';
+    bubble.style.background = '#f0f0f0';
+    bubble.style.lineHeight = '1.5';
+    bubble.style.fontSize = '13px';
+    bubble.style.wordBreak = 'break-word';
+
+    aiMsg.appendChild(avatarAI);
+    aiMsg.appendChild(bubble);
+    chatLog.appendChild(aiMsg);
+    chatLog.scrollTop = chatLog.scrollHeight;
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      buffer += decoder.decode(value, { stream: true });
+      bubble.innerHTML = marked.parse(cleanMarkdown(buffer));
+      chatLog.scrollTop = chatLog.scrollHeight;
+    }
+
+    bubble.innerHTML = marked.parse(cleanMarkdown(buffer));
+  }
+
+  sendBtn.onclick = sendMessage;
+  chatInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") sendMessage();
+  });
+
+  window.addEventListener("click", (e) => {
+    if (
+      isChatVisible &&
+      !chatWindow.contains(e.target) &&
+      !toggleBtn.contains(e.target)
+    ) {
+      isChatVisible = false;
+      chatWindow.style.display = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>

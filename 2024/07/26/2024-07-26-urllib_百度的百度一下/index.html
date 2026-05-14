@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ianwusb.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="前言在 Python 爬虫开发的入门阶段，学会如何发送请求并解析数据是核心技能。本文将介绍如何利用 Python 内置库 urllib 发送带伪装头的请求，并结合 lxml 库使用 XPath 语法，精准提取百度首页“百度一下”按钮的文本内容。 核心思路 发送请求：构建带有 User-Agent 的请求头，模拟浏览器访问，避免被服务器拒绝。 获取数据：使用 urlopen 获取响应，并解码为 UT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python爬虫实战：使用urllib与XPath解析百度搜索按钮">
+<meta property="og:url" content="https://ianwusb.github.io/2024/07/26/2024-07-26-urllib_%E7%99%BE%E5%BA%A6%E7%9A%84%E7%99%BE%E5%BA%A6%E4%B8%80%E4%B8%8B/index.html">
+<meta property="og:site_name" content="Ianwusb-CPCode">
+<meta property="og:description" content="前言在 Python 爬虫开发的入门阶段，学会如何发送请求并解析数据是核心技能。本文将介绍如何利用 Python 内置库 urllib 发送带伪装头的请求，并结合 lxml 库使用 XPath 语法，精准提取百度首页“百度一下”按钮的文本内容。 核心思路 发送请求：构建带有 User-Agent 的请求头，模拟浏览器访问，避免被服务器拒绝。 获取数据：使用 urlopen 获取响应，并解码为 UT">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-07-26T04:49:51.000Z">
+<meta property="article:modified_time" content="2026-05-14T11:39:55.708Z">
+<meta property="article:author" content="Ianwusb">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Spider">
+<meta property="article:tag" content="XPath">
+<meta property="article:tag" content="urllib">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ianwusb.github.io/2024/07/26/2024-07-26-urllib_%E7%99%BE%E5%BA%A6%E7%9A%84%E7%99%BE%E5%BA%A6%E4%B8%80%E4%B8%8B/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ianwusb.github.io/2024/07/26/2024-07-26-urllib_%E7%99%BE%E5%BA%A6%E7%9A%84%E7%99%BE%E5%BA%A6%E4%B8%80%E4%B8%8B/","path":"2024/07/26/2024-07-26-urllib_百度的百度一下/","title":"Python爬虫实战：使用urllib与XPath解析百度搜索按钮"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Python爬虫实战：使用urllib与XPath解析百度搜索按钮 | Ianwusb-CPCode</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.1/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ianwusb-CPCode</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Ianwusb-CPCode</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E6%80%9D%E8%B7%AF"><span class="nav-number">2.</span> <span class="nav-text">核心思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%8C%E6%95%B4%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.</span> <span class="nav-text">完整代码实现</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%BC%E5%85%A5%E6%89%80%E9%9C%80%E6%A8%A1%E5%9D%97"><span class="nav-number">4.</span> <span class="nav-text">导入所需模块</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E5%AE%9A%E4%B9%89%E7%9B%AE%E6%A0%87URL"><span class="nav-number">5.</span> <span class="nav-text">1. 定义目标URL</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E6%9E%84%E5%BB%BA%E8%AF%B7%E6%B1%82%E5%A4%B4-%E4%BC%AA%E8%A3%85%E6%B5%8F%E8%A7%88%E5%99%A8"><span class="nav-number">6.</span> <span class="nav-text">2. 构建请求头 (伪装浏览器)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%99%E9%87%8C%E7%9A%84-User-Agent-%E6%A8%A1%E6%8B%9F%E4%BA%86-Edge-%E6%B5%8F%E8%A7%88%E5%99%A8"><span class="nav-number">7.</span> <span class="nav-text">这里的 User-Agent 模拟了 Edge 浏览器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E5%88%9B%E5%BB%BA%E8%AF%B7%E6%B1%82%E5%AF%B9%E8%B1%A1%E5%B9%B6%E6%B7%BB%E5%8A%A0%E5%A4%B4%E9%83%A8%E4%BF%A1%E6%81%AF"><span class="nav-number">8.</span> <span class="nav-text">3. 创建请求对象并添加头部信息</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E5%8F%91%E9%80%81%E8%AF%B7%E6%B1%82%E5%B9%B6%E8%8E%B7%E5%8F%96%E5%93%8D%E5%BA%94"><span class="nav-number">9.</span> <span class="nav-text">4. 发送请求并获取响应</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E8%AF%BB%E5%8F%96%E5%93%8D%E5%BA%94%E5%86%85%E5%AE%B9%E5%B9%B6%E8%A7%A3%E7%A0%81"><span class="nav-number">10.</span> <span class="nav-text">5. 读取响应内容并解码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%99%BE%E5%BA%A6%E7%BD%91%E9%A1%B5%E9%80%9A%E5%B8%B8%E4%BD%BF%E7%94%A8-UTF-8-%E7%BC%96%E7%A0%81"><span class="nav-number">11.</span> <span class="nav-text">百度网页通常使用 UTF-8 编码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-%E8%A7%A3%E6%9E%90%E7%BD%91%E9%A1%B5%E6%BA%90%E7%A0%81"><span class="nav-number">12.</span> <span class="nav-text">6. 解析网页源码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-%E4%BD%BF%E7%94%A8-XPath-%E6%8F%90%E5%8F%96%E6%95%B0%E6%8D%AE"><span class="nav-number">13.</span> <span class="nav-text">7. 使用 XPath 提取数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%EF%BC%9A%E6%9F%A5%E6%89%BE%E6%89%80%E6%9C%89-id-%E2%80%9Dsu%E2%80%9D-%E7%9A%84-input-%E6%A0%87%E7%AD%BE%EF%BC%8C%E5%B9%B6%E8%8E%B7%E5%8F%96%E5%85%B6-value-%E5%B1%9E%E6%80%A7%E5%80%BC"><span class="nav-number">14.</span> <span class="nav-text">逻辑：查找所有 id&#x3D;”su” 的 input 标签，并获取其 value 属性值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#xpath-%E8%BF%94%E5%9B%9E%E7%9A%84%E6%98%AF%E4%B8%80%E4%B8%AA%E5%88%97%E8%A1%A8%EF%BC%8C%E9%80%9A%E8%BF%87-0-%E5%8F%96%E5%87%BA%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0"><span class="nav-number">15.</span> <span class="nav-text">xpath 返回的是一个列表，通过 [0] 取出第一个元素</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-%E6%89%93%E5%8D%B0%E7%BB%93%E6%9E%9C"><span class="nav-number">16.</span> <span class="nav-text">8. 打印结果</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E8%AF%A6%E8%A7%A3"><span class="nav-number">16.1.</span> <span class="nav-text">代码详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E8%AE%BE%E7%BD%AE-Headers%EF%BC%9F"><span class="nav-number">16.1.1.</span> <span class="nav-text">1. 为什么要设置 Headers？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-XPath-%E8%A7%A3%E6%9E%90%E9%80%BB%E8%BE%91"><span class="nav-number">16.1.2.</span> <span class="nav-text">2. XPath 解析逻辑</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">16.2.</span> <span class="nav-text">总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E8%AF%B4%E6%98%8E%EF%BC%9A"><span class="nav-number">16.2.1.</span> <span class="nav-text">优化说明：</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ianwusb"
+      src="/img/a.png">
+  <p class="site-author-name" itemprop="name">Ianwusb</p>
+  <div class="site-description" itemprop="description">Ianwusb-CPCode</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">191</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">53</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">134</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Swcmb" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Swcmb" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:fastjackcost880@gmail.com" title="E-Mail → mailto:fastjackcost880@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/07/26/2024-07-26-urllib_%E7%99%BE%E5%BA%A6%E7%9A%84%E7%99%BE%E5%BA%A6%E4%B8%80%E4%B8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Python爬虫实战：使用urllib与XPath解析百度搜索按钮 | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Python爬虫实战：使用urllib与XPath解析百度搜索按钮
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-07-26 12:49:51" itemprop="dateCreated datePublished" datetime="2024-07-26T12:49:51+08:00">2024-07-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 19:39:55" itemprop="dateModified" datetime="2026-05-14T19:39:55+08:00">2026-05-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AE%9E%E6%88%98/" itemprop="url" rel="index"><span itemprop="name">技术实战</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在 Python 爬虫开发的入门阶段，学会如何发送请求并解析数据是核心技能。本文将介绍如何利用 Python 内置库 <code>urllib</code> 发送带伪装头的请求，并结合 <code>lxml</code> 库使用 XPath 语法，精准提取百度首页“百度一下”按钮的文本内容。</p>
+<h2 id="核心思路"><a href="#核心思路" class="headerlink" title="核心思路"></a>核心思路</h2><ol>
+<li><strong>发送请求</strong>：构建带有 <code>User-Agent</code> 的请求头，模拟浏览器访问，避免被服务器拒绝。</li>
+<li><strong>获取数据</strong>：使用 <code>urlopen</code> 获取响应，并解码为 UTF-8 格式的字符串。</li>
+<li><strong>解析数据</strong>：利用 <code>lxml.etree</code> 将 HTML 文本转换为可解析的对象，通过 XPath 路径表达式定位目标元素。</li>
+</ol>
+<h2 id="完整代码实现"><a href="#完整代码实现" class="headerlink" title="完整代码实现"></a>完整代码实现</h2><p>以下是本次实战的完整代码：</p>
+<p>```python</p>
+<h1 id="导入所需模块"><a href="#导入所需模块" class="headerlink" title="导入所需模块"></a>导入所需模块</h1><p>import urllib.request<br>from lxml import etree</p>
+<h1 id="1-定义目标URL"><a href="#1-定义目标URL" class="headerlink" title="1. 定义目标URL"></a>1. 定义目标URL</h1><p>url = ‘<a target="_blank" rel="noopener" href="https://www.baidu.com">https://www.baidu.com</a>‘</p>
+<h1 id="2-构建请求头-伪装浏览器"><a href="#2-构建请求头-伪装浏览器" class="headerlink" title="2. 构建请求头 (伪装浏览器)"></a>2. 构建请求头 (伪装浏览器)</h1><h1 id="这里的-User-Agent-模拟了-Edge-浏览器"><a href="#这里的-User-Agent-模拟了-Edge-浏览器" class="headerlink" title="这里的 User-Agent 模拟了 Edge 浏览器"></a>这里的 User-Agent 模拟了 Edge 浏览器</h1><p>headers = {<br>    ‘User-Agent’: ‘Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 Edge/16.16299’<br>}</p>
+<h1 id="3-创建请求对象并添加头部信息"><a href="#3-创建请求对象并添加头部信息" class="headerlink" title="3. 创建请求对象并添加头部信息"></a>3. 创建请求对象并添加头部信息</h1><p>request = urllib.request.Request(url=url, headers=headers)</p>
+<h1 id="4-发送请求并获取响应"><a href="#4-发送请求并获取响应" class="headerlink" title="4. 发送请求并获取响应"></a>4. 发送请求并获取响应</h1><p>response = urllib.request.urlopen(request)</p>
+<h1 id="5-读取响应内容并解码"><a href="#5-读取响应内容并解码" class="headerlink" title="5. 读取响应内容并解码"></a>5. 读取响应内容并解码</h1><h1 id="百度网页通常使用-UTF-8-编码"><a href="#百度网页通常使用-UTF-8-编码" class="headerlink" title="百度网页通常使用 UTF-8 编码"></a>百度网页通常使用 UTF-8 编码</h1><p>content = response.read().decode(‘utf-8’)</p>
+<h1 id="6-解析网页源码"><a href="#6-解析网页源码" class="headerlink" title="6. 解析网页源码"></a>6. 解析网页源码</h1><p>html = etree.HTML(content)</p>
+<h1 id="7-使用-XPath-提取数据"><a href="#7-使用-XPath-提取数据" class="headerlink" title="7. 使用 XPath 提取数据"></a>7. 使用 XPath 提取数据</h1><h1 id="逻辑：查找所有-id-”su”-的-input-标签，并获取其-value-属性值"><a href="#逻辑：查找所有-id-”su”-的-input-标签，并获取其-value-属性值" class="headerlink" title="逻辑：查找所有 id=”su” 的 input 标签，并获取其 value 属性值"></a>逻辑：查找所有 id=”su” 的 input 标签，并获取其 value 属性值</h1><h1 id="xpath-返回的是一个列表，通过-0-取出第一个元素"><a href="#xpath-返回的是一个列表，通过-0-取出第一个元素" class="headerlink" title="xpath 返回的是一个列表，通过 [0] 取出第一个元素"></a>xpath 返回的是一个列表，通过 [0] 取出第一个元素</h1><p>result = html.xpath(‘//input[@id=”su”]/@value’)[0]</p>
+<h1 id="8-打印结果"><a href="#8-打印结果" class="headerlink" title="8. 打印结果"></a>8. 打印结果</h1><p>print(result)</p>
+<h2 id="代码详解"><a href="#代码详解" class="headerlink" title="代码详解"></a>代码详解</h2><h3 id="1-为什么要设置-Headers？"><a href="#1-为什么要设置-Headers？" class="headerlink" title="1. 为什么要设置 Headers？"></a>1. 为什么要设置 Headers？</h3><p>直接使用 <code>urllib</code> 访问百度时，Python 会发送默认的 User-Agent（通常包含 <code>Python-urllib</code> 字样）。百度服务器识别到这是爬虫请求，可能会拒绝服务或返回不完整的数据。因此，我们需要在请求头中添加 <code>User-Agent</code>，伪装成正常的浏览器访问。</p>
+<h3 id="2-XPath-解析逻辑"><a href="#2-XPath-解析逻辑" class="headerlink" title="2. XPath 解析逻辑"></a>2. XPath 解析逻辑</h3><p>代码中的核心解析语句是：<br>```python<br>result = html.xpath(‘//input[@id=”su”]/@value’)[0]</p>
+<ul>
+<li><code>//input</code>：在整个文档中查找 <code>input</code> 标签。</li>
+<li><code>[@id=&quot;su&quot;]</code>：筛选条件，找到 <code>id</code> 属性为 <code>&quot;su&quot;</code> 的节点。在百度首页，这正好对应搜索框右侧的“百度一下”按钮。</li>
+<li><code>/@value</code>：获取该节点的 <code>value</code> 属性值。</li>
+</ul>
+<p>运行程序后，控制台将输出：<br>百度一下</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本案例展示了最基础的爬虫流程。虽然 <code>urllib</code> 是 Python 内置库，但在实际开发中，我们通常会使用更加人性化的第三方库（如 <code>requests</code>）来处理请求。不过，理解 <code>urllib</code> 的底层逻辑对于掌握 Python 网络编程大有裨益。</p>
+<hr>
+<h3 id="优化说明："><a href="#优化说明：" class="headerlink" title="优化说明："></a>优化说明：</h3><ol>
+<li><strong>修复了编码问题</strong>：原文中的 <code>&amp;#x27;</code>（单引号）和 <code>&amp;quot;</code>（双引号）已被还原为正常的 Python 语法符号，确保代码可以直接复制运行。</li>
+<li><strong>结构重组</strong>：增加了“前言”、“核心思路”、“代码详解”等章节，使文章逻辑层层递进，符合技术博客的阅读习惯。</li>
+<li><strong>规范 YAML Front Matter</strong>：<ul>
+<li>优化了 <code>title</code>，使其更具吸引力和描述性。</li>
+<li>规范了 <code>tags</code> 格式，修正了原文中字符串格式的小瑕疵，改为标准的 YAML 列表格式。</li>
+</ul>
+</li>
+<li><strong>代码可读性提升</strong>：<ul>
+<li>将 <code>import</code> 语句统一置于文件顶部，符合 PEP8 规范。</li>
+<li>添加了详细的注释，解释了每一步操作的含义（如伪装浏览器、解码、XPath 语法解释）。</li>
+</ul>
+</li>
+<li><strong>内容补全</strong>：解释了为什么要使用 User-Agent 以及 XPath 具体的匹配逻辑，增加了文章的技术深度。</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Python/" rel="tag"># Python</a>
+              <a href="/tags/Spider/" rel="tag"># Spider</a>
+              <a href="/tags/urllib/" rel="tag"># urllib</a>
+              <a href="/tags/XPath/" rel="tag"># XPath</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/07/26/2024-07-26-urllib_%E7%AB%99%E9%95%BF%E7%B4%A0%E6%9D%90/" rel="prev" title="Python爬虫实战：利用urllib下载站长素材图片">
+                  <i class="fa fa-angle-left"></i> Python爬虫实战：利用urllib下载站长素材图片
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/07/26/2024-07-26-urllib_%E5%BE%AE%E5%8D%9Acookie%E7%99%BB%E5%BD%95/" rel="next" title="Python爬虫实战：利用Urllib与Cookie绕过微博登录">
+                  Python爬虫实战：利用Urllib与Cookie绕过微博登录 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ianwusb</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<div id="chatbot-toggle" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
+  <button id="toggle-chat" style="
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #fff;
+    color: #333;
+    border: 1px solid #ddd;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  ">
+    🤖
+  </button>
+</div>
+
+<div id="chatbot-window" style="display: none; position: fixed; bottom: 80px; right: 20px; width: 340px; height: 480px; background: #fff; border: 1px solid #e0e0e0; z-index: 9999; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border-radius: 12px; overflow: hidden; flex-direction: column;">
+  <div style="background: #fff; color: #333; padding: 12px 16px; font-size: 16px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e0e0e0;">
+    Hexo AI 助手
+    <button id="close-chat" style="background: none; border: none; color: #333; font-size: 20px; cursor: pointer;">×</button>
+  </div>
+  <div id="chat-log" style="flex-grow: 1; padding: 12px; overflow-y: auto; font-size: 14px; background: #fafafa;"></div>
+  <div style="padding: 10px 16px; display: flex; background: #fff; border-top: 1px solid #e0e0e0;">
+    <input type="text" id="chat-input" placeholder="输入你的问题..." style="flex: 1; padding: 8px 10px; border-radius: 6px; border: 1px solid #ccc; font-size: 14px; outline: none;">
+    <button id="send-chat" style="margin-left: 8px; padding: 8px 12px; border-radius: 6px; border: none; background: #f0f0f0; color: #333; font-size: 14px; cursor: pointer;">发送</button>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<style>
+  #chat-log p, #chat-log li, #chat-log ul, #chat-log ol {
+    margin: 2px 0 !important;
+    line-height: 1.5;
+    font-size: 13px;
+  }
+  #chat-log a {
+    color: #2b6cb0;
+    text-decoration: underline;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+  #chat-log a:hover {
+    color: #1a4f8a;
+    background-color: #eef3f9;
+  }
+  #chat-log pre {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    padding: 6px 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+    font-size: 12.5px;
+    font-family: Consolas, monospace;
+    white-space: pre-wrap;
+    word-break: break-word;
+    margin: 6px 0;
+  }
+  #chat-log code {
+    background-color: #f0f0f0;
+    padding: 1px 4px;
+    border-radius: 3px;
+    font-family: Consolas, monospace;
+  }
+  #chat-log code[class*="language-"]::before {
+    content: '';
+  }
+</style>
+
+<script>
+  const toggleBtn = document.getElementById('toggle-chat');
+  const closeBtn = document.getElementById('close-chat');
+  const chatWindow = document.getElementById('chatbot-window');
+  const chatLog = document.getElementById('chat-log');
+  const chatInput = document.getElementById('chat-input');
+  const sendBtn = document.getElementById('send-chat');
+
+  let isChatVisible = false;
+
+  window.addEventListener("DOMContentLoaded", () => {
+    chatWindow.style.display = "none";
+  });
+
+  toggleBtn.onclick = () => {
+    isChatVisible = !isChatVisible;
+    chatWindow.style.display = isChatVisible ? 'flex' : 'none';
+  };
+
+  closeBtn.onclick = () => {
+    isChatVisible = false;
+    chatWindow.style.display = 'none';
+  };
+
+  function cleanMarkdown(md) {
+    return md.replace(/\n{3,}/g, '\n\n').replace(/^\s+|\s+$/g, '').trim();
+  }
+
+  function appendMessage(role, rawContent) {
+    const content = cleanMarkdown(rawContent);
+    const msg = document.createElement('div');
+    msg.style.marginBottom = '6px';
+    msg.style.display = 'flex';
+    msg.style.alignItems = 'flex-start';
+
+    const avatar = document.createElement('div');
+    avatar.style.fontSize = '18px';
+    avatar.style.marginRight = '5px';
+    avatar.textContent = role === 'user' ? '🙂' : '🤖';
+
+    const bubble = document.createElement('div');
+    bubble.style.padding = '6px 10px';
+    bubble.style.borderRadius = '10px';
+    bubble.style.maxWidth = '220px';
+    bubble.style.background = role === 'user' ? '#e2e2e2' : '#f0f0f0';
+    bubble.style.lineHeight = '1.5';
+    bubble.style.fontSize = '13px';
+    bubble.style.wordBreak = 'break-word';
+
+    bubble.innerHTML = role === 'user'
+      ? marked.parseInline(content)
+      : marked.parse(content);
+
+    msg.style.justifyContent = role === 'user' ? 'flex-end' : 'flex-start';
+    msg.appendChild(role === 'user' ? bubble : avatar);
+    msg.appendChild(role === 'user' ? avatar : bubble);
+    chatLog.appendChild(msg);
+    chatLog.scrollTop = chatLog.scrollHeight;
+  }
+
+  async function sendMessage() {
+    const query = chatInput.value.trim();
+    if (!query) return;
+    appendMessage('user', query);
+    chatInput.value = '';
+
+    const response = await fetch('https://hexo-ai-assistant.3216243013.workers.dev/ask', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({ query })
+    });
+
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = '';
+
+    const aiMsg = document.createElement('div');
+    aiMsg.style.marginBottom = '6px';
+    aiMsg.style.display = 'flex';
+    aiMsg.style.alignItems = 'flex-start';
+
+    const avatarAI = document.createElement('div');
+    avatarAI.style.fontSize = '18px';
+    avatarAI.style.marginRight = '5px';
+    avatarAI.textContent = '🤖';
+
+    const bubble = document.createElement('div');
+    bubble.style.padding = '6px 10px';
+    bubble.style.borderRadius = '10px';
+    bubble.style.maxWidth = '220px';
+    bubble.style.background = '#f0f0f0';
+    bubble.style.lineHeight = '1.5';
+    bubble.style.fontSize = '13px';
+    bubble.style.wordBreak = 'break-word';
+
+    aiMsg.appendChild(avatarAI);
+    aiMsg.appendChild(bubble);
+    chatLog.appendChild(aiMsg);
+    chatLog.scrollTop = chatLog.scrollHeight;
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      buffer += decoder.decode(value, { stream: true });
+      bubble.innerHTML = marked.parse(cleanMarkdown(buffer));
+      chatLog.scrollTop = chatLog.scrollHeight;
+    }
+
+    bubble.innerHTML = marked.parse(cleanMarkdown(buffer));
+  }
+
+  sendBtn.onclick = sendMessage;
+  chatInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") sendMessage();
+  });
+
+  window.addEventListener("click", (e) => {
+    if (
+      isChatVisible &&
+      !chatWindow.contains(e.target) &&
+      !toggleBtn.contains(e.target)
+    ) {
+      isChatVisible = false;
+      chatWindow.style.display = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>

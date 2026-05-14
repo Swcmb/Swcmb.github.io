@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ianwusb.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="本文详细讲解如何使用 Python 标准库 urllib 发送带复杂请求头的网络请求，并针对淘宝电影接口返回的 JSONP 数据格式进行清洗和存储，为后续使用 JsonPath 解析数据打下基础。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python爬虫基础：urllib请求与JSONP数据处理详解">
+<meta property="og:url" content="https://ianwusb.github.io/2024/07/26/2024-07-26-urllib_jsonpath%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="Ianwusb-CPCode">
+<meta property="og:description" content="本文详细讲解如何使用 Python 标准库 urllib 发送带复杂请求头的网络请求，并针对淘宝电影接口返回的 JSONP 数据格式进行清洗和存储，为后续使用 JsonPath 解析数据打下基础。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-07-26T04:49:51.000Z">
+<meta property="article:modified_time" content="2026-05-14T11:39:55.707Z">
+<meta property="article:author" content="Ianwusb">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Spider">
+<meta property="article:tag" content="urllib">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ianwusb.github.io/2024/07/26/2024-07-26-urllib_jsonpath%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ianwusb.github.io/2024/07/26/2024-07-26-urllib_jsonpath%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/","path":"2024/07/26/2024-07-26-urllib_jsonpath的基本使用/","title":"Python爬虫基础：urllib请求与JSONP数据处理详解"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Python爬虫基础：urllib请求与JSONP数据处理详解 | Ianwusb-CPCode</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.1/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ianwusb-CPCode</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Ianwusb-CPCode</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%8C%E6%95%B4%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">2.</span> <span class="nav-text">完整代码实现</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ianwusb"
+      src="/img/a.png">
+  <p class="site-author-name" itemprop="name">Ianwusb</p>
+  <div class="site-description" itemprop="description">Ianwusb-CPCode</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">191</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">53</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">134</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Swcmb" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Swcmb" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:fastjackcost880@gmail.com" title="E-Mail → mailto:fastjackcost880@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/07/26/2024-07-26-urllib_jsonpath%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Python爬虫基础：urllib请求与JSONP数据处理详解 | Ianwusb-CPCode">
+      <meta itemprop="description" content="本文详细讲解如何使用 Python 标准库 urllib 发送带复杂请求头的网络请求，并针对淘宝电影接口返回的 JSONP 数据格式进行清洗和存储，为后续使用 JsonPath 解析数据打下基础。">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Python爬虫基础：urllib请求与JSONP数据处理详解
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-07-26 12:49:51" itemprop="dateCreated datePublished" datetime="2024-07-26T12:49:51+08:00">2024-07-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 19:39:55" itemprop="dateModified" datetime="2026-05-14T19:39:55+08:00">2026-05-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python%E7%88%AC%E8%99%AB/" itemprop="url" rel="index"><span itemprop="name">Python爬虫</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">本文详细讲解如何使用 Python 标准库 urllib 发送带复杂请求头的网络请求，并针对淘宝电影接口返回的 JSONP 数据格式进行清洗和存储，为后续使用 JsonPath 解析数据打下基础。</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在 Python 爬虫开发中，<code>requests</code> 库因其简洁的 API 备受欢迎，但作为 Python 标准库的一部分，<code>urllib</code> 同样强大且无需安装。在本文中，我们将通过一个实战案例——获取淘宝电影城市列表数据，演示如何使用 <code>urllib</code> 构造请求头，以及如何处理一种特殊的数据格式：<strong>JSONP</strong>。</p>
+<p>这是数据抓取的第一步，获取到的数据将为后续使用 JsonPath 进行解析做准备。</p>
+<h2 id="完整代码实现"><a href="#完整代码实现" class="headerlink" title="完整代码实现"></a>完整代码实现</h2><p>下面的代码展示了如何构造带有反爬虫请求头的 Request 对象，发送请求并清洗 JSONP 数据：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line"><span class="comment"># 1. 目标接口地址 (注意：该URL包含 jsoncallback 参数，返回的是 JSONP 格式)</span></span><br><span class="line">url = <span class="string">&#x27;https://dianying.taobao.com/cityAction.json?activityId&amp;_ksTS=1721053680353_108&amp;jsoncallback=jsonp109&amp;action=cityAction&amp;n_s=new&amp;event_submit_doGetAllRegion=true&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 构造请求头 (Headers)</span></span><br><span class="line"><span class="comment"># 模拟浏览器行为，绕过简单的反爬机制</span></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&#x27;Accept&#x27;</span>: <span class="string">&#x27;text/javascript, application/javascript, application/ecmascript, application/x-ecmascript, */*; q=0.01&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Accept-Language&#x27;</span>: <span class="string">&#x27;zh-CN,zh;q=0.9&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Bx-V&#x27;</span>: <span class="string">&#x27;2.5.13&#x27;</span>,</span><br><span class="line">    <span class="comment"># 注意：Cookie 具有时效性，如果请求失败请更新浏览器中的 Cookie</span></span><br><span class="line">    <span class="string">&#x27;Cookie&#x27;</span>: <span class="string">&#x27;cna=oHFeHc4hjXoCAXyBKvZW8b+W; miid=997249091986201949; t=c9d2a6b731f7159365c03b078906a0ea; cookie2=1a04d2274cc3bf989cd229ae6d08ec7b; v=0; _tb_token_=eee63ef856535; isg=BBMTQKCjca9iIz37hu_ZiX6Sopc9yKeKLKSToMUwujJpRDPmTZk32jqSfjQqf_-C&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Priority&#x27;</span>: <span class="string">&#x27;u=1, i&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Referer&#x27;</span>: <span class="string">&#x27;https://dianying.taobao.com/&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Sec-Ch-Ua&#x27;</span>: <span class="string">&#x27;&quot;Not/A)Brand&quot;;v=&quot;8&quot;, &quot;Chromium&quot;;v=&quot;126&quot;, &quot;Google Chrome&quot;;v=&quot;126&quot;&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Sec-Ch-Ua-Mobile&#x27;</span>: <span class="string">&#x27;?0&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Sec-Ch-Ua-Platform&#x27;</span>: <span class="string">&#x27;&quot;Windows&quot;&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Sec-Fetch-Dest&#x27;</span>: <span class="string">&#x27;empty&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Sec-Fetch-Mode&#x27;</span>: <span class="string">&#x27;cors&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;Sec-Fetch-Site&#x27;</span>: <span class="string">&#x27;same-origin&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;X-Requested-With&#x27;</span>: <span class="string">&#x27;XMLHttpRequest&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 创建 Request 对象</span></span><br><span class="line">req = urllib.request.Request(url=url, headers=headers)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. 发送请求并获取响应</span></span><br><span class="line">res = urllib.request.urlopen(req)</span><br><span class="line">html = res.read().decode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 5. 处理 JSONP 数据</span></span><br><span class="line"><span class="comment"># JSONP 返回格式通常为: callback_name(&#123;...json数据...&#125;)</span></span><br><span class="line"><span class="comment"># 我们需要去除回调函数名，只保留中间的 JSON 字符串</span></span><br><span class="line"><span class="comment"># 原始数据示例: jsonp109(&#123;&quot;code&quot;:200, &quot;data&quot;:...&#125;)</span></span><br><span class="line"><span class="comment"># 处理逻辑: 按 &#x27;(&#x27; 分割取第二部分，再按 &#x27;)&#x27; 分割取第一部分</span></span><br><span class="line">json_str = html.split(<span class="string">&#x27;(&#x27;</span>)[<span class="number">1</span>].split(<span class="string">&#x27;)&#x27;</span>)[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 6. 数据持久化存储</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;taobao.json&#x27;</span>, <span class="string">&#x27;w&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> fp:</span><br><span class="line">    fp.write(json_str)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;数据抓取成功，已保存至 taobao.json&quot;</span>)</span><br><span class="line"><span class="comment">## 代码核心详解</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### 1. 请求头构造</span></span><br><span class="line">在爬取淘宝等大型网站时，直接请求通常会返回 <span class="number">403</span> Forbidden 错误。代码中我们构造了完整的 `headers`：</span><br><span class="line">*   **User-Agent**：伪装成 Chrome 浏览器。</span><br><span class="line">*   **Referer**：告诉服务器请求来自哪个页面，这是常见的防盗链措施。</span><br><span class="line">*   **Cookie**：维持会话状态，部分接口需要用户登录信息才能返回数据。</span><br><span class="line"></span><br><span class="line"><span class="comment">### 2. urllib 的基本使用</span></span><br><span class="line">与 `requests` 不同，`urllib` 不能直接在 `urlopen` 中传递 `headers`。我们需要先实例化一个 `urllib.request.Request` 对象，将 URL 和 Headers 传入，然后再使用 `urlopen` 发送这个请求对象。</span><br><span class="line"></span><br><span class="line"><span class="comment">### 3. JSONP 数据清洗</span></span><br><span class="line">这是本案例的难点。淘宝电影的接口返回的并非标准的 JSON 字符串，而是 **JSONP** 格式。</span><br><span class="line">*   **现象**：返回内容包裹在 `jsonp109(...)` 中。</span><br><span class="line">*   **处理**：使用 Python 的字符串切片方法 `split`。</span><br><span class="line">    *   `html.split(<span class="string">&#x27;(&#x27;</span>)[<span class="number">1</span>]`：获取 `jsonp109` 之后的内容。</span><br><span class="line">    *   `.split(<span class="string">&#x27;)&#x27;</span>)[<span class="number">0</span>]`：去除最后的括号。</span><br><span class="line">    *   最终得到纯净的 JSON 字符串。</span><br><span class="line"></span><br><span class="line"><span class="comment">### 4. 后续步骤：JsonPath 解析</span></span><br><span class="line">虽然本文标题提及 `jsonpath`，但当前阶段我们完成了数据的**获取与清洗**。保存的 `taobao.json` 文件内容为标准 JSON 格式，这正是 `jsonpath` 库发挥作用的舞台。</span><br><span class="line"></span><br><span class="line">在下一篇文章中，我们将演示如何利用 `jsonpath` 快速从复杂的嵌套 JSON 结构中提取城市名称和 ID 等关键信息。</span><br><span class="line"></span><br><span class="line"><span class="comment">## 总结</span></span><br><span class="line">本文介绍了如何利用 Python 标准库 `urllib` 应对复杂的反爬策略，并着重讲解了 JSONP 格式的文本处理技巧。掌握这些基础技能，对于应对各种动态接口的数据抓取大有裨益。</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Python/" rel="tag"># Python</a>
+              <a href="/tags/Spider/" rel="tag"># Spider</a>
+              <a href="/tags/urllib/" rel="tag"># urllib</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/07/26/2024-07-26-urllib_post%E8%AF%B7%E6%B1%82%E7%99%BE%E5%BA%A6%E7%BF%BB%E8%AF%91%E8%AF%A6%E7%BB%86%E7%BF%BB%E8%AF%91/" rel="prev" title="Python爬虫实战：urllib实现百度翻译POST请求详解">
+                  <i class="fa fa-angle-left"></i> Python爬虫实战：urllib实现百度翻译POST请求详解
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/07/26/2024-07-26-urllib_handler%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" rel="next" title="Python爬虫：urllib中Handler与Opener的基本使用">
+                  Python爬虫：urllib中Handler与Opener的基本使用 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ianwusb</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<div id="chatbot-toggle" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
+  <button id="toggle-chat" style="
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #fff;
+    color: #333;
+    border: 1px solid #ddd;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  ">
+    🤖
+  </button>
+</div>
+
+<div id="chatbot-window" style="display: none; position: fixed; bottom: 80px; right: 20px; width: 340px; height: 480px; background: #fff; border: 1px solid #e0e0e0; z-index: 9999; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border-radius: 12px; overflow: hidden; flex-direction: column;">
+  <div style="background: #fff; color: #333; padding: 12px 16px; font-size: 16px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e0e0e0;">
+    Hexo AI 助手
+    <button id="close-chat" style="background: none; border: none; color: #333; font-size: 20px; cursor: pointer;">×</button>
+  </div>
+  <div id="chat-log" style="flex-grow: 1; padding: 12px; overflow-y: auto; font-size: 14px; background: #fafafa;"></div>
+  <div style="padding: 10px 16px; display: flex; background: #fff; border-top: 1px solid #e0e0e0;">
+    <input type="text" id="chat-input" placeholder="输入你的问题..." style="flex: 1; padding: 8px 10px; border-radius: 6px; border: 1px solid #ccc; font-size: 14px; outline: none;">
+    <button id="send-chat" style="margin-left: 8px; padding: 8px 12px; border-radius: 6px; border: none; background: #f0f0f0; color: #333; font-size: 14px; cursor: pointer;">发送</button>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<style>
+  #chat-log p, #chat-log li, #chat-log ul, #chat-log ol {
+    margin: 2px 0 !important;
+    line-height: 1.5;
+    font-size: 13px;
+  }
+  #chat-log a {
+    color: #2b6cb0;
+    text-decoration: underline;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+  #chat-log a:hover {
+    color: #1a4f8a;
+    background-color: #eef3f9;
+  }
+  #chat-log pre {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    padding: 6px 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+    font-size: 12.5px;
+    font-family: Consolas, monospace;
+    white-space: pre-wrap;
+    word-break: break-word;
+    margin: 6px 0;
+  }
+  #chat-log code {
+    background-color: #f0f0f0;
+    padding: 1px 4px;
+    border-radius: 3px;
+    font-family: Consolas, monospace;
+  }
+  #chat-log code[class*="language-"]::before {
+    content: '';
+  }
+</style>
+
+<script>
+  const toggleBtn = document.getElementById('toggle-chat');
+  const closeBtn = document.getElementById('close-chat');
+  const chatWindow = document.getElementById('chatbot-window');
+  const chatLog = document.getElementById('chat-log');
+  const chatInput = document.getElementById('chat-input');
+  const sendBtn = document.getElementById('send-chat');
+
+  let isChatVisible = false;
+
+  window.addEventListener("DOMContentLoaded", () => {
+    chatWindow.style.display = "none";
+  });
+
+  toggleBtn.onclick = () => {
+    isChatVisible = !isChatVisible;
+    chatWindow.style.display = isChatVisible ? 'flex' : 'none';
+  };
+
+  closeBtn.onclick = () => {
+    isChatVisible = false;
+    chatWindow.style.display = 'none';
+  };
+
+  function cleanMarkdown(md) {
+    return md.replace(/\n{3,}/g, '\n\n').replace(/^\s+|\s+$/g, '').trim();
+  }
+
+  function appendMessage(role, rawContent) {
+    const content = cleanMarkdown(rawContent);
+    const msg = document.createElement('div');
+    msg.style.marginBottom = '6px';
+    msg.style.display = 'flex';
+    msg.style.alignItems = 'flex-start';
+
+    const avatar = document.createElement('div');
+    avatar.style.fontSize = '18px';
+    avatar.style.marginRight = '5px';
+    avatar.textContent = role === 'user' ? '🙂' : '🤖';
+
+    const bubble = document.createElement('div');
+    bubble.style.padding = '6px 10px';
+    bubble.style.borderRadius = '10px';
+    bubble.style.maxWidth = '220px';
+    bubble.style.background = role === 'user' ? '#e2e2e2' : '#f0f0f0';
+    bubble.style.lineHeight = '1.5';
+    bubble.style.fontSize = '13px';
+    bubble.style.wordBreak = 'break-word';
+
+    bubble.innerHTML = role === 'user'
+      ? marked.parseInline(content)
+      : marked.parse(content);
+
+    msg.style.justifyContent = role === 'user' ? 'flex-end' : 'flex-start';
+    msg.appendChild(role === 'user' ? bubble : avatar);
+    msg.appendChild(role === 'user' ? avatar : bubble);
+    chatLog.appendChild(msg);
+    chatLog.scrollTop = chatLog.scrollHeight;
+  }
+
+  async function sendMessage() {
+    const query = chatInput.value.trim();
+    if (!query) return;
+    appendMessage('user', query);
+    chatInput.value = '';
+
+    const response = await fetch('https://hexo-ai-assistant.3216243013.workers.dev/ask', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({ query })
+    });
+
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = '';
+
+    const aiMsg = document.createElement('div');
+    aiMsg.style.marginBottom = '6px';
+    aiMsg.style.display = 'flex';
+    aiMsg.style.alignItems = 'flex-start';
+
+    const avatarAI = document.createElement('div');
+    avatarAI.style.fontSize = '18px';
+    avatarAI.style.marginRight = '5px';
+    avatarAI.textContent = '🤖';
+
+    const bubble = document.createElement('div');
+    bubble.style.padding = '6px 10px';
+    bubble.style.borderRadius = '10px';
+    bubble.style.maxWidth = '220px';
+    bubble.style.background = '#f0f0f0';
+    bubble.style.lineHeight = '1.5';
+    bubble.style.fontSize = '13px';
+    bubble.style.wordBreak = 'break-word';
+
+    aiMsg.appendChild(avatarAI);
+    aiMsg.appendChild(bubble);
+    chatLog.appendChild(aiMsg);
+    chatLog.scrollTop = chatLog.scrollHeight;
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      buffer += decoder.decode(value, { stream: true });
+      bubble.innerHTML = marked.parse(cleanMarkdown(buffer));
+      chatLog.scrollTop = chatLog.scrollHeight;
+    }
+
+    bubble.innerHTML = marked.parse(cleanMarkdown(buffer));
+  }
+
+  sendBtn.onclick = sendMessage;
+  chatInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") sendMessage();
+  });
+
+  window.addEventListener("click", (e) => {
+    if (
+      isChatVisible &&
+      !chatWindow.contains(e.target) &&
+      !toggleBtn.contains(e.target)
+    ) {
+      isChatVisible = false;
+      chatWindow.style.display = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>

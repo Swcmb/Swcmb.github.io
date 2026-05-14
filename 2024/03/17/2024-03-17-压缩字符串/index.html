@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ianwusb.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="本文详细讲解蓝桥杯竞赛中的“压缩字符串”题目，通过贪心模拟思路实现连续字符的压缩，并提供优化后的Python代码实现。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【蓝桥杯】压缩字符串：贪心模拟与Python实现">
+<meta property="og:url" content="https://ianwusb.github.io/2024/03/17/2024-03-17-%E5%8E%8B%E7%BC%A9%E5%AD%97%E7%AC%A6%E4%B8%B2/index.html">
+<meta property="og:site_name" content="Ianwusb-CPCode">
+<meta property="og:description" content="本文详细讲解蓝桥杯竞赛中的“压缩字符串”题目，通过贪心模拟思路实现连续字符的压缩，并提供优化后的Python代码实现。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-03-17T01:38:33.000Z">
+<meta property="article:modified_time" content="2026-05-14T11:39:55.704Z">
+<meta property="article:author" content="Ianwusb">
+<meta property="article:tag" content="Algorithm">
+<meta property="article:tag" content="LanQiao">
+<meta property="article:tag" content="Python">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ianwusb.github.io/2024/03/17/2024-03-17-%E5%8E%8B%E7%BC%A9%E5%AD%97%E7%AC%A6%E4%B8%B2/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ianwusb.github.io/2024/03/17/2024-03-17-%E5%8E%8B%E7%BC%A9%E5%AD%97%E7%AC%A6%E4%B8%B2/","path":"2024/03/17/2024-03-17-压缩字符串/","title":"【蓝桥杯】压缩字符串：贪心模拟与Python实现"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>【蓝桥杯】压缩字符串：贪心模拟与Python实现 | Ianwusb-CPCode</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.1/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ianwusb-CPCode</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Ianwusb-CPCode</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81-%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">一、 题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81-%E8%BE%93%E5%85%A5%E4%B8%8E%E8%BE%93%E5%87%BA"><span class="nav-number">2.</span> <span class="nav-text">二、 输入与输出</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%8F%8F%E8%BF%B0"><span class="nav-number">2.1.</span> <span class="nav-text">输入描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%8F%8F%E8%BF%B0"><span class="nav-number">2.2.</span> <span class="nav-text">输出描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%85%A5"><span class="nav-number">2.3.</span> <span class="nav-text">样例输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%87%BA"><span class="nav-number">2.4.</span> <span class="nav-text">样例输出</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#A3BC2D4"><span class="nav-number">3.</span> <span class="nav-text">A3BC2D4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81-%E9%A2%98%E7%9B%AE%E8%A7%A3%E6%9E%90%E4%B8%8E%E6%80%9D%E8%B7%AF"><span class="nav-number">4.</span> <span class="nav-text">三、 题目解析与思路</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E6%80%9D%E8%B7%AF"><span class="nav-number">4.1.</span> <span class="nav-text">核心思路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81-%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">5.</span> <span class="nav-text">四、 代码实现</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E4%B8%BB%E7%A8%8B%E5%BA%8F%E9%80%BB%E8%BE%91"><span class="nav-number">6.</span> <span class="nav-text">3. 主程序逻辑</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81-%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90"><span class="nav-number">6.1.</span> <span class="nav-text">五、 复杂度分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81-%E6%80%BB%E7%BB%93"><span class="nav-number">6.2.</span> <span class="nav-text">六、 总结</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ianwusb"
+      src="/img/a.png">
+  <p class="site-author-name" itemprop="name">Ianwusb</p>
+  <div class="site-description" itemprop="description">Ianwusb-CPCode</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">191</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">53</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">134</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Swcmb" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Swcmb" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:fastjackcost880@gmail.com" title="E-Mail → mailto:fastjackcost880@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/03/17/2024-03-17-%E5%8E%8B%E7%BC%A9%E5%AD%97%E7%AC%A6%E4%B8%B2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="【蓝桥杯】压缩字符串：贪心模拟与Python实现 | Ianwusb-CPCode">
+      <meta itemprop="description" content="本文详细讲解蓝桥杯竞赛中的“压缩字符串”题目，通过贪心模拟思路实现连续字符的压缩，并提供优化后的Python代码实现。">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【蓝桥杯】压缩字符串：贪心模拟与Python实现
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-03-17 09:38:33" itemprop="dateCreated datePublished" datetime="2024-03-17T09:38:33+08:00">2024-03-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 19:39:55" itemprop="dateModified" datetime="2026-05-14T19:39:55+08:00">2026-05-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">算法刷题</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">本文详细讲解蓝桥杯竞赛中的“压缩字符串”题目，通过贪心模拟思路实现连续字符的压缩，并提供优化后的Python代码实现。</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="一、-题目描述"><a href="#一、-题目描述" class="headerlink" title="一、 题目描述"></a>一、 题目描述</h2><p><strong>题目名称</strong>：压缩字符串</p>
+<p><strong>问题描述</strong>：<br>实现一个算法来压缩一个字符串。压缩的具体要求如下：</p>
+<ol>
+<li><strong>有效性判断</strong>：需要判断压缩能否节省空间。仅当压缩后的字符串长度严格小于原字符串长度时，才进行压缩输出。</li>
+<li><strong>压缩格式</strong>：将连续相同的字符替换为“字符+数字”的形式。例如，字符串 <code>&quot;AAABCCDDDD&quot;</code> 经压缩后变为 <code>&quot;A3BC2D4&quot;</code>。注意：如果字符连续出现次数为1，则不追加数字。</li>
+</ol>
+<hr>
+<h2 id="二、-输入与输出"><a href="#二、-输入与输出" class="headerlink" title="二、 输入与输出"></a>二、 输入与输出</h2><h3 id="输入描述"><a href="#输入描述" class="headerlink" title="输入描述"></a>输入描述</h3><p>输入一行字符串，字符串长度不超过 500。</p>
+<h3 id="输出描述"><a href="#输出描述" class="headerlink" title="输出描述"></a>输出描述</h3><p>输出一行结果：</p>
+<ul>
+<li>若输入的字符串可压缩（即压缩后更短），输出压缩后的字符串。</li>
+<li>若压缩后字符串长度未变短，输出 <code>NO</code>。</li>
+</ul>
+<h3 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h3><p>```text<br>AAABCCDDDD</p>
+<h3 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h3><p>```text</p>
+<h2 id="A3BC2D4"><a href="#A3BC2D4" class="headerlink" title="A3BC2D4"></a>A3BC2D4</h2><h2 id="三、-题目解析与思路"><a href="#三、-题目解析与思路" class="headerlink" title="三、 题目解析与思路"></a>三、 题目解析与思路</h2><p>这道题属于典型的<strong>字符串模拟</strong>问题。我们需要遍历字符串，统计连续出现的字符及其数量。</p>
+<h3 id="核心思路"><a href="#核心思路" class="headerlink" title="核心思路"></a>核心思路</h3><ol>
+<li><strong>遍历统计</strong>：使用一个指针遍历字符串，维护一个计数器 <code>count</code>，记录当前字符连续出现的次数。</li>
+<li><strong>拼接逻辑</strong>：<ul>
+<li>当下一个字符与当前字符不同时（或到达字符串末尾），停止计数。</li>
+<li>如果计数 <code>count &gt; 1</code>，拼接 <code>字符 + count</code>。</li>
+<li>如果计数 <code>count == 1</code>，仅拼接 <code>字符</code>。</li>
+<li>重置计数器，继续处理下一个字符。</li>
+</ul>
+</li>
+<li><strong>边界处理技巧</strong>：为了简化代码逻辑，可以在字符串末尾人为添加一个哨兵字符（例如 <code>@</code>），这样在遍历时可以统一处理原字符串的最后一个字符段，避免在循环结束后额外编写收尾代码。</li>
+<li><strong>结果判断</strong>：比较压缩后的字符串长度与原字符串长度，满足条件则输出，否则输出 <code>&quot;NO&quot;</code>。</li>
+</ol>
+<hr>
+<h2 id="四、-代码实现"><a href="#四、-代码实现" class="headerlink" title="四、 代码实现"></a>四、 代码实现</h2><p>以下是优化后的 Python 代码实现。代码修复了原示例中的 HTML 实体编码问题（如 <code>&amp;quot;</code>），并遵循 PEP 8 编码规范，增加了必要的注释。</p>
+<p>```python<br>def compress_string(s):<br>    “””<br>    压缩字符串函数<br>    :param s: 原字符串<br>    :return: 压缩后的字符串<br>    “””</p>
+<pre><code># 1. 添加哨兵字符：处理末尾字符组的统一逻辑
+# 添加一个原字符串不可能包含的字符，确保最后一个字符组能被正确结算
+s += &quot;@&quot;
+
+result = &quot;&quot;
+count = 1  # 计数器初始化为1（包含当前字符本身）
+
+# 2. 遍历字符串（长度-1，因为末尾添加了哨兵）
+for i in range(len(s) - 1):
+    current_char = s[i]
+    next_char = s[i + 1]
+
+    if current_char == next_char:
+        # 字符相同，计数增加
+        count += 1
+    else:
+        # 字符不同，进行结算
+        if count &gt; 1:
+            result += current_char + str(count)
+        else:
+            result += current_char
+
+        # 重置计数器
+        count = 1
+
+return result
+</code></pre><h1 id="3-主程序逻辑"><a href="#3-主程序逻辑" class="headerlink" title="3. 主程序逻辑"></a>3. 主程序逻辑</h1><p>if <strong>name</strong> == “<strong>main</strong>“:<br>    try:</p>
+<pre><code>    # 获取输入
+    raw_str = input().strip()
+
+    # 执行压缩
+    compressed_str = compress_string(raw_str)
+
+    # 4. 判断是否节省空间并输出
+    if len(compressed_str) &lt; len(raw_str):
+        print(compressed_str)
+    else:
+        print(&quot;NO&quot;)
+
+except Exception as e:
+    print(f&quot;Input Error: {e}&quot;)
+</code></pre><hr>
+<h2 id="五、-复杂度分析"><a href="#五、-复杂度分析" class="headerlink" title="五、 复杂度分析"></a>五、 复杂度分析</h2><ul>
+<li><strong>时间复杂度</strong>：$O(N)$，其中 $N$ 是字符串的长度。我们只需要遍历一次字符串即可完成压缩。</li>
+<li><strong>空间复杂度</strong>：$O(N)$，主要用于存储压缩后的结果字符串。在最坏情况下（例如 “ABC”），结果字符串长度与原字符串相当。</li>
+</ul>
+<hr>
+<h2 id="六、-总结"><a href="#六、-总结" class="headerlink" title="六、 总结"></a>六、 总结</h2><p>这道题考察了基本的字符串处理能力。通过引入“哨兵”字符，可以有效简化循环中的边界判断逻辑，使代码更加简洁优雅。在实际竞赛或面试中，清晰的逻辑边界处理往往是得分的关键。</p>
+<blockquote>
+<p><strong>注意</strong>：本题的关键点在于理解题目要求——只有当连续字符数大于1时才追加数字，且最终结果必须比原字符串短才输出。</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Python/" rel="tag"># Python</a>
+              <a href="/tags/LanQiao/" rel="tag"># LanQiao</a>
+              <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/03/17/2024-03-17-%E7%BB%9F%E8%AE%A1%E6%95%B0%E5%AD%97/" rel="prev" title="蓝桥杯：统计数字">
+                  <i class="fa fa-angle-left"></i> 蓝桥杯：统计数字
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/03/18/2024-03-19-C++%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%BE%E5%90%8E%E9%A2%98/" rel="next" title="C++程序设计课后习题解析 (P36)">
+                  C++程序设计课后习题解析 (P36) <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ianwusb</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<div id="chatbot-toggle" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
+  <button id="toggle-chat" style="
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #fff;
+    color: #333;
+    border: 1px solid #ddd;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  ">
+    🤖
+  </button>
+</div>
+
+<div id="chatbot-window" style="display: none; position: fixed; bottom: 80px; right: 20px; width: 340px; height: 480px; background: #fff; border: 1px solid #e0e0e0; z-index: 9999; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border-radius: 12px; overflow: hidden; flex-direction: column;">
+  <div style="background: #fff; color: #333; padding: 12px 16px; font-size: 16px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e0e0e0;">
+    Hexo AI 助手
+    <button id="close-chat" style="background: none; border: none; color: #333; font-size: 20px; cursor: pointer;">×</button>
+  </div>
+  <div id="chat-log" style="flex-grow: 1; padding: 12px; overflow-y: auto; font-size: 14px; background: #fafafa;"></div>
+  <div style="padding: 10px 16px; display: flex; background: #fff; border-top: 1px solid #e0e0e0;">
+    <input type="text" id="chat-input" placeholder="输入你的问题..." style="flex: 1; padding: 8px 10px; border-radius: 6px; border: 1px solid #ccc; font-size: 14px; outline: none;">
+    <button id="send-chat" style="margin-left: 8px; padding: 8px 12px; border-radius: 6px; border: none; background: #f0f0f0; color: #333; font-size: 14px; cursor: pointer;">发送</button>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<style>
+  #chat-log p, #chat-log li, #chat-log ul, #chat-log ol {
+    margin: 2px 0 !important;
+    line-height: 1.5;
+    font-size: 13px;
+  }
+  #chat-log a {
+    color: #2b6cb0;
+    text-decoration: underline;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+  #chat-log a:hover {
+    color: #1a4f8a;
+    background-color: #eef3f9;
+  }
+  #chat-log pre {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    padding: 6px 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+    font-size: 12.5px;
+    font-family: Consolas, monospace;
+    white-space: pre-wrap;
+    word-break: break-word;
+    margin: 6px 0;
+  }
+  #chat-log code {
+    background-color: #f0f0f0;
+    padding: 1px 4px;
+    border-radius: 3px;
+    font-family: Consolas, monospace;
+  }
+  #chat-log code[class*="language-"]::before {
+    content: '';
+  }
+</style>
+
+<script>
+  const toggleBtn = document.getElementById('toggle-chat');
+  const closeBtn = document.getElementById('close-chat');
+  const chatWindow = document.getElementById('chatbot-window');
+  const chatLog = document.getElementById('chat-log');
+  const chatInput = document.getElementById('chat-input');
+  const sendBtn = document.getElementById('send-chat');
+
+  let isChatVisible = false;
+
+  window.addEventListener("DOMContentLoaded", () => {
+    chatWindow.style.display = "none";
+  });
+
+  toggleBtn.onclick = () => {
+    isChatVisible = !isChatVisible;
+    chatWindow.style.display = isChatVisible ? 'flex' : 'none';
+  };
+
+  closeBtn.onclick = () => {
+    isChatVisible = false;
+    chatWindow.style.display = 'none';
+  };
+
+  function cleanMarkdown(md) {
+    return md.replace(/\n{3,}/g, '\n\n').replace(/^\s+|\s+$/g, '').trim();
+  }
+
+  function appendMessage(role, rawContent) {
+    const content = cleanMarkdown(rawContent);
+    const msg = document.createElement('div');
+    msg.style.marginBottom = '6px';
+    msg.style.display = 'flex';
+    msg.style.alignItems = 'flex-start';
+
+    const avatar = document.createElement('div');
+    avatar.style.fontSize = '18px';
+    avatar.style.marginRight = '5px';
+    avatar.textContent = role === 'user' ? '🙂' : '🤖';
+
+    const bubble = document.createElement('div');
+    bubble.style.padding = '6px 10px';
+    bubble.style.borderRadius = '10px';
+    bubble.style.maxWidth = '220px';
+    bubble.style.background = role === 'user' ? '#e2e2e2' : '#f0f0f0';
+    bubble.style.lineHeight = '1.5';
+    bubble.style.fontSize = '13px';
+    bubble.style.wordBreak = 'break-word';
+
+    bubble.innerHTML = role === 'user'
+      ? marked.parseInline(content)
+      : marked.parse(content);
+
+    msg.style.justifyContent = role === 'user' ? 'flex-end' : 'flex-start';
+    msg.appendChild(role === 'user' ? bubble : avatar);
+    msg.appendChild(role === 'user' ? avatar : bubble);
+    chatLog.appendChild(msg);
+    chatLog.scrollTop = chatLog.scrollHeight;
+  }
+
+  async function sendMessage() {
+    const query = chatInput.value.trim();
+    if (!query) return;
+    appendMessage('user', query);
+    chatInput.value = '';
+
+    const response = await fetch('https://hexo-ai-assistant.3216243013.workers.dev/ask', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({ query })
+    });
+
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = '';
+
+    const aiMsg = document.createElement('div');
+    aiMsg.style.marginBottom = '6px';
+    aiMsg.style.display = 'flex';
+    aiMsg.style.alignItems = 'flex-start';
+
+    const avatarAI = document.createElement('div');
+    avatarAI.style.fontSize = '18px';
+    avatarAI.style.marginRight = '5px';
+    avatarAI.textContent = '🤖';
+
+    const bubble = document.createElement('div');
+    bubble.style.padding = '6px 10px';
+    bubble.style.borderRadius = '10px';
+    bubble.style.maxWidth = '220px';
+    bubble.style.background = '#f0f0f0';
+    bubble.style.lineHeight = '1.5';
+    bubble.style.fontSize = '13px';
+    bubble.style.wordBreak = 'break-word';
+
+    aiMsg.appendChild(avatarAI);
+    aiMsg.appendChild(bubble);
+    chatLog.appendChild(aiMsg);
+    chatLog.scrollTop = chatLog.scrollHeight;
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      buffer += decoder.decode(value, { stream: true });
+      bubble.innerHTML = marked.parse(cleanMarkdown(buffer));
+      chatLog.scrollTop = chatLog.scrollHeight;
+    }
+
+    bubble.innerHTML = marked.parse(cleanMarkdown(buffer));
+  }
+
+  sendBtn.onclick = sendMessage;
+  chatInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") sendMessage();
+  });
+
+  window.addEventListener("click", (e) => {
+    if (
+      isChatVisible &&
+      !chatWindow.contains(e.target) &&
+      !toggleBtn.contains(e.target)
+    ) {
+      isChatVisible = false;
+      chatWindow.style.display = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>
