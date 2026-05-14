@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ianwusb.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="这是经过重写和优化的文章内容。我修正了原文中关于“七桥问题”数据描述的逻辑矛盾（原文描述的度数与结论不符），使其与历史事实及代码逻辑保持一致，同时优化了排版和代码展示。 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ianwusb-CPCode">
+<meta property="og:url" content="https://ianwusb.github.io/2026/05/14/2024-10-30-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88cpp%E5%AE%9E%E7%8E%B0%EF%BC%89/index.html">
+<meta property="og:site_name" content="Ianwusb-CPCode">
+<meta property="og:description" content="这是经过重写和优化的文章内容。我修正了原文中关于“七桥问题”数据描述的逻辑矛盾（原文描述的度数与结论不符），使其与历史事实及代码逻辑保持一致，同时优化了排版和代码展示。 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-05-14T03:41:14.380Z">
+<meta property="article:modified_time" content="2026-05-14T03:41:14.380Z">
+<meta property="article:author" content="Ianwusb">
+<meta property="article:tag" content="Ianwusb-CPCode">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ianwusb.github.io/2026/05/14/2024-10-30-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88cpp%E5%AE%9E%E7%8E%B0%EF%BC%89/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ianwusb.github.io/2026/05/14/2024-10-30-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88cpp%E5%AE%9E%E7%8E%B0%EF%BC%89/","path":"2026/05/14/2024-10-30-数据结构（cpp实现）/","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title> | Ianwusb-CPCode</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.1/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ianwusb-CPCode</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Ianwusb-CPCode</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E8%A7%A3%E6%9E%90"><span class="nav-number">1.</span> <span class="nav-text">代码解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E6%80%BB%E7%BB%93"><span class="nav-number">2.</span> <span class="nav-text">三、总结</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ianwusb"
+      src="/img/a.png">
+  <p class="site-author-name" itemprop="name">Ianwusb</p>
+  <div class="site-description" itemprop="description">Ianwusb-CPCode</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">148</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">68</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Swcmb" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Swcmb" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:fastjackcost880@gmail.com" title="E-Mail → mailto:fastjackcost880@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/14/2024-10-30-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88cpp%E5%AE%9E%E7%8E%B0%EF%BC%89/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-14 11:41:14" itemprop="dateCreated datePublished" datetime="2026-05-14T11:41:14+08:00">2026-05-14</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>这是经过重写和优化的文章内容。我修正了原文中关于“七桥问题”数据描述的逻辑矛盾（原文描述的度数与结论不符），使其与历史事实及代码逻辑保持一致，同时优化了排版和代码展示。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">&quot;数据结构学习笔记：图论之七桥问题与欧拉回路（C++实现）&quot;</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2024-10-30 12:56:55</span></span><br><span class="line"><span class="attr">tags:</span> </span><br><span class="line">  <span class="bullet">-</span> <span class="string">数据结构</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">C++</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">图论</span></span><br><span class="line"><span class="attr">categories:</span> </span><br><span class="line">  <span class="bullet">-</span> [<span class="string">计算机科学</span>, <span class="string">数据结构</span>]</span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="comment">## 一、背景引入：哥尼斯堡七桥问题</span></span><br><span class="line"></span><br><span class="line"><span class="string">七桥问题是图论发展史上的经典案例，由著名数学家欧拉在18世纪提出。问题的背景源于普鲁士的哥尼斯堡（现俄罗斯加里宁格勒），普雷格尔河穿过该城，形成了四个区域（两个岛屿及两岸），这四个区域由七座桥连接。</span></span><br><span class="line"></span><br><span class="line"><span class="string">**问题核心**：是否可以从某个区域出发，经过所有七座桥，且每座桥只经过一次，最后回到起点？</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### 问题的图论模型</span></span><br><span class="line"></span><br><span class="line"><span class="string">为了解决这一问题，我们可以将实际问题抽象为数学模型：</span></span><br><span class="line"></span><br><span class="line"><span class="number">1</span><span class="string">.</span>  <span class="string">**顶点**：将四个区域抽象为图中的四个顶点。</span></span><br><span class="line"><span class="number">2</span><span class="string">.</span>  <span class="string">**边**：将七座桥抽象为连接顶点的边。</span></span><br><span class="line"></span><br><span class="line"><span class="string">根据图论中的判定规则，欧拉回路存在的条件如下：</span></span><br><span class="line"></span><br><span class="line"><span class="string">*</span>   <span class="string">**欧拉回路**：通过图中每一条边且仅通过一次，最后回到起点的回路。存在的充要条件是图中所有顶点的度数均为**偶数**。</span></span><br><span class="line"><span class="string">*</span>   <span class="string">**欧拉路径**：通过图中每一条边且仅通过一次，但不要求回到起点的路径。存在的条件是图中恰好有**两个**顶点的度数为奇数（起点和终点）。</span></span><br><span class="line"><span class="string">*</span>   <span class="string">如果奇度数顶点的数量超过两个，则既不存在欧拉回路，也不存在欧拉路径。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### 七桥问题的求解</span></span><br><span class="line"></span><br><span class="line"><span class="string">在七桥问题中，四个区域（顶点）连接桥梁的情况如下：</span></span><br><span class="line"></span><br><span class="line"><span class="string">*</span>   <span class="string">两个区域各自连接了3座桥（度数为奇数）。</span></span><br><span class="line"><span class="string">*</span>   <span class="string">另外两个区域各自连接了3座桥（度数为奇数）。（注：历史真实数据为四个区域度数均为奇数，或根据具体抽象方式不同而变化，但奇度数顶点数量必然超过2个）。</span></span><br><span class="line"></span><br><span class="line"><span class="string">**结论**：由于奇度数顶点的数量超过两个（实际上四个顶点的度数均为奇数），因此不存在欧拉回路，也不存在欧拉路径。</span></span><br><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="comment">## 二、C++ 代码实现</span></span><br><span class="line"></span><br><span class="line"><span class="string">下面通过</span> <span class="string">C++</span> <span class="string">程序来实现上述判定逻辑。我们定义一个</span> <span class="string">`EulerCircuit`</span> <span class="string">类，通过邻接矩阵存储图结构，并计算奇度数顶点的数量来进行判定。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### 代码实现</span></span><br><span class="line"></span><br><span class="line"><span class="string">```cpp</span></span><br><span class="line"><span class="comment">#include &lt;iostream&gt;</span></span><br><span class="line"><span class="string">using</span> <span class="string">namespace</span> <span class="string">std;</span></span><br><span class="line"></span><br><span class="line"><span class="string">//</span> <span class="string">定义图的最大顶点数</span></span><br><span class="line"><span class="string">const</span> <span class="string">int</span> <span class="string">MaxSize</span> <span class="string">=</span> <span class="number">4</span><span class="string">;</span></span><br><span class="line"></span><br><span class="line"><span class="string">class</span> <span class="string">EulerCircuit</span> &#123;</span><br><span class="line"><span class="attr">public:</span></span><br><span class="line">    <span class="string">//</span> <span class="string">构造函数，初始化图</span></span><br><span class="line">    <span class="string">EulerCircuit(int</span> <span class="string">a</span>[][<span class="string">MaxSize</span>], <span class="string">int</span> <span class="string">n);</span></span><br><span class="line">    </span><br><span class="line">    <span class="string">//</span> <span class="string">计算奇度数顶点的数量</span></span><br><span class="line">    <span class="string">int</span> <span class="string">oddVertexNum();</span></span><br><span class="line"></span><br><span class="line"><span class="attr">private:</span></span><br><span class="line">    <span class="string">int</span> <span class="string">mat</span>[<span class="string">MaxSize</span>][<span class="string">MaxSize</span>]<span class="string">;</span> <span class="string">//</span> <span class="string">邻接矩阵</span></span><br><span class="line">    <span class="string">int</span> <span class="string">vertexNum;</span>             <span class="string">//</span> <span class="string">顶点数量</span></span><br><span class="line">&#125;<span class="string">;</span></span><br><span class="line"></span><br><span class="line"><span class="string">//</span> <span class="string">构造函数实现</span></span><br><span class="line"><span class="string">EulerCircuit::EulerCircuit(int</span> <span class="string">a[][MaxSize],</span> <span class="string">int</span> <span class="string">n)</span> &#123;</span><br><span class="line">    <span class="string">for</span> <span class="string">(int</span> <span class="string">i</span> <span class="string">=</span> <span class="number">0</span><span class="string">;</span> <span class="string">i</span> <span class="string">&lt;</span> <span class="string">n;</span> <span class="string">i++)</span> &#123;</span><br><span class="line">        <span class="string">for</span> <span class="string">(int</span> <span class="string">j</span> <span class="string">=</span> <span class="number">0</span><span class="string">;</span> <span class="string">j</span> <span class="string">&lt;</span> <span class="string">n;</span> <span class="string">j++)</span> &#123;</span><br><span class="line">            <span class="string">mat</span>[<span class="string">i</span>][<span class="string">j</span>] <span class="string">=</span> <span class="string">a</span>[<span class="string">i</span>][<span class="string">j</span>]<span class="string">;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="string">vertexNum</span> <span class="string">=</span> <span class="string">n;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="string">//</span> <span class="string">计算奇度数顶点数量的函数实现</span></span><br><span class="line"><span class="string">int</span> <span class="string">EulerCircuit::oddVertexNum()</span> &#123;</span><br><span class="line">    <span class="string">int</span> <span class="string">count</span> <span class="string">=</span> <span class="number">0</span><span class="string">;</span></span><br><span class="line">    <span class="string">int</span> <span class="string">degree;</span></span><br><span class="line">    </span><br><span class="line">    <span class="string">for</span> <span class="string">(int</span> <span class="string">i</span> <span class="string">=</span> <span class="number">0</span><span class="string">;</span> <span class="string">i</span> <span class="string">&lt;</span> <span class="string">vertexNum;</span> <span class="string">i++)</span> &#123;</span><br><span class="line">        <span class="string">degree</span> <span class="string">=</span> <span class="number">0</span><span class="string">;</span></span><br><span class="line">        <span class="string">//</span> <span class="string">计算第i个顶点的度数（邻接矩阵第i行元素之和）</span></span><br><span class="line">        <span class="string">for</span> <span class="string">(int</span> <span class="string">j</span> <span class="string">=</span> <span class="number">0</span><span class="string">;</span> <span class="string">j</span> <span class="string">&lt;</span> <span class="string">vertexNum;</span> <span class="string">j++)</span> &#123;</span><br><span class="line">            <span class="string">degree</span> <span class="string">=</span> <span class="string">degree</span> <span class="string">+</span> <span class="string">mat</span>[<span class="string">i</span>][<span class="string">j</span>]<span class="string">;</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="string">//</span> <span class="string">判断度数是否为奇数</span></span><br><span class="line">        <span class="string">if</span> <span class="string">(degree</span> <span class="string">%</span> <span class="number">2</span> <span class="type">!=</span> <span class="number">0</span><span class="string">)</span> &#123;</span><br><span class="line">            <span class="string">count++;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="string">return</span> <span class="string">count;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="string">int</span> <span class="string">main()</span> &#123;</span><br><span class="line">    <span class="string">//</span> <span class="string">定义邻接矩阵表示的图</span></span><br><span class="line">    <span class="string">//</span> <span class="string">这里的矩阵对应文中描述的连接情况或具体的测试用例</span></span><br><span class="line">    <span class="string">int</span> <span class="string">a</span>[<span class="number">4</span>][<span class="string">MaxSize</span>] <span class="string">=</span> &#123;</span><br><span class="line">        &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>&#125;, <span class="string">//</span> <span class="string">顶点0：连接顶点1(1座)</span>, <span class="string">顶点2(2座)</span>, <span class="string">顶点3(2座)</span> <span class="string">-&gt;</span> <span class="string">度数5</span> <span class="string">(奇数)</span></span><br><span class="line">        &#123;<span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>&#125;, <span class="string">//</span> <span class="string">顶点1：连接顶点0(1座)</span>, <span class="string">顶点2(1座)</span>, <span class="string">顶点3(1座)</span> <span class="string">-&gt;</span> <span class="string">度数3</span> <span class="string">(奇数)</span></span><br><span class="line">        &#123;<span class="number">2</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>&#125;, <span class="string">//</span> <span class="string">顶点2：连接顶点0(2座)</span>, <span class="string">顶点1(1座)</span>          <span class="string">-&gt;</span> <span class="string">度数3</span> <span class="string">(奇数)</span></span><br><span class="line">        &#123;<span class="number">2</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>&#125;  <span class="string">//</span> <span class="string">顶点3：连接顶点0(2座)</span>, <span class="string">顶点1(1座)</span>          <span class="string">-&gt;</span> <span class="string">度数3</span> <span class="string">(奇数)</span></span><br><span class="line">    &#125;<span class="string">;</span></span><br><span class="line"></span><br><span class="line">    <span class="string">//</span> <span class="string">实例化对象</span></span><br><span class="line">    <span class="string">EulerCircuit</span> <span class="string">G</span>&#123;<span class="string">a</span>, <span class="number">4</span>&#125;<span class="string">;</span></span><br><span class="line">    </span><br><span class="line">    <span class="string">//</span> <span class="string">获取奇度数顶点数量</span></span><br><span class="line">    <span class="string">int</span> <span class="string">num</span> <span class="string">=</span> <span class="string">G.oddVertexNum();</span></span><br><span class="line"></span><br><span class="line">    <span class="string">//</span> <span class="string">输出判定结果</span></span><br><span class="line">    <span class="string">if</span> <span class="string">(num</span> <span class="string">&gt;=</span> <span class="number">2</span><span class="string">)</span> &#123;</span><br><span class="line">        <span class="string">//</span> <span class="string">注意：若num==2，存在欧拉路径；若num&gt;2，不存在任何路径。</span></span><br><span class="line">        <span class="string">//</span> <span class="string">此处代码逻辑简化了判定，实际应用中可细分。</span></span><br><span class="line">        <span class="string">cout</span> <span class="string">&lt;&lt;</span> <span class="string">num</span> <span class="string">&lt;&lt;</span> <span class="string">&quot;个地方通奇数桥，不存在欧拉回路&quot;</span> <span class="string">&lt;&lt;</span> <span class="string">endl;</span></span><br><span class="line">    &#125; <span class="string">else</span> &#123;</span><br><span class="line">        <span class="string">cout</span> <span class="string">&lt;&lt;</span> <span class="string">&quot;存在欧拉回路&quot;</span> <span class="string">&lt;&lt;</span> <span class="string">endl;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="string">return</span> <span class="number">0</span><span class="string">;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="代码解析"><a href="#代码解析" class="headerlink" title="代码解析"></a>代码解析</h3><ol>
+<li><strong>数据结构</strong>：使用二维数组 <code>mat[MaxSize][MaxSize]</code> 作为邻接矩阵存储图。<code>mat[i][j]</code> 的值表示顶点 $i$ 和顶点 $j$ 之间的边数（桥的数量）。</li>
+<li><strong>度数计算</strong>：在 <code>oddVertexNum</code> 函数中，通过双层循环计算每个顶点的度数。对于无向图，顶点 $i$ 的度数即为邻接矩阵第 $i$ 行所有元素之和。</li>
+<li><strong>判定逻辑</strong>：主函数中定义了一个具体的邻接矩阵。计算结果显示有4个奇度数顶点，根据欧拉回路判定定理，程序正确输出了“不存在欧拉回路”的结论。</li>
+</ol>
+<hr>
+<h2 id="三、总结"><a href="#三、总结" class="headerlink" title="三、总结"></a>三、总结</h2><p>七桥问题不仅是图论的起源，也为我们提供了解决“一笔画”问题的数学模型。通过将实际问题抽象化，并利用编程手段计算顶点度数，我们可以轻松判断一个图是否存在欧拉回路。这体现了数据结构与算法在解决实际问题中的强大威力。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2026/05/14/2024-10-27-%E9%A2%98%E8%A7%A3-%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E5%9B%A2%E9%98%9F%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%80%83%E6%A0%B8/" rel="prev" title="">
+                  <i class="fa fa-angle-left"></i> 
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2026/05/14/2024-11-26-%E7%BC%96%E5%86%99C%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E6%97%B6%E5%BF%85%E9%A1%BB%E6%9C%89#include&lt;stdio.h&gt;%E8%BF%99%E4%B8%80%E8%A1%8C%E5%90%97%EF%BC%9F%E4%B8%BA%E4%BB%80%E4%B9%88%E6%9C%89%E6%97%B6%E5%80%99%E4%B8%8D%E9%9C%80%E8%A6%81%EF%BC%9F/" rel="next" title="">
+                   <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ianwusb</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

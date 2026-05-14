@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ianwusb.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="你好！我是资深技术博主。针对你提供的 Python 爬虫代码片段，我进行了深度优化。 原文章内容较为简略，且代码格式存在编码问题（如 HTML 实体编码 &amp;#x27;），结构也不够清晰。优化后的版本增强了可读性，补充了技术背景说明，并按照标准的 Hexo 博客格式进行了排版。 以下是优化后的文章内容：  1234567891011121314151617181920212223242526">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ianwusb-CPCode">
+<meta property="og:url" content="https://ianwusb.github.io/2026/05/13/2024-07-26-urllib_%E7%99%BE%E5%BA%A6%E7%9A%84%E7%99%BE%E5%BA%A6%E4%B8%80%E4%B8%8B/index.html">
+<meta property="og:site_name" content="Ianwusb-CPCode">
+<meta property="og:description" content="你好！我是资深技术博主。针对你提供的 Python 爬虫代码片段，我进行了深度优化。 原文章内容较为简略，且代码格式存在编码问题（如 HTML 实体编码 &amp;#x27;），结构也不够清晰。优化后的版本增强了可读性，补充了技术背景说明，并按照标准的 Hexo 博客格式进行了排版。 以下是优化后的文章内容：  1234567891011121314151617181920212223242526">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-05-13T11:34:58.602Z">
+<meta property="article:modified_time" content="2026-05-13T11:34:58.602Z">
+<meta property="article:author" content="Ianwusb">
+<meta property="article:tag" content="Ianwusb-CPCode">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ianwusb.github.io/2026/05/13/2024-07-26-urllib_%E7%99%BE%E5%BA%A6%E7%9A%84%E7%99%BE%E5%BA%A6%E4%B8%80%E4%B8%8B/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ianwusb.github.io/2026/05/13/2024-07-26-urllib_%E7%99%BE%E5%BA%A6%E7%9A%84%E7%99%BE%E5%BA%A6%E4%B8%80%E4%B8%8B/","path":"2026/05/13/2024-07-26-urllib_百度的百度一下/","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title> | Ianwusb-CPCode</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.1/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ianwusb-CPCode</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Ianwusb-CPCode</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E8%AF%A6%E8%A7%A3"><span class="nav-number">1.</span> <span class="nav-text">代码详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E8%AE%BE%E7%BD%AE-Headers%EF%BC%9F"><span class="nav-number">1.1.</span> <span class="nav-text">1. 为什么要设置 Headers？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-XPath-%E8%A7%A3%E6%9E%90%E9%80%BB%E8%BE%91"><span class="nav-number">1.2.</span> <span class="nav-text">2. XPath 解析逻辑</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">2.</span> <span class="nav-text">总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E8%AF%B4%E6%98%8E%EF%BC%9A"><span class="nav-number">2.1.</span> <span class="nav-text">优化说明：</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ianwusb"
+      src="/img/a.png">
+  <p class="site-author-name" itemprop="name">Ianwusb</p>
+  <div class="site-description" itemprop="description">Ianwusb-CPCode</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">148</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">68</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Swcmb" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Swcmb" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:fastjackcost880@gmail.com" title="E-Mail → mailto:fastjackcost880@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/13/2024-07-26-urllib_%E7%99%BE%E5%BA%A6%E7%9A%84%E7%99%BE%E5%BA%A6%E4%B8%80%E4%B8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-13 19:34:58" itemprop="dateCreated datePublished" datetime="2026-05-13T19:34:58+08:00">2026-05-13</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>你好！我是资深技术博主。针对你提供的 Python 爬虫代码片段，我进行了深度优化。</p>
+<p>原文章内容较为简略，且代码格式存在编码问题（如 HTML 实体编码 <code>&amp;#x27;</code>），结构也不够清晰。优化后的版本增强了可读性，补充了技术背景说明，并按照标准的 Hexo 博客格式进行了排版。</p>
+<p>以下是优化后的文章内容：</p>
+<hr>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: &quot;Python爬虫实战：使用urllib与XPath解析百度搜索按钮&quot;</span><br><span class="line">date: 2024-07-26 12:49:51</span><br><span class="line">tags: [Python, Spider, urllib, XPath]</span><br><span class="line"><span class="section">categories: [技术实战]</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"></span><br><span class="line"><span class="section">## 前言</span></span><br><span class="line"></span><br><span class="line">在 Python 爬虫开发的入门阶段，学会如何发送请求并解析数据是核心技能。本文将介绍如何利用 Python 内置库 <span class="code">`urllib`</span> 发送带伪装头的请求，并结合 <span class="code">`lxml`</span> 库使用 XPath 语法，精准提取百度首页“百度一下”按钮的文本内容。</span><br><span class="line"></span><br><span class="line"><span class="section">## 核心思路</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">1.</span>  <span class="strong">**发送请求**</span>：构建带有 <span class="code">`User-Agent`</span> 的请求头，模拟浏览器访问，避免被服务器拒绝。</span><br><span class="line"><span class="bullet">2.</span>  <span class="strong">**获取数据**</span>：使用 <span class="code">`urlopen`</span> 获取响应，并解码为 UTF-8 格式的字符串。</span><br><span class="line"><span class="bullet">3.</span>  <span class="strong">**解析数据**</span>：利用 <span class="code">`lxml.etree`</span> 将 HTML 文本转换为可解析的对象，通过 XPath 路径表达式定位目标元素。</span><br><span class="line"></span><br><span class="line"><span class="section">## 完整代码实现</span></span><br><span class="line"></span><br><span class="line">以下是本次实战的完整代码：</span><br><span class="line"></span><br><span class="line"><span class="code">```python</span></span><br><span class="line"><span class="code"># 导入所需模块</span></span><br><span class="line"><span class="code">import urllib.request</span></span><br><span class="line"><span class="code">from lxml import etree</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code"># 1. 定义目标URL</span></span><br><span class="line"><span class="code">url = &#x27;https://www.baidu.com&#x27;</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code"># 2. 构建请求头 (伪装浏览器)</span></span><br><span class="line"><span class="code"># 这里的 User-Agent 模拟了 Edge 浏览器</span></span><br><span class="line"><span class="code">headers = &#123;</span></span><br><span class="line"><span class="code">    &#x27;User-Agent&#x27;: &#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 Edge/16.16299&#x27;</span></span><br><span class="line"><span class="code">&#125;</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code"># 3. 创建请求对象并添加头部信息</span></span><br><span class="line"><span class="code">request = urllib.request.Request(url=url, headers=headers)</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code"># 4. 发送请求并获取响应</span></span><br><span class="line"><span class="code">response = urllib.request.urlopen(request)</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code"># 5. 读取响应内容并解码</span></span><br><span class="line"><span class="code"># 百度网页通常使用 UTF-8 编码</span></span><br><span class="line"><span class="code">content = response.read().decode(&#x27;utf-8&#x27;)</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code"># 6. 解析网页源码</span></span><br><span class="line"><span class="code">html = etree.HTML(content)</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code"># 7. 使用 XPath 提取数据</span></span><br><span class="line"><span class="code"># 逻辑：查找所有 id=&quot;su&quot; 的 input 标签，并获取其 value 属性值</span></span><br><span class="line"><span class="code"># xpath 返回的是一个列表，通过 [0] 取出第一个元素</span></span><br><span class="line"><span class="code">result = html.xpath(&#x27;//input[@id=&quot;su&quot;]/@value&#x27;)[0]</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code"># 8. 打印结果</span></span><br><span class="line"><span class="code">print(result)</span></span><br></pre></td></tr></table></figure>
+<h2 id="代码详解"><a href="#代码详解" class="headerlink" title="代码详解"></a>代码详解</h2><h3 id="1-为什么要设置-Headers？"><a href="#1-为什么要设置-Headers？" class="headerlink" title="1. 为什么要设置 Headers？"></a>1. 为什么要设置 Headers？</h3><p>直接使用 <code>urllib</code> 访问百度时，Python 会发送默认的 User-Agent（通常包含 <code>Python-urllib</code> 字样）。百度服务器识别到这是爬虫请求，可能会拒绝服务或返回不完整的数据。因此，我们需要在请求头中添加 <code>User-Agent</code>，伪装成正常的浏览器访问。</p>
+<h3 id="2-XPath-解析逻辑"><a href="#2-XPath-解析逻辑" class="headerlink" title="2. XPath 解析逻辑"></a>2. XPath 解析逻辑</h3><p>代码中的核心解析语句是：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">result = html.xpath(<span class="string">&#x27;//input[@id=&quot;su&quot;]/@value&#x27;</span>)[<span class="number">0</span>]</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><code>//input</code>：在整个文档中查找 <code>input</code> 标签。</li>
+<li><code>[@id=&quot;su&quot;]</code>：筛选条件，找到 <code>id</code> 属性为 <code>&quot;su&quot;</code> 的节点。在百度首页，这正好对应搜索框右侧的“百度一下”按钮。</li>
+<li><code>/@value</code>：获取该节点的 <code>value</code> 属性值。</li>
+</ul>
+<p>运行程序后，控制台将输出：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">百度一下</span><br></pre></td></tr></table></figure></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本案例展示了最基础的爬虫流程。虽然 <code>urllib</code> 是 Python 内置库，但在实际开发中，我们通常会使用更加人性化的第三方库（如 <code>requests</code>）来处理请求。不过，理解 <code>urllib</code> 的底层逻辑对于掌握 Python 网络编程大有裨益。<br>```</p>
+<hr>
+<h3 id="优化说明："><a href="#优化说明：" class="headerlink" title="优化说明："></a>优化说明：</h3><ol>
+<li><strong>修复了编码问题</strong>：原文中的 <code>&amp;#x27;</code>（单引号）和 <code>&amp;quot;</code>（双引号）已被还原为正常的 Python 语法符号，确保代码可以直接复制运行。</li>
+<li><strong>结构重组</strong>：增加了“前言”、“核心思路”、“代码详解”等章节，使文章逻辑层层递进，符合技术博客的阅读习惯。</li>
+<li><strong>规范 YAML Front Matter</strong>：<ul>
+<li>优化了 <code>title</code>，使其更具吸引力和描述性。</li>
+<li>规范了 <code>tags</code> 格式，修正了原文中字符串格式的小瑕疵，改为标准的 YAML 列表格式。</li>
+</ul>
+</li>
+<li><strong>代码可读性提升</strong>：<ul>
+<li>将 <code>import</code> 语句统一置于文件顶部，符合 PEP8 规范。</li>
+<li>添加了详细的注释，解释了每一步操作的含义（如伪装浏览器、解码、XPath 语法解释）。</li>
+</ul>
+</li>
+<li><strong>内容补全</strong>：解释了为什么要使用 User-Agent 以及 XPath 具体的匹配逻辑，增加了文章的技术深度。</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2026/05/13/2024-07-26-urllib_%E5%BE%AE%E5%8D%9Acookie%E7%99%BB%E5%BD%95/" rel="prev" title="">
+                  <i class="fa fa-angle-left"></i> 
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2026/05/13/2024-07-26-urllib_%E7%AB%99%E9%95%BF%E7%B4%A0%E6%9D%90/" rel="next" title="">
+                   <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ianwusb</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ianwusb.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="你好！作为资深技术博主，我对这篇关于 Selenium 元素信息交互的文章进行了重构。 主要的优化点包括：  修复代码格式：原文章中的代码包含了 HTML 转义字符（如 &amp;quot;），我已将其还原为标准的 Python 代码。 规范化 YAML Front Matter：修正了 tags 的格式，增加了分类和摘要，使其更有利于 SEO 和 Hexo主题渲染。 增加技术解析：不仅仅展示代码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ianwusb-CPCode">
+<meta property="og:url" content="https://ianwusb.github.io/2026/05/13/2024-07-26-selenium_%E4%BF%A1%E6%81%AF%E4%BA%A4%E4%BA%92/index.html">
+<meta property="og:site_name" content="Ianwusb-CPCode">
+<meta property="og:description" content="你好！作为资深技术博主，我对这篇关于 Selenium 元素信息交互的文章进行了重构。 主要的优化点包括：  修复代码格式：原文章中的代码包含了 HTML 转义字符（如 &amp;quot;），我已将其还原为标准的 Python 代码。 规范化 YAML Front Matter：修正了 tags 的格式，增加了分类和摘要，使其更有利于 SEO 和 Hexo主题渲染。 增加技术解析：不仅仅展示代码">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-05-13T11:09:58.660Z">
+<meta property="article:modified_time" content="2026-05-13T11:09:58.660Z">
+<meta property="article:author" content="Ianwusb">
+<meta property="article:tag" content="Ianwusb-CPCode">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ianwusb.github.io/2026/05/13/2024-07-26-selenium_%E4%BF%A1%E6%81%AF%E4%BA%A4%E4%BA%92/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ianwusb.github.io/2026/05/13/2024-07-26-selenium_%E4%BF%A1%E6%81%AF%E4%BA%A4%E4%BA%92/","path":"2026/05/13/2024-07-26-selenium_信息交互/","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title> | Ianwusb-CPCode</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.1/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ianwusb-CPCode</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Ianwusb-CPCode</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E6%96%B9%E6%B3%95%E8%A7%A3%E6%9E%90"><span class="nav-number">1.</span> <span class="nav-text">关键方法解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E8%8E%B7%E5%8F%96%E5%B1%9E%E6%80%A7%E5%80%BC%EF%BC%9Aget-attribute"><span class="nav-number">1.1.</span> <span class="nav-text">1. 获取属性值：get_attribute()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E8%8E%B7%E5%8F%96%E6%A0%87%E7%AD%BE%E5%90%8D%EF%BC%9Atag-name"><span class="nav-number">1.2.</span> <span class="nav-text">2. 获取标签名：tag_name</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E8%8E%B7%E5%8F%96%E6%96%87%E6%9C%AC%E5%86%85%E5%AE%B9%EF%BC%9A-text"><span class="nav-number">1.3.</span> <span class="nav-text">3. 获取文本内容：.text</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">2.</span> <span class="nav-text">总结</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ianwusb"
+      src="/img/a.png">
+  <p class="site-author-name" itemprop="name">Ianwusb</p>
+  <div class="site-description" itemprop="description">Ianwusb-CPCode</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">148</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">68</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Swcmb" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Swcmb" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:fastjackcost880@gmail.com" title="E-Mail → mailto:fastjackcost880@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/13/2024-07-26-selenium_%E4%BF%A1%E6%81%AF%E4%BA%A4%E4%BA%92/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-13 19:09:58" itemprop="dateCreated datePublished" datetime="2026-05-13T19:09:58+08:00">2026-05-13</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>你好！作为资深技术博主，我对这篇关于 Selenium 元素信息交互的文章进行了重构。</p>
+<p>主要的优化点包括：</p>
+<ol>
+<li><strong>修复代码格式</strong>：原文章中的代码包含了 HTML 转义字符（如 <code>&amp;quot;</code>），我已将其还原为标准的 Python 代码。</li>
+<li><strong>规范化 YAML Front Matter</strong>：修正了 <code>tags</code> 的格式，增加了分类和摘要，使其更有利于 SEO 和 Hexo主题渲染。</li>
+<li><strong>增加技术解析</strong>：不仅仅展示代码，而是对代码中的关键 API（如 <code>get_attribute</code>、<code>tag_name</code>、<code>text</code>）进行了详细的文字解析，提升文章的可读性和专业度。</li>
+<li><strong>变量命名优化</strong>：将变量名 <code>input</code> 修改为 <code>search_btn</code>，避免覆盖 Python 内置函数 <code>input()</code>，符合编码规范。</li>
+</ol>
+<p>以下是优化后的文章内容：</p>
+<hr>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: &quot;Python Selenium 实战：元素属性获取与信息交互详解&quot;</span><br><span class="line">date: 2024-07-26 12:49:51</span><br><span class="line">updated: 2024-07-26 12:49:51</span><br><span class="line">tags:</span><br><span class="line"><span class="bullet">  -</span> Python</span><br><span class="line"><span class="bullet">  -</span> Selenium</span><br><span class="line"><span class="bullet">  -</span> Spider</span><br><span class="line"><span class="bullet">  -</span> Web自动化</span><br><span class="line">categories:</span><br><span class="line"><span class="bullet">  -</span> [技术开发, 爬虫]</span><br><span class="line"><span class="section">description: &quot;本文详细介绍如何使用 Python Selenium 获取页面元素的属性值、标签名及文本内容，通过百度首页实战案例演示 `get<span class="emphasis">_attribute`、`tag_</span>name` 和 `text` 方法的具体用法。&quot;</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"></span><br><span class="line"><span class="section">## 前言</span></span><br><span class="line"></span><br><span class="line">在进行 Web 自动化测试或爬虫开发时，仅仅定位到元素是不够的，我们经常需要获取元素的特定属性（如 <span class="code">`class`</span>、<span class="code">`href`</span>）、标签名或者元素内部的文本信息。Selenium WebDriver 提供了一系列简单易用的接口来完成这些交互操作。</span><br><span class="line"></span><br><span class="line">本文将以百度首页为例，演示如何使用 Python 的 Selenium 库获取元素的各项关键信息。</span><br><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br><span class="line"><span class="section">## 核心代码实现</span></span><br><span class="line"></span><br><span class="line">下面的代码演示了如何初始化浏览器，定位百度首页的搜索按钮，并获取其属性与文本信息。</span><br><span class="line"></span><br><span class="line"><span class="code">```python</span></span><br><span class="line"><span class="code">from selenium import webdriver</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code"># 1. 初始化浏览器驱动</span></span><br><span class="line"><span class="code">driver = webdriver.Chrome()</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code"># 2. 访问目标网址</span></span><br><span class="line"><span class="code">url = &quot;https://www.baidu.com&quot;</span></span><br><span class="line"><span class="code">driver.get(url)</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code"># 3. 定位元素：通过 ID 定位百度搜索按钮</span></span><br><span class="line"><span class="code"># 注意：变量名避免使用 input，以免覆盖 Python 内置函数</span></span><br><span class="line"><span class="code">search_btn = driver.find_element(by=&quot;id&quot;, value=&quot;su&quot;)</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code"># 4. 获取元素属性值</span></span><br><span class="line"><span class="code"># 获取该元素的 class 属性</span></span><br><span class="line"><span class="code">print(f&quot;Class 属性: &#123;search_btn.get_attribute(&#x27;class&#x27;)&#125;&quot;)</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code"># 5. 获取标签名</span></span><br><span class="line"><span class="code">print(f&quot;标签名: &#123;search_btn.tag_name&#125;&quot;)</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code"># 6. 获取元素文本内容</span></span><br><span class="line"><span class="code"># 注意：&lt;input&gt; 标签通常为自闭合标签，通过 .text 获取不到 value 属性中的文字</span></span><br><span class="line"><span class="code"># .text 获取的是元素标签对中间的文本内容，例如 &lt;a&gt;文本&lt;/a&gt;</span></span><br><span class="line"><span class="code"># print(search_btn.text)  # 此处输出通常为空</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code"># 实例：获取“新闻”链接的文本</span></span><br><span class="line"><span class="code">news_link = driver.find_element(by=&quot;link text&quot;, value=&quot;新闻&quot;)</span></span><br><span class="line"><span class="code">print(f&quot;链接文本: &#123;news_link.text&#125;&quot;)</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code"># 7. 关闭浏览器</span></span><br><span class="line"><span class="code">driver.quit()</span></span><br></pre></td></tr></table></figure>
+<h2 id="关键方法解析"><a href="#关键方法解析" class="headerlink" title="关键方法解析"></a>关键方法解析</h2><h3 id="1-获取属性值：get-attribute"><a href="#1-获取属性值：get-attribute" class="headerlink" title="1. 获取属性值：get_attribute()"></a>1. 获取属性值：<code>get_attribute()</code></h3><p><code>get_attribute(name)</code> 方法用于获取元素指定的属性值。这是最常用的方法之一，可以获取 <code>id</code>、<code>class</code>、<code>name</code>、<code>href</code> 等标准属性，也可以获取自定义属性。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 示例：获取 class 属性</span></span><br><span class="line">class_name = element.get_attribute(<span class="string">&#x27;class&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="2-获取标签名：tag-name"><a href="#2-获取标签名：tag-name" class="headerlink" title="2. 获取标签名：tag_name"></a>2. 获取标签名：<code>tag_name</code></h3><p><code>tag_name</code> 属性可以直接返回元素的 HTML 标签名称（如 <code>input</code>、<code>div</code>、<code>a</code>），返回值为字符串类型，且为小写形式。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tag = element.tag_name</span><br><span class="line"><span class="comment"># 输出示例: &#x27;input&#x27;</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-获取文本内容：-text"><a href="#3-获取文本内容：-text" class="headerlink" title="3. 获取文本内容：.text"></a>3. 获取文本内容：<code>.text</code></h3><p><code>.text</code> 属性用于获取元素标签<strong>内部</strong>的可见文本内容。</p>
+<ul>
+<li><strong>适用场景</strong>：获取 <code>&lt;a&gt;</code>、<code>&lt;span&gt;</code>、<code>&lt;div&gt;</code> 等容器标签内的文字。</li>
+<li><strong>不适用场景</strong>：对于 <code>&lt;input&gt;</code> 或 <code>&lt;img&gt;</code> 等自闭合标签，<code>.text</code> 通常返回空字符串。如果要获取输入框内的文字，应使用 <code>get_attribute(&#39;value&#39;)</code>。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 获取链接文本</span></span><br><span class="line">text_content = news_link.text</span><br><span class="line"><span class="comment"># 输出: 新闻</span></span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通过 Selenium 进行信息交互是自动化脚本与页面“对话”的关键环节。区分 <code>.text</code>（获取显式文本）与 <code>get_attribute()</code>（获取标签属性）的使用场景，能够帮助我们更准确地提取所需数据。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">方法/属性</th>
+<th style="text-align:left">用途</th>
+<th style="text-align:left">返回示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>get_attribute(&#39;attr&#39;)</code></td>
+<td style="text-align:left">获取指定属性的值</td>
+<td style="text-align:left"><code>&quot;bg s_btn&quot;</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>tag_name</code></td>
+<td style="text-align:left">获取标签名称</td>
+<td style="text-align:left"><code>&quot;input&quot;</code></td>
+</tr>
+<tr>
+<td style="text-align:left"><code>.text</code></td>
+<td style="text-align:left">获取标签内文本</td>
+<td style="text-align:left"><code>&quot;新闻&quot;</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>希望这篇教程对你有所帮助！<br>```</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2026/05/13/2024-07-26-requests_%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" rel="prev" title="">
+                  <i class="fa fa-angle-left"></i> 
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2026/05/13/2024-07-26-selenium_%E4%BF%A1%E6%81%AF%E4%BA%A4%E4%BA%922/" rel="next" title="">
+                   <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ianwusb</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

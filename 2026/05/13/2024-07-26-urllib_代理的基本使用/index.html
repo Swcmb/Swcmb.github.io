@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ianwusb.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="你好！我是内容优化专家。针对你提供的 urllib 代理使用教程，我进行了深度重构。 原始内容存在代码格式错误（HTML 实体编码未解析）、缺少必要的技术讲解以及文章结构不完整等问题。优化后的版本增加了原理讲解、代码注释和步骤拆解，使其更符合技术博客的专业标准。 以下是优化后的文章内容： 1234567891011121314151617181920212223242526272829303132">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ianwusb-CPCode">
+<meta property="og:url" content="https://ianwusb.github.io/2026/05/13/2024-07-26-urllib_%E4%BB%A3%E7%90%86%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="Ianwusb-CPCode">
+<meta property="og:description" content="你好！我是内容优化专家。针对你提供的 urllib 代理使用教程，我进行了深度重构。 原始内容存在代码格式错误（HTML 实体编码未解析）、缺少必要的技术讲解以及文章结构不完整等问题。优化后的版本增加了原理讲解、代码注释和步骤拆解，使其更符合技术博客的专业标准。 以下是优化后的文章内容： 1234567891011121314151617181920212223242526272829303132">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-05-13T11:31:21.580Z">
+<meta property="article:modified_time" content="2026-05-13T11:31:21.580Z">
+<meta property="article:author" content="Ianwusb">
+<meta property="article:tag" content="Ianwusb-CPCode">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ianwusb.github.io/2026/05/13/2024-07-26-urllib_%E4%BB%A3%E7%90%86%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ianwusb.github.io/2026/05/13/2024-07-26-urllib_%E4%BB%A3%E7%90%86%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/","path":"2026/05/13/2024-07-26-urllib_代理的基本使用/","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title> | Ianwusb-CPCode</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.1/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ianwusb-CPCode</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Ianwusb-CPCode</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4%E8%AF%A6%E8%A7%A3"><span class="nav-number">1.</span> <span class="nav-text">步骤详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%9E%84%E5%BB%BA%E8%AF%B7%E6%B1%82%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.1.</span> <span class="nav-text">1. 构建请求对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%AE%9A%E4%B9%89%E4%BB%A3%E7%90%86%E5%AD%97%E5%85%B8"><span class="nav-number">1.2.</span> <span class="nav-text">2. 定义代理字典</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%88%9B%E5%BB%BA-Handler-%E5%92%8C-Opener"><span class="nav-number">1.3.</span> <span class="nav-text">3. 创建 Handler 和 Opener</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E5%8F%91%E9%80%81%E8%AF%B7%E6%B1%82%E4%B8%8E%E4%BF%9D%E5%AD%98"><span class="nav-number">1.4.</span> <span class="nav-text">4. 发送请求与保存</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">2.</span> <span class="nav-text">注意事项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8C%96%E8%A6%81%E7%82%B9%E8%AF%B4%E6%98%8E%EF%BC%9A"><span class="nav-number">3.1.</span> <span class="nav-text">优化要点说明：</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ianwusb"
+      src="/img/a.png">
+  <p class="site-author-name" itemprop="name">Ianwusb</p>
+  <div class="site-description" itemprop="description">Ianwusb-CPCode</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">148</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">68</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Swcmb" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Swcmb" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:fastjackcost880@gmail.com" title="E-Mail → mailto:fastjackcost880@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/13/2024-07-26-urllib_%E4%BB%A3%E7%90%86%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-13 19:31:21" itemprop="dateCreated datePublished" datetime="2026-05-13T19:31:21+08:00">2026-05-13</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>你好！我是内容优化专家。针对你提供的 <code>urllib</code> 代理使用教程，我进行了深度重构。</p>
+<p>原始内容存在代码格式错误（HTML 实体编码未解析）、缺少必要的技术讲解以及文章结构不完整等问题。优化后的版本增加了原理讲解、代码注释和步骤拆解，使其更符合技术博客的专业标准。</p>
+<p>以下是优化后的文章内容：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">&quot;Python爬虫基础：urllib代理的基本使用&quot;</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2024-07-26 12:49:51</span></span><br><span class="line"><span class="attr">tags:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Python</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Spider</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">urllib</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">代理IP</span></span><br><span class="line"><span class="attr">categories:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">Python爬虫</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="comment">## 前言</span></span><br><span class="line"></span><br><span class="line"><span class="string">在网络爬虫开发中，频繁请求同一网站往往会触发反爬机制，导致IP被封禁。为了解决这一问题，使用**代理IP**是常见的反反爬策略之一。本文将详细介绍如何利用</span> <span class="string">Python</span> <span class="string">标准库</span> <span class="string">`urllib`</span> <span class="string">设置代理，实现隐藏真实</span> <span class="string">IP</span> <span class="string">的请求。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 核心概念</span></span><br><span class="line"></span><br><span class="line"><span class="string">在</span> <span class="string">`urllib`</span> <span class="string">中使用代理，主要涉及以下三个核心对象：</span></span><br><span class="line"></span><br><span class="line"><span class="number">1</span><span class="string">.</span>  <span class="string">**`ProxyHandler`**：代理处理器，用于设置代理IP信息。</span></span><br><span class="line"><span class="number">2</span><span class="string">.</span>  <span class="string">**`build_opener`**：构建自定义的</span> <span class="string">opener</span> <span class="string">对象，它会将代理处理器加载进去。</span></span><br><span class="line"><span class="number">3</span><span class="string">.</span>  <span class="string">**`opener.open()`**：使用构建好的</span> <span class="string">opener</span> <span class="string">发送请求，此时请求将通过代理服务器转发。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 代码实现</span></span><br><span class="line"></span><br><span class="line"><span class="string">下面是一个完整的示例，演示如何通过代理访问百度搜索“ip”，并将结果保存到本地。</span></span><br><span class="line"></span><br><span class="line"><span class="string">```python</span></span><br><span class="line"><span class="string">import</span> <span class="string">urllib.request</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 1. 设置目标URL和请求头</span></span><br><span class="line"><span class="string">url</span> <span class="string">=</span> <span class="string">&#x27;http://www.baidu.com/s?wd=ip&#x27;</span></span><br><span class="line"><span class="string">headers</span> <span class="string">=</span> &#123;</span><br><span class="line">    <span class="attr">&#x27;User-Agent&#x27;:</span> <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 创建 Request 对象</span></span><br><span class="line"><span class="string">req</span> <span class="string">=</span> <span class="string">urllib.request.Request(url=url,</span> <span class="string">headers=headers)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 设置代理IP</span></span><br><span class="line"><span class="comment"># 注意：此处使用的代理IP为示例，实际使用时请替换为有效的代理IP</span></span><br><span class="line"><span class="comment"># 格式：&#123;&#x27;协议类型&#x27;: &#x27;IP地址:端口号&#x27;&#125;</span></span><br><span class="line"><span class="string">proxies</span> <span class="string">=</span> &#123;</span><br><span class="line">    <span class="attr">&#x27;http&#x27;:</span> <span class="string">&#x27;125.77.25.177:8090&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. 创建 ProxyHandler 处理器</span></span><br><span class="line"><span class="string">handler</span> <span class="string">=</span> <span class="string">urllib.request.ProxyHandler(proxies=proxies)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 5. 创建自定义 opener 对象</span></span><br><span class="line"><span class="string">opener</span> <span class="string">=</span> <span class="string">urllib.request.build_opener(handler)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 6. 发送请求</span></span><br><span class="line"><span class="comment"># 此时不再使用 urllib.request.urlopen(req)，而是使用 opener.open(req)</span></span><br><span class="line"><span class="attr">try:</span></span><br><span class="line">    <span class="string">res</span> <span class="string">=</span> <span class="string">opener.open(req,</span> <span class="string">timeout=5)</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 7. 获取响应内容</span></span><br><span class="line">    <span class="string">content</span> <span class="string">=</span> <span class="string">res.read().decode(&#x27;utf-8&#x27;)</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 8. 持久化存储</span></span><br><span class="line">    <span class="string">with</span> <span class="string">open(&#x27;daili.html&#x27;,</span> <span class="string">&#x27;w&#x27;</span><span class="string">,</span> <span class="string">encoding=&#x27;utf-8&#x27;)</span> <span class="attr">as f:</span></span><br><span class="line">        <span class="string">f.write(content)</span></span><br><span class="line">        </span><br><span class="line">    <span class="string">print(&quot;页面抓取成功，已保存为</span> <span class="string">daili.html&quot;)</span></span><br><span class="line">    </span><br><span class="line"><span class="attr">except Exception as e:</span></span><br><span class="line">    <span class="string">print(f&quot;请求失败，原因：&#123;e&#125;&quot;)</span></span><br></pre></td></tr></table></figure>
+<h2 id="步骤详解"><a href="#步骤详解" class="headerlink" title="步骤详解"></a>步骤详解</h2><h3 id="1-构建请求对象"><a href="#1-构建请求对象" class="headerlink" title="1. 构建请求对象"></a>1. 构建请求对象</h3><p>首先，我们需要定义目标 URL 和 User-Agent。将 User-Agent 封装进 <code>Request</code> 对象，可以伪装成浏览器访问，避免被简单的反爬拦截。</p>
+<h3 id="2-定义代理字典"><a href="#2-定义代理字典" class="headerlink" title="2. 定义代理字典"></a>2. 定义代理字典</h3><p><code>proxies</code> 字典定义了代理服务器的协议和地址。</p>
+<ul>
+<li>如果是 HTTP 代理，键名为 <code>&#39;http&#39;</code>。</li>
+<li>如果是 HTTPS 代理，键名为 <code>&#39;https&#39;</code>。</li>
+<li>值的格式必须为 <code>IP:端口</code>。</li>
+</ul>
+<h3 id="3-创建-Handler-和-Opener"><a href="#3-创建-Handler-和-Opener" class="headerlink" title="3. 创建 Handler 和 Opener"></a>3. 创建 Handler 和 Opener</h3><p>这是最关键的一步。<code>urllib</code> 默认的 <code>urlopen</code> 方法不支持直接传入代理。我们需要：</p>
+<ol>
+<li>使用 <code>ProxyHandler</code> 传入代理字典，生成一个处理器 <code>handler</code>。</li>
+<li>使用 <code>build_opener(handler)</code> 构建一个自定义的 opener。这个 opener 此时已经具备了使用指定代理的能力。</li>
+</ol>
+<h3 id="4-发送请求与保存"><a href="#4-发送请求与保存" class="headerlink" title="4. 发送请求与保存"></a>4. 发送请求与保存</h3><p>使用 <code>opener.open(req)</code> 发送请求。请求成功后，读取响应数据并将其写入 <code>daili.html</code> 文件。打开该文件，如果代理设置正确且有效，你应该能看到百度搜索“ip”的结果页面，且显示的 IP 地址应为代理 IP，而非你的真实 IP。</p>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
+<li><strong>代理有效性</strong>：代码中示例的代理 IP 可能已失效，请务必替换为你自己的可用代理。建议购买付费代理或搭建自用代理池。</li>
+<li><strong>超时处理</strong>：使用代理请求通常比直连慢，且容易连接失败。建议在 <code>opener.open()</code> 中添加 <code>timeout</code> 参数，并使用 <code>try-except</code> 捕获异常。</li>
+<li><strong>协议匹配</strong>：确保代理协议（http/https）与目标 URL 协议一致，或者配置支持两种协议的代理。</li>
+</ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通过 <code>ProxyHandler</code> 和 <code>build_opener</code>，我们可以灵活地在 <code>urllib</code> 中实现代理请求。这是爬虫进阶的重要一步，理解 Handler 和 Opener 的关系，对于后续学习 Cookie 处理、异常处理等高级功能至关重要。<br>```</p>
+<hr>
+<h3 id="优化要点说明："><a href="#优化要点说明：" class="headerlink" title="优化要点说明："></a>优化要点说明：</h3><ol>
+<li><strong>修复格式错误</strong>：原内容中的代码存在 HTML 实体编码（如 <code>&amp;#x27;</code> 代表单引号），导致无法直接运行。我已将其还原为标准的 Python 代码。</li>
+<li><strong>完善 YAML Front Matter</strong>：修正了 <code>tags</code> 的格式（从字符串改为列表），增加了 <code>categories</code>，并优化了标题，使其更具吸引力。</li>
+<li><strong>结构化内容</strong>：将纯代码扩展为“前言 -&gt; 核心概念 -&gt; 代码实现 -&gt; 步骤详解 -&gt; 注意事项”的完整技术文章结构。</li>
+<li><strong>增加注释与异常处理</strong>：在代码中添加了详细的中文注释，并引入了 <code>try-except</code> 块来处理代理常见的超时问题，提升了代码的健壮性。</li>
+<li><strong>专业排版</strong>：使用了 Markdown 标准语法，包括代码高亮块、加粗重点词汇、有序列表等，符合 Hexo 博客的渲染规范。</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2026/05/13/2024-07-26-urllib_xpath%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" rel="prev" title="">
+                  <i class="fa fa-angle-left"></i> 
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2026/05/13/2024-07-26-urllib_%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" rel="next" title="">
+                   <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ianwusb</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>

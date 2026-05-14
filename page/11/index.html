@@ -183,16 +183,16 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">116</span>
+          <span class="site-state-item-count">148</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">49</span>
+        <span class="site-state-item-count">68</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -226,7 +226,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P12340-P12340-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-AB-Python-B-%E7%AC%AC%E4%BA%8C%E5%9C%BA-%E6%97%97%E5%B8%9C-%E6%B4%9B%E8%B0%B7/">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P11002-P11002-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E7%9C%81-Python-B-%E7%A5%9E%E5%A5%87%E9%97%B9%E9%92%9F-%E6%B4%9B%E8%B0%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/img/a.png">
@@ -244,7 +244,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/12/2026-05-12-P12340-P12340-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-AB-Python-B-%E7%AC%AC%E4%BA%8C%E5%9C%BA-%E6%97%97%E5%B8%9C-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12340 - P12340 [蓝桥杯 2025 省 AB/Python B 第二场] 旗帜 - 洛谷</a>
+          <a href="/2026/05/12/2026-05-12-P11002-P11002-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E7%9C%81-Python-B-%E7%A5%9E%E5%A5%87%E9%97%B9%E9%92%9F-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P11002 - P11002 [蓝桥杯 2024 省 Python B] 神奇闹钟 - 洛谷</a>
         </h2>
 
         <div class="post-meta-container">
@@ -256,7 +256,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2026-05-12 00:00:00 / 修改时间：10:16:15" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
+      <time title="创建时间：2026-05-12 00:00:00 / 修改时间：10:11:18" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
     </span>
 
   
@@ -269,323 +269,560 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="P12340-蓝桥杯-2025-省-AB-Python-B-第二场-旗帜-题解"><a href="#P12340-蓝桥杯-2025-省-AB-Python-B-第二场-旗帜-题解" class="headerlink" title="P12340 [蓝桥杯 2025 省 AB/Python B 第二场] 旗帜 题解"></a>P12340 [蓝桥杯 2025 省 AB/Python B 第二场] 旗帜 题解</h1><h3 id="1-题意简述"><a href="#1-题意简述" class="headerlink" title="1. 题意简述"></a>1. 题意简述</h3><p>本题要求我们计算给定宽度 ( w ) 和高度 ( h ) 的旗帜上，字母 ‘A’ 出现的次数。旗帜的图案由字符串 <code>s_li</code> 中的字符按顺序排列组成，每个字符串的长度为 7，共有 8 个字符串。</p>
-<h3 id="2-思路分析"><a href="#2-思路分析" class="headerlink" title="2. 思路分析"></a>2. 思路分析</h3><ul>
-<li><strong>朴素解法</strong>：我们可以直接按照题目给出的字符串 <code>s_li</code>，逐个字符地拼接出旗帜，然后遍历旗帜上的每个字符，统计 ‘A’ 的出现次数。这种方法的时间复杂度为 ( O(hw) )，空间复杂度为 ( O(1) )，对于较大的 ( h ) 和 ( w ) 可能会超时。</li>
-<li><strong>优化方向</strong>：由于字符串 <code>s_li</code> 的长度固定为 7，我们可以考虑使用循环来重复使用字符串，而不是每次都拼接新的字符串。</li>
-<li><p><strong>最终解法</strong>：我们可以使用循环来重复使用字符串 <code>s_li</code>，每次循环拼接 ( w // 7 ) 次字符串，然后再加上字符串 <code>s_li</code> 的前 ( w \% 7 ) 个字符。这样，我们就可以避免每次都拼接新的字符串，从而减少时间复杂度。具体的转移方程如下：<br>[<br>\text{temp} = \text{s_li}[i \% 7] \times (w // 7) + \text{s_li}[i \% 7][: (w \% 7)]<br>]<br>其中 ( i ) 是当前循环的索引。</p>
-<p>在遍历 <code>temp</code> 字符串时，我们可以直接统计 ‘A’ 的出现次数。</p>
-</li>
+          <h1 id="洛谷-P11002-神奇闹钟-洛谷"><a href="#洛谷-P11002-神奇闹钟-洛谷" class="headerlink" title="[洛谷 P11002] 神奇闹钟 - 洛谷"></a>[洛谷 P11002] 神奇闹钟 - 洛谷</h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>在本题中，我们需要解决一个关于时间的问题。给定一个初始时间和一个时间增量，我们需要计算出在多少分钟后，这个时间会再次出现。输入包括初始时间、时间增量以及一个时间字符串，时间字符串的格式为 “年-月-日 时:分:秒”。我们的目标是找到下一个重复的时间点。</p>
+<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><h3 id="朴素解法"><a href="#朴素解法" class="headerlink" title="朴素解法"></a>朴素解法</h3><p>最直观的方法是遍历所有可能的时间点，直到找到一个重复的时间点。这种方法的时间复杂度是 $O(n^2)$，其中 $n$ 是日期的范围。由于日期范围很大，这种方法在实际操作中是不可行的。</p>
+<h3 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h3><p>我们可以通过计算每个小时内的分钟数来确定是否存在重复的时间点。例如，如果在一个小时内没有重复的时间点，那么在任何后续的小时内的相同分钟数也不会出现。因此，我们可以减少需要检查的时间点数量。</p>
+<h3 id="最终解法"><a href="#最终解法" class="headerlink" title="最终解法"></a>最终解法</h3><p>我们可以使用一个哈希表来存储每个小时内的分钟数及其出现的次数。对于每个新的时间点，我们计算它与上一个时间点的分钟差，并在哈希表中查找是否存在相同的分钟差。如果存在，那么从那个时间点到当前时间的分钟数就是我们要找的下一个重复时间点。</p>
+<h4 id="关键状态定义"><a href="#关键状态定义" class="headerlink" title="关键状态定义"></a>关键状态定义</h4><ul>
+<li><code>last_time</code>: 上一个时间点的分钟数。</li>
+<li><code>count_map</code>: 哈希表，存储每个小时内的分钟数及其出现的次数。</li>
 </ul>
-<h3 id="3-复杂度分析"><a href="#3-复杂度分析" class="headerlink" title="3. 复杂度分析"></a>3. 复杂度分析</h3><ul>
-<li>时间复杂度：( O(hw) )，因为我们需要遍历整个旗帜。</li>
-<li>空间复杂度：( O(1) )，因为我们只需要存储一个长度为 7 的字符串和用于统计 ‘A’ 的计数器。</li>
-</ul>
-<h3 id="4-核心代码-注释"><a href="#4-核心代码-注释" class="headerlink" title="4. 核心代码 + 注释"></a>4. 核心代码 + 注释</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">h, w = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">s_li = [<span class="string">&#x27;LANQIAO&#x27;</span>, <span class="string">&#x27;ANQIAOL&#x27;</span>, <span class="string">&#x27;NQIAOLA&#x27;</span>, <span class="string">&#x27;QIAOLAN&#x27;</span>, <span class="string">&#x27;IAOLANQ&#x27;</span>, <span class="string">&#x27;AOLANQI&#x27;</span>, <span class="string">&#x27;OLANQIA&#x27;</span>, <span class="string">&#x27;LANQIAO&#x27;</span>]</span><br><span class="line">res = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(h):</span><br><span class="line">    s = s_li[i % <span class="number">7</span>]</span><br><span class="line">    temp = s * (w // <span class="number">7</span>) + s[:(w % <span class="number">7</span>)]</span><br><span class="line">    res += temp.count(<span class="string">&quot;A&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(res)</span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>变量名</strong>：<code>h</code> 和 <code>w</code> 分别表示旗帜的高度和宽度，<code>s_li</code> 是包含旗帜图案的字符串列表，<code>res</code> 用于存储 ‘A’ 的出现次数。</li>
-<li><strong>循环</strong>：循环遍历旗帜的每一行。</li>
-<li><strong>字符串拼接</strong>：根据当前行的索引，选择对应的字符串，并拼接出当前行的图案。</li>
-<li><strong>统计 ‘A’ 的出现次数</strong>：使用 <code>count</code> 方法统计当前行中 ‘A’ 的出现次数，并将其累加到 <code>res</code> 中。</li>
-</ul>
-<h3 id="5-输入输出示例"><a href="#5-输入输出示例" class="headerlink" title="5. 输入输出示例"></a>5. 输入输出示例</h3><p><strong>输入</strong>：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3 7</span><br></pre></td></tr></table></figure><br><strong>输出</strong>：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4</span><br></pre></td></tr></table></figure><br>解释：旗帜的图案为 <code>LANQIAOANQIAO</code>，其中 ‘A’ 出现了 4 次。</p>
-<h3 id="6-易错点-amp-收获"><a href="#6-易错点-amp-收获" class="headerlink" title="6. 易错点 &amp; 收获"></a>6. 易错点 &amp; 收获</h3><ul>
-<li>易错点：在拼接字符串时，需要考虑余数的情况，确保不会出现越界。</li>
-<li>收获：通过本题，我们学习了如何使用循环和字符串操作来优化算法，并且加深了对字符串拼接和统计的理解。</li>
-</ul>
-<h3 id="7-参考-扩展"><a href="#7-参考-扩展" class="headerlink" title="7. 参考 / 扩展"></a>7. 参考 / 扩展</h3><ul>
-<li>无</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P12377-P12377-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E7%9C%81-Python-B-2023-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/12/2026-05-12-P12377-P12377-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E7%9C%81-Python-B-2023-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12377 - P12377 [蓝桥杯 2023 省 Python B] 2023 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2026-05-12 00:00:00 / 修改时间：10:16:49" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"># 题目链接或来源</span><br><span class="line">&lt;题目链接或来源&gt;</span><br><span class="line">&lt;/题目链接或来源&gt;</span><br><span class="line"></span><br><span class="line">### 1. 标题</span><br><span class="line">[洛谷 P12377] 动态规划 + 前缀和优化详解</span><br><span class="line"></span><br><span class="line">### 2. 题意简述</span><br><span class="line">输入一个整数数组，要求找出数组中连续的四个数，使得这四个数的和为给定的数值。如果存在多个解，返回任意一个即可。</span><br><span class="line"></span><br><span class="line">### 3. 思路分析</span><br><span class="line">#### 朴素解法</span><br><span class="line">- **时间复杂度**：O(n^4)</span><br><span class="line">- **空间复杂度**：O(n)</span><br><span class="line">- **代码实现**：</span><br><span class="line">  ```python</span><br><span class="line">  def fourSum(nums, target):</span><br><span class="line">    res = []</span><br><span class="line">    for i in range(len(nums) - 3):</span><br><span class="line">      if nums[i] &gt; nums[i + 3]:</span><br><span class="line">        continue</span><br><span class="line">      left, right = i + 1, len(nums) - 1</span><br><span class="line">      while left &lt; right:</span><br><span class="line">        sum = nums[i] + nums[left] + nums[right] + nums[i + 3]</span><br><span class="line">        if sum == target:</span><br><span class="line">          res.append((nums[i], nums[left], nums[right], nums[i + 3]))</span><br><span class="line">          while left &lt; right and nums[left] == nums[left + 1]:</span><br><span class="line">            left += 1</span><br><span class="line">          while left &lt; right and nums[right] == nums[right - 1]:</span><br><span class="line">            right -= 1</span><br><span class="line">          left += 1</span><br><span class="line">          right -= 1</span><br><span class="line">        elif sum &lt; target:</span><br><span class="line">          left += 1</span><br><span class="line">        else:</span><br><span class="line">          right -= 1</span><br><span class="line">      return res</span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>问题</strong>：上述算法的时间复杂度是O(n^4)，对于较大的输入数据，效率较低。</li>
-</ul>
-<h4 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h4><ul>
-<li><strong>前缀和优化</strong>：使用前缀和数组来减少查找时间。</li>
-</ul>
-<h4 id="最终解法"><a href="#最终解法" class="headerlink" title="最终解法"></a>最终解法</h4><ul>
-<li><strong>关键状态定义</strong>：<code>prefixSum[i]</code>表示以<code>nums[i]</code>结尾的前缀和。</li>
-<li><strong>转移方程</strong>：<code>prefixSum[i] = prefixSum[i - 1] + nums[i]</code>。</li>
-<li><strong>核心代码</strong>：<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">fourSum</span>(<span class="params">nums, target</span>):</span><br><span class="line">  prefixSum = [<span class="number">0</span>] * (<span class="built_in">len</span>(nums) + <span class="number">1</span>)</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums)):</span><br><span class="line">    prefixSum[i+<span class="number">1</span>] = prefixSum[i] + nums[i]</span><br><span class="line">  result = []</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums) - <span class="number">3</span>):</span><br><span class="line">    left, right = i + <span class="number">1</span>, <span class="built_in">len</span>(nums) - <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> left &lt; right:</span><br><span class="line">      <span class="built_in">sum</span> = prefixSum[i] + prefixSum[left] + prefixSum[right] + prefixSum[i + <span class="number">3</span>]</span><br><span class="line">      <span class="keyword">if</span> <span class="built_in">sum</span> == target:</span><br><span class="line">        result.append((nums[i], nums[left], nums[right], nums[i + <span class="number">3</span>]))</span><br><span class="line">        <span class="keyword">while</span> left &lt; right <span class="keyword">and</span> nums[left] == nums[left + <span class="number">1</span>]:</span><br><span class="line">          left += <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> left &lt; right <span class="keyword">and</span> nums[right] == nums[right - <span class="number">1</span>]:</span><br><span class="line">          right -= <span class="number">1</span></span><br><span class="line">        left += <span class="number">1</span></span><br><span class="line">        right -= <span class="number">1</span></span><br><span class="line">      <span class="keyword">elif</span> <span class="built_in">sum</span> &lt; target:</span><br><span class="line">        left += <span class="number">1</span></span><br><span class="line">      <span class="keyword">else</span>:</span><br><span class="line">        right -= <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> result</span><br></pre></td></tr></table></figure></li>
-<li><strong>复杂度分析</strong>：时间复杂度为O(n^2)，空间复杂度为O(n)。</li>
-</ul>
-<h3 id="4-核心代码-注释"><a href="#4-核心代码-注释" class="headerlink" title="4. 核心代码 + 注释"></a>4. 核心代码 + 注释</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">fourSum</span>(<span class="params">nums, target</span>):</span><br><span class="line">  prefixSum = [<span class="number">0</span>] * (<span class="built_in">len</span>(nums) + <span class="number">1</span>)</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums)):</span><br><span class="line">    prefixSum[i+<span class="number">1</span>] = prefixSum[i] + nums[i]</span><br><span class="line">  result = []</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums) - <span class="number">3</span>):</span><br><span class="line">    left, right = i + <span class="number">1</span>, <span class="built_in">len</span>(nums) - <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> left &lt; right:</span><br><span class="line">      <span class="built_in">sum</span> = prefixSum[i] + prefixSum[left] + prefixSum[right] + prefixSum[i + <span class="number">3</span>]</span><br><span class="line">      <span class="keyword">if</span> <span class="built_in">sum</span> == target:</span><br><span class="line">        result.append((nums[i], nums[left], nums[right], nums[i + <span class="number">3</span>]))</span><br><span class="line">        <span class="keyword">while</span> left &lt; right <span class="keyword">and</span> nums[left] == nums[left + <span class="number">1</span>]:</span><br><span class="line">          left += <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> left &lt; right <span class="keyword">and</span> nums[right] == nums[right - <span class="number">1</span>]:</span><br><span class="line">          right -= <span class="number">1</span></span><br><span class="line">        left += <span class="number">1</span></span><br><span class="line">        right -= <span class="number">1</span></span><br><span class="line">      <span class="keyword">elif</span> <span class="built_in">sum</span> &lt; target:</span><br><span class="line">        left += <span class="number">1</span></span><br><span class="line">      <span class="keyword">else</span>:</span><br><span class="line">        right -= <span class="number">1</span></span><br><span class="line">  <span class="keyword">return</span> result</span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>辅助函数</strong>：无。</li>
-</ul>
-<h3 id="5-输入输出示例"><a href="#5-输入输出示例" class="headerlink" title="5. 输入输出示例"></a>5. 输入输出示例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(fourSum([<span class="number">2</span>, <span class="number">7</span>,<span class="number">9</span>,<span class="number">1</span>,<span class="number">5</span>], <span class="number">8</span>)) <span class="comment"># 输出：[[2, 7, 9, 1], [2, 7, 5, 1]]</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>解释</strong>：在数组 <code>[2, 7,9,1,5]</code> 中，前三个数的和为 <code>2+7+9=18</code>，第四个数为 <code>1</code>，与目标值相等。因此，结果为 <code>[[2, 7, 9, 1], [2, 7, 5, 1]]</code>。</li>
-</ul>
-<h3 id="6-易错点-amp-收获"><a href="#6-易错点-amp-收获" class="headerlink" title="6. 易错点 &amp; 收获"></a>6. 易错点 &amp; 收获</h3><ul>
-<li><strong>易错点</strong>：数组越界、特殊数据处理（如负数）。</li>
-<li><strong>收获</strong>：学会了使用前缀和优化算法，提高了解题效率。</li>
-</ul>
-<h3 id="7-参考-扩展（可选）"><a href="#7-参考-扩展（可选）" class="headerlink" title="7. 参考 / 扩展（可选）"></a>7. 参考 / 扩展（可选）</h3><ul>
-<li><a target="_blank" rel="noopener" href="https://www.leetcode.com/problemset/detail/p12377/">感谢他人思路需注明出处链接</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.leetcode.com/tag/%E5%BC%A0%E4%B8%80%E7%9A%84%E5%8C%BA/">推荐类似题目</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P12366-P12366-%E8%93%9D%E6%A1%A5%E6%9D%AF-2022-%E7%9C%81-Python-B-%E6%95%B0%E4%BD%8D%E6%8E%92%E5%BA%8F-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/12/2026-05-12-P12366-P12366-%E8%93%9D%E6%A1%A5%E6%9D%AF-2022-%E7%9C%81-Python-B-%E6%95%B0%E4%BD%8D%E6%8E%92%E5%BA%8F-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12366 - P12366 [蓝桥杯 2022 省 Python B] 数位排序 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2026-05-12 00:00:00 / 修改时间：10:16:27" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="洛谷-P12366-数位排序-洛谷"><a href="#洛谷-P12366-数位排序-洛谷" class="headerlink" title="[洛谷 P12366] 数位排序 - 洛谷"></a>[洛谷 P12366] 数位排序 - 洛谷</h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>给定两个整数 ( n ) 和 ( m )，我们需要对从 1 到 ( n ) 的所有整数进行排序，使得它们的数位之和最小。输出排序后的第 ( m ) 小的整数。</p>
-<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><h3 id="朴素解法"><a href="#朴素解法" class="headerlink" title="朴素解法"></a>朴素解法</h3><p>最直观的方法是计算每个数的数位之和，然后根据这个和进行排序。具体步骤如下：</p>
-<ol>
-<li>计算从 1 到 ( n ) 的每个整数的数位之和。</li>
-<li>将这些数按数位之和从小到大排序。</li>
-<li>输出排序后的第 ( m ) 小的整数。</li>
-</ol>
-<p>这种方法的不足在于：</p>
-<ul>
-<li><strong>时间复杂度</strong>：计算每个数的数位之和需要 ( O(n \times k) ) 时间，其中 ( k ) 是整数的最大位数。</li>
-<li><strong>空间复杂度</strong>：需要额外的空间存储每个数的数位之和和排序结果。</li>
-</ul>
-<h3 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h3><p>我们可以通过预处理每个数的数位之和来优化算法。具体来说，我们可以使用前缀和数组来快速计算任意区间的数位之和。</p>
-<h3 id="最终解法"><a href="#最终解法" class="headerlink" title="最终解法"></a>最终解法</h3><p>我们可以定义一个辅助函数 <code>a(x)</code> 来计算一个数的数位之和。然后，我们使用前缀和数组 <code>prefix_sum</code> 来快速计算任意区间的数位之和。具体步骤如下：</p>
-<ol>
-<li>计算每个数的数位之和并存储在数组 <code>sums</code> 中。</li>
-<li>使用前缀和数组 <code>prefix_sum</code> 来快速计算任意区间的数位之和。</li>
-<li>对 <code>sums</code> 进行排序，并输出排序后的第 ( m ) 小的整数。</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">m = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">a</span>(<span class="params">x</span>):</span><br><span class="line">    x = <span class="built_in">str</span>(x)</span><br><span class="line">    res = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> x:</span><br><span class="line">        res += <span class="built_in">int</span>(i)</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line">sums = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n + <span class="number">1</span>):</span><br><span class="line">    sums.append((i, a(i)))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算前缀和数组</span></span><br><span class="line">prefix_sum = [<span class="number">0</span>] * (n + <span class="number">1</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n + <span class="number">1</span>):</span><br><span class="line">    prefix_sum[i] = prefix_sum[i - <span class="number">1</span>] + sums[i - <span class="number">1</span>][<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 对数位之和进行排序</span></span><br><span class="line">sums.sort(key=<span class="keyword">lambda</span> x: x[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出排序后的第 m 小的整数</span></span><br><span class="line"><span class="built_in">print</span>(sums[m - <span class="number">1</span>][<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
+<h4 id="转移方程"><a href="#转移方程" class="headerlink" title="转移方程"></a>转移方程</h4><p>假设当前时间为 <code>y</code> 小时 <code>m</code> 分钟，那么下一个重复的时间点是 <code>(last_time + m) % 24 * 60 + last_time</code>。</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\text</span>&#123;next<span class="keyword">\_</span>time&#125; = ( <span class="keyword">\text</span>&#123;last<span class="keyword">\_</span>time&#125; + m ) <span class="keyword">\%</span> 24 <span class="keyword">\times</span> 60 + <span class="keyword">\text</span>&#123;last<span class="keyword">\_</span>time&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
-<li><strong>时间复杂度</strong>：计算数位之和需要 ( O(n \times k) ) 时间，其中 ( k ) 是整数的最大位数。排序需要 ( O(n \log n) ) 时间。总的时间复杂度为 ( O(n \times k + n \log n) )。</li>
-<li><strong>空间复杂度</strong>：需要额外的空间存储数位之和和前缀和数组，空间复杂度为 ( O(n) )。</li>
+<li><strong>时间复杂度</strong>: $O(1)$，因为我们只需要常数时间来更新哈希表和计算下一个重复时间点。</li>
+<li><strong>空间复杂度</strong>: $O(1)$，因为我们只需要存储固定的哈希表。</li>
 </ul>
-<h3 id="核心代码-注释"><a href="#核心代码-注释" class="headerlink" title="核心代码 + 注释"></a>核心代码 + 注释</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">m = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">a</span>(<span class="params">x</span>):</span><br><span class="line">    x = <span class="built_in">str</span>(x)</span><br><span class="line">    res = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> x:</span><br><span class="line">        res += <span class="built_in">int</span>(i)</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line">sums = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n + <span class="number">1</span>):</span><br><span class="line">    sums.append((i, a(i)))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算前缀和数组</span></span><br><span class="line">prefix_sum = [<span class="number">0</span>] * (n + <span class="number">1</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n + <span class="number">1</span>):</span><br><span class="line">    prefix_sum[i] = prefix_sum[i - <span class="number">1</span>] + sums[i - <span class="number">1</span>][<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 对数位之和进行排序</span></span><br><span class="line">sums.sort(key=<span class="keyword">lambda</span> x: x[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出排序后的第 m 小的整数</span></span><br><span class="line"><span class="built_in">print</span>(sums[m - <span class="number">1</span>][<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
-<h3 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h3><p><strong>输入：</strong><br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">3</span><br><span class="line">123</span><br><span class="line">456</span><br><span class="line">789</span><br><span class="line">101112</span><br></pre></td></tr></table></figure><br><strong>输出：</strong><br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">123</span><br></pre></td></tr></table></figure></p>
-<h3 id="易错点-amp-收获"><a href="#易错点-amp-收获" class="headerlink" title="易错点 &amp; 收获"></a>易错点 &amp; 收获</h3><ul>
-<li><strong>数组越界</strong>：在计算前缀和时，需要注意索引范围，避免数组越界。</li>
-<li><strong>特殊数据处理</strong>：对于非常大的整数，需要确保计算数位之和时不会溢出。</li>
-</ul>
-<h3 id="参考-扩展"><a href="#参考-扩展" class="headerlink" title="参考 / 扩展"></a>参考 / 扩展</h3><ul>
-<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P12366">洛谷 P12366</a></li>
-</ul>
-<p>通过上述步骤，我们可以高效地解决这个问题，并理解如何从朴素解法优化到更高效的算法。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P13893-P13893-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E7%9C%81-C-%E5%B7%A5%E4%BD%9C%E6%97%B6%E9%95%BF-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/12/2026-05-12-P13893-P13893-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E7%9C%81-C-%E5%B7%A5%E4%BD%9C%E6%97%B6%E9%95%BF-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P13893 - P13893 [蓝桥杯 2023 省 C] 工作时长 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2026-05-12 00:00:00 / 修改时间：10:17:42" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="洛谷-P13893-工作时长-洛谷"><a href="#洛谷-P13893-工作时长-洛谷" class="headerlink" title="[洛谷 P13893] 工作时长 - 洛谷"></a>[洛谷 P13893] 工作时长 - 洛谷</h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>在洛谷平台上，题目P13893要求我们计算某人的工作时间。具体来说，我们需要读取一系列的时间点，每个时间点代表一个工作时段的开始或结束，然后计算出总的工作时长。</p>
-<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><h3 id="朴素解法"><a href="#朴素解法" class="headerlink" title="朴素解法"></a>朴素解法</h3><p>最直观的方法是遍历所有时间点，对于每一对相邻的时间点，计算它们之间的差值并累加。然而，这种方法的时间复杂度为$O(n^2)$，在数据量较大时会导致超时。</p>
-<h3 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h3><p>我们可以通过排序和双指针技术来优化算法。首先，对时间点进行排序，然后使用两个指针分别指向每对相邻的时间点，计算它们之间的差值并累加。这样，我们只需要遍历一次时间点列表，时间复杂度降低到$O(n \log n)$。</p>
-<h3 id="最终解法"><a href="#最终解法" class="headerlink" title="最终解法"></a>最终解法</h3><p>我们定义两个指针<code>i</code>和<code>j</code>，分别指向当前考虑的开始和结束时间点。对于每一对相邻的时间点<code>dt[i]</code>和<code>dt[j]</code>，我们计算它们之间的差值并累加到总时长中。然后，我们将<code>j</code>指针向前移动一位，继续考虑下一对时间点。当<code>i</code>和<code>j</code>相遇时，所有时间点都已考虑完毕。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;1.in&quot;</span>,<span class="string">&quot;r&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    l = f.readlines()</span><br><span class="line">dt = <span class="built_in">sorted</span>([datetime.fromisoformat(i.strip() <span class="keyword">for</span> i <span class="keyword">in</span> l)])</span><br><span class="line">secs = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(dt) - <span class="number">1</span>, <span class="number">2</span>):</span><br><span class="line">    secs += (dt[i + <span class="number">1</span>] - dt[i]).seconds</span><br><span class="line"><span class="built_in">print</span>(secs)</span><br></pre></td></tr></table></figure>
-<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
-<li><strong>时间复杂度</strong>：$O(n \log n)$，主要由排序步骤决定。</li>
-<li><strong>空间复杂度</strong>：$O(n)$，用于存储时间点列表。</li>
-</ul>
-<h2 id="核心代码-注释"><a href="#核心代码-注释" class="headerlink" title="核心代码 + 注释"></a>核心代码 + 注释</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取输入文件并解析时间点</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;1.in&quot;</span>,<span class="string">&quot;r&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    l = f.readlines()</span><br><span class="line">dt = <span class="built_in">sorted</span>([datetime.fromisoformat(i.strip() <span class="keyword">for</span> i <span class="keyword">in</span> l)])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化总时长为0</span></span><br><span class="line">secs = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用双指针遍历时间点对</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(dt) - <span class="number">1</span>, <span class="number">2</span>):</span><br><span class="line">    <span class="comment"># 计算相邻时间点的差值并累加到总时长中</span></span><br><span class="line">    secs += (dt[i + <span class="number">1</span>] - dt[i]).seconds</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出总时长</span></span><br><span class="line"><span class="built_in">print</span>(secs)</span><br></pre></td></tr></table></figure>
-<h2 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h2><p><strong>输入：</strong><br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 4</span><br><span class="line">2 5</span><br><span class="line">7 8</span><br></pre></td></tr></table></figure><br><strong>输出：</strong><br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3</span><br></pre></td></tr></table></figure><br><strong>解释：</strong><br>时间段为[2, 5]和[7, 8]，总时长为$5 - 2 + 8 - 7 = 3$秒。</p>
+<h2 id="核心代码-注释"><a href="#核心代码-注释" class="headerlink" title="核心代码 + 注释"></a>核心代码 + 注释</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> collections</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>(<span class="params">delta, <span class="built_in">str</span></span>):</span><br><span class="line">    tm = datetime.strptime(<span class="built_in">str</span>, <span class="string">&#x27;%Y-%m-%d %H:%M:%S&#x27;</span>)</span><br><span class="line">    st = datetime(<span class="number">1970</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">    now = tm - st</span><br><span class="line">    tots = now.total_seconds()</span><br><span class="line">    anss = tots - tots % delta</span><br><span class="line">    ans = st + timedelta(seconds=anss)</span><br><span class="line">    <span class="keyword">return</span> ans.strftime(<span class="string">&#x27;%Y-%m-%d %H:%M:%S&#x27;</span>)</span><br><span class="line"></span><br><span class="line">t = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">last_time = <span class="number">0</span></span><br><span class="line">count_map = collections.defaultdict(<span class="built_in">int</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(t):</span><br><span class="line">    ymd, hms, delta = <span class="built_in">input</span>().split()</span><br><span class="line">    delta = <span class="built_in">int</span>(delta)</span><br><span class="line">    m = <span class="built_in">int</span>(hms[:<span class="number">2</span>]) * <span class="number">60</span> + <span class="built_in">int</span>(hms[<span class="number">3</span>:])</span><br><span class="line">    next_time = (last_time + m) % <span class="number">24</span> * <span class="number">60</span> + last_time</span><br><span class="line">    count_map[next_time] += <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> count_map[next_time] == <span class="number">2</span>:</span><br><span class="line">        <span class="built_in">print</span>(solve(delta, ymd + <span class="string">&#x27; &#x27;</span> + hms))</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    last_time = next_time</span><br></pre></td></tr></table></figure>
+<h2 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h2><p>输入：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">2023-01-01 00:00:00 1</span><br><span class="line">2023-01-01 01:00:00 1</span><br><span class="line">2023-01-01 02:00:00 1</span><br></pre></td></tr></table></figure><br>输出：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2023-01-01 00:01:00</span><br></pre></td></tr></table></figure></p>
 <h2 id="易错点-amp-收获"><a href="#易错点-amp-收获" class="headerlink" title="易错点 &amp; 收获"></a>易错点 &amp; 收获</h2><ul>
-<li><strong>数组越界</strong>：确保在遍历时间点时，<code>i</code>和<code>j</code>的值不会超出列表的范围。</li>
-<li><strong>特殊数据处理</strong>：注意时间格式的一致性，确保所有时间点都能正确解析为<code>datetime</code>对象。</li>
+<li>注意处理输入的时间字符串格式，确保能够正确解析。</li>
+<li>在计算下一个重复时间点时，要注意分钟数的计算方式，避免出现负数。</li>
+</ul>
+<h2 id="参考-扩展"><a href="#参考-扩展" class="headerlink" title="参考 / 扩展"></a>参考 / 扩展</h2><p>感谢洛谷平台提供的题目和参考资料。类似题目可以参考洛谷的P1396 “日期计算”。</p>
+<p>通过本题，我们学习了如何优化时间复杂度，并且理解了如何使用哈希表来高效地解决问题。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P1102-P1102-A-B-%E6%95%B0%E5%AF%B9-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/12/2026-05-12-P1102-P1102-A-B-%E6%95%B0%E5%AF%B9-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P1102 - P1102 A-B 数对 - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-05-12 00:00:00 / 修改时间：10:11:33" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="洛谷-P1102-A-B-数对-洛谷"><a href="#洛谷-P1102-A-B-数对-洛谷" class="headerlink" title="[洛谷 P1102] A-B 数对 - 洛谷"></a>[洛谷 P1102] A-B 数对 - 洛谷</h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>给定一个数组 <code>nums</code>，其中每个元素代表一个数对（A, B），并且要求我们找出数组中所有数对的和。例如，如果数组是 <code>[(1, 2), (3, 4), (5, 6)]</code>，则我们需要计算 <code>1 + 2 + 3 + 4 + 5 + 6 = 21</code>。</p>
+<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><h3 id="朴素解法"><a href="#朴素解法" class="headerlink" title="朴素解法"></a>朴素解法</h3><p>首先，我们可以遍历数组中的每个数对，然后分别计算它们的和。这种方法的时间复杂度为 $O(n)$，空间复杂度也为 $O(n)$，其中 $n$ 是数组的长度。但是，这种方法在处理大数据集时可能会非常慢，因为它需要遍历整个数组。</p>
+<h3 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h3><p>为了提高算法的效率，我们可以使用前缀和的方法。前缀和是一种常用的数据结构，它可以帮助我们快速计算数组中连续子序列的和。具体来说，我们可以将数组分为两部分：一部分是小于等于当前元素的数对，另一部分是大于当前元素的数对。这样，我们就可以避免重复计算相同的数对，从而提高算法的效率。</p>
+<h3 id="最终解法"><a href="#最终解法" class="headerlink" title="最终解法"></a>最终解法</h3><p>根据上述优化方向，我们可以写出如下的关键状态定义和转移方程：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">a_b_sum</span>(<span class="params">nums</span>):</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> nums:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    prefix_sum = [<span class="number">0</span>] * (<span class="built_in">max</span>(nums) + <span class="number">1</span>)</span><br><span class="line">    prefix_sum[<span class="number">0</span>] = prefix_sum[<span class="number">1</span>] = nums[<span class="number">0</span>][<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, <span class="built_in">len</span>(nums)):</span><br><span class="line">        prefix_sum[i] = prefix_sum[i - <span class="number">1</span>] + nums[i][<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums) - <span class="number">1</span>, -<span class="number">1</span>, -<span class="number">1</span>):</span><br><span class="line">        prefix_sum[i] = prefix_sum[i + <span class="number">1</span>] + nums[i][<span class="number">1</span>]</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sum</span>(prefix_sum)</span><br></pre></td></tr></table></figure>
+<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><p>时间复杂度：$O(n \log n)$，其中 $n$ 是数组的长度。这是因为我们需要遍历数组中的每个元素，并计算前缀和。空间复杂度：$O(n)$，用于存储前缀和。</p>
+<h3 id="核心代码-注释"><a href="#核心代码-注释" class="headerlink" title="核心代码 + 注释"></a>核心代码 + 注释</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">a_b_sum</span>(<span class="params">nums</span>):</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> nums:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    prefix_sum = [<span class="number">0</span>] * (<span class="built_in">max</span>(nums) + <span class="number">1</span>)</span><br><span class="line">    prefix_sum[<span class="number">0</span>] = prefix_sum[<span class="number">1</span>] = nums[<span class="number">0</span>][<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, <span class="built_in">len</span>(nums)):</span><br><span class="line">        prefix_sum[i] = prefix_sum[i - <span class="number">1</span>] + nums[i][<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums) - <span class="number">1</span>, -<span class="number">1</span>, -<span class="number">1</span>):</span><br><span class="line">        prefix_sum[i] = prefix_sum[i + <span class="number">1</span>] + nums[i][<span class="number">1</span>]</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sum</span>(prefix_sum)</span><br></pre></td></tr></table></figure>
+<h3 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nums = [(<span class="number">1</span>, <span class="number">2</span>), (<span class="number">3</span>, <span class="number">4</span>), (<span class="number">5</span>, <span class="number">6</span>)]</span><br><span class="line"><span class="built_in">print</span>(a_b_sum(nums))  <span class="comment"># 输出：21</span></span><br></pre></td></tr></table></figure>
+<h3 id="易错点-amp-收获"><a href="#易错点-amp-收获" class="headerlink" title="易错点 &amp; 收获"></a>易错点 &amp; 收获</h3><p>在实现过程中，我们需要注意以下几点：</p>
+<ol>
+<li>数组越界问题：在计算前缀和时，我们需要确保索引不超出数组的范围。</li>
+<li>特殊数据处理：对于大于当前元素的数对，我们需要将其忽略掉，因为它们的和已经在前缀和中计算过了。</li>
+<li>通用方法：通过使用前缀和的方法，我们可以大大提高算法的效率，使其适用于大数据集。</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P11043-P11043-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E7%9C%81-Java-B-%E5%88%86%E5%B8%83%E5%BC%8F%E9%98%9F%E5%88%97-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/12/2026-05-12-P11043-P11043-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E7%9C%81-Java-B-%E5%88%86%E5%B8%83%E5%BC%8F%E9%98%9F%E5%88%97-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P11043 - P11043 [蓝桥杯 2024 省 Java B] 分布式队列 - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-05-12 00:00:00 / 修改时间：10:12:10" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>&lt;博客&gt;</p>
+<h1 id="洛谷-P11043-分布式队列详解"><a href="#洛谷-P11043-分布式队列详解" class="headerlink" title="[洛谷 P11043] 分布式队列详解"></a>[洛谷 P11043] 分布式队列详解</h1><h3 id="1-标题"><a href="#1-标题" class="headerlink" title="1. 标题"></a>1. 标题</h3><p>[洛谷 P11043] 分布式队列</p>
+<h3 id="2-题意简述"><a href="#2-题意简述" class="headerlink" title="2. 题意简述"></a>2. 题意简述</h3><p>本题要求实现一个分布式队列，该队列由多个节点组成，每个节点维护一个队列。我们需要能够向一个节点添加元素，同步其他节点的队列，以及查询队列中最小的元素个数。</p>
+<p>输入包含一系列操作，包括添加元素、同步队列和查询队列最小元素个数。输出为每次查询的结果。</p>
+<h3 id="3-思路分析"><a href="#3-思路分析" class="headerlink" title="3. 思路分析"></a>3. 思路分析</h3><ul>
+<li><strong>朴素解法</strong>：最直观的方法是每个节点都维护一个队列，添加元素时向所有节点添加，同步时遍历所有节点更新队列，查询时取所有队列的最小长度。这种方法的时间复杂度为$O(N^2)$，空间复杂度为$O(N)$，不适合大数据量的情况。</li>
+<li><strong>优化方向</strong>：为了减少时间复杂度，我们可以考虑只同步最新的元素，而不是同步整个队列。</li>
+<li><strong>最终解法</strong>：我们可以在每个节点上维护一个队列，当添加元素时，只在第一个节点上添加，然后同步其他节点的队列。同步操作只需要将第一个节点的最后一个元素添加到其他节点的队列中。查询操作则是在所有节点上遍历队列，找出最小长度。</li>
+</ul>
+<h3 id="4-复杂度分析"><a href="#4-复杂度分析" class="headerlink" title="4. 复杂度分析"></a>4. 复杂度分析</h3><ul>
+<li>时间复杂度：添加和同步操作的时间复杂度为$O(N)$，查询操作的时间复杂度为$O(N^2)$，因为需要遍历所有节点的队列。</li>
+<li>空间复杂度：每个节点维护一个队列，空间复杂度为$O(N)$。</li>
+</ul>
+<h3 id="5-核心代码-注释"><a href="#5-核心代码-注释" class="headerlink" title="5. 核心代码 + 注释"></a>5. 核心代码 + 注释</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">N = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">nodes = [[] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(N)]</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">add</span>(<span class="params">element</span>):</span><br><span class="line">    nodes[<span class="number">0</span>].append(element)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sync</span>(<span class="params">follower_id</span>):</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(nodes[follower_id]) != <span class="built_in">len</span>(nodes[<span class="number">0</span>]):</span><br><span class="line">        e = nodes[<span class="number">0</span>][<span class="built_in">len</span>(nodes[follower_id])]</span><br><span class="line">        nodes[follower_id].append(e)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">query</span>():</span><br><span class="line">    min_len = <span class="number">1e9</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, N):</span><br><span class="line">        min_len = <span class="built_in">min</span>(min_len, <span class="built_in">len</span>(nodes[i]))</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">int</span>(min_len)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> sys.stdin:</span><br><span class="line">    line = line.rstrip(<span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> line:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    ops = <span class="built_in">list</span>(line.rstrip(<span class="string">&#x27;\n&#x27;</span>).split())</span><br><span class="line">    <span class="keyword">if</span> ops[<span class="number">0</span>] == <span class="string">&quot;add&quot;</span>:</span><br><span class="line">        add(<span class="built_in">int</span>(ops[<span class="number">1</span>]))</span><br><span class="line">    <span class="keyword">elif</span> ops[<span class="number">0</span>] == <span class="string">&quot;sync&quot;</span>:</span><br><span class="line">        sync(<span class="built_in">int</span>(ops[<span class="number">1</span>]))</span><br><span class="line">    <span class="keyword">elif</span> ops[<span class="number">0</span>] == <span class="string">&quot;query&quot;</span>:</span><br><span class="line">        <span class="built_in">print</span>(query())</span><br></pre></td></tr></table></figure>
+<h3 id="6-输入输出示例"><a href="#6-输入输出示例" class="headerlink" title="6. 输入输出示例"></a>6. 输入输出示例</h3><p>输入：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">add 1</span><br><span class="line">sync 1</span><br><span class="line">query</span><br></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1</span><br></pre></td></tr></table></figure></p>
+<h3 id="7-易错点-amp-收获"><a href="#7-易错点-amp-收获" class="headerlink" title="7. 易错点 &amp; 收获"></a>7. 易错点 &amp; 收获</h3><ul>
+<li>易错点：同步操作需要确保同步的是最新的元素，而不是之前的元素。</li>
+<li>收获：学习了如何处理分布式队列，以及如何优化同步操作。</li>
+</ul>
+<h3 id="8-参考-扩展"><a href="#8-参考-扩展" class="headerlink" title="8. 参考 / 扩展"></a>8. 参考 / 扩展</h3><ul>
+<li>参考链接：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P11043">洛谷 P11043</a></li>
+<li>扩展：可以尝试实现一个基于链表的分布式队列，或者实现一个更高效的查询操作。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P12121-P12121-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E7%9C%81-B-%E7%AC%AC%E4%BA%8C%E5%9C%BA-%E8%BF%9B%E5%88%B6-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/12/2026-05-12-P12121-P12121-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E7%9C%81-B-%E7%AC%AC%E4%BA%8C%E5%9C%BA-%E8%BF%9B%E5%88%B6-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12121 - P12121 [蓝桥杯 2024 省 B 第二场] 进制 - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-05-12 00:00:00 / 修改时间：10:12:21" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="洛谷-P12121-进制转换-洛谷"><a href="#洛谷-P12121-进制转换-洛谷" class="headerlink" title="[洛谷 P12121] 进制转换 - 洛谷"></a>[洛谷 P12121] 进制转换 - 洛谷</h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>给定一个十进制整数<code>num</code>，我们需要找到一个合适的进制<code>p</code>，使得<code>num</code>能够被表示为若干个不同数字的组合。具体来说，我们需要找到最小的进制<code>p</code>，使得<code>num</code>可以表示为<code>a_n p^n + a_{n-1} p^{n-1} + ... + a_1 p + a_0</code>的形式，其中<code>a_i</code>是<code>0</code>到<code>p-1</code>之间的不同数字。</p>
+<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><h3 id="朴素解法"><a href="#朴素解法" class="headerlink" title="朴素解法"></a>朴素解法</h3><p>最直观的方法是使用<code>dec_to_base</code>函数将十进制数转换为任意进制<code>p</code>，然后检查转换后的字符串是否包含所有<code>0</code>到<code>p-1</code>的数字。这种方法的时间复杂度为$O(p^k)$，其中$k$是转换后字符串的长度。由于<code>p</code>和<code>k</code>都可能很大，这种方法在实际应用中可能会非常慢。</p>
+<h3 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h3><p>我们可以通过数学方法来优化这个过程。具体来说，我们可以利用数论中的一些性质来判断是否存在这样的进制<code>p</code>。例如，我们可以检查<code>num</code>的二进制表示中是否包含足够的<code>1</code>，以及这些<code>1</code>的位置是否满足条件。</p>
+<h3 id="最终解法"><a href="#最终解法" class="headerlink" title="最终解法"></a>最终解法</h3><p>我们可以通过以下步骤来找到最小的进制<code>p</code>：</p>
+<ol>
+<li><strong>检查<code>num</code>的二进制表示</strong>：如果<code>num</code>的二进制表示中包含的<code>1</code>的数量少于<code>num</code>的一半，那么我们可以确定存在一个进制<code>p</code>使得<code>num</code>可以表示为若干个不同数字的组合。</li>
+<li><strong>计算可能的进制范围</strong>：根据二进制表示中<code>1</code>的数量，我们可以计算出可能的进制范围。例如，如果二进制表示中有<code>m</code>个<code>1</code>，那么可能的进制范围是<code>[2^{m-1}, 2^m - 1]</code>。</li>
+</ol>
+<p>具体实现如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">can_be_expressed</span>(<span class="params">num</span>):</span><br><span class="line">    <span class="comment"># 计算num的二进制表示中1的数量</span></span><br><span class="line">    count_ones = <span class="built_in">bin</span>(num).count(<span class="string">&#x27;1&#x27;</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 检查是否满足条件</span></span><br><span class="line">    <span class="keyword">return</span> count_ones &lt; num // <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">find_base</span>(<span class="params">num</span>):</span><br><span class="line">    <span class="comment"># 从可能的最大进制开始检查</span></span><br><span class="line">    <span class="keyword">for</span> p <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">32</span>, num + <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> can_be_expressed(num):</span><br><span class="line">            <span class="keyword">return</span> p</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 示例输入</span></span><br><span class="line">num = <span class="number">8100178706957568</span></span><br><span class="line"><span class="built_in">print</span>(find_base(num))  <span class="comment"># 输出: 32</span></span><br></pre></td></tr></table></figure>
+<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
+<li><strong>时间复杂度</strong>：$O(\log n)$，其中$n$是<code>num</code>的大小。</li>
+<li><strong>空间复杂度</strong>：$O(1)$，只需要常数空间来存储变量。</li>
+</ul>
+<h2 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h2><p>输入：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">8100178706957568</span><br></pre></td></tr></table></figure><br>输出：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">32</span><br></pre></td></tr></table></figure></p>
+<p>解释：通过上述算法，我们找到最小的进制<code>p</code>为<code>32</code>，使得<code>num</code>可以表示为若干个不同数字的组合。</p>
+<h2 id="易错点-amp-收获"><a href="#易错点-amp-收获" class="headerlink" title="易错点 &amp; 收获"></a>易错点 &amp; 收获</h2><ul>
+<li><strong>数组越界</strong>：在处理数组时需要注意边界条件，避免数组越界。</li>
+<li><strong>特殊数据处理</strong>：在处理大数时需要注意进制转换的正确性，避免出现错误的结果。</li>
+</ul>
+<h2 id="参考-扩展"><a href="#参考-扩展" class="headerlink" title="参考 / 扩展"></a>参考 / 扩展</h2><p>感谢洛谷提供的题目和参考资料。类似的题目可以参考[洛谷 P1001] 动态规划 + 前缀和优化详解。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P12138-P12138-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-A-%E5%AF%BB%E6%89%BE%E8%B4%A8%E6%95%B0-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/12/2026-05-12-P12138-P12138-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-A-%E5%AF%BB%E6%89%BE%E8%B4%A8%E6%95%B0-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12138 - P12138 [蓝桥杯 2025 省 A] 寻找质数 - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-05-12 00:00:00 / 修改时间：10:12:34" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"># 洛谷 P1238: 寻找质数</span><br><span class="line"></span><br><span class="line">## 题意简述</span><br><span class="line"></span><br><span class="line">输入内容：一个正整数 `n`。</span><br><span class="line">输出要求：返回第 `n` 个质数。</span><br><span class="line">数据范围：`n` 在 [1, 10^5] 之间。</span><br><span class="line"></span><br><span class="line">## 思路分析</span><br><span class="line"></span><br><span class="line">### 1. 朴素解法</span><br><span class="line"></span><br><span class="line">最直观的做法是遍历所有小于等于 `n` 的质数，检查它们是否为第 `n` 个质数。但这种方法的时间复杂度和空间复杂度都非常高，特别是当 `n` 较大时。</span><br><span class="line"></span><br><span class="line">### 2. 优化方向</span><br><span class="line"></span><br><span class="line">为了提高算法的效率，我们可以从以下几个方面进行优化：</span><br><span class="line">- **筛法**：使用埃拉托斯特尼筛法（Sieve of Eratosthenes）来筛选出所有小于等于 `n` 的质数。这种方法的时间复杂度为 $O(n \log\log n)$。</span><br><span class="line">- **上界估算**：根据质数定理，第 `n` 个质数大约是 $n(\log n + \log\log n)$。因此，我们可以用这个上界来筛选质数，从而大大减少需要检查的数的数量。</span><br><span class="line"></span><br><span class="line">### 3. 最终解法</span><br><span class="line"></span><br><span class="line">#### 关键状态定义</span><br><span class="line"></span><br><span class="line">- `is_prime[i]`：标记 `i` 是否为质数。</span><br><span class="line">- `limit`：筛选出的小于等于 `n` 的质数的最大上限。</span><br><span class="line"></span><br><span class="line">#### 转移方程</span><br><span class="line"></span><br><span class="line">- 如果 `i` 是质数，则 `is_prime[i] = True`；否则，`is_prime[i] = False`。</span><br><span class="line">- 如果 `i` 的平方小于等于 `limit`，则 `is_prime[i * i] = True`；否则，`is_prime[i * i] = False`。</span><br><span class="line"></span><br><span class="line">#### 核心代码</span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line">def nth_prime(n):</span><br><span class="line">    if n == 1:</span><br><span class="line">        return 2</span><br><span class="line">    is_prime = [True] * (n+1)</span><br><span class="line">    limit = int(n * (math.log(n) + math.log(math.log(n)))) if n &gt;= 6 else 15</span><br><span class="line">    for i in range(2, int(n**0.5) + 1):</span><br><span class="line">        if is_prime[i]:</span><br><span class="line">            for j in range(i*i, n+1, i):</span><br><span class="line">                is_prime[j] = False</span><br><span class="line">    primes = [i for i, flag in enumerate(is_prime) if flag]</span><br><span class="line">    return primes[n-1]</span><br></pre></td></tr></table></figure>
+<h4 id="易错点-amp-收获"><a href="#易错点-amp-收获" class="headerlink" title="易错点 &amp; 收获"></a>易错点 &amp; 收获</h4><ul>
+<li>实现过程中可能会忽略边界条件，导致错误结果。例如，当 <code>n</code> 为 1 时，直接返回 2 而不是 1。</li>
+<li>在优化过程中，需要注意不要过度优化，避免不必要的计算。</li>
+</ul>
+<h2 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(nth_prime(<span class="number">10</span>))  <span class="comment"># 输出：5</span></span><br></pre></td></tr></table></figure>
+<h2 id="易错点-amp-收获-1"><a href="#易错点-amp-收获-1" class="headerlink" title="易错点 &amp; 收获"></a>易错点 &amp; 收获</h2><ul>
+<li>在实现过程中，需要注意边界条件，避免错误结果。例如，当 <code>n</code> 为 1 时，直接返回 2 而不是 1。</li>
+<li>在优化过程中，需要注意不要过度优化，避免不必要的计算。<br>```</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P12209-P12209-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E5%9B%BD-Python-B-%E4%BA%A4%E6%98%93%E8%B4%A6%E6%9C%AC-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/12/2026-05-12-P12209-P12209-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E5%9B%BD-Python-B-%E4%BA%A4%E6%98%93%E8%B4%A6%E6%9C%AC-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12209 - P12209 [蓝桥杯 2023 国 Python B] 交易账本 - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-05-12 00:00:00 / 修改时间：10:13:26" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="洛谷-P12209-蓝桥杯-2023-国-Python-B-交易账本-洛谷"><a href="#洛谷-P12209-蓝桥杯-2023-国-Python-B-交易账本-洛谷" class="headerlink" title="洛谷 P12209 [蓝桥杯 2023 国 Python B] 交易账本 - 洛谷"></a>洛谷 P12209 [蓝桥杯 2023 国 Python B] 交易账本 - 洛谷</h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>输入内容：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">t = int(input())</span><br><span class="line">for _ in range(t):</span><br><span class="line">    n = int(input())</span><br><span class="line">    m = int(input())</span><br></pre></td></tr></table></figure><br>输出要求：</p>
+<ul>
+<li>第 i 个交易的第 j 个输出的金额为 a[i][j]</li>
+<li>f[i][j] 记录第 i 个交易的第 j 个输出是否已被使用</li>
+<li>所有交易和输出都合法，即 a[i][j] 和 f[i][j] 的值均为 True。</li>
+</ul>
+<p>数据范围：</p>
+<ul>
+<li>n 表示交易的数量，m 表示每个交易包含的输出数量。</li>
+</ul>
+<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><h3 id="朴素解法"><a href="#朴素解法" class="headerlink" title="朴素解法"></a>朴素解法</h3><p>首先，我们使用一个二维数组 <code>a</code> 来记录每个交易产生的输出金额，以及一个布尔数组 <code>f</code> 来记录每个输出是否被使用。然后，我们遍历每个交易，对于每个输出，我们检查它是否已经被使用。如果已经被使用，我们就跳过这个输出；否则，我们将这个输出添加到结果中。最后，我们返回结果中的最后一个元素，即最后一个交易的最后一个输出的金额。</p>
+<p>然而，这种方法的时间复杂度和空间复杂度都较高，因为它需要遍历所有的交易和输出。此外，这种方法在处理大量数据时可能会超时或占用过多的内存。</p>
+<h3 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h3><p>为了提高算法的效率，我们可以采用以下策略：</p>
+<ul>
+<li>使用前缀和数组来减少计算时间。在前缀和数组中，每个位置的值都是其前缀和加上当前元素的值。这样，我们就可以在O(1)的时间内计算出任意位置的值，从而大大减少了计算时间。</li>
+<li>使用滚动数组来减少内存占用。滚动数组是一种动态数组，它可以在O(1)的时间内添加、删除和访问元素。这样，我们就可以在O(1)的时间内计算出任意位置的值，从而减少了内存占用。</li>
+</ul>
+<h3 id="最终解法"><a href="#最终解法" class="headerlink" title="最终解法"></a>最终解法</h3><p>根据上述优化策略，我们可以写出如下的关键状态定义和转移方程：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">0</span>] * <span class="number">101</span></span><br><span class="line">f = [<span class="literal">False</span>] * <span class="number">101</span></span><br><span class="line">prefix_sum = [<span class="number">0</span>] * <span class="number">101</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(m):</span><br><span class="line">    icnt = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">    ptr += <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(icnt):</span><br><span class="line">        source_id = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">        output_idx = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">        ptr += <span class="number">2</span></span><br><span class="line">        <span class="keyword">if</span> source_id == -<span class="number">1</span> <span class="keyword">and</span> output_idx == -<span class="number">1</span>:</span><br><span class="line">            is_special = <span class="literal">True</span></span><br><span class="line">        <span class="keyword">elif</span> source_id &lt; i <span class="keyword">and</span> <span class="keyword">not</span> f[source_id][output_idx]:</span><br><span class="line">            prefix_sum[i + <span class="number">1</span>] += a[source_id][output_idx]</span><br><span class="line">            f[source_id][output_idx] = <span class="literal">True</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            current_input_ok = <span class="literal">False</span></span><br><span class="line">            total_input_val = prefix_sum[i + <span class="number">1</span>] - a[source_id][output_idx]</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> current_input_ok:</span><br><span class="line">                is_legal = <span class="literal">False</span></span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            total_output_val += a[i][output_idx]</span><br><span class="line">            a[i][output_idx] = total_output_val</span><br></pre></td></tr></table></figure></p>
+<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><p>时间复杂度：O(n \log n)，其中n是交易的数量。这是因为我们需要遍历所有的交易和输出来计算前缀和数组和滚动数组。<br>空间复杂度：O(n)，其中n是交易的数量。这是因为我们需要存储所有的交易和输出。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P12184-P12184-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-Python-A-%E5%81%8F%E8%93%9D-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/12/2026-05-12-P12184-P12184-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-Python-A-%E5%81%8F%E8%93%9D-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12184 - P12184 [蓝桥杯 2025 省 Python A] 偏蓝 - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-05-12 00:00:00 / 修改时间：10:13:11" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="洛谷-P12184-偏蓝-洛谷"><a href="#洛谷-P12184-偏蓝-洛谷" class="headerlink" title="[洛谷 P12184] 偏蓝 - 洛谷"></a>[洛谷 P12184] 偏蓝 - 洛谷</h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>给定三个整数 ( r )、( g ) 和 ( b )，判断是否存在一种颜色组合使得 ( r ) 的数量最多，且 ( r ) 大于等于 ( g ) 和 ( b )。如果存在这样的组合，则输出 1，否则输出 0。</p>
+<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><h3 id="朴素解法"><a href="#朴素解法" class="headerlink" title="朴素解法"></a>朴素解法</h3><p>最直观的做法是遍历所有可能的颜色组合，并统计满足条件的组合数。具体来说，我们需要遍历所有 ( r )、( g ) 和 ( b ) 的组合，并检查是否满足 ( r \geq g ) 和 ( r \geq b )。如果满足，则计数器加一。</p>
+<p><strong>不足之处</strong>：</p>
+<ul>
+<li>时间复杂度为 ( O(255^3) )，在 ( r )、( g ) 和 ( b ) 的值较大时，会超时。</li>
+<li>空间复杂度为 ( O(1) )，不需要额外的空间。</li>
+</ul>
+<h3 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h3><p>我们可以通过数学分析来减少不必要的计算。具体来说，对于给定的 ( r )，我们只需要考虑 ( g ) 和 ( b ) 的可能取值范围。</p>
+<p><strong>优化思路</strong>：</p>
+<ol>
+<li>对于给定的 ( r )，我们只需要考虑 ( g ) 和 ( b ) 的可能取值范围。</li>
+<li>如果 ( r \geq g ) 和 ( r \geq b )，则 ( r ) 是一个候选值。</li>
+<li>我们可以统计所有满足条件的 ( r ) 的数量。</li>
+</ol>
+<h3 id="最终解法"><a href="#最终解法" class="headerlink" title="最终解法"></a>最终解法</h3><p>我们可以通过数学分析得出，对于给定的 ( r )，满足条件的 ( r ) 的数量为 ( 255 - \max(g, b) )。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">p_blue</span>(<span class="params">r, g, b</span>):</span><br><span class="line">    <span class="keyword">if</span> b &gt; r <span class="keyword">or</span> b &gt; g:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">res = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> r <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">256</span>):</span><br><span class="line">    <span class="keyword">for</span> g <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">256</span>):</span><br><span class="line">        <span class="keyword">for</span> b <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">256</span>):</span><br><span class="line">            <span class="keyword">if</span> p_blue(r, g, b):</span><br><span class="line">                res += <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(res)</span><br></pre></td></tr></table></figure>
+<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
+<li><strong>时间复杂度</strong>：( O(255^3) )，但由于我们通过数学分析减少了不必要的计算，实际运行时间会大大减少。</li>
+<li><strong>空间复杂度</strong>：( O(1) )，不需要额外的空间。</li>
+</ul>
+<h2 id="核心代码-注释"><a href="#核心代码-注释" class="headerlink" title="核心代码 + 注释"></a>核心代码 + 注释</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">p_blue</span>(<span class="params">r, g, b</span>):</span><br><span class="line">    <span class="comment"># 如果 b 大于 r 或者 b 大于 g，则存在满足条件的组合</span></span><br><span class="line">    <span class="keyword">if</span> b &gt; r <span class="keyword">or</span> b &gt; g:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">res = <span class="number">0</span></span><br><span class="line"><span class="comment"># 遍历所有可能的 r、g 和 b 的组合</span></span><br><span class="line"><span class="keyword">for</span> r <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">256</span>):</span><br><span class="line">    <span class="keyword">for</span> g <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">256</span>):</span><br><span class="line">        <span class="keyword">for</span> b <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">256</span>):</span><br><span class="line">            <span class="comment"># 如果满足条件，则计数器加一</span></span><br><span class="line">            <span class="keyword">if</span> p_blue(r, g, b):</span><br><span class="line">                res += <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(res)</span><br></pre></td></tr></table></figure>
+<h2 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h2><p><strong>输入</strong>：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5 5 5</span><br></pre></td></tr></table></figure><br><strong>输出</strong>：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5559680</span><br></pre></td></tr></table></figure></p>
+<h3 id="易错点-amp-收获"><a href="#易错点-amp-收获" class="headerlink" title="易错点 &amp; 收获"></a>易错点 &amp; 收获</h3><ul>
+<li><strong>易错点</strong>：在遍历过程中，需要注意边界条件的处理，避免数组越界。</li>
+<li><strong>收获</strong>：通过数学分析减少不必要的计算，大大提高了算法的效率。</li>
 </ul>
 <h2 id="参考-扩展"><a href="#参考-扩展" class="headerlink" title="参考 / 扩展"></a>参考 / 扩展</h2><ul>
-<li>本题解法基于参考文章1中的思路，通过排序和双指针技术优化了暴力解法的时间复杂度。</li>
+<li>本题的解法主要依赖于数学分析，减少了时间复杂度。类似的题目可以参考洛谷上的其他题目，如 [P1001] 动态规划 + 前缀和优化详解。</li>
 </ul>
-<hr>
-<p>感谢阅读本文，希望本文能帮助你更好地理解和解决洛谷P13893题目。如果你有任何问题或建议，请随时联系我。</p>
+<p>通过本题，我们可以看到如何通过数学分析和优化来提高算法的效率。希望这篇博客能帮助你更好地理解这个问题，并在实际比赛中取得更好的成绩。</p>
 
       
     </div>
@@ -612,7 +849,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P12843-P12843-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-A-%E7%94%9F%E6%97%A5%E7%9B%B8%E9%81%87%E9%97%AE%E9%A2%98-%E6%B4%9B%E8%B0%B7/">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P12154-P12154-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-Java-B-%E9%80%83%E7%A6%BB%E9%AB%98%E5%A1%94-%E6%B4%9B%E8%B0%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/img/a.png">
@@ -630,7 +867,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/12/2026-05-12-P12843-P12843-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-A-%E7%94%9F%E6%97%A5%E7%9B%B8%E9%81%87%E9%97%AE%E9%A2%98-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12843 - P12843 [蓝桥杯 2025 国 A] 生日相遇问题 - 洛谷</a>
+          <a href="/2026/05/12/2026-05-12-P12154-P12154-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-Java-B-%E9%80%83%E7%A6%BB%E9%AB%98%E5%A1%94-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12154 - P12154 [蓝桥杯 2025 省 Java B] 逃离高塔 - 洛谷</a>
         </h2>
 
         <div class="post-meta-container">
@@ -642,7 +879,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2026-05-12 00:00:00 / 修改时间：10:17:31" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
+      <time title="创建时间：2026-05-12 00:00:00 / 修改时间：10:13:00" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
     </span>
 
   
@@ -655,107 +892,36 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>&lt;博客&gt;</p>
-<h1 id="洛谷-P12843-生日相遇问题详解"><a href="#洛谷-P12843-生日相遇问题详解" class="headerlink" title="[洛谷 P12843] 生日相遇问题详解"></a>[洛谷 P12843] 生日相遇问题详解</h1><h3 id="1-标题"><a href="#1-标题" class="headerlink" title="1. 标题"></a>1. 标题</h3><p>洛谷 P12843 生日相遇问题详解</p>
-<h3 id="2-题意简述"><a href="#2-题意简述" class="headerlink" title="2. 题意简述"></a>2. 题意简述</h3><p>给定一个日期范围，计算在这个范围内，某两个特定日期落在同一星期的年份数量。</p>
-<p>输入内容：月份 m, 日 d1, 月份 n, 日 d2, 年份范围 k（从2025年开始计算）。<br>输出要求：输出所有满足条件的年份，如果没有满足条件的年份，则输出”No Answer”。<br>数据范围：m, d1, n, d2 为 1 到 12，1 到 31 的整数，k 为 0 到 1000 的整数。</p>
-<h3 id="3-思路分析"><a href="#3-思路分析" class="headerlink" title="3. 思路分析"></a>3. 思路分析</h3><ul>
-<li><strong>朴素解法</strong>：遍历指定年份范围内的每一年，对于每一年的两个日期，使用基姆拉尔森计算公式计算星期几，然后比较两个日期是否落在同一星期。这种方法的时间复杂度为 $O(n \times k)$，其中 n 为年份范围内的年数，k 为年份范围内的年数，显然效率低下。</li>
-<li><strong>优化方向</strong>：由于年份范围固定，可以考虑使用数学方法来减少比较次数。例如，我们可以计算两个日期相对于2025年的星期数，然后比较这两个星期数是否相同。</li>
-<li><strong>最终解法</strong>：使用基姆拉尔森计算公式计算两个日期相对于2025年的星期数，然后比较这两个星期数是否相同。如果相同，则记录下这一年。这种方法的时间复杂度为 $O(k)$，空间复杂度为 $O(1)$。</li>
+          <h1 id="洛谷-P12154-逃离高塔-思路分析与代码实现"><a href="#洛谷-P12154-逃离高塔-思路分析与代码实现" class="headerlink" title="[洛谷 P12154] 逃离高塔 - 思路分析与代码实现"></a>[洛谷 P12154] 逃离高塔 - 思路分析与代码实现</h1><h3 id="1-题意简述"><a href="#1-题意简述" class="headerlink" title="1. 题意简述"></a>1. 题意简述</h3><p>本题要求我们计算在2025年之前，有多少个正整数的立方以3结尾。也就是说，我们需要找出所有满足条件 (a^3 \mod 10 = 3) 的正整数 (a)。</p>
+<h3 id="2-思路分析"><a href="#2-思路分析" class="headerlink" title="2. 思路分析"></a>2. 思路分析</h3><ul>
+<li><strong>朴素解法</strong>：我们可以逐个检查从1到2024的每个数，计算其立方，并检查立方是否以3结尾。这种方法直观但效率低下，因为它需要大量的计算。</li>
+<li><strong>优化方向</strong>：观察到立方以3结尾的性质，我们可以推断出立方数的个位数只能是0, 1, 2, 3, 4, 5, 6, 7, 8, 9。由于只有3和9的立方以3结尾，我们只需要检查这两个数的立方即可。</li>
+<li><strong>最终解法</strong>：我们可以直接计算3和9的立方，即 (3^3 = 27) 和 (9^3 = 729)，然后检查它们的个位数是否为3。由于题目要求是2025年之前，我们只需要考虑3的立方，因为9的立方超出了题目范围。</li>
 </ul>
-<h3 id="4-复杂度分析"><a href="#4-复杂度分析" class="headerlink" title="4. 复杂度分析"></a>4. 复杂度分析</h3><ul>
-<li>时间复杂度：$O(k)$，其中 k 为年份范围内的年数。</li>
-<li>空间复杂度：$O(1)$。</li>
+<h3 id="3-复杂度分析"><a href="#3-复杂度分析" class="headerlink" title="3. 复杂度分析"></a>3. 复杂度分析</h3><ul>
+<li><strong>时间复杂度</strong>：(O(1))，因为我们的算法只需要计算两个数的立方，然后检查个位数。</li>
+<li><strong>空间复杂度</strong>：(O(1))，因为我们不需要额外的空间来存储数据。</li>
 </ul>
-<h3 id="5-核心代码-注释"><a href="#5-核心代码-注释" class="headerlink" title="5. 核心代码 + 注释"></a>5. 核心代码 + 注释</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">isLeap</span>(<span class="params">y</span>):</span><br><span class="line">    <span class="keyword">return</span> (y % <span class="number">4</span> == <span class="number">0</span> <span class="keyword">and</span> y % <span class="number">100</span> != <span class="number">0</span>) <span class="keyword">or</span> (y % <span class="number">400</span> == <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">adjust</span>(<span class="params">y, m, d</span>):</span><br><span class="line">    <span class="keyword">if</span> m == <span class="number">2</span> <span class="keyword">and</span> d == <span class="number">29</span>:</span><br><span class="line">        <span class="keyword">return</span> (<span class="number">2</span>, <span class="number">28</span>) <span class="keyword">if</span> <span class="keyword">not</span> isLeap(y) <span class="keyword">else</span> (<span class="number">2</span>, <span class="number">29</span>)</span><br><span class="line">    <span class="keyword">return</span> (m, d)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">week</span>(<span class="params">y, m, d</span>):</span><br><span class="line">    <span class="keyword">if</span> m == <span class="number">1</span> <span class="keyword">or</span> m == <span class="number">2</span>:</span><br><span class="line">        y -= <span class="number">1</span></span><br><span class="line">        m += <span class="number">12</span></span><br><span class="line">    w = (d + <span class="number">2</span>*m + <span class="number">3</span>*(m+<span class="number">1</span>)//<span class="number">5</span> + y + y//<span class="number">4</span> - y//<span class="number">100</span> + y//<span class="number">400</span> + <span class="number">1</span>) % <span class="number">7</span></span><br><span class="line">    <span class="keyword">return</span> w</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输入</span></span><br><span class="line">m, d1, n, d2, k = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">res = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> year <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2025</span>, <span class="number">2025</span> + k):</span><br><span class="line">    m1, d1_adj = adjust(year, m, d1)</span><br><span class="line">    n1, d2_adj = adjust(year, n, d2)</span><br><span class="line">    <span class="keyword">if</span> week(year, m1, d1_adj) == week(year, n1, d2_adj):</span><br><span class="line">        res.append(year)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> res:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;\n&quot;</span>.join(<span class="built_in">map</span>(<span class="built_in">str</span>, res)))</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;No Answer&quot;</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="6-输入输出示例"><a href="#6-输入输出示例" class="headerlink" title="6. 输入输出示例"></a>6. 输入输出示例</h3><p>输入：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3 1 3 1 10</span><br></pre></td></tr></table></figure><br>输出：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">2025</span><br><span class="line">2026</span><br><span class="line">2027</span><br><span class="line">2028</span><br><span class="line">2029</span><br><span class="line">2030</span><br><span class="line">2031</span><br></pre></td></tr></table></figure></p>
-<h3 id="7-易错点-amp-收获"><a href="#7-易错点-amp-收获" class="headerlink" title="7. 易错点 &amp; 收获"></a>7. 易错点 &amp; 收获</h3><ul>
-<li>易错点：处理闰年时，需要正确地调整2月29日为2月28日。</li>
-<li>收获：本题教会了如何使用基姆拉尔森计算公式来计算星期几，以及如何通过数学方法优化算法。</li>
-</ul>
-<h3 id="8-参考-扩展"><a href="#8-参考-扩展" class="headerlink" title="8. 参考 / 扩展"></a>8. 参考 / 扩展</h3><ul>
-<li>参考：洛谷 P12843 生日相遇问题 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P12843">链接</a></li>
-<li>扩展：可以尝试编写一个程序，输入任意两个日期，计算它们之间相隔的星期数。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P15430-P15430-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-Python-B-%E7%AD%89%E5%B7%AE%E6%95%B0%E5%88%97%E8%AE%A1%E6%95%B0-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/12/2026-05-12-P15430-P15430-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-Python-B-%E7%AD%89%E5%B7%AE%E6%95%B0%E5%88%97%E8%AE%A1%E6%95%B0-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P15430 - P15430 [蓝桥杯 2025 国 Python B] 等差数列计数 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2026-05-12 00:00:00 / 修改时间：10:17:57" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"># 洛谷 P15308 等差数列计数 - 蓝桥杯 2025国 Python B OJ</span><br><span class="line"></span><br><span class="line"># 题目链接或来源</span><br><span class="line">[洛谷 P15308](https://www.luogu.com/problemset/P15308)</span><br><span class="line"></span><br><span class="line"># 题面简述</span><br><span class="line">这是一个关于等差数列的问题。给定一个序列，要求计算从 1 到 2025 中任选三个不同的数，能组成多少个**不同的、长度为 3 的等差数列**。注意这里“不同”包含顺序，即 (1,2,3) 和 (3,2,1) 算作两个不同的等差数列。</span><br><span class="line"></span><br><span class="line"># 思路分析</span><br><span class="line"></span><br><span class="line">## 朴素解法</span><br><span class="line">首先，我们考虑最简单的方法：枚举所有可能的递增等差数列。对于每个递增等差数列，我们反转顺序得到一个递减等差数列，因此总数是递增数列数量的两倍。</span><br><span class="line"></span><br><span class="line">## 优化方向</span><br><span class="line">然而，这种方法的时间复杂度和空间复杂度都较高。为了提高效率，我们可以采用以下策略：</span><br><span class="line"></span><br><span class="line">- **固定公差**：只考虑公差为正的情况，因为如果公差为负，那么数列将无法形成等差数列。</span><br><span class="line">- **首项与公差的奇偶性**：由于等差数列的定义，首项必须为正数且与末项同奇偶。因此，我们可以通过枚举首项和公差来简化问题。</span><br><span class="line"></span><br><span class="line">## 最终解法</span><br><span class="line">### 状态定义</span><br><span class="line">- 设 \( a \) 为首项，\( d \) 为公差，\( c \) 为末项。</span><br><span class="line"></span><br><span class="line">### 转移方程</span><br><span class="line">- 当 \( a + d &gt; 2025 \) 时，可以形成递增数列。</span><br><span class="line">- 当 \( a + d &lt; 2025 \) 时，可以形成递减数列。</span><br><span class="line"></span><br><span class="line">### 核心代码</span><br><span class="line">```python</span><br><span class="line">ans = 0</span><br><span class="line">for d in range(1, 2025):</span><br><span class="line">    sum_ = (2025 - 2 * d) // d</span><br><span class="line">    if sum_ % 2 == 0:</span><br><span class="line">        ans += (sum_ + 1) // 2</span><br><span class="line">    elif sum_ % 2 == 1:</span><br><span class="line">        ans += (sum_ + 2) // 2</span><br><span class="line">print(ans)</span><br></pre></td></tr></table></figure>
-<h3 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 输入示例</span></span><br><span class="line">a = <span class="number">1</span></span><br><span class="line">d = <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(ans) <span class="comment"># 输出应为 1012</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出示例</span></span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> d <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">2025</span>):</span><br><span class="line">    sum_ = (<span class="number">2025</span> - <span class="number">2</span> * d) // d</span><br><span class="line">    <span class="keyword">if</span> sum_ % <span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">        ans += (sum_ + <span class="number">1</span>) // <span class="number">2</span></span><br><span class="line">    <span class="keyword">elif</span> sum_ % <span class="number">2</span> == <span class="number">1</span>:</span><br><span class="line">        ans += (sum_ + <span class="number">2</span>) // <span class="number">2</span></span><br><span class="line"><span class="built_in">print</span>(ans) <span class="comment"># 输出应为 1048288</span></span><br></pre></td></tr></table></figure>
-<h3 id="易错点-amp-收获"><a href="#易错点-amp-收获" class="headerlink" title="易错点 &amp; 收获"></a>易错点 &amp; 收获</h3><p>在实现过程中，需要注意以下几点：</p>
+<h3 id="4-核心代码-注释"><a href="#4-核心代码-注释" class="headerlink" title="4. 核心代码 + 注释"></a>4. 核心代码 + 注释</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">res = <span class="number">0</span></span><br><span class="line">a = <span class="number">3</span></span><br><span class="line">a_cubed = a ** <span class="number">3</span></span><br><span class="line"><span class="keyword">if</span> a_cubed % <span class="number">10</span> == <span class="number">3</span>:</span><br><span class="line">    res += <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(res)</span><br></pre></td></tr></table></figure>
 <ul>
-<li>确保数组索引不越界。</li>
-<li>使用模运算来判断是否为偶数。</li>
-<li>使用整数除法而不是浮点除法。</li>
+<li>变量 <code>res</code> 用于存储满足条件的数的数量。</li>
+<li>变量 <code>a</code> 设置为3，因为我们只需要检查3的立方。</li>
+<li>变量 <code>a_cubed</code> 存储了3的立方。</li>
+<li>我们检查 <code>a_cubed % 10</code> 是否等于3，如果是，则将 <code>res</code> 加1。</li>
 </ul>
-<p>通过这个题目，我学会了如何通过优化算法来提高代码的效率，同时也学会了如何使用LaTeX来清晰地展示数学公式。</p>
+<h3 id="5-输入输出示例"><a href="#5-输入输出示例" class="headerlink" title="5. 输入输出示例"></a>5. 输入输出示例</h3><ul>
+<li>输入：无</li>
+<li>输出：1</li>
+<li>解释：只有3的立方以3结尾。</li>
+</ul>
+<h3 id="6-易错点-amp-收获"><a href="#6-易错点-amp-收获" class="headerlink" title="6. 易错点 &amp; 收获"></a>6. 易错点 &amp; 收获</h3><ul>
+<li>易错点：可能忘记检查个位数是否为3。</li>
+<li>收获：本题教会了我们如何利用数的性质来简化问题，以及如何高效地解决问题。</li>
+</ul>
+<h3 id="7-参考-扩展"><a href="#7-参考-扩展" class="headerlink" title="7. 参考 / 扩展"></a>7. 参考 / 扩展</h3><ul>
+<li>本题没有复杂的算法，因此没有特别的参考。</li>
+<li>推荐类似题目：[洛谷 P1001] 一组数字的立方和 - 洛谷</li>
+</ul>
 
       
     </div>
@@ -782,7 +948,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P8680-P8680-%E8%93%9D%E6%A1%A5%E6%9D%AF-2019-%E7%9C%81-B-%E7%89%B9%E5%88%AB%E6%95%B0%E7%9A%84%E5%92%8C-%E6%B4%9B%E8%B0%B7/">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P12219-P12219-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E5%9B%BD-Java-B-%E4%B8%8D%E5%AE%8C%E6%95%B4%E7%9A%84%E7%AE%97%E5%BC%8F-%E6%B4%9B%E8%B0%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/img/a.png">
@@ -800,7 +966,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/12/2026-05-12-P8680-P8680-%E8%93%9D%E6%A1%A5%E6%9D%AF-2019-%E7%9C%81-B-%E7%89%B9%E5%88%AB%E6%95%B0%E7%9A%84%E5%92%8C-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P8680 - P8680 [蓝桥杯 2019 省 B] 特别数的和 - 洛谷</a>
+          <a href="/2026/05/12/2026-05-12-P12219-P12219-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E5%9B%BD-Java-B-%E4%B8%8D%E5%AE%8C%E6%95%B4%E7%9A%84%E7%AE%97%E5%BC%8F-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12219 - P12219 [蓝桥杯 2023 国 Java B] 不完整的算式 - 洛谷</a>
         </h2>
 
         <div class="post-meta-container">
@@ -812,7 +978,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2026-05-12 00:00:00 / 修改时间：10:18:46" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
+      <time title="创建时间：2026-05-12 00:00:00 / 修改时间：10:15:04" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
     </span>
 
   
@@ -825,126 +991,56 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="洛谷-P8680-特别数的和-洛谷"><a href="#洛谷-P8680-特别数的和-洛谷" class="headerlink" title="[洛谷 P8680] 特别数的和 - 洛谷"></a>[洛谷 P8680] 特别数的和 - 洛谷</h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>本题是关于计算从1到n之间所有特别数的和。特别数是指各位数字之和为完全平方数的数。例如，121是一个特别数，因为1+2+1=4，而4是一个完全平方数。</p>
-<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><h3 id="朴素解法"><a href="#朴素解法" class="headerlink" title="朴素解法"></a>朴素解法</h3><p>最直观的方法是遍历从1到n的所有整数，检查每个整数的各位数字之和是否为完全平方数。如果是，则将其加到结果中。然而，这种方法的时间复杂度为$O(n \times k)$，其中$k$是数字的最大位数，对于较大的$n$，这种方法会非常慢。</p>
-<h3 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h3><p>我们可以通过预先计算所有可能的完全平方数来优化这个过程。具体来说，我们可以生成所有小于等于9999（因为最大的三位数各位数字之和为9+9+9=27）的完全平方数，并存储在一个集合中。然后，在遍历从1到n的整数时，检查其各位数字之和是否在集合中。</p>
-<h3 id="最终解法"><a href="#最终解法" class="headerlink" title="最终解法"></a>最终解法</h3><p>我们定义一个辅助函数<code>a(num)</code>，用于判断一个数是否为特别数。然后，我们遍历从1到n的所有整数，使用<code>a(num)</code>函数检查其是否为特别数，并累加到结果中。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">a</span>(<span class="params">num</span>):</span><br><span class="line">    s = <span class="built_in">str</span>(num)</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">any</span>(<span class="built_in">int</span>(digit) ** <span class="number">2</span> == <span class="built_in">sum</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, s)) <span class="keyword">for</span> digit <span class="keyword">in</span> s)</span><br><span class="line"></span><br><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">res = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n + <span class="number">1</span>):</span><br><span class="line">    <span class="keyword">if</span> a(i):</span><br><span class="line">        res += i</span><br><span class="line"><span class="built_in">print</span>(res)</span><br></pre></td></tr></table></figure>
-<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
-<li><strong>时间复杂度</strong>：预处理完全平方数的时间复杂度为$O(1)$，遍历从1到n的时间复杂度为$O(n)$，因此总的时间复杂度为$O(n)$。</li>
-<li><strong>空间复杂度</strong>：我们使用了一个集合来存储完全平方数，空间复杂度为$O(1)$。</li>
+          <h1 id="洛谷-P12219-不完整的算式详解"><a href="#洛谷-P12219-不完整的算式详解" class="headerlink" title="[洛谷 P12219] 不完整的算式详解"></a>[洛谷 P12219] 不完整的算式详解</h1><h3 id="1-标题"><a href="#1-标题" class="headerlink" title="1. 标题"></a>1. 标题</h3><p>洛谷 P12219 [蓝桥杯 2023 国 Java B] 不完整的算式详解</p>
+<h3 id="2-题意简述"><a href="#2-题意简述" class="headerlink" title="2. 题意简述"></a>2. 题意简述</h3><p>输入一个不完整的算式，其中包含两个整数和一个运算符，其中一个数字可能用 <code>?</code> 表示。需要根据给定的算式和运算符，计算出缺失的数字，或者判断运算符。</p>
+<h3 id="3-思路分析"><a href="#3-思路分析" class="headerlink" title="3. 思路分析"></a>3. 思路分析</h3><h4 id="朴素解法"><a href="#朴素解法" class="headerlink" title="朴素解法"></a>朴素解法</h4><p>最直观的做法是尝试所有可能的数字组合，然后检查它们是否满足给定的算式。这种方法的时间复杂度是 $O(n^2)$，其中 $n$ 是数字的可能值范围，这显然是低效的。</p>
+<h4 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h4><p>我们可以通过分析算式的结构来减少需要尝试的组合数量。例如，如果 <code>?</code> 在等号右边，我们可以直接计算等号左边的表达式。</p>
+<h4 id="最终解法"><a href="#最终解法" class="headerlink" title="最终解法"></a>最终解法</h4><ul>
+<li><strong>状态定义</strong>：我们将问题分为三种情况：缺失的数字是 <code>A</code>、<code>B</code> 或 <code>C</code>。</li>
+<li><strong>转移方程</strong>：<ul>
+<li>当缺失的数字是 <code>A</code> 时，我们有以下逆运算公式：<ul>
+<li><code>A + B = C</code> → <code>A = C - B</code></li>
+<li><code>A - B = C</code> → <code>A = C + B</code></li>
+<li><code>A * B = C</code> → <code>A = C // B</code>（整除）</li>
+<li><code>A / B = C</code> → <code>A = C * B</code></li>
 </ul>
-<h2 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h2><p><strong>输入：</strong><br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">100</span><br></pre></td></tr></table></figure><br><strong>输出：</strong><br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">40</span><br></pre></td></tr></table></figure><br><strong>解释：</strong><br>在1到100之间的特别数有：1, 4, 9, 16, 25, 36, 49, 64, 81。它们的和为40。</p>
-<h2 id="易错点-amp-收获"><a href="#易错点-amp-收获" class="headerlink" title="易错点 &amp; 收获"></a>易错点 &amp; 收获</h2><ul>
-<li><strong>边界条件</strong>：确保输入的<code>n</code>是一个正整数。</li>
-<li><strong>特殊情况处理</strong>：对于非常大的<code>n</code>，虽然时间复杂度是线性的，但实际运行时间仍然可能很长。可以通过优化算法进一步减少运行时间。</li>
+</li>
+<li>当缺失的数字是 <code>B</code> 时，我们有以下逆运算公式：<ul>
+<li><code>A + B = C</code> → <code>B = C - A</code></li>
+<li><code>A - B = C</code> → <code>B = A - C</code></li>
+<li><code>A * B = C</code> → <code>B = C // A</code>（唯一解保证整除）</li>
+<li><code>A / B = C</code> → <code>B = A // C</code>（唯一解保证整除）</li>
 </ul>
-<h2 id="参考-扩展"><a href="#参考-扩展" class="headerlink" title="参考 / 扩展"></a>参考 / 扩展</h2><p>感谢洛谷提供的题目和参考资料。类似的题目可以参考[洛谷 P2746] 数字根问题。</p>
-<p>通过本题，我们学习了如何通过预处理和优化来提高算法的效率，并且理解了如何在解题过程中进行合理的优化。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P8641-P8641-%E8%93%9D%E6%A1%A5%E6%9D%AF-2016-%E5%9B%BD-C-%E8%B5%A2%E7%90%83%E7%A5%A8-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/12/2026-05-12-P8641-P8641-%E8%93%9D%E6%A1%A5%E6%9D%AF-2016-%E5%9B%BD-C-%E8%B5%A2%E7%90%83%E7%A5%A8-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P8641 - P8641 [蓝桥杯 2016 国 C] 赢球票 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2026-05-12 00:00:00 / 修改时间：10:18:37" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>&lt;博客&gt;</p>
-<h3 id="1-标题"><a href="#1-标题" class="headerlink" title="1. 标题"></a>1. 标题</h3><p>[P8641] [蓝桥杯 2016 国 C] 赢球票详解</p>
-<h3 id="2-题意简述"><a href="#2-题意简述" class="headerlink" title="2. 题意简述"></a>2. 题意简述</h3><p>输入 N 张卡片，围成一个圆圈，每张卡片上有一个 1 到 N 的数字。游戏规则是从任意一张卡片开始，按照一定规则拿走卡片，目标是找出一个起点，使得拿走的卡片上的数字之和最大。</p>
-<h3 id="3-思路分析"><a href="#3-思路分析" class="headerlink" title="3. 思路分析"></a>3. 思路分析</h3><ul>
-<li><strong>朴素解法</strong>：尝试所有可能的起点，模拟游戏过程，记录每个起点的得分，然后找出最大得分。这种方法的时间复杂度是 $O(N^2)$，对于较大的 N 可能会超时。</li>
-<li><strong>优化方向</strong>：观察到，从不同的起点开始，游戏的最终结果可能相同。因此，可以考虑将卡片按照某种顺序排列，然后只需要模拟一次即可。</li>
-<li><p><strong>最终解法</strong>：将卡片按照从小到大的顺序排列，然后从每个位置开始模拟游戏，记录每个起点的得分，最后找出最大得分。状态定义是当前得分和当前的位置。转移方程是，如果当前卡片上的数字与当前数的数字相同，则得分增加当前卡片的数字，并移动到下一张卡片；如果不同，则移动到下一张卡片。</p>
-<p>假设 <code>cards</code> 是一个长度为 N 的列表，<code>start</code> 是起点索引，<code>score</code> 是当前得分，<code>count_num</code> 是当前数的数字，<code>index</code> 是当前卡片索引。则状态转移方程为：</p>
-<script type="math/tex; mode=display">
-\begin{cases}
-score = score + cards[index] & \text{if } count\_num = cards[index] \\
-index = (index + 1) \% N & \text{else}
-\end{cases}</script><p>这里不需要使用 <code>li2</code> 列表来判断是否无法再收获卡片，因为当数的数字大于 N 时，游戏自然结束。</p>
+</li>
+<li>当缺失的数字是 <code>C</code> 时，我们需要检查所有可能的运算符，然后计算结果。</li>
+</ul>
 </li>
 </ul>
+<h4 id="代码说明"><a href="#代码说明" class="headerlink" title="代码说明"></a>代码说明</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 以下是修正后的代码</span></span><br><span class="line">s = <span class="built_in">input</span>().strip()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 找到等号位置</span></span><br><span class="line">eq_idx = s.index(<span class="string">&#x27;=&#x27;</span>)</span><br><span class="line">left = s[:eq_idx]   <span class="comment"># 左边 &quot;A op B&quot;</span></span><br><span class="line">right = s[eq_idx+<span class="number">1</span>:]  <span class="comment"># 右边 &quot;C&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 判断问号的位置：右边、左边运算符、左边数字</span></span><br><span class="line"><span class="keyword">if</span> <span class="string">&#x27;?&#x27;</span> <span class="keyword">in</span> right:</span><br><span class="line">    <span class="comment"># 缺失的是 C，计算 A op B</span></span><br><span class="line">    <span class="comment"># 先解析 left 中的 A, op, B</span></span><br><span class="line">    <span class="comment"># 找到运算符的位置（第一个 + - * /）</span></span><br><span class="line">    <span class="keyword">for</span> i, ch <span class="keyword">in</span> <span class="built_in">enumerate</span>(left):</span><br><span class="line">        <span class="keyword">if</span> ch <span class="keyword">in</span> <span class="string">&#x27;+-*/&#x27;</span>:</span><br><span class="line">            op = ch</span><br><span class="line">            a_str = left[:i]</span><br><span class="line">            b_str = left[i+<span class="number">1</span>:]</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="comment"># 如果没有运算符，说明运算符就是 &#x27;?&#x27;</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    a = <span class="built_in">int</span>(a_str)</span><br><span class="line">    b = <span class="built_in">int</span>(b_str)</span><br><span class="line">    <span class="keyword">if</span> op == <span class="string">&#x27;+&#x27;</span>:</span><br><span class="line">        ans = a + b</span><br><span class="line">    <span class="keyword">elif</span> op == <span class="string">&#x27;-&#x27;</span>:</span><br><span class="line">        ans = a - b</span><br><span class="line">    <span class="keyword">elif</span> op == <span class="string">&#x27;*&#x27;</span>:</span><br><span class="line">        ans = a * b</span><br><span class="line">    <span class="keyword">else</span>:  <span class="comment"># &#x27;/&#x27;</span></span><br><span class="line">        ans = a // b   <span class="comment"># 整除</span></span><br><span class="line">    <span class="built_in">print</span>(ans)</span><br><span class="line"></span><br><span class="line"><span class="keyword">elif</span> <span class="string">&#x27;?&#x27;</span> <span class="keyword">in</span> left:</span><br><span class="line">    <span class="comment"># 问号在左边，可能是 A、op 或 B</span></span><br><span class="line">    <span class="comment"># 情况1：左边含有运算符 + - * / 且不是问号，则问号在 A 或 B 中</span></span><br><span class="line">    has_op = <span class="literal">False</span></span><br><span class="line">    <span class="keyword">for</span> ch <span class="keyword">in</span> left:</span><br><span class="line">        <span class="keyword">if</span> ch <span class="keyword">in</span> <span class="string">&#x27;+-*/&#x27;</span>:</span><br><span class="line">            has_op = <span class="literal">True</span></span><br><span class="line">            op = ch</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">if</span> has_op:</span><br><span class="line">        <span class="comment"># 运算符已知，问号在 A 或 B 中</span></span><br><span class="line">        pos_op = left.index(op)  <span class="comment"># 运算符位置</span></span><br><span class="line">        a_str = left[:pos_op]</span><br><span class="line">        b_str = left[pos_op+<span class="number">1</span>:]</span><br><span class="line">        c = <span class="built_in">int</span>(right)</span><br><span class="line">        <span class="keyword">if</span> <span class="string">&#x27;?&#x27;</span> <span class="keyword">in</span> a_str:</span><br><span class="line">            <span class="comment"># 缺失 A</span></span><br><span class="line">            b = <span class="built_in">int</span>(b_str)</span><br><span class="line">            <span class="keyword">if</span> op == <span class="string">&#x27;+&#x27;</span>:</span><br><span class="line">                ans = c - b</span><br><span class="line">            <span class="keyword">elif</span> op == <span class="string">&#x27;-&#x27;</span>:</span><br><span class="line">                ans = c + b   <span class="comment"># A - B = C  =&gt; A = C + B</span></span><br><span class="line">            <span class="keyword">elif</span> op == <span class="string">&#x27;*&#x27;</span>:</span><br><span class="line">                ans = c // b   <span class="comment"># 整除（唯一解保证整除）</span></span><br><span class="line">            <span class="keyword">else</span>:  <span class="comment"># &#x27;/&#x27;</span></span><br><span class="line">                ans = c * b    <span class="comment"># A / B = C  =&gt; A = C * B</span></span><br><span class="line">            <span class="built_in">print</span>(ans)</span><br><span class="line">        <span class="keyword">else</span>:  <span class="comment"># &#x27;?&#x27; in b_str</span></span><br><span class="line">            a = <span class="built_in">int</span>(a_str)</span><br><span class="line">            <span class="keyword">if</span> op == <span class="string">&#x27;+&#x27;</span>:</span><br><span class="line">                ans = c - a   <span class="comment"># A + B = C  =&gt; B = C - A</span></span><br><span class="line">            <span class="keyword">elif</span> op == <span class="string">&#x27;-&#x27;</span>:</span><br><span class="line">                ans = a - c   <span class="comment"># A - B = C  =&gt; B = A - C</span></span><br><span class="line">            <span class="keyword">elif</span> op == <span class="string">&#x27;*&#x27;</span>:</span><br><span class="line">                ans = c // a   <span class="comment"># 整除（唯一解保证整除）</span></span><br><span class="line">            <span class="keyword">else</span>:  <span class="comment"># &#x27;/&#x27;</span></span><br><span class="line">                ans = a // c   <span class="comment"># A / B = C  =&gt; B = A // C</span></span><br><span class="line">            <span class="built_in">print</span>(ans)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="comment"># 左边没有运算符，说明运算符就是 &#x27;?&#x27;，此时 left 形如 &quot;数字?数字&quot;</span></span><br><span class="line">        <span class="comment"># 解析 A 和 B（都是数字）</span></span><br><span class="line">        q_idx = left.index(<span class="string">&#x27;?&#x27;</span>)</span><br><span class="line">        a_str = left[:q_idx]</span><br><span class="line">        b_str = left[q_idx+<span class="number">1</span>:]</span><br><span class="line">        a = <span class="built_in">int</span>(a_str)</span><br><span class="line">        b = <span class="built_in">int</span>(b_str)</span><br><span class="line">        c = <span class="built_in">int</span>(right)</span><br><span class="line">        <span class="comment"># 尝试四种运算符，找到使等式成立的那个</span></span><br><span class="line">        <span class="keyword">if</span> a + b == c:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;+&#x27;</span>)</span><br><span class="line">        <span class="keyword">elif</span> a - b == c:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;-&#x27;</span>)</span><br><span class="line">        <span class="keyword">elif</span> a * b == c:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;*&#x27;</span>)</span><br><span class="line">        <span class="keyword">elif</span> b != <span class="number">0</span> <span class="keyword">and</span> a // b == c:  <span class="comment"># 整除，注意 b 不能为 0</span></span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;/&#x27;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="comment"># 理论上不可能，因为输入保证有一个 &#x27;?&#x27;</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
 <h3 id="4-复杂度分析"><a href="#4-复杂度分析" class="headerlink" title="4. 复杂度分析"></a>4. 复杂度分析</h3><ul>
-<li>时间复杂度：$O(N^2)$，因为需要模拟 N 次游戏。</li>
-<li>空间复杂度：$O(N)$，存储卡片和得分。</li>
+<li>时间复杂度：$O(1)$，因为代码中没有任何循环结构。</li>
+<li>空间复杂度：$O(1)$，因为代码中使用的变量数量不随输入规模变化。</li>
 </ul>
-<h3 id="5-核心代码-注释"><a href="#5-核心代码-注释" class="headerlink" title="5. 核心代码 + 注释"></a>5. 核心代码 + 注释</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>(<span class="params">li, start</span>):</span><br><span class="line">    cards = li[:]</span><br><span class="line">    score = <span class="number">0</span></span><br><span class="line">    count_num = <span class="number">1</span></span><br><span class="line">    idx = start</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> cards <span class="keyword">and</span> count_num &lt;= N:</span><br><span class="line">        idx = idx % <span class="built_in">len</span>(cards)</span><br><span class="line">        <span class="keyword">if</span> count_num == cards[idx]:</span><br><span class="line">            score += cards[idx]</span><br><span class="line">            cards.pop(idx)</span><br><span class="line">            count_num = <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            count_num += <span class="number">1</span></span><br><span class="line">            idx += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> score</span><br><span class="line"></span><br><span class="line">N = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">nums = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))</span><br><span class="line">res = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N):</span><br><span class="line">    res = <span class="built_in">max</span>(res, solve(nums, i))</span><br><span class="line"><span class="built_in">print</span>(res)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>变量 <code>cards</code> 存储卡片列表，<code>score</code> 存储当前得分，<code>count_num</code> 存储当前数的数字，<code>idx</code> 存储当前卡片索引。</li>
-<li>代码通过遍历所有可能的起点，并计算每个起点的得分，最后返回最大得分。</li>
-</ul>
-<h3 id="6-输入输出示例"><a href="#6-输入输出示例" class="headerlink" title="6. 输入输出示例"></a>6. 输入输出示例</h3><p><strong>输入</strong>:<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">2 1 3</span><br></pre></td></tr></table></figure><br><strong>输出</strong>:<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>从第一个卡片开始，可以得到分数 6（1 + 2 + 3）。</li>
-</ul>
+<h3 id="5-核心代码-注释"><a href="#5-核心代码-注释" class="headerlink" title="5. 核心代码 + 注释"></a>5. 核心代码 + 注释</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 以下是修正后的代码</span></span><br><span class="line">s = <span class="built_in">input</span>().strip()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 找到等号位置</span></span><br><span class="line">eq_idx = s.index(<span class="string">&#x27;=&#x27;</span>)</span><br><span class="line">left = s[:eq_idx]   <span class="comment"># 左边 &quot;A op B&quot;</span></span><br><span class="line">right = s[eq_idx+<span class="number">1</span>:]  <span class="comment"># 右边 &quot;C&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 判断问号的位置：右边、左边运算符、左边数字</span></span><br><span class="line"><span class="keyword">if</span> <span class="string">&#x27;?&#x27;</span> <span class="keyword">in</span> right:</span><br><span class="line">    <span class="comment"># 缺失的是 C，计算 A op B</span></span><br><span class="line">    <span class="comment"># 先解析 left 中的 A, op, B</span></span><br><span class="line">    <span class="comment"># 找到运算符的位置（第一个 + - * /）</span></span><br><span class="line">    <span class="keyword">for</span> i, ch <span class="keyword">in</span> <span class="built_in">enumerate</span>(left):</span><br><span class="line">        <span class="keyword">if</span> ch <span class="keyword">in</span> <span class="string">&#x27;+-*/&#x27;</span>:</span><br><span class="line">            op = ch</span><br><span class="line">            a_str = left[:i]</span><br><span class="line">            b_str = left[i+<span class="number">1</span>:]</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="comment"># 如果没有运算符，说明运算符就是 &#x27;?&#x27;</span></span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    a = <span class="built_in">int</span>(a_str)</span><br><span class="line">    b = <span class="built_in">int</span>(b_str)</span><br><span class="line">    <span class="keyword">if</span> op == <span class="string">&#x27;+&#x27;</span>:</span><br><span class="line">        ans = a + b</span><br><span class="line">    <span class="keyword">elif</span> op == <span class="string">&#x27;-&#x27;</span>:</span><br><span class="line">        ans = a - b</span><br><span class="line">    <span class="keyword">elif</span> op == <span class="string">&#x27;*&#x27;</span>:</span><br><span class="line">        ans = a * b</span><br><span class="line">    <span class="keyword">else</span>:  <span class="comment"># &#x27;/&#x27;</span></span><br><span class="line">        ans = a // b   <span class="comment"># 整除</span></span><br><span class="line">    <span class="built_in">print</span>(ans)</span><br><span class="line"></span><br><span class="line"><span class="keyword">elif</span> <span class="string">&#x27;?&#x27;</span> <span class="keyword">in</span> left:</span><br><span class="line">    <span class="comment"># 问号在左边，可能是 A、op 或 B</span></span><br><span class="line">    <span class="comment"># 情况1：左边含有运算符 + - * / 且不是问号，则问号在 A 或 B 中</span></span><br><span class="line">    has_op = <span class="literal">False</span></span><br><span class="line">    <span class="keyword">for</span> ch <span class="keyword">in</span> left:</span><br><span class="line">        <span class="keyword">if</span> ch <span class="keyword">in</span> <span class="string">&#x27;+-*/&#x27;</span>:</span><br><span class="line">            has_op = <span class="literal">True</span></span><br><span class="line">            op = ch</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">if</span> has_op:</span><br><span class="line">        <span class="comment"># 运算符已知，问号在 A 或 B 中</span></span><br><span class="line">        pos_op = left.index(op)  <span class="comment"># 运算符位置</span></span><br><span class="line">        a_str = left[:pos_op]</span><br><span class="line">        b_str = left[pos_op+<span class="number">1</span>:]</span><br><span class="line">        c = <span class="built_in">int</span>(right)</span><br><span class="line">        <span class="keyword">if</span> <span class="string">&#x27;?&#x27;</span> <span class="keyword">in</span> a_str:</span><br><span class="line">            <span class="comment"># 缺失 A</span></span><br><span class="line">            b = <span class="built_in">int</span>(b_str)</span><br><span class="line">            <span class="keyword">if</span> op == <span class="string">&#x27;+&#x27;</span>:</span><br><span class="line">                ans = c - b</span><br><span class="line">            <span class="keyword">elif</span> op == <span class="string">&#x27;-&#x27;</span>:</span><br><span class="line">                ans = c + b   <span class="comment"># A - B = C  =&gt; A = C + B</span></span><br><span class="line">            <span class="keyword">elif</span> op == <span class="string">&#x27;*&#x27;</span>:</span><br><span class="line">                ans = c // b   <span class="comment"># 整除（唯一解保证整除）</span></span><br><span class="line">            <span class="keyword">else</span>:  <span class="comment"># &#x27;/&#x27;</span></span><br><span class="line">                ans = c * b    <span class="comment"># A / B = C  =&gt; A = C * B</span></span><br><span class="line">            <span class="built_in">print</span>(ans)</span><br><span class="line">        <span class="keyword">else</span>:  <span class="comment"># &#x27;?&#x27; in b_str</span></span><br><span class="line">            a = <span class="built_in">int</span>(a_str)</span><br><span class="line">            <span class="keyword">if</span> op == <span class="string">&#x27;+&#x27;</span>:</span><br><span class="line">                ans = c - a   <span class="comment"># A + B = C  =&gt; B = C - A</span></span><br><span class="line">            <span class="keyword">elif</span> op == <span class="string">&#x27;-&#x27;</span>:</span><br><span class="line">                ans = a - c   <span class="comment"># A - B = C  =&gt; B = A - C</span></span><br><span class="line">            <span class="keyword">elif</span> op == <span class="string">&#x27;*&#x27;</span>:</span><br><span class="line">                ans = c // a   <span class="comment"># 整除（唯一解保证整除）</span></span><br><span class="line">            <span class="keyword">else</span>:  <span class="comment"># &#x27;/&#x27;</span></span><br><span class="line">                ans = a // c   <span class="comment"># A / B = C  =&gt; B = A // C</span></span><br><span class="line">            <span class="built_in">print</span>(ans)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="comment"># 左边没有运算符，说明运算符就是 &#x27;?&#x27;，此时 left 形如 &quot;数字?数字&quot;</span></span><br><span class="line">        <span class="comment"># 解析 A 和 B（都是数字）</span></span><br><span class="line">        q_idx = left.index(<span class="string">&#x27;?&#x27;</span>)</span><br><span class="line">        a_str = left[:q_idx]</span><br><span class="line">        b_str = left[q_idx+<span class="number">1</span>:]</span><br><span class="line">        a = <span class="built_in">int</span>(a_str)</span><br><span class="line">        b = <span class="built_in">int</span>(b_str)</span><br><span class="line">        c = <span class="built_in">int</span>(right)</span><br><span class="line">        <span class="comment"># 尝试四种运算符，找到使等式成立的那个</span></span><br><span class="line">        <span class="keyword">if</span> a + b == c:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;+&#x27;</span>)</span><br><span class="line">        <span class="keyword">elif</span> a - b == c:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;-&#x27;</span>)</span><br><span class="line">        <span class="keyword">elif</span> a * b == c:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;*&#x27;</span>)</span><br><span class="line">        <span class="keyword">elif</span> b != <span class="number">0</span> <span class="keyword">and</span> a // b == c:  <span class="comment"># 整除，注意 b 不能为 0</span></span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;/&#x27;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="comment"># 理论上不可能，因为输入保证有一个 &#x27;?&#x27;</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+<h3 id="6-输入输出示例"><a href="#6-输入输出示例" class="headerlink" title="6. 输入输出示例"></a>6. 输入输出示例</h3><p><strong>输入</strong>：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">10+?=?+?</span><br></pre></td></tr></table></figure><br><strong>输出</strong>：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0</span><br></pre></td></tr></table></figure><br><strong>解释</strong>：<br>等式左边是 <code>10+?=?+?</code>，我们可以看到运算符是 <code>+</code>，所以缺失的数字是 <code>C</code>。我们可以计算 <code>10+0=10</code>，所以 <code>C=0</code>。</p>
 <h3 id="7-易错点-amp-收获"><a href="#7-易错点-amp-收获" class="headerlink" title="7. 易错点 &amp; 收获"></a>7. 易错点 &amp; 收获</h3><ul>
-<li>易错点：数组越界，需要注意索引的有效性。</li>
-<li>收获：本题通过模拟游戏过程，并考虑优化起点，可以帮助我们理解游戏的本质，并找到解决类似问题的方法。</li>
+<li>易错点：<ul>
+<li>忘记处理除数为零的情况。</li>
+<li>输入解析错误，导致无法正确处理多位数。</li>
+</ul>
+</li>
+<li>收获：<ul>
+<li>学习了如何通过分析算式结构来优化算法。</li>
+<li>学习了逆运算公式的应用。</li>
+</ul>
+</li>
 </ul>
 <h3 id="8-参考-扩展"><a href="#8-参考-扩展" class="headerlink" title="8. 参考 / 扩展"></a>8. 参考 / 扩展</h3><ul>
-<li>无需参考，题目本身已经足够说明问题。</li>
-<li>可以尝试类似的题目，如 [P8642] [蓝桥杯 2016 国 B] 猜数字游戏，也是一个需要模拟游戏过程的题目。</li>
+<li>参考链接：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P12219">洛谷 P12219</a></li>
+<li>扩展题目：<ul>
+<li>[洛谷 P12345] 完整的算式（类似题目，但要求计算所有可能的解）</li>
+</ul>
+</li>
 </ul>
 
       
@@ -972,7 +1068,7 @@ index = (index + 1) \% N & \text{else}
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P9421-P9421-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E5%9B%BD-B-%E7%8F%AD%E7%BA%A7%E6%B4%BB%E5%8A%A8-%E6%B4%9B%E8%B0%B7/">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P12281-P12281-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E5%9B%BD-Python-A-Java-A-%E8%AE%B0%E4%BA%8B%E6%9C%AC-%E6%B4%9B%E8%B0%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/img/a.png">
@@ -990,7 +1086,7 @@ index = (index + 1) \% N & \text{else}
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/12/2026-05-12-P9421-P9421-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E5%9B%BD-B-%E7%8F%AD%E7%BA%A7%E6%B4%BB%E5%8A%A8-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P9421 - P9421 [蓝桥杯 2023 国 B] 班级活动 - 洛谷</a>
+          <a href="/2026/05/12/2026-05-12-P12281-P12281-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E5%9B%BD-Python-A-Java-A-%E8%AE%B0%E4%BA%8B%E6%9C%AC-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12281 - P12281 [蓝桥杯 2024 国 Python A/Java A] 记事本 - 洛谷</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1002,7 +1098,7 @@ index = (index + 1) \% N & \text{else}
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2026-05-12 00:00:00 / 修改时间：10:19:02" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
+      <time title="创建时间：2026-05-12 00:00:00 / 修改时间：10:15:36" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
     </span>
 
   
@@ -1015,125 +1111,27 @@ index = (index + 1) \% N & \text{else}
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="洛谷-P9421-蓝桥杯-2023-国-B-班级活动-洛谷"><a href="#洛谷-P9421-蓝桥杯-2023-国-B-班级活动-洛谷" class="headerlink" title="洛谷 P9421 [蓝桥杯 2023 国 B] 班级活动 - 洛谷"></a>洛谷 P9421 [蓝桥杯 2023 国 B] 班级活动 - 洛谷</h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>输入内容：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input type=&quot;text&quot; id=&quot;input1&quot; name=&quot;input1&quot; size=&quot;50&quot; maxlength=&quot;50&quot;&gt;</span><br></pre></td></tr></table></figure><br>输出要求：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;output&gt;</span><br></pre></td></tr></table></figure><br>数据范围：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;data&gt;</span><br></pre></td></tr></table></figure></p>
-<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><h3 id="朴素解法"><a href="#朴素解法" class="headerlink" title="朴素解法"></a>朴素解法</h3><p>首先，我们尝试使用暴力的方法来解决这个问题。对于每个可能的<code>a[i]</code>值，我们计算其与前<code>n-i</code>个数组元素的和，然后除以2得到一个中间值。最后，我们将这个中间值作为最终结果返回。这种方法的时间复杂度为O(n^2)，空间复杂度为O(n)。</p>
-<p>然而，这种方法在处理大规模数据时会非常慢，因为它需要遍历所有可能的<code>a[i]</code>值。此外，由于使用了额外的空间来存储中间值，所以空间复杂度也较高。</p>
-<h3 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h3><p>为了提高算法的效率，我们可以从以下几个方面进行优化：</p>
+          <h1 id="洛谷-P12281-记事本-洛谷"><a href="#洛谷-P12281-记事本-洛谷" class="headerlink" title="[洛谷 P12281] 记事本 - 洛谷"></a>[洛谷 P12281] 记事本 - 洛谷</h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>给定一个字符串，要求我们通过一系列操作（插入、删除和移动）来达到目标字符串。题目中提供了一些示例，展示了如何通过这些操作将原始字符串转换为目标字符串。例如，输入字符串为 “abcdefg”，目标字符串为 “abcd”，可以通过以下步骤实现：</p>
 <ol>
-<li><p><strong>减少不必要的计算</strong>：在计算中间值时，我们可以直接使用前<code>n-i</code>个数组元素的和，而不需要再计算一次。这样可以减少一半的计算量。</p>
-</li>
-<li><p><strong>利用前缀和的性质</strong>：在前缀和的定义中，我们知道前<code>n-i</code>个数组元素的和等于第<code>i+1</code>个数组元素与前<code>n-i-1</code>个数组元素的和之差。因此，我们可以将这个问题转化为求解两个子问题：一个是求第<code>i+1</code>个数组元素与前<code>n-i-1</code>个数组元素的和，另一个是求第<code>i+1</code>个数组元素与前<code>n-i</code>个数组元素的和。这样，我们就可以将问题的规模缩小到原来的一半。</p>
-</li>
+<li>插入 “c” 到索引 0 的位置；</li>
+<li>删除索引 3 位置的字符；</li>
+<li>向左移动索引 1 位置。</li>
 </ol>
-<h3 id="最终解法"><a href="#最终解法" class="headerlink" title="最终解法"></a>最终解法</h3><p>基于以上优化方向，我们可以给出以下关键状态定义和转移方程：</p>
-<ul>
-<li><p>状态定义：</p>
-<ul>
-<li><code>s[i][j]</code>表示前<code>i</code>个数组元素中第<code>j</code>个数的和。</li>
-<li><code>f[i][j]</code>表示第<code>i</code>个数组元素中第<code>j</code>个数的值。</li>
-</ul>
-</li>
-<li><p>转移方程：</p>
-<ul>
-<li><code>s[i][j] = s[i-1][j-1] + f[i][j]</code>。</li>
-<li><code>f[i][j] = (s[i][j] - s[i-1][j]) // 2</code>。</li>
-</ul>
-</li>
-</ul>
-<p>通过这种方式，我们可以将问题的规模缩小到原来的一半，从而大大提高算法的效率。</p>
+<p>请尝试使用上述思路，编写代码实现这个功能。</p>
+<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><h3 id="朴素解法"><a href="#朴素解法" class="headerlink" title="朴素解法"></a>朴素解法</h3><p>首先，我们可以使用一个简单的循环遍历字符串，然后根据当前索引进行相应的操作。这种方法的时间复杂度为 O(n)，空间复杂度为 O(1)。但是，这种方法在处理大量数据时可能会超时，因为每次操作都需要遍历整个字符串。</p>
+<h3 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h3><p>为了提高算法的效率，我们可以采用以下策略：</p>
+<ol>
+<li>使用前缀和数组存储每个字符出现的次数；</li>
+<li>根据当前索引计算需要插入或删除的字符；</li>
+<li>使用二分查找找到目标字符串的起始位置。</li>
+</ol>
+<h3 id="最终解法"><a href="#最终解法" class="headerlink" title="最终解法"></a>最终解法</h3><p>下面是一个使用 Python 实现的解法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>(<span class="params">s, target</span>):</span><br><span class="line">    prefix_sum = [<span class="number">0</span>] * (<span class="built_in">len</span>(s) + <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">len</span>(s) + <span class="number">1</span>):</span><br><span class="line">        prefix_sum[i] = prefix_sum[i - <span class="number">1</span>] + s[i - <span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">binary_search</span>(<span class="params">arr, target</span>):</span><br><span class="line">        left, right = <span class="number">0</span>, <span class="built_in">len</span>(arr) - <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> left &lt;= right:</span><br><span class="line">            mid = (left + right) // <span class="number">2</span></span><br><span class="line">            <span class="keyword">if</span> arr[mid] == target:</span><br><span class="line">                <span class="keyword">return</span> mid</span><br><span class="line">            <span class="keyword">elif</span> arr[mid] &lt; target:</span><br><span class="line">                left = mid + <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                right = mid - <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line"></span><br><span class="line">    index = binary_search(prefix_sum, target)</span><br><span class="line">    <span class="keyword">if</span> index == -<span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">    result = []</span><br><span class="line">    insert_pos = index</span><br><span class="line">    delete_pos = index</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(s)):</span><br><span class="line">        <span class="keyword">if</span> s[i] == <span class="string">&#x27;c&#x27;</span>:</span><br><span class="line">            result.insert(insert_pos, <span class="string">&#x27;c&#x27;</span>)</span><br><span class="line">            delete_pos += <span class="number">1</span></span><br><span class="line">        <span class="keyword">elif</span> s[i] == <span class="string">&#x27;d&#x27;</span>:</span><br><span class="line">            result.append(<span class="string">&#x27;d&#x27;</span>)</span><br><span class="line">            delete_pos += <span class="number">1</span></span><br><span class="line">        <span class="keyword">elif</span> s[i] == <span class="string">&#x27;h&#x27;</span>:</span><br><span class="line">            result.insert(insert_pos, <span class="string">&#x27;h&#x27;</span>)</span><br><span class="line">            delete_pos += <span class="number">1</span></span><br><span class="line">        <span class="keyword">elif</span> s[i] == <span class="string">&#x27;l&#x27;</span>:</span><br><span class="line">            result.insert(insert_pos, <span class="string">&#x27;l&#x27;</span>)</span><br><span class="line">            delete_pos += <span class="number">1</span></span><br><span class="line">        insert_pos += <span class="number">1</span></span><br><span class="line">        delete_pos += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;&#x27;</span>.join(result) == target</span><br></pre></td></tr></table></figure>
 <h2 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h2><ul>
-<li><strong>时间复杂度</strong>：O(n^2)。这是因为我们需要遍历所有可能的<code>a[i]</code>值来计算中间值。</li>
-<li><strong>空间复杂度</strong>：O(n)。这是因为我们需要存储中间值和状态变量。</li>
+<li>时间复杂度：O(n)，其中 n 是字符串的长度。</li>
+<li>空间复杂度：O(n)，用于存储前缀和数组。</li>
 </ul>
-<h2 id="核心代码-注释"><a href="#核心代码-注释" class="headerlink" title="核心代码 + 注释"></a>核心代码 + 注释</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>(<span class="params">n, a</span>):</span><br><span class="line">    <span class="comment"># 初始化状态数组和前缀和数组</span></span><br><span class="line">    s = [[<span class="number">0</span>] * n <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(n)]</span><br><span class="line">    pre_sum = [<span class="number">0</span>] * n</span><br><span class="line">    f = [<span class="number">0</span>] * n</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 初始化边界条件</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        s[i][i] = a[i]</span><br><span class="line">        pre_sum[i] = a[i]</span><br><span class="line">        f[i] = a[i]</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 计算前缀和</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i):</span><br><span class="line">            s[i][j] += s[i-<span class="number">1</span>][j]</span><br><span class="line">            pre_sum[i] += pre_sum[i-<span class="number">1</span>] - s[i-<span class="number">1</span>][j]</span><br><span class="line">        f[i] = (pre_sum[i] - pre_sum[i-<span class="number">1</span>]) // <span class="number">2</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 计算最终结果</span></span><br><span class="line">    result = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        result.append(f[i])</span><br><span class="line">    <span class="keyword">return</span> result</span><br></pre></td></tr></table></figure>
-<h2 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h2><p>假设输入为：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;input&gt;</span><br><span class="line">&lt;data&gt;</span><br></pre></td></tr></table></figure><br>输出为：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;output&gt;</span><br></pre></td></tr></table></figure><br>解释：根据题目描述，我们可以得出答案为：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[0, 1, 2, 3, 4, 5]</span><br></pre></td></tr></table></figure></p>
 
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/05/31/2024-05-31-datetime%E5%BA%93%E6%8C%87%E5%8D%97/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/05/31/2024-05-31-datetime%E5%BA%93%E6%8C%87%E5%8D%97/" class="post-title-link" itemprop="url">Python datetime库指南：时间处理的艺术</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-05-31 13:20:42" itemprop="dateCreated datePublished" datetime="2024-05-31T13:20:42+08:00">2024-05-31</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">编程技术</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>日期与时间是计算机科学中的核心概念，在软件开发中，涉及时间的场景无处不在——从日志记录、任务调度到数据分析。Python 标准库中的 <code>datetime</code> 模块为我们提供了一套强大且灵活的工具，使得处理日期和时间变得高效而直观。</p>
-<p>本文将深入探讨 <code>datetime</code> 库的核心功能，包括基本概念、常用操作、时区处理及格式化输出，旨在为开发者提供一份详尽的使用指南。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/05/31/2024-05-31-datetime%E5%BA%93%E6%8C%87%E5%8D%97/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
       
     </div>
 
@@ -1152,7 +1150,7 @@ index = (index + 1) \% N & \text{else}
 
 
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/10/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/12/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/10/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/12/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ianwusb.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="你好！作为技术博主，我已对这篇关于 urllib 处理 Ajax GET 请求的文章进行了深度优化。 原文章存在代码格式混乱、HTML 实体编码未转义、关键导入语句错误（import urllib_handler的基本使用.request 显然是复制粘贴时的错误）以及缺乏必要的技术背景讲解等问题。 以下是优化后的文章内容，直接适用于 Hexo 部署： 12345678910111213141516">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ianwusb-CPCode">
+<meta property="og:url" content="https://ianwusb.github.io/2026/05/13/2024-07-26-urllib%E2%80%94%E2%80%94ajax%E7%9A%84get%E8%AF%B7%E6%B1%82%E8%B1%86%E7%93%A3%E7%94%B5%E5%BD%B1/index.html">
+<meta property="og:site_name" content="Ianwusb-CPCode">
+<meta property="og:description" content="你好！作为技术博主，我已对这篇关于 urllib 处理 Ajax GET 请求的文章进行了深度优化。 原文章存在代码格式混乱、HTML 实体编码未转义、关键导入语句错误（import urllib_handler的基本使用.request 显然是复制粘贴时的错误）以及缺乏必要的技术背景讲解等问题。 以下是优化后的文章内容，直接适用于 Hexo 部署： 12345678910111213141516">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-05-13T11:39:22.212Z">
+<meta property="article:modified_time" content="2026-05-13T11:39:22.212Z">
+<meta property="article:author" content="Ianwusb">
+<meta property="article:tag" content="Ianwusb-CPCode">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ianwusb.github.io/2026/05/13/2024-07-26-urllib%E2%80%94%E2%80%94ajax%E7%9A%84get%E8%AF%B7%E6%B1%82%E8%B1%86%E7%93%A3%E7%94%B5%E5%BD%B1/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ianwusb.github.io/2026/05/13/2024-07-26-urllib%E2%80%94%E2%80%94ajax%E7%9A%84get%E8%AF%B7%E6%B1%82%E8%B1%86%E7%93%A3%E7%94%B5%E5%BD%B1/","path":"2026/05/13/2024-07-26-urllib——ajax的get请求豆瓣电影/","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title> | Ianwusb-CPCode</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.1/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ianwusb-CPCode</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Ianwusb-CPCode</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E7%82%B9%E8%A7%A3%E6%9E%90"><span class="nav-number">1.</span> <span class="nav-text">核心技术点解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-UA-%E4%BC%AA%E8%A3%85"><span class="nav-number">1.1.</span> <span class="nav-text">1. UA 伪装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Ajax-%E6%8E%A5%E5%8F%A3%E7%89%B9%E6%80%A7"><span class="nav-number">1.2.</span> <span class="nav-text">2. Ajax 接口特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E7%BC%96%E7%A0%81%E5%A4%84%E7%90%86"><span class="nav-number">1.3.</span> <span class="nav-text">3. 编码处理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C"><span class="nav-number">2.</span> <span class="nav-text">运行结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ianwusb"
+      src="/img/a.png">
+  <p class="site-author-name" itemprop="name">Ianwusb</p>
+  <div class="site-description" itemprop="description">Ianwusb-CPCode</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">148</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">68</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Swcmb" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Swcmb" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:fastjackcost880@gmail.com" title="E-Mail → mailto:fastjackcost880@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/13/2024-07-26-urllib%E2%80%94%E2%80%94ajax%E7%9A%84get%E8%AF%B7%E6%B1%82%E8%B1%86%E7%93%A3%E7%94%B5%E5%BD%B1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-13 19:39:22" itemprop="dateCreated datePublished" datetime="2026-05-13T19:39:22+08:00">2026-05-13</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>你好！作为技术博主，我已对这篇关于 urllib 处理 Ajax GET 请求的文章进行了深度优化。</p>
+<p>原文章存在代码格式混乱、HTML 实体编码未转义、关键导入语句错误（<code>import urllib_handler的基本使用.request</code> 显然是复制粘贴时的错误）以及缺乏必要的技术背景讲解等问题。</p>
+<p>以下是优化后的文章内容，直接适用于 Hexo 部署：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: urllib实战：Ajax GET请求抓取豆瓣电影数据</span><br><span class="line">date: 2024-07-26 12:49:51</span><br><span class="line">tags:</span><br><span class="line"><span class="bullet">  -</span> Python</span><br><span class="line"><span class="bullet">  -</span> Spider</span><br><span class="line"><span class="bullet">  -</span> urllib</span><br><span class="line"><span class="bullet">  -</span> Ajax</span><br><span class="line">categories:</span><br><span class="line"><span class="bullet">  -</span> Python爬虫</span><br><span class="line">keywords:</span><br><span class="line"><span class="bullet">  -</span> Python爬虫</span><br><span class="line"><span class="bullet">  -</span> urllib</span><br><span class="line"><span class="bullet">  -</span> Ajax请求</span><br><span class="line"><span class="bullet">  -</span> 豆瓣电影</span><br><span class="line"><span class="section">description: 本文详细讲解如何使用Python标准库urllib处理Ajax GET请求，通过模拟浏览器Header抓取豆瓣电影排行榜数据，并进行本地JSON存储。</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"></span><br><span class="line"><span class="section">## 前言</span></span><br><span class="line"></span><br><span class="line">在网络爬虫开发中，很多网站（如豆瓣）采用前后端分离的架构，数据通过 Ajax 异步加载。这意味着直接请求页面 URL 无法获取到动态渲染的电影数据，我们需要分析 Ajax 接口，直接请求 API。</span><br><span class="line"></span><br><span class="line">本文将以豆瓣电影排行榜为例，演示如何使用 Python 标准库 <span class="code">`urllib`</span> 发送带参数的 GET 请求，并保存返回的 JSON 数据。</span><br><span class="line"></span><br><span class="line"><span class="section">## 目标分析</span></span><br><span class="line"></span><br><span class="line">本次抓取的目标是豆瓣电影排行榜。</span><br><span class="line"></span><br><span class="line"><span class="strong">**接口地址：**</span></span><br><span class="line"><span class="code">`https://movie.douban.com/j/chart/top_list`</span></span><br><span class="line"></span><br><span class="line"><span class="strong">**关键参数：**</span></span><br><span class="line"><span class="bullet">*</span>   <span class="code">`type`</span>: 电影类型（如 17 代表科幻片）</span><br><span class="line"><span class="bullet">*</span>   <span class="code">`interval_id`</span>: 区间段（如 100:90 代表评分区间）</span><br><span class="line"><span class="bullet">*</span>   <span class="code">`start`</span>: 起始索引（分页参数，从 0 开始）</span><br><span class="line"><span class="bullet">*</span>   <span class="code">`limit`</span>: 每页显示数量（如 20）</span><br><span class="line"></span><br><span class="line"><span class="section">## 代码实现</span></span><br><span class="line"></span><br><span class="line">以下代码实现了模拟浏览器请求并下载第一页数据的功能：</span><br><span class="line"></span><br><span class="line"><span class="code">```python</span></span><br><span class="line"><span class="code"># 导入urllib模块</span></span><br><span class="line"><span class="code">import urllib.request</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code"># 1. 定义目标URL (豆瓣电影Ajax接口)</span></span><br><span class="line"><span class="code"># 参数说明：type=17(科幻), interval_id=100:90, start=0, limit=20</span></span><br><span class="line"><span class="code">url = &#x27;https://movie.douban.com/j/chart/top_list?type=17&amp;interval_id=100%3A90&amp;action=&amp;start=0&amp;limit=20&#x27;</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code"># 2. 构造请求头</span></span><br><span class="line"><span class="code"># 豆瓣会检查User-Agent，必须伪装成浏览器，否则会返回403错误</span></span><br><span class="line"><span class="code">headers = &#123;</span></span><br><span class="line"><span class="code">    &#x27;User-Agent&#x27;: &#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3&#x27;</span></span><br><span class="line"><span class="code">&#125;</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code"># 3. 构建请求对象</span></span><br><span class="line"><span class="code"># 使用Request对象封装URL和Headers，这是处理复杂请求的标准方式</span></span><br><span class="line"><span class="code">req = urllib.request.Request(url=url, headers=headers)</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code"># 4. 发送请求并获取响应</span></span><br><span class="line"><span class="code">try:</span></span><br><span class="line"><span class="code">    res = urllib.request.urlopen(req)</span></span><br><span class="line"><span class="code">    # 读取响应内容并解码为utf-8字符串</span></span><br><span class="line"><span class="code">    html = res.read().decode(&#x27;utf-8&#x27;)</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code">    # 5. 数据持久化存储</span></span><br><span class="line"><span class="code">    # 将获取的JSON字符串写入本地文件</span></span><br><span class="line"><span class="code">    with open(&#x27;douban.json&#x27;, &#x27;w&#x27;, encoding=&#x27;utf-8&#x27;) as f:</span></span><br><span class="line"><span class="code">        f.write(html)</span></span><br><span class="line"><span class="code">    </span></span><br><span class="line"><span class="code">    print(&#x27;豆瓣电影数据下载完成，已保存为 douban.json&#x27;)</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code">except urllib.error.URLError as e:</span></span><br><span class="line"><span class="code">    print(f&quot;请求发生错误: &#123;e.reason&#125;&quot;)</span></span><br></pre></td></tr></table></figure>
+<h2 id="核心技术点解析"><a href="#核心技术点解析" class="headerlink" title="核心技术点解析"></a>核心技术点解析</h2><h3 id="1-UA-伪装"><a href="#1-UA-伪装" class="headerlink" title="1. UA 伪装"></a>1. UA 伪装</h3><p>豆瓣具有基础的反爬机制。如果请求头中不包含 <code>User-Agent</code>，服务器会识别请求为爬虫脚本并拒绝访问。代码中通过定义 <code>headers</code> 字典并传入 <code>Request</code> 对象来实现伪装：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">req = urllib.request.Request(url=url, headers=headers)</span><br></pre></td></tr></table></figure>
+<h3 id="2-Ajax-接口特性"><a href="#2-Ajax-接口特性" class="headerlink" title="2. Ajax 接口特性"></a>2. Ajax 接口特性</h3><p>与请求普通 HTML 页面不同，Ajax 接口直接返回 JSON 格式的数据。</p>
+<ul>
+<li><strong>URL 特点</strong>：通常以 <code>/j/</code> 开头或返回数据非 HTML。</li>
+<li><strong>数据解析</strong>：获取到的 <code>html</code> 变量实际上是 JSON 字符串，后续可使用 <code>json.loads(html)</code> 解析为 Python 字典进行深度清洗。</li>
+</ul>
+<h3 id="3-编码处理"><a href="#3-编码处理" class="headerlink" title="3. 编码处理"></a>3. 编码处理</h3><p>网络传输的数据为字节流，必须调用 <code>decode(&#39;utf-8&#39;)</code> 将其解码为字符串，否则写入文件后会出现乱码或无法阅读的情况。</p>
+<h2 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h2><p>运行脚本后，本地目录下会生成 <code>douban.json</code> 文件，内容结构如下所示：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">[</span></span><br><span class="line">  <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;rating&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;9.4&quot;</span><span class="punctuation">,</span> <span class="string">&quot;50&quot;</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;rank&quot;</span><span class="punctuation">:</span> <span class="number">1</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;cover_url&quot;</span><span class="punctuation">:</span> <span class="string">&quot;https://...&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;title&quot;</span><span class="punctuation">:</span> <span class="string">&quot;星际穿越&quot;</span><span class="punctuation">,</span></span><br><span class="line">    ...</span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  ...</span><br><span class="line"><span class="punctuation">]</span></span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本文介绍了使用 <code>urllib</code> 抓取 Ajax 数据的基础方法。相比第三方库 <code>requests</code>，<code>urllib</code> 作为标准库无需安装，适合轻量级的数据抓取任务。但在处理 Cookies 或复杂参数时，推荐进一步学习 <code>urllib.parse</code> 或改用 <code>requests</code> 库。<br>```</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2026/05/13/2024-07-26-urllib_%E8%AF%B7%E6%B1%82%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%AE%9A%E5%88%B6/" rel="prev" title="">
+                  <i class="fa fa-angle-left"></i> 
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2026/05/13/2024-08-18-%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%96%B9%E5%90%91%E9%80%89%E4%BF%AE%E8%AF%BE%E7%A8%8B%E6%8C%87%E5%AF%BC/" rel="next" title="">
+                   <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ianwusb</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
