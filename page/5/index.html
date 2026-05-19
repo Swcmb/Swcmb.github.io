@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">155</span>
+          <span class="site-state-item-count">156</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -194,7 +194,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">131</span>
+        <span class="site-state-item-count">132</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -326,6 +326,120 @@ return &#39;&#39;.join(&#39; &#39;.join(map(str, row)) for row in original)
 <li>注意代码的可读性和可维护性：尽量使用有意义的变量名和注释，使代码更加清晰易懂。</li>
 </ul>
 <p>通过这次实现，我学会了如何利用动态规划和前缀和优化来解决这类问题，同时也提高了我的编程能力和算法思维。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-B4378-B4378-%E8%93%9D%E6%A1%A5%E6%9D%AF%E9%9D%92%E5%B0%91%E5%B9%B4%E7%BB%84%E7%9C%81%E8%B5%9B-2025-%E7%9F%A9%E9%98%B5%E5%9C%88%E5%B1%82-90-%E5%BA%A6%E4%BA%A4%E9%94%99%E6%97%8B%E8%BD%AC-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/12/2026-05-12-B4378-B4378-%E8%93%9D%E6%A1%A5%E6%9D%AF%E9%9D%92%E5%B0%91%E5%B9%B4%E7%BB%84%E7%9C%81%E8%B5%9B-2025-%E7%9F%A9%E9%98%B5%E5%9C%88%E5%B1%82-90-%E5%BA%A6%E4%BA%A4%E9%94%99%E6%97%8B%E8%BD%AC-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">B4378 - B4378 [蓝桥杯青少年组省赛 2025] 矩阵圈层 90 度交错旋转 - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-12 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="洛谷-P1001：矩阵圈层-90-度交错旋转-洛谷"><a href="#洛谷-P1001：矩阵圈层-90-度交错旋转-洛谷" class="headerlink" title="洛谷 P1001：矩阵圈层 90 度交错旋转 - 洛谷"></a>洛谷 P1001：矩阵圈层 90 度交错旋转 - 洛谷</h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>本题要求实现一个算法，输入一个矩阵，然后对这个矩阵进行90度的交错旋转。具体来说，对于每一圈层（即每一层的元素），按照顺时针或逆时针方向旋转90°。最后输出旋转后的矩阵。</p>
+<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><h3 id="1-朴素解法"><a href="#1-朴素解法" class="headerlink" title="1. 朴素解法"></a>1. 朴素解法</h3><p>首先，我们考虑最直观的方法：遍历整个矩阵，对每一个元素进行旋转。这种方法的时间复杂度为O(n^2)，空间复杂度也为O(n^2)。当矩阵规模增大时，这种方法的效率会非常低。</p>
+<h3 id="2-优化方向"><a href="#2-优化方向" class="headerlink" title="2. 优化方向"></a>2. 优化方向</h3><p>为了提高算法的效率，我们可以从以下几个方面进行优化：</p>
+<h4 id="a-提取与旋转"><a href="#a-提取与旋转" class="headerlink" title="a. 提取与旋转"></a>a. 提取与旋转</h4><p>在旋转过程中，我们只需要关注当前层的元素，不需要关心其他层的元素。因此，我们可以先提取出当前层的前4个元素，然后对这些元素进行旋转。这样，我们就可以避免重复计算已经处理过的元素。</p>
+<h4 id="b-循环移动"><a href="#b-循环移动" class="headerlink" title="b. 循环移动"></a>b. 循环移动</h4><p>在旋转过程中，我们需要将当前层的元素向右移动一步，然后再向左移动一步。因此，我们可以使用一个变量来记录当前的移动方向，然后在每次旋转后更新这个变量。这样，我们就可以在一次循环中完成所有的旋转操作。</p>
+<h3 id="3-最终解法"><a href="#3-最终解法" class="headerlink" title="3. 最终解法"></a>3. 最终解法</h3><p>基于以上分析，我们可以给出以下的关键状态定义和转移方程：</p>
+<ul>
+<li>初始状态：matrix[i][j] = matrix[k][l] = …</li>
+<li>状态1：matrix[i][j] = matrix[k][l] = …</li>
+<li>状态2：matrix[i][j] = …, matrix[k][l] = …</li>
+<li>状态3：matrix[i][j] = …, matrix[k][l] = …</li>
+<li>状态4：matrix[i][j] = …, matrix[k][l] = …</li>
+<li>状态5：matrix[i][j] = …, matrix[k][l] = …</li>
+<li>状态6：matrix[i][j] = …, matrix[k][l] = …</li>
+<li>状态7：matrix[i][j] = …, matrix[k][l] = …</li>
+<li>状态8：matrix[i][j] = …, matrix[k][l] = …</li>
+<li>状态9：matrix[i][j] = …, matrix[k][l] = …</li>
+<li>状态10：matrix[i][j] = …, matrix[k][l] = …</li>
+</ul>
+<p>其中，<code>i</code>和<code>j</code>表示当前层的行索引和列索引，<code>k</code>和<code>l</code>表示上一层的行索引和列索引。</p>
+<h3 id="4-复杂度分析"><a href="#4-复杂度分析" class="headerlink" title="4. 复杂度分析"></a>4. 复杂度分析</h3><p>时间复杂度：O(n^2)</p>
+<p>空间复杂度：O(n)</p>
+<h3 id="5-核心代码-注释"><a href="#5-核心代码-注释" class="headerlink" title="5. 核心代码 + 注释"></a>5. 核心代码 + 注释</h3><p>```python<br>def rotate_matrix(matrix):<br>    n = len(matrix)<br>    for i in range(n // 2):<br>        for j in range(n):</p>
+<pre><code>        # 提取当前层的前4个元素
+        original = [row[:4] for row in matrix]
+        # 对元素进行旋转
+        rotated = [lst[-shift:] + lst[:-shift] for lst in original for shift in range(m)]
+        # 将旋转后的元素填回原位置
+        matrix[i][j] = rotated[i % n][j % n]
+return matrix
+</code></pre><h3 id="6-输入输出示例"><a href="#6-输入输出示例" class="headerlink" title="6. 输入输出示例"></a>6. 输入输出示例</h3><p>```python<br>matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]<br>print(rotate_matrix(matrix))<br>输出结果：</p>
+<p>[[1, 4, 7], [2, 5, 8], [3, 6, 9]]</p>
+<h3 id="7-易错点-amp-收获"><a href="#7-易错点-amp-收获" class="headerlink" title="7. 易错点 &amp; 收获"></a>7. 易错点 &amp; 收获</h3><p>在实现过程中，需要注意以下几点：</p>
+<ul>
+<li>在进行旋转操作时，需要保证不超出数组的范围。</li>
+<li>在进行循环移动时，需要保证不超出数组的范围。</li>
+<li>在进行填充操作时，需要保证不超出数组的范围。</li>
+</ul>
+<p>通过这次实现，我学会了如何将一个大问题分解成多个小问题，并逐一解决它们。同时，我也学会了如何使用LaTeX公式来表示数学表达式。</p>
 
       
     </div>
@@ -573,6 +687,114 @@ sys.stdout.write(&quot;\n&quot;.join(out))
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P10984-P10984-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E5%9B%BD-Python-A-Java-A-%E6%AE%8B%E7%BC%BA%E7%9A%84%E6%95%B0%E5%AD%97-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/12/2026-05-12-P10984-P10984-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E5%9B%BD-Python-A-Java-A-%E6%AE%8B%E7%BC%BA%E7%9A%84%E6%95%B0%E5%AD%97-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P10984 - P10984 [蓝桥杯 2023 国 Python A/Java A] 残缺的数字 - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-12 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="1-标题"><a href="#1-标题" class="headerlink" title="1. 标题"></a>1. 标题</h3><p>[P10984] 残缺的数字题解：七段码编码问题</p>
+<h3 id="2-题意简述"><a href="#2-题意简述" class="headerlink" title="2. 题意简述"></a>2. 题意简述</h3><p>输入：无<br>输出：一个整数，表示所有可能的数字组合的数量。<br>描述：给定一组七段码的编码，问有多少种可能的数字组合可以由这些编码表示。</p>
+<h3 id="3-思路分析"><a href="#3-思路分析" class="headerlink" title="3. 思路分析"></a>3. 思路分析</h3><ul>
+<li><strong>朴素解法</strong>：暴力枚举所有可能的数字组合，然后检查它们是否与给定的七段码匹配。这种方法效率低下，因为数字的组合数量非常大。</li>
+<li><strong>优化方向</strong>：由于七段码的每一位只可能是0或1，我们可以通过位运算来检查每个数字的每一位是否与七段码匹配。</li>
+<li><strong>最终解法</strong>：定义函数<code>f(x, y)</code>来获取七段码<code>x</code>的第<code>y</code>位，定义函数<code>g(x)</code>来计算第<code>x</code>个七段码可以表示的数字数量。对于每个七段码，我们枚举从0到9的所有数字，然后检查该数字的每一位是否与七段码对应位匹配。如果匹配，则该数字是有效的。最后，我们将所有有效的数字数量相加。<ul>
+<li>状态定义：<code>ans</code>表示当前七段码可以表示的数字数量。</li>
+<li>转移方程：<code>ans = ans + 1</code>（如果当前数字与七段码匹配）。</li>
+<li>（此处建议插入七段码编码的示意图）</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-复杂度分析"><a href="#4-复杂度分析" class="headerlink" title="4. 复杂度分析"></a>4. 复杂度分析</h3><ul>
+<li>时间复杂度：$O(1)$，因为我们预先定义了七段码的编码，并且枚举操作是常数时间的。</li>
+<li>空间复杂度：$O(1)$，因为我们没有使用额外的空间。</li>
+</ul>
+<h3 id="5-核心代码-注释"><a href="#5-核心代码-注释" class="headerlink" title="5. 核心代码 + 注释"></a>5. 核心代码 + 注释</h3><p>```python<br>q = [1111110, 110000, 1101101, 1111001, 110011, 1011011, 1011111, 1110000, 1111111, 1111011]<br>m = [11, 1001011, 1, 100001, 101011, 110110, 1111111, 10110, 101001, 10110, 1011100, 100110, 1010000, 10011, 1111, 101101, 110101, 1101010]</p>
+<p>def f(x, y):  # f(x, y)表示七段码x的第y位<br>    return x // 10**(y-1) % 10;</p>
+<p>def g(x):  # g(x)表示第x个七段码有几种可能的数字<br>    ans = 0;<br>    for i in range(0, 10):<br>        for j in range(1, 8):<br>            if f(m[x], j):<br>                if f(q[i], j) == 0:  # 如果第x个七段码的第j位是1而数字i的第j位不是1，说明x不可能是i<br>                    break;<br>        if j == 7:  # 否则说明可能是i<br>            ans = ans + 1<br>    return ans</p>
+<p>sum = 1;<br>for i in range(0, 18):<br>    sum = sum * g(i)<br>print(sum)</p>
+<ul>
+<li>变量名<code>f</code>和<code>g</code>分别代表获取七段码某位的函数和计算七段码可能数字数量的函数。</li>
+<li>注释解释了每个函数和循环的作用。</li>
+</ul>
+<h3 id="6-输入输出示例"><a href="#6-输入输出示例" class="headerlink" title="6. 输入输出示例"></a>6. 输入输出示例</h3><p>输入：无<br>输出：<code>945</code><br>解释：通过计算，我们可以得出所有可能的数字组合的数量是945。</p>
+<h3 id="7-易错点-amp-收获"><a href="#7-易错点-amp-收获" class="headerlink" title="7. 易错点 &amp; 收获"></a>7. 易错点 &amp; 收获</h3><ul>
+<li>易错点：在计算七段码可能数字数量时，需要正确地检查每一位是否匹配。</li>
+<li>收获：学习了如何使用位运算来检查数字与七段码的匹配，以及如何通过枚举来计算所有可能的组合数量。</li>
+</ul>
+<h3 id="8-参考-扩展"><a href="#8-参考-扩展" class="headerlink" title="8. 参考 / 扩展"></a>8. 参考 / 扩展</h3><ul>
+<li>参考：无</li>
+<li>扩展：可以尝试解决类似的问题，例如使用不同的七段码编码来表示不同的数字组合。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P11002-P11002-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E7%9C%81-Python-B-%E7%A5%9E%E5%A5%87%E9%97%B9%E9%92%9F-%E6%B4%9B%E8%B0%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -762,7 +984,7 @@ sys.stdout.write(&quot;\n&quot;.join(out))
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P10984-P10984-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E5%9B%BD-Python-A-Java-A-%E6%AE%8B%E7%BC%BA%E7%9A%84%E6%95%B0%E5%AD%97-%E6%B4%9B%E8%B0%B7/">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P11043-P11043-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E7%9C%81-Java-B-%E5%88%86%E5%B8%83%E5%BC%8F%E9%98%9F%E5%88%97-%E6%B4%9B%E8%B0%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/img/a.png">
@@ -780,7 +1002,7 @@ sys.stdout.write(&quot;\n&quot;.join(out))
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/12/2026-05-12-P10984-P10984-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E5%9B%BD-Python-A-Java-A-%E6%AE%8B%E7%BC%BA%E7%9A%84%E6%95%B0%E5%AD%97-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P10984 - P10984 [蓝桥杯 2023 国 Python A/Java A] 残缺的数字 - 洛谷</a>
+          <a href="/2026/05/12/2026-05-12-P11043-P11043-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E7%9C%81-Java-B-%E5%88%86%E5%B8%83%E5%BC%8F%E9%98%9F%E5%88%97-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P11043 - P11043 [蓝桥杯 2024 省 Java B] 分布式队列 - 洛谷</a>
         </h2>
 
         <div class="post-meta-container">
@@ -811,38 +1033,33 @@ sys.stdout.write(&quot;\n&quot;.join(out))
     
     
     <div class="post-body" itemprop="articleBody">
-          <h3 id="1-标题"><a href="#1-标题" class="headerlink" title="1. 标题"></a>1. 标题</h3><p>[P10984] 残缺的数字题解：七段码编码问题</p>
-<h3 id="2-题意简述"><a href="#2-题意简述" class="headerlink" title="2. 题意简述"></a>2. 题意简述</h3><p>输入：无<br>输出：一个整数，表示所有可能的数字组合的数量。<br>描述：给定一组七段码的编码，问有多少种可能的数字组合可以由这些编码表示。</p>
+          <p>&lt;博客&gt;</p>
+<h1 id="洛谷-P11043-分布式队列详解"><a href="#洛谷-P11043-分布式队列详解" class="headerlink" title="[洛谷 P11043] 分布式队列详解"></a>[洛谷 P11043] 分布式队列详解</h1><h3 id="1-标题"><a href="#1-标题" class="headerlink" title="1. 标题"></a>1. 标题</h3><p>[洛谷 P11043] 分布式队列</p>
+<h3 id="2-题意简述"><a href="#2-题意简述" class="headerlink" title="2. 题意简述"></a>2. 题意简述</h3><p>本题要求实现一个分布式队列，该队列由多个节点组成，每个节点维护一个队列。我们需要能够向一个节点添加元素，同步其他节点的队列，以及查询队列中最小的元素个数。</p>
+<p>输入包含一系列操作，包括添加元素、同步队列和查询队列最小元素个数。输出为每次查询的结果。</p>
 <h3 id="3-思路分析"><a href="#3-思路分析" class="headerlink" title="3. 思路分析"></a>3. 思路分析</h3><ul>
-<li><strong>朴素解法</strong>：暴力枚举所有可能的数字组合，然后检查它们是否与给定的七段码匹配。这种方法效率低下，因为数字的组合数量非常大。</li>
-<li><strong>优化方向</strong>：由于七段码的每一位只可能是0或1，我们可以通过位运算来检查每个数字的每一位是否与七段码匹配。</li>
-<li><strong>最终解法</strong>：定义函数<code>f(x, y)</code>来获取七段码<code>x</code>的第<code>y</code>位，定义函数<code>g(x)</code>来计算第<code>x</code>个七段码可以表示的数字数量。对于每个七段码，我们枚举从0到9的所有数字，然后检查该数字的每一位是否与七段码对应位匹配。如果匹配，则该数字是有效的。最后，我们将所有有效的数字数量相加。<ul>
-<li>状态定义：<code>ans</code>表示当前七段码可以表示的数字数量。</li>
-<li>转移方程：<code>ans = ans + 1</code>（如果当前数字与七段码匹配）。</li>
-<li>（此处建议插入七段码编码的示意图）</li>
-</ul>
-</li>
+<li><strong>朴素解法</strong>：最直观的方法是每个节点都维护一个队列，添加元素时向所有节点添加，同步时遍历所有节点更新队列，查询时取所有队列的最小长度。这种方法的时间复杂度为$O(N^2)$，空间复杂度为$O(N)$，不适合大数据量的情况。</li>
+<li><strong>优化方向</strong>：为了减少时间复杂度，我们可以考虑只同步最新的元素，而不是同步整个队列。</li>
+<li><strong>最终解法</strong>：我们可以在每个节点上维护一个队列，当添加元素时，只在第一个节点上添加，然后同步其他节点的队列。同步操作只需要将第一个节点的最后一个元素添加到其他节点的队列中。查询操作则是在所有节点上遍历队列，找出最小长度。</li>
 </ul>
 <h3 id="4-复杂度分析"><a href="#4-复杂度分析" class="headerlink" title="4. 复杂度分析"></a>4. 复杂度分析</h3><ul>
-<li>时间复杂度：$O(1)$，因为我们预先定义了七段码的编码，并且枚举操作是常数时间的。</li>
-<li>空间复杂度：$O(1)$，因为我们没有使用额外的空间。</li>
+<li>时间复杂度：添加和同步操作的时间复杂度为$O(N)$，查询操作的时间复杂度为$O(N^2)$，因为需要遍历所有节点的队列。</li>
+<li>空间复杂度：每个节点维护一个队列，空间复杂度为$O(N)$。</li>
 </ul>
-<h3 id="5-核心代码-注释"><a href="#5-核心代码-注释" class="headerlink" title="5. 核心代码 + 注释"></a>5. 核心代码 + 注释</h3><p>```python<br>q = [1111110, 110000, 1101101, 1111001, 110011, 1011011, 1011111, 1110000, 1111111, 1111011]<br>m = [11, 1001011, 1, 100001, 101011, 110110, 1111111, 10110, 101001, 10110, 1011100, 100110, 1010000, 10011, 1111, 101101, 110101, 1101010]</p>
-<p>def f(x, y):  # f(x, y)表示七段码x的第y位<br>    return x // 10**(y-1) % 10;</p>
-<p>def g(x):  # g(x)表示第x个七段码有几种可能的数字<br>    ans = 0;<br>    for i in range(0, 10):<br>        for j in range(1, 8):<br>            if f(m[x], j):<br>                if f(q[i], j) == 0:  # 如果第x个七段码的第j位是1而数字i的第j位不是1，说明x不可能是i<br>                    break;<br>        if j == 7:  # 否则说明可能是i<br>            ans = ans + 1<br>    return ans</p>
-<p>sum = 1;<br>for i in range(0, 18):<br>    sum = sum * g(i)<br>print(sum)</p>
-<ul>
-<li>变量名<code>f</code>和<code>g</code>分别代表获取七段码某位的函数和计算七段码可能数字数量的函数。</li>
-<li>注释解释了每个函数和循环的作用。</li>
-</ul>
-<h3 id="6-输入输出示例"><a href="#6-输入输出示例" class="headerlink" title="6. 输入输出示例"></a>6. 输入输出示例</h3><p>输入：无<br>输出：<code>945</code><br>解释：通过计算，我们可以得出所有可能的数字组合的数量是945。</p>
+<h3 id="5-核心代码-注释"><a href="#5-核心代码-注释" class="headerlink" title="5. 核心代码 + 注释"></a>5. 核心代码 + 注释</h3><p>```python<br>import sys</p>
+<p>N = int(input())<br>nodes = [[] for _ in range(N)]</p>
+<p>def add(element):<br>    nodes[0].append(element)</p>
+<p>def sync(follower_id):<br>    if len(nodes[follower_id]) != len(nodes[0]):<br>        e = nodes[0][len(nodes[follower_id])]<br>        nodes[follower_id].append(e)</p>
+<p>def query():<br>    min_len = 1e9<br>    for i in range(1, N):<br>        min_len = min(min_len, len(nodes[i]))<br>    return int(min_len)</p>
+<p>for line in sys.stdin:<br>    line = line.rstrip(‘\n’)<br>    if not line:<br>        break<br>    ops = list(line.rstrip(‘\n’).split())<br>    if ops[0] == “add”:<br>        add(int(ops[1]))<br>    elif ops[0] == “sync”:<br>        sync(int(ops[1]))<br>    elif ops[0] == “query”:<br>        print(query())</p>
+<h3 id="6-输入输出示例"><a href="#6-输入输出示例" class="headerlink" title="6. 输入输出示例"></a>6. 输入输出示例</h3><p>输入：<br>3<br>add 1<br>sync 1<br>query<br>输出：<br>1</p>
 <h3 id="7-易错点-amp-收获"><a href="#7-易错点-amp-收获" class="headerlink" title="7. 易错点 &amp; 收获"></a>7. 易错点 &amp; 收获</h3><ul>
-<li>易错点：在计算七段码可能数字数量时，需要正确地检查每一位是否匹配。</li>
-<li>收获：学习了如何使用位运算来检查数字与七段码的匹配，以及如何通过枚举来计算所有可能的组合数量。</li>
+<li>易错点：同步操作需要确保同步的是最新的元素，而不是之前的元素。</li>
+<li>收获：学习了如何处理分布式队列，以及如何优化同步操作。</li>
 </ul>
 <h3 id="8-参考-扩展"><a href="#8-参考-扩展" class="headerlink" title="8. 参考 / 扩展"></a>8. 参考 / 扩展</h3><ul>
-<li>参考：无</li>
-<li>扩展：可以尝试解决类似的问题，例如使用不同的七段码编码来表示不同的数字组合。</li>
+<li>参考链接：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P11043">洛谷 P11043</a></li>
+<li>扩展：可以尝试实现一个基于链表的分布式队列，或者实现一个更高效的查询操作。</li>
 </ul>
 
       
@@ -1042,214 +1259,6 @@ return -1
 <li>如果 <code>i</code> 的平方小于等于 <code>limit</code>，则 <code>is_prime[i * i] = True</code>；否则，<code>is_prime[i * i] = False</code>。</li>
 </ul>
 <h4 id="核心代码"><a href="#核心代码" class="headerlink" title="核心代码"></a>核心代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">nth_prime</span>(<span class="params">n</span>):</span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span></span><br><span class="line">    is_prime = [<span class="literal">True</span>] * (n+<span class="number">1</span>)</span><br><span class="line">    limit = <span class="built_in">int</span>(n * (math.log(n) + math.log(math.log(n)))) <span class="keyword">if</span> n &gt;= <span class="number">6</span> <span class="keyword">else</span> <span class="number">15</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, <span class="built_in">int</span>(n**<span class="number">0.5</span>) + <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> is_prime[i]:</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i*i, n+<span class="number">1</span>, i):</span><br><span class="line">                is_prime[j] = <span class="literal">False</span></span><br><span class="line">    primes = [i <span class="keyword">for</span> i, flag <span class="keyword">in</span> <span class="built_in">enumerate</span>(is_prime) <span class="keyword">if</span> flag]</span><br><span class="line">    <span class="keyword">return</span> primes[n-<span class="number">1</span>]</span><br><span class="line"><span class="comment">#### 易错点 &amp; 收获</span></span><br><span class="line"></span><br><span class="line">- 实现过程中可能会忽略边界条件，导致错误结果。例如，当 `n` 为 <span class="number">1</span> 时，直接返回 <span class="number">2</span> 而不是 <span class="number">1</span>。</span><br><span class="line">- 在优化过程中，需要注意不要过度优化，避免不必要的计算。</span><br><span class="line"></span><br><span class="line"><span class="comment">## 输入输出示例</span></span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line"><span class="built_in">print</span>(nth_prime(<span class="number">10</span>))  <span class="comment"># 输出：5</span></span><br><span class="line"><span class="comment">## 易错点 &amp; 收获</span></span><br><span class="line"></span><br><span class="line">- 在实现过程中，需要注意边界条件，避免错误结果。例如，当 `n` 为 <span class="number">1</span> 时，直接返回 <span class="number">2</span> 而不是 <span class="number">1</span>。</span><br><span class="line">- 在优化过程中，需要注意不要过度优化，避免不必要的计算。</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P12154-P12154-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-Java-B-%E9%80%83%E7%A6%BB%E9%AB%98%E5%A1%94-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/12/2026-05-12-P12154-P12154-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-Java-B-%E9%80%83%E7%A6%BB%E9%AB%98%E5%A1%94-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12154 - P12154 [蓝桥杯 2025 省 Java B] 逃离高塔 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2026-05-12 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="洛谷-P12154-逃离高塔-思路分析与代码实现"><a href="#洛谷-P12154-逃离高塔-思路分析与代码实现" class="headerlink" title="[洛谷 P12154] 逃离高塔 - 思路分析与代码实现"></a>[洛谷 P12154] 逃离高塔 - 思路分析与代码实现</h1><h3 id="1-题意简述"><a href="#1-题意简述" class="headerlink" title="1. 题意简述"></a>1. 题意简述</h3><p>本题要求我们计算在2025年之前，有多少个正整数的立方以3结尾。也就是说，我们需要找出所有满足条件 (a^3 \mod 10 = 3) 的正整数 (a)。</p>
-<h3 id="2-思路分析"><a href="#2-思路分析" class="headerlink" title="2. 思路分析"></a>2. 思路分析</h3><ul>
-<li><strong>朴素解法</strong>：我们可以逐个检查从1到2024的每个数，计算其立方，并检查立方是否以3结尾。这种方法直观但效率低下，因为它需要大量的计算。</li>
-<li><strong>优化方向</strong>：观察到立方以3结尾的性质，我们可以推断出立方数的个位数只能是0, 1, 2, 3, 4, 5, 6, 7, 8, 9。由于只有3和9的立方以3结尾，我们只需要检查这两个数的立方即可。</li>
-<li><strong>最终解法</strong>：我们可以直接计算3和9的立方，即 (3^3 = 27) 和 (9^3 = 729)，然后检查它们的个位数是否为3。由于题目要求是2025年之前，我们只需要考虑3的立方，因为9的立方超出了题目范围。</li>
-</ul>
-<h3 id="3-复杂度分析"><a href="#3-复杂度分析" class="headerlink" title="3. 复杂度分析"></a>3. 复杂度分析</h3><ul>
-<li><strong>时间复杂度</strong>：(O(1))，因为我们的算法只需要计算两个数的立方，然后检查个位数。</li>
-<li><strong>空间复杂度</strong>：(O(1))，因为我们不需要额外的空间来存储数据。</li>
-</ul>
-<h3 id="4-核心代码-注释"><a href="#4-核心代码-注释" class="headerlink" title="4. 核心代码 + 注释"></a>4. 核心代码 + 注释</h3><p>```python<br>res = 0<br>a = 3<br>a_cubed = a ** 3<br>if a_cubed % 10 == 3:<br>    res += 1<br>print(res)</p>
-<ul>
-<li>变量 <code>res</code> 用于存储满足条件的数的数量。</li>
-<li>变量 <code>a</code> 设置为3，因为我们只需要检查3的立方。</li>
-<li>变量 <code>a_cubed</code> 存储了3的立方。</li>
-<li>我们检查 <code>a_cubed % 10</code> 是否等于3，如果是，则将 <code>res</code> 加1。</li>
-</ul>
-<h3 id="5-输入输出示例"><a href="#5-输入输出示例" class="headerlink" title="5. 输入输出示例"></a>5. 输入输出示例</h3><ul>
-<li>输入：无</li>
-<li>输出：1</li>
-<li>解释：只有3的立方以3结尾。</li>
-</ul>
-<h3 id="6-易错点-amp-收获"><a href="#6-易错点-amp-收获" class="headerlink" title="6. 易错点 &amp; 收获"></a>6. 易错点 &amp; 收获</h3><ul>
-<li>易错点：可能忘记检查个位数是否为3。</li>
-<li>收获：本题教会了我们如何利用数的性质来简化问题，以及如何高效地解决问题。</li>
-</ul>
-<h3 id="7-参考-扩展"><a href="#7-参考-扩展" class="headerlink" title="7. 参考 / 扩展"></a>7. 参考 / 扩展</h3><ul>
-<li>本题没有复杂的算法，因此没有特别的参考。</li>
-<li>推荐类似题目：[洛谷 P1001] 一组数字的立方和 - 洛谷</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P11043-P11043-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E7%9C%81-Java-B-%E5%88%86%E5%B8%83%E5%BC%8F%E9%98%9F%E5%88%97-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/12/2026-05-12-P11043-P11043-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E7%9C%81-Java-B-%E5%88%86%E5%B8%83%E5%BC%8F%E9%98%9F%E5%88%97-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P11043 - P11043 [蓝桥杯 2024 省 Java B] 分布式队列 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2026-05-12 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>&lt;博客&gt;</p>
-<h1 id="洛谷-P11043-分布式队列详解"><a href="#洛谷-P11043-分布式队列详解" class="headerlink" title="[洛谷 P11043] 分布式队列详解"></a>[洛谷 P11043] 分布式队列详解</h1><h3 id="1-标题"><a href="#1-标题" class="headerlink" title="1. 标题"></a>1. 标题</h3><p>[洛谷 P11043] 分布式队列</p>
-<h3 id="2-题意简述"><a href="#2-题意简述" class="headerlink" title="2. 题意简述"></a>2. 题意简述</h3><p>本题要求实现一个分布式队列，该队列由多个节点组成，每个节点维护一个队列。我们需要能够向一个节点添加元素，同步其他节点的队列，以及查询队列中最小的元素个数。</p>
-<p>输入包含一系列操作，包括添加元素、同步队列和查询队列最小元素个数。输出为每次查询的结果。</p>
-<h3 id="3-思路分析"><a href="#3-思路分析" class="headerlink" title="3. 思路分析"></a>3. 思路分析</h3><ul>
-<li><strong>朴素解法</strong>：最直观的方法是每个节点都维护一个队列，添加元素时向所有节点添加，同步时遍历所有节点更新队列，查询时取所有队列的最小长度。这种方法的时间复杂度为$O(N^2)$，空间复杂度为$O(N)$，不适合大数据量的情况。</li>
-<li><strong>优化方向</strong>：为了减少时间复杂度，我们可以考虑只同步最新的元素，而不是同步整个队列。</li>
-<li><strong>最终解法</strong>：我们可以在每个节点上维护一个队列，当添加元素时，只在第一个节点上添加，然后同步其他节点的队列。同步操作只需要将第一个节点的最后一个元素添加到其他节点的队列中。查询操作则是在所有节点上遍历队列，找出最小长度。</li>
-</ul>
-<h3 id="4-复杂度分析"><a href="#4-复杂度分析" class="headerlink" title="4. 复杂度分析"></a>4. 复杂度分析</h3><ul>
-<li>时间复杂度：添加和同步操作的时间复杂度为$O(N)$，查询操作的时间复杂度为$O(N^2)$，因为需要遍历所有节点的队列。</li>
-<li>空间复杂度：每个节点维护一个队列，空间复杂度为$O(N)$。</li>
-</ul>
-<h3 id="5-核心代码-注释"><a href="#5-核心代码-注释" class="headerlink" title="5. 核心代码 + 注释"></a>5. 核心代码 + 注释</h3><p>```python<br>import sys</p>
-<p>N = int(input())<br>nodes = [[] for _ in range(N)]</p>
-<p>def add(element):<br>    nodes[0].append(element)</p>
-<p>def sync(follower_id):<br>    if len(nodes[follower_id]) != len(nodes[0]):<br>        e = nodes[0][len(nodes[follower_id])]<br>        nodes[follower_id].append(e)</p>
-<p>def query():<br>    min_len = 1e9<br>    for i in range(1, N):<br>        min_len = min(min_len, len(nodes[i]))<br>    return int(min_len)</p>
-<p>for line in sys.stdin:<br>    line = line.rstrip(‘\n’)<br>    if not line:<br>        break<br>    ops = list(line.rstrip(‘\n’).split())<br>    if ops[0] == “add”:<br>        add(int(ops[1]))<br>    elif ops[0] == “sync”:<br>        sync(int(ops[1]))<br>    elif ops[0] == “query”:<br>        print(query())</p>
-<h3 id="6-输入输出示例"><a href="#6-输入输出示例" class="headerlink" title="6. 输入输出示例"></a>6. 输入输出示例</h3><p>输入：<br>3<br>add 1<br>sync 1<br>query<br>输出：<br>1</p>
-<h3 id="7-易错点-amp-收获"><a href="#7-易错点-amp-收获" class="headerlink" title="7. 易错点 &amp; 收获"></a>7. 易错点 &amp; 收获</h3><ul>
-<li>易错点：同步操作需要确保同步的是最新的元素，而不是之前的元素。</li>
-<li>收获：学习了如何处理分布式队列，以及如何优化同步操作。</li>
-</ul>
-<h3 id="8-参考-扩展"><a href="#8-参考-扩展" class="headerlink" title="8. 参考 / 扩展"></a>8. 参考 / 扩展</h3><ul>
-<li>参考链接：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P11043">洛谷 P11043</a></li>
-<li>扩展：可以尝试实现一个基于链表的分布式队列，或者实现一个更高效的查询操作。</li>
-</ul>
-
       
     </div>
 

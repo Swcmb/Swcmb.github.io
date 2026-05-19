@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ianwusb.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="本节内容 红黑树 插入操作 1 红黑树的插入 从一棵空的红黑树开始，插入：20, 10, 5, 30, 40, 57, 3, 2, 4, 35, 25, 18, 22, 23, 24, 19, 18  先查找，确定插入位置（原理同二叉排序树），插入新结点 新结点是根——染为黑色 新结点非根——染为红色  若插入新结点后依然满足红黑树定义，则插入结束  若插入新结点后不满足红黑树定义，需要调整，使">
+<meta property="og:type" content="website">
+<meta property="og:title" content="2 红黑树的插入">
+<meta property="og:url" content="https://ianwusb.github.io/wangdaods/7.3.3_2%20%E7%BA%A2%E9%BB%91%E6%A0%91%E7%9A%84%E6%8F%92%E5%85%A5.html">
+<meta property="og:site_name" content="Ianwusb-CPCode">
+<meta property="og:description" content="本节内容 红黑树 插入操作 1 红黑树的插入 从一棵空的红黑树开始，插入：20, 10, 5, 30, 40, 57, 3, 2, 4, 35, 25, 18, 22, 23, 24, 19, 18  先查找，确定插入位置（原理同二叉排序树），插入新结点 新结点是根——染为黑色 新结点非根——染为红色  若插入新结点后依然满足红黑树定义，则插入结束  若插入新结点后不满足红黑树定义，需要调整，使">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-05-18T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-05-19T12:27:21.604Z">
+<meta property="article:author" content="Ianwusb">
+<meta property="article:tag" content="王道数据结构">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ianwusb.github.io/wangdaods/7.3.3_2%20%E7%BA%A2%E9%BB%91%E6%A0%91%E7%9A%84%E6%8F%92%E5%85%A5">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":true,"permalink":"https://ianwusb.github.io/wangdaods/7.3.3_2%20%E7%BA%A2%E9%BB%91%E6%A0%91%E7%9A%84%E6%8F%92%E5%85%A5.html","path":"wangdaods/7.3.3_2 红黑树的插入.html","title":"2 红黑树的插入"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>2 红黑树的插入 | Ianwusb-CPCode
+</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.1/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ianwusb-CPCode</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Ianwusb-CPCode</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9F%A5%E8%AF%86%E5%9B%9E%E9%A1%BE%E4%B8%8E%E9%87%8D%E8%A6%81%E8%80%83%E7%82%B9"><span class="nav-number">1.</span> <span class="nav-text">知识回顾与重要考点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%A7%E8%B4%A81%EF%BC%9A%E4%BB%8E%E6%A0%B9%E8%8A%82%E7%82%B9%E5%88%B0%E5%8F%B6%E7%BB%93%E7%82%B9%E7%9A%84%E6%9C%80%E9%95%BF%E8%B7%AF%E5%BE%84%E4%B8%8D%E5%A4%A7%E4%BA%8E%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E7%9A%842%E5%80%8D"><span class="nav-number">1.1.</span> <span class="nav-text">性质1：从根节点到叶结点的最长路径不大于最短路径的2倍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%A7%E8%B4%A82%EF%BC%9A%E6%9C%89n%E4%B8%AA%E5%86%85%E9%83%A8%E8%8A%82%E7%82%B9%E7%9A%84%E7%BA%A2%E9%BB%91%E6%A0%91%E9%AB%98%E5%BA%A6-h-%E2%89%A4-2%F0%9D%91%99%F0%9D%91%9C%F0%9D%91%942-%F0%9D%91%9B-1"><span class="nav-number">1.2.</span> <span class="nav-text">性质2：有n个内部节点的红黑树高度 h ≤ 2𝑙𝑜𝑔2 𝑛 + 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%A7%E8%B4%A81%E8%AF%81%E6%98%8E%EF%BC%9A%E4%BB%BB%E4%BD%95%E4%B8%80%E6%9D%A1%E6%9F%A5%E6%89%BE%E5%A4%B1%E8%B4%A5%E8%B7%AF%E5%BE%84%E4%B8%8A%E9%BB%91%E7%BB%93%E7%82%B9%E6%95%B0%E9%87%8F%E9%83%BD%E7%9B%B8%E5%90%8C%EF%BC%8C%E8%80%8C%E8%B7%AF%E5%BE%84%E4%B8%8A%E4%B8%8D%E8%83%BD%E8%BF%9E%E7%BB%AD%E5%87%BA%E7%8E%B0%E4%B8%A4%E4%B8%AA%E7%BA%A2%E7%BB%93%E7%82%B9%EF%BC%8C%E5%8D%B3%E7%BA%A2%E7%BB%93%E7%82%B9%E5%8F%AA%E8%83%BD%E7%A9%BF%E6%8F%92"><span class="nav-number">1.3.</span> <span class="nav-text">性质1证明：任何一条查找失败路径上黑结点数量都相同，而路径上不能连续出现两个红结点，即红结点只能穿插</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ianwusb"
+      src="/img/a.png">
+  <p class="site-author-name" itemprop="name">Ianwusb</p>
+  <div class="site-description" itemprop="description">Ianwusb-CPCode</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">156</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">53</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">132</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Swcmb" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Swcmb" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:fastjackcost880@gmail.com" title="E-Mail → mailto:fastjackcost880@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner page posts-expand">
+
+
+    
+    
+    
+    <div class="post-block" lang="zh-CN"><header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">2 红黑树的插入
+</h1>
+
+<div class="post-meta-container">
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+          <p>﻿本节内容</p>
+<p>红黑树</p>
+<p>插入操作</p>
+<p>1</p>
+<p>红黑树的插入</p>
+<p>从一棵空的红黑树开始，插入：20, 10, 5, 30, 40, 57, 3, 2, 4, 35, 25, 18, 22, 23, 24, 19, 18</p>
+<ul>
+<li>先查找，确定插入位置（原理同二叉排序树），插入新结点</li>
+<li>新结点是根——染为黑色</li>
+<li><p>新结点非根——染为红色</p>
+</li>
+<li><p>若插入新结点后依然满足红黑树定义，则插入结束</p>
+</li>
+<li><p>若插入新结点后不满足红黑树定义，需要调整，使其重新满足红黑树定义</p>
+</li>
+<li><p>黑叔：旋转+染色</p>
+</li>
+<li>LL型：右单旋，父换爷+染色</li>
+<li>RR型：左单旋，父换爷+染色 如何调整：看新结点叔叔的脸色</li>
+<li>LR型：左、右双旋，儿换爷+染色</li>
+<li><p>RL型：右、左双旋，儿换爷+染色</p>
+</li>
+<li><p>红叔：染色+变新</p>
+</li>
+<li>叔父爷染色，爷变为新结点</li>
+</ul>
+<p>2</p>
+<p>红黑树的插入</p>
+<p>从一棵空的红黑树开始，插入：20, 10, 5, 30, 40, 57, 3, 2, 4, 35, 25, 18, 22, 23, 24, 19, 18</p>
+<p>黑叔<br>新结点<br>是LL</p>
+<p>新结点非根，染红<br>违反“不红红”</p>
+<p>新结点是根，染黑</p>
+<p>新结点非根，染红<br>依然满足红黑树</p>
+<p>右单旋 +染色<br>父换爷</p>
+<ul>
+<li>黑叔：旋转+染色</li>
+<li>LL型：右单旋，父换爷+染色 3</li>
+</ul>
+<p>红黑树的插入</p>
+<p>从一棵空的红黑树开始，插入：20, 10, 5, 30, 40, 57, 3, 2, 4, 35, 25, 18, 22, 23, 24, 19, 18</p>
+<p>爷变为新结点</p>
+<p>红叔</p>
+<p>叔父爷 新结点是<br>染色 根，染黑</p>
+<p>违反“不红红”</p>
+<ul>
+<li>红叔：染色+变新</li>
+<li>叔父爷染色，爷变为新结点 4</li>
+</ul>
+<p>红黑树的插入</p>
+<p>从一棵空的红黑树开始，插入：20, 10, 5, 30, 40, 57, 3, 2, 4, 35, 25, 18, 22, 23, 24, 19, 18</p>
+<p>新结点<br>是RR</p>
+<p>左单旋 +染色<br>父换爷</p>
+<p>黑叔</p>
+<ul>
+<li>黑叔：旋转+染色</li>
+<li>RR型：左单旋，父换爷+ 5</li>
+</ul>
+<p>染色</p>
+<p>红黑树的插入</p>
+<p>从一棵空的红黑树开始，插入：20, 10, 5, 30, 40, 57, 3, 2, 4, 35, 25, 18, 22, 23, 24, 19, 18</p>
+<p>爷变为新结点</p>
+<p>红叔 叔父爷<br>染色</p>
+<ul>
+<li>红叔：染色+变新</li>
+<li>6<br>叔父爷染色，爷变为新结点</li>
+</ul>
+<p>红黑树的插入</p>
+<p>从一棵空的红黑树开始，插入：20, 10, 5, 30, 40, 57, 3, 2, 4, 35, 25, 18, 22, 23, 24, 19, 18</p>
+<p>7</p>
+<p>红黑树的插入</p>
+<p>从一棵空的红黑树开始，插入：20, 10, 5, 30, 40, 57, 3, 2, 4, 35, 25, 18, 22, 23, 24, 19, 18</p>
+<p>新结点 黑叔<br>是LL</p>
+<p>右单旋<br>父换爷</p>
+<p>+染色</p>
+<ul>
+<li>黑叔：旋转+染色</li>
+<li>LL型：右单旋，父换爷+染色 8</li>
+</ul>
+<p>红黑树的插入</p>
+<p>从一棵空的红黑树开始，插入：20, 10, 5, 30, 40, 57, 3, 2, 4, 35, 25, 18, 22, 23, 24, 19, 18</p>
+<p>爷变为新结点</p>
+<p>红叔</p>
+<p>叔父爷<br>染色</p>
+<ul>
+<li>红叔：染色+变新</li>
+<li>9<br>叔父爷染色，爷变为新结点</li>
+</ul>
+<p>红黑树的插入</p>
+<p>从一棵空的红黑树开始，插入：20, 10, 5, 30, 40, 57, 3, 2, 4, 35, 25, 18, 22, 23, 24, 19, 18</p>
+<p>10</p>
+<p>红黑树的插入</p>
+<p>从一棵空的红黑树开始，插入：20, 10, 5, 30, 40, 57, 3, 2, 4, 35, 25, 18, 22, 23, 24, 19, 18</p>
+<p>11</p>
+<p>红黑树的插入</p>
+<p>从一棵空的红黑树开始，插入：20, 10, 5, 30, 40, 57, 3, 2, 4, 35, 25, 18, 22, 23, 24, 19, 18</p>
+<p>12</p>
+<p>红黑树的插入</p>
+<p>从一棵空的红黑树开始，插入：20, 10, 5, 30, 40, 57, 3, 2, 4, 35, 25, 18, 22, 23, 24, 19, 18<br>红叔</p>
+<p>爷变为新结点<br>叔父爷</p>
+<p>红叔 染色</p>
+<p>爷变为新结点</p>
+<p>叔父爷 新结点是<br>染色 根，染黑</p>
+<ul>
+<li>红叔：染色+变新</li>
+<li>13<br>叔父爷染色，爷变为新结点</li>
+</ul>
+<p>红黑树的插入</p>
+<p>从一棵空的红黑树开始，插入：20, 10, 5, 30, 40, 57, 3, 2, 4, 35, 25, 18, 22, 23, 24, 19, 18</p>
+<p>黑叔</p>
+<p>LR型</p>
+<ul>
+<li>黑叔：旋转+染色</li>
+<li>LR型：左、右双旋，儿换爷+染色 14</li>
+</ul>
+<p>红黑树的插入</p>
+<p>从一棵空的红黑树开始，插入：20, 10, 5, 30, 40, 57, 3, 2, 4, 35, 25, 18, 22, 23, 24, 19, 18</p>
+<p>左单旋</p>
+<p>①左单旋的结果：儿子辈分升高</p>
+<ul>
+<li><p>黑叔：旋转+染色</p>
+</li>
+<li><p>LR型：左、右双旋，儿换爷+染色 15</p>
+</li>
+</ul>
+<p>红黑树的插入</p>
+<p>从一棵空的红黑树开始，插入：20, 10, 5, 30, 40, 57, 3, 2, 4, 35, 25, 18, 22, 23, 24, 19, 18</p>
+<p>右单旋</p>
+<p>②右单旋的结果：儿子辈分再升高</p>
+<ul>
+<li><p>黑叔：旋转+染色</p>
+</li>
+<li><p>LR型：左、右双旋，儿换爷+染色 16</p>
+</li>
+</ul>
+<p>红黑树的插入</p>
+<p>从一棵空的红黑树开始，插入：20, 10, 5, 30, 40, 57, 3, 2, 4, 35, 25, 18, 22, 23, 24, 19, 18</p>
+<p>原来的儿和<br>爷“染色”</p>
+<ul>
+<li>黑叔：旋转+染色</li>
+<li>LR型：左、右双旋，儿换爷+染色 17</li>
+</ul>
+<p>红黑树的插入</p>
+<p>从一棵空的红黑树开始，插入：20, 10, 5, 30, 40, 57, 3, 2, 4, 35, 25, 18, 22, 23, 24, 19, 18</p>
+<ul>
+<li>红叔：染色+变新</li>
+<li>18<br>叔父爷染色，爷变为新结点</li>
+</ul>
+<p>红黑树的插入</p>
+<p>从一棵空的红黑树开始，插入：20, 10, 5, 30, 40, 57, 3, 2, 4, 35, 25, 18, 22, 23, 24, 19, 18</p>
+<ul>
+<li>红叔：染色+变新</li>
+<li>19<br>叔父爷染色，爷变为新结点</li>
+</ul>
+<p>红黑树的插入</p>
+<p>从一棵空的红黑树开始，插入：20, 10, 5, 30, 40, 57, 3, 2, 4, 35, 25, 18, 22, 23, 24, 19, 18</p>
+<ul>
+<li>黑叔：旋转+染色</li>
+<li>LR型：左、右双旋，儿换爷+染色 20</li>
+</ul>
+<p>红黑树的插入</p>
+<p>从一棵空的红黑树开始，插入：20, 10, 5, 30, 40, 57, 3, 2, 4, 35, 25, 18, 22, 23, 24, 19, 18</p>
+<p>左单旋</p>
+<ul>
+<li>黑叔：旋转+染色</li>
+<li>LR型：左、右双旋，儿换爷+染色 21</li>
+</ul>
+<p>红黑树的插入</p>
+<p>从一棵空的红黑树开始，插入：20, 10, 5, 30, 40, 57, 3, 2, 4, 35, 25, 18, 22, 23, 24, 19, 18</p>
+<p>右单旋</p>
+<ul>
+<li>黑叔：旋转+染色</li>
+<li>LR型：左、右双旋，儿换爷+染色 22</li>
+</ul>
+<p>红黑树的插入</p>
+<p>从一棵空的红黑树开始，插入：20, 10, 5, 30, 40, 57, 3, 2, 4, 35, 25, 18, 22, 23, 24, 19, 18</p>
+<p>原儿爷<br>染色</p>
+<ul>
+<li>黑叔：旋转+染色</li>
+<li>LR型：左、右双旋，儿换爷+染色 23</li>
+</ul>
+<p>红黑树的插入</p>
+<p>从一棵空的红黑树开始，插入：20, 10, 5, 30, 40, 57, 3, 2, 4, 35, 25, 18, 22, 23, 24, 19, 18</p>
+<p>24</p>
+<p>红黑树的插入</p>
+<p>从一棵空的红黑树开始，插入：20, 10, 5, 30, 40, 57, 3, 2, 4, 35, 25, 18, 22, 23, 24, 19, 18</p>
+<ul>
+<li>黑叔：旋转+染色</li>
+<li>RL 2</li>
+</ul>
+<p>型：右、左双旋，儿换爷+ 5<br>染色</p>
+<p>红黑树的插入</p>
+<p>从一棵空的红黑树开始，插入：20, 10, 5, 30, 40, 57, 3, 2, 4, 35, 25, 18, 22, 23, 24, 19, 18</p>
+<p>右单旋</p>
+<ul>
+<li>黑叔：旋转+染色</li>
+<li>RL型：右、左双旋，儿换爷+ 26</li>
+</ul>
+<p>染色</p>
+<p>红黑树的插入</p>
+<p>从一棵空的红黑树开始，插入：20, 10, 5, 30, 40, 57, 3, 2, 4, 35, 25, 18, 22, 23, 24, 19, 18</p>
+<p>左单旋</p>
+<ul>
+<li>黑叔：旋转+染色</li>
+<li>RL型：右、左双旋，儿换爷+ 27</li>
+</ul>
+<p>染色</p>
+<p>红黑树的插入</p>
+<p>从一棵空的红黑树开始，插入：20, 10, 5, 30, 40, 57, 3, 2, 4, 35, 25, 18, 22, 23, 24, 19, 18</p>
+<p>原儿爷<br>染色</p>
+<ul>
+<li>黑叔：旋转+染色</li>
+<li>RL型：右、左双旋，儿换爷+ 28</li>
+</ul>
+<p>染色</p>
+<h1 id="知识回顾与重要考点"><a href="#知识回顾与重要考点" class="headerlink" title="知识回顾与重要考点"></a>知识回顾与重要考点</h1><p>44</p>
+<p>红黑树练习方法（插入操作）</p>
+<p>课件中的例子，插入：20, 10, 5, 30, 40, 57, 3, 2, 4, 35, 25, 18, 22, 23, 24, 19, 18<br>①打上勾，显<br>示空叶结点</p>
+<p>③插入关键字</p>
+<p>②选择 pause，使用 Step<br>Forward/Step Back进行单步演示</p>
+<p>自我训练方法：你可以自己设计一些插入序列，每一次插入后，都先思考应该如何调整，然后在网<br>站中演示验证。插入新元素时，尽可能覆盖黑叔LL/RR/LR/RL、红叔的情况。</p>
+<p><a target="_blank" rel="noopener" href="https://www.cs.usfca.edu/~galles/visualization/RedBlack.html">https://www.cs.usfca.edu/~galles/visualization/RedBlack.html</a><br>45</p>
+<p>与“黑高”相关的推论</p>
+<p>bh=2 bh=3</p>
+<p>根节点黑高=2，<br>内部结点数最<br>少的情况</p>
+<p>根节点黑高=3，内部结点数最少的情况</p>
+<p>结点的黑高 bh ——从某结点出发（不含该结点）到达任一叶结点的路径上黑结点总数</p>
+<p>思考：根节点黑高为 h的红黑树，内部结点数（关键字）至少有多少个？<br>回答：内部结点数最少的情况——总共h层黑结点的满树形态<br>结论：若根节点黑高为h，内部结点数（关键字）最少有 2h-1个</p>
+<p>46</p>
+<p>红黑树的定义à性质</p>
+<p>红黑树是二叉排序树 左子树结点值 ≤ 根结点值 ≤ 右子树结点值</p>
+<p>与普通BST相比，有什么要求 ①每个结点或是红色，或是黑色的<br>②根节点是黑色的</p>
+<p>左根右，根叶黑 ③叶结点（外部结点、NULL结点、失败结点）均是黑色的<br>不红红，黑路同 ④不存在两个相邻的红结点（即红结点的父节点和孩子结点均是黑色）</p>
+<p>⑤对每个结点，从该节点到任一叶结点的简单路径上，所含黑结点的数<br>目相同</p>
+<h2 id="性质1：从根节点到叶结点的最长路径不大于最短路径的2倍"><a href="#性质1：从根节点到叶结点的最长路径不大于最短路径的2倍" class="headerlink" title="性质1：从根节点到叶结点的最长路径不大于最短路径的2倍"></a>性质1：从根节点到叶结点的最长路径不大于最短路径的2倍</h2><h2 id="性质2：有n个内部节点的红黑树高度-h-≤-2𝑙𝑜𝑔2-𝑛-1"><a href="#性质2：有n个内部节点的红黑树高度-h-≤-2𝑙𝑜𝑔2-𝑛-1" class="headerlink" title="性质2：有n个内部节点的红黑树高度 h ≤ 2𝑙𝑜𝑔2 𝑛 + 1"></a>性质2：有n个内部节点的红黑树高度 h ≤ 2𝑙𝑜𝑔2 𝑛 + 1</h2><p>à 红黑树查找操作时间复杂度 = O(𝑙𝑜𝑔2𝑛)</p>
+<h2 id="性质1证明：任何一条查找失败路径上黑结点数量都相同，而路径上不能连续出现两个红结点，即红结点只能穿插"><a href="#性质1证明：任何一条查找失败路径上黑结点数量都相同，而路径上不能连续出现两个红结点，即红结点只能穿插" class="headerlink" title="性质1证明：任何一条查找失败路径上黑结点数量都相同，而路径上不能连续出现两个红结点，即红结点只能穿插"></a>性质1证明：任何一条查找失败路径上黑结点数量都相同，而路径上不能连续出现两个红结点，即红结点只能穿插</h2><p>在各个黑结点中间</p>
+<p>性质2证明：若红黑树总高度=h，则根节点黑高 ≥ h/2，因此内部结点数 n ≥ 2h/2-1，由此推出 h ≤ 2𝑙𝑜𝑔2 𝑛 + 1<br>47</p>
+<p>与“黑高”相关的推论</p>
+<p>bh=2</p>
+<p>根节点黑高=2，内部结点数最多的情况</p>
+<p>结点的黑高 bh ——从某结点出发（不含该结点）到达任一叶结点的路径上黑结点总数</p>
+<p>思考：根节点黑高为 h的红黑树，内部结点数（关键字）至多有多少个？<br>回答：内部结点数最多的情况——h层黑结点，每一层黑结点下面都铺满一层红结点。共2h层的满树形态<br>结论：若根节点黑高为h，内部结点数（关键字）最多有 22h-1个</p>
+<p>48</p>
+
+      </div>
+      
+      
+      
+    </div>
+
+    
+    
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ianwusb</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<div id="chatbot-toggle" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
+  <button id="toggle-chat" style="
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #fff;
+    color: #333;
+    border: 1px solid #ddd;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  ">
+    🤖
+  </button>
+</div>
+
+<div id="chatbot-window" style="display: none; position: fixed; bottom: 80px; right: 20px; width: 340px; height: 480px; background: #fff; border: 1px solid #e0e0e0; z-index: 9999; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border-radius: 12px; overflow: hidden; flex-direction: column;">
+  <div style="background: #fff; color: #333; padding: 12px 16px; font-size: 16px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e0e0e0;">
+    Hexo AI 助手
+    <button id="close-chat" style="background: none; border: none; color: #333; font-size: 20px; cursor: pointer;">×</button>
+  </div>
+  <div id="chat-log" style="flex-grow: 1; padding: 12px; overflow-y: auto; font-size: 14px; background: #fafafa;"></div>
+  <div style="padding: 10px 16px; display: flex; background: #fff; border-top: 1px solid #e0e0e0;">
+    <input type="text" id="chat-input" placeholder="输入你的问题..." style="flex: 1; padding: 8px 10px; border-radius: 6px; border: 1px solid #ccc; font-size: 14px; outline: none;">
+    <button id="send-chat" style="margin-left: 8px; padding: 8px 12px; border-radius: 6px; border: none; background: #f0f0f0; color: #333; font-size: 14px; cursor: pointer;">发送</button>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<style>
+  #chat-log p, #chat-log li, #chat-log ul, #chat-log ol {
+    margin: 2px 0 !important;
+    line-height: 1.5;
+    font-size: 13px;
+  }
+  #chat-log a {
+    color: #2b6cb0;
+    text-decoration: underline;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+  #chat-log a:hover {
+    color: #1a4f8a;
+    background-color: #eef3f9;
+  }
+  #chat-log pre {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    padding: 6px 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+    font-size: 12.5px;
+    font-family: Consolas, monospace;
+    white-space: pre-wrap;
+    word-break: break-word;
+    margin: 6px 0;
+  }
+  #chat-log code {
+    background-color: #f0f0f0;
+    padding: 1px 4px;
+    border-radius: 3px;
+    font-family: Consolas, monospace;
+  }
+  #chat-log code[class*="language-"]::before {
+    content: '';
+  }
+</style>
+
+<script>
+  const toggleBtn = document.getElementById('toggle-chat');
+  const closeBtn = document.getElementById('close-chat');
+  const chatWindow = document.getElementById('chatbot-window');
+  const chatLog = document.getElementById('chat-log');
+  const chatInput = document.getElementById('chat-input');
+  const sendBtn = document.getElementById('send-chat');
+
+  let isChatVisible = false;
+
+  window.addEventListener("DOMContentLoaded", () => {
+    chatWindow.style.display = "none";
+  });
+
+  toggleBtn.onclick = () => {
+    isChatVisible = !isChatVisible;
+    chatWindow.style.display = isChatVisible ? 'flex' : 'none';
+  };
+
+  closeBtn.onclick = () => {
+    isChatVisible = false;
+    chatWindow.style.display = 'none';
+  };
+
+  function cleanMarkdown(md) {
+    return md.replace(/\n{3,}/g, '\n\n').replace(/^\s+|\s+$/g, '').trim();
+  }
+
+  function appendMessage(role, rawContent) {
+    const content = cleanMarkdown(rawContent);
+    const msg = document.createElement('div');
+    msg.style.marginBottom = '6px';
+    msg.style.display = 'flex';
+    msg.style.alignItems = 'flex-start';
+
+    const avatar = document.createElement('div');
+    avatar.style.fontSize = '18px';
+    avatar.style.marginRight = '5px';
+    avatar.textContent = role === 'user' ? '🙂' : '🤖';
+
+    const bubble = document.createElement('div');
+    bubble.style.padding = '6px 10px';
+    bubble.style.borderRadius = '10px';
+    bubble.style.maxWidth = '220px';
+    bubble.style.background = role === 'user' ? '#e2e2e2' : '#f0f0f0';
+    bubble.style.lineHeight = '1.5';
+    bubble.style.fontSize = '13px';
+    bubble.style.wordBreak = 'break-word';
+
+    bubble.innerHTML = role === 'user'
+      ? marked.parseInline(content)
+      : marked.parse(content);
+
+    msg.style.justifyContent = role === 'user' ? 'flex-end' : 'flex-start';
+    msg.appendChild(role === 'user' ? bubble : avatar);
+    msg.appendChild(role === 'user' ? avatar : bubble);
+    chatLog.appendChild(msg);
+    chatLog.scrollTop = chatLog.scrollHeight;
+  }
+
+  async function sendMessage() {
+    const query = chatInput.value.trim();
+    if (!query) return;
+    appendMessage('user', query);
+    chatInput.value = '';
+
+    const response = await fetch('https://hexo-ai-assistant.3216243013.workers.dev/ask', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({ query })
+    });
+
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = '';
+
+    const aiMsg = document.createElement('div');
+    aiMsg.style.marginBottom = '6px';
+    aiMsg.style.display = 'flex';
+    aiMsg.style.alignItems = 'flex-start';
+
+    const avatarAI = document.createElement('div');
+    avatarAI.style.fontSize = '18px';
+    avatarAI.style.marginRight = '5px';
+    avatarAI.textContent = '🤖';
+
+    const bubble = document.createElement('div');
+    bubble.style.padding = '6px 10px';
+    bubble.style.borderRadius = '10px';
+    bubble.style.maxWidth = '220px';
+    bubble.style.background = '#f0f0f0';
+    bubble.style.lineHeight = '1.5';
+    bubble.style.fontSize = '13px';
+    bubble.style.wordBreak = 'break-word';
+
+    aiMsg.appendChild(avatarAI);
+    aiMsg.appendChild(bubble);
+    chatLog.appendChild(aiMsg);
+    chatLog.scrollTop = chatLog.scrollHeight;
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      buffer += decoder.decode(value, { stream: true });
+      bubble.innerHTML = marked.parse(cleanMarkdown(buffer));
+      chatLog.scrollTop = chatLog.scrollHeight;
+    }
+
+    bubble.innerHTML = marked.parse(cleanMarkdown(buffer));
+  }
+
+  sendBtn.onclick = sendMessage;
+  chatInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") sendMessage();
+  });
+
+  window.addEventListener("click", (e) => {
+    if (
+      isChatVisible &&
+      !chatWindow.contains(e.target) &&
+      !toggleBtn.contains(e.target)
+    ) {
+      isChatVisible = false;
+      chatWindow.style.display = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>

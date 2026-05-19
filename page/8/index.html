@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">155</span>
+          <span class="site-state-item-count">156</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -194,7 +194,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">131</span>
+        <span class="site-state-item-count">132</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -219,6 +219,102 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/10/27/2024-10-27-%E9%A2%98%E8%A7%A3-%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E5%9B%A2%E9%98%9F%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%80%83%E6%A0%B8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/10/27/2024-10-27-%E9%A2%98%E8%A7%A3-%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E5%9B%A2%E9%98%9F%E5%9F%B9%E8%AE%AD%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%80%83%E6%A0%B8/" class="post-title-link" itemprop="url">题解 | 算法竞赛团队培训第一次考核</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-10-27 11:57:37" itemprop="dateCreated datePublished" datetime="2024-10-27T11:57:37+08:00">2024-10-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 13:56:56" itemprop="dateModified" datetime="2026-05-14T13:56:56+08:00">2026-05-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/" itemprop="url" rel="index"><span itemprop="name">算法竞赛</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>[TOC]</p>
+<h2 id="A-小红的签到题"><a href="#A-小红的签到题" class="headerlink" title="A. 小红的签到题"></a>A. <a target="_blank" rel="noopener" href="https://ac.nowcoder.com/acm/contest/94289/A">小红的签到题</a></h2><h3 id="思路解析"><a href="#思路解析" class="headerlink" title="思路解析"></a>思路解析</h3><p>题目给出了三个关键参数：</p>
+<ul>
+<li>$a$：题目总数</li>
+<li>$b$：参赛人数</li>
+<li>$c$：所有人通过题目的总数</li>
+</ul>
+<p><strong>目标</strong>：求最多有多少人“AK”（即通过了所有题目）。</p>
+<p><strong>推导过程</strong>：<br>要想让“AK”的人数最多，我们需要尽可能“凑”出完整通过所有题目的人。每个人要“AK”必须通过 $a$ 道题。因此，我们将总通过数 $c$ 除以单人所需题数 $a$，得到的整数部分即为最多可能的 AK 人数。</p>
+<p>公式为：<script type="math/tex">\text{ans} = \lfloor \frac{c}{a} \rfloor</script></p>
+<p><strong>关于余数的思考</strong>：题目问的是“最多有多少人AK”，这是一个整数解问题。如果 $c$ 不能被 $a$ 整除，余数代表的是不足以构成一个完整“AK”的题数，因此直接舍去（取整）即可。</p>
+<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p><strong>C++</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> a, b, c;</span><br><span class="line">    cin &gt;&gt; a &gt;&gt; b &gt;&gt; c;</span><br><span class="line">    <span class="comment">// 直接取整数部分</span></span><br><span class="line">    cout &lt;&lt; c / a &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">**Python**</span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line">a, b, c = <span class="built_in">map</span>(<span class="type">int</span>, <span class="built_in">input</span>().<span class="built_in">split</span>())</span><br><span class="line"><span class="built_in">print</span>(c <span class="comment">// a)</span></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">## B. [判断闰年](https:<span class="comment">//ac.nowcoder.com/acm/contest/94289/B)</span></span><br><span class="line"></span><br><span class="line">### 思路解析</span><br><span class="line"></span><br><span class="line">公历闰年的判定规则（满足以下条件之一即可）：</span><br><span class="line"><span class="number">1.</span> 能被 <span class="number">4</span> 整除但不能被 <span class="number">100</span> 整除（普通闰年）。</span><br><span class="line"><span class="number">2.</span> 能被 <span class="number">400</span> 整除（世纪闰年）。</span><br><span class="line"></span><br><span class="line">逻辑表达上，可以使用 `(n % <span class="number">4</span> == <span class="number">0</span> &amp;&amp; n % <span class="number">100</span> != <span class="number">0</span>) || (n % <span class="number">400</span> == <span class="number">0</span>)` 进行判断。</span><br><span class="line"></span><br><span class="line">### 代码实现</span><br><span class="line"></span><br><span class="line">**C++**</span><br><span class="line"></span><br><span class="line">```cpp</span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="built_in">main</span>() &#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">if</span> ((n % <span class="number">4</span> == <span class="number">0</span> &amp;&amp; n % <span class="number">100</span> != <span class="number">0</span>) || (n % <span class="number">400</span> == <span class="number">0</span>)) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;yes&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;no&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">**Python**</span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line"><span class="keyword">if</span> (n % <span class="number">4</span> == <span class="number">0</span> <span class="keyword">and</span> n % <span class="number">100</span> != <span class="number">0</span>) <span class="built_in">or</span> (n % <span class="number">400</span> == <span class="number">0</span>):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;yes&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;no&quot;</span>)</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">## C. [NOIP2010 数字统计](https:<span class="comment">//ac.nowcoder.com/acm/contest/94289/C)</span></span><br><span class="line"></span><br><span class="line">### 思路解析</span><br><span class="line"></span><br><span class="line">题目要求统计区间 $[L, R]$ 内所有整数中数字 $<span class="number">2</span>$ 出现的次数。</span><br><span class="line"></span><br><span class="line">由于数据范围通常较小，可以直接采用**暴力枚举**的方法：</span><br><span class="line"><span class="number">1.</span> 遍历从 $L$ 到 $R$ 的每一个整数。</span><br><span class="line"><span class="number">2.</span> 将每个整数转换为字符串形式，或者通过取模运算分离每一位数字。</span><br><span class="line"><span class="number">3.</span> 统计数字 $<span class="number">2</span>$ 出现的次数并累加。</span><br><span class="line"></span><br><span class="line">这种方法直观且不易出错，适合入门级题目。</span><br><span class="line"></span><br><span class="line">### 代码实现</span><br><span class="line"></span><br><span class="line">**C++**</span><br><span class="line"></span><br><span class="line">```cpp</span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="built_in">main</span>() &#123;</span><br><span class="line">    <span class="type">int</span> L, R;</span><br><span class="line">    cin &gt;&gt; L &gt;&gt; R;</span><br><span class="line">    <span class="type">int</span> countTwos = <span class="number">0</span>; <span class="comment">// 统计数字2的总数</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = L; i &lt;= R; ++i) &#123;</span><br><span class="line">        string num_str = <span class="built_in">to_string</span>(i);</span><br><span class="line">        <span class="comment">// 使用 STL count 函数统计字符 &#x27;2&#x27; 的个数</span></span><br><span class="line">        countTwos += <span class="built_in">count</span>(num_str.<span class="built_in">begin</span>(), num_str.<span class="built_in">end</span>(), <span class="string">&#x27;2&#x27;</span>);  </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    cout &lt;&lt; countTwos &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -605,91 +701,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/07/26/2024-07-26-requests_get%E8%AF%B7%E6%B1%82/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/26/2024-07-26-requests_get%E8%AF%B7%E6%B1%82/" class="post-title-link" itemprop="url">Python网络爬虫：深入理解Requests库的GET请求</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-07-26 12:49:51" itemprop="dateCreated datePublished" datetime="2024-07-26T12:49:51+08:00">2024-07-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python%E7%88%AC%E8%99%AB%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">Python爬虫开发</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>本文详细讲解如何使用 Python Requests 库发送 GET 请求，重点解析 params 参数的自动化编码处理及请求头定制技巧。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/07/26/2024-07-26-requests_get%E8%AF%B7%E6%B1%82/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/07/26/2024-07-26-chaojiying/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -788,7 +799,7 @@ print(result)
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/07/26/2024-07-26-requests_%E5%8F%A4%E8%AF%97%E6%96%87%E7%BD%91/">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/07/26/2024-07-26-requests_get%E8%AF%B7%E6%B1%82/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/img/a.png">
@@ -806,7 +817,7 @@ print(result)
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/26/2024-07-26-requests_%E5%8F%A4%E8%AF%97%E6%96%87%E7%BD%91/" class="post-title-link" itemprop="url">Python爬虫实战：模拟登录古诗文网</a>
+          <a href="/2024/07/26/2024-07-26-requests_get%E8%AF%B7%E6%B1%82/" class="post-title-link" itemprop="url">Python网络爬虫：深入理解Requests库的GET请求</a>
         </h2>
 
         <div class="post-meta-container">
@@ -825,11 +836,7 @@ print(result)
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%8A%80%E6%9C%AF%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">技术开发</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%8A%80%E6%9C%AF%E5%BC%80%E5%8F%91/Python%E7%88%AC%E8%99%AB/" itemprop="url" rel="index"><span itemprop="name">Python爬虫</span></a>
+          <a href="/categories/Python%E7%88%AC%E8%99%AB%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">Python爬虫开发</span></a>
         </span>
     </span>
 
@@ -843,10 +850,102 @@ print(result)
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>本文详细记录了使用 Python 的 requests 库模拟登录古诗文网的过程。重点分析了 ASP.NET 网站特有的 __VIEWSTATE 参数动态获取，以及验证码处理的思路与代码实现。</p>
+          <p>本文详细讲解如何使用 Python Requests 库发送 GET 请求，重点解析 params 参数的自动化编码处理及请求头定制技巧。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2024/07/26/2024-07-26-requests_%E5%8F%A4%E8%AF%97%E6%96%87%E7%BD%91/">
+              <a class="btn" href="/2024/07/26/2024-07-26-requests_get%E8%AF%B7%E6%B1%82/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/07/26/2024-07-26-requests_get%E8%AF%B7%E6%B1%82_1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/07/26/2024-07-26-requests_get%E8%AF%B7%E6%B1%82_1/" class="post-title-link" itemprop="url">Python网络爬虫基础：原理、分类与Urllib入门</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-07-26 12:49:51" itemprop="dateCreated datePublished" datetime="2024-07-26T12:49:51+08:00">2024-07-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 13:56:56" itemprop="dateModified" datetime="2026-05-14T13:56:56+08:00">2026-05-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python%E7%88%AC%E8%99%AB/" itemprop="url" rel="index"><span itemprop="name">Python爬虫</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>本文深入讲解Python网络爬虫的基础知识，涵盖爬虫的核心原理、通用与聚焦爬虫的分类对比、常见反爬策略及应对方案，并实战演示Urllib库的基本使用方法。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/07/26/2024-07-26-requests_get%E8%AF%B7%E6%B1%82_1/">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -968,7 +1067,7 @@ print(result)
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/07/26/2024-07-26-requests_get%E8%AF%B7%E6%B1%82_1/">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/07/26/2024-07-26-requests_%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/img/a.png">
@@ -986,99 +1085,7 @@ print(result)
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/26/2024-07-26-requests_get%E8%AF%B7%E6%B1%82_1/" class="post-title-link" itemprop="url">Python网络爬虫基础：原理、分类与Urllib入门</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-07-26 12:49:51" itemprop="dateCreated datePublished" datetime="2024-07-26T12:49:51+08:00">2024-07-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-05-14 13:56:56" itemprop="dateModified" datetime="2026-05-14T13:56:56+08:00">2026-05-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python%E7%88%AC%E8%99%AB/" itemprop="url" rel="index"><span itemprop="name">Python爬虫</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>本文深入讲解Python网络爬虫的基础知识，涵盖爬虫的核心原理、通用与聚焦爬虫的分类对比、常见反爬策略及应对方案，并实战演示Urllib库的基本使用方法。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/07/26/2024-07-26-requests_get%E8%AF%B7%E6%B1%82_1/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/07/26/2024-07-26-selenium_chrome_headers/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/26/2024-07-26-selenium_chrome_headers/" class="post-title-link" itemprop="url">Selenium+Chrome 无头模式与 Headers 配置实战</a>
+          <a href="/2024/07/26/2024-07-26-requests_%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">Python 爬虫基础：Requests 库的基本使用</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1097,11 +1104,11 @@ print(result)
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%8A%80%E6%9C%AF%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">技术开发</span></a>
+          <a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%8A%80%E6%9C%AF%E5%BC%80%E5%8F%91/Python%E7%88%AC%E8%99%AB/" itemprop="url" rel="index"><span itemprop="name">Python爬虫</span></a>
+          <a href="/categories/Python/Spider/" itemprop="url" rel="index"><span itemprop="name">Spider</span></a>
         </span>
     </span>
 
@@ -1115,10 +1122,10 @@ print(result)
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>本文介绍如何在使用 Selenium 进行 Python 爬虫开发时，通过封装 Chrome Headless 模式与自定义 Headers 来实现更隐蔽的数据抓取。</p>
+          本文介绍 Python 爬虫常用库 Requests 的基础用法，通过 requests.get 方法获取网页数据，并深入解析 Response 对象的一个类型和六个核心属性。
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2024/07/26/2024-07-26-selenium_chrome_headers/">
+              <a class="btn" href="/2024/07/26/2024-07-26-requests_%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>

@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ianwusb.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="王道考研——数据结构 WWW.CSKAOYAN.COM 第六章 图 本节内容图 定义基本术语 知识总览G: GraphV: Vertex 图的定义E: Edge 图G由顶点集V和边集E组成，记为G &#x3D; (V, E)，其中V(G)表示图G中顶点的有限非空集；E(G)表示图G中顶点之间的关系（边）集合。若V &#x3D; {v1, v2, … , vn}，则用|V|表示图G中顶点的个数，也称图G的阶，E &#x3D;">
+<meta property="og:type" content="website">
+<meta property="og:title" content="6.1.1 图的基本概念">
+<meta property="og:url" content="https://ianwusb.github.io/wangdaods/6.1.1%20%E5%9B%BE%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5.html">
+<meta property="og:site_name" content="Ianwusb-CPCode">
+<meta property="og:description" content="王道考研——数据结构 WWW.CSKAOYAN.COM 第六章 图 本节内容图 定义基本术语 知识总览G: GraphV: Vertex 图的定义E: Edge 图G由顶点集V和边集E组成，记为G &#x3D; (V, E)，其中V(G)表示图G中顶点的有限非空集；E(G)表示图G中顶点之间的关系（边）集合。若V &#x3D; {v1, v2, … , vn}，则用|V|表示图G中顶点的个数，也称图G的阶，E &#x3D;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-05-18T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-05-19T12:27:21.505Z">
+<meta property="article:author" content="Ianwusb">
+<meta property="article:tag" content="王道数据结构">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ianwusb.github.io/wangdaods/6.1.1%20%E5%9B%BE%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":true,"permalink":"https://ianwusb.github.io/wangdaods/6.1.1%20%E5%9B%BE%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5.html","path":"wangdaods/6.1.1 图的基本概念.html","title":"6.1.1 图的基本概念"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>6.1.1 图的基本概念 | Ianwusb-CPCode
+</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.1/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ianwusb-CPCode</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Ianwusb-CPCode</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%AC%E8%8A%82%E5%86%85%E5%AE%B9"><span class="nav-number">1.</span> <span class="nav-text">本节内容</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9F%A5%E8%AF%86%E6%80%BB%E8%A7%88"><span class="nav-number">2.</span> <span class="nav-text">知识总览</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9F%A5%E8%AF%86%E5%9B%9E%E9%A1%BE%E4%B8%8E%E9%87%8D%E8%A6%81%E8%80%83%E7%82%B9"><span class="nav-number">3.</span> <span class="nav-text">知识回顾与重要考点</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ianwusb"
+      src="/img/a.png">
+  <p class="site-author-name" itemprop="name">Ianwusb</p>
+  <div class="site-description" itemprop="description">Ianwusb-CPCode</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">156</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">53</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">132</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Swcmb" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Swcmb" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:fastjackcost880@gmail.com" title="E-Mail → mailto:fastjackcost880@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner page posts-expand">
+
+
+    
+    
+    
+    <div class="post-block" lang="zh-CN"><header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">6.1.1 图的基本概念
+</h1>
+
+<div class="post-meta-container">
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+          <p>﻿王道考研——数据结构</p>
+<p>WWW.CSKAOYAN.COM</p>
+<p>第六章 图</p>
+<h1 id="本节内容"><a href="#本节内容" class="headerlink" title="本节内容"></a>本节内容</h1><p>图</p>
+<p>定义<br>基本术语</p>
+<h1 id="知识总览"><a href="#知识总览" class="headerlink" title="知识总览"></a>知识总览</h1><p>G: Graph<br>V: Vertex 图的定义<br>E: Edge</p>
+<p>图G由顶点集V和边集E组成，记为G = (V, E)，其中V(G)表示图G中顶点的有限非空集；E(G)<br>表示图G中顶点之间的关系（边）集合。若V = {v1, v2, … , vn}，则用|V|表示图G中顶点的个<br>数，也称图G的阶，E = {(u, v) | uÎV, vÎV}，用|E|表示图G中边的条数。<br>注意：线性表可以是空表，树可以是空树，但图不可以是空，即V一定是非空集</p>
+<p>A A A</p>
+<p>D D D<br>B C B C B C</p>
+<p>E F E E F</p>
+<p>✅ ❌ ✅ E = ∅</p>
+<p>图逻辑结构的应用</p>
+<p>V:车站 E:铁路 V:路口 E:道路</p>
+<p>边是没有 图逻辑结构的应用<br>方向的 边是有</p>
+<p>方向的</p>
+<p>艾斯 萨博<br>明星 明星</p>
+<p>A B</p>
+<p>路飞</p>
+<p>娜美 吃瓜</p>
+<p>索隆 群众C<br>吃瓜<br>群众F</p>
+<p>吃瓜 吃瓜<br>群众D 群众E</p>
+<p>乔巴<br>山治</p>
+<p>微信好友关系 微博粉丝关系</p>
+<p>无向图、有向图</p>
+<p>A<br>若E是无向边（简称边）的有限集合时，则图G为无向图。边</p>
+<p>B 是顶点的无序对，记为(v, w)或(w, v)，因为(v, w) = (w, v)，其<br>中v、w是顶点。可以说顶点w和顶点v互为邻接点。边(v, w)</p>
+<p>C 依附于顶点w和v，或者说边(v, w)和顶点v、w相关联。<br>G2 = (V2, E2)<br>V2 = {A, B, C, D, E}</p>
+<p>E E2 = {(A, B), (B, D), (B, E), (C, D), (C, E), (D, E)}<br>D</p>
+<p>A B<br>若E是有向边（也称弧）的有限集合时，则图G为有向图。<br>弧是顶点的有序对，记为<v, w>，其中v、w是顶点，v称为<br>弧尾，w称为弧头，<v, w>称为从顶点v到顶点w的弧，也称<br>v邻接到w，或w邻接自v。 <v, w> ≠ <w, v><br>G1 = (V1, E1)<br>V1 = {A, B, C, D, E} E</p>
+<p>D C<br>E1 = {<A, B>, <A, C>, <A, D>, <A, E>, <B, A>, <B, C>, <B, E>, <C, D>}</p>
+<p>简单图、多重图</p>
+<p>简单无向图 简单有向图 多重无向图 多重有向图</p>
+<p>A B A B A B A B</p>
+<p>C E C E C E C E</p>
+<p>简单图——①不存在重复边； 多重图——图G中某两个结点之间的边数多于<br>②不存在顶点到自身的边 一条，又允许顶点通过同一条边和自己关联，</p>
+<p>则G为多重图<br>数据结构课程只探<br>讨“简单图”</p>
+<p>图逻辑结构的应用</p>
+<p>艾斯 萨博<br>明星 明星</p>
+<p>微博大V？ A B<br>交际达人？</p>
+<p>路飞</p>
+<p>娜美 吃瓜<br>群众C</p>
+<p>索隆 吃瓜<br>群众F</p>
+<p>吃瓜 吃瓜<br>群众D 群众E</p>
+<p>乔巴<br>山治 吃瓜指数？</p>
+<p>微信好友关系 微博粉丝关系</p>
+<p>顶点的度、入度、出度</p>
+<p>A</p>
+<p>对于无向图：顶点v的度是指依附于该顶点的边的条数，记为TD(v)。<br>B</p>
+<p>n<br>C 在具有n个顶点、e条边的无向图中，åTD(vi ) = 2e</p>
+<p>i=1</p>
+<p>即无向图的全部顶点的度的和等于边数的2倍</p>
+<p>E<br>D</p>
+<p>A<br>对于有向图： B<br>入度是以顶点v为终点的有向边的数目，记为ID(v)；<br>出度是以顶点v为起点的有向边的数目，记为OD(v)。<br>顶点v的度等于其入度和出度之和，即TD(v) = ID(v) + OD(v)。</p>
+<p>n n<br>在具有n个顶点、e条边的有向图中，å ID(vi ) =åOD(vi ) = e E</p>
+<p>i=1 i=1 D C</p>
+<p>顶点之间有可<br>能不存在路径 顶点-顶点的关系描述 有向图的路径</p>
+<p>也是有向的</p>
+<p>F A<br>A B</p>
+<p>B<br>C</p>
+<p>E E<br>D D C</p>
+<ul>
+<li><p>路径——顶点vp到顶点vq之间的一条路径是指顶点序列，vp ,vi ,vi ,,v ,v1 2 im q</p>
+</li>
+<li><p>回路——第一个顶点和最后一个顶点相同的路径称为回路或环</p>
+</li>
+<li>简单路径——在路径序列中，顶点不重复出现的路径称为简单路径。</li>
+<li>简单回路——除第一个顶点和最后一个顶点外，其余顶点不重复出现的回路称为简单回路。</li>
+<li>路径长度——路径上边的数目</li>
+<li><p>点到点的距离——从顶点u出发到顶点v的最短路径若存在，则此路径的长度称为从u到v的距离。<br>若从u到v根本不存在路径，则记该距离为无穷（∞）。</p>
+</li>
+<li><p>无向图中，若从顶点v到顶点w有路径存在，则称v和w是连通的</p>
+</li>
+<li>有向图中，若从顶点v到顶点w和从顶点w到顶点v之间都有路径，则称这两个顶点是强连通的</li>
+</ul>
+<p>连通图、强连通图</p>
+<p>A</p>
+<p>A B<br>B</p>
+<p>C</p>
+<p>E<br>E D</p>
+<p>D C</p>
+<p>若图G中任意两个顶点都是连通的，则称图G为 若图中任何一对顶点都是强连通的，则称此图为<br>连通图，否则称为非连通图。 强连通图。</p>
+<p>常见考点： 常见考点：<br>对于n个顶点的无向图G， 对于n个顶点的有向图G，<br>若G是连通图，则最少有 n-1条边 若G是强连通图，则最少有 n条边（形成回路）<br>若G是非连通图，则最多可能有 𝐶$!”#条边</p>
+<p>研究图的局部——子图<br>无向图G 生成子图</p>
+<p>A 子图 A<br>A</p>
+<p>D D<br>B C B C</p>
+<p>B C</p>
+<p>E F E F</p>
+<p>并非任意挑几 A<br>个点、几条边</p>
+<p>设有两个图G = (V, E)和G¢ = (V¢, E¢)，若V¢是V的子集，且E¢是 都能构成子图 ❌<br>E的子集，则称G¢是G的子图。</p>
+<p>若有满足V(G¢) = V(G)的子图G¢，则称其为G B C<br>的生成子图</p>
+<p>研究图的局部——子图<br>有向图G 生成子图</p>
+<p>A 子图 A<br>A</p>
+<p>D D<br>B C B C</p>
+<p>B C</p>
+<p>E F E F</p>
+<p>并非任意挑几 A<br>个点、几条边</p>
+<p>设有两个图G = (V, E)和G¢ = (V¢, E¢)，若V¢是V的子集，且E¢是 都能构成子图 ❌<br>E的子集，则称G¢是G的子图。</p>
+<p>若有满足V(G¢) = V(G)的子图G¢，则称其为G B C<br>的生成子图</p>
+<p>子图必须连通，且包含 连通分量<br>尽可能多的顶点和边</p>
+<p>无向图中的极大连通子图称为连通分量。</p>
+<p>A<br>A G G</p>
+<p>H D H J<br>D</p>
+<p>B C B C<br>I I</p>
+<p>J E F<br>E F</p>
+<p>无向图G G的三个连通分量</p>
+<p>连通分量</p>
+<p>中国铁路客运线路图：</p>
+<p>大陆铁路网——连通分量1</p>
+<p>海南岛铁路网——连通分量2</p>
+<p>台湾岛铁路网——连通分量3</p>
+<p>子图必须强连通，同时 强连通分量<br>保留尽可能多的边</p>
+<p>有向图中的极大强连通子图称为有向图的强连通分量</p>
+<p>有向图G</p>
+<p>A B</p>
+<p>F F G</p>
+<p>A B</p>
+<p>G<br>E</p>
+<p>D<br>C</p>
+<p>E<br>D</p>
+<p>C</p>
+<p>G的三个强连通分量</p>
+<p>边尽可能的少， 生成树<br>但要保持连通</p>
+<p>连通图的生成树是包含图中全部顶点的一个极小连通子图。<br>若图中顶点数为n，则它的生成树含有 n-1条边。对生成树而言，若砍去它的一条边，则会变成非连通<br>图，若加上一条边则会形成一个回路。</p>
+<p>A A<br>A</p>
+<p>D D<br>D B C B C</p>
+<p>B C</p>
+<p>E F E F<br>E F</p>
+<p>G的生成树1 G的生成树2 ……<br>无向图G</p>
+<p>生成森林</p>
+<p>在非连通图中，连通分量的生成树构成了非连通图的生成森林。</p>
+<p>A<br>A G G</p>
+<p>H H J<br>D</p>
+<p>D B C<br>B C I I</p>
+<p>J E F<br>E F</p>
+<p>非连通无向图G G的连通分量 àG的生成森林</p>
+<p>生成森林</p>
+<p>在非连通图中，连通分量的生成树构成了非连通图的生成森林。</p>
+<p>A<br>A G G</p>
+<p>H H J<br>D</p>
+<p>D B C<br>B C I I</p>
+<p>J E F<br>E F</p>
+<p>非连通无向图G G的连通分量 àG的生成森林</p>
+<p>边的权、带权图/网 给各边赋予一个数<br>值——转发概率</p>
+<p>北京 0.1<br>明星</p>
+<p>给各边赋予一个权 明星<br>值—— A 0.1</p>
+<p>实际距离 B<br>500 200</p>
+<p>1 0.9<br>0.2 0.2</p>
+<p>石家庄 天津<br>300 吃瓜 0.5</p>
+<p>群众C 0.7<br>400 吃瓜</p>
+<p>400 600 群众F<br>西安 郑州站</p>
+<p>吃瓜 吃瓜<br>上海 群众D 群众E</p>
+<p>边的权——在一个图中，每条边都可以标上具有某种含义的数值，该数值称为该边的权值。<br>带权图/网——边上带有权值的图称为带权图，也称网。</p>
+<p>带权路径长度——当图是带权图时，一条路径上所有边的权值之和，称为该路径的带权路径长度</p>
+<p>带权图的应用举例</p>
+<p>以“实际距离” 以“高速费”<br>作为边的权值 P城 P城 作为边的权值</p>
+<p>50km ￥30<br>70km ￥40</p>
+<p>G镇 G镇</p>
+<p>渔村 渔村<br>40km ￥20</p>
+<p>R城 R城<br>80km ￥0</p>
+<p>40km ￥20<br>Y城 Y城</p>
+<p>地图导航——距离最短 地图导航——收费最低</p>
+<p>几种特殊形态的图</p>
+<p>路飞</p>
+<p>娜美 A B<br>索隆</p>
+<p>C E<br>乔巴</p>
+<p>山治</p>
+<p>无向完全图——无向图中任意两个顶点 有向完全图——有向图中任意两个顶点<br>之间都存在边 之间都存在方向相反的两条弧</p>
+<p>若无向图的顶点数|V|=n，则 若有向图的顶点数|V|=n，则<br>|E| ∈ 0, 𝐶$! = [0, n(n–1)/2] |E| ∈ 0, 2𝐶$! = [0, n(n–1)]</p>
+<p>几种特殊形态的图</p>
+<p>A<br>A</p>
+<p>B<br>B</p>
+<p>C<br>C</p>
+<p>E<br>D E</p>
+<p>D</p>
+<p>边数很少的图称为稀疏图 反之称为稠密图</p>
+<p>没有绝对的界限，一般来说|E| &lt; |V|log|V|时，可以将G视为稀疏图</p>
+<p>几种特殊形态的图<br>树</p>
+<p>有向树<br>A A 森 A</p>
+<p>林<br>B B B</p>
+<p>C C C</p>
+<p>E<br>D E</p>
+<p>D D E</p>
+<p>树——不存在回路，且连通的无向图 有向树——一个顶点的入度为0、其余顶点的<br>入度均为1的有向图，称为有向树。</p>
+<p>n个顶点的树，必有n-1条边。</p>
+<p>常见考点：n个顶点的图，若 |E|&gt;n-1，则一定有回路</p>
+<h1 id="知识回顾与重要考点"><a href="#知识回顾与重要考点" class="headerlink" title="知识回顾与重要考点"></a>知识回顾与重要考点</h1><p>常见考点：<br>对于n个顶点的无向图G，</p>
+<ul>
+<li>所有顶点的度之和=2|E|</li>
+<li><p>若G是连通图，则最少有 n-1条边（树），<br>若 |E|&gt;n-1，则一定有回路</p>
+</li>
+<li><p>若G是非连通图，则最多可能有 𝐶$!”#条边</p>
+</li>
+<li>无向完全图共有𝐶$! 条边</li>
+</ul>
+<p>对于n个顶点的有向图G，</p>
+<ul>
+<li>所有顶点的出度之和=入度之和=|E|</li>
+<li>所有顶点的度之和=2|E|</li>
+<li>若G是强连通图，则最少有 n条边（形成回路）</li>
+<li>有向完全图共有2𝐶$! 条边</li>
+</ul>
+<p>26考研最新完整版课程内容如图，包含1V1择校、实时答疑、课程<br>规划、考试测评、考试批改等服务，具体详情可扫码咨询</p>
+
+      </div>
+      
+      
+      
+    </div>
+
+    
+    
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ianwusb</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<div id="chatbot-toggle" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
+  <button id="toggle-chat" style="
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #fff;
+    color: #333;
+    border: 1px solid #ddd;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  ">
+    🤖
+  </button>
+</div>
+
+<div id="chatbot-window" style="display: none; position: fixed; bottom: 80px; right: 20px; width: 340px; height: 480px; background: #fff; border: 1px solid #e0e0e0; z-index: 9999; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border-radius: 12px; overflow: hidden; flex-direction: column;">
+  <div style="background: #fff; color: #333; padding: 12px 16px; font-size: 16px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e0e0e0;">
+    Hexo AI 助手
+    <button id="close-chat" style="background: none; border: none; color: #333; font-size: 20px; cursor: pointer;">×</button>
+  </div>
+  <div id="chat-log" style="flex-grow: 1; padding: 12px; overflow-y: auto; font-size: 14px; background: #fafafa;"></div>
+  <div style="padding: 10px 16px; display: flex; background: #fff; border-top: 1px solid #e0e0e0;">
+    <input type="text" id="chat-input" placeholder="输入你的问题..." style="flex: 1; padding: 8px 10px; border-radius: 6px; border: 1px solid #ccc; font-size: 14px; outline: none;">
+    <button id="send-chat" style="margin-left: 8px; padding: 8px 12px; border-radius: 6px; border: none; background: #f0f0f0; color: #333; font-size: 14px; cursor: pointer;">发送</button>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<style>
+  #chat-log p, #chat-log li, #chat-log ul, #chat-log ol {
+    margin: 2px 0 !important;
+    line-height: 1.5;
+    font-size: 13px;
+  }
+  #chat-log a {
+    color: #2b6cb0;
+    text-decoration: underline;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+  #chat-log a:hover {
+    color: #1a4f8a;
+    background-color: #eef3f9;
+  }
+  #chat-log pre {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    padding: 6px 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+    font-size: 12.5px;
+    font-family: Consolas, monospace;
+    white-space: pre-wrap;
+    word-break: break-word;
+    margin: 6px 0;
+  }
+  #chat-log code {
+    background-color: #f0f0f0;
+    padding: 1px 4px;
+    border-radius: 3px;
+    font-family: Consolas, monospace;
+  }
+  #chat-log code[class*="language-"]::before {
+    content: '';
+  }
+</style>
+
+<script>
+  const toggleBtn = document.getElementById('toggle-chat');
+  const closeBtn = document.getElementById('close-chat');
+  const chatWindow = document.getElementById('chatbot-window');
+  const chatLog = document.getElementById('chat-log');
+  const chatInput = document.getElementById('chat-input');
+  const sendBtn = document.getElementById('send-chat');
+
+  let isChatVisible = false;
+
+  window.addEventListener("DOMContentLoaded", () => {
+    chatWindow.style.display = "none";
+  });
+
+  toggleBtn.onclick = () => {
+    isChatVisible = !isChatVisible;
+    chatWindow.style.display = isChatVisible ? 'flex' : 'none';
+  };
+
+  closeBtn.onclick = () => {
+    isChatVisible = false;
+    chatWindow.style.display = 'none';
+  };
+
+  function cleanMarkdown(md) {
+    return md.replace(/\n{3,}/g, '\n\n').replace(/^\s+|\s+$/g, '').trim();
+  }
+
+  function appendMessage(role, rawContent) {
+    const content = cleanMarkdown(rawContent);
+    const msg = document.createElement('div');
+    msg.style.marginBottom = '6px';
+    msg.style.display = 'flex';
+    msg.style.alignItems = 'flex-start';
+
+    const avatar = document.createElement('div');
+    avatar.style.fontSize = '18px';
+    avatar.style.marginRight = '5px';
+    avatar.textContent = role === 'user' ? '🙂' : '🤖';
+
+    const bubble = document.createElement('div');
+    bubble.style.padding = '6px 10px';
+    bubble.style.borderRadius = '10px';
+    bubble.style.maxWidth = '220px';
+    bubble.style.background = role === 'user' ? '#e2e2e2' : '#f0f0f0';
+    bubble.style.lineHeight = '1.5';
+    bubble.style.fontSize = '13px';
+    bubble.style.wordBreak = 'break-word';
+
+    bubble.innerHTML = role === 'user'
+      ? marked.parseInline(content)
+      : marked.parse(content);
+
+    msg.style.justifyContent = role === 'user' ? 'flex-end' : 'flex-start';
+    msg.appendChild(role === 'user' ? bubble : avatar);
+    msg.appendChild(role === 'user' ? avatar : bubble);
+    chatLog.appendChild(msg);
+    chatLog.scrollTop = chatLog.scrollHeight;
+  }
+
+  async function sendMessage() {
+    const query = chatInput.value.trim();
+    if (!query) return;
+    appendMessage('user', query);
+    chatInput.value = '';
+
+    const response = await fetch('https://hexo-ai-assistant.3216243013.workers.dev/ask', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({ query })
+    });
+
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = '';
+
+    const aiMsg = document.createElement('div');
+    aiMsg.style.marginBottom = '6px';
+    aiMsg.style.display = 'flex';
+    aiMsg.style.alignItems = 'flex-start';
+
+    const avatarAI = document.createElement('div');
+    avatarAI.style.fontSize = '18px';
+    avatarAI.style.marginRight = '5px';
+    avatarAI.textContent = '🤖';
+
+    const bubble = document.createElement('div');
+    bubble.style.padding = '6px 10px';
+    bubble.style.borderRadius = '10px';
+    bubble.style.maxWidth = '220px';
+    bubble.style.background = '#f0f0f0';
+    bubble.style.lineHeight = '1.5';
+    bubble.style.fontSize = '13px';
+    bubble.style.wordBreak = 'break-word';
+
+    aiMsg.appendChild(avatarAI);
+    aiMsg.appendChild(bubble);
+    chatLog.appendChild(aiMsg);
+    chatLog.scrollTop = chatLog.scrollHeight;
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      buffer += decoder.decode(value, { stream: true });
+      bubble.innerHTML = marked.parse(cleanMarkdown(buffer));
+      chatLog.scrollTop = chatLog.scrollHeight;
+    }
+
+    bubble.innerHTML = marked.parse(cleanMarkdown(buffer));
+  }
+
+  sendBtn.onclick = sendMessage;
+  chatInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") sendMessage();
+  });
+
+  window.addEventListener("click", (e) => {
+    if (
+      isChatVisible &&
+      !chatWindow.contains(e.target) &&
+      !toggleBtn.contains(e.target)
+    ) {
+      isChatVisible = false;
+      chatWindow.style.display = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>

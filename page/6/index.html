@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">155</span>
+          <span class="site-state-item-count">156</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -194,7 +194,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">131</span>
+        <span class="site-state-item-count">132</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -219,6 +219,111 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P12154-P12154-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-Java-B-%E9%80%83%E7%A6%BB%E9%AB%98%E5%A1%94-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/12/2026-05-12-P12154-P12154-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-Java-B-%E9%80%83%E7%A6%BB%E9%AB%98%E5%A1%94-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12154 - P12154 [蓝桥杯 2025 省 Java B] 逃离高塔 - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-12 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="洛谷-P12154-逃离高塔-思路分析与代码实现"><a href="#洛谷-P12154-逃离高塔-思路分析与代码实现" class="headerlink" title="[洛谷 P12154] 逃离高塔 - 思路分析与代码实现"></a>[洛谷 P12154] 逃离高塔 - 思路分析与代码实现</h1><h3 id="1-题意简述"><a href="#1-题意简述" class="headerlink" title="1. 题意简述"></a>1. 题意简述</h3><p>本题要求我们计算在2025年之前，有多少个正整数的立方以3结尾。也就是说，我们需要找出所有满足条件 (a^3 \mod 10 = 3) 的正整数 (a)。</p>
+<h3 id="2-思路分析"><a href="#2-思路分析" class="headerlink" title="2. 思路分析"></a>2. 思路分析</h3><ul>
+<li><strong>朴素解法</strong>：我们可以逐个检查从1到2024的每个数，计算其立方，并检查立方是否以3结尾。这种方法直观但效率低下，因为它需要大量的计算。</li>
+<li><strong>优化方向</strong>：观察到立方以3结尾的性质，我们可以推断出立方数的个位数只能是0, 1, 2, 3, 4, 5, 6, 7, 8, 9。由于只有3和9的立方以3结尾，我们只需要检查这两个数的立方即可。</li>
+<li><strong>最终解法</strong>：我们可以直接计算3和9的立方，即 (3^3 = 27) 和 (9^3 = 729)，然后检查它们的个位数是否为3。由于题目要求是2025年之前，我们只需要考虑3的立方，因为9的立方超出了题目范围。</li>
+</ul>
+<h3 id="3-复杂度分析"><a href="#3-复杂度分析" class="headerlink" title="3. 复杂度分析"></a>3. 复杂度分析</h3><ul>
+<li><strong>时间复杂度</strong>：(O(1))，因为我们的算法只需要计算两个数的立方，然后检查个位数。</li>
+<li><strong>空间复杂度</strong>：(O(1))，因为我们不需要额外的空间来存储数据。</li>
+</ul>
+<h3 id="4-核心代码-注释"><a href="#4-核心代码-注释" class="headerlink" title="4. 核心代码 + 注释"></a>4. 核心代码 + 注释</h3><p>```python<br>res = 0<br>a = 3<br>a_cubed = a ** 3<br>if a_cubed % 10 == 3:<br>    res += 1<br>print(res)</p>
+<ul>
+<li>变量 <code>res</code> 用于存储满足条件的数的数量。</li>
+<li>变量 <code>a</code> 设置为3，因为我们只需要检查3的立方。</li>
+<li>变量 <code>a_cubed</code> 存储了3的立方。</li>
+<li>我们检查 <code>a_cubed % 10</code> 是否等于3，如果是，则将 <code>res</code> 加1。</li>
+</ul>
+<h3 id="5-输入输出示例"><a href="#5-输入输出示例" class="headerlink" title="5. 输入输出示例"></a>5. 输入输出示例</h3><ul>
+<li>输入：无</li>
+<li>输出：1</li>
+<li>解释：只有3的立方以3结尾。</li>
+</ul>
+<h3 id="6-易错点-amp-收获"><a href="#6-易错点-amp-收获" class="headerlink" title="6. 易错点 &amp; 收获"></a>6. 易错点 &amp; 收获</h3><ul>
+<li>易错点：可能忘记检查个位数是否为3。</li>
+<li>收获：本题教会了我们如何利用数的性质来简化问题，以及如何高效地解决问题。</li>
+</ul>
+<h3 id="7-参考-扩展"><a href="#7-参考-扩展" class="headerlink" title="7. 参考 / 扩展"></a>7. 参考 / 扩展</h3><ul>
+<li>本题没有复杂的算法，因此没有特别的参考。</li>
+<li>推荐类似题目：[洛谷 P1001] 一组数字的立方和 - 洛谷</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -524,6 +629,123 @@ pass
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P12184-P12184-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-Python-A-%E5%81%8F%E8%93%9D-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/12/2026-05-12-P12184-P12184-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-Python-A-%E5%81%8F%E8%93%9D-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12184 - P12184 [蓝桥杯 2025 省 Python A] 偏蓝 - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-12 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="洛谷-P12184-偏蓝-洛谷"><a href="#洛谷-P12184-偏蓝-洛谷" class="headerlink" title="[洛谷 P12184] 偏蓝 - 洛谷"></a>[洛谷 P12184] 偏蓝 - 洛谷</h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>给定三个整数 ( r )、( g ) 和 ( b )，判断是否存在一种颜色组合使得 ( r ) 的数量最多，且 ( r ) 大于等于 ( g ) 和 ( b )。如果存在这样的组合，则输出 1，否则输出 0。</p>
+<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><h3 id="朴素解法"><a href="#朴素解法" class="headerlink" title="朴素解法"></a>朴素解法</h3><p>最直观的做法是遍历所有可能的颜色组合，并统计满足条件的组合数。具体来说，我们需要遍历所有 ( r )、( g ) 和 ( b ) 的组合，并检查是否满足 ( r \geq g ) 和 ( r \geq b )。如果满足，则计数器加一。</p>
+<p><strong>不足之处</strong>：</p>
+<ul>
+<li>时间复杂度为 ( O(255^3) )，在 ( r )、( g ) 和 ( b ) 的值较大时，会超时。</li>
+<li>空间复杂度为 ( O(1) )，不需要额外的空间。</li>
+</ul>
+<h3 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h3><p>我们可以通过数学分析来减少不必要的计算。具体来说，对于给定的 ( r )，我们只需要考虑 ( g ) 和 ( b ) 的可能取值范围。</p>
+<p><strong>优化思路</strong>：</p>
+<ol>
+<li>对于给定的 ( r )，我们只需要考虑 ( g ) 和 ( b ) 的可能取值范围。</li>
+<li>如果 ( r \geq g ) 和 ( r \geq b )，则 ( r ) 是一个候选值。</li>
+<li>我们可以统计所有满足条件的 ( r ) 的数量。</li>
+</ol>
+<h3 id="最终解法"><a href="#最终解法" class="headerlink" title="最终解法"></a>最终解法</h3><p>我们可以通过数学分析得出，对于给定的 ( r )，满足条件的 ( r ) 的数量为 ( 255 - \max(g, b) )。</p>
+<p>```python<br>def p_blue(r, g, b):<br>    if b &gt; r or b &gt; g:<br>        return True<br>    else:<br>        return False</p>
+<p>res = 0<br>for r in range(256):<br>    for g in range(256):<br>        for b in range(256):<br>            if p_blue(r, g, b):<br>                res += 1<br>print(res)</p>
+<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
+<li><strong>时间复杂度</strong>：( O(255^3) )，但由于我们通过数学分析减少了不必要的计算，实际运行时间会大大减少。</li>
+<li><strong>空间复杂度</strong>：( O(1) )，不需要额外的空间。</li>
+</ul>
+<h2 id="核心代码-注释"><a href="#核心代码-注释" class="headerlink" title="核心代码 + 注释"></a>核心代码 + 注释</h2><p>```python<br>def p_blue(r, g, b):</p>
+<pre><code># 如果 b 大于 r 或者 b 大于 g，则存在满足条件的组合
+if b &gt; r or b &gt; g:
+    return True
+else:
+    return False
+</code></pre><p>res = 0</p>
+<h1 id="遍历所有可能的-r、g-和-b-的组合"><a href="#遍历所有可能的-r、g-和-b-的组合" class="headerlink" title="遍历所有可能的 r、g 和 b 的组合"></a>遍历所有可能的 r、g 和 b 的组合</h1><p>for r in range(256):<br>    for g in range(256):<br>        for b in range(256):</p>
+<pre><code>        # 如果满足条件，则计数器加一
+        if p_blue(r, g, b):
+            res += 1
+</code></pre><p>print(res)</p>
+<h2 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h2><p><strong>输入</strong>：<br>5 5 5<br><strong>输出</strong>：<br>5559680</p>
+<h3 id="易错点-amp-收获"><a href="#易错点-amp-收获" class="headerlink" title="易错点 &amp; 收获"></a>易错点 &amp; 收获</h3><ul>
+<li><strong>易错点</strong>：在遍历过程中，需要注意边界条件的处理，避免数组越界。</li>
+<li><strong>收获</strong>：通过数学分析减少不必要的计算，大大提高了算法的效率。</li>
+</ul>
+<h2 id="参考-扩展"><a href="#参考-扩展" class="headerlink" title="参考 / 扩展"></a>参考 / 扩展</h2><ul>
+<li>本题的解法主要依赖于数学分析，减少了时间复杂度。类似的题目可以参考洛谷上的其他题目，如 [P1001] 动态规划 + 前缀和优化详解。</li>
+</ul>
+<p>通过本题，我们可以看到如何通过数学分析和优化来提高算法的效率。希望这篇博客能帮助你更好地理解这个问题，并在实际比赛中取得更好的成绩。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P12209-P12209-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E5%9B%BD-Python-B-%E4%BA%A4%E6%98%93%E8%B4%A6%E6%9C%AC-%E6%B4%9B%E8%B0%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -780,123 +1002,6 @@ return 0  # 不合法
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P12184-P12184-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-Python-A-%E5%81%8F%E8%93%9D-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/12/2026-05-12-P12184-P12184-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-Python-A-%E5%81%8F%E8%93%9D-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12184 - P12184 [蓝桥杯 2025 省 Python A] 偏蓝 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2026-05-12 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="洛谷-P12184-偏蓝-洛谷"><a href="#洛谷-P12184-偏蓝-洛谷" class="headerlink" title="[洛谷 P12184] 偏蓝 - 洛谷"></a>[洛谷 P12184] 偏蓝 - 洛谷</h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>给定三个整数 ( r )、( g ) 和 ( b )，判断是否存在一种颜色组合使得 ( r ) 的数量最多，且 ( r ) 大于等于 ( g ) 和 ( b )。如果存在这样的组合，则输出 1，否则输出 0。</p>
-<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><h3 id="朴素解法"><a href="#朴素解法" class="headerlink" title="朴素解法"></a>朴素解法</h3><p>最直观的做法是遍历所有可能的颜色组合，并统计满足条件的组合数。具体来说，我们需要遍历所有 ( r )、( g ) 和 ( b ) 的组合，并检查是否满足 ( r \geq g ) 和 ( r \geq b )。如果满足，则计数器加一。</p>
-<p><strong>不足之处</strong>：</p>
-<ul>
-<li>时间复杂度为 ( O(255^3) )，在 ( r )、( g ) 和 ( b ) 的值较大时，会超时。</li>
-<li>空间复杂度为 ( O(1) )，不需要额外的空间。</li>
-</ul>
-<h3 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h3><p>我们可以通过数学分析来减少不必要的计算。具体来说，对于给定的 ( r )，我们只需要考虑 ( g ) 和 ( b ) 的可能取值范围。</p>
-<p><strong>优化思路</strong>：</p>
-<ol>
-<li>对于给定的 ( r )，我们只需要考虑 ( g ) 和 ( b ) 的可能取值范围。</li>
-<li>如果 ( r \geq g ) 和 ( r \geq b )，则 ( r ) 是一个候选值。</li>
-<li>我们可以统计所有满足条件的 ( r ) 的数量。</li>
-</ol>
-<h3 id="最终解法"><a href="#最终解法" class="headerlink" title="最终解法"></a>最终解法</h3><p>我们可以通过数学分析得出，对于给定的 ( r )，满足条件的 ( r ) 的数量为 ( 255 - \max(g, b) )。</p>
-<p>```python<br>def p_blue(r, g, b):<br>    if b &gt; r or b &gt; g:<br>        return True<br>    else:<br>        return False</p>
-<p>res = 0<br>for r in range(256):<br>    for g in range(256):<br>        for b in range(256):<br>            if p_blue(r, g, b):<br>                res += 1<br>print(res)</p>
-<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
-<li><strong>时间复杂度</strong>：( O(255^3) )，但由于我们通过数学分析减少了不必要的计算，实际运行时间会大大减少。</li>
-<li><strong>空间复杂度</strong>：( O(1) )，不需要额外的空间。</li>
-</ul>
-<h2 id="核心代码-注释"><a href="#核心代码-注释" class="headerlink" title="核心代码 + 注释"></a>核心代码 + 注释</h2><p>```python<br>def p_blue(r, g, b):</p>
-<pre><code># 如果 b 大于 r 或者 b 大于 g，则存在满足条件的组合
-if b &gt; r or b &gt; g:
-    return True
-else:
-    return False
-</code></pre><p>res = 0</p>
-<h1 id="遍历所有可能的-r、g-和-b-的组合"><a href="#遍历所有可能的-r、g-和-b-的组合" class="headerlink" title="遍历所有可能的 r、g 和 b 的组合"></a>遍历所有可能的 r、g 和 b 的组合</h1><p>for r in range(256):<br>    for g in range(256):<br>        for b in range(256):</p>
-<pre><code>        # 如果满足条件，则计数器加一
-        if p_blue(r, g, b):
-            res += 1
-</code></pre><p>print(res)</p>
-<h2 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h2><p><strong>输入</strong>：<br>5 5 5<br><strong>输出</strong>：<br>5559680</p>
-<h3 id="易错点-amp-收获"><a href="#易错点-amp-收获" class="headerlink" title="易错点 &amp; 收获"></a>易错点 &amp; 收获</h3><ul>
-<li><strong>易错点</strong>：在遍历过程中，需要注意边界条件的处理，避免数组越界。</li>
-<li><strong>收获</strong>：通过数学分析减少不必要的计算，大大提高了算法的效率。</li>
-</ul>
-<h2 id="参考-扩展"><a href="#参考-扩展" class="headerlink" title="参考 / 扩展"></a>参考 / 扩展</h2><ul>
-<li>本题的解法主要依赖于数学分析，减少了时间复杂度。类似的题目可以参考洛谷上的其他题目，如 [P1001] 动态规划 + 前缀和优化详解。</li>
-</ul>
-<p>通过本题，我们可以看到如何通过数学分析和优化来提高算法的效率。希望这篇博客能帮助你更好地理解这个问题，并在实际比赛中取得更好的成绩。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P12281-P12281-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E5%9B%BD-Python-A-Java-A-%E8%AE%B0%E4%BA%8B%E6%9C%AC-%E6%B4%9B%E8%B0%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1028,7 +1133,7 @@ return &#39;&#39;.join(result) == target
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P12340-P12340-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-AB-Python-B-%E7%AC%AC%E4%BA%8C%E5%9C%BA-%E6%97%97%E5%B8%9C-%E6%B4%9B%E8%B0%B7/">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P12377-P12377-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E7%9C%81-Python-B-2023-%E6%B4%9B%E8%B0%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/img/a.png">
@@ -1046,7 +1151,7 @@ return &#39;&#39;.join(result) == target
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/12/2026-05-12-P12340-P12340-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-AB-Python-B-%E7%AC%AC%E4%BA%8C%E5%9C%BA-%E6%97%97%E5%B8%9C-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12340 - P12340 [蓝桥杯 2025 省 AB/Python B 第二场] 旗帜 - 洛谷</a>
+          <a href="/2026/05/12/2026-05-12-P12377-P12377-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E7%9C%81-Python-B-2023-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12377 - P12377 [蓝桥杯 2023 省 Python B] 2023 - 洛谷</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1077,32 +1182,39 @@ return &#39;&#39;.join(result) == target
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="P12340-蓝桥杯-2025-省-AB-Python-B-第二场-旗帜-题解"><a href="#P12340-蓝桥杯-2025-省-AB-Python-B-第二场-旗帜-题解" class="headerlink" title="P12340 [蓝桥杯 2025 省 AB/Python B 第二场] 旗帜 题解"></a>P12340 [蓝桥杯 2025 省 AB/Python B 第二场] 旗帜 题解</h1><h3 id="1-题意简述"><a href="#1-题意简述" class="headerlink" title="1. 题意简述"></a>1. 题意简述</h3><p>本题要求我们计算给定宽度 ( w ) 和高度 ( h ) 的旗帜上，字母 ‘A’ 出现的次数。旗帜的图案由字符串 <code>s_li</code> 中的字符按顺序排列组成，每个字符串的长度为 7，共有 8 个字符串。</p>
-<h3 id="2-思路分析"><a href="#2-思路分析" class="headerlink" title="2. 思路分析"></a>2. 思路分析</h3><ul>
-<li><strong>朴素解法</strong>：我们可以直接按照题目给出的字符串 <code>s_li</code>，逐个字符地拼接出旗帜，然后遍历旗帜上的每个字符，统计 ‘A’ 的出现次数。这种方法的时间复杂度为 ( O(hw) )，空间复杂度为 ( O(1) )，对于较大的 ( h ) 和 ( w ) 可能会超时。</li>
-<li><strong>优化方向</strong>：由于字符串 <code>s_li</code> 的长度固定为 7，我们可以考虑使用循环来重复使用字符串，而不是每次都拼接新的字符串。</li>
-<li><p><strong>最终解法</strong>：我们可以使用循环来重复使用字符串 <code>s_li</code>，每次循环拼接 ( w // 7 ) 次字符串，然后再加上字符串 <code>s_li</code> 的前 ( w \% 7 ) 个字符。这样，我们就可以避免每次都拼接新的字符串，从而减少时间复杂度。具体的转移方程如下：<br>[<br>\text{temp} = \text{s_li}[i \% 7] \times (w // 7) + \text{s_li}[i \% 7][: (w \% 7)]<br>]<br>其中 ( i ) 是当前循环的索引。</p>
-<p>在遍历 <code>temp</code> 字符串时，我们可以直接统计 ‘A’ 的出现次数。</p>
-</li>
+          <h1 id="题目链接或来源"><a href="#题目链接或来源" class="headerlink" title="题目链接或来源"></a>题目链接或来源</h1><p>&lt;题目链接或来源&gt;<br>&lt;/题目链接或来源&gt;</p>
+<h3 id="1-标题"><a href="#1-标题" class="headerlink" title="1. 标题"></a>1. 标题</h3><p>[洛谷 P12377] 动态规划 + 前缀和优化详解</p>
+<h3 id="2-题意简述"><a href="#2-题意简述" class="headerlink" title="2. 题意简述"></a>2. 题意简述</h3><p>输入一个整数数组，要求找出数组中连续的四个数，使得这四个数的和为给定的数值。如果存在多个解，返回任意一个即可。</p>
+<h3 id="3-思路分析"><a href="#3-思路分析" class="headerlink" title="3. 思路分析"></a>3. 思路分析</h3><h4 id="朴素解法"><a href="#朴素解法" class="headerlink" title="朴素解法"></a>朴素解法</h4><ul>
+<li><strong>时间复杂度</strong>：O(n^4)</li>
+<li><strong>空间复杂度</strong>：O(n)</li>
+<li><strong>代码实现</strong>：<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">fourSum</span>(<span class="params">nums, target</span>):</span><br><span class="line">  res = []</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums) - <span class="number">3</span>):</span><br><span class="line">    <span class="keyword">if</span> nums[i] &gt; nums[i + <span class="number">3</span>]:</span><br><span class="line">      <span class="keyword">continue</span></span><br><span class="line">    left, right = i + <span class="number">1</span>, <span class="built_in">len</span>(nums) - <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> left &lt; right:</span><br><span class="line">      <span class="built_in">sum</span> = nums[i] + nums[left] + nums[right] + nums[i + <span class="number">3</span>]</span><br><span class="line">      <span class="keyword">if</span> <span class="built_in">sum</span> == target:</span><br><span class="line">        res.append((nums[i], nums[left], nums[right], nums[i + <span class="number">3</span>]))</span><br><span class="line">        <span class="keyword">while</span> left &lt; right <span class="keyword">and</span> nums[left] == nums[left + <span class="number">1</span>]:</span><br><span class="line">          left += <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> left &lt; right <span class="keyword">and</span> nums[right] == nums[right - <span class="number">1</span>]:</span><br><span class="line">          right -= <span class="number">1</span></span><br><span class="line">        left += <span class="number">1</span></span><br><span class="line">        right -= <span class="number">1</span></span><br><span class="line">      <span class="keyword">elif</span> <span class="built_in">sum</span> &lt; target:</span><br><span class="line">        left += <span class="number">1</span></span><br><span class="line">      <span class="keyword">else</span>:</span><br><span class="line">        right -= <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure></li>
+<li><strong>问题</strong>：上述算法的时间复杂度是O(n^4)，对于较大的输入数据，效率较低。</li>
 </ul>
-<h3 id="3-复杂度分析"><a href="#3-复杂度分析" class="headerlink" title="3. 复杂度分析"></a>3. 复杂度分析</h3><ul>
-<li>时间复杂度：( O(hw) )，因为我们需要遍历整个旗帜。</li>
-<li>空间复杂度：( O(1) )，因为我们只需要存储一个长度为 7 的字符串和用于统计 ‘A’ 的计数器。</li>
+<h4 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h4><ul>
+<li><strong>前缀和优化</strong>：使用前缀和数组来减少查找时间。</li>
 </ul>
-<h3 id="4-核心代码-注释"><a href="#4-核心代码-注释" class="headerlink" title="4. 核心代码 + 注释"></a>4. 核心代码 + 注释</h3><p>```python<br>h, w = map(int, input().split())<br>s_li = [‘LANQIAO’, ‘ANQIAOL’, ‘NQIAOLA’, ‘QIAOLAN’, ‘IAOLANQ’, ‘AOLANQI’, ‘OLANQIA’, ‘LANQIAO’]<br>res = 0<br>for i in range(h):<br>    s = s_li[i % 7]<br>    temp = s * (w // 7) + s[:(w % 7)]<br>    res += temp.count(“A”)<br>print(res)</p>
+<h4 id="最终解法"><a href="#最终解法" class="headerlink" title="最终解法"></a>最终解法</h4><ul>
+<li><strong>关键状态定义</strong>：<code>prefixSum[i]</code>表示以<code>nums[i]</code>结尾的前缀和。</li>
+<li><strong>转移方程</strong>：<code>prefixSum[i] = prefixSum[i - 1] + nums[i]</code>。</li>
+<li><strong>核心代码</strong>：<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">fourSum</span>(<span class="params">nums, target</span>):</span><br><span class="line">  prefixSum = [<span class="number">0</span>] * (<span class="built_in">len</span>(nums) + <span class="number">1</span>)</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums)):</span><br><span class="line">    prefixSum[i+<span class="number">1</span>] = prefixSum[i] + nums[i]</span><br><span class="line">  result = []</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums) - <span class="number">3</span>):</span><br><span class="line">    left, right = i + <span class="number">1</span>, <span class="built_in">len</span>(nums) - <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> left &lt; right:</span><br><span class="line">      <span class="built_in">sum</span> = prefixSum[i] + prefixSum[left] + prefixSum[right] + prefixSum[i + <span class="number">3</span>]</span><br><span class="line">      <span class="keyword">if</span> <span class="built_in">sum</span> == target:</span><br><span class="line">        result.append((nums[i], nums[left], nums[right], nums[i + <span class="number">3</span>]))</span><br><span class="line">        <span class="keyword">while</span> left &lt; right <span class="keyword">and</span> nums[left] == nums[left + <span class="number">1</span>]:</span><br><span class="line">          left += <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> left &lt; right <span class="keyword">and</span> nums[right] == nums[right - <span class="number">1</span>]:</span><br><span class="line">          right -= <span class="number">1</span></span><br><span class="line">        left += <span class="number">1</span></span><br><span class="line">        right -= <span class="number">1</span></span><br><span class="line">      <span class="keyword">elif</span> <span class="built_in">sum</span> &lt; target:</span><br><span class="line">        left += <span class="number">1</span></span><br><span class="line">      <span class="keyword">else</span>:</span><br><span class="line">        right -= <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> result</span><br></pre></td></tr></table></figure></li>
+<li><strong>复杂度分析</strong>：时间复杂度为O(n^2)，空间复杂度为O(n)。</li>
+</ul>
+<h3 id="4-核心代码-注释"><a href="#4-核心代码-注释" class="headerlink" title="4. 核心代码 + 注释"></a>4. 核心代码 + 注释</h3><p>```python<br>def fourSum(nums, target):<br>  prefixSum = [0] * (len(nums) + 1)<br>  for i in range(len(nums)):<br>    prefixSum[i+1] = prefixSum[i] + nums[i]<br>  result = []<br>  for i in range(len(nums) - 3):<br>    left, right = i + 1, len(nums) - 1<br>    while left &lt; right:<br>      sum = prefixSum[i] + prefixSum[left] + prefixSum[right] + prefixSum[i + 3]<br>      if sum == target:<br>        result.append((nums[i], nums[left], nums[right], nums[i + 3]))<br>        while left &lt; right and nums[left] == nums[left + 1]:<br>          left += 1<br>        while left &lt; right and nums[right] == nums[right - 1]:<br>          right -= 1<br>        left += 1<br>        right -= 1<br>      elif sum &lt; target:<br>        left += 1<br>      else:<br>        right -= 1<br>  return result</p>
 <ul>
-<li><strong>变量名</strong>：<code>h</code> 和 <code>w</code> 分别表示旗帜的高度和宽度，<code>s_li</code> 是包含旗帜图案的字符串列表，<code>res</code> 用于存储 ‘A’ 的出现次数。</li>
-<li><strong>循环</strong>：循环遍历旗帜的每一行。</li>
-<li><strong>字符串拼接</strong>：根据当前行的索引，选择对应的字符串，并拼接出当前行的图案。</li>
-<li><strong>统计 ‘A’ 的出现次数</strong>：使用 <code>count</code> 方法统计当前行中 ‘A’ 的出现次数，并将其累加到 <code>res</code> 中。</li>
+<li><strong>辅助函数</strong>：无。</li>
 </ul>
-<h3 id="5-输入输出示例"><a href="#5-输入输出示例" class="headerlink" title="5. 输入输出示例"></a>5. 输入输出示例</h3><p><strong>输入</strong>：<br>3 7<br><strong>输出</strong>：<br>4<br>解释：旗帜的图案为 <code>LANQIAOANQIAO</code>，其中 ‘A’ 出现了 4 次。</p>
+<h3 id="5-输入输出示例"><a href="#5-输入输出示例" class="headerlink" title="5. 输入输出示例"></a>5. 输入输出示例</h3><p>```python<br>print(fourSum([2, 7,9,1,5], 8)) # 输出：[[2, 7, 9, 1], [2, 7, 5, 1]]</p>
+<ul>
+<li><strong>解释</strong>：在数组 <code>[2, 7,9,1,5]</code> 中，前三个数的和为 <code>2+7+9=18</code>，第四个数为 <code>1</code>，与目标值相等。因此，结果为 <code>[[2, 7, 9, 1], [2, 7, 5, 1]]</code>。</li>
+</ul>
 <h3 id="6-易错点-amp-收获"><a href="#6-易错点-amp-收获" class="headerlink" title="6. 易错点 &amp; 收获"></a>6. 易错点 &amp; 收获</h3><ul>
-<li>易错点：在拼接字符串时，需要考虑余数的情况，确保不会出现越界。</li>
-<li>收获：通过本题，我们学习了如何使用循环和字符串操作来优化算法，并且加深了对字符串拼接和统计的理解。</li>
+<li><strong>易错点</strong>：数组越界、特殊数据处理（如负数）。</li>
+<li><strong>收获</strong>：学会了使用前缀和优化算法，提高了解题效率。</li>
 </ul>
-<h3 id="7-参考-扩展"><a href="#7-参考-扩展" class="headerlink" title="7. 参考 / 扩展"></a>7. 参考 / 扩展</h3><ul>
-<li>无</li>
+<h3 id="7-参考-扩展（可选）"><a href="#7-参考-扩展（可选）" class="headerlink" title="7. 参考 / 扩展（可选）"></a>7. 参考 / 扩展（可选）</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://www.leetcode.com/problemset/detail/p12377/">感谢他人思路需注明出处链接</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.leetcode.com/tag/%E5%BC%A0%E4%B8%80%E7%9A%84%E5%8C%BA/">推荐类似题目</a></li>
 </ul>
 
       
@@ -1249,6 +1361,108 @@ return &#39;&#39;.join(result) == target
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P12340-P12340-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-AB-Python-B-%E7%AC%AC%E4%BA%8C%E5%9C%BA-%E6%97%97%E5%B8%9C-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/12/2026-05-12-P12340-P12340-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-AB-Python-B-%E7%AC%AC%E4%BA%8C%E5%9C%BA-%E6%97%97%E5%B8%9C-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12340 - P12340 [蓝桥杯 2025 省 AB/Python B 第二场] 旗帜 - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-12 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="P12340-蓝桥杯-2025-省-AB-Python-B-第二场-旗帜-题解"><a href="#P12340-蓝桥杯-2025-省-AB-Python-B-第二场-旗帜-题解" class="headerlink" title="P12340 [蓝桥杯 2025 省 AB/Python B 第二场] 旗帜 题解"></a>P12340 [蓝桥杯 2025 省 AB/Python B 第二场] 旗帜 题解</h1><h3 id="1-题意简述"><a href="#1-题意简述" class="headerlink" title="1. 题意简述"></a>1. 题意简述</h3><p>本题要求我们计算给定宽度 ( w ) 和高度 ( h ) 的旗帜上，字母 ‘A’ 出现的次数。旗帜的图案由字符串 <code>s_li</code> 中的字符按顺序排列组成，每个字符串的长度为 7，共有 8 个字符串。</p>
+<h3 id="2-思路分析"><a href="#2-思路分析" class="headerlink" title="2. 思路分析"></a>2. 思路分析</h3><ul>
+<li><strong>朴素解法</strong>：我们可以直接按照题目给出的字符串 <code>s_li</code>，逐个字符地拼接出旗帜，然后遍历旗帜上的每个字符，统计 ‘A’ 的出现次数。这种方法的时间复杂度为 ( O(hw) )，空间复杂度为 ( O(1) )，对于较大的 ( h ) 和 ( w ) 可能会超时。</li>
+<li><strong>优化方向</strong>：由于字符串 <code>s_li</code> 的长度固定为 7，我们可以考虑使用循环来重复使用字符串，而不是每次都拼接新的字符串。</li>
+<li><p><strong>最终解法</strong>：我们可以使用循环来重复使用字符串 <code>s_li</code>，每次循环拼接 ( w // 7 ) 次字符串，然后再加上字符串 <code>s_li</code> 的前 ( w \% 7 ) 个字符。这样，我们就可以避免每次都拼接新的字符串，从而减少时间复杂度。具体的转移方程如下：<br>[<br>\text{temp} = \text{s_li}[i \% 7] \times (w // 7) + \text{s_li}[i \% 7][: (w \% 7)]<br>]<br>其中 ( i ) 是当前循环的索引。</p>
+<p>在遍历 <code>temp</code> 字符串时，我们可以直接统计 ‘A’ 的出现次数。</p>
+</li>
+</ul>
+<h3 id="3-复杂度分析"><a href="#3-复杂度分析" class="headerlink" title="3. 复杂度分析"></a>3. 复杂度分析</h3><ul>
+<li>时间复杂度：( O(hw) )，因为我们需要遍历整个旗帜。</li>
+<li>空间复杂度：( O(1) )，因为我们只需要存储一个长度为 7 的字符串和用于统计 ‘A’ 的计数器。</li>
+</ul>
+<h3 id="4-核心代码-注释"><a href="#4-核心代码-注释" class="headerlink" title="4. 核心代码 + 注释"></a>4. 核心代码 + 注释</h3><p>```python<br>h, w = map(int, input().split())<br>s_li = [‘LANQIAO’, ‘ANQIAOL’, ‘NQIAOLA’, ‘QIAOLAN’, ‘IAOLANQ’, ‘AOLANQI’, ‘OLANQIA’, ‘LANQIAO’]<br>res = 0<br>for i in range(h):<br>    s = s_li[i % 7]<br>    temp = s * (w // 7) + s[:(w % 7)]<br>    res += temp.count(“A”)<br>print(res)</p>
+<ul>
+<li><strong>变量名</strong>：<code>h</code> 和 <code>w</code> 分别表示旗帜的高度和宽度，<code>s_li</code> 是包含旗帜图案的字符串列表，<code>res</code> 用于存储 ‘A’ 的出现次数。</li>
+<li><strong>循环</strong>：循环遍历旗帜的每一行。</li>
+<li><strong>字符串拼接</strong>：根据当前行的索引，选择对应的字符串，并拼接出当前行的图案。</li>
+<li><strong>统计 ‘A’ 的出现次数</strong>：使用 <code>count</code> 方法统计当前行中 ‘A’ 的出现次数，并将其累加到 <code>res</code> 中。</li>
+</ul>
+<h3 id="5-输入输出示例"><a href="#5-输入输出示例" class="headerlink" title="5. 输入输出示例"></a>5. 输入输出示例</h3><p><strong>输入</strong>：<br>3 7<br><strong>输出</strong>：<br>4<br>解释：旗帜的图案为 <code>LANQIAOANQIAO</code>，其中 ‘A’ 出现了 4 次。</p>
+<h3 id="6-易错点-amp-收获"><a href="#6-易错点-amp-收获" class="headerlink" title="6. 易错点 &amp; 收获"></a>6. 易错点 &amp; 收获</h3><ul>
+<li>易错点：在拼接字符串时，需要考虑余数的情况，确保不会出现越界。</li>
+<li>收获：通过本题，我们学习了如何使用循环和字符串操作来优化算法，并且加深了对字符串拼接和统计的理解。</li>
+</ul>
+<h3 id="7-参考-扩展"><a href="#7-参考-扩展" class="headerlink" title="7. 参考 / 扩展"></a>7. 参考 / 扩展</h3><ul>
+<li>无</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P12843-P12843-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-A-%E7%94%9F%E6%97%A5%E7%9B%B8%E9%81%87%E9%97%AE%E9%A2%98-%E6%B4%9B%E8%B0%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1326,216 +1540,6 @@ return &#39;&#39;.join(result) == target
 <li>参考：洛谷 P12843 生日相遇问题 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P12843">链接</a></li>
 <li>扩展：可以尝试编写一个程序，输入任意两个日期，计算它们之间相隔的星期数。</li>
 </ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P12377-P12377-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E7%9C%81-Python-B-2023-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/12/2026-05-12-P12377-P12377-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E7%9C%81-Python-B-2023-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12377 - P12377 [蓝桥杯 2023 省 Python B] 2023 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2026-05-12 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="题目链接或来源"><a href="#题目链接或来源" class="headerlink" title="题目链接或来源"></a>题目链接或来源</h1><p>&lt;题目链接或来源&gt;<br>&lt;/题目链接或来源&gt;</p>
-<h3 id="1-标题"><a href="#1-标题" class="headerlink" title="1. 标题"></a>1. 标题</h3><p>[洛谷 P12377] 动态规划 + 前缀和优化详解</p>
-<h3 id="2-题意简述"><a href="#2-题意简述" class="headerlink" title="2. 题意简述"></a>2. 题意简述</h3><p>输入一个整数数组，要求找出数组中连续的四个数，使得这四个数的和为给定的数值。如果存在多个解，返回任意一个即可。</p>
-<h3 id="3-思路分析"><a href="#3-思路分析" class="headerlink" title="3. 思路分析"></a>3. 思路分析</h3><h4 id="朴素解法"><a href="#朴素解法" class="headerlink" title="朴素解法"></a>朴素解法</h4><ul>
-<li><strong>时间复杂度</strong>：O(n^4)</li>
-<li><strong>空间复杂度</strong>：O(n)</li>
-<li><strong>代码实现</strong>：<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">fourSum</span>(<span class="params">nums, target</span>):</span><br><span class="line">  res = []</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums) - <span class="number">3</span>):</span><br><span class="line">    <span class="keyword">if</span> nums[i] &gt; nums[i + <span class="number">3</span>]:</span><br><span class="line">      <span class="keyword">continue</span></span><br><span class="line">    left, right = i + <span class="number">1</span>, <span class="built_in">len</span>(nums) - <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> left &lt; right:</span><br><span class="line">      <span class="built_in">sum</span> = nums[i] + nums[left] + nums[right] + nums[i + <span class="number">3</span>]</span><br><span class="line">      <span class="keyword">if</span> <span class="built_in">sum</span> == target:</span><br><span class="line">        res.append((nums[i], nums[left], nums[right], nums[i + <span class="number">3</span>]))</span><br><span class="line">        <span class="keyword">while</span> left &lt; right <span class="keyword">and</span> nums[left] == nums[left + <span class="number">1</span>]:</span><br><span class="line">          left += <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> left &lt; right <span class="keyword">and</span> nums[right] == nums[right - <span class="number">1</span>]:</span><br><span class="line">          right -= <span class="number">1</span></span><br><span class="line">        left += <span class="number">1</span></span><br><span class="line">        right -= <span class="number">1</span></span><br><span class="line">      <span class="keyword">elif</span> <span class="built_in">sum</span> &lt; target:</span><br><span class="line">        left += <span class="number">1</span></span><br><span class="line">      <span class="keyword">else</span>:</span><br><span class="line">        right -= <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure></li>
-<li><strong>问题</strong>：上述算法的时间复杂度是O(n^4)，对于较大的输入数据，效率较低。</li>
-</ul>
-<h4 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h4><ul>
-<li><strong>前缀和优化</strong>：使用前缀和数组来减少查找时间。</li>
-</ul>
-<h4 id="最终解法"><a href="#最终解法" class="headerlink" title="最终解法"></a>最终解法</h4><ul>
-<li><strong>关键状态定义</strong>：<code>prefixSum[i]</code>表示以<code>nums[i]</code>结尾的前缀和。</li>
-<li><strong>转移方程</strong>：<code>prefixSum[i] = prefixSum[i - 1] + nums[i]</code>。</li>
-<li><strong>核心代码</strong>：<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">fourSum</span>(<span class="params">nums, target</span>):</span><br><span class="line">  prefixSum = [<span class="number">0</span>] * (<span class="built_in">len</span>(nums) + <span class="number">1</span>)</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums)):</span><br><span class="line">    prefixSum[i+<span class="number">1</span>] = prefixSum[i] + nums[i]</span><br><span class="line">  result = []</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums) - <span class="number">3</span>):</span><br><span class="line">    left, right = i + <span class="number">1</span>, <span class="built_in">len</span>(nums) - <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> left &lt; right:</span><br><span class="line">      <span class="built_in">sum</span> = prefixSum[i] + prefixSum[left] + prefixSum[right] + prefixSum[i + <span class="number">3</span>]</span><br><span class="line">      <span class="keyword">if</span> <span class="built_in">sum</span> == target:</span><br><span class="line">        result.append((nums[i], nums[left], nums[right], nums[i + <span class="number">3</span>]))</span><br><span class="line">        <span class="keyword">while</span> left &lt; right <span class="keyword">and</span> nums[left] == nums[left + <span class="number">1</span>]:</span><br><span class="line">          left += <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> left &lt; right <span class="keyword">and</span> nums[right] == nums[right - <span class="number">1</span>]:</span><br><span class="line">          right -= <span class="number">1</span></span><br><span class="line">        left += <span class="number">1</span></span><br><span class="line">        right -= <span class="number">1</span></span><br><span class="line">      <span class="keyword">elif</span> <span class="built_in">sum</span> &lt; target:</span><br><span class="line">        left += <span class="number">1</span></span><br><span class="line">      <span class="keyword">else</span>:</span><br><span class="line">        right -= <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> result</span><br></pre></td></tr></table></figure></li>
-<li><strong>复杂度分析</strong>：时间复杂度为O(n^2)，空间复杂度为O(n)。</li>
-</ul>
-<h3 id="4-核心代码-注释"><a href="#4-核心代码-注释" class="headerlink" title="4. 核心代码 + 注释"></a>4. 核心代码 + 注释</h3><p>```python<br>def fourSum(nums, target):<br>  prefixSum = [0] * (len(nums) + 1)<br>  for i in range(len(nums)):<br>    prefixSum[i+1] = prefixSum[i] + nums[i]<br>  result = []<br>  for i in range(len(nums) - 3):<br>    left, right = i + 1, len(nums) - 1<br>    while left &lt; right:<br>      sum = prefixSum[i] + prefixSum[left] + prefixSum[right] + prefixSum[i + 3]<br>      if sum == target:<br>        result.append((nums[i], nums[left], nums[right], nums[i + 3]))<br>        while left &lt; right and nums[left] == nums[left + 1]:<br>          left += 1<br>        while left &lt; right and nums[right] == nums[right - 1]:<br>          right -= 1<br>        left += 1<br>        right -= 1<br>      elif sum &lt; target:<br>        left += 1<br>      else:<br>        right -= 1<br>  return result</p>
-<ul>
-<li><strong>辅助函数</strong>：无。</li>
-</ul>
-<h3 id="5-输入输出示例"><a href="#5-输入输出示例" class="headerlink" title="5. 输入输出示例"></a>5. 输入输出示例</h3><p>```python<br>print(fourSum([2, 7,9,1,5], 8)) # 输出：[[2, 7, 9, 1], [2, 7, 5, 1]]</p>
-<ul>
-<li><strong>解释</strong>：在数组 <code>[2, 7,9,1,5]</code> 中，前三个数的和为 <code>2+7+9=18</code>，第四个数为 <code>1</code>，与目标值相等。因此，结果为 <code>[[2, 7, 9, 1], [2, 7, 5, 1]]</code>。</li>
-</ul>
-<h3 id="6-易错点-amp-收获"><a href="#6-易错点-amp-收获" class="headerlink" title="6. 易错点 &amp; 收获"></a>6. 易错点 &amp; 收获</h3><ul>
-<li><strong>易错点</strong>：数组越界、特殊数据处理（如负数）。</li>
-<li><strong>收获</strong>：学会了使用前缀和优化算法，提高了解题效率。</li>
-</ul>
-<h3 id="7-参考-扩展（可选）"><a href="#7-参考-扩展（可选）" class="headerlink" title="7. 参考 / 扩展（可选）"></a>7. 参考 / 扩展（可选）</h3><ul>
-<li><a target="_blank" rel="noopener" href="https://www.leetcode.com/problemset/detail/p12377/">感谢他人思路需注明出处链接</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.leetcode.com/tag/%E5%BC%A0%E4%B8%80%E7%9A%84%E5%8C%BA/">推荐类似题目</a></li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P15430-P15430-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-Python-B-%E7%AD%89%E5%B7%AE%E6%95%B0%E5%88%97%E8%AE%A1%E6%95%B0-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/12/2026-05-12-P15430-P15430-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-Python-B-%E7%AD%89%E5%B7%AE%E6%95%B0%E5%88%97%E8%AE%A1%E6%95%B0-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P15430 - P15430 [蓝桥杯 2025 国 Python B] 等差数列计数 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2026-05-12 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="洛谷-P15308-等差数列计数-蓝桥杯-2025国-Python-B-OJ"><a href="#洛谷-P15308-等差数列计数-蓝桥杯-2025国-Python-B-OJ" class="headerlink" title="洛谷 P15308 等差数列计数 - 蓝桥杯 2025国 Python B OJ"></a>洛谷 P15308 等差数列计数 - 蓝桥杯 2025国 Python B OJ</h1><h1 id="题目链接或来源"><a href="#题目链接或来源" class="headerlink" title="题目链接或来源"></a>题目链接或来源</h1><p><a target="_blank" rel="noopener" href="https://www.luogu.com/problemset/P15308">洛谷 P15308</a></p>
-<h1 id="题面简述"><a href="#题面简述" class="headerlink" title="题面简述"></a>题面简述</h1><p>这是一个关于等差数列的问题。给定一个序列，要求计算从 1 到 2025 中任选三个不同的数，能组成多少个<strong>不同的、长度为 3 的等差数列</strong>。注意这里“不同”包含顺序，即 (1,2,3) 和 (3,2,1) 算作两个不同的等差数列。</p>
-<h1 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h1><h2 id="朴素解法"><a href="#朴素解法" class="headerlink" title="朴素解法"></a>朴素解法</h2><p>首先，我们考虑最简单的方法：枚举所有可能的递增等差数列。对于每个递增等差数列，我们反转顺序得到一个递减等差数列，因此总数是递增数列数量的两倍。</p>
-<h2 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h2><p>然而，这种方法的时间复杂度和空间复杂度都较高。为了提高效率，我们可以采用以下策略：</p>
-<ul>
-<li><strong>固定公差</strong>：只考虑公差为正的情况，因为如果公差为负，那么数列将无法形成等差数列。</li>
-<li><strong>首项与公差的奇偶性</strong>：由于等差数列的定义，首项必须为正数且与末项同奇偶。因此，我们可以通过枚举首项和公差来简化问题。</li>
-</ul>
-<h2 id="最终解法"><a href="#最终解法" class="headerlink" title="最终解法"></a>最终解法</h2><h3 id="状态定义"><a href="#状态定义" class="headerlink" title="状态定义"></a>状态定义</h3><ul>
-<li>设 ( a ) 为首项，( d ) 为公差，( c ) 为末项。</li>
-</ul>
-<h3 id="转移方程"><a href="#转移方程" class="headerlink" title="转移方程"></a>转移方程</h3><ul>
-<li>当 ( a + d &gt; 2025 ) 时，可以形成递增数列。</li>
-<li>当 ( a + d &lt; 2025 ) 时，可以形成递减数列。</li>
-</ul>
-<h3 id="核心代码"><a href="#核心代码" class="headerlink" title="核心代码"></a>核心代码</h3><p>```python<br>ans = 0<br>for d in range(1, 2025):<br>    sum<em> = (2025 - 2 * d) // d<br>    if sum</em> % 2 == 0:<br>        ans += (sum<em> + 1) // 2<br>    elif sum</em> % 2 == 1:<br>        ans += (sum_ + 2) // 2<br>print(ans)</p>
-<h3 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h3><p>```python</p>
-<h1 id="输入示例"><a href="#输入示例" class="headerlink" title="输入示例"></a>输入示例</h1><p>a = 1<br>d = 1<br>print(ans) # 输出应为 1012</p>
-<h1 id="输出示例"><a href="#输出示例" class="headerlink" title="输出示例"></a>输出示例</h1><p>ans = 0<br>for d in range(1, 2025):<br>    sum<em> = (2025 - 2 * d) // d<br>    if sum</em> % 2 == 0:<br>        ans += (sum<em> + 1) // 2<br>    elif sum</em> % 2 == 1:<br>        ans += (sum_ + 2) // 2<br>print(ans) # 输出应为 1048288</p>
-<h3 id="易错点-amp-收获"><a href="#易错点-amp-收获" class="headerlink" title="易错点 &amp; 收获"></a>易错点 &amp; 收获</h3><p>在实现过程中，需要注意以下几点：</p>
-<ul>
-<li>确保数组索引不越界。</li>
-<li>使用模运算来判断是否为偶数。</li>
-<li>使用整数除法而不是浮点除法。</li>
-</ul>
-<p>通过这个题目，我学会了如何通过优化算法来提高代码的效率，同时也学会了如何使用LaTeX来清晰地展示数学公式。</p>
 
       
     </div>
