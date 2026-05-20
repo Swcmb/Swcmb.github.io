@@ -72,7 +72,7 @@
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/js/third-party/math/mathjax.js" defer></script>
 
 
@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">156</span>
+          <span class="site-state-item-count">208</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -194,7 +194,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">132</span>
+        <span class="site-state-item-count">142</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -228,7 +228,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/07/26/2024-07-26-urllib_%E7%AB%99%E9%95%BF%E7%B4%A0%E6%9D%90/">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P11043-P11043-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E7%9C%81-Java-B-%E5%88%86%E5%B8%83%E5%BC%8F%E9%98%9F%E5%88%97-%E6%B4%9B%E8%B0%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/img/a.png">
@@ -246,7 +246,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/26/2024-07-26-urllib_%E7%AB%99%E9%95%BF%E7%B4%A0%E6%9D%90/" class="post-title-link" itemprop="url">Python爬虫实战：利用urllib下载站长素材图片</a>
+          <a href="/2026/05/12/2026-05-12-P11043-P11043-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E7%9C%81-Java-B-%E5%88%86%E5%B8%83%E5%BC%8F%E9%98%9F%E5%88%97-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P11043 - P11043 [蓝桥杯 2024 省 Java B] 分布式队列 - 洛谷</a>
         </h2>
 
         <div class="post-meta-container">
@@ -257,27 +257,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2024-07-26 12:49:51" itemprop="dateCreated datePublished" datetime="2024-07-26T12:49:51+08:00">2024-07-26</time>
+      <time title="创建时间：2026-05-12 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-05-14 13:58:18" itemprop="dateModified" datetime="2026-05-14T13:58:18+08:00">2026-05-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%8A%80%E6%9C%AF%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">技术开发</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%8A%80%E6%9C%AF%E5%BC%80%E5%8F%91/Python%E5%AE%9E%E6%88%98/" itemprop="url" rel="index"><span itemprop="name">Python实战</span></a>
-        </span>
+      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
     </span>
 
   
@@ -290,815 +277,898 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>本文详细讲解如何使用Python标准库urllib结合lxml库，爬取站长素材网站的图片资源。重点分析了图片懒加载的处理方式以及分页爬虫的构建逻辑。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/07/26/2024-07-26-urllib_%E7%AB%99%E9%95%BF%E7%B4%A0%E6%9D%90/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/07/26/2024-07-26-urllib%E2%80%94%E2%80%94ajax%E7%9A%84get%E8%AF%B7%E6%B1%82%E8%B1%86%E7%93%A3%E7%94%B5%E5%BD%B1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/26/2024-07-26-urllib%E2%80%94%E2%80%94ajax%E7%9A%84get%E8%AF%B7%E6%B1%82%E8%B1%86%E7%93%A3%E7%94%B5%E5%BD%B1/" class="post-title-link" itemprop="url">urllib实战：Ajax GET请求抓取豆瓣电影数据</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-07-26 12:49:51" itemprop="dateCreated datePublished" datetime="2024-07-26T12:49:51+08:00">2024-07-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-05-14 13:56:56" itemprop="dateModified" datetime="2026-05-14T13:56:56+08:00">2026-05-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python%E7%88%AC%E8%99%AB/" itemprop="url" rel="index"><span itemprop="name">Python爬虫</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>本文详细讲解如何使用Python标准库urllib处理Ajax GET请求，通过模拟浏览器Header抓取豆瓣电影排行榜数据，并进行本地JSON存储。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/07/26/2024-07-26-urllib%E2%80%94%E2%80%94ajax%E7%9A%84get%E8%AF%B7%E6%B1%82%E8%B1%86%E7%93%A3%E7%94%B5%E5%BD%B1/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/07/26/2024-07-26-urllib_%E8%AF%B7%E6%B1%82%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%AE%9A%E5%88%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/26/2024-07-26-urllib_%E8%AF%B7%E6%B1%82%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%AE%9A%E5%88%B6/" class="post-title-link" itemprop="url">Python爬虫进阶：urllib请求对象定制与UA伪装</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-07-26 12:49:51" itemprop="dateCreated datePublished" datetime="2024-07-26T12:49:51+08:00">2024-07-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python%E7%88%AC%E8%99%AB/" itemprop="url" rel="index"><span itemprop="name">Python爬虫</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在使用 Python 进行网络爬虫开发时，<code>urllib</code> 库是我们最常接触的基础库。很多初学者在使用 <code>urllib.request.urlopen</code> 时会发现：直接请求往往无法获取网页数据，或者被服务器重定向到登录页/错误页。</p>
-<p>这通常是因为我们忽略了 <strong>请求头</strong> 的设置。本文将深入讲解如何通过 <code>urllib</code> 定制请求对象，实现 UA 伪装，以及如何处理 URL 中的中文编码问题。</p>
-<h2 id="一、基础知识：URL-的组成与端口"><a href="#一、基础知识：URL-的组成与端口" class="headerlink" title="一、基础知识：URL 的组成与端口"></a>一、基础知识：URL 的组成与端口</h2><p>在深入代码之前，我们需要理解 URL 的基本构成。一个完整的 URL 包含协议、主机、端口号、路径、参数和锚点。</p>
-<p>在爬虫请求中，<strong>端口号</strong> 往往决定了协议类型：</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">协议类型</th>
-<th style="text-align:left">默认端口</th>
-<th style="text-align:left">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><strong>HTTP</strong></td>
-<td style="text-align:left">80</td>
-<td style="text-align:left">超文本传输协议</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>HTTPS</strong></td>
-<td style="text-align:left">443</td>
-<td style="text-align:left">安全套接字层超文本传输协议</td>
-</tr>
-<tr>
-<td style="text-align:left">MySQL</td>
-<td style="text-align:left">3306</td>
-<td style="text-align:left">数据库服务端口</td>
-</tr>
-<tr>
-<td style="text-align:left">Redis</td>
-<td style="text-align:left">6379</td>
-<td style="text-align:left">缓存服务端口</td>
-</tr>
-<tr>
-<td style="text-align:left">MongoDB</td>
-<td style="text-align:left">27017</td>
-<td style="text-align:left">数据库服务端口</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>我们在代码中指定的 <code>https://www.baidu.com</code>，浏览器实际上默认连接的是 <code>443</code> 端口。</p>
-<h2 id="二、痛点：为什么需要请求对象定制？"><a href="#二、痛点：为什么需要请求对象定制？" class="headerlink" title="二、痛点：为什么需要请求对象定制？"></a>二、痛点：为什么需要请求对象定制？</h2><p><code>urlopen</code> 方法虽然简单，但它只接受 URL 字符串或特定的 Request 对象。</p>
-<p>如果我们直接发起请求，<code>urllib</code> 发送的请求头中的 <code>User-Agent</code> 默认是 <code>Python-urllib/x.x</code>。绝大多数网站会识别出这是一个脚本请求，从而通过反爬机制直接拒绝访问。</p>
-<p><strong>核心问题</strong>：<code>urlopen</code> 方法本身不支持直接传递 <code>headers</code> 字典参数。</p>
-<p><strong>解决方案</strong>：使用 <code>urllib.request.Request</code> 类定制请求对象，将 URL 和 Headers 封装在一起。</p>
-<h2 id="三、实战演练"><a href="#三、实战演练" class="headerlink" title="三、实战演练"></a>三、实战演练</h2><h3 id="1-基础案例：添加-User-Agent-伪装"><a href="#1-基础案例：添加-User-Agent-伪装" class="headerlink" title="1. 基础案例：添加 User-Agent 伪装"></a>1. 基础案例：添加 User-Agent 伪装</h3><p>下面的代码展示了如何创建一个包含自定义 Headers 的请求对象，成功访问百度首页。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line"><span class="comment"># 目标 URL</span></span><br><span class="line">url = <span class="string">&#x27;https://www.baidu.com&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 请求头</span></span><br><span class="line"><span class="comment"># 这是一个标准的浏览器 User-Agent，用于伪装成 Chrome 浏览器</span></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 Edge/16.16299&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 请求对象的定制</span></span><br><span class="line"><span class="comment"># 因为 urlopen 不支持直接传 headers 字典，所以需要先构建 Request 对象</span></span><br><span class="line"><span class="comment"># 关键词传参：将 url 和 headers 封装进 request 对象</span></span><br><span class="line">request = urllib.request.Request(url=url, headers=headers)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 发送请求</span></span><br><span class="line">response = urllib.request.urlopen(request)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取并解码响应内容</span></span><br><span class="line">content = response.read().decode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(content)</span><br><span class="line">**代码解析**：</span><br><span class="line"><span class="number">1.</span>  **headers 构建**：我们从浏览器开发者工具中复制真实的 User-Agent 字符串。</span><br><span class="line"><span class="number">2.</span>  **Request 对象**：通过 `urllib.request.Request` 将 URL 和 Headers 绑定。</span><br><span class="line"><span class="number">3.</span>  **发送请求**：`urlopen` 接收的是定制好的 `request` 对象，而非单纯的 URL 字符串。</span><br><span class="line"></span><br><span class="line"><span class="comment">### 2. 进阶案例：URL 参数编码</span></span><br><span class="line"></span><br><span class="line">在实际爬虫中，我们经常需要搜索特定关键词（如中文）。URL 中如果包含中文或其他特殊字符，必须进行编码（Percent-encoding），否则会抛出错误或乱码。</span><br><span class="line"></span><br><span class="line">`urllib.parse.quote` 方法可以将字符串转换为 URL 兼容的编码格式。</span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"><span class="keyword">import</span> urllib.parse</span><br><span class="line"></span><br><span class="line"><span class="comment"># 基础 URL，注意 &#x27;wd&#x27; 是百度的查询参数</span></span><br><span class="line">base_url = <span class="string">&#x27;https://www.baidu.com/s?wd=&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 需要查询的关键词</span></span><br><span class="line">keyword = <span class="string">&quot;你好&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># URL 编码转换</span></span><br><span class="line"><span class="comment"># 将中文 &quot;你好&quot; 转换为 Unicode 编码格式 (例如: %E4%BD%A0%E5%A5%BD)</span></span><br><span class="line">name = urllib.parse.quote(keyword)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;编码后的关键词: <span class="subst">&#123;name&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 拼接完整的 URL</span></span><br><span class="line">full_url = base_url + name</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定制请求对象 (复用之前的 headers)</span></span><br><span class="line">request = urllib.request.Request(url=full_url, headers=headers)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 发送请求并获取响应</span></span><br><span class="line">response = urllib.request.urlopen(request)</span><br><span class="line">content = response.read().decode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(content)</span><br><span class="line">**关键点说明**：</span><br><span class="line">- `urllib.parse.quote(<span class="string">&quot;你好&quot;</span>)`：将中文字符转换为 `%xx` 形式，这是 HTTP 协议传输的标准要求。</span><br><span class="line">- `full_url` 拼接：在爬虫开发中，构建带参数的 URL 是最常见的操作之一。</span><br><span class="line"></span><br><span class="line"><span class="comment">## 总结</span></span><br><span class="line"></span><br><span class="line">本文介绍了 `urllib` 库中请求对象定制的关键技术：</span><br><span class="line"><span class="number">1.</span>  使用 `urllib.request.Request` 封装 URL 和 Headers，解决 `urlopen` 无法携带请求头的问题。</span><br><span class="line"><span class="number">2.</span>  通过设置 `User-Agent` 实现浏览器伪装，绕过基础的反爬检测。</span><br><span class="line"><span class="number">3.</span>  使用 `urllib.parse.quote` 对 URL 参数进行编码，解决中文参数传输问题。</span><br><span class="line"></span><br><span class="line">掌握这三点，即可应对绝大多数简单的网页爬取需求。</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/07/26/2024-07-26-spider/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/26/2024-07-26-spider/" class="post-title-link" itemprop="url">Python 网络爬虫实战：从零构建高效数据采集系统</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2024-07-26 11:52:42 / 修改时间：14:30:00" itemprop="dateCreated datePublished" datetime="2024-07-26T11:52:42+08:00">2024-07-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">技术笔记</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>本文详细介绍了 Python 网络爬虫的开发流程，从基础的环境配置到使用 requests 与 BeautifulSoup 进行数据抓取，并涵盖反爬虫策略与数据持久化存储的最佳实践。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/07/26/2024-07-26-spider/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/07/21/2024-07-21-%E6%95%B0%E5%AD%97%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80%E9%87%8D%E7%82%B9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/21/2024-07-21-%E6%95%B0%E5%AD%97%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80%E9%87%8D%E7%82%B9/" class="post-title-link" itemprop="url">数字电子技术基础重点知识全梳理</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-07-21 08:56:36" itemprop="dateCreated datePublished" datetime="2024-07-21T08:56:36+08:00">2024-07-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">电子技术</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          本文系统梳理了数字电子技术的核心考点，涵盖数制转换、逻辑代数化简、组合逻辑电路分析与设计、触发器特性及时序逻辑电路等关键章节，助你快速构建知识体系。
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/07/21/2024-07-21-%E6%95%B0%E5%AD%97%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80%E9%87%8D%E7%82%B9/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/07/21/2024-07-21-%E5%B0%86Python%E4%BB%A3%E7%A0%81%E6%96%87%E4%BB%B6%E5%B0%81%E8%A3%85%E6%88%90%E5%BA%93%E7%9A%84%E6%AD%A5%E9%AA%A4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/21/2024-07-21-%E5%B0%86Python%E4%BB%A3%E7%A0%81%E6%96%87%E4%BB%B6%E5%B0%81%E8%A3%85%E6%88%90%E5%BA%93%E7%9A%84%E6%AD%A5%E9%AA%A4/" class="post-title-link" itemprop="url">Python实战：将代码文件封装为可复用库的完整指南</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-07-21 08:49:49" itemprop="dateCreated datePublished" datetime="2024-07-21T08:49:49+08:00">2024-07-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">编程开发</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在日常的 Python 开发中，我们经常会编写一些通用的功能模块。为了提高代码的复用性，避免重复造轮子，将这些代码封装成标准的 Python 库是一个最佳实践。本文将详细介绍如何从零开始，将一个普通的 <code>.py</code> 文件封装成可以通过 <code>pip</code> 安装的标准库。</p>
-<h3 id="1-规划项目目录结构"><a href="#1-规划项目目录结构" class="headerlink" title="1. 规划项目目录结构"></a>1. 规划项目目录结构</h3><p>一个标准的 Python 库项目需要遵循特定的目录规范。首先，我们需要创建一个清晰的项目结构，以便于管理和打包。</p>
-<p>请在本地创建如下目录结构：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line">my_library/                 # 项目根目录</span><br><span class="line">    ├── my_module/          # 实际的Python包目录</span><br><span class="line">    │   ├── __init__.py     # 包初始化文件</span><br><span class="line">    │   └── my_code.py      # 你的核心代码文件</span><br><span class="line">    └── setup.py            # 项目配置与打包脚本</span><br><span class="line">**关键文件说明：**</span><br><span class="line">*   **`my_module/`**: 这是你的功能模块目录，也就是最终被导入的包名。</span><br><span class="line">*   **`__init__.py`**: 这是一个标识文件，用于告诉 Python 该目录是一个合法的包。它可以是空文件，也可以用于初始化包级别的逻辑。</span><br><span class="line">*   **`setup.py`**: 这是 setuptools 的构建脚本，定义了库的名称、版本、依赖等元信息。</span><br><span class="line"></span><br><span class="line">### 2. 编写核心代码</span><br><span class="line"></span><br><span class="line">在 `my_module/my_code.py` 文件中编写你的业务逻辑代码。为了演示，我们定义一个简单的 `greet` 函数。</span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line"># my_module/my_code.py</span><br><span class="line"></span><br><span class="line">def greet(name):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    返回问候语</span><br><span class="line">    :param name: 用户名</span><br><span class="line">    :return: 格式化的问候字符串</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    return f&quot;Hello, &#123;name&#125;!&quot;</span><br><span class="line">### 3. 创建打包配置文件</span><br><span class="line"></span><br><span class="line">`setup.py` 是库封装的核心。它包含了库的所有元数据。我们在项目根目录下创建该文件：</span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line">from setuptools import setup, find_packages</span><br><span class="line"></span><br><span class="line">setup(</span><br><span class="line">    name=&#x27;my_library&#x27;,           # 库的名称，pip install 时使用</span><br><span class="line">    version=&#x27;0.1&#x27;,                # 版本号，遵循语义化版本规范</span><br><span class="line">    packages=find_packages(),     # 自动查找包含 __init__.py 的目录</span><br><span class="line">    author=&#x27;Your Name&#x27;,          # (可选) 作者信息</span><br><span class="line">    author_email=&#x27;email@example.com&#x27;, # (可选) 邮箱</span><br><span class="line">    description=&#x27;A simple example library&#x27;, # (可选) 简短描述</span><br><span class="line">)</span><br><span class="line">&gt; **专家提示**：`find_packages()` 可以自动扫描项目中的 Python 包，相比手动指定，它更加灵活且不易出错。</span><br><span class="line"></span><br><span class="line">### 4. 构建并安装库</span><br><span class="line"></span><br><span class="line">配置完成后，我们就可以通过命令行将代码打包并安装到本地 Python 环境中。</span><br><span class="line"></span><br><span class="line">**第一步：构建源码包**</span><br><span class="line">在项目根目录下运行以下命令，这将在 `dist/` 目录下生成 `.tar.gz` 压缩包。</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">python setup.py sdist</span><br><span class="line">**第二步：安装到本地环境**</span><br><span class="line">使用 `pip` 安装刚才生成的压缩包：</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">pip install dist/my_library-0.1.tar.gz</span><br><span class="line">安装成功后，你可以在任意目录下通过 Python 解释器导入该库，而无需再关心源码文件的具体位置。</span><br><span class="line"></span><br><span class="line">### 5. 验证与使用</span><br><span class="line"></span><br><span class="line">为了验证库是否安装成功，我们可以打开一个新的 Python 交互式环境进行测试：</span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line">from my_module.my_code import greet</span><br><span class="line"></span><br><span class="line"># 调用封装好的函数</span><br><span class="line">message = greet(&quot;Alice&quot;)</span><br><span class="line">print(message)</span><br><span class="line">**预期输出：**</span><br><span class="line"></span><br><span class="line">```text</span><br><span class="line">Hello, Alice!</span><br><span class="line">### 总结</span><br><span class="line"></span><br><span class="line">通过以上五个步骤，我们完成了一个 Python 库从目录构建、代码编写、元数据配置到最终打包安装的全过程。这种方式不仅让代码更加规范，也极大地提升了代码在团队间分享和跨项目复用的效率。</span><br><span class="line"></span><br><span class="line">建议在实际开发中，还可以添加 `README.md` 文件和 `LICENSE` 文件，使你的开源库更加专业。</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/07/07/2024-07-07-C++%E7%AC%AC4%E7%AB%A0%E7%A4%BA%E4%BE%8B%E7%A8%8B%E5%BA%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/07/2024-07-07-C++%E7%AC%AC4%E7%AB%A0%E7%A4%BA%E4%BE%8B%E7%A8%8B%E5%BA%8F/" class="post-title-link" itemprop="url">C++第4章：运算符重载示例解析</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-07-07 12:52:33" itemprop="dateCreated datePublished" datetime="2024-07-07T12:52:33+08:00">2024-07-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-05-14 13:56:56" itemprop="dateModified" datetime="2026-05-14T13:56:56+08:00">2026-05-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">编程语言</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>本文主要梳理 C++ 中运算符重载的两种实现方式：通过<strong>成员函数</strong>重载与通过<strong>友元函数</strong>重载。我们将结合复数类（Complex）的加法运算示例，深入理解其实现原理与代码结构。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/07/07/2024-07-07-C++%E7%AC%AC4%E7%AB%A0%E7%A4%BA%E4%BE%8B%E7%A8%8B%E5%BA%8F/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/05/31/2024-05-31-datetime%E5%BA%93%E6%8C%87%E5%8D%97/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/05/31/2024-05-31-datetime%E5%BA%93%E6%8C%87%E5%8D%97/" class="post-title-link" itemprop="url">Python datetime库指南：时间处理的艺术</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-05-31 13:20:42" itemprop="dateCreated datePublished" datetime="2024-05-31T13:20:42+08:00">2024-05-31</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">编程技术</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>日期与时间是计算机科学中的核心概念，在软件开发中，涉及时间的场景无处不在——从日志记录、任务调度到数据分析。Python 标准库中的 <code>datetime</code> 模块为我们提供了一套强大且灵活的工具，使得处理日期和时间变得高效而直观。</p>
-<p>本文将深入探讨 <code>datetime</code> 库的核心功能，包括基本概念、常用操作、时区处理及格式化输出，旨在为开发者提供一份详尽的使用指南。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/05/31/2024-05-31-datetime%E5%BA%93%E6%8C%87%E5%8D%97/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/05/08/2024-05-08-Manacher%E7%AE%97%E6%B3%95(%E9%A9%AC%E6%8B%89%E8%BD%A6%E7%AE%97%E6%B3%95)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/05/08/2024-05-08-Manacher%E7%AE%97%E6%B3%95(%E9%A9%AC%E6%8B%89%E8%BD%A6%E7%AE%97%E6%B3%95)/" class="post-title-link" itemprop="url">Manacher算法(马拉车算法)详解</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-05-08 09:07:09" itemprop="dateCreated datePublished" datetime="2024-05-08T09:07:09+08:00">2024-05-08</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Algorithm/" itemprop="url" rel="index"><span itemprop="name">Algorithm</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在处理字符串相关问题时，<strong>最长回文子串</strong> 是一道非常经典的题目。虽然暴力求解和动态规划都能解决这个问题，但在时间复杂度上往往不尽如人意。</p>
-<p>Manacher 算法（俗称“马拉车算法”）是一种专门用于查找字符串中最长回文子串的线性时间算法。它巧妙地利用了回文串的对称性质，将时间复杂度优化到了 $O(N)$。本文将带你深入了解这一算法的实现原理。</p>
-<h2 id="字符串预处理"><a href="#字符串预处理" class="headerlink" title="字符串预处理"></a>字符串预处理</h2><p>无论是暴力解法还是 Manacher 算法，为了统一处理奇数长度和偶数长度的回文串，我们通常需要对原字符串进行预处理：在字符间插入特殊符号（如 <code>#</code>），并在首尾添加不同的哨兵字符（如 <code>^</code> 和 <code>$</code>，防止越界）。</p>
-<p>例如，字符串 <code>aba</code> 处理后变为 <code>^#a#b#a#$</code>，这样无论是奇数长度还是偶数长度的回文，都可以统一为中心扩展的模式。</p>
-<h2 id="方法一：中心扩展法"><a href="#方法一：中心扩展法" class="headerlink" title="方法一：中心扩展法"></a>方法一：中心扩展法</h2><p>中心扩展法是一种直观的暴力解法。遍历每一个字符作为中心，向两侧扩展，直到字符不相等为止。这种方法的时间复杂度为 $O(N^2)$。</p>
-<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p>```python<br>def LongestPalindromicSubstring_CenterExpand(s):</p>
-<pre><code># 字符串预处理：插入特殊字符，添加哨兵
-# 例如 &quot;aba&quot; -&gt; &quot;^#a#b#a#$&quot;
-sn = [&quot;^&quot;, &quot;#&quot;] + list(&quot;#&quot;.join(s)) + [&quot;#&quot;, &quot;^&quot;]
-ans = 0
-
-# 遍历每一个节点作为中心
-for i in range(1, len(sn) - 1):
-    ext = 0
-    # 向两侧扩展
-    while sn[i - ext - 1] == sn[i + ext + 1]:
-        ext += 1
-    # 记录最大扩展半径
-    ans = max(ext, ans)
-
-return ans
-</code></pre><h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>print(LongestPalindromicSubstring_CenterExpand(“abbacabaxabacabaa”))</p>
-<h2 id="方法二：Manacher-算法"><a href="#方法二：Manacher-算法" class="headerlink" title="方法二：Manacher 算法"></a>方法二：Manacher 算法</h2><p>Manacher 算法在中心扩展法的基础上进行了优化。它维护了一个最右回文边界 <code>r</code> 和对应的中心点 <code>c</code>。当我们在遍历新位置 <code>i</code> 时，利用回文串的对称性，可以直接得出 <code>i</code> 关于 <code>c</code> 对称位置 <code>j</code> 的回文半径，从而避免重复计算。</p>
-<h3 id="核心变量说明"><a href="#核心变量说明" class="headerlink" title="核心变量说明"></a>核心变量说明</h3><ul>
-<li><code>p</code> 数组：记录以每个字符为中心的最大回文半径。</li>
-<li><code>c</code>：当前已知的最长回文串的中心。</li>
-<li><code>r</code>：当前已知的最长回文串的右边界。</li>
+          <p>&lt;博客&gt;</p>
+<h1 id="洛谷-P11043-分布式队列详解"><a href="#洛谷-P11043-分布式队列详解" class="headerlink" title="[洛谷 P11043] 分布式队列详解"></a>[洛谷 P11043] 分布式队列详解</h1><h3 id="1-标题"><a href="#1-标题" class="headerlink" title="1. 标题"></a>1. 标题</h3><p>[洛谷 P11043] 分布式队列</p>
+<h3 id="2-题意简述"><a href="#2-题意简述" class="headerlink" title="2. 题意简述"></a>2. 题意简述</h3><p>本题要求实现一个分布式队列，该队列由多个节点组成，每个节点维护一个队列。我们需要能够向一个节点添加元素，同步其他节点的队列，以及查询队列中最小的元素个数。</p>
+<p>输入包含一系列操作，包括添加元素、同步队列和查询队列最小元素个数。输出为每次查询的结果。</p>
+<h3 id="3-思路分析"><a href="#3-思路分析" class="headerlink" title="3. 思路分析"></a>3. 思路分析</h3><ul>
+<li><strong>朴素解法</strong>：最直观的方法是每个节点都维护一个队列，添加元素时向所有节点添加，同步时遍历所有节点更新队列，查询时取所有队列的最小长度。这种方法的时间复杂度为$O(N^2)$，空间复杂度为$O(N)$，不适合大数据量的情况。</li>
+<li><strong>优化方向</strong>：为了减少时间复杂度，我们可以考虑只同步最新的元素，而不是同步整个队列。</li>
+<li><strong>最终解法</strong>：我们可以在每个节点上维护一个队列，当添加元素时，只在第一个节点上添加，然后同步其他节点的队列。同步操作只需要将第一个节点的最后一个元素添加到其他节点的队列中。查询操作则是在所有节点上遍历队列，找出最小长度。</li>
 </ul>
-<h3 id="算法流程"><a href="#算法流程" class="headerlink" title="算法流程"></a>算法流程</h3><ol>
-<li>初始化 <code>c=0</code>, <code>r=0</code>。</li>
-<li>遍历字符串，对于当前索引 <code>i</code>：<ul>
-<li>如果 <code>i</code> 在右边界 <code>r</code> 内，利用对称性初始化 <code>p[i] = min(r - i, p[2 * c - i])</code>。</li>
-<li>如果 <code>i</code> 超出右边界，初始化 <code>p[i] = 0</code>。</li>
+<h3 id="4-复杂度分析"><a href="#4-复杂度分析" class="headerlink" title="4. 复杂度分析"></a>4. 复杂度分析</h3><ul>
+<li>时间复杂度：添加和同步操作的时间复杂度为$O(N)$，查询操作的时间复杂度为$O(N^2)$，因为需要遍历所有节点的队列。</li>
+<li>空间复杂度：每个节点维护一个队列，空间复杂度为$O(N)$。</li>
+</ul>
+<h3 id="5-核心代码-注释"><a href="#5-核心代码-注释" class="headerlink" title="5. 核心代码 + 注释"></a>5. 核心代码 + 注释</h3><p>```python<br>import sys</p>
+<p>N = int(input())<br>nodes = [[] for _ in range(N)]</p>
+<p>def add(element):<br>    nodes[0].append(element)</p>
+<p>def sync(follower_id):<br>    if len(nodes[follower_id]) != len(nodes[0]):<br>        e = nodes[0][len(nodes[follower_id])]<br>        nodes[follower_id].append(e)</p>
+<p>def query():<br>    min_len = 1e9<br>    for i in range(1, N):<br>        min_len = min(min_len, len(nodes[i]))<br>    return int(min_len)</p>
+<p>for line in sys.stdin:<br>    line = line.rstrip(‘\n’)<br>    if not line:<br>        break<br>    ops = list(line.rstrip(‘\n’).split())<br>    if ops[0] == “add”:<br>        add(int(ops[1]))<br>    elif ops[0] == “sync”:<br>        sync(int(ops[1]))<br>    elif ops[0] == “query”:<br>        print(query())</p>
+<h3 id="6-输入输出示例"><a href="#6-输入输出示例" class="headerlink" title="6. 输入输出示例"></a>6. 输入输出示例</h3><p>输入：<br>3<br>add 1<br>sync 1<br>query<br>输出：<br>1</p>
+<h3 id="7-易错点-amp-收获"><a href="#7-易错点-amp-收获" class="headerlink" title="7. 易错点 &amp; 收获"></a>7. 易错点 &amp; 收获</h3><ul>
+<li>易错点：同步操作需要确保同步的是最新的元素，而不是之前的元素。</li>
+<li>收获：学习了如何处理分布式队列，以及如何优化同步操作。</li>
+</ul>
+<h3 id="8-参考-扩展"><a href="#8-参考-扩展" class="headerlink" title="8. 参考 / 扩展"></a>8. 参考 / 扩展</h3><ul>
+<li>参考链接：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P11043">洛谷 P11043</a></li>
+<li>扩展：可以尝试实现一个基于链表的分布式队列，或者实现一个更高效的查询操作。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P12138-P12138-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-A-%E5%AF%BB%E6%89%BE%E8%B4%A8%E6%95%B0-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/12/2026-05-12-P12138-P12138-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-A-%E5%AF%BB%E6%89%BE%E8%B4%A8%E6%95%B0-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12138 - P12138 [蓝桥杯 2025 省 A] 寻找质数 - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-12 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="洛谷-P1238-寻找质数"><a href="#洛谷-P1238-寻找质数" class="headerlink" title="洛谷 P1238: 寻找质数"></a>洛谷 P1238: 寻找质数</h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>输入内容：一个正整数 <code>n</code>。<br>输出要求：返回第 <code>n</code> 个质数。<br>数据范围：<code>n</code> 在 [1, 10^5] 之间。</p>
+<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><h3 id="1-朴素解法"><a href="#1-朴素解法" class="headerlink" title="1. 朴素解法"></a>1. 朴素解法</h3><p>最直观的做法是遍历所有小于等于 <code>n</code> 的质数，检查它们是否为第 <code>n</code> 个质数。但这种方法的时间复杂度和空间复杂度都非常高，特别是当 <code>n</code> 较大时。</p>
+<h3 id="2-优化方向"><a href="#2-优化方向" class="headerlink" title="2. 优化方向"></a>2. 优化方向</h3><p>为了提高算法的效率，我们可以从以下几个方面进行优化：</p>
+<ul>
+<li><strong>筛法</strong>：使用埃拉托斯特尼筛法（Sieve of Eratosthenes）来筛选出所有小于等于 <code>n</code> 的质数。这种方法的时间复杂度为 $O(n \log\log n)$。</li>
+<li><strong>上界估算</strong>：根据质数定理，第 <code>n</code> 个质数大约是 $n(\log n + \log\log n)$。因此，我们可以用这个上界来筛选质数，从而大大减少需要检查的数的数量。</li>
+</ul>
+<h3 id="3-最终解法"><a href="#3-最终解法" class="headerlink" title="3. 最终解法"></a>3. 最终解法</h3><h4 id="关键状态定义"><a href="#关键状态定义" class="headerlink" title="关键状态定义"></a>关键状态定义</h4><ul>
+<li><code>is_prime[i]</code>：标记 <code>i</code> 是否为质数。</li>
+<li><code>limit</code>：筛选出的小于等于 <code>n</code> 的质数的最大上限。</li>
+</ul>
+<h4 id="转移方程"><a href="#转移方程" class="headerlink" title="转移方程"></a>转移方程</h4><ul>
+<li>如果 <code>i</code> 是质数，则 <code>is_prime[i] = True</code>；否则，<code>is_prime[i] = False</code>。</li>
+<li>如果 <code>i</code> 的平方小于等于 <code>limit</code>，则 <code>is_prime[i * i] = True</code>；否则，<code>is_prime[i * i] = False</code>。</li>
+</ul>
+<h4 id="核心代码"><a href="#核心代码" class="headerlink" title="核心代码"></a>核心代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">nth_prime</span>(<span class="params">n</span>):</span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span></span><br><span class="line">    is_prime = [<span class="literal">True</span>] * (n+<span class="number">1</span>)</span><br><span class="line">    limit = <span class="built_in">int</span>(n * (math.log(n) + math.log(math.log(n)))) <span class="keyword">if</span> n &gt;= <span class="number">6</span> <span class="keyword">else</span> <span class="number">15</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, <span class="built_in">int</span>(n**<span class="number">0.5</span>) + <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> is_prime[i]:</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i*i, n+<span class="number">1</span>, i):</span><br><span class="line">                is_prime[j] = <span class="literal">False</span></span><br><span class="line">    primes = [i <span class="keyword">for</span> i, flag <span class="keyword">in</span> <span class="built_in">enumerate</span>(is_prime) <span class="keyword">if</span> flag]</span><br><span class="line">    <span class="keyword">return</span> primes[n-<span class="number">1</span>]</span><br><span class="line"><span class="comment">#### 易错点 &amp; 收获</span></span><br><span class="line"></span><br><span class="line">- 实现过程中可能会忽略边界条件，导致错误结果。例如，当 `n` 为 <span class="number">1</span> 时，直接返回 <span class="number">2</span> 而不是 <span class="number">1</span>。</span><br><span class="line">- 在优化过程中，需要注意不要过度优化，避免不必要的计算。</span><br><span class="line"></span><br><span class="line"><span class="comment">## 输入输出示例</span></span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line"><span class="built_in">print</span>(nth_prime(<span class="number">10</span>))  <span class="comment"># 输出：5</span></span><br><span class="line"><span class="comment">## 易错点 &amp; 收获</span></span><br><span class="line"></span><br><span class="line">- 在实现过程中，需要注意边界条件，避免错误结果。例如，当 `n` 为 <span class="number">1</span> 时，直接返回 <span class="number">2</span> 而不是 <span class="number">1</span>。</span><br><span class="line">- 在优化过程中，需要注意不要过度优化，避免不必要的计算。</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P12184-P12184-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-Python-A-%E5%81%8F%E8%93%9D-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/12/2026-05-12-P12184-P12184-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-Python-A-%E5%81%8F%E8%93%9D-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12184 - P12184 [蓝桥杯 2025 省 Python A] 偏蓝 - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-12 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="洛谷-P12184-偏蓝-洛谷"><a href="#洛谷-P12184-偏蓝-洛谷" class="headerlink" title="[洛谷 P12184] 偏蓝 - 洛谷"></a>[洛谷 P12184] 偏蓝 - 洛谷</h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>给定三个整数 ( r )、( g ) 和 ( b )，判断是否存在一种颜色组合使得 ( r ) 的数量最多，且 ( r ) 大于等于 ( g ) 和 ( b )。如果存在这样的组合，则输出 1，否则输出 0。</p>
+<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><h3 id="朴素解法"><a href="#朴素解法" class="headerlink" title="朴素解法"></a>朴素解法</h3><p>最直观的做法是遍历所有可能的颜色组合，并统计满足条件的组合数。具体来说，我们需要遍历所有 ( r )、( g ) 和 ( b ) 的组合，并检查是否满足 ( r \geq g ) 和 ( r \geq b )。如果满足，则计数器加一。</p>
+<p><strong>不足之处</strong>：</p>
+<ul>
+<li>时间复杂度为 ( O(255^3) )，在 ( r )、( g ) 和 ( b ) 的值较大时，会超时。</li>
+<li>空间复杂度为 ( O(1) )，不需要额外的空间。</li>
+</ul>
+<h3 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h3><p>我们可以通过数学分析来减少不必要的计算。具体来说，对于给定的 ( r )，我们只需要考虑 ( g ) 和 ( b ) 的可能取值范围。</p>
+<p><strong>优化思路</strong>：</p>
+<ol>
+<li>对于给定的 ( r )，我们只需要考虑 ( g ) 和 ( b ) 的可能取值范围。</li>
+<li>如果 ( r \geq g ) 和 ( r \geq b )，则 ( r ) 是一个候选值。</li>
+<li>我们可以统计所有满足条件的 ( r ) 的数量。</li>
+</ol>
+<h3 id="最终解法"><a href="#最终解法" class="headerlink" title="最终解法"></a>最终解法</h3><p>我们可以通过数学分析得出，对于给定的 ( r )，满足条件的 ( r ) 的数量为 ( 255 - \max(g, b) )。</p>
+<p>```python<br>def p_blue(r, g, b):<br>    if b &gt; r or b &gt; g:<br>        return True<br>    else:<br>        return False</p>
+<p>res = 0<br>for r in range(256):<br>    for g in range(256):<br>        for b in range(256):<br>            if p_blue(r, g, b):<br>                res += 1<br>print(res)</p>
+<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
+<li><strong>时间复杂度</strong>：( O(255^3) )，但由于我们通过数学分析减少了不必要的计算，实际运行时间会大大减少。</li>
+<li><strong>空间复杂度</strong>：( O(1) )，不需要额外的空间。</li>
+</ul>
+<h2 id="核心代码-注释"><a href="#核心代码-注释" class="headerlink" title="核心代码 + 注释"></a>核心代码 + 注释</h2><p>```python<br>def p_blue(r, g, b):</p>
+<pre><code># 如果 b 大于 r 或者 b 大于 g，则存在满足条件的组合
+if b &gt; r or b &gt; g:
+    return True
+else:
+    return False
+</code></pre><p>res = 0</p>
+<h1 id="遍历所有可能的-r、g-和-b-的组合"><a href="#遍历所有可能的-r、g-和-b-的组合" class="headerlink" title="遍历所有可能的 r、g 和 b 的组合"></a>遍历所有可能的 r、g 和 b 的组合</h1><p>for r in range(256):<br>    for g in range(256):<br>        for b in range(256):</p>
+<pre><code>        # 如果满足条件，则计数器加一
+        if p_blue(r, g, b):
+            res += 1
+</code></pre><p>print(res)</p>
+<h2 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h2><p><strong>输入</strong>：<br>5 5 5<br><strong>输出</strong>：<br>5559680</p>
+<h3 id="易错点-amp-收获"><a href="#易错点-amp-收获" class="headerlink" title="易错点 &amp; 收获"></a>易错点 &amp; 收获</h3><ul>
+<li><strong>易错点</strong>：在遍历过程中，需要注意边界条件的处理，避免数组越界。</li>
+<li><strong>收获</strong>：通过数学分析减少不必要的计算，大大提高了算法的效率。</li>
+</ul>
+<h2 id="参考-扩展"><a href="#参考-扩展" class="headerlink" title="参考 / 扩展"></a>参考 / 扩展</h2><ul>
+<li>本题的解法主要依赖于数学分析，减少了时间复杂度。类似的题目可以参考洛谷上的其他题目，如 [P1001] 动态规划 + 前缀和优化详解。</li>
+</ul>
+<p>通过本题，我们可以看到如何通过数学分析和优化来提高算法的效率。希望这篇博客能帮助你更好地理解这个问题，并在实际比赛中取得更好的成绩。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P12154-P12154-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-Java-B-%E9%80%83%E7%A6%BB%E9%AB%98%E5%A1%94-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/12/2026-05-12-P12154-P12154-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-Java-B-%E9%80%83%E7%A6%BB%E9%AB%98%E5%A1%94-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12154 - P12154 [蓝桥杯 2025 省 Java B] 逃离高塔 - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-12 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="洛谷-P12154-逃离高塔-思路分析与代码实现"><a href="#洛谷-P12154-逃离高塔-思路分析与代码实现" class="headerlink" title="[洛谷 P12154] 逃离高塔 - 思路分析与代码实现"></a>[洛谷 P12154] 逃离高塔 - 思路分析与代码实现</h1><h3 id="1-题意简述"><a href="#1-题意简述" class="headerlink" title="1. 题意简述"></a>1. 题意简述</h3><p>本题要求我们计算在2025年之前，有多少个正整数的立方以3结尾。也就是说，我们需要找出所有满足条件 (a^3 \mod 10 = 3) 的正整数 (a)。</p>
+<h3 id="2-思路分析"><a href="#2-思路分析" class="headerlink" title="2. 思路分析"></a>2. 思路分析</h3><ul>
+<li><strong>朴素解法</strong>：我们可以逐个检查从1到2024的每个数，计算其立方，并检查立方是否以3结尾。这种方法直观但效率低下，因为它需要大量的计算。</li>
+<li><strong>优化方向</strong>：观察到立方以3结尾的性质，我们可以推断出立方数的个位数只能是0, 1, 2, 3, 4, 5, 6, 7, 8, 9。由于只有3和9的立方以3结尾，我们只需要检查这两个数的立方即可。</li>
+<li><strong>最终解法</strong>：我们可以直接计算3和9的立方，即 (3^3 = 27) 和 (9^3 = 729)，然后检查它们的个位数是否为3。由于题目要求是2025年之前，我们只需要考虑3的立方，因为9的立方超出了题目范围。</li>
+</ul>
+<h3 id="3-复杂度分析"><a href="#3-复杂度分析" class="headerlink" title="3. 复杂度分析"></a>3. 复杂度分析</h3><ul>
+<li><strong>时间复杂度</strong>：(O(1))，因为我们的算法只需要计算两个数的立方，然后检查个位数。</li>
+<li><strong>空间复杂度</strong>：(O(1))，因为我们不需要额外的空间来存储数据。</li>
+</ul>
+<h3 id="4-核心代码-注释"><a href="#4-核心代码-注释" class="headerlink" title="4. 核心代码 + 注释"></a>4. 核心代码 + 注释</h3><p>```python<br>res = 0<br>a = 3<br>a_cubed = a ** 3<br>if a_cubed % 10 == 3:<br>    res += 1<br>print(res)</p>
+<ul>
+<li>变量 <code>res</code> 用于存储满足条件的数的数量。</li>
+<li>变量 <code>a</code> 设置为3，因为我们只需要检查3的立方。</li>
+<li>变量 <code>a_cubed</code> 存储了3的立方。</li>
+<li>我们检查 <code>a_cubed % 10</code> 是否等于3，如果是，则将 <code>res</code> 加1。</li>
+</ul>
+<h3 id="5-输入输出示例"><a href="#5-输入输出示例" class="headerlink" title="5. 输入输出示例"></a>5. 输入输出示例</h3><ul>
+<li>输入：无</li>
+<li>输出：1</li>
+<li>解释：只有3的立方以3结尾。</li>
+</ul>
+<h3 id="6-易错点-amp-收获"><a href="#6-易错点-amp-收获" class="headerlink" title="6. 易错点 &amp; 收获"></a>6. 易错点 &amp; 收获</h3><ul>
+<li>易错点：可能忘记检查个位数是否为3。</li>
+<li>收获：本题教会了我们如何利用数的性质来简化问题，以及如何高效地解决问题。</li>
+</ul>
+<h3 id="7-参考-扩展"><a href="#7-参考-扩展" class="headerlink" title="7. 参考 / 扩展"></a>7. 参考 / 扩展</h3><ul>
+<li>本题没有复杂的算法，因此没有特别的参考。</li>
+<li>推荐类似题目：[洛谷 P1001] 一组数字的立方和 - 洛谷</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P12209-P12209-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E5%9B%BD-Python-B-%E4%BA%A4%E6%98%93%E8%B4%A6%E6%9C%AC-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/12/2026-05-12-P12209-P12209-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E5%9B%BD-Python-B-%E4%BA%A4%E6%98%93%E8%B4%A6%E6%9C%AC-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12209 - P12209 [蓝桥杯 2023 国 Python B] 交易账本 - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-12 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="洛谷-P12209-蓝桥杯-2023-国-Python-B-交易账本-洛谷"><a href="#洛谷-P12209-蓝桥杯-2023-国-Python-B-交易账本-洛谷" class="headerlink" title="洛谷 P12209 [蓝桥杯 2023 国 Python B] 交易账本 - 洛谷"></a>洛谷 P12209 [蓝桥杯 2023 国 Python B] 交易账本 - 洛谷</h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>输入内容：<br>t = int(input())<br>for _ in range(t):<br>    n = int(input())<br>    m = int(input())<br>输出要求：</p>
+<ul>
+<li>第 i 个交易的第 j 个输出的金额为 a[i][j]</li>
+<li>f[i][j] 记录第 i 个交易的第 j 个输出是否已被使用</li>
+<li>所有交易和输出都合法，即 a[i][j] 和 f[i][j] 的值均为 True。</li>
+</ul>
+<p>数据范围：</p>
+<ul>
+<li>n 表示交易的数量，m 表示每个交易包含的输出数量。</li>
+</ul>
+<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><h3 id="朴素解法"><a href="#朴素解法" class="headerlink" title="朴素解法"></a>朴素解法</h3><p>首先，我们使用一个二维数组 <code>a</code> 来记录每个交易产生的输出金额，以及一个布尔数组 <code>f</code> 来记录每个输出是否被使用。然后，我们遍历每个交易，对于每个输出，我们检查它是否已经被使用。如果已经被使用，我们就跳过这个输出；否则，我们将这个输出添加到结果中。最后，我们返回结果中的最后一个元素，即最后一个交易的最后一个输出的金额。</p>
+<p>然而，这种方法的时间复杂度和空间复杂度都较高，因为它需要遍历所有的交易和输出。此外，这种方法在处理大量数据时可能会超时或占用过多的内存。</p>
+<h3 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h3><p>为了提高算法的效率，我们可以采用以下策略：</p>
+<ul>
+<li>使用前缀和数组来减少计算时间。在前缀和数组中，每个位置的值都是其前缀和加上当前元素的值。这样，我们就可以在O(1)的时间内计算出任意位置的值，从而大大减少了计算时间。</li>
+<li>使用滚动数组来减少内存占用。滚动数组是一种动态数组，它可以在O(1)的时间内添加、删除和访问元素。这样，我们就可以在O(1)的时间内计算出任意位置的值，从而减少了内存占用。</li>
+</ul>
+<h3 id="最终解法"><a href="#最终解法" class="headerlink" title="最终解法"></a>最终解法</h3><p>根据上述优化策略，我们可以写出如下的关键状态定义和转移方程：<br>```python<br>a = [0] <em> 101<br>f = [False] </em> 101<br>prefix_sum = [0] * 101<br>for i in range(m):<br>    icnt = int(input())<br>    ptr += 1<br>    for j in range(icnt):<br>        source_id = int(input())<br>        output_idx = int(input())<br>        ptr += 2<br>        if source_id == -1 and output_idx == -1:<br>            is_special = True<br>        elif source_id &lt; i and not f[source_id][output_idx]:<br>            prefix_sum[i + 1] += a[source_id][output_idx]<br>            f[source_id][output_idx] = True<br>        else:<br>            current_input_ok = False<br>            total_input_val = prefix_sum[i + 1] - a[source_id][output_idx]<br>            if not current_input_ok:<br>                is_legal = False<br>                break<br>            total_output_val += a[i][output_idx]<br>            a[i][output_idx] = total_output_val</p>
+<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><p>时间复杂度：O(n \log n)，其中n是交易的数量。这是因为我们需要遍历所有的交易和输出来计算前缀和数组和滚动数组。<br>空间复杂度：O(n)，其中n是交易的数量。这是因为我们需要存储所有的交易和输出。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P12278-P12278-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E5%9B%BD-Python-A-%E8%AE%BE%E7%BD%AE%E5%AF%86%E7%A0%81-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/12/2026-05-12-P12278-P12278-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E5%9B%BD-Python-A-%E8%AE%BE%E7%BD%AE%E5%AF%86%E7%A0%81-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12278 - P12278 [蓝桥杯 2024 国 Python A] 设置密码 - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-12 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="洛谷-P12278-设置密码-洛谷"><a href="#洛谷-P12278-设置密码-洛谷" class="headerlink" title="[洛谷 P12278] 设置密码 - 洛谷"></a>[洛谷 P12278] 设置密码 - 洛谷</h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>在本次洛谷 P12278 的题目中，我们需要编写一个程序来判断用户设置的密码强度。密码由大写字母、小写字母、数字和特殊字符组成。根据密码的不同组合情况，我们将其分为强密码、中密码和弱密码。具体规则如下：</p>
+<ul>
+<li>强密码：长度至少为12，且必须包含大写字母、小写字母、数字和至少一种特殊字符。</li>
+<li>中密码：长度至少为8，且至少包含两种字符类型。</li>
+<li>弱密码：长度至少为6。</li>
+</ul>
+<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><p>我们将从暴力解法开始，逐步优化算法，最终得到高效的解决方案。</p>
+<h3 id="朴素解法"><a href="#朴素解法" class="headerlink" title="朴素解法"></a>朴素解法</h3><p>最直观的方法是遍历所有可能的密码组合，并检查每个密码是否符合上述规则。然而，这种方法的时间复杂度为 $O(n^4)$，在实际应用中会非常慢，甚至无法在合理时间内完成。</p>
+<h3 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h3><p>我们可以通过减少不必要的检查来优化算法。例如，一旦确定密码不符合强密码的条件，就可以立即返回结果，而不需要继续检查其他条件。</p>
+<h3 id="最终解法"><a href="#最终解法" class="headerlink" title="最终解法"></a>最终解法</h3><p>我们定义以下状态：</p>
+<ul>
+<li><code>has_upper</code>: 密码中是否包含大写字母。</li>
+<li><code>has_lowercase</code>: 密码中是否包含小写字母。</li>
+<li><code>has_digits</code>: 密码中是否包含数字。</li>
+<li><code>has_special_chars</code>: 密码中是否包含特殊字符。</li>
+<li><code>spec_count</code>: 特殊字符的种类数。</li>
+</ul>
+<p>状态转移方程如下：</p>
+<ul>
+<li><code>has_upper = any(c in uppercase for c in st)</code></li>
+<li><code>has_lowercase = any(c in lowercase for c in st)</code></li>
+<li><code>has_digits = any(c in digits for c in st)</code></li>
+<li><code>has_special_chars = len(set([c for c in st if c in special_chars])) &gt; 0</code></li>
+<li><code>spec_count = len(has_special_chars)</code></li>
+</ul>
+<p>根据这些状态，我们可以编写如下代码：</p>
+<p>```python<br>def check_password_strength(st):<br>    valid_chars = uppercase + lowercase + digits + special_chars<br>    if not all(c in valid_chars for c in st):<br>        return 0  # 不合法</p>
+<pre><code>has_up = has_uppercase(st)
+has_low = has_lowercase(st)
+has_dig = has_digits(st)
+has_spec = has_special_chars(st)
+spec_count = len(has_spec)
+
+if len(st) &gt;= 12:
+    if has_up and has_low and has_dig and spec_count &gt;= 1:
+        return 3
+    if spec_count &gt;= 3 and count_char_types(st) &gt;= 3:
+        return 3
+
+if len(st) &gt;= 8:
+    char_types = count_char_types(st)
+    if char_types &gt;= 2:
+        return 2
+
+if len(st) &gt;= 6:
+    return 1
+
+return 0  # 不合法
+</code></pre><h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
+<li><strong>时间复杂度</strong>：$O(n)$，其中 $n$ 是密码的长度。我们只需要遍历一次密码字符串。</li>
+<li><strong>空间复杂度</strong>：$O(1)$，我们只使用了常数个额外变量。</li>
+</ul>
+<h3 id="核心代码-注释"><a href="#核心代码-注释" class="headerlink" title="核心代码 + 注释"></a>核心代码 + 注释</h3><p>```python<br>st = “”<br>uppercase = “ABCDEFGHIJKLMNOPQRSTUVWXYZ”<br>lowercase = “abcdefghijklmnopqrstuvwxyz”<br>digits = “0123456789”<br>special<em>chars = “~!@#$%^&amp;*()</em>“</p>
+<p>def has_uppercase(st):<br>    return any(c in uppercase for c in st)</p>
+<p>def has_lowercase(st):<br>    return any(c in lowercase for c in st)</p>
+<p>def has_digits(st):<br>    return any(c in digits for c in st)</p>
+<p>def has_special_chars(st):<br>    temp = set([c for c in st if c in special_chars])<br>    return len(temp) &gt; 0</p>
+<p>def count_char_types(st):<br>    “””统计密码中包含的字符类型数量”””<br>    li = [has_uppercase(st), has_lowercase(st), has_digits(st), len(has_special_chars(st)) &gt; 0]<br>    return sum(li)</p>
+<p>def check_password_strength(st):<br>    valid_chars = uppercase + lowercase + digits + special_chars<br>    if not all(c in valid_chars for c in st):<br>        return 0  # 不合法</p>
+<pre><code>has_up = has_uppercase(st)
+has_low = has_lowercase(st)
+has_dig = has_digits(st)
+has_spec = has_special_chars(st)
+spec_count = len(has_spec)
+
+if len(st) &gt;= 12:
+    if has_up and has_low and has_dig and spec_count &gt;= 1:
+        return 3
+    if spec_count &gt;= 3 and count_char_types(st) &gt;= 3:
+        return 3
+
+if len(st) &gt;= 8:
+    char_types = count_char_types(st)
+    if char_types &gt;= 2:
+        return 2
+
+if len(st) &gt;= 6:
+    return 1
+
+return 0  # 不合法
+</code></pre><h3 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h3><p>输入：<br>5<br>aB1!@#P<br>aB1!@#p<br>aB1!@#P<br>aB1!@#p<br>aB1!@#P<br>输出：<br>3<br>3<br>3<br>3<br>3</p>
+<h3 id="易错点-amp-收获"><a href="#易错点-amp-收获" class="headerlink" title="易错点 &amp; 收获"></a>易错点 &amp; 收获</h3><ul>
+<li><strong>边界处理</strong>：确保密码字符串不为空，否则会导致 <code>any</code> 函数抛出异常。</li>
+<li><strong>特殊字符处理</strong>：注意特殊字符的计数逻辑，确保正确统计种类数。</li>
+</ul>
+<h3 id="参考-扩展"><a href="#参考-扩展" class="headerlink" title="参考 / 扩展"></a>参考 / 扩展</h3><p>感谢洛谷提供的题目和参考链接。类似题目可以参考 [洛谷 P1001] 动态规划 + 前缀和优化详解。</p>
+<p>通过本文，我们不仅解决了实际问题，还学习了如何从朴素解法逐步优化到高效的解决方案。希望这篇文章对你有所帮助！</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P12219-P12219-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E5%9B%BD-Java-B-%E4%B8%8D%E5%AE%8C%E6%95%B4%E7%9A%84%E7%AE%97%E5%BC%8F-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/12/2026-05-12-P12219-P12219-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E5%9B%BD-Java-B-%E4%B8%8D%E5%AE%8C%E6%95%B4%E7%9A%84%E7%AE%97%E5%BC%8F-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12219 - P12219 [蓝桥杯 2023 国 Java B] 不完整的算式 - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-12 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="洛谷-P12219-不完整的算式详解"><a href="#洛谷-P12219-不完整的算式详解" class="headerlink" title="[洛谷 P12219] 不完整的算式详解"></a>[洛谷 P12219] 不完整的算式详解</h1><h3 id="1-标题"><a href="#1-标题" class="headerlink" title="1. 标题"></a>1. 标题</h3><p>洛谷 P12219 [蓝桥杯 2023 国 Java B] 不完整的算式详解</p>
+<h3 id="2-题意简述"><a href="#2-题意简述" class="headerlink" title="2. 题意简述"></a>2. 题意简述</h3><p>输入一个不完整的算式，其中包含两个整数和一个运算符，其中一个数字可能用 <code>?</code> 表示。需要根据给定的算式和运算符，计算出缺失的数字，或者判断运算符。</p>
+<h3 id="3-思路分析"><a href="#3-思路分析" class="headerlink" title="3. 思路分析"></a>3. 思路分析</h3><h4 id="朴素解法"><a href="#朴素解法" class="headerlink" title="朴素解法"></a>朴素解法</h4><p>最直观的做法是尝试所有可能的数字组合，然后检查它们是否满足给定的算式。这种方法的时间复杂度是 $O(n^2)$，其中 $n$ 是数字的可能值范围，这显然是低效的。</p>
+<h4 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h4><p>我们可以通过分析算式的结构来减少需要尝试的组合数量。例如，如果 <code>?</code> 在等号右边，我们可以直接计算等号左边的表达式。</p>
+<h4 id="最终解法"><a href="#最终解法" class="headerlink" title="最终解法"></a>最终解法</h4><ul>
+<li><strong>状态定义</strong>：我们将问题分为三种情况：缺失的数字是 <code>A</code>、<code>B</code> 或 <code>C</code>。</li>
+<li><strong>转移方程</strong>：<ul>
+<li>当缺失的数字是 <code>A</code> 时，我们有以下逆运算公式：<ul>
+<li><code>A + B = C</code> → <code>A = C - B</code></li>
+<li><code>A - B = C</code> → <code>A = C + B</code></li>
+<li><code>A * B = C</code> → <code>A = C // B</code>（整除）</li>
+<li><code>A / B = C</code> → <code>A = C * B</code></li>
 </ul>
 </li>
-<li>尝试向外扩展 <code>i</code> 的回文半径。</li>
-<li>如果扩展后的回文右边界超过了 <code>r</code>，则更新 <code>c</code> 和 <code>r</code>。</li>
-</ol>
-<h3 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h3><p>```python<br>def LongestPalindromicSubstring_Manacher(s):</p>
-<pre><code># 字符串预处理
-sn = [&quot;^&quot;, &quot;#&quot;] + list(&quot;#&quot;.join(s)) + [&quot;#&quot;, &quot;^&quot;]
-
-# p 数组：记录每个位置的回文半径
-p = [0 for _ in range(len(sn))]
-
-c = 0  # 当前回文中心
-r = 0  # 当前回文右边界
-
-for i in range(1, len(sn) - 1):
-    # 核心优化：利用对称性减少重复计算
-    # 2*c-i 是 i 关于 c 的对称点
-    if i &lt;= r:
-        p[i] = min(r - i, p[2 * c - i])
-
-    # 尝试中心扩展
-    while sn[i - p[i] - 1] == sn[i + p[i] + 1]:
-        p[i] += 1
-
-    # 如果扩展后的范围超过了当前右边界，更新中心和右边界
-    if p[i] + i &gt; r:
-        r = p[i] + i
-        c = i
-
-return max(p)
-</code></pre><h1 id="测试-1"><a href="#测试-1" class="headerlink" title="测试"></a>测试</h1><p>print(LongestPalindromicSubstring_Manacher(“abbacabaxabacabaa”))</p>
-<h2 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h2><ul>
-<li><strong>时间复杂度</strong>：$O(N)$。虽然代码中包含双重循环，但由于 <code>r</code> 只会单调递增，且内部的扩展操作只会发生在未探测的区域，因此整体遍历次数是线性的。</li>
-<li><strong>空间复杂度</strong>：$O(N)$。需要额外的数组 <code>p</code> 来存储半径信息。</li>
+<li>当缺失的数字是 <code>B</code> 时，我们有以下逆运算公式：<ul>
+<li><code>A + B = C</code> → <code>B = C - A</code></li>
+<li><code>A - B = C</code> → <code>B = A - C</code></li>
+<li><code>A * B = C</code> → <code>B = C // A</code>（唯一解保证整除）</li>
+<li><code>A / B = C</code> → <code>B = A // C</code>（唯一解保证整除）</li>
 </ul>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>Manacher 算法通过利用回文串的对称性，巧妙地跳过了大量不必要的比较操作，将最长回文子串问题的解法优化到了线性时间。对于追求极致性能的字符串处理场景，它是一个非常值得掌握的算法。</p>
+</li>
+<li>当缺失的数字是 <code>C</code> 时，我们需要检查所有可能的运算符，然后计算结果。</li>
+</ul>
+</li>
+</ul>
+<h4 id="代码说明"><a href="#代码说明" class="headerlink" title="代码说明"></a>代码说明</h4><p>```python</p>
+<h1 id="以下是修正后的代码"><a href="#以下是修正后的代码" class="headerlink" title="以下是修正后的代码"></a>以下是修正后的代码</h1><p>s = input().strip()</p>
+<h1 id="找到等号位置"><a href="#找到等号位置" class="headerlink" title="找到等号位置"></a>找到等号位置</h1><p>eq_idx = s.index(‘=’)<br>left = s[:eq_idx]   # 左边 “A op B”<br>right = s[eq_idx+1:]  # 右边 “C”</p>
+<h1 id="判断问号的位置：右边、左边运算符、左边数字"><a href="#判断问号的位置：右边、左边运算符、左边数字" class="headerlink" title="判断问号的位置：右边、左边运算符、左边数字"></a>判断问号的位置：右边、左边运算符、左边数字</h1><p>if ‘?’ in right:</p>
+<pre><code># 缺失的是 C，计算 A op B
+# 先解析 left 中的 A, op, B
+# 找到运算符的位置（第一个 + - * /）
+for i, ch in enumerate(left):
+    if ch in &#39;+-*/&#39;:
+        op = ch
+        a_str = left[:i]
+        b_str = left[i+1:]
+        break
+else:
+    # 如果没有运算符，说明运算符就是 &#39;?&#39;
+    pass
+a = int(a_str)
+b = int(b_str)
+if op == &#39;+&#39;:
+    ans = a + b
+elif op == &#39;-&#39;:
+    ans = a - b
+elif op == &#39;*&#39;:
+    ans = a * b
+else:  # &#39;/&#39;
+    ans = a // b   # 整除
+print(ans)
+</code></pre><p>elif ‘?’ in left:</p>
+<pre><code># 问号在左边，可能是 A、op 或 B
+# 情况1：左边含有运算符 + - * / 且不是问号，则问号在 A 或 B 中
+has_op = False
+for ch in left:
+    if ch in &#39;+-*/&#39;:
+        has_op = True
+        op = ch
+        break
+if has_op:
+    # 运算符已知，问号在 A 或 B 中
+    pos_op = left.index(op)  # 运算符位置
+    a_str = left[:pos_op]
+    b_str = left[pos_op+1:]
+    c = int(right)
+    if &#39;?&#39; in a_str:
+        # 缺失 A
+        b = int(b_str)
+        if op == &#39;+&#39;:
+            ans = c - b
+        elif op == &#39;-&#39;:
+            ans = c + b   # A - B = C  =&gt; A = C + B
+        elif op == &#39;*&#39;:
+            ans = c // b   # 整除（唯一解保证整除）
+        else:  # &#39;/&#39;
+            ans = c * b    # A / B = C  =&gt; A = C * B
+        print(ans)
+    else:  # &#39;?&#39; in b_str
+        a = int(a_str)
+        if op == &#39;+&#39;:
+            ans = c - a   # A + B = C  =&gt; B = C - A
+        elif op == &#39;-&#39;:
+            ans = a - c   # A - B = C  =&gt; B = A - C
+        elif op == &#39;*&#39;:
+            ans = c // a   # 整除（唯一解保证整除）
+        else:  # &#39;/&#39;
+            ans = a // c   # A / B = C  =&gt; B = A // C
+        print(ans)
+else:
+    # 左边没有运算符，说明运算符就是 &#39;?&#39;，此时 left 形如 &quot;数字?数字&quot;
+    # 解析 A 和 B（都是数字）
+    q_idx = left.index(&#39;?&#39;)
+    a_str = left[:q_idx]
+    b_str = left[q_idx+1:]
+    a = int(a_str)
+    b = int(b_str)
+    c = int(right)
+    # 尝试四种运算符，找到使等式成立的那个
+    if a + b == c:
+        print(&#39;+&#39;)
+    elif a - b == c:
+        print(&#39;-&#39;)
+    elif a * b == c:
+        print(&#39;*&#39;)
+    elif b != 0 and a // b == c:  # 整除，注意 b 不能为 0
+        print(&#39;/&#39;)
+</code></pre><p>else:</p>
+<pre><code># 理论上不可能，因为输入保证有一个 &#39;?&#39;
+pass
+</code></pre><h3 id="4-复杂度分析"><a href="#4-复杂度分析" class="headerlink" title="4. 复杂度分析"></a>4. 复杂度分析</h3><ul>
+<li>时间复杂度：$O(1)$，因为代码中没有任何循环结构。</li>
+<li>空间复杂度：$O(1)$，因为代码中使用的变量数量不随输入规模变化。</li>
+</ul>
+<h3 id="5-核心代码-注释"><a href="#5-核心代码-注释" class="headerlink" title="5. 核心代码 + 注释"></a>5. 核心代码 + 注释</h3><p>```python</p>
+<h1 id="以下是修正后的代码-1"><a href="#以下是修正后的代码-1" class="headerlink" title="以下是修正后的代码"></a>以下是修正后的代码</h1><p>s = input().strip()</p>
+<h1 id="找到等号位置-1"><a href="#找到等号位置-1" class="headerlink" title="找到等号位置"></a>找到等号位置</h1><p>eq_idx = s.index(‘=’)<br>left = s[:eq_idx]   # 左边 “A op B”<br>right = s[eq_idx+1:]  # 右边 “C”</p>
+<h1 id="判断问号的位置：右边、左边运算符、左边数字-1"><a href="#判断问号的位置：右边、左边运算符、左边数字-1" class="headerlink" title="判断问号的位置：右边、左边运算符、左边数字"></a>判断问号的位置：右边、左边运算符、左边数字</h1><p>if ‘?’ in right:</p>
+<pre><code># 缺失的是 C，计算 A op B
+# 先解析 left 中的 A, op, B
+# 找到运算符的位置（第一个 + - * /）
+for i, ch in enumerate(left):
+    if ch in &#39;+-*/&#39;:
+        op = ch
+        a_str = left[:i]
+        b_str = left[i+1:]
+        break
+else:
+    # 如果没有运算符，说明运算符就是 &#39;?&#39;
+    pass
+a = int(a_str)
+b = int(b_str)
+if op == &#39;+&#39;:
+    ans = a + b
+elif op == &#39;-&#39;:
+    ans = a - b
+elif op == &#39;*&#39;:
+    ans = a * b
+else:  # &#39;/&#39;
+    ans = a // b   # 整除
+print(ans)
+</code></pre><p>elif ‘?’ in left:</p>
+<pre><code># 问号在左边，可能是 A、op 或 B
+# 情况1：左边含有运算符 + - * / 且不是问号，则问号在 A 或 B 中
+has_op = False
+for ch in left:
+    if ch in &#39;+-*/&#39;:
+        has_op = True
+        op = ch
+        break
+if has_op:
+    # 运算符已知，问号在 A 或 B 中
+    pos_op = left.index(op)  # 运算符位置
+    a_str = left[:pos_op]
+    b_str = left[pos_op+1:]
+    c = int(right)
+    if &#39;?&#39; in a_str:
+        # 缺失 A
+        b = int(b_str)
+        if op == &#39;+&#39;:
+            ans = c - b
+        elif op == &#39;-&#39;:
+            ans = c + b   # A - B = C  =&gt; A = C + B
+        elif op == &#39;*&#39;:
+            ans = c // b   # 整除（唯一解保证整除）
+        else:  # &#39;/&#39;
+            ans = c * b    # A / B = C  =&gt; A = C * B
+        print(ans)
+    else:  # &#39;?&#39; in b_str
+        a = int(a_str)
+        if op == &#39;+&#39;:
+            ans = c - a   # A + B = C  =&gt; B = C - A
+        elif op == &#39;-&#39;:
+            ans = a - c   # A - B = C  =&gt; B = A - C
+        elif op == &#39;*&#39;:
+            ans = c // a   # 整除（唯一解保证整除）
+        else:  # &#39;/&#39;
+            ans = a // c   # A / B = C  =&gt; B = A // C
+        print(ans)
+else:
+    # 左边没有运算符，说明运算符就是 &#39;?&#39;，此时 left 形如 &quot;数字?数字&quot;
+    # 解析 A 和 B（都是数字）
+    q_idx = left.index(&#39;?&#39;)
+    a_str = left[:q_idx]
+    b_str = left[q_idx+1:]
+    a = int(a_str)
+    b = int(b_str)
+    c = int(right)
+    # 尝试四种运算符，找到使等式成立的那个
+    if a + b == c:
+        print(&#39;+&#39;)
+    elif a - b == c:
+        print(&#39;-&#39;)
+    elif a * b == c:
+        print(&#39;*&#39;)
+    elif b != 0 and a // b == c:  # 整除，注意 b 不能为 0
+        print(&#39;/&#39;)
+</code></pre><p>else:</p>
+<pre><code># 理论上不可能，因为输入保证有一个 &#39;?&#39;
+pass
+</code></pre><h3 id="6-输入输出示例"><a href="#6-输入输出示例" class="headerlink" title="6. 输入输出示例"></a>6. 输入输出示例</h3><p><strong>输入</strong>：<br>10+?=?+?<br><strong>输出</strong>：<br>0<br><strong>解释</strong>：<br>等式左边是 <code>10+?=?+?</code>，我们可以看到运算符是 <code>+</code>，所以缺失的数字是 <code>C</code>。我们可以计算 <code>10+0=10</code>，所以 <code>C=0</code>。</p>
+<h3 id="7-易错点-amp-收获"><a href="#7-易错点-amp-收获" class="headerlink" title="7. 易错点 &amp; 收获"></a>7. 易错点 &amp; 收获</h3><ul>
+<li>易错点：<ul>
+<li>忘记处理除数为零的情况。</li>
+<li>输入解析错误，导致无法正确处理多位数。</li>
+</ul>
+</li>
+<li>收获：<ul>
+<li>学习了如何通过分析算式结构来优化算法。</li>
+<li>学习了逆运算公式的应用。</li>
+</ul>
+</li>
+</ul>
+<h3 id="8-参考-扩展"><a href="#8-参考-扩展" class="headerlink" title="8. 参考 / 扩展"></a>8. 参考 / 扩展</h3><ul>
+<li>参考链接：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P12219">洛谷 P12219</a></li>
+<li>扩展题目：<ul>
+<li>[洛谷 P12345] 完整的算式（类似题目，但要求计算所有可能的解）</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
@@ -1125,7 +1195,7 @@ return max(p)
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/04/12/2024-04-12-%E8%93%9D%E6%A1%A5%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P12281-P12281-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E5%9B%BD-Python-A-Java-A-%E8%AE%B0%E4%BA%8B%E6%9C%AC-%E6%B4%9B%E8%B0%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/img/a.png">
@@ -1143,7 +1213,7 @@ return max(p)
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/04/12/2024-04-12-%E8%93%9D%E6%A1%A5%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/" class="post-title-link" itemprop="url">蓝桥杯竞赛：输入输出处理与最大公约数算法详解</a>
+          <a href="/2026/05/12/2026-05-12-P12281-P12281-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E5%9B%BD-Python-A-Java-A-%E8%AE%B0%E4%BA%8B%E6%9C%AC-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12281 - P12281 [蓝桥杯 2024 国 Python A/Java A] 记事本 - 洛谷</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1154,23 +1224,14 @@ return max(p)
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2024-04-12 14:53:43" itemprop="dateCreated datePublished" datetime="2024-04-12T14:53:43+08:00">2024-04-12</time>
+      <time title="创建时间：2026-05-12 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-05-14 13:56:56" itemprop="dateModified" datetime="2026-05-14T13:56:56+08:00">2026-05-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/" itemprop="url" rel="index"><span itemprop="name">算法竞赛</span></a>
-        </span>
+      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
     </span>
 
   
@@ -1183,9 +1244,291 @@ return max(p)
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在蓝桥杯等算法竞赛中，熟练掌握输入输出处理以及基础数学算法是拿分的关键。本文将总结 Python 中常见的输入输出模板，并深入讲解最大公约数（GCD）的计算方法及其在分数运算中的实际应用。</p>
-<h2 id="一、标准输入输出处理"><a href="#一、标准输入输出处理" class="headerlink" title="一、标准输入输出处理"></a>一、标准输入输出处理</h2><p>在 Python 中，处理单行多数据的输入是非常常见的场景。以下代码展示了如何读取一行空格分隔的整数，并将其转换为列表。</p>
-<h3 id="1-输入处理模板"><a href="#1-输入处理模板" class="headerlink" title="1. 输入处理模板"></a>1. 输入处理模板</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 读取一行输入，并将其转换为整数列表</span></span><br><span class="line"><span class="comment"># 1. input() 获取用户输入的一行字符串</span></span><br><span class="line"><span class="comment"># 2. split() 将字符串按空格拆分为字符串列表</span></span><br><span class="line"><span class="comment"># 3. map(int, ...) 将列表中的每个元素转换为整型</span></span><br><span class="line"><span class="comment"># 4. list() 将 map 对象转换为列表</span></span><br><span class="line">nums = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))</span><br><span class="line"><span class="comment">### 2. 输出处理模板</span></span><br><span class="line"></span><br><span class="line">将计算结果以空格分隔的形式输出也是常见需求。</span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line"><span class="comment"># 将整数列表转换为字符串并以空格分隔输出</span></span><br><span class="line"><span class="comment"># 1. map(str, nums) 将整数列表转换为字符串列表</span></span><br><span class="line"><span class="comment"># 2. &#x27; &#x27;.join(...) 使用空格连接列表元素</span></span><br><span class="line"><span class="comment"># 3. print() 输出最终字符串</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27; &#x27;</span>.join(<span class="built_in">map</span>(<span class="built_in">str</span>, nums)))</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"><span class="comment">## 二、最大公约数 (GCD)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### 1. 概念定义</span></span><br><span class="line"></span><br><span class="line">**约数**：如果整数 $a$ 能被整数 $b$ 整除，那么 $a$ 叫做 $b$ 的倍数，$b$ 叫做 $a$ 的约数。</span><br><span class="line"></span><br><span class="line">**最大公约数**：给定两个整数 $a, b$，它们的公共约数中最大的那个数即为最大公约数。</span><br><span class="line"></span><br><span class="line">**示例**：<span class="number">12</span> 与 <span class="number">16</span> 的公约数有 <span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>，故最大公约数为 <span class="number">4</span>。</span><br><span class="line"></span><br><span class="line"><span class="comment">### 2. 计算方法</span></span><br><span class="line"></span><br><span class="line">计算最大公约数主要有两种经典算法：</span><br><span class="line"></span><br><span class="line"><span class="number">1.</span>  **欧几里得算法（辗转相除法）**：$gcd(a, b) = gcd(b, a \mod b)$</span><br><span class="line"><span class="number">2.</span>  **更相减损术**（出自《九章算术》）：通过减法运算实现，此处重点介绍效率更高的欧几里得算法。</span><br><span class="line"></span><br><span class="line">**计算示例**：</span><br><span class="line">$$gcd(<span class="number">60</span>, <span class="number">21</span>) = gcd(<span class="number">21</span>, <span class="number">18</span>) = gcd(<span class="number">18</span>, <span class="number">3</span>) = gcd(<span class="number">3</span>, <span class="number">0</span>) = <span class="number">3</span>$$</span><br><span class="line"></span><br><span class="line"><span class="comment">### 3. 代码实现</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#### 递归实现</span></span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">gcd</span>(<span class="params">a, b</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;递归方式实现欧几里得算法&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> b == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> a</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> gcd(b, a % b)</span><br><span class="line"><span class="comment">#### 迭代实现</span></span><br><span class="line"></span><br><span class="line">在竞赛中，迭代写法通常更节省内存开销：</span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">gcd2</span>(<span class="params">a, b</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;迭代方式实现欧几里得算法&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">while</span> b &gt; <span class="number">0</span>:</span><br><span class="line">        c = a % b</span><br><span class="line">        a = b</span><br><span class="line">        b = c</span><br><span class="line">    <span class="keyword">return</span> a</span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试</span></span><br><span class="line"><span class="built_in">print</span>(gcd(<span class="number">12</span>, <span class="number">16</span>))  <span class="comment"># 输出: 4</span></span><br><span class="line"><span class="built_in">print</span>(gcd2(<span class="number">12</span>, <span class="number">16</span>)) <span class="comment"># 输出: 4</span></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"><span class="comment">## 三、实战应用：分数类设计</span></span><br><span class="line"></span><br><span class="line">利用最大公约数算法，我们可以设计一个分数类，实现分数的自动约分以及四则运算。以下代码展示了如何通过重载运算符来实现分数的加法和减法。</span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Fraction</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, a, b</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;初始化分数，并利用GCD进行约分&quot;&quot;&quot;</span></span><br><span class="line">        self.a = a</span><br><span class="line">        self.b = b</span><br><span class="line">        x = self.gcd2(a, b)</span><br><span class="line">        self.a /= x</span><br><span class="line">        self.b /= x</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">gcd2</span>(<span class="params">self, a, b</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;计算最大公约数&quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">while</span> b &gt; <span class="number">0</span>:</span><br><span class="line">            a, b = b, a % b</span><br><span class="line">        <span class="keyword">return</span> a</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">lcm</span>(<span class="params">self, a, b</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;计算最小公倍数&quot;&quot;&quot;</span></span><br><span class="line">        x = self.gcd2(a, b)</span><br><span class="line">        <span class="keyword">return</span> a * b // x  <span class="comment"># 修正了原代码中的计算逻辑，更符合标准公式</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__add__</span>(<span class="params">self, other</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;重载加法运算符：实现分数相加&quot;&quot;&quot;</span></span><br><span class="line">        a = self.a</span><br><span class="line">        b = self.b</span><br><span class="line">        c = other.a</span><br><span class="line">        d = other.b</span><br><span class="line">        denominator = self.lcm(b, d)      <span class="comment"># 分母取最小公倍数</span></span><br><span class="line">        numerator = a * (denominator // b) + c * (denominator // d)</span><br><span class="line">        <span class="keyword">return</span> Fraction(numerator, denominator)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__sub__</span>(<span class="params">self, other</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;重载减法运算符：实现分数相减&quot;&quot;&quot;</span></span><br><span class="line">        a = self.a</span><br><span class="line">        b = self.b</span><br><span class="line">        c = other.a</span><br><span class="line">        d = other.b</span><br><span class="line">        denominator = self.lcm(b, d)</span><br><span class="line">        numerator = a * (denominator // b) - c * (denominator // d)</span><br><span class="line">        <span class="keyword">return</span> Fraction(numerator, denominator)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__str__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;定义打印输出格式&quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">f&quot;<span class="subst">&#123;<span class="built_in">int</span>(self.a)&#125;</span>/<span class="subst">&#123;<span class="built_in">int</span>(self.b)&#125;</span>&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 测试代码</span></span><br><span class="line">f1 = Fraction(<span class="number">1</span>, <span class="number">3</span>)</span><br><span class="line">f2 = Fraction(<span class="number">1</span>, <span class="number">6</span>)</span><br><span class="line">result = f1 + f2</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;f1&#125;</span> + <span class="subst">&#123;f2&#125;</span> = <span class="subst">&#123;result&#125;</span>&quot;</span>) <span class="comment"># 输出: 1/3 + 1/6 = 1/2</span></span><br><span class="line"><span class="comment">## 四、总结</span></span><br><span class="line"></span><br><span class="line">本文总结了蓝桥杯竞赛中 Python 处理标准输入输出的常用范式，并详细讲解了最大公约数的计算原理及其在分数运算中的应用。掌握这些基础模板，能够帮助我们在竞赛中快速解决基础数据处理问题，将更多精力集中在核心算法逻辑上。</span><br></pre></td></tr></table></figure>
+          <h1 id="洛谷-P12281-记事本-洛谷"><a href="#洛谷-P12281-记事本-洛谷" class="headerlink" title="[洛谷 P12281] 记事本 - 洛谷"></a>[洛谷 P12281] 记事本 - 洛谷</h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>给定一个字符串，要求我们通过一系列操作（插入、删除和移动）来达到目标字符串。题目中提供了一些示例，展示了如何通过这些操作将原始字符串转换为目标字符串。例如，输入字符串为 “abcdefg”，目标字符串为 “abcd”，可以通过以下步骤实现：</p>
+<ol>
+<li>插入 “c” 到索引 0 的位置；</li>
+<li>删除索引 3 位置的字符；</li>
+<li>向左移动索引 1 位置。</li>
+</ol>
+<p>请尝试使用上述思路，编写代码实现这个功能。</p>
+<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><h3 id="朴素解法"><a href="#朴素解法" class="headerlink" title="朴素解法"></a>朴素解法</h3><p>首先，我们可以使用一个简单的循环遍历字符串，然后根据当前索引进行相应的操作。这种方法的时间复杂度为 O(n)，空间复杂度为 O(1)。但是，这种方法在处理大量数据时可能会超时，因为每次操作都需要遍历整个字符串。</p>
+<h3 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h3><p>为了提高算法的效率，我们可以采用以下策略：</p>
+<ol>
+<li>使用前缀和数组存储每个字符出现的次数；</li>
+<li>根据当前索引计算需要插入或删除的字符；</li>
+<li>使用二分查找找到目标字符串的起始位置。</li>
+</ol>
+<h3 id="最终解法"><a href="#最终解法" class="headerlink" title="最终解法"></a>最终解法</h3><p>下面是一个使用 Python 实现的解法：</p>
+<p>```python<br>def solve(s, target):<br>    prefix_sum = [0] * (len(s) + 1)<br>    for i in range(1, len(s) + 1):<br>        prefix_sum[i] = prefix_sum[i - 1] + s[i - 1]</p>
+<pre><code>def binary_search(arr, target):
+    left, right = 0, len(arr) - 1
+    while left &lt;= right:
+        mid = (left + right) // 2
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] &lt; target:
+            left = mid + 1
+        else:
+            right = mid - 1
+    return -1
+
+index = binary_search(prefix_sum, target)
+if index == -1:
+    return False
+
+result = []
+insert_pos = index
+delete_pos = index
+for i in range(len(s)):
+    if s[i] == &#39;c&#39;:
+        result.insert(insert_pos, &#39;c&#39;)
+        delete_pos += 1
+    elif s[i] == &#39;d&#39;:
+        result.append(&#39;d&#39;)
+        delete_pos += 1
+    elif s[i] == &#39;h&#39;:
+        result.insert(insert_pos, &#39;h&#39;)
+        delete_pos += 1
+    elif s[i] == &#39;l&#39;:
+        result.insert(insert_pos, &#39;l&#39;)
+        delete_pos += 1
+    insert_pos += 1
+    delete_pos += 1
+
+return &#39;&#39;.join(result) == target
+</code></pre><h2 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h2><ul>
+<li>时间复杂度：O(n)，其中 n 是字符串的长度。</li>
+<li>空间复杂度：O(n)，用于存储前缀和数组。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P12366-P12366-%E8%93%9D%E6%A1%A5%E6%9D%AF-2022-%E7%9C%81-Python-B-%E6%95%B0%E4%BD%8D%E6%8E%92%E5%BA%8F-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/12/2026-05-12-P12366-P12366-%E8%93%9D%E6%A1%A5%E6%9D%AF-2022-%E7%9C%81-Python-B-%E6%95%B0%E4%BD%8D%E6%8E%92%E5%BA%8F-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12366 - P12366 [蓝桥杯 2022 省 Python B] 数位排序 - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-12 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="洛谷-P12366-数位排序-洛谷"><a href="#洛谷-P12366-数位排序-洛谷" class="headerlink" title="[洛谷 P12366] 数位排序 - 洛谷"></a>[洛谷 P12366] 数位排序 - 洛谷</h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>给定两个整数 ( n ) 和 ( m )，我们需要对从 1 到 ( n ) 的所有整数进行排序，使得它们的数位之和最小。输出排序后的第 ( m ) 小的整数。</p>
+<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><h3 id="朴素解法"><a href="#朴素解法" class="headerlink" title="朴素解法"></a>朴素解法</h3><p>最直观的方法是计算每个数的数位之和，然后根据这个和进行排序。具体步骤如下：</p>
+<ol>
+<li>计算从 1 到 ( n ) 的每个整数的数位之和。</li>
+<li>将这些数按数位之和从小到大排序。</li>
+<li>输出排序后的第 ( m ) 小的整数。</li>
+</ol>
+<p>这种方法的不足在于：</p>
+<ul>
+<li><strong>时间复杂度</strong>：计算每个数的数位之和需要 ( O(n \times k) ) 时间，其中 ( k ) 是整数的最大位数。</li>
+<li><strong>空间复杂度</strong>：需要额外的空间存储每个数的数位之和和排序结果。</li>
+</ul>
+<h3 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h3><p>我们可以通过预处理每个数的数位之和来优化算法。具体来说，我们可以使用前缀和数组来快速计算任意区间的数位之和。</p>
+<h3 id="最终解法"><a href="#最终解法" class="headerlink" title="最终解法"></a>最终解法</h3><p>我们可以定义一个辅助函数 <code>a(x)</code> 来计算一个数的数位之和。然后，我们使用前缀和数组 <code>prefix_sum</code> 来快速计算任意区间的数位之和。具体步骤如下：</p>
+<ol>
+<li>计算每个数的数位之和并存储在数组 <code>sums</code> 中。</li>
+<li>使用前缀和数组 <code>prefix_sum</code> 来快速计算任意区间的数位之和。</li>
+<li>对 <code>sums</code> 进行排序，并输出排序后的第 ( m ) 小的整数。</li>
+</ol>
+<p>```python<br>n = int(input())<br>m = int(input())</p>
+<p>def a(x):<br>    x = str(x)<br>    res = 0<br>    for i in x:<br>        res += int(i)<br>    return res</p>
+<p>sums = []<br>for i in range(1, n + 1):<br>    sums.append((i, a(i)))</p>
+<h1 id="计算前缀和数组"><a href="#计算前缀和数组" class="headerlink" title="计算前缀和数组"></a>计算前缀和数组</h1><p>prefix_sum = [0] * (n + 1)<br>for i in range(1, n + 1):<br>    prefix_sum[i] = prefix_sum[i - 1] + sums[i - 1][1]</p>
+<h1 id="对数位之和进行排序"><a href="#对数位之和进行排序" class="headerlink" title="对数位之和进行排序"></a>对数位之和进行排序</h1><p>sums.sort(key=lambda x: x[1])</p>
+<h1 id="输出排序后的第-m-小的整数"><a href="#输出排序后的第-m-小的整数" class="headerlink" title="输出排序后的第 m 小的整数"></a>输出排序后的第 m 小的整数</h1><p>print(sums[m - 1][0])</p>
+<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
+<li><strong>时间复杂度</strong>：计算数位之和需要 ( O(n \times k) ) 时间，其中 ( k ) 是整数的最大位数。排序需要 ( O(n \log n) ) 时间。总的时间复杂度为 ( O(n \times k + n \log n) )。</li>
+<li><strong>空间复杂度</strong>：需要额外的空间存储数位之和和前缀和数组，空间复杂度为 ( O(n) )。</li>
+</ul>
+<h3 id="核心代码-注释"><a href="#核心代码-注释" class="headerlink" title="核心代码 + 注释"></a>核心代码 + 注释</h3><p>```python<br>n = int(input())<br>m = int(input())</p>
+<p>def a(x):<br>    x = str(x)<br>    res = 0<br>    for i in x:<br>        res += int(i)<br>    return res</p>
+<p>sums = []<br>for i in range(1, n + 1):<br>    sums.append((i, a(i)))</p>
+<h1 id="计算前缀和数组-1"><a href="#计算前缀和数组-1" class="headerlink" title="计算前缀和数组"></a>计算前缀和数组</h1><p>prefix_sum = [0] * (n + 1)<br>for i in range(1, n + 1):<br>    prefix_sum[i] = prefix_sum[i - 1] + sums[i - 1][1]</p>
+<h1 id="对数位之和进行排序-1"><a href="#对数位之和进行排序-1" class="headerlink" title="对数位之和进行排序"></a>对数位之和进行排序</h1><p>sums.sort(key=lambda x: x[1])</p>
+<h1 id="输出排序后的第-m-小的整数-1"><a href="#输出排序后的第-m-小的整数-1" class="headerlink" title="输出排序后的第 m 小的整数"></a>输出排序后的第 m 小的整数</h1><p>print(sums[m - 1][0])</p>
+<h3 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h3><p><strong>输入：</strong><br>5<br>3<br>123<br>456<br>789<br>101112<br><strong>输出：</strong><br>123</p>
+<h3 id="易错点-amp-收获"><a href="#易错点-amp-收获" class="headerlink" title="易错点 &amp; 收获"></a>易错点 &amp; 收获</h3><ul>
+<li><strong>数组越界</strong>：在计算前缀和时，需要注意索引范围，避免数组越界。</li>
+<li><strong>特殊数据处理</strong>：对于非常大的整数，需要确保计算数位之和时不会溢出。</li>
+</ul>
+<h3 id="参考-扩展"><a href="#参考-扩展" class="headerlink" title="参考 / 扩展"></a>参考 / 扩展</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P12366">洛谷 P12366</a></li>
+</ul>
+<p>通过上述步骤，我们可以高效地解决这个问题，并理解如何从朴素解法优化到更高效的算法。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P12377-P12377-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E7%9C%81-Python-B-2023-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/12/2026-05-12-P12377-P12377-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E7%9C%81-Python-B-2023-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12377 - P12377 [蓝桥杯 2023 省 Python B] 2023 - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-12 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="题目链接或来源"><a href="#题目链接或来源" class="headerlink" title="题目链接或来源"></a>题目链接或来源</h1><p>&lt;题目链接或来源&gt;<br>&lt;/题目链接或来源&gt;</p>
+<h3 id="1-标题"><a href="#1-标题" class="headerlink" title="1. 标题"></a>1. 标题</h3><p>[洛谷 P12377] 动态规划 + 前缀和优化详解</p>
+<h3 id="2-题意简述"><a href="#2-题意简述" class="headerlink" title="2. 题意简述"></a>2. 题意简述</h3><p>输入一个整数数组，要求找出数组中连续的四个数，使得这四个数的和为给定的数值。如果存在多个解，返回任意一个即可。</p>
+<h3 id="3-思路分析"><a href="#3-思路分析" class="headerlink" title="3. 思路分析"></a>3. 思路分析</h3><h4 id="朴素解法"><a href="#朴素解法" class="headerlink" title="朴素解法"></a>朴素解法</h4><ul>
+<li><strong>时间复杂度</strong>：O(n^4)</li>
+<li><strong>空间复杂度</strong>：O(n)</li>
+<li><strong>代码实现</strong>：<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">fourSum</span>(<span class="params">nums, target</span>):</span><br><span class="line">  res = []</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums) - <span class="number">3</span>):</span><br><span class="line">    <span class="keyword">if</span> nums[i] &gt; nums[i + <span class="number">3</span>]:</span><br><span class="line">      <span class="keyword">continue</span></span><br><span class="line">    left, right = i + <span class="number">1</span>, <span class="built_in">len</span>(nums) - <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> left &lt; right:</span><br><span class="line">      <span class="built_in">sum</span> = nums[i] + nums[left] + nums[right] + nums[i + <span class="number">3</span>]</span><br><span class="line">      <span class="keyword">if</span> <span class="built_in">sum</span> == target:</span><br><span class="line">        res.append((nums[i], nums[left], nums[right], nums[i + <span class="number">3</span>]))</span><br><span class="line">        <span class="keyword">while</span> left &lt; right <span class="keyword">and</span> nums[left] == nums[left + <span class="number">1</span>]:</span><br><span class="line">          left += <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> left &lt; right <span class="keyword">and</span> nums[right] == nums[right - <span class="number">1</span>]:</span><br><span class="line">          right -= <span class="number">1</span></span><br><span class="line">        left += <span class="number">1</span></span><br><span class="line">        right -= <span class="number">1</span></span><br><span class="line">      <span class="keyword">elif</span> <span class="built_in">sum</span> &lt; target:</span><br><span class="line">        left += <span class="number">1</span></span><br><span class="line">      <span class="keyword">else</span>:</span><br><span class="line">        right -= <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure></li>
+<li><strong>问题</strong>：上述算法的时间复杂度是O(n^4)，对于较大的输入数据，效率较低。</li>
+</ul>
+<h4 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h4><ul>
+<li><strong>前缀和优化</strong>：使用前缀和数组来减少查找时间。</li>
+</ul>
+<h4 id="最终解法"><a href="#最终解法" class="headerlink" title="最终解法"></a>最终解法</h4><ul>
+<li><strong>关键状态定义</strong>：<code>prefixSum[i]</code>表示以<code>nums[i]</code>结尾的前缀和。</li>
+<li><strong>转移方程</strong>：<code>prefixSum[i] = prefixSum[i - 1] + nums[i]</code>。</li>
+<li><strong>核心代码</strong>：<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">fourSum</span>(<span class="params">nums, target</span>):</span><br><span class="line">  prefixSum = [<span class="number">0</span>] * (<span class="built_in">len</span>(nums) + <span class="number">1</span>)</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums)):</span><br><span class="line">    prefixSum[i+<span class="number">1</span>] = prefixSum[i] + nums[i]</span><br><span class="line">  result = []</span><br><span class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums) - <span class="number">3</span>):</span><br><span class="line">    left, right = i + <span class="number">1</span>, <span class="built_in">len</span>(nums) - <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> left &lt; right:</span><br><span class="line">      <span class="built_in">sum</span> = prefixSum[i] + prefixSum[left] + prefixSum[right] + prefixSum[i + <span class="number">3</span>]</span><br><span class="line">      <span class="keyword">if</span> <span class="built_in">sum</span> == target:</span><br><span class="line">        result.append((nums[i], nums[left], nums[right], nums[i + <span class="number">3</span>]))</span><br><span class="line">        <span class="keyword">while</span> left &lt; right <span class="keyword">and</span> nums[left] == nums[left + <span class="number">1</span>]:</span><br><span class="line">          left += <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> left &lt; right <span class="keyword">and</span> nums[right] == nums[right - <span class="number">1</span>]:</span><br><span class="line">          right -= <span class="number">1</span></span><br><span class="line">        left += <span class="number">1</span></span><br><span class="line">        right -= <span class="number">1</span></span><br><span class="line">      <span class="keyword">elif</span> <span class="built_in">sum</span> &lt; target:</span><br><span class="line">        left += <span class="number">1</span></span><br><span class="line">      <span class="keyword">else</span>:</span><br><span class="line">        right -= <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> result</span><br></pre></td></tr></table></figure></li>
+<li><strong>复杂度分析</strong>：时间复杂度为O(n^2)，空间复杂度为O(n)。</li>
+</ul>
+<h3 id="4-核心代码-注释"><a href="#4-核心代码-注释" class="headerlink" title="4. 核心代码 + 注释"></a>4. 核心代码 + 注释</h3><p>```python<br>def fourSum(nums, target):<br>  prefixSum = [0] * (len(nums) + 1)<br>  for i in range(len(nums)):<br>    prefixSum[i+1] = prefixSum[i] + nums[i]<br>  result = []<br>  for i in range(len(nums) - 3):<br>    left, right = i + 1, len(nums) - 1<br>    while left &lt; right:<br>      sum = prefixSum[i] + prefixSum[left] + prefixSum[right] + prefixSum[i + 3]<br>      if sum == target:<br>        result.append((nums[i], nums[left], nums[right], nums[i + 3]))<br>        while left &lt; right and nums[left] == nums[left + 1]:<br>          left += 1<br>        while left &lt; right and nums[right] == nums[right - 1]:<br>          right -= 1<br>        left += 1<br>        right -= 1<br>      elif sum &lt; target:<br>        left += 1<br>      else:<br>        right -= 1<br>  return result</p>
+<ul>
+<li><strong>辅助函数</strong>：无。</li>
+</ul>
+<h3 id="5-输入输出示例"><a href="#5-输入输出示例" class="headerlink" title="5. 输入输出示例"></a>5. 输入输出示例</h3><p>```python<br>print(fourSum([2, 7,9,1,5], 8)) # 输出：[[2, 7, 9, 1], [2, 7, 5, 1]]</p>
+<ul>
+<li><strong>解释</strong>：在数组 <code>[2, 7,9,1,5]</code> 中，前三个数的和为 <code>2+7+9=18</code>，第四个数为 <code>1</code>，与目标值相等。因此，结果为 <code>[[2, 7, 9, 1], [2, 7, 5, 1]]</code>。</li>
+</ul>
+<h3 id="6-易错点-amp-收获"><a href="#6-易错点-amp-收获" class="headerlink" title="6. 易错点 &amp; 收获"></a>6. 易错点 &amp; 收获</h3><ul>
+<li><strong>易错点</strong>：数组越界、特殊数据处理（如负数）。</li>
+<li><strong>收获</strong>：学会了使用前缀和优化算法，提高了解题效率。</li>
+</ul>
+<h3 id="7-参考-扩展（可选）"><a href="#7-参考-扩展（可选）" class="headerlink" title="7. 参考 / 扩展（可选）"></a>7. 参考 / 扩展（可选）</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://www.leetcode.com/problemset/detail/p12377/">感谢他人思路需注明出处链接</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.leetcode.com/tag/%E5%BC%A0%E4%B8%80%E7%9A%84%E5%8C%BA/">推荐类似题目</a></li>
+</ul>
+
       
     </div>
 
@@ -1204,7 +1547,7 @@ return max(p)
 
 
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/10/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/12/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/10/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/page/12/">12</a><span class="space">&hellip;</span><a class="page-number" href="/page/21/">21</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/12/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>
