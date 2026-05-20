@@ -123,7 +123,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-wd-ds"><a href="/wangdaods/" rel="section"><i class="fa fa-data_structure fa-fw"></i>wd-ds</a></li><li class="menu-item menu-item-王道数据结构与算法详细笔记"><a href="/%E7%8E%8B%E9%81%93%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E8%AF%A6%E7%BB%86%E7%AC%94%E8%AE%B0/" rel="section"><i class="fa fa-data_structure fa-fw"></i>王道数据结构与算法详细笔记</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-王道数据结构与算法详细笔记"><a href="/%E7%8E%8B%E9%81%93%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E8%AF%A6%E7%BB%86%E7%AC%94%E8%AE%B0/" rel="section">王道数据结构与算法详细笔记</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -365,13 +365,13 @@ response = urllib.request.urlopen(url)</code>urlopen<code>是</code>urllib.reque
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2024/07/26/2024-07-26-urllib_%E5%BE%AE%E5%8D%9Acookie%E7%99%BB%E5%BD%95/" rel="prev" title="Python爬虫实战：利用Urllib与Cookie绕过微博登录">
-                  <i class="fa fa-angle-left"></i> Python爬虫实战：利用Urllib与Cookie绕过微博登录
+                <a href="/2024/07/26/2024-07-26-urllib_%E4%BB%A3%E7%90%86%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" rel="prev" title="Python爬虫基础：urllib代理的基本使用">
+                  <i class="fa fa-angle-left"></i> Python爬虫基础：urllib代理的基本使用
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2024/07/26/2024-07-26-urllib_%E4%BB%A3%E7%90%86%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" rel="next" title="Python爬虫基础：urllib代理的基本使用">
-                  Python爬虫基础：urllib代理的基本使用 <i class="fa fa-angle-right"></i>
+                <a href="/2024/07/26/2024-07-26-urllib_post%E8%AF%B7%E6%B1%82%E7%99%BE%E5%BA%A6%E7%BF%BB%E8%AF%91%E8%AF%A6%E7%BB%86%E7%BF%BB%E8%AF%91/" rel="next" title="Python爬虫实战：urllib实现百度翻译POST请求详解">
+                  Python爬虫实战：urllib实现百度翻译POST请求详解 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
@@ -494,6 +494,80 @@ response = urllib.request.urlopen(url)</code>urlopen<code>是</code>urllib.reque
 </style>
 
 <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const postContent = document.querySelector('.post-body');
+    if (postContent) {
+      const paragraphs = postContent.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li, blockquote');
+      
+      paragraphs.forEach((el, index) => {
+        el.classList.add('lazy-text');
+        el.setAttribute('data-lazy-index', index);
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        el.style.transitionDelay = `${Math.min(index * 50, 500)}ms`;
+      });
+
+      const textObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            if (!el.classList.contains('text-processed')) {
+              el.classList.add('text-processed');
+              el.style.opacity = '1';
+              el.style.transform = 'translateY(0)';
+            }
+            textObserver.unobserve(el);
+          }
+        });
+      }, {
+        rootMargin: '150px',
+        threshold: 0.05
+      });
+
+      document.querySelectorAll('.lazy-text').forEach(el => {
+        textObserver.observe(el);
+      });
+    }
+
+    const codeBlocks = document.querySelectorAll('pre code');
+    
+    codeBlocks.forEach((codeBlock, index) => {
+      const pre = codeBlock.parentElement;
+      pre.classList.add('lazy-code');
+      pre.setAttribute('data-index', index);
+      pre.style.opacity = '0.3';
+      pre.style.transition = 'opacity 0.3s ease';
+    });
+
+    const codeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const pre = entry.target;
+          const code = pre.querySelector('code');
+          
+          if (code && !code.classList.contains('highlight-processed')) {
+            code.classList.add('highlight-processed');
+            pre.style.opacity = '1';
+            
+            if (window.hljs) {
+              hljs.highlightElement(code);
+            }
+          }
+          
+          codeObserver.unobserve(pre);
+        }
+      });
+    }, {
+      rootMargin: '100px',
+      threshold: 0.1
+    });
+
+    document.querySelectorAll('pre.lazy-code').forEach(pre => {
+      codeObserver.observe(pre);
+    });
+  });
+
   const toggleBtn = document.getElementById('toggle-chat');
   const closeBtn = document.getElementById('close-chat');
   const chatWindow = document.getElementById('chatbot-window');
