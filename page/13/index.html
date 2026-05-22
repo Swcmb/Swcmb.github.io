@@ -347,137 +347,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P12281-P12281-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E5%9B%BD-Python-A-Java-A-%E8%AE%B0%E4%BA%8B%E6%9C%AC-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/12/2026-05-12-P12281-P12281-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E5%9B%BD-Python-A-Java-A-%E8%AE%B0%E4%BA%8B%E6%9C%AC-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12281 - P12281 [蓝桥杯 2024 国 Python A/Java A] 记事本 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2026-05-12 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="洛谷-P12281-记事本-洛谷"><a href="#洛谷-P12281-记事本-洛谷" class="headerlink" title="[洛谷 P12281] 记事本 - 洛谷"></a>[洛谷 P12281] 记事本 - 洛谷</h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>给定一个字符串，要求我们通过一系列操作（插入、删除和移动）来达到目标字符串。题目中提供了一些示例，展示了如何通过这些操作将原始字符串转换为目标字符串。例如，输入字符串为 “abcdefg”，目标字符串为 “abcd”，可以通过以下步骤实现：</p>
-<ol>
-<li>插入 “c” 到索引 0 的位置；</li>
-<li>删除索引 3 位置的字符；</li>
-<li>向左移动索引 1 位置。</li>
-</ol>
-<p>请尝试使用上述思路，编写代码实现这个功能。</p>
-<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><h3 id="朴素解法"><a href="#朴素解法" class="headerlink" title="朴素解法"></a>朴素解法</h3><p>首先，我们可以使用一个简单的循环遍历字符串，然后根据当前索引进行相应的操作。这种方法的时间复杂度为 O(n)，空间复杂度为 O(1)。但是，这种方法在处理大量数据时可能会超时，因为每次操作都需要遍历整个字符串。</p>
-<h3 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h3><p>为了提高算法的效率，我们可以采用以下策略：</p>
-<ol>
-<li>使用前缀和数组存储每个字符出现的次数；</li>
-<li>根据当前索引计算需要插入或删除的字符；</li>
-<li>使用二分查找找到目标字符串的起始位置。</li>
-</ol>
-<h3 id="最终解法"><a href="#最终解法" class="headerlink" title="最终解法"></a>最终解法</h3><p>下面是一个使用 Python 实现的解法：</p>
-<p>```python<br>def solve(s, target):<br>    prefix_sum = [0] * (len(s) + 1)<br>    for i in range(1, len(s) + 1):<br>        prefix_sum[i] = prefix_sum[i - 1] + s[i - 1]</p>
-<pre><code>def binary_search(arr, target):
-    left, right = 0, len(arr) - 1
-    while left &lt;= right:
-        mid = (left + right) // 2
-        if arr[mid] == target:
-            return mid
-        elif arr[mid] &lt; target:
-            left = mid + 1
-        else:
-            right = mid - 1
-    return -1
-
-index = binary_search(prefix_sum, target)
-if index == -1:
-    return False
-
-result = []
-insert_pos = index
-delete_pos = index
-for i in range(len(s)):
-    if s[i] == &#39;c&#39;:
-        result.insert(insert_pos, &#39;c&#39;)
-        delete_pos += 1
-    elif s[i] == &#39;d&#39;:
-        result.append(&#39;d&#39;)
-        delete_pos += 1
-    elif s[i] == &#39;h&#39;:
-        result.insert(insert_pos, &#39;h&#39;)
-        delete_pos += 1
-    elif s[i] == &#39;l&#39;:
-        result.insert(insert_pos, &#39;l&#39;)
-        delete_pos += 1
-    insert_pos += 1
-    delete_pos += 1
-
-return &#39;&#39;.join(result) == target
-</code></pre><h2 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h2><ul>
-<li>时间复杂度：O(n)，其中 n 是字符串的长度。</li>
-<li>空间复杂度：O(n)，用于存储前缀和数组。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P12377-P12377-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E7%9C%81-Python-B-2023-%E6%B4%9B%E8%B0%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -587,7 +456,7 @@ return &#39;&#39;.join(result) == target
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P13893-P13893-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E7%9C%81-C-%E5%B7%A5%E4%BD%9C%E6%97%B6%E9%95%BF-%E6%B4%9B%E8%B0%B7/">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P12843-P12843-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-A-%E7%94%9F%E6%97%A5%E7%9B%B8%E9%81%87%E9%97%AE%E9%A2%98-%E6%B4%9B%E8%B0%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/img/a.png">
@@ -605,109 +474,7 @@ return &#39;&#39;.join(result) == target
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/12/2026-05-12-P13893-P13893-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E7%9C%81-C-%E5%B7%A5%E4%BD%9C%E6%97%B6%E9%95%BF-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P13893 - P13893 [蓝桥杯 2023 省 C] 工作时长 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2026-05-12 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="洛谷-P13893-工作时长-洛谷"><a href="#洛谷-P13893-工作时长-洛谷" class="headerlink" title="[洛谷 P13893] 工作时长 - 洛谷"></a>[洛谷 P13893] 工作时长 - 洛谷</h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>在洛谷平台上，题目P13893要求我们计算某人的工作时间。具体来说，我们需要读取一系列的时间点，每个时间点代表一个工作时段的开始或结束，然后计算出总的工作时长。</p>
-<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><h3 id="朴素解法"><a href="#朴素解法" class="headerlink" title="朴素解法"></a>朴素解法</h3><p>最直观的方法是遍历所有时间点，对于每一对相邻的时间点，计算它们之间的差值并累加。然而，这种方法的时间复杂度为$O(n^2)$，在数据量较大时会导致超时。</p>
-<h3 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h3><p>我们可以通过排序和双指针技术来优化算法。首先，对时间点进行排序，然后使用两个指针分别指向每对相邻的时间点，计算它们之间的差值并累加。这样，我们只需要遍历一次时间点列表，时间复杂度降低到$O(n \log n)$。</p>
-<h3 id="最终解法"><a href="#最终解法" class="headerlink" title="最终解法"></a>最终解法</h3><p>我们定义两个指针<code>i</code>和<code>j</code>，分别指向当前考虑的开始和结束时间点。对于每一对相邻的时间点<code>dt[i]</code>和<code>dt[j]</code>，我们计算它们之间的差值并累加到总时长中。然后，我们将<code>j</code>指针向前移动一位，继续考虑下一对时间点。当<code>i</code>和<code>j</code>相遇时，所有时间点都已考虑完毕。</p>
-<p>```python<br>from datetime import datetime</p>
-<p>with open(“1.in”,”r”) as f:<br>    l = f.readlines()<br>dt = sorted([datetime.fromisoformat(i.strip() for i in l)])<br>secs = 0<br>for i in range(0, len(dt) - 1, 2):<br>    secs += (dt[i + 1] - dt[i]).seconds<br>print(secs)</p>
-<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
-<li><strong>时间复杂度</strong>：$O(n \log n)$，主要由排序步骤决定。</li>
-<li><strong>空间复杂度</strong>：$O(n)$，用于存储时间点列表。</li>
-</ul>
-<h2 id="核心代码-注释"><a href="#核心代码-注释" class="headerlink" title="核心代码 + 注释"></a>核心代码 + 注释</h2><p>```python<br>from datetime import datetime</p>
-<h1 id="读取输入文件并解析时间点"><a href="#读取输入文件并解析时间点" class="headerlink" title="读取输入文件并解析时间点"></a>读取输入文件并解析时间点</h1><p>with open(“1.in”,”r”) as f:<br>    l = f.readlines()<br>dt = sorted([datetime.fromisoformat(i.strip() for i in l)])</p>
-<h1 id="初始化总时长为0"><a href="#初始化总时长为0" class="headerlink" title="初始化总时长为0"></a>初始化总时长为0</h1><p>secs = 0</p>
-<h1 id="使用双指针遍历时间点对"><a href="#使用双指针遍历时间点对" class="headerlink" title="使用双指针遍历时间点对"></a>使用双指针遍历时间点对</h1><p>for i in range(0, len(dt) - 1, 2):</p>
-<pre><code># 计算相邻时间点的差值并累加到总时长中
-secs += (dt[i + 1] - dt[i]).seconds
-</code></pre><h1 id="输出总时长"><a href="#输出总时长" class="headerlink" title="输出总时长"></a>输出总时长</h1><p>print(secs)</p>
-<h2 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h2><p><strong>输入：</strong><br>1 4<br>2 5<br>7 8<br><strong>输出：</strong><br>3<br><strong>解释：</strong><br>时间段为[2, 5]和[7, 8]，总时长为$5 - 2 + 8 - 7 = 3$秒。</p>
-<h2 id="易错点-amp-收获"><a href="#易错点-amp-收获" class="headerlink" title="易错点 &amp; 收获"></a>易错点 &amp; 收获</h2><ul>
-<li><strong>数组越界</strong>：确保在遍历时间点时，<code>i</code>和<code>j</code>的值不会超出列表的范围。</li>
-<li><strong>特殊数据处理</strong>：注意时间格式的一致性，确保所有时间点都能正确解析为<code>datetime</code>对象。</li>
-</ul>
-<h2 id="参考-扩展"><a href="#参考-扩展" class="headerlink" title="参考 / 扩展"></a>参考 / 扩展</h2><ul>
-<li>本题解法基于参考文章1中的思路，通过排序和双指针技术优化了暴力解法的时间复杂度。</li>
-</ul>
-<hr>
-<p>感谢阅读本文，希望本文能帮助你更好地理解和解决洛谷P13893题目。如果你有任何问题或建议，请随时联系我。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P8641-P8641-%E8%93%9D%E6%A1%A5%E6%9D%AF-2016-%E5%9B%BD-C-%E8%B5%A2%E7%90%83%E7%A5%A8-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/12/2026-05-12-P8641-P8641-%E8%93%9D%E6%A1%A5%E6%9D%AF-2016-%E5%9B%BD-C-%E8%B5%A2%E7%90%83%E7%A5%A8-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P8641 - P8641 [蓝桥杯 2016 国 C] 赢球票 - 洛谷</a>
+          <a href="/2026/05/12/2026-05-12-P12843-P12843-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-A-%E7%94%9F%E6%97%A5%E7%9B%B8%E9%81%87%E9%97%AE%E9%A2%98-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12843 - P12843 [蓝桥杯 2025 国 A] 生日相遇问题 - 洛谷</a>
         </h2>
 
         <div class="post-meta-container">
@@ -739,51 +506,134 @@ secs += (dt[i + 1] - dt[i]).seconds
     
     <div class="post-body" itemprop="articleBody">
           <p>&lt;博客&gt;</p>
-<h3 id="1-标题"><a href="#1-标题" class="headerlink" title="1. 标题"></a>1. 标题</h3><p>[P8641] [蓝桥杯 2016 国 C] 赢球票详解</p>
-<h3 id="2-题意简述"><a href="#2-题意简述" class="headerlink" title="2. 题意简述"></a>2. 题意简述</h3><p>输入 N 张卡片，围成一个圆圈，每张卡片上有一个 1 到 N 的数字。游戏规则是从任意一张卡片开始，按照一定规则拿走卡片，目标是找出一个起点，使得拿走的卡片上的数字之和最大。</p>
+<h1 id="洛谷-P12843-生日相遇问题详解"><a href="#洛谷-P12843-生日相遇问题详解" class="headerlink" title="[洛谷 P12843] 生日相遇问题详解"></a>[洛谷 P12843] 生日相遇问题详解</h1><h3 id="1-标题"><a href="#1-标题" class="headerlink" title="1. 标题"></a>1. 标题</h3><p>洛谷 P12843 生日相遇问题详解</p>
+<h3 id="2-题意简述"><a href="#2-题意简述" class="headerlink" title="2. 题意简述"></a>2. 题意简述</h3><p>给定一个日期范围，计算在这个范围内，某两个特定日期落在同一星期的年份数量。</p>
+<p>输入内容：月份 m, 日 d1, 月份 n, 日 d2, 年份范围 k（从2025年开始计算）。<br>输出要求：输出所有满足条件的年份，如果没有满足条件的年份，则输出”No Answer”。<br>数据范围：m, d1, n, d2 为 1 到 12，1 到 31 的整数，k 为 0 到 1000 的整数。</p>
 <h3 id="3-思路分析"><a href="#3-思路分析" class="headerlink" title="3. 思路分析"></a>3. 思路分析</h3><ul>
-<li><strong>朴素解法</strong>：尝试所有可能的起点，模拟游戏过程，记录每个起点的得分，然后找出最大得分。这种方法的时间复杂度是 $O(N^2)$，对于较大的 N 可能会超时。</li>
-<li><strong>优化方向</strong>：观察到，从不同的起点开始，游戏的最终结果可能相同。因此，可以考虑将卡片按照某种顺序排列，然后只需要模拟一次即可。</li>
-<li><p><strong>最终解法</strong>：将卡片按照从小到大的顺序排列，然后从每个位置开始模拟游戏，记录每个起点的得分，最后找出最大得分。状态定义是当前得分和当前的位置。转移方程是，如果当前卡片上的数字与当前数的数字相同，则得分增加当前卡片的数字，并移动到下一张卡片；如果不同，则移动到下一张卡片。</p>
-<p>假设 <code>cards</code> 是一个长度为 N 的列表，<code>start</code> 是起点索引，<code>score</code> 是当前得分，<code>count_num</code> 是当前数的数字，<code>index</code> 是当前卡片索引。则状态转移方程为：</p>
-<script type="math/tex; mode=display">
-\begin{cases}
-score = score + cards[index] & \text{if } count\_num = cards[index] \\
-index = (index + 1) \% N & \text{else}
-\end{cases}</script><p>这里不需要使用 <code>li2</code> 列表来判断是否无法再收获卡片，因为当数的数字大于 N 时，游戏自然结束。</p>
-</li>
+<li><strong>朴素解法</strong>：遍历指定年份范围内的每一年，对于每一年的两个日期，使用基姆拉尔森计算公式计算星期几，然后比较两个日期是否落在同一星期。这种方法的时间复杂度为 $O(n \times k)$，其中 n 为年份范围内的年数，k 为年份范围内的年数，显然效率低下。</li>
+<li><strong>优化方向</strong>：由于年份范围固定，可以考虑使用数学方法来减少比较次数。例如，我们可以计算两个日期相对于2025年的星期数，然后比较这两个星期数是否相同。</li>
+<li><strong>最终解法</strong>：使用基姆拉尔森计算公式计算两个日期相对于2025年的星期数，然后比较这两个星期数是否相同。如果相同，则记录下这一年。这种方法的时间复杂度为 $O(k)$，空间复杂度为 $O(1)$。</li>
 </ul>
 <h3 id="4-复杂度分析"><a href="#4-复杂度分析" class="headerlink" title="4. 复杂度分析"></a>4. 复杂度分析</h3><ul>
-<li>时间复杂度：$O(N^2)$，因为需要模拟 N 次游戏。</li>
-<li>空间复杂度：$O(N)$，存储卡片和得分。</li>
+<li>时间复杂度：$O(k)$，其中 k 为年份范围内的年数。</li>
+<li>空间复杂度：$O(1)$。</li>
 </ul>
-<h3 id="5-核心代码-注释"><a href="#5-核心代码-注释" class="headerlink" title="5. 核心代码 + 注释"></a>5. 核心代码 + 注释</h3><p>```python<br>def solve(li, start):<br>    cards = li[:]<br>    score = 0<br>    count_num = 1<br>    idx = start</p>
-<pre><code>while cards and count_num &lt;= N:
-    idx = idx % len(cards)
-    if count_num == cards[idx]:
-        score += cards[idx]
-        cards.pop(idx)
-        count_num = 1
-    else:
-        count_num += 1
-        idx += 1
-return score
-</code></pre><p>N = int(input())<br>nums = list(map(int, input().split()))<br>res = 0<br>for i in range(N):<br>    res = max(res, solve(nums, i))<br>print(res)</p>
-<ul>
-<li>变量 <code>cards</code> 存储卡片列表，<code>score</code> 存储当前得分，<code>count_num</code> 存储当前数的数字，<code>idx</code> 存储当前卡片索引。</li>
-<li>代码通过遍历所有可能的起点，并计算每个起点的得分，最后返回最大得分。</li>
-</ul>
-<h3 id="6-输入输出示例"><a href="#6-输入输出示例" class="headerlink" title="6. 输入输出示例"></a>6. 输入输出示例</h3><p><strong>输入</strong>:<br>3<br>2 1 3<br><strong>输出</strong>:<br>6</p>
-<ul>
-<li>从第一个卡片开始，可以得到分数 6（1 + 2 + 3）。</li>
-</ul>
+<h3 id="5-核心代码-注释"><a href="#5-核心代码-注释" class="headerlink" title="5. 核心代码 + 注释"></a>5. 核心代码 + 注释</h3><p>```python<br>def isLeap(y):<br>    return (y % 4 == 0 and y % 100 != 0) or (y % 400 == 0)</p>
+<p>def adjust(y, m, d):<br>    if m == 2 and d == 29:<br>        return (2, 28) if not isLeap(y) else (2, 29)<br>    return (m, d)</p>
+<p>def week(y, m, d):<br>    if m == 1 or m == 2:<br>        y -= 1<br>        m += 12<br>    w = (d + 2<em>m + 3</em>(m+1)//5 + y + y//4 - y//100 + y//400 + 1) % 7<br>    return w</p>
+<h1 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h1><p>m, d1, n, d2, k = map(int, input().split())<br>res = []</p>
+<p>for year in range(2025, 2025 + k):<br>    m1, d1_adj = adjust(year, m, d1)<br>    n1, d2_adj = adjust(year, n, d2)<br>    if week(year, m1, d1_adj) == week(year, n1, d2_adj):<br>        res.append(year)</p>
+<p>if res:<br>    print(“\n”.join(map(str, res)))<br>else:<br>    print(“No Answer”)</p>
+<h3 id="6-输入输出示例"><a href="#6-输入输出示例" class="headerlink" title="6. 输入输出示例"></a>6. 输入输出示例</h3><p>输入：<br>3 1 3 1 10<br>输出：<br>2025<br>2026<br>2027<br>2028<br>2029<br>2030<br>2031</p>
 <h3 id="7-易错点-amp-收获"><a href="#7-易错点-amp-收获" class="headerlink" title="7. 易错点 &amp; 收获"></a>7. 易错点 &amp; 收获</h3><ul>
-<li>易错点：数组越界，需要注意索引的有效性。</li>
-<li>收获：本题通过模拟游戏过程，并考虑优化起点，可以帮助我们理解游戏的本质，并找到解决类似问题的方法。</li>
+<li>易错点：处理闰年时，需要正确地调整2月29日为2月28日。</li>
+<li>收获：本题教会了如何使用基姆拉尔森计算公式来计算星期几，以及如何通过数学方法优化算法。</li>
 </ul>
 <h3 id="8-参考-扩展"><a href="#8-参考-扩展" class="headerlink" title="8. 参考 / 扩展"></a>8. 参考 / 扩展</h3><ul>
-<li>无需参考，题目本身已经足够说明问题。</li>
-<li>可以尝试类似的题目，如 [P8642] [蓝桥杯 2016 国 B] 猜数字游戏，也是一个需要模拟游戏过程的题目。</li>
+<li>参考：洛谷 P12843 生日相遇问题 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P12843">链接</a></li>
+<li>扩展：可以尝试编写一个程序，输入任意两个日期，计算它们之间相隔的星期数。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P12340-P12340-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-AB-Python-B-%E7%AC%AC%E4%BA%8C%E5%9C%BA-%E6%97%97%E5%B8%9C-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/12/2026-05-12-P12340-P12340-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-AB-Python-B-%E7%AC%AC%E4%BA%8C%E5%9C%BA-%E6%97%97%E5%B8%9C-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12340 - P12340 [蓝桥杯 2025 省 AB/Python B 第二场] 旗帜 - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-12 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="P12340-蓝桥杯-2025-省-AB-Python-B-第二场-旗帜-题解"><a href="#P12340-蓝桥杯-2025-省-AB-Python-B-第二场-旗帜-题解" class="headerlink" title="P12340 [蓝桥杯 2025 省 AB/Python B 第二场] 旗帜 题解"></a>P12340 [蓝桥杯 2025 省 AB/Python B 第二场] 旗帜 题解</h1><h3 id="1-题意简述"><a href="#1-题意简述" class="headerlink" title="1. 题意简述"></a>1. 题意简述</h3><p>本题要求我们计算给定宽度 ( w ) 和高度 ( h ) 的旗帜上，字母 ‘A’ 出现的次数。旗帜的图案由字符串 <code>s_li</code> 中的字符按顺序排列组成，每个字符串的长度为 7，共有 8 个字符串。</p>
+<h3 id="2-思路分析"><a href="#2-思路分析" class="headerlink" title="2. 思路分析"></a>2. 思路分析</h3><ul>
+<li><strong>朴素解法</strong>：我们可以直接按照题目给出的字符串 <code>s_li</code>，逐个字符地拼接出旗帜，然后遍历旗帜上的每个字符，统计 ‘A’ 的出现次数。这种方法的时间复杂度为 ( O(hw) )，空间复杂度为 ( O(1) )，对于较大的 ( h ) 和 ( w ) 可能会超时。</li>
+<li><strong>优化方向</strong>：由于字符串 <code>s_li</code> 的长度固定为 7，我们可以考虑使用循环来重复使用字符串，而不是每次都拼接新的字符串。</li>
+<li><p><strong>最终解法</strong>：我们可以使用循环来重复使用字符串 <code>s_li</code>，每次循环拼接 ( w // 7 ) 次字符串，然后再加上字符串 <code>s_li</code> 的前 ( w \% 7 ) 个字符。这样，我们就可以避免每次都拼接新的字符串，从而减少时间复杂度。具体的转移方程如下：<br>[<br>\text{temp} = \text{s_li}[i \% 7] \times (w // 7) + \text{s_li}[i \% 7][: (w \% 7)]<br>]<br>其中 ( i ) 是当前循环的索引。</p>
+<p>在遍历 <code>temp</code> 字符串时，我们可以直接统计 ‘A’ 的出现次数。</p>
+</li>
+</ul>
+<h3 id="3-复杂度分析"><a href="#3-复杂度分析" class="headerlink" title="3. 复杂度分析"></a>3. 复杂度分析</h3><ul>
+<li>时间复杂度：( O(hw) )，因为我们需要遍历整个旗帜。</li>
+<li>空间复杂度：( O(1) )，因为我们只需要存储一个长度为 7 的字符串和用于统计 ‘A’ 的计数器。</li>
+</ul>
+<h3 id="4-核心代码-注释"><a href="#4-核心代码-注释" class="headerlink" title="4. 核心代码 + 注释"></a>4. 核心代码 + 注释</h3><p>```python<br>h, w = map(int, input().split())<br>s_li = [‘LANQIAO’, ‘ANQIAOL’, ‘NQIAOLA’, ‘QIAOLAN’, ‘IAOLANQ’, ‘AOLANQI’, ‘OLANQIA’, ‘LANQIAO’]<br>res = 0<br>for i in range(h):<br>    s = s_li[i % 7]<br>    temp = s * (w // 7) + s[:(w % 7)]<br>    res += temp.count(“A”)<br>print(res)</p>
+<ul>
+<li><strong>变量名</strong>：<code>h</code> 和 <code>w</code> 分别表示旗帜的高度和宽度，<code>s_li</code> 是包含旗帜图案的字符串列表，<code>res</code> 用于存储 ‘A’ 的出现次数。</li>
+<li><strong>循环</strong>：循环遍历旗帜的每一行。</li>
+<li><strong>字符串拼接</strong>：根据当前行的索引，选择对应的字符串，并拼接出当前行的图案。</li>
+<li><strong>统计 ‘A’ 的出现次数</strong>：使用 <code>count</code> 方法统计当前行中 ‘A’ 的出现次数，并将其累加到 <code>res</code> 中。</li>
+</ul>
+<h3 id="5-输入输出示例"><a href="#5-输入输出示例" class="headerlink" title="5. 输入输出示例"></a>5. 输入输出示例</h3><p><strong>输入</strong>：<br>3 7<br><strong>输出</strong>：<br>4<br>解释：旗帜的图案为 <code>LANQIAOANQIAO</code>，其中 ‘A’ 出现了 4 次。</p>
+<h3 id="6-易错点-amp-收获"><a href="#6-易错点-amp-收获" class="headerlink" title="6. 易错点 &amp; 收获"></a>6. 易错点 &amp; 收获</h3><ul>
+<li>易错点：在拼接字符串时，需要考虑余数的情况，确保不会出现越界。</li>
+<li>收获：通过本题，我们学习了如何使用循环和字符串操作来优化算法，并且加深了对字符串拼接和统计的理解。</li>
+</ul>
+<h3 id="7-参考-扩展"><a href="#7-参考-扩展" class="headerlink" title="7. 参考 / 扩展"></a>7. 参考 / 扩展</h3><ul>
+<li>无</li>
 </ul>
 
       
@@ -1019,7 +869,7 @@ return score
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P12843-P12843-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-A-%E7%94%9F%E6%97%A5%E7%9B%B8%E9%81%87%E9%97%AE%E9%A2%98-%E6%B4%9B%E8%B0%B7/">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P8641-P8641-%E8%93%9D%E6%A1%A5%E6%9D%AF-2016-%E5%9B%BD-C-%E8%B5%A2%E7%90%83%E7%A5%A8-%E6%B4%9B%E8%B0%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/img/a.png">
@@ -1037,7 +887,7 @@ return score
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/12/2026-05-12-P12843-P12843-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-A-%E7%94%9F%E6%97%A5%E7%9B%B8%E9%81%87%E9%97%AE%E9%A2%98-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12843 - P12843 [蓝桥杯 2025 国 A] 生日相遇问题 - 洛谷</a>
+          <a href="/2026/05/12/2026-05-12-P8641-P8641-%E8%93%9D%E6%A1%A5%E6%9D%AF-2016-%E5%9B%BD-C-%E8%B5%A2%E7%90%83%E7%A5%A8-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P8641 - P8641 [蓝桥杯 2016 国 C] 赢球票 - 洛谷</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1069,32 +919,51 @@ return score
     
     <div class="post-body" itemprop="articleBody">
           <p>&lt;博客&gt;</p>
-<h1 id="洛谷-P12843-生日相遇问题详解"><a href="#洛谷-P12843-生日相遇问题详解" class="headerlink" title="[洛谷 P12843] 生日相遇问题详解"></a>[洛谷 P12843] 生日相遇问题详解</h1><h3 id="1-标题"><a href="#1-标题" class="headerlink" title="1. 标题"></a>1. 标题</h3><p>洛谷 P12843 生日相遇问题详解</p>
-<h3 id="2-题意简述"><a href="#2-题意简述" class="headerlink" title="2. 题意简述"></a>2. 题意简述</h3><p>给定一个日期范围，计算在这个范围内，某两个特定日期落在同一星期的年份数量。</p>
-<p>输入内容：月份 m, 日 d1, 月份 n, 日 d2, 年份范围 k（从2025年开始计算）。<br>输出要求：输出所有满足条件的年份，如果没有满足条件的年份，则输出”No Answer”。<br>数据范围：m, d1, n, d2 为 1 到 12，1 到 31 的整数，k 为 0 到 1000 的整数。</p>
+<h3 id="1-标题"><a href="#1-标题" class="headerlink" title="1. 标题"></a>1. 标题</h3><p>[P8641] [蓝桥杯 2016 国 C] 赢球票详解</p>
+<h3 id="2-题意简述"><a href="#2-题意简述" class="headerlink" title="2. 题意简述"></a>2. 题意简述</h3><p>输入 N 张卡片，围成一个圆圈，每张卡片上有一个 1 到 N 的数字。游戏规则是从任意一张卡片开始，按照一定规则拿走卡片，目标是找出一个起点，使得拿走的卡片上的数字之和最大。</p>
 <h3 id="3-思路分析"><a href="#3-思路分析" class="headerlink" title="3. 思路分析"></a>3. 思路分析</h3><ul>
-<li><strong>朴素解法</strong>：遍历指定年份范围内的每一年，对于每一年的两个日期，使用基姆拉尔森计算公式计算星期几，然后比较两个日期是否落在同一星期。这种方法的时间复杂度为 $O(n \times k)$，其中 n 为年份范围内的年数，k 为年份范围内的年数，显然效率低下。</li>
-<li><strong>优化方向</strong>：由于年份范围固定，可以考虑使用数学方法来减少比较次数。例如，我们可以计算两个日期相对于2025年的星期数，然后比较这两个星期数是否相同。</li>
-<li><strong>最终解法</strong>：使用基姆拉尔森计算公式计算两个日期相对于2025年的星期数，然后比较这两个星期数是否相同。如果相同，则记录下这一年。这种方法的时间复杂度为 $O(k)$，空间复杂度为 $O(1)$。</li>
+<li><strong>朴素解法</strong>：尝试所有可能的起点，模拟游戏过程，记录每个起点的得分，然后找出最大得分。这种方法的时间复杂度是 $O(N^2)$，对于较大的 N 可能会超时。</li>
+<li><strong>优化方向</strong>：观察到，从不同的起点开始，游戏的最终结果可能相同。因此，可以考虑将卡片按照某种顺序排列，然后只需要模拟一次即可。</li>
+<li><p><strong>最终解法</strong>：将卡片按照从小到大的顺序排列，然后从每个位置开始模拟游戏，记录每个起点的得分，最后找出最大得分。状态定义是当前得分和当前的位置。转移方程是，如果当前卡片上的数字与当前数的数字相同，则得分增加当前卡片的数字，并移动到下一张卡片；如果不同，则移动到下一张卡片。</p>
+<p>假设 <code>cards</code> 是一个长度为 N 的列表，<code>start</code> 是起点索引，<code>score</code> 是当前得分，<code>count_num</code> 是当前数的数字，<code>index</code> 是当前卡片索引。则状态转移方程为：</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+score = score + cards[index] & \text{if } count\_num = cards[index] \\
+index = (index + 1) \% N & \text{else}
+\end{cases}</script><p>这里不需要使用 <code>li2</code> 列表来判断是否无法再收获卡片，因为当数的数字大于 N 时，游戏自然结束。</p>
+</li>
 </ul>
 <h3 id="4-复杂度分析"><a href="#4-复杂度分析" class="headerlink" title="4. 复杂度分析"></a>4. 复杂度分析</h3><ul>
-<li>时间复杂度：$O(k)$，其中 k 为年份范围内的年数。</li>
-<li>空间复杂度：$O(1)$。</li>
+<li>时间复杂度：$O(N^2)$，因为需要模拟 N 次游戏。</li>
+<li>空间复杂度：$O(N)$，存储卡片和得分。</li>
 </ul>
-<h3 id="5-核心代码-注释"><a href="#5-核心代码-注释" class="headerlink" title="5. 核心代码 + 注释"></a>5. 核心代码 + 注释</h3><p>```python<br>def isLeap(y):<br>    return (y % 4 == 0 and y % 100 != 0) or (y % 400 == 0)</p>
-<p>def adjust(y, m, d):<br>    if m == 2 and d == 29:<br>        return (2, 28) if not isLeap(y) else (2, 29)<br>    return (m, d)</p>
-<p>def week(y, m, d):<br>    if m == 1 or m == 2:<br>        y -= 1<br>        m += 12<br>    w = (d + 2<em>m + 3</em>(m+1)//5 + y + y//4 - y//100 + y//400 + 1) % 7<br>    return w</p>
-<h1 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h1><p>m, d1, n, d2, k = map(int, input().split())<br>res = []</p>
-<p>for year in range(2025, 2025 + k):<br>    m1, d1_adj = adjust(year, m, d1)<br>    n1, d2_adj = adjust(year, n, d2)<br>    if week(year, m1, d1_adj) == week(year, n1, d2_adj):<br>        res.append(year)</p>
-<p>if res:<br>    print(“\n”.join(map(str, res)))<br>else:<br>    print(“No Answer”)</p>
-<h3 id="6-输入输出示例"><a href="#6-输入输出示例" class="headerlink" title="6. 输入输出示例"></a>6. 输入输出示例</h3><p>输入：<br>3 1 3 1 10<br>输出：<br>2025<br>2026<br>2027<br>2028<br>2029<br>2030<br>2031</p>
+<h3 id="5-核心代码-注释"><a href="#5-核心代码-注释" class="headerlink" title="5. 核心代码 + 注释"></a>5. 核心代码 + 注释</h3><p>```python<br>def solve(li, start):<br>    cards = li[:]<br>    score = 0<br>    count_num = 1<br>    idx = start</p>
+<pre><code>while cards and count_num &lt;= N:
+    idx = idx % len(cards)
+    if count_num == cards[idx]:
+        score += cards[idx]
+        cards.pop(idx)
+        count_num = 1
+    else:
+        count_num += 1
+        idx += 1
+return score
+</code></pre><p>N = int(input())<br>nums = list(map(int, input().split()))<br>res = 0<br>for i in range(N):<br>    res = max(res, solve(nums, i))<br>print(res)</p>
+<ul>
+<li>变量 <code>cards</code> 存储卡片列表，<code>score</code> 存储当前得分，<code>count_num</code> 存储当前数的数字，<code>idx</code> 存储当前卡片索引。</li>
+<li>代码通过遍历所有可能的起点，并计算每个起点的得分，最后返回最大得分。</li>
+</ul>
+<h3 id="6-输入输出示例"><a href="#6-输入输出示例" class="headerlink" title="6. 输入输出示例"></a>6. 输入输出示例</h3><p><strong>输入</strong>:<br>3<br>2 1 3<br><strong>输出</strong>:<br>6</p>
+<ul>
+<li>从第一个卡片开始，可以得到分数 6（1 + 2 + 3）。</li>
+</ul>
 <h3 id="7-易错点-amp-收获"><a href="#7-易错点-amp-收获" class="headerlink" title="7. 易错点 &amp; 收获"></a>7. 易错点 &amp; 收获</h3><ul>
-<li>易错点：处理闰年时，需要正确地调整2月29日为2月28日。</li>
-<li>收获：本题教会了如何使用基姆拉尔森计算公式来计算星期几，以及如何通过数学方法优化算法。</li>
+<li>易错点：数组越界，需要注意索引的有效性。</li>
+<li>收获：本题通过模拟游戏过程，并考虑优化起点，可以帮助我们理解游戏的本质，并找到解决类似问题的方法。</li>
 </ul>
 <h3 id="8-参考-扩展"><a href="#8-参考-扩展" class="headerlink" title="8. 参考 / 扩展"></a>8. 参考 / 扩展</h3><ul>
-<li>参考：洛谷 P12843 生日相遇问题 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P12843">链接</a></li>
-<li>扩展：可以尝试编写一个程序，输入任意两个日期，计算它们之间相隔的星期数。</li>
+<li>无需参考，题目本身已经足够说明问题。</li>
+<li>可以尝试类似的题目，如 [P8642] [蓝桥杯 2016 国 B] 猜数字游戏，也是一个需要模拟游戏过程的题目。</li>
 </ul>
 
       
@@ -1188,6 +1057,108 @@ return score
 </ul>
 <h2 id="参考-扩展"><a href="#参考-扩展" class="headerlink" title="参考 / 扩展"></a>参考 / 扩展</h2><p>感谢洛谷提供的题目和参考资料。类似的题目可以参考[洛谷 P2746] 数字根问题。</p>
 <p>通过本题，我们学习了如何通过预处理和优化来提高算法的效率，并且理解了如何在解题过程中进行合理的优化。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P13893-P13893-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E7%9C%81-C-%E5%B7%A5%E4%BD%9C%E6%97%B6%E9%95%BF-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/12/2026-05-12-P13893-P13893-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E7%9C%81-C-%E5%B7%A5%E4%BD%9C%E6%97%B6%E9%95%BF-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P13893 - P13893 [蓝桥杯 2023 省 C] 工作时长 - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-12 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="洛谷-P13893-工作时长-洛谷"><a href="#洛谷-P13893-工作时长-洛谷" class="headerlink" title="[洛谷 P13893] 工作时长 - 洛谷"></a>[洛谷 P13893] 工作时长 - 洛谷</h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>在洛谷平台上，题目P13893要求我们计算某人的工作时间。具体来说，我们需要读取一系列的时间点，每个时间点代表一个工作时段的开始或结束，然后计算出总的工作时长。</p>
+<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><h3 id="朴素解法"><a href="#朴素解法" class="headerlink" title="朴素解法"></a>朴素解法</h3><p>最直观的方法是遍历所有时间点，对于每一对相邻的时间点，计算它们之间的差值并累加。然而，这种方法的时间复杂度为$O(n^2)$，在数据量较大时会导致超时。</p>
+<h3 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h3><p>我们可以通过排序和双指针技术来优化算法。首先，对时间点进行排序，然后使用两个指针分别指向每对相邻的时间点，计算它们之间的差值并累加。这样，我们只需要遍历一次时间点列表，时间复杂度降低到$O(n \log n)$。</p>
+<h3 id="最终解法"><a href="#最终解法" class="headerlink" title="最终解法"></a>最终解法</h3><p>我们定义两个指针<code>i</code>和<code>j</code>，分别指向当前考虑的开始和结束时间点。对于每一对相邻的时间点<code>dt[i]</code>和<code>dt[j]</code>，我们计算它们之间的差值并累加到总时长中。然后，我们将<code>j</code>指针向前移动一位，继续考虑下一对时间点。当<code>i</code>和<code>j</code>相遇时，所有时间点都已考虑完毕。</p>
+<p>```python<br>from datetime import datetime</p>
+<p>with open(“1.in”,”r”) as f:<br>    l = f.readlines()<br>dt = sorted([datetime.fromisoformat(i.strip() for i in l)])<br>secs = 0<br>for i in range(0, len(dt) - 1, 2):<br>    secs += (dt[i + 1] - dt[i]).seconds<br>print(secs)</p>
+<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
+<li><strong>时间复杂度</strong>：$O(n \log n)$，主要由排序步骤决定。</li>
+<li><strong>空间复杂度</strong>：$O(n)$，用于存储时间点列表。</li>
+</ul>
+<h2 id="核心代码-注释"><a href="#核心代码-注释" class="headerlink" title="核心代码 + 注释"></a>核心代码 + 注释</h2><p>```python<br>from datetime import datetime</p>
+<h1 id="读取输入文件并解析时间点"><a href="#读取输入文件并解析时间点" class="headerlink" title="读取输入文件并解析时间点"></a>读取输入文件并解析时间点</h1><p>with open(“1.in”,”r”) as f:<br>    l = f.readlines()<br>dt = sorted([datetime.fromisoformat(i.strip() for i in l)])</p>
+<h1 id="初始化总时长为0"><a href="#初始化总时长为0" class="headerlink" title="初始化总时长为0"></a>初始化总时长为0</h1><p>secs = 0</p>
+<h1 id="使用双指针遍历时间点对"><a href="#使用双指针遍历时间点对" class="headerlink" title="使用双指针遍历时间点对"></a>使用双指针遍历时间点对</h1><p>for i in range(0, len(dt) - 1, 2):</p>
+<pre><code># 计算相邻时间点的差值并累加到总时长中
+secs += (dt[i + 1] - dt[i]).seconds
+</code></pre><h1 id="输出总时长"><a href="#输出总时长" class="headerlink" title="输出总时长"></a>输出总时长</h1><p>print(secs)</p>
+<h2 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h2><p><strong>输入：</strong><br>1 4<br>2 5<br>7 8<br><strong>输出：</strong><br>3<br><strong>解释：</strong><br>时间段为[2, 5]和[7, 8]，总时长为$5 - 2 + 8 - 7 = 3$秒。</p>
+<h2 id="易错点-amp-收获"><a href="#易错点-amp-收获" class="headerlink" title="易错点 &amp; 收获"></a>易错点 &amp; 收获</h2><ul>
+<li><strong>数组越界</strong>：确保在遍历时间点时，<code>i</code>和<code>j</code>的值不会超出列表的范围。</li>
+<li><strong>特殊数据处理</strong>：注意时间格式的一致性，确保所有时间点都能正确解析为<code>datetime</code>对象。</li>
+</ul>
+<h2 id="参考-扩展"><a href="#参考-扩展" class="headerlink" title="参考 / 扩展"></a>参考 / 扩展</h2><ul>
+<li>本题解法基于参考文章1中的思路，通过排序和双指针技术优化了暴力解法的时间复杂度。</li>
+</ul>
+<hr>
+<p>感谢阅读本文，希望本文能帮助你更好地理解和解决洛谷P13893题目。如果你有任何问题或建议，请随时联系我。</p>
 
       
     </div>

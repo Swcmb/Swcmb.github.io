@@ -715,6 +715,159 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/20/2026-05-20-P10902-P10902-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E7%9C%81-C-%E5%9B%9E%E6%96%87%E6%95%B0%E7%BB%84-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/20/2026-05-20-P10902-P10902-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E7%9C%81-C-%E5%9B%9E%E6%96%87%E6%95%B0%E7%BB%84-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P10902 - P10902 [蓝桥杯 2024 省 C] 回文数组 - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-05-20 00:00:00 / 修改时间：10:36:21" itemprop="dateCreated datePublished" datetime="2026-05-20T00:00:00+08:00">2026-05-20</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="洛谷-P10902-回文数组-洛谷"><a href="#洛谷-P10902-回文数组-洛谷" class="headerlink" title="[洛谷 P10902] 回文数组 - 洛谷"></a>[洛谷 P10902] 回文数组 - 洛谷</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
+<li><strong>题目来源</strong>: <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P10902">洛谷</a></li>
+<li><strong>题目难度</strong>: ★★★☆☆</li>
+<li><strong>标签分类</strong>: 算法标签、数据结构标签</li>
+<li><strong>核心考点</strong>: 本题主要考察数组操作、双指针技巧以及回文数组的概念。</li>
+</ul>
+<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><p>给定一个整数数组，我们需要通过最少的操作次数，使得数组变成回文数组。每次操作可以将任意一个元素加一或减一。输入包括一个整数数组和一个整数<code>k</code>，表示最多可以进行<code>k</code>次操作。输出为最少操作次数。</p>
+<h3 id="算法思路（核心部分）"><a href="#算法思路（核心部分）" class="headerlink" title="算法思路（核心部分）"></a>算法思路（核心部分）</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
+<li><strong>问题本质</strong>: 我们需要找到一种方法，通过最少的操作次数，使得数组的两端对称位置的元素相等。</li>
+<li><strong>关键观察点</strong>: 数组长度、操作次数限制以及数组两端元素的初始关系。</li>
+</ul>
+<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
+<li><strong>朴素思路</strong>: 首先判断数组是否已经是回文数组，如果是，则不需要任何操作。如果不是，则从两端向中间遍历，计算需要增加或减少的次数。</li>
+<li><strong>优化路径</strong>: 使用双指针技术，分别从数组的两端开始向中间移动，计算两端的差值，并累加到总操作次数中。</li>
+<li><strong>算法选择</strong>: 双指针技术的时间复杂度为O(n)，空间复杂度为O(1)，非常适合本题。</li>
+</ul>
+<h4 id="4-3-数学推导（如适用）"><a href="#4-3-数学推导（如适用）" class="headerlink" title="4.3 数学推导（如适用）"></a>4.3 数学推导（如适用）</h4><ul>
+<li>无需复杂的数学推导，主要依赖于双指针遍历和累加操作次数的逻辑。</li>
+</ul>
+<h4 id="4-4-多种解法对比（如适用）"><a href="#4-4-多种解法对比（如适用）" class="headerlink" title="4.4 多种解法对比（如适用）"></a>4.4 多种解法对比（如适用）</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>解法</th>
+<th>时间复杂度</th>
+<th>空间复杂度</th>
+<th>适用场景</th>
+<th>代码难度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>双指针法</td>
+<td>O(n)</td>
+<td>O(1)</td>
+<td>小规模数据</td>
+<td>简单</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="5-代码详解"><a href="#5-代码详解" class="headerlink" title="5. 代码详解"></a>5. 代码详解</h3><h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">a = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))</span><br><span class="line">b = [<span class="number">0</span>] * n</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>((n + <span class="number">1</span>) // <span class="number">2</span>):</span><br><span class="line">    left = i</span><br><span class="line">    right = n - <span class="number">1</span> - i</span><br><span class="line">    <span class="keyword">if</span> a[left] &lt; a[right]:</span><br><span class="line">        b[left] = a[right] - a[left]</span><br><span class="line">    <span class="keyword">elif</span> a[right] &lt; a[left]:</span><br><span class="line">        b[right] = a[left] - a[right]</span><br><span class="line"></span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">    <span class="keyword">if</span> i + <span class="number">1</span> &lt; n:</span><br><span class="line">        mn = <span class="built_in">min</span>(b[i], b[i + <span class="number">1</span>])</span><br><span class="line">        ans += mn</span><br><span class="line">        b[i] -= mn</span><br><span class="line">        b[i + <span class="number">1</span>] -= mn</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> b:</span><br><span class="line">    ans += x</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br></pre></td></tr></table></figure>
+<h4 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h4><ul>
+<li><code>n = int(input())</code>: 读取数组长度。</li>
+<li><code>a = list(map(int, input().split()))</code>: 读取并转换输入的整数数组。</li>
+<li><code>b = [0] * n</code>: 初始化一个长度为n的数组，用于记录需要增加或减少的次数。</li>
+<li><code>for i in range((n + 1) // 2):</code>: 遍历数组的前半部分。</li>
+<li><code>left = i</code> 和 <code>right = n - 1 - i</code>: 记录当前左右指针的位置。</li>
+<li><code>if a[left] &lt; a[right]:</code> 和 <code>elif a[right] &lt; a[left]:</code>: 根据左右指针所指元素的值，计算需要增加或减少的次数，并记录在数组b中。</li>
+<li><code>ans = 0</code>: 初始化总操作次数为0。</li>
+<li><code>for i in range(n):</code>: 遍历整个数组。</li>
+<li><code>if i + 1 &lt; n:</code>: 确保不会访问数组越界。</li>
+<li><code>mn = min(b[i], b[i + 1])</code>: 计算左右指针所指位置的差值的较小值。</li>
+<li><code>ans += mn</code>: 将差值累加到总操作次数中。</li>
+<li><code>b[i] -= mn</code> 和 <code>b[i + 1] -= mn</code>: 更新左右指针所指位置的差值。</li>
+<li><code>for x in b:</code>: 遍历数组b，累加剩余的操作次数。</li>
+<li><code>print(ans)</code>: 输出最少操作次数。</li>
+</ul>
+<h4 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h4><ul>
+<li><strong>空间优化</strong>: 由于我们只使用了常数个额外变量，空间复杂度为O(1)。</li>
+<li><strong>时间优化</strong>: 双指针技术保证了时间复杂度为O(n)，无需额外优化。</li>
+</ul>
+<h3 id="6-复杂度分析"><a href="#6-复杂度分析" class="headerlink" title="6. 复杂度分析"></a>6. 复杂度分析</h3><ul>
+<li><strong>时间复杂度</strong>: O(n)，因为我们只遍历了数组两次。</li>
+<li><strong>空间复杂度</strong>: O(1)，因为我们只使用了常数个额外变量。</li>
+</ul>
+<h3 id="7-输入输出示例"><a href="#7-输入输出示例" class="headerlink" title="7. 输入输出示例"></a>7. 输入输出示例</h3><h4 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">1 2 3 2 1</span><br><span class="line">3</span><br></pre></td></tr></table></figure>
+<h4 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6</span><br></pre></td></tr></table></figure>
+<h4 id="执行过程"><a href="#执行过程" class="headerlink" title="执行过程"></a>执行过程</h4><ol>
+<li>读取输入数组<code>[1, 2, 3, 2, 1]</code>和操作次数<code>3</code>。</li>
+<li>初始化数组<code>b</code>为全0。</li>
+<li>使用双指针技术，计算并记录需要增加或减少的次数。</li>
+<li>计算总操作次数并输出结果。</li>
+</ol>
+<h3 id="8-常见错误与调试技巧"><a href="#8-常见错误与调试技巧" class="headerlink" title="8. 常见错误与调试技巧"></a>8. 常见错误与调试技巧</h3><ul>
+<li><strong>易错点</strong>: 注意数组越界的问题，确保在访问数组元素时不会超出其边界。</li>
+<li><strong>调试方法</strong>: 可以通过打印中间变量来调试代码，观察每一步的执行情况。</li>
+<li><strong>测试用例</strong>: 可以尝试不同的输入数组和操作次数，验证代码的正确性和鲁棒性。</li>
+</ul>
+<h3 id="9-总结与扩展"><a href="#9-总结与扩展" class="headerlink" title="9. 总结与扩展"></a>9. 总结与扩展</h3><ul>
+<li><strong>核心收获</strong>: 通过双指针技术，我们可以高效地解决回文数组问题。该算法的时间复杂度为O(n)，空间复杂度为O(1)，适用于小规模数据。</li>
+<li><strong>举一反三</strong>: 该算法可以应用于类似的数组操作问题，如对称数组的处理、数组的最小操作次数等问题。</li>
+<li><strong>进阶方向</strong>: 可以进一步研究如何在不使用额外空间的情况下解决类似问题，或者优化算法以提高时间复杂度。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/20/2026-05-20-B4378-B4378-%E8%93%9D%E6%A1%A5%E6%9D%AF%E9%9D%92%E5%B0%91%E5%B9%B4%E7%BB%84%E7%9C%81%E8%B5%9B-2025-%E7%9F%A9%E9%98%B5%E5%9C%88%E5%B1%82-90-%E5%BA%A6%E4%BA%A4%E9%94%99%E6%97%8B%E8%BD%AC-%E6%B4%9B%E8%B0%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -844,7 +997,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/20/2026-05-20-P10902-P10902-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E7%9C%81-C-%E5%9B%9E%E6%96%87%E6%95%B0%E7%BB%84-%E6%B4%9B%E8%B0%B7/">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/20/2026-05-20-P10906-P10906-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E5%9B%BD-B-%E5%90%88%E6%B3%95%E5%AF%86%E7%A0%81-%E6%B4%9B%E8%B0%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/img/a.png">
@@ -862,7 +1015,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/20/2026-05-20-P10902-P10902-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E7%9C%81-C-%E5%9B%9E%E6%96%87%E6%95%B0%E7%BB%84-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P10902 - P10902 [蓝桥杯 2024 省 C] 回文数组 - 洛谷</a>
+          <a href="/2026/05/20/2026-05-20-P10906-P10906-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E5%9B%BD-B-%E5%90%88%E6%B3%95%E5%AF%86%E7%A0%81-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P10906 - P10906 [蓝桥杯 2024 国 B] 合法密码 - 洛谷</a>
         </h2>
 
         <div class="post-meta-container">
@@ -874,7 +1027,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2026-05-20 00:00:00 / 修改时间：10:36:21" itemprop="dateCreated datePublished" datetime="2026-05-20T00:00:00+08:00">2026-05-20</time>
+      <time title="创建时间：2026-05-20 00:00:00 / 修改时间：10:37:53" itemprop="dateCreated datePublished" datetime="2026-05-20T00:00:00+08:00">2026-05-20</time>
     </span>
 
   
@@ -887,90 +1040,147 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="洛谷-P10902-回文数组-洛谷"><a href="#洛谷-P10902-回文数组-洛谷" class="headerlink" title="[洛谷 P10902] 回文数组 - 洛谷"></a>[洛谷 P10902] 回文数组 - 洛谷</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
-<li><strong>题目来源</strong>: <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P10902">洛谷</a></li>
-<li><strong>题目难度</strong>: ★★★☆☆</li>
-<li><strong>标签分类</strong>: 算法标签、数据结构标签</li>
-<li><strong>核心考点</strong>: 本题主要考察数组操作、双指针技巧以及回文数组的概念。</li>
+          <h2 id="洛谷-P10906-合法密码-生成所有合法密码优化技巧"><a href="#洛谷-P10906-合法密码-生成所有合法密码优化技巧" class="headerlink" title="[洛谷 P10906] 合法密码 + 生成所有合法密码优化技巧"></a>[洛谷 P10906] 合法密码 + 生成所有合法密码优化技巧</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
+<li><strong>题目来源</strong>: 洛谷 (<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P10906">https://www.luogu.com.cn/problem/P10906</a>)</li>
+<li><strong>题目难度</strong>: ★★☆☆☆</li>
+<li><strong>标签分类</strong>: 字符串处理、枚举</li>
+<li><strong>核心考点</strong>: 字符串枚举、条件判断</li>
 </ul>
-<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><p>给定一个整数数组，我们需要通过最少的操作次数，使得数组变成回文数组。每次操作可以将任意一个元素加一或减一。输入包括一个整数数组和一个整数<code>k</code>，表示最多可以进行<code>k</code>次操作。输出为最少操作次数。</p>
+<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><ul>
+<li><strong>问题描述</strong>: 给定一个字符串 <code>s</code>，要求生成所有长度在8到16之间的子字符串，其中至少包含一个数字和一个特殊符号（非数字字符），并统计满足条件的子字符串数量。</li>
+<li><strong>输入格式</strong>: 输入一个字符串 <code>s</code>，长度不超过50。</li>
+<li><strong>输出格式</strong>: 输出一个整数，表示满足条件的子字符串数量。</li>
+<li><strong>样例分析</strong>:<ul>
+<li>输入: <code>kfdhtshmrw4nxg#f44ehlbn33ccto#mwfn2waebry#3qd1ubwyhcyuavuajb#vyecsycuzsmwp31ipzah#catatja3kaqbcss2th</code></li>
+<li>输出: <code>400</code></li>
+<li>解释: 该字符串中所有长度在8到16之间的子字符串中，都至少包含一个数字和一个特殊符号，共有400个满足条件的子字符串。</li>
+</ul>
+</li>
+</ul>
 <h3 id="算法思路（核心部分）"><a href="#算法思路（核心部分）" class="headerlink" title="算法思路（核心部分）"></a>算法思路（核心部分）</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
-<li><strong>问题本质</strong>: 我们需要找到一种方法，通过最少的操作次数，使得数组的两端对称位置的元素相等。</li>
-<li><strong>关键观察点</strong>: 数组长度、操作次数限制以及数组两端元素的初始关系。</li>
+<li>问题的本质是生成所有满足特定条件的子字符串，并进行计数。</li>
+<li>关键观察点：字符串的长度限制、包含数字和特殊符号的要求。</li>
+<li>数据范围对算法选择的影响：由于字符串长度不超过50，枚举方法在可接受范围内。</li>
 </ul>
 <h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
-<li><strong>朴素思路</strong>: 首先判断数组是否已经是回文数组，如果是，则不需要任何操作。如果不是，则从两端向中间遍历，计算需要增加或减少的次数。</li>
-<li><strong>优化路径</strong>: 使用双指针技术，分别从数组的两端开始向中间移动，计算两端的差值，并累加到总操作次数中。</li>
-<li><strong>算法选择</strong>: 双指针技术的时间复杂度为O(n)，空间复杂度为O(1)，非常适合本题。</li>
+<li><strong>朴素思路</strong>: 枚举所有可能的子字符串，检查每个子字符串是否满足条件。</li>
+<li><strong>优化路径</strong>: 由于题目要求生成所有合法密码，我们可以先生成所有可能的子字符串，然后检查它们是否合法。</li>
+<li><strong>算法选择</strong>: 使用两层循环枚举字符串的所有子字符串，并使用条件判断来检查每个子字符串是否合法。</li>
+<li><strong>核心思想</strong>: 通过枚举和条件判断来统计满足条件的子字符串数量。</li>
 </ul>
-<h4 id="4-3-数学推导（如适用）"><a href="#4-3-数学推导（如适用）" class="headerlink" title="4.3 数学推导（如适用）"></a>4.3 数学推导（如适用）</h4><ul>
-<li>无需复杂的数学推导，主要依赖于双指针遍历和累加操作次数的逻辑。</li>
-</ul>
-<h4 id="4-4-多种解法对比（如适用）"><a href="#4-4-多种解法对比（如适用）" class="headerlink" title="4.4 多种解法对比（如适用）"></a>4.4 多种解法对比（如适用）</h4><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>解法</th>
-<th>时间复杂度</th>
-<th>空间复杂度</th>
-<th>适用场景</th>
-<th>代码难度</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>双指针法</td>
-<td>O(n)</td>
-<td>O(1)</td>
-<td>小规模数据</td>
-<td>简单</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="5-代码详解"><a href="#5-代码详解" class="headerlink" title="5. 代码详解"></a>5. 代码详解</h3><h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">a = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))</span><br><span class="line">b = [<span class="number">0</span>] * n</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>((n + <span class="number">1</span>) // <span class="number">2</span>):</span><br><span class="line">    left = i</span><br><span class="line">    right = n - <span class="number">1</span> - i</span><br><span class="line">    <span class="keyword">if</span> a[left] &lt; a[right]:</span><br><span class="line">        b[left] = a[right] - a[left]</span><br><span class="line">    <span class="keyword">elif</span> a[right] &lt; a[left]:</span><br><span class="line">        b[right] = a[left] - a[right]</span><br><span class="line"></span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">    <span class="keyword">if</span> i + <span class="number">1</span> &lt; n:</span><br><span class="line">        mn = <span class="built_in">min</span>(b[i], b[i + <span class="number">1</span>])</span><br><span class="line">        ans += mn</span><br><span class="line">        b[i] -= mn</span><br><span class="line">        b[i + <span class="number">1</span>] -= mn</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> b:</span><br><span class="line">    ans += x</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br></pre></td></tr></table></figure>
+<h4 id="4-3-代码详解"><a href="#4-3-代码详解" class="headerlink" title="4.3 代码详解"></a>4.3 代码详解</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">&quot;kfdhtshmrw4nxg#f44ehlbn33ccto#mwfn2waebry#3qd1ubwyhcyuavuajb#vyecsycuzsmwp31ipzah#catatja3kaqbcss2th&quot;</span></span><br><span class="line">num = [<span class="string">&#x27;0&#x27;</span>, <span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;2&#x27;</span>, <span class="string">&#x27;3&#x27;</span>, <span class="string">&#x27;4&#x27;</span>, <span class="string">&#x27;5&#x27;</span>, <span class="string">&#x27;6&#x27;</span>, <span class="string">&#x27;7&#x27;</span>, <span class="string">&#x27;8&#x27;</span>, <span class="string">&#x27;9&#x27;</span>]</span><br><span class="line">not_num = [<span class="string">&#x27;#&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">allow</span>(<span class="params">st</span>):</span><br><span class="line">    has_digit = <span class="built_in">any</span>(c <span class="keyword">in</span> num <span class="keyword">for</span> c <span class="keyword">in</span> st)</span><br><span class="line">    has_symbol = <span class="built_in">any</span>(c <span class="keyword">in</span> not_num <span class="keyword">for</span> c <span class="keyword">in</span> st)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">8</span> &lt;= <span class="built_in">len</span>(st) &lt;= <span class="number">16</span> <span class="keyword">and</span> has_digit <span class="keyword">and</span> has_symbol</span><br><span class="line"></span><br><span class="line">res = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(s)):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i + <span class="number">8</span>, <span class="built_in">len</span>(s) + <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> allow(s[i:j]):</span><br><span class="line">            res += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(res)</span><br></pre></td></tr></table></figure>
+<h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">allow</span>(<span class="params">st</span>):</span><br><span class="line">    has_digit = <span class="built_in">any</span>(c <span class="keyword">in</span> num <span class="keyword">for</span> c <span class="keyword">in</span> st)</span><br><span class="line">    has_symbol = <span class="built_in">any</span>(c <span class="keyword">in</span> not_num <span class="keyword">for</span> c <span class="keyword">in</span> st)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">8</span> &lt;= <span class="built_in">len</span>(st) &lt;= <span class="number">16</span> <span class="keyword">and</span> has_digit <span class="keyword">and</span> has_symbol</span><br></pre></td></tr></table></figure>
 <h4 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h4><ul>
-<li><code>n = int(input())</code>: 读取数组长度。</li>
-<li><code>a = list(map(int, input().split()))</code>: 读取并转换输入的整数数组。</li>
-<li><code>b = [0] * n</code>: 初始化一个长度为n的数组，用于记录需要增加或减少的次数。</li>
-<li><code>for i in range((n + 1) // 2):</code>: 遍历数组的前半部分。</li>
-<li><code>left = i</code> 和 <code>right = n - 1 - i</code>: 记录当前左右指针的位置。</li>
-<li><code>if a[left] &lt; a[right]:</code> 和 <code>elif a[right] &lt; a[left]:</code>: 根据左右指针所指元素的值，计算需要增加或减少的次数，并记录在数组b中。</li>
-<li><code>ans = 0</code>: 初始化总操作次数为0。</li>
-<li><code>for i in range(n):</code>: 遍历整个数组。</li>
-<li><code>if i + 1 &lt; n:</code>: 确保不会访问数组越界。</li>
-<li><code>mn = min(b[i], b[i + 1])</code>: 计算左右指针所指位置的差值的较小值。</li>
-<li><code>ans += mn</code>: 将差值累加到总操作次数中。</li>
-<li><code>b[i] -= mn</code> 和 <code>b[i + 1] -= mn</code>: 更新左右指针所指位置的差值。</li>
-<li><code>for x in b:</code>: 遍历数组b，累加剩余的操作次数。</li>
-<li><code>print(ans)</code>: 输出最少操作次数。</li>
+<li><code>num</code> 和 <code>not_num</code> 分别存储数字字符和特殊符号。</li>
+<li><code>allow</code> 函数检查一个字符串是否满足条件：长度在8到16之间，且至少包含一个数字和一个特殊符号。</li>
+<li>外层循环枚举字符串的起始位置，内层循环枚举结束位置。</li>
+<li>如果一个子字符串满足条件，则计数器 <code>res</code> 增加。</li>
 </ul>
 <h4 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h4><ul>
-<li><strong>空间优化</strong>: 由于我们只使用了常数个额外变量，空间复杂度为O(1)。</li>
-<li><strong>时间优化</strong>: 双指针技术保证了时间复杂度为O(n)，无需额外优化。</li>
+<li>该算法已经是一个比较直接的解法，优化空间有限。</li>
+<li>可以考虑使用位运算来优化条件判断，但实际效果可能不明显。</li>
 </ul>
 <h3 id="6-复杂度分析"><a href="#6-复杂度分析" class="headerlink" title="6. 复杂度分析"></a>6. 复杂度分析</h3><ul>
-<li><strong>时间复杂度</strong>: O(n)，因为我们只遍历了数组两次。</li>
-<li><strong>空间复杂度</strong>: O(1)，因为我们只使用了常数个额外变量。</li>
+<li><strong>时间复杂度</strong>: O(n^2)，其中 n 是字符串的长度。</li>
+<li><strong>空间复杂度</strong>: O(1)，算法的空间复杂度与输入大小无关。</li>
 </ul>
-<h3 id="7-输入输出示例"><a href="#7-输入输出示例" class="headerlink" title="7. 输入输出示例"></a>7. 输入输出示例</h3><h4 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">1 2 3 2 1</span><br><span class="line">3</span><br></pre></td></tr></table></figure>
-<h4 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6</span><br></pre></td></tr></table></figure>
-<h4 id="执行过程"><a href="#执行过程" class="headerlink" title="执行过程"></a>执行过程</h4><ol>
-<li>读取输入数组<code>[1, 2, 3, 2, 1]</code>和操作次数<code>3</code>。</li>
-<li>初始化数组<code>b</code>为全0。</li>
-<li>使用双指针技术，计算并记录需要增加或减少的次数。</li>
-<li>计算总操作次数并输出结果。</li>
-</ol>
+<h3 id="7-输入输出示例"><a href="#7-输入输出示例" class="headerlink" title="7. 输入输出示例"></a>7. 输入输出示例</h3><ul>
+<li><strong>样例输入</strong>: <code>kfdhtshmrw4nxg#f44ehlbn33ccto#mwfn2waebry#3qd1ubwyhcyuavuajb#vyecsycuzsmwp31ipzah#catatja3kaqbcss2th</code></li>
+<li><strong>样例输出</strong>: <code>400</code></li>
+<li><strong>执行过程</strong>: 枚举所有长度在8到16之间的子字符串，检查每个子字符串是否满足条件，并计数。</li>
+</ul>
 <h3 id="8-常见错误与调试技巧"><a href="#8-常见错误与调试技巧" class="headerlink" title="8. 常见错误与调试技巧"></a>8. 常见错误与调试技巧</h3><ul>
-<li><strong>易错点</strong>: 注意数组越界的问题，确保在访问数组元素时不会超出其边界。</li>
-<li><strong>调试方法</strong>: 可以通过打印中间变量来调试代码，观察每一步的执行情况。</li>
-<li><strong>测试用例</strong>: 可以尝试不同的输入数组和操作次数，验证代码的正确性和鲁棒性。</li>
+<li><strong>易错点</strong>: 忘记检查子字符串长度、数字和特殊符号的存在。</li>
+<li><strong>调试方法</strong>: 使用较小的字符串进行测试，逐步增加字符串长度，观察算法的输出是否符合预期。</li>
+<li><strong>测试用例</strong>: 包含各种边界条件的字符串，如只包含数字、只包含特殊符号、长度不足8或超过16的字符串。</li>
 </ul>
 <h3 id="9-总结与扩展"><a href="#9-总结与扩展" class="headerlink" title="9. 总结与扩展"></a>9. 总结与扩展</h3><ul>
-<li><strong>核心收获</strong>: 通过双指针技术，我们可以高效地解决回文数组问题。该算法的时间复杂度为O(n)，空间复杂度为O(1)，适用于小规模数据。</li>
-<li><strong>举一反三</strong>: 该算法可以应用于类似的数组操作问题，如对称数组的处理、数组的最小操作次数等问题。</li>
-<li><strong>进阶方向</strong>: 可以进一步研究如何在不使用额外空间的情况下解决类似问题，或者优化算法以提高时间复杂度。</li>
+<li><strong>核心收获</strong>: 学会了如何使用枚举和条件判断来解决问题，以及如何统计满足特定条件的字符串数量。</li>
+<li><strong>举一反三</strong>: 可以尝试解决类似的字符串处理问题，如生成所有合法的IP地址、邮箱地址等。</li>
+<li><strong>进阶方向</strong>: 研究更高效的字符串处理算法，如后缀数组、AC自动机等。</li>
 </ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/20/2026-05-20-P10984-P10984-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E5%9B%BD-Python-A-Java-A-%E6%AE%8B%E7%BC%BA%E7%9A%84%E6%95%B0%E5%AD%97-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/20/2026-05-20-P10984-P10984-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E5%9B%BD-Python-A-Java-A-%E6%AE%8B%E7%BC%BA%E7%9A%84%E6%95%B0%E5%AD%97-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P10984 - P10984 [蓝桥杯 2023 国 Python A/Java A] 残缺的数字 - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-05-20 00:00:00 / 修改时间：10:38:23" itemprop="dateCreated datePublished" datetime="2026-05-20T00:00:00+08:00">2026-05-20</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="算法名称：数字编码问题"><a href="#算法名称：数字编码问题" class="headerlink" title="算法名称：数字编码问题"></a>算法名称：数字编码问题</h2><h3 id="核心优化技巧"><a href="#核心优化技巧" class="headerlink" title="核心优化技巧"></a>核心优化技巧</h3><p>在解决数字编码问题时，我们通常需要对七段数码管进行操作，以确定其显示的数字。为了提高解题效率，我们可以利用一些数学和编程技巧来简化计算过程。</p>
+<h4 id="1-前导零处理"><a href="#1-前导零处理" class="headerlink" title="1. 前导零处理"></a>1. 前导零处理</h4><p>在七段数码管中，每个数字的显示都依赖于特定的七段码。这些七段码由若干个二进制位组成，每个位对应一个特定的数字。例如，数字<code>0</code>到<code>9</code>分别对应于七段码<code>00000000</code>, <code>00000001</code>, <code>00000010</code>, …, <code>11111111</code>。</p>
+<p>然而，由于数码管的显示特性，某些七段码可能因为前导零的存在而无法直接表示某个具体的数字。例如，七段码<code>00000000</code>实际上对应的是数字<code>0</code>，但在某些情况下，它可能被错误地解释为<code>000000000</code>，这显然是错误的。因此，在进行编码转换之前，我们需要先处理这种前导零的情况。</p>
+<h4 id="2-乘法原理应用"><a href="#2-乘法原理应用" class="headerlink" title="2. 乘法原理应用"></a>2. 乘法原理应用</h4><p>对于给定的七段码，我们可以通过将它们转换为十进制数来进行解码。具体来说，每个七段码可以看作是一个二进制数，其每一位对应一个特定的十进制值。例如，七段码<code>00000000</code>可以转换为十进制数<code>0</code>，而七段码<code>00000001</code>可以转换为十进制数<code>1</code>。</p>
+<p>通过这种方式，我们可以将多个七段码组合成一个十进制数，然后根据这个十进制数来确定相应的数字。这种方法的关键在于理解二进制与十进制之间的转换关系，以及如何正确地处理前导零的问题。</p>
+<h4 id="3-代码实现"><a href="#3-代码实现" class="headerlink" title="3. 代码实现"></a>3. 代码实现</h4><p>下面是一个用Python编写的示例代码，用于实现上述方法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">encode</span>(<span class="params">s</span>):</span><br><span class="line">    <span class="comment"># 处理前导零</span></span><br><span class="line">    s = <span class="string">&#x27;&#x27;</span>.join([<span class="built_in">str</span>(<span class="built_in">int</span>(x)) <span class="keyword">for</span> x <span class="keyword">in</span> s.split(<span class="string">&#x27;0&#x27;</span>)])</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">int</span>(<span class="string">&#x27;&#x27;</span>.join(s), <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">decode</span>(<span class="params">n</span>):</span><br><span class="line">    <span class="comment"># 将二进制数转换为七段码</span></span><br><span class="line">    binary_str = <span class="built_in">bin</span>(n)[<span class="number">2</span>:]</span><br><span class="line">    <span class="comment"># 处理前导零</span></span><br><span class="line">    binary_str = binary_str.replace(<span class="string">&#x27;0b&#x27;</span>, <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="comment"># 获取七段码</span></span><br><span class="line">    digits = [<span class="built_in">int</span>(x) <span class="keyword">for</span> x <span class="keyword">in</span> binary_str]</span><br><span class="line">    <span class="comment"># 将七段码转换为数字</span></span><br><span class="line">    num = <span class="string">&#x27;&#x27;</span>.join(<span class="built_in">map</span>(<span class="built_in">str</span>, digits))</span><br><span class="line">    <span class="keyword">return</span> num</span><br></pre></td></tr></table></figure>
+<p>在这个例子中，<code>encode</code>函数负责将输入的字符串转换为二进制数，并去除前导零；<code>decode</code>函数则负责将二进制数转换为七段码，并返回相应的数字。</p>
+<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
+<li><strong>时间复杂度</strong>: O(n)，其中n是输入字符串的长度。这是因为我们需要遍历输入字符串中的每个字符，将其转换为二进制数。</li>
+<li><strong>空间复杂度</strong>: O(n)，其中n是输入字符串的长度。这是因为我们需要存储输入字符串的每个字符及其对应的二进制表示。</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>通过应用前导零处理和乘法原理，我们可以有效地解决数字编码问题。这种方法不仅提高了解题效率，还增强了代码的可读性和可维护性。</p>
 
       
     </div>
@@ -1125,134 +1335,6 @@
 <li><strong>核心收获</strong>: 掌握了回文字符串的检测方法，理解了双指针技术的应用。</li>
 <li><strong>举一反三</strong>: 可以应用于其他需要检测回文的场合，如数字序列、文本等。</li>
 <li><strong>进阶方向</strong>: 学习更多算法和数据结构知识，提升编程能力。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/20/2026-05-20-P10906-P10906-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E5%9B%BD-B-%E5%90%88%E6%B3%95%E5%AF%86%E7%A0%81-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/20/2026-05-20-P10906-P10906-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E5%9B%BD-B-%E5%90%88%E6%B3%95%E5%AF%86%E7%A0%81-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P10906 - P10906 [蓝桥杯 2024 国 B] 合法密码 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2026-05-20 00:00:00 / 修改时间：10:37:53" itemprop="dateCreated datePublished" datetime="2026-05-20T00:00:00+08:00">2026-05-20</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="洛谷-P10906-合法密码-生成所有合法密码优化技巧"><a href="#洛谷-P10906-合法密码-生成所有合法密码优化技巧" class="headerlink" title="[洛谷 P10906] 合法密码 + 生成所有合法密码优化技巧"></a>[洛谷 P10906] 合法密码 + 生成所有合法密码优化技巧</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
-<li><strong>题目来源</strong>: 洛谷 (<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P10906">https://www.luogu.com.cn/problem/P10906</a>)</li>
-<li><strong>题目难度</strong>: ★★☆☆☆</li>
-<li><strong>标签分类</strong>: 字符串处理、枚举</li>
-<li><strong>核心考点</strong>: 字符串枚举、条件判断</li>
-</ul>
-<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><ul>
-<li><strong>问题描述</strong>: 给定一个字符串 <code>s</code>，要求生成所有长度在8到16之间的子字符串，其中至少包含一个数字和一个特殊符号（非数字字符），并统计满足条件的子字符串数量。</li>
-<li><strong>输入格式</strong>: 输入一个字符串 <code>s</code>，长度不超过50。</li>
-<li><strong>输出格式</strong>: 输出一个整数，表示满足条件的子字符串数量。</li>
-<li><strong>样例分析</strong>:<ul>
-<li>输入: <code>kfdhtshmrw4nxg#f44ehlbn33ccto#mwfn2waebry#3qd1ubwyhcyuavuajb#vyecsycuzsmwp31ipzah#catatja3kaqbcss2th</code></li>
-<li>输出: <code>400</code></li>
-<li>解释: 该字符串中所有长度在8到16之间的子字符串中，都至少包含一个数字和一个特殊符号，共有400个满足条件的子字符串。</li>
-</ul>
-</li>
-</ul>
-<h3 id="算法思路（核心部分）"><a href="#算法思路（核心部分）" class="headerlink" title="算法思路（核心部分）"></a>算法思路（核心部分）</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
-<li>问题的本质是生成所有满足特定条件的子字符串，并进行计数。</li>
-<li>关键观察点：字符串的长度限制、包含数字和特殊符号的要求。</li>
-<li>数据范围对算法选择的影响：由于字符串长度不超过50，枚举方法在可接受范围内。</li>
-</ul>
-<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
-<li><strong>朴素思路</strong>: 枚举所有可能的子字符串，检查每个子字符串是否满足条件。</li>
-<li><strong>优化路径</strong>: 由于题目要求生成所有合法密码，我们可以先生成所有可能的子字符串，然后检查它们是否合法。</li>
-<li><strong>算法选择</strong>: 使用两层循环枚举字符串的所有子字符串，并使用条件判断来检查每个子字符串是否合法。</li>
-<li><strong>核心思想</strong>: 通过枚举和条件判断来统计满足条件的子字符串数量。</li>
-</ul>
-<h4 id="4-3-代码详解"><a href="#4-3-代码详解" class="headerlink" title="4.3 代码详解"></a>4.3 代码详解</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">&quot;kfdhtshmrw4nxg#f44ehlbn33ccto#mwfn2waebry#3qd1ubwyhcyuavuajb#vyecsycuzsmwp31ipzah#catatja3kaqbcss2th&quot;</span></span><br><span class="line">num = [<span class="string">&#x27;0&#x27;</span>, <span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;2&#x27;</span>, <span class="string">&#x27;3&#x27;</span>, <span class="string">&#x27;4&#x27;</span>, <span class="string">&#x27;5&#x27;</span>, <span class="string">&#x27;6&#x27;</span>, <span class="string">&#x27;7&#x27;</span>, <span class="string">&#x27;8&#x27;</span>, <span class="string">&#x27;9&#x27;</span>]</span><br><span class="line">not_num = [<span class="string">&#x27;#&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">allow</span>(<span class="params">st</span>):</span><br><span class="line">    has_digit = <span class="built_in">any</span>(c <span class="keyword">in</span> num <span class="keyword">for</span> c <span class="keyword">in</span> st)</span><br><span class="line">    has_symbol = <span class="built_in">any</span>(c <span class="keyword">in</span> not_num <span class="keyword">for</span> c <span class="keyword">in</span> st)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">8</span> &lt;= <span class="built_in">len</span>(st) &lt;= <span class="number">16</span> <span class="keyword">and</span> has_digit <span class="keyword">and</span> has_symbol</span><br><span class="line"></span><br><span class="line">res = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(s)):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i + <span class="number">8</span>, <span class="built_in">len</span>(s) + <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> allow(s[i:j]):</span><br><span class="line">            res += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(res)</span><br></pre></td></tr></table></figure>
-<h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">allow</span>(<span class="params">st</span>):</span><br><span class="line">    has_digit = <span class="built_in">any</span>(c <span class="keyword">in</span> num <span class="keyword">for</span> c <span class="keyword">in</span> st)</span><br><span class="line">    has_symbol = <span class="built_in">any</span>(c <span class="keyword">in</span> not_num <span class="keyword">for</span> c <span class="keyword">in</span> st)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">8</span> &lt;= <span class="built_in">len</span>(st) &lt;= <span class="number">16</span> <span class="keyword">and</span> has_digit <span class="keyword">and</span> has_symbol</span><br></pre></td></tr></table></figure>
-<h4 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h4><ul>
-<li><code>num</code> 和 <code>not_num</code> 分别存储数字字符和特殊符号。</li>
-<li><code>allow</code> 函数检查一个字符串是否满足条件：长度在8到16之间，且至少包含一个数字和一个特殊符号。</li>
-<li>外层循环枚举字符串的起始位置，内层循环枚举结束位置。</li>
-<li>如果一个子字符串满足条件，则计数器 <code>res</code> 增加。</li>
-</ul>
-<h4 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h4><ul>
-<li>该算法已经是一个比较直接的解法，优化空间有限。</li>
-<li>可以考虑使用位运算来优化条件判断，但实际效果可能不明显。</li>
-</ul>
-<h3 id="6-复杂度分析"><a href="#6-复杂度分析" class="headerlink" title="6. 复杂度分析"></a>6. 复杂度分析</h3><ul>
-<li><strong>时间复杂度</strong>: O(n^2)，其中 n 是字符串的长度。</li>
-<li><strong>空间复杂度</strong>: O(1)，算法的空间复杂度与输入大小无关。</li>
-</ul>
-<h3 id="7-输入输出示例"><a href="#7-输入输出示例" class="headerlink" title="7. 输入输出示例"></a>7. 输入输出示例</h3><ul>
-<li><strong>样例输入</strong>: <code>kfdhtshmrw4nxg#f44ehlbn33ccto#mwfn2waebry#3qd1ubwyhcyuavuajb#vyecsycuzsmwp31ipzah#catatja3kaqbcss2th</code></li>
-<li><strong>样例输出</strong>: <code>400</code></li>
-<li><strong>执行过程</strong>: 枚举所有长度在8到16之间的子字符串，检查每个子字符串是否满足条件，并计数。</li>
-</ul>
-<h3 id="8-常见错误与调试技巧"><a href="#8-常见错误与调试技巧" class="headerlink" title="8. 常见错误与调试技巧"></a>8. 常见错误与调试技巧</h3><ul>
-<li><strong>易错点</strong>: 忘记检查子字符串长度、数字和特殊符号的存在。</li>
-<li><strong>调试方法</strong>: 使用较小的字符串进行测试，逐步增加字符串长度，观察算法的输出是否符合预期。</li>
-<li><strong>测试用例</strong>: 包含各种边界条件的字符串，如只包含数字、只包含特殊符号、长度不足8或超过16的字符串。</li>
-</ul>
-<h3 id="9-总结与扩展"><a href="#9-总结与扩展" class="headerlink" title="9. 总结与扩展"></a>9. 总结与扩展</h3><ul>
-<li><strong>核心收获</strong>: 学会了如何使用枚举和条件判断来解决问题，以及如何统计满足特定条件的字符串数量。</li>
-<li><strong>举一反三</strong>: 可以尝试解决类似的字符串处理问题，如生成所有合法的IP地址、邮箱地址等。</li>
-<li><strong>进阶方向</strong>: 研究更高效的字符串处理算法，如后缀数组、AC自动机等。</li>
 </ul>
 
       
@@ -1549,159 +1631,6 @@
 <li><strong>核心收获</strong>: 本题学习了如何使用 datetime 和 timedelta 对象进行时间计算，以及如何使用模运算进行时间戳的计算。</li>
 <li><strong>举一反三</strong>: 可以尝试将本题的思路应用到其他需要时间计算的问题中。</li>
 <li><strong>进阶方向</strong>: 学习更高级的时间处理库，如 <code>dateutil</code>，以及学习如何处理更复杂的时间问题。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/20/2026-05-20-P1102-P1102-A-B-%E6%95%B0%E5%AF%B9-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/20/2026-05-20-P1102-P1102-A-B-%E6%95%B0%E5%AF%B9-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P1102 - P1102 A-B 数对 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2026-05-20 00:00:00 / 修改时间：10:39:50" itemprop="dateCreated datePublished" datetime="2026-05-20T00:00:00+08:00">2026-05-20</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="洛谷-P1102-A-B-数对-洛谷-算法名称-核心优化技巧"><a href="#洛谷-P1102-A-B-数对-洛谷-算法名称-核心优化技巧" class="headerlink" title="[洛谷 P1102 A-B 数对 - 洛谷] 算法名称 + 核心优化技巧"></a>[洛谷 P1102 A-B 数对 - 洛谷] 算法名称 + 核心优化技巧</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
-<li><strong>题目来源</strong>: 洛谷</li>
-<li><strong>题目难度</strong>: ★★★★☆</li>
-<li><strong>标签分类</strong>: 算法标签、数据结构标签</li>
-<li><strong>核心考点</strong>: 贪心算法、哈希表</li>
-</ul>
-<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><p>给定一个整数数组 <code>nums</code> 和一个整数 <code>C</code>，我们需要计算数组中所有与 <code>C</code> 的差值在 <code>[0, C)</code> 范围内的数对的数量。例如，对于数组 <code>[1, 2, 2, 1]</code> 和 <code>C = 3</code>，与 <code>3</code> 差值在 <code>[0, 3)</code> 范围内的数对有 <code>(1, 2), (2, 1)</code>，因此输出 <code>2</code>。</p>
-<p>输入数据包括两个整数 <code>N</code> 和 <code>C</code>，以及一个长度为 <code>N</code> 的整数数组 <code>nums</code>。输出是一个整数，表示满足条件的数对数量。</p>
-<h3 id="算法思路（核心部分）"><a href="#算法思路（核心部分）" class="headerlink" title="算法思路（核心部分）"></a>算法思路（核心部分）</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><p>问题的本质是统计数组中与给定值 <code>C</code> 差值在 <code>[0, C)</code> 范围内的数对数量。我们可以通过哈希表来记录每个数字出现的频率，然后遍历哈希表计算满足条件的数对数量。</p>
-<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
-<li><strong>朴素思路</strong>: 遍历数组，对于每个元素，检查其与其他元素的差值是否在 <code>[0, C)</code> 范围内，并累加计数。</li>
-<li><strong>优化路径</strong>: 使用哈希表记录每个数字的频率，减少重复计算。</li>
-<li><strong>算法选择</strong>: 哈希表方法的时间复杂度为 O(n)，空间复杂度也为 O(n)，适用于大规模数据。</li>
-<li><strong>核心思想</strong>: 通过哈希表快速查找和统计频率，避免重复计算。</li>
-</ul>
-<h4 id="4-3-数学推导（如适用）"><a href="#4-3-数学推导（如适用）" class="headerlink" title="4.3 数学推导（如适用）"></a>4.3 数学推导（如适用）</h4><p>由于这个问题主要依赖于统计和遍历，没有复杂的数学公式推导。</p>
-<h4 id="4-4-多种解法对比（如适用）"><a href="#4-4-多种解法对比（如适用）" class="headerlink" title="4.4 多种解法对比（如适用）"></a>4.4 多种解法对比（如适用）</h4><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>解法</th>
-<th>时间复杂度</th>
-<th>空间复杂度</th>
-<th>适用场景</th>
-<th>代码难度</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>解法1（哈希表）</td>
-<td>O(n)</td>
-<td>O(n)</td>
-<td>小规模数据</td>
-<td>简单</td>
-</tr>
-<tr>
-<td>解法2（排序后双指针）</td>
-<td>O(n log n)</td>
-<td>O(1)</td>
-<td>大规模数据</td>
-<td>中等</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="5-代码详解"><a href="#5-代码详解" class="headerlink" title="5. 代码详解"></a>5. 代码详解</h3><h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> defaultdict</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取输入</span></span><br><span class="line">N, C = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">nums = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用哈希表记录频率</span></span><br><span class="line">freq = defaultdict(<span class="built_in">int</span>)</span><br><span class="line"><span class="keyword">for</span> num <span class="keyword">in</span> nums:</span><br><span class="line">    freq[num] += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算满足条件的数对数量</span></span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> num <span class="keyword">in</span> nums:</span><br><span class="line">    ans += freq[num - C]</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(ans)</span><br></pre></td></tr></table></figure>
-<h4 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h4><ul>
-<li><code>N, C = map(int, input().split())</code>: 读取两个整数 <code>N</code> 和 <code>C</code>。</li>
-<li><code>nums = list(map(int, input().split()))</code>: 读取长度为 <code>N</code> 的整数数组 <code>nums</code>。</li>
-<li><code>freq = defaultdict(int)</code>: 创建一个默认值为 0 的哈希表 <code>freq</code>。</li>
-<li><code>for num in nums: freq[num] += 1</code>: 遍历数组 <code>nums</code>，统计每个数字的频率。</li>
-<li><code>ans = 0</code>: 初始化结果变量 <code>ans</code>。</li>
-<li><code>for num in nums: ans += freq[num - C]</code>: 遍历数组 <code>nums</code>，计算与 <code>C</code> 差值在 <code>[0, C)</code> 范围内的数对数量，并累加到 <code>ans</code>。</li>
-<li><code>print(ans)</code>: 输出结果。</li>
-</ul>
-<h4 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h4><ul>
-<li><strong>空间优化</strong>: 如果只关心最终结果，可以不使用哈希表，直接遍历数组并计算差值。</li>
-<li><strong>时间优化</strong>: 对于大规模数据，可以考虑排序后使用双指针方法，减少遍历次数。</li>
-</ul>
-<h3 id="6-复杂度分析"><a href="#6-复杂度分析" class="headerlink" title="6. 复杂度分析"></a>6. 复杂度分析</h3><ul>
-<li><strong>时间复杂度</strong>: O(n)，因为我们只需要遍历数组两次。</li>
-<li><strong>空间复杂度</strong>: O(n)，用于存储哈希表。</li>
-</ul>
-<h3 id="7-输入输出示例"><a href="#7-输入输出示例" class="headerlink" title="7. 输入输出示例"></a>7. 输入输出示例</h3><ul>
-<li><strong>样例输入</strong>:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">4 3</span><br><span class="line">1 2 2 1</span><br></pre></td></tr></table></figure></li>
-<li><strong>样例输出</strong>:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure></li>
-<li><strong>执行过程</strong>:<ol>
-<li>读取输入 <code>N = 4</code> 和 <code>C = 3</code>。</li>
-<li>读取数组 <code>nums = [1, 2, 2, 1]</code>。</li>
-<li>统计频率 <code>freq = {1: 1, 2: 2}</code>。</li>
-<li>计算满足条件的数对数量 <code>ans = 2</code>。</li>
-</ol>
-</li>
-</ul>
-<h3 id="8-常见错误与调试技巧"><a href="#8-常见错误与调试技巧" class="headerlink" title="8. 常见错误与调试技巧"></a>8. 常见错误与调试技巧</h3><ul>
-<li><strong>易错点</strong>: 忽略哈希表的初始化和使用。</li>
-<li><strong>调试方法</strong>: 使用打印语句或调试器逐步跟踪代码执行。</li>
-<li><strong>测试用例</strong>: 测试空数组、单个元素数组、大规模数据等。</li>
-</ul>
-<h3 id="9-总结与扩展"><a href="#9-总结与扩展" class="headerlink" title="9. 总结与扩展"></a>9. 总结与扩展</h3><ul>
-<li><strong>核心收获</strong>: 掌握使用哈希表优化统计频率的方法。</li>
-<li><strong>举一反三</strong>: 可以扩展到其他类似问题，如统计差值在 <code>[0, k)</code> 范围内的数对数量。</li>
-<li><strong>进阶方向</strong>: 研究更高效的算法，如使用树状数组或线段树优化统计过程。</li>
 </ul>
 
       

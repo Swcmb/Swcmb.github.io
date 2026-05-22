@@ -228,7 +228,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/07/26/2024-07-26-urllib_%E4%BB%A3%E7%90%86%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/07/26/2024-07-26-urllib_%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/img/a.png">
@@ -246,7 +246,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/26/2024-07-26-urllib_%E4%BB%A3%E7%90%86%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">Python爬虫基础：urllib代理的基本使用</a>
+          <a href="/2024/07/26/2024-07-26-urllib_%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">Python 爬虫基础：urllib 模块快速上手</a>
         </h2>
 
         <div class="post-meta-container">
@@ -286,55 +286,60 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在网络爬虫开发中，频繁请求同一网站往往会触发反爬机制，导致IP被封禁。为了解决这一问题，使用<strong>代理IP</strong>是常见的反反爬策略之一。本文将详细介绍如何利用 Python 标准库 <code>urllib</code> 设置代理，实现隐藏真实 IP 的请求。</p>
-<h2 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h2><p>在 <code>urllib</code> 中使用代理，主要涉及以下三个核心对象：</p>
-<ol>
-<li><strong><code>ProxyHandler</code></strong>：代理处理器，用于设置代理IP信息。</li>
-<li><strong><code>build_opener</code></strong>：构建自定义的 opener 对象，它会将代理处理器加载进去。</li>
-<li><strong><code>opener.open()</code></strong>：使用构建好的 opener 发送请求，此时请求将通过代理服务器转发。</li>
-</ol>
-<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><p>下面是一个完整的示例，演示如何通过代理访问百度搜索“ip”，并将结果保存到本地。</p>
-<p>```python<br>import urllib.request</p>
-<h1 id="1-设置目标URL和请求头"><a href="#1-设置目标URL和请求头" class="headerlink" title="1. 设置目标URL和请求头"></a>1. 设置目标URL和请求头</h1><p>url = ‘<a target="_blank" rel="noopener" href="http://www.baidu.com/s?wd=ip">http://www.baidu.com/s?wd=ip</a>‘<br>headers = {<br>    ‘User-Agent’: ‘Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36’<br>}</p>
-<h1 id="2-创建-Request-对象"><a href="#2-创建-Request-对象" class="headerlink" title="2. 创建 Request 对象"></a>2. 创建 Request 对象</h1><p>req = urllib.request.Request(url=url, headers=headers)</p>
-<h1 id="3-设置代理IP"><a href="#3-设置代理IP" class="headerlink" title="3. 设置代理IP"></a>3. 设置代理IP</h1><h1 id="注意：此处使用的代理IP为示例，实际使用时请替换为有效的代理IP"><a href="#注意：此处使用的代理IP为示例，实际使用时请替换为有效的代理IP" class="headerlink" title="注意：此处使用的代理IP为示例，实际使用时请替换为有效的代理IP"></a>注意：此处使用的代理IP为示例，实际使用时请替换为有效的代理IP</h1><h1 id="格式：-‘协议类型’-‘IP地址-端口号’"><a href="#格式：-‘协议类型’-‘IP地址-端口号’" class="headerlink" title="格式：{‘协议类型’: ‘IP地址:端口号’}"></a>格式：{‘协议类型’: ‘IP地址:端口号’}</h1><p>proxies = {<br>    ‘http’: ‘125.77.25.177:8090’<br>}</p>
-<h1 id="4-创建-ProxyHandler-处理器"><a href="#4-创建-ProxyHandler-处理器" class="headerlink" title="4. 创建 ProxyHandler 处理器"></a>4. 创建 ProxyHandler 处理器</h1><p>handler = urllib.request.ProxyHandler(proxies=proxies)</p>
-<h1 id="5-创建自定义-opener-对象"><a href="#5-创建自定义-opener-对象" class="headerlink" title="5. 创建自定义 opener 对象"></a>5. 创建自定义 opener 对象</h1><p>opener = urllib.request.build_opener(handler)</p>
-<h1 id="6-发送请求"><a href="#6-发送请求" class="headerlink" title="6. 发送请求"></a>6. 发送请求</h1><h1 id="此时不再使用-urllib-request-urlopen-req-，而是使用-opener-open-req"><a href="#此时不再使用-urllib-request-urlopen-req-，而是使用-opener-open-req" class="headerlink" title="此时不再使用 urllib.request.urlopen(req)，而是使用 opener.open(req)"></a>此时不再使用 urllib.request.urlopen(req)，而是使用 opener.open(req)</h1><p>try:<br>    res = opener.open(req, timeout=5)</p>
-<pre><code># 7. 获取响应内容
-content = res.read().decode(&#39;utf-8&#39;)
-
-# 8. 持久化存储
-with open(&#39;daili.html&#39;, &#39;w&#39;, encoding=&#39;utf-8&#39;) as f:
-    f.write(content)
-
-print(&quot;页面抓取成功，已保存为 daili.html&quot;)
-</code></pre><p>except Exception as e:<br>    print(f”请求失败，原因：{e}”)</p>
-<h2 id="步骤详解"><a href="#步骤详解" class="headerlink" title="步骤详解"></a>步骤详解</h2><h3 id="1-构建请求对象"><a href="#1-构建请求对象" class="headerlink" title="1. 构建请求对象"></a>1. 构建请求对象</h3><p>首先，我们需要定义目标 URL 和 User-Agent。将 User-Agent 封装进 <code>Request</code> 对象，可以伪装成浏览器访问，避免被简单的反爬拦截。</p>
-<h3 id="2-定义代理字典"><a href="#2-定义代理字典" class="headerlink" title="2. 定义代理字典"></a>2. 定义代理字典</h3><p><code>proxies</code> 字典定义了代理服务器的协议和地址。</p>
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在 Python 爬虫开发中，<code>urllib</code> 是 Python 内置的标准库，无需额外安装即可使用。它提供了丰富的接口用于处理 URL 和网络请求。本文将通过一个简单的示例——获取百度首页源码，带你快速掌握 <code>urllib</code> 的基本使用流程。</p>
+<h2 id="完整代码示例"><a href="#完整代码示例" class="headerlink" title="完整代码示例"></a>完整代码示例</h2><p>下面是一段最基础的爬虫代码，实现了向百度发送请求并获取页面 HTML 源码的功能：</p>
+<p>```python</p>
+<h1 id="1-导入-urllib-库的-request-模块"><a href="#1-导入-urllib-库的-request-模块" class="headerlink" title="1. 导入 urllib 库的 request 模块"></a>1. 导入 urllib 库的 request 模块</h1><p>import urllib.request</p>
+<h1 id="2-定义目标-URL-即你要访问的地址"><a href="#2-定义目标-URL-即你要访问的地址" class="headerlink" title="2. 定义目标 URL (即你要访问的地址)"></a>2. 定义目标 URL (即你要访问的地址)</h1><p>url = ‘<a target="_blank" rel="noopener" href="http://www.baidu.com">http://www.baidu.com</a>‘</p>
+<h1 id="3-模拟浏览器向服务器发送请求"><a href="#3-模拟浏览器向服务器发送请求" class="headerlink" title="3. 模拟浏览器向服务器发送请求"></a>3. 模拟浏览器向服务器发送请求</h1><h1 id="response-对象包含服务器返回的所有信息"><a href="#response-对象包含服务器返回的所有信息" class="headerlink" title="response 对象包含服务器返回的所有信息"></a>response 对象包含服务器返回的所有信息</h1><p>response = urllib.request.urlopen(url)</p>
+<h1 id="4-获取响应中的页面源码"><a href="#4-获取响应中的页面源码" class="headerlink" title="4. 获取响应中的页面源码"></a>4. 获取响应中的页面源码</h1><h1 id="read-方法返回的是字节形式的二进制数据"><a href="#read-方法返回的是字节形式的二进制数据" class="headerlink" title="read() 方法返回的是字节形式的二进制数据"></a>read() 方法返回的是字节形式的二进制数据</h1><h1 id="需要使用-decode-‘utf-8’-将二进制数据转换为字符串"><a href="#需要使用-decode-‘utf-8’-将二进制数据转换为字符串" class="headerlink" title="需要使用 decode(‘utf-8’) 将二进制数据转换为字符串"></a>需要使用 decode(‘utf-8’) 将二进制数据转换为字符串</h1><p>content = response.read().decode(‘utf-8’)</p>
+<h1 id="5-打印获取到的内容"><a href="#5-打印获取到的内容" class="headerlink" title="5. 打印获取到的内容"></a>5. 打印获取到的内容</h1><p>print(content)</p>
+<h2 id="代码核心逻辑解析"><a href="#代码核心逻辑解析" class="headerlink" title="代码核心逻辑解析"></a>代码核心逻辑解析</h2><h3 id="1-发送请求"><a href="#1-发送请求" class="headerlink" title="1. 发送请求"></a>1. 发送请求</h3><p><code>``python
+response = urllib.request.urlopen(url)</code>urlopen<code>是</code>urllib.request<code>中最核心的方法，它可以像浏览器一样向指定的 URL 发送 GET 请求。返回的</code>response` 对象包含了服务器的响应状态、响应头以及响应体。</p>
+<h3 id="2-读取与解码"><a href="#2-读取与解码" class="headerlink" title="2. 读取与解码"></a>2. 读取与解码</h3><p>```python<br>content = response.read().decode(‘utf-8’)<br>这一步包含两个关键操作：</p>
 <ul>
-<li>如果是 HTTP 代理，键名为 <code>&#39;http&#39;</code>。</li>
-<li>如果是 HTTPS 代理，键名为 <code>&#39;https&#39;</code>。</li>
-<li>值的格式必须为 <code>IP:端口</code>。</li>
+<li><strong><code>read()</code></strong>: 读取响应体的内容。值得注意的是，该方法返回的是<strong>二进制数据</strong>，通常格式为 <code>&lt;class &#39;bytes&#39;&gt;</code>。直接打印会显示为 <code>b&#39;...&#39;</code> 的形式，可读性差。</li>
+<li><strong><code>decode(&#39;utf-8&#39;)</code></strong>: 为了将二进制数据还原成人类可读的字符串，我们需要进行解码。因为百度首页的编码格式通常为 UTF-8，所以这里使用 UTF-8 进行解码。</li>
 </ul>
-<h3 id="3-创建-Handler-和-Opener"><a href="#3-创建-Handler-和-Opener" class="headerlink" title="3. 创建 Handler 和 Opener"></a>3. 创建 Handler 和 Opener</h3><p>这是最关键的一步。<code>urllib</code> 默认的 <code>urlopen</code> 方法不支持直接传入代理。我们需要：</p>
-<ol>
-<li>使用 <code>ProxyHandler</code> 传入代理字典，生成一个处理器 <code>handler</code>。</li>
-<li>使用 <code>build_opener(handler)</code> 构建一个自定义的 opener。这个 opener 此时已经具备了使用指定代理的能力。</li>
-</ol>
-<h3 id="4-发送请求与保存"><a href="#4-发送请求与保存" class="headerlink" title="4. 发送请求与保存"></a>4. 发送请求与保存</h3><p>使用 <code>opener.open(req)</code> 发送请求。请求成功后，读取响应数据并将其写入 <code>daili.html</code> 文件。打开该文件，如果代理设置正确且有效，你应该能看到百度搜索“ip”的结果页面，且显示的 IP 地址应为代理 IP，而非你的真实 IP。</p>
-<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
-<li><strong>代理有效性</strong>：代码中示例的代理 IP 可能已失效，请务必替换为你自己的可用代理。建议购买付费代理或搭建自用代理池。</li>
-<li><strong>超时处理</strong>：使用代理请求通常比直连慢，且容易连接失败。建议在 <code>opener.open()</code> 中添加 <code>timeout</code> 参数，并使用 <code>try-except</code> 捕获异常。</li>
-<li><strong>协议匹配</strong>：确保代理协议（http/https）与目标 URL 协议一致，或者配置支持两种协议的代理。</li>
-</ol>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><h2 id="通过-ProxyHandler-和-build-opener，我们可以灵活地在-urllib-中实现代理请求。这是爬虫进阶的重要一步，理解-Handler-和-Opener-的关系，对于后续学习-Cookie-处理、异常处理等高级功能至关重要。"><a href="#通过-ProxyHandler-和-build-opener，我们可以灵活地在-urllib-中实现代理请求。这是爬虫进阶的重要一步，理解-Handler-和-Opener-的关系，对于后续学习-Cookie-处理、异常处理等高级功能至关重要。" class="headerlink" title="通过 ProxyHandler 和 build_opener，我们可以灵活地在 urllib 中实现代理请求。这是爬虫进阶的重要一步，理解 Handler 和 Opener 的关系，对于后续学习 Cookie 处理、异常处理等高级功能至关重要。"></a>通过 <code>ProxyHandler</code> 和 <code>build_opener</code>，我们可以灵活地在 <code>urllib</code> 中实现代理请求。这是爬虫进阶的重要一步，理解 Handler 和 Opener 的关系，对于后续学习 Cookie 处理、异常处理等高级功能至关重要。</h2><h3 id="优化要点说明："><a href="#优化要点说明：" class="headerlink" title="优化要点说明："></a>优化要点说明：</h3><ol>
-<li><strong>修复格式错误</strong>：原内容中的代码存在 HTML 实体编码（如 <code>&amp;#x27;</code> 代表单引号），导致无法直接运行。我已将其还原为标准的 Python 代码。</li>
-<li><strong>完善 YAML Front Matter</strong>：修正了 <code>tags</code> 的格式（从字符串改为列表），增加了 <code>categories</code>，并优化了标题，使其更具吸引力。</li>
-<li><strong>结构化内容</strong>：将纯代码扩展为“前言 -&gt; 核心概念 -&gt; 代码实现 -&gt; 步骤详解 -&gt; 注意事项”的完整技术文章结构。</li>
-<li><strong>增加注释与异常处理</strong>：在代码中添加了详细的中文注释，并引入了 <code>try-except</code> 块来处理代理常见的超时问题，提升了代码的健壮性。</li>
-<li><strong>专业排版</strong>：使用了 Markdown 标准语法，包括代码高亮块、加粗重点词汇、有序列表等，符合 Hexo 博客的渲染规范。</li>
-</ol>
+<h2 id="知识点总结"><a href="#知识点总结" class="headerlink" title="知识点总结"></a>知识点总结</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">步骤</th>
+<th style="text-align:left">方法/变量</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>导入模块</strong></td>
+<td style="text-align:left"><code>import urllib.request</code></td>
+<td style="text-align:left">引入处理请求的标准库。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>定义地址</strong></td>
+<td style="text-align:left"><code>url</code></td>
+<td style="text-align:left">目标网站的统一资源定位符。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>发起请求</strong></td>
+<td style="text-align:left"><code>urllib.request.urlopen(url)</code></td>
+<td style="text-align:left">向服务器发起 HTTP 请求。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>读取数据</strong></td>
+<td style="text-align:left"><code>response.read()</code></td>
+<td style="text-align:left">获取二进制格式的网页源码。</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>解码数据</strong></td>
+<td style="text-align:left"><code>.decode(&#39;utf-8&#39;)</code></td>
+<td style="text-align:left">将二进制字节流转换为字符串。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>通过以上步骤，我们成功实现了获取网页源码的第一步。虽然 <code>urllib</code> 功能强大，但在实际开发中，由于其 API 相对底层，许多开发者也会选择使用更加便捷的第三方库如 <code>requests</code>。但理解 <code>urllib</code> 的原理对于掌握 Python 爬虫至关重要。</p>
 
       
     </div>
@@ -453,7 +458,7 @@ print(&quot;页面抓取成功，已保存为 daili.html&quot;)
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/07/26/2024-07-26-urllib_%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/07/26/2024-07-26-urllib_%E7%AB%99%E9%95%BF%E7%B4%A0%E6%9D%90/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/img/a.png">
@@ -471,7 +476,7 @@ print(&quot;页面抓取成功，已保存为 daili.html&quot;)
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/26/2024-07-26-urllib_%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">Python 爬虫基础：urllib 模块快速上手</a>
+          <a href="/2024/07/26/2024-07-26-urllib_%E7%AB%99%E9%95%BF%E7%B4%A0%E6%9D%90/" class="post-title-link" itemprop="url">Python爬虫实战：利用urllib下载站长素材图片</a>
         </h2>
 
         <div class="post-meta-container">
@@ -489,7 +494,7 @@ print(&quot;页面抓取成功，已保存为 daili.html&quot;)
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-05-14 13:56:56" itemprop="dateModified" datetime="2026-05-14T13:56:56+08:00">2026-05-14</time>
+      <time title="修改时间：2026-05-14 13:58:18" itemprop="dateModified" datetime="2026-05-14T13:58:18+08:00">2026-05-14</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -497,7 +502,11 @@ print(&quot;页面抓取成功，已保存为 daili.html&quot;)
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python%E7%88%AC%E8%99%AB/" itemprop="url" rel="index"><span itemprop="name">Python爬虫</span></a>
+          <a href="/categories/%E6%8A%80%E6%9C%AF%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">技术开发</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF%E5%BC%80%E5%8F%91/Python%E5%AE%9E%E6%88%98/" itemprop="url" rel="index"><span itemprop="name">Python实战</span></a>
         </span>
     </span>
 
@@ -511,61 +520,15 @@ print(&quot;页面抓取成功，已保存为 daili.html&quot;)
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在 Python 爬虫开发中，<code>urllib</code> 是 Python 内置的标准库，无需额外安装即可使用。它提供了丰富的接口用于处理 URL 和网络请求。本文将通过一个简单的示例——获取百度首页源码，带你快速掌握 <code>urllib</code> 的基本使用流程。</p>
-<h2 id="完整代码示例"><a href="#完整代码示例" class="headerlink" title="完整代码示例"></a>完整代码示例</h2><p>下面是一段最基础的爬虫代码，实现了向百度发送请求并获取页面 HTML 源码的功能：</p>
-<p>```python</p>
-<h1 id="1-导入-urllib-库的-request-模块"><a href="#1-导入-urllib-库的-request-模块" class="headerlink" title="1. 导入 urllib 库的 request 模块"></a>1. 导入 urllib 库的 request 模块</h1><p>import urllib.request</p>
-<h1 id="2-定义目标-URL-即你要访问的地址"><a href="#2-定义目标-URL-即你要访问的地址" class="headerlink" title="2. 定义目标 URL (即你要访问的地址)"></a>2. 定义目标 URL (即你要访问的地址)</h1><p>url = ‘<a target="_blank" rel="noopener" href="http://www.baidu.com">http://www.baidu.com</a>‘</p>
-<h1 id="3-模拟浏览器向服务器发送请求"><a href="#3-模拟浏览器向服务器发送请求" class="headerlink" title="3. 模拟浏览器向服务器发送请求"></a>3. 模拟浏览器向服务器发送请求</h1><h1 id="response-对象包含服务器返回的所有信息"><a href="#response-对象包含服务器返回的所有信息" class="headerlink" title="response 对象包含服务器返回的所有信息"></a>response 对象包含服务器返回的所有信息</h1><p>response = urllib.request.urlopen(url)</p>
-<h1 id="4-获取响应中的页面源码"><a href="#4-获取响应中的页面源码" class="headerlink" title="4. 获取响应中的页面源码"></a>4. 获取响应中的页面源码</h1><h1 id="read-方法返回的是字节形式的二进制数据"><a href="#read-方法返回的是字节形式的二进制数据" class="headerlink" title="read() 方法返回的是字节形式的二进制数据"></a>read() 方法返回的是字节形式的二进制数据</h1><h1 id="需要使用-decode-‘utf-8’-将二进制数据转换为字符串"><a href="#需要使用-decode-‘utf-8’-将二进制数据转换为字符串" class="headerlink" title="需要使用 decode(‘utf-8’) 将二进制数据转换为字符串"></a>需要使用 decode(‘utf-8’) 将二进制数据转换为字符串</h1><p>content = response.read().decode(‘utf-8’)</p>
-<h1 id="5-打印获取到的内容"><a href="#5-打印获取到的内容" class="headerlink" title="5. 打印获取到的内容"></a>5. 打印获取到的内容</h1><p>print(content)</p>
-<h2 id="代码核心逻辑解析"><a href="#代码核心逻辑解析" class="headerlink" title="代码核心逻辑解析"></a>代码核心逻辑解析</h2><h3 id="1-发送请求"><a href="#1-发送请求" class="headerlink" title="1. 发送请求"></a>1. 发送请求</h3><p><code>``python
-response = urllib.request.urlopen(url)</code>urlopen<code>是</code>urllib.request<code>中最核心的方法，它可以像浏览器一样向指定的 URL 发送 GET 请求。返回的</code>response` 对象包含了服务器的响应状态、响应头以及响应体。</p>
-<h3 id="2-读取与解码"><a href="#2-读取与解码" class="headerlink" title="2. 读取与解码"></a>2. 读取与解码</h3><p>```python<br>content = response.read().decode(‘utf-8’)<br>这一步包含两个关键操作：</p>
-<ul>
-<li><strong><code>read()</code></strong>: 读取响应体的内容。值得注意的是，该方法返回的是<strong>二进制数据</strong>，通常格式为 <code>&lt;class &#39;bytes&#39;&gt;</code>。直接打印会显示为 <code>b&#39;...&#39;</code> 的形式，可读性差。</li>
-<li><strong><code>decode(&#39;utf-8&#39;)</code></strong>: 为了将二进制数据还原成人类可读的字符串，我们需要进行解码。因为百度首页的编码格式通常为 UTF-8，所以这里使用 UTF-8 进行解码。</li>
-</ul>
-<h2 id="知识点总结"><a href="#知识点总结" class="headerlink" title="知识点总结"></a>知识点总结</h2><div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">步骤</th>
-<th style="text-align:left">方法/变量</th>
-<th style="text-align:left">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><strong>导入模块</strong></td>
-<td style="text-align:left"><code>import urllib.request</code></td>
-<td style="text-align:left">引入处理请求的标准库。</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>定义地址</strong></td>
-<td style="text-align:left"><code>url</code></td>
-<td style="text-align:left">目标网站的统一资源定位符。</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>发起请求</strong></td>
-<td style="text-align:left"><code>urllib.request.urlopen(url)</code></td>
-<td style="text-align:left">向服务器发起 HTTP 请求。</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>读取数据</strong></td>
-<td style="text-align:left"><code>response.read()</code></td>
-<td style="text-align:left">获取二进制格式的网页源码。</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>解码数据</strong></td>
-<td style="text-align:left"><code>.decode(&#39;utf-8&#39;)</code></td>
-<td style="text-align:left">将二进制字节流转换为字符串。</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>通过以上步骤，我们成功实现了获取网页源码的第一步。虽然 <code>urllib</code> 功能强大，但在实际开发中，由于其 API 相对底层，许多开发者也会选择使用更加便捷的第三方库如 <code>requests</code>。但理解 <code>urllib</code> 的原理对于掌握 Python 爬虫至关重要。</p>
-
+          <p>本文详细讲解如何使用Python标准库urllib结合lxml库，爬取站长素材网站的图片资源。重点分析了图片懒加载的处理方式以及分页爬虫的构建逻辑。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/07/26/2024-07-26-urllib_%E7%AB%99%E9%95%BF%E7%B4%A0%E6%9D%90/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -717,7 +680,7 @@ response = urllib.request.urlopen(url)</code>urlopen<code>是</code>urllib.reque
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/07/26/2024-07-26-urllib_%E7%AB%99%E9%95%BF%E7%B4%A0%E6%9D%90/">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/07/26/2024-07-26-urllib_%E8%AF%B7%E6%B1%82%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%AE%9A%E5%88%B6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/img/a.png">
@@ -735,7 +698,7 @@ response = urllib.request.urlopen(url)</code>urlopen<code>是</code>urllib.reque
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/26/2024-07-26-urllib_%E7%AB%99%E9%95%BF%E7%B4%A0%E6%9D%90/" class="post-title-link" itemprop="url">Python爬虫实战：利用urllib下载站长素材图片</a>
+          <a href="/2024/07/26/2024-07-26-urllib_%E8%AF%B7%E6%B1%82%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%AE%9A%E5%88%B6/" class="post-title-link" itemprop="url">Python爬虫进阶：urllib请求对象定制与UA伪装</a>
         </h2>
 
         <div class="post-meta-container">
@@ -750,22 +713,11 @@ response = urllib.request.urlopen(url)</code>urlopen<code>是</code>urllib.reque
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-05-14 13:58:18" itemprop="dateModified" datetime="2026-05-14T13:58:18+08:00">2026-05-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%8A%80%E6%9C%AF%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">技术开发</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%8A%80%E6%9C%AF%E5%BC%80%E5%8F%91/Python%E5%AE%9E%E6%88%98/" itemprop="url" rel="index"><span itemprop="name">Python实战</span></a>
+          <a href="/categories/Python%E7%88%AC%E8%99%AB/" itemprop="url" rel="index"><span itemprop="name">Python爬虫</span></a>
         </span>
     </span>
 
@@ -779,15 +731,55 @@ response = urllib.request.urlopen(url)</code>urlopen<code>是</code>urllib.reque
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>本文详细讲解如何使用Python标准库urllib结合lxml库，爬取站长素材网站的图片资源。重点分析了图片懒加载的处理方式以及分页爬虫的构建逻辑。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/07/26/2024-07-26-urllib_%E7%AB%99%E9%95%BF%E7%B4%A0%E6%9D%90/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在使用 Python 进行网络爬虫开发时，<code>urllib</code> 库是我们最常接触的基础库。很多初学者在使用 <code>urllib.request.urlopen</code> 时会发现：直接请求往往无法获取网页数据，或者被服务器重定向到登录页/错误页。</p>
+<p>这通常是因为我们忽略了 <strong>请求头</strong> 的设置。本文将深入讲解如何通过 <code>urllib</code> 定制请求对象，实现 UA 伪装，以及如何处理 URL 中的中文编码问题。</p>
+<h2 id="一、基础知识：URL-的组成与端口"><a href="#一、基础知识：URL-的组成与端口" class="headerlink" title="一、基础知识：URL 的组成与端口"></a>一、基础知识：URL 的组成与端口</h2><p>在深入代码之前，我们需要理解 URL 的基本构成。一个完整的 URL 包含协议、主机、端口号、路径、参数和锚点。</p>
+<p>在爬虫请求中，<strong>端口号</strong> 往往决定了协议类型：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">协议类型</th>
+<th style="text-align:left">默认端口</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>HTTP</strong></td>
+<td style="text-align:left">80</td>
+<td style="text-align:left">超文本传输协议</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>HTTPS</strong></td>
+<td style="text-align:left">443</td>
+<td style="text-align:left">安全套接字层超文本传输协议</td>
+</tr>
+<tr>
+<td style="text-align:left">MySQL</td>
+<td style="text-align:left">3306</td>
+<td style="text-align:left">数据库服务端口</td>
+</tr>
+<tr>
+<td style="text-align:left">Redis</td>
+<td style="text-align:left">6379</td>
+<td style="text-align:left">缓存服务端口</td>
+</tr>
+<tr>
+<td style="text-align:left">MongoDB</td>
+<td style="text-align:left">27017</td>
+<td style="text-align:left">数据库服务端口</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>我们在代码中指定的 <code>https://www.baidu.com</code>，浏览器实际上默认连接的是 <code>443</code> 端口。</p>
+<h2 id="二、痛点：为什么需要请求对象定制？"><a href="#二、痛点：为什么需要请求对象定制？" class="headerlink" title="二、痛点：为什么需要请求对象定制？"></a>二、痛点：为什么需要请求对象定制？</h2><p><code>urlopen</code> 方法虽然简单，但它只接受 URL 字符串或特定的 Request 对象。</p>
+<p>如果我们直接发起请求，<code>urllib</code> 发送的请求头中的 <code>User-Agent</code> 默认是 <code>Python-urllib/x.x</code>。绝大多数网站会识别出这是一个脚本请求，从而通过反爬机制直接拒绝访问。</p>
+<p><strong>核心问题</strong>：<code>urlopen</code> 方法本身不支持直接传递 <code>headers</code> 字典参数。</p>
+<p><strong>解决方案</strong>：使用 <code>urllib.request.Request</code> 类定制请求对象，将 URL 和 Headers 封装在一起。</p>
+<h2 id="三、实战演练"><a href="#三、实战演练" class="headerlink" title="三、实战演练"></a>三、实战演练</h2><h3 id="1-基础案例：添加-User-Agent-伪装"><a href="#1-基础案例：添加-User-Agent-伪装" class="headerlink" title="1. 基础案例：添加 User-Agent 伪装"></a>1. 基础案例：添加 User-Agent 伪装</h3><p>下面的代码展示了如何创建一个包含自定义 Headers 的请求对象，成功访问百度首页。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line"><span class="comment"># 目标 URL</span></span><br><span class="line">url = <span class="string">&#x27;https://www.baidu.com&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 请求头</span></span><br><span class="line"><span class="comment"># 这是一个标准的浏览器 User-Agent，用于伪装成 Chrome 浏览器</span></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 Edge/16.16299&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 请求对象的定制</span></span><br><span class="line"><span class="comment"># 因为 urlopen 不支持直接传 headers 字典，所以需要先构建 Request 对象</span></span><br><span class="line"><span class="comment"># 关键词传参：将 url 和 headers 封装进 request 对象</span></span><br><span class="line">request = urllib.request.Request(url=url, headers=headers)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 发送请求</span></span><br><span class="line">response = urllib.request.urlopen(request)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取并解码响应内容</span></span><br><span class="line">content = response.read().decode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(content)</span><br><span class="line">**代码解析**：</span><br><span class="line"><span class="number">1.</span>  **headers 构建**：我们从浏览器开发者工具中复制真实的 User-Agent 字符串。</span><br><span class="line"><span class="number">2.</span>  **Request 对象**：通过 `urllib.request.Request` 将 URL 和 Headers 绑定。</span><br><span class="line"><span class="number">3.</span>  **发送请求**：`urlopen` 接收的是定制好的 `request` 对象，而非单纯的 URL 字符串。</span><br><span class="line"></span><br><span class="line"><span class="comment">### 2. 进阶案例：URL 参数编码</span></span><br><span class="line"></span><br><span class="line">在实际爬虫中，我们经常需要搜索特定关键词（如中文）。URL 中如果包含中文或其他特殊字符，必须进行编码（Percent-encoding），否则会抛出错误或乱码。</span><br><span class="line"></span><br><span class="line">`urllib.parse.quote` 方法可以将字符串转换为 URL 兼容的编码格式。</span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"><span class="keyword">import</span> urllib.parse</span><br><span class="line"></span><br><span class="line"><span class="comment"># 基础 URL，注意 &#x27;wd&#x27; 是百度的查询参数</span></span><br><span class="line">base_url = <span class="string">&#x27;https://www.baidu.com/s?wd=&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 需要查询的关键词</span></span><br><span class="line">keyword = <span class="string">&quot;你好&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># URL 编码转换</span></span><br><span class="line"><span class="comment"># 将中文 &quot;你好&quot; 转换为 Unicode 编码格式 (例如: %E4%BD%A0%E5%A5%BD)</span></span><br><span class="line">name = urllib.parse.quote(keyword)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;编码后的关键词: <span class="subst">&#123;name&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 拼接完整的 URL</span></span><br><span class="line">full_url = base_url + name</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定制请求对象 (复用之前的 headers)</span></span><br><span class="line">request = urllib.request.Request(url=full_url, headers=headers)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 发送请求并获取响应</span></span><br><span class="line">response = urllib.request.urlopen(request)</span><br><span class="line">content = response.read().decode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(content)</span><br><span class="line">**关键点说明**：</span><br><span class="line">- `urllib.parse.quote(<span class="string">&quot;你好&quot;</span>)`：将中文字符转换为 `%xx` 形式，这是 HTTP 协议传输的标准要求。</span><br><span class="line">- `full_url` 拼接：在爬虫开发中，构建带参数的 URL 是最常见的操作之一。</span><br><span class="line"></span><br><span class="line"><span class="comment">## 总结</span></span><br><span class="line"></span><br><span class="line">本文介绍了 `urllib` 库中请求对象定制的关键技术：</span><br><span class="line"><span class="number">1.</span>  使用 `urllib.request.Request` 封装 URL 和 Headers，解决 `urlopen` 无法携带请求头的问题。</span><br><span class="line"><span class="number">2.</span>  通过设置 `User-Agent` 实现浏览器伪装，绕过基础的反爬检测。</span><br><span class="line"><span class="number">3.</span>  使用 `urllib.parse.quote` 对 URL 参数进行编码，解决中文参数传输问题。</span><br><span class="line"></span><br><span class="line">掌握这三点，即可应对绝大多数简单的网页爬取需求。</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -905,7 +897,7 @@ response = urllib.request.urlopen(url)</code>urlopen<code>是</code>urllib.reque
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/07/26/2024-07-26-urllib_%E8%AF%B7%E6%B1%82%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%AE%9A%E5%88%B6/">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/07/26/2024-07-26-requests_post%E8%AF%B7%E6%B1%82/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/img/a.png">
@@ -923,7 +915,7 @@ response = urllib.request.urlopen(url)</code>urlopen<code>是</code>urllib.reque
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/26/2024-07-26-urllib_%E8%AF%B7%E6%B1%82%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%AE%9A%E5%88%B6/" class="post-title-link" itemprop="url">Python爬虫进阶：urllib请求对象定制与UA伪装</a>
+          <a href="/2024/07/26/2024-07-26-requests_post%E8%AF%B7%E6%B1%82/" class="post-title-link" itemprop="url">Python爬虫实战：详解Requests库发送POST请求</a>
         </h2>
 
         <div class="post-meta-container">
@@ -938,11 +930,22 @@ response = urllib.request.urlopen(url)</code>urlopen<code>是</code>urllib.reque
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 13:56:56" itemprop="dateModified" datetime="2026-05-14T13:56:56+08:00">2026-05-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python%E7%88%AC%E8%99%AB/" itemprop="url" rel="index"><span itemprop="name">Python爬虫</span></a>
+          <a href="/categories/%E6%8A%80%E6%9C%AF%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">技术开发</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF%E5%BC%80%E5%8F%91/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
         </span>
     </span>
 
@@ -956,55 +959,10 @@ response = urllib.request.urlopen(url)</code>urlopen<code>是</code>urllib.reque
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在使用 Python 进行网络爬虫开发时，<code>urllib</code> 库是我们最常接触的基础库。很多初学者在使用 <code>urllib.request.urlopen</code> 时会发现：直接请求往往无法获取网页数据，或者被服务器重定向到登录页/错误页。</p>
-<p>这通常是因为我们忽略了 <strong>请求头</strong> 的设置。本文将深入讲解如何通过 <code>urllib</code> 定制请求对象，实现 UA 伪装，以及如何处理 URL 中的中文编码问题。</p>
-<h2 id="一、基础知识：URL-的组成与端口"><a href="#一、基础知识：URL-的组成与端口" class="headerlink" title="一、基础知识：URL 的组成与端口"></a>一、基础知识：URL 的组成与端口</h2><p>在深入代码之前，我们需要理解 URL 的基本构成。一个完整的 URL 包含协议、主机、端口号、路径、参数和锚点。</p>
-<p>在爬虫请求中，<strong>端口号</strong> 往往决定了协议类型：</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">协议类型</th>
-<th style="text-align:left">默认端口</th>
-<th style="text-align:left">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><strong>HTTP</strong></td>
-<td style="text-align:left">80</td>
-<td style="text-align:left">超文本传输协议</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>HTTPS</strong></td>
-<td style="text-align:left">443</td>
-<td style="text-align:left">安全套接字层超文本传输协议</td>
-</tr>
-<tr>
-<td style="text-align:left">MySQL</td>
-<td style="text-align:left">3306</td>
-<td style="text-align:left">数据库服务端口</td>
-</tr>
-<tr>
-<td style="text-align:left">Redis</td>
-<td style="text-align:left">6379</td>
-<td style="text-align:left">缓存服务端口</td>
-</tr>
-<tr>
-<td style="text-align:left">MongoDB</td>
-<td style="text-align:left">27017</td>
-<td style="text-align:left">数据库服务端口</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>我们在代码中指定的 <code>https://www.baidu.com</code>，浏览器实际上默认连接的是 <code>443</code> 端口。</p>
-<h2 id="二、痛点：为什么需要请求对象定制？"><a href="#二、痛点：为什么需要请求对象定制？" class="headerlink" title="二、痛点：为什么需要请求对象定制？"></a>二、痛点：为什么需要请求对象定制？</h2><p><code>urlopen</code> 方法虽然简单，但它只接受 URL 字符串或特定的 Request 对象。</p>
-<p>如果我们直接发起请求，<code>urllib</code> 发送的请求头中的 <code>User-Agent</code> 默认是 <code>Python-urllib/x.x</code>。绝大多数网站会识别出这是一个脚本请求，从而通过反爬机制直接拒绝访问。</p>
-<p><strong>核心问题</strong>：<code>urlopen</code> 方法本身不支持直接传递 <code>headers</code> 字典参数。</p>
-<p><strong>解决方案</strong>：使用 <code>urllib.request.Request</code> 类定制请求对象，将 URL 和 Headers 封装在一起。</p>
-<h2 id="三、实战演练"><a href="#三、实战演练" class="headerlink" title="三、实战演练"></a>三、实战演练</h2><h3 id="1-基础案例：添加-User-Agent-伪装"><a href="#1-基础案例：添加-User-Agent-伪装" class="headerlink" title="1. 基础案例：添加 User-Agent 伪装"></a>1. 基础案例：添加 User-Agent 伪装</h3><p>下面的代码展示了如何创建一个包含自定义 Headers 的请求对象，成功访问百度首页。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line"><span class="comment"># 目标 URL</span></span><br><span class="line">url = <span class="string">&#x27;https://www.baidu.com&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 请求头</span></span><br><span class="line"><span class="comment"># 这是一个标准的浏览器 User-Agent，用于伪装成 Chrome 浏览器</span></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 Edge/16.16299&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 请求对象的定制</span></span><br><span class="line"><span class="comment"># 因为 urlopen 不支持直接传 headers 字典，所以需要先构建 Request 对象</span></span><br><span class="line"><span class="comment"># 关键词传参：将 url 和 headers 封装进 request 对象</span></span><br><span class="line">request = urllib.request.Request(url=url, headers=headers)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 发送请求</span></span><br><span class="line">response = urllib.request.urlopen(request)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取并解码响应内容</span></span><br><span class="line">content = response.read().decode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(content)</span><br><span class="line">**代码解析**：</span><br><span class="line"><span class="number">1.</span>  **headers 构建**：我们从浏览器开发者工具中复制真实的 User-Agent 字符串。</span><br><span class="line"><span class="number">2.</span>  **Request 对象**：通过 `urllib.request.Request` 将 URL 和 Headers 绑定。</span><br><span class="line"><span class="number">3.</span>  **发送请求**：`urlopen` 接收的是定制好的 `request` 对象，而非单纯的 URL 字符串。</span><br><span class="line"></span><br><span class="line"><span class="comment">### 2. 进阶案例：URL 参数编码</span></span><br><span class="line"></span><br><span class="line">在实际爬虫中，我们经常需要搜索特定关键词（如中文）。URL 中如果包含中文或其他特殊字符，必须进行编码（Percent-encoding），否则会抛出错误或乱码。</span><br><span class="line"></span><br><span class="line">`urllib.parse.quote` 方法可以将字符串转换为 URL 兼容的编码格式。</span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"><span class="keyword">import</span> urllib.parse</span><br><span class="line"></span><br><span class="line"><span class="comment"># 基础 URL，注意 &#x27;wd&#x27; 是百度的查询参数</span></span><br><span class="line">base_url = <span class="string">&#x27;https://www.baidu.com/s?wd=&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 需要查询的关键词</span></span><br><span class="line">keyword = <span class="string">&quot;你好&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># URL 编码转换</span></span><br><span class="line"><span class="comment"># 将中文 &quot;你好&quot; 转换为 Unicode 编码格式 (例如: %E4%BD%A0%E5%A5%BD)</span></span><br><span class="line">name = urllib.parse.quote(keyword)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;编码后的关键词: <span class="subst">&#123;name&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 拼接完整的 URL</span></span><br><span class="line">full_url = base_url + name</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定制请求对象 (复用之前的 headers)</span></span><br><span class="line">request = urllib.request.Request(url=full_url, headers=headers)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 发送请求并获取响应</span></span><br><span class="line">response = urllib.request.urlopen(request)</span><br><span class="line">content = response.read().decode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(content)</span><br><span class="line">**关键点说明**：</span><br><span class="line">- `urllib.parse.quote(<span class="string">&quot;你好&quot;</span>)`：将中文字符转换为 `%xx` 形式，这是 HTTP 协议传输的标准要求。</span><br><span class="line">- `full_url` 拼接：在爬虫开发中，构建带参数的 URL 是最常见的操作之一。</span><br><span class="line"></span><br><span class="line"><span class="comment">## 总结</span></span><br><span class="line"></span><br><span class="line">本文介绍了 `urllib` 库中请求对象定制的关键技术：</span><br><span class="line"><span class="number">1.</span>  使用 `urllib.request.Request` 封装 URL 和 Headers，解决 `urlopen` 无法携带请求头的问题。</span><br><span class="line"><span class="number">2.</span>  通过设置 `User-Agent` 实现浏览器伪装，绕过基础的反爬检测。</span><br><span class="line"><span class="number">3.</span>  使用 `urllib.parse.quote` 对 URL 参数进行编码，解决中文参数传输问题。</span><br><span class="line"></span><br><span class="line">掌握这三点，即可应对绝大多数简单的网页爬取需求。</span><br></pre></td></tr></table></figure>
+          <p>在网络爬虫开发中，除了常见的 GET 请求，POST 请求同样至关重要。POST 请求通常用于提交表单数据、上传文件或调用 API 接口。本文将以百度翻译 API 为例，详细讲解如何使用 Python 的 <code>requests</code> 库构造并发送 POST 请求。</p>
+<h2 id="场景分析"><a href="#场景分析" class="headerlink" title="场景分析"></a>场景分析</h2><p>目标接口为百度翻译的 <code>v2transapi</code>，这是一个典型的动态加载接口。通过浏览器开发者工具（F12）抓包分析，我们发现该接口需要携带特定的请求头和表单数据才能正常响应。</p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><p>以下是完整的 Python 代码示例。为了防止请求被拦截，我们需要在 Headers 中伪装浏览器，并携带有效的 Cookie 进行身份验证。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="comment"># 1. 定义目标接口 URL</span></span><br><span class="line">url = <span class="string">&#x27;https://fanyi.baidu.com/v2transapi?from=en&amp;to=zh&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 构造请求头</span></span><br><span class="line"><span class="comment"># 注意：Cookie 和 Token 具有时效性，以下数值仅为示例，实际使用时需从浏览器实时获取</span></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="comment"># 模拟浏览器身份，防止因缺少UA被拒绝</span></span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36&#x27;</span>,</span><br><span class="line">    <span class="comment"># Cookie 用于维持会话状态，包含用户的登录信息</span></span><br><span class="line">    <span class="string">&#x27;Cookie&#x27;</span>: <span class="string">&#x27;BIDUPSID=4051DD61A35ADB02F6DBB9362C65230B; PSTM=1691472145; BAIDUID=4051DD61A35ADB02E71B03D86B63E5F3:FG=1; REALTIME_TRANS_SWITCH=1; FANYI_WORD_SWITCH=1; HISTORY_SWITCH=1; SOUND_SPD_SWITCH=1; SOUND_PREFER_SWITCH=1; APPGUIDE_10_7_2=1; smallFlowVersion=old; BDUSS=25reVZxN3puRTlZRmVkYkNpQ2REYkx1TFRyYk8wd3d-ei1ON3RGMjdwUnFyRzVtRUFBQUFBJCQAAAAAAQAAAAEAAABEqXCBU3djbWIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGofR2ZqH0dmd; BDUSS_BFESS=25reVZxN3puRTlZRmVkYkNpQ2REYkx1TFRyYk8wd3d-ei1ON3RGMjdwUnFyRzVtRUFBQUFBJCQAAAAAAQAAAAEAAABEqXCBU3djbWIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGofR2ZqH0dmd; APPGUIDE_10_7_8=1; APPGUIDE_10_7_1=1; MCITY=-286%3A; H_PS_PSSID=60277_60361; H_WISE_SIDS=60277_60361; H_WISE_SIDS_BFESS=60277_60361; BDORZ=FAE1F8CFA4E8841CC28A015FEAEE495D; BA_HECTOR=21ah200120840584ak05050h0s6f6o1j975q01v; ZFY=6TGjMTdRv2Hm2U6qBurH:ANpw:BH01zqfPCmxsI4SsNxs:C; BAIDUID_BFESS=4051DD61A35ADB02E71B03D86B63E5F3:FG=1; BDRCVFR[feWj1Vr5u3D]=I67x6TjHwwYf0; PSINO=2; delPer=0; ab_sr=1.0.1_YjllYzZiNGZmMGQ3Y2MzYTA3ZGZiN2U4YzJhMDRlNzI1MjM2Nzk4ZmI3ZDI3NzQ0N2Y3MmQ5NzdmYTJlYjlhNzgwZjMxY2IyMjg3NmMzZjI5MTljN2U2ZDRmMmU2N2NmMmUxMDZhZjI0NTFmM2RhNTgxMjVmNTU4ZDM4Y2IxNzY2MDczODkyNzU3YWM2NDI3ZjIwNzgwOTVhNmJmNmVjNDM3ZWJlY2U2MjM2Nzg3MjcyZTM3ZWM4MjI0MzYxNzEx&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 构造表单数据</span></span><br><span class="line"><span class="comment"># 这是 POST 请求的核心部分，对应接口所需的参数</span></span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="string">&#x27;from&#x27;</span>: <span class="string">&#x27;en&#x27;</span>,           <span class="comment"># 源语言：英语</span></span><br><span class="line">    <span class="string">&#x27;to&#x27;</span>: <span class="string">&#x27;zh&#x27;</span>,             <span class="comment"># 目标语言：中文</span></span><br><span class="line">    <span class="string">&#x27;query&#x27;</span>: <span class="string">&#x27;eye&#x27;</span>,         <span class="comment"># 待翻译的单词</span></span><br><span class="line">    <span class="string">&#x27;transtype&#x27;</span>: <span class="string">&#x27;realtime&#x27;</span>,<span class="comment"># 翻译类型</span></span><br><span class="line">    <span class="string">&#x27;simple_means_flag&#x27;</span>: <span class="string">&#x27;3&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;sign&#x27;</span>: <span class="string">&#x27;198772.518981&#x27;</span>, <span class="comment"># 关键签名参数，由前端JS动态生成</span></span><br><span class="line">    <span class="string">&#x27;token&#x27;</span>: <span class="string">&#x27;e4649cb1ca39571638fbe20768a03def&#x27;</span>, <span class="comment"># 身份令牌</span></span><br><span class="line">    <span class="string">&#x27;domain&#x27;</span>: <span class="string">&#x27;common&#x27;</span>      <span class="comment"># 领域设置</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. 发送 POST 请求</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    response = requests.post(url, headers=headers, data=data)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 5. 处理响应结果</span></span><br><span class="line">    <span class="keyword">if</span> response.status_code == <span class="number">200</span>:</span><br><span class="line">        <span class="comment"># 以 JSON 格式输出返回内容</span></span><br><span class="line">        <span class="built_in">print</span>(response.json())</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;请求失败，状态码: <span class="subst">&#123;response.status_code&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">except</span> requests.exceptions.RequestException <span class="keyword">as</span> e:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;请求发生异常: <span class="subst">&#123;e&#125;</span>&quot;</span>)</span><br><span class="line"><span class="comment">## 核心参数解析</span></span><br><span class="line"></span><br><span class="line">在构造 POST 请求时，有几个关键点需要注意：</span><br><span class="line"></span><br><span class="line"><span class="number">1.</span>  **URL 参数**：`?<span class="keyword">from</span>=en&amp;to=zh` 指明了翻译的方向，通常也可以放在 `data` 表单中，具体视接口定义而定。</span><br><span class="line"><span class="number">2.</span>  **Headers (请求头)**：</span><br><span class="line">    *   **User-Agent**：必填项，用于伪装成浏览器访问，避免被防火墙直接拦截。</span><br><span class="line">    *   **Cookie**：用于维持登录状态。许多接口（如百度翻译）在频繁访问或使用高级功能时需要登录态。</span><br><span class="line"><span class="number">3.</span>  **Data (请求体)**：</span><br><span class="line">    *   **sign &amp; token**：这是反爬虫的核心。大多数现代网站的 API 接口会通过 JavaScript 动态生成 `sign`（签名）和 `token`。如果这些参数过期或错误，服务器将返回错误代码（如 <span class="number">998</span>、<span class="number">999</span> 等）。在实际爬虫开发中，通常需要逆向分析前端 JS 代码来找到生成算法。</span><br><span class="line"></span><br><span class="line"><span class="comment">## 总结</span></span><br><span class="line"></span><br><span class="line">使用 `requests` 发送 POST 请求并不复杂，难点在于分析接口所需的参数格式和反爬策略。建议在实际开发中，优先使用浏览器开发者工具对比请求参数，确保 `headers` 和 `data` 字段的完整性与准确性。</span><br></pre></td></tr></table></figure>
       
     </div>
 

@@ -490,6 +490,129 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/22/2026-05-22-P12342-P12342-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-B-Python-B-%E7%AC%AC%E4%BA%8C%E5%9C%BA-%E6%95%B0%E5%88%97%E5%B7%AE%E5%88%86-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/22/2026-05-22-P12342-P12342-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-B-Python-B-%E7%AC%AC%E4%BA%8C%E5%9C%BA-%E6%95%B0%E5%88%97%E5%B7%AE%E5%88%86-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12342 - P12342 [蓝桥杯 2025 省 B/Python B 第二场] 数列差分 - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-05-22 00:00:00 / 修改时间：16:33:45" itemprop="dateCreated datePublished" datetime="2026-05-22T00:00:00+08:00">2026-05-22</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="洛谷-P12342-数列差分-贪心算法优化详解"><a href="#洛谷-P12342-数列差分-贪心算法优化详解" class="headerlink" title="[洛谷 P12342] 数列差分 + 贪心算法优化详解"></a>[洛谷 P12342] 数列差分 + 贪心算法优化详解</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
+<li><strong>题目来源</strong>: 洛谷 (<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P12342">https://www.luogu.com.cn/problem/P12342</a>)</li>
+<li><strong>题目难度</strong>: ★★★☆☆</li>
+<li><strong>标签分类</strong>: 贪心算法、排序</li>
+<li><strong>核心考点</strong>: 排序、贪心算法、差分</li>
+</ul>
+<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><ul>
+<li><strong>问题描述</strong>: 给定两个整数数组A和B，数组A中的元素均大于0，数组B中的元素可能包含0。要求尽可能多地保留数组B中的元素，使得对于每个保留的元素b，都能找到一个比它大的元素a，使得a-b&gt;0。</li>
+<li><strong>输入格式</strong>: 第一行包含一个整数n，表示数组A和B的长度。接下来一行包含n个整数，表示数组A的元素。再接下来一行包含n个整数，表示数组B的元素。</li>
+<li><strong>输出格式</strong>: 输出一个整数，表示保留的B中元素的数量。</li>
+<li><strong>样例分析</strong>:<ul>
+<li>输入: <code>4 1 3 5 0 2 4</code></li>
+<li>输出: <code>2</code></li>
+<li>解释: 保留B中的元素0和4，因为0可以对应A中的1，4可以对应A中的5。</li>
+</ul>
+</li>
+</ul>
+<h3 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
+<li>本题的核心是找到一种方法，使得尽可能多的B数组元素可以被保留，并且满足条件a-b&gt;0。</li>
+<li>由于A和B都是排序好的，我们可以利用贪心算法的思想来解决这个问题。</li>
+</ul>
+<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
+<li><strong>朴素思路</strong>: 逐个比较A和B中的元素，如果A中的元素大于B中的元素，则保留B中的元素。</li>
+<li><strong>优化路径</strong>: 由于A和B已经排序，我们可以直接使用双指针的方法来优化这个过程。</li>
+<li><strong>算法选择</strong>: 贪心算法，因为我们可以通过比较A和B的元素来决定是否保留B中的元素。</li>
+<li><strong>核心思想</strong>: 对于每个B中的元素，我们寻找A中第一个大于它的元素，如果找到，则保留这个B中的元素。</li>
+</ul>
+<h4 id="4-3-算法实现"><a href="#4-3-算法实现" class="headerlink" title="4.3 算法实现"></a>4.3 算法实现</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    <span class="built_in">input</span> = sys.stdin.readline</span><br><span class="line">    n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">    a = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))</span><br><span class="line">    b = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))</span><br><span class="line"></span><br><span class="line">    a.sort()</span><br><span class="line">    b.sort()</span><br><span class="line"></span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    keep = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> b_val <span class="keyword">in</span> b:</span><br><span class="line">        <span class="keyword">while</span> i &lt; n <span class="keyword">and</span> a[i] &lt;= b_val:</span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> i &lt; n:</span><br><span class="line">            keep += <span class="number">1</span></span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="built_in">print</span>(n - keep)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+<h4 id="4-4-代码解析"><a href="#4-4-代码解析" class="headerlink" title="4.4 代码解析"></a>4.4 代码解析</h4><ul>
+<li><code>a.sort()</code> 和 <code>b.sort()</code> 对数组A和B进行排序。</li>
+<li><code>i</code> 是一个指针，用于遍历数组A。</li>
+<li><code>keep</code> 用于记录保留的B中元素的数量。</li>
+<li>循环遍历数组B中的每个元素，对于每个元素，使用<code>while</code>循环跳过所有小于等于当前元素的A中的元素。</li>
+<li>如果找到了一个大于当前元素的A中的元素，则保留这个B中的元素，并将<code>keep</code>加1。</li>
+<li>如果没有找到，则跳出循环。</li>
+</ul>
+<h3 id="5-复杂度分析"><a href="#5-复杂度分析" class="headerlink" title="5. 复杂度分析"></a>5. 复杂度分析</h3><ul>
+<li><strong>时间复杂度</strong>: O(nlogn)，排序占主导，需要nlogn时间。</li>
+<li><strong>空间复杂度</strong>: O(n)，排序后的数组需要额外的空间。</li>
+</ul>
+<h3 id="6-输入输出示例"><a href="#6-输入输出示例" class="headerlink" title="6. 输入输出示例"></a>6. 输入输出示例</h3><ul>
+<li><strong>样例输入</strong>: <code>4 1 3 5 0 2 4</code></li>
+<li><strong>样例输出</strong>: <code>2</code></li>
+</ul>
+<h3 id="7-常见错误与调试技巧"><a href="#7-常见错误与调试技巧" class="headerlink" title="7. 常见错误与调试技巧"></a>7. 常见错误与调试技巧</h3><ul>
+<li><strong>易错点</strong>: 忘记排序数组，或者指针i的移动逻辑错误。</li>
+<li><strong>调试方法</strong>: 使用调试工具逐步执行代码，观察指针i的移动和保留元素的逻辑。</li>
+<li><strong>测试用例</strong>: 使用包含不同情况的数据进行测试，例如所有B中的元素都相同，或者所有B中的元素都不同。</li>
+</ul>
+<h3 id="8-总结与扩展"><a href="#8-总结与扩展" class="headerlink" title="8. 总结与扩展"></a>8. 总结与扩展</h3><ul>
+<li><strong>核心收获</strong>: 学会了如何使用排序和贪心算法解决数列差分问题。</li>
+<li><strong>举一反三</strong>: 类似的问题还有最大子序列和、最大子段和等。</li>
+<li><strong>进阶方向</strong>: 研究更复杂的贪心算法问题，以及如何将贪心算法与其他算法结合使用。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/22/2026-05-22-P12341-P12341-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-A-Python-B-%E7%AC%AC%E4%BA%8C%E5%9C%BA-%E6%B6%88%E6%B6%88%E4%B9%90-%E6%B4%9B%E8%B0%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -602,129 +725,6 @@
 <li><strong>时间复杂度</strong>: O(n)，因为每个字符只处理一次。</li>
 <li><strong>空间复杂度</strong>: O(n)，用于存储字符串和变量。</li>
 <li><strong>复杂度对比</strong>: 与简单的暴力解法相比，本解法的时间和空间效率更高。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/22/2026-05-22-P12342-P12342-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-B-Python-B-%E7%AC%AC%E4%BA%8C%E5%9C%BA-%E6%95%B0%E5%88%97%E5%B7%AE%E5%88%86-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/22/2026-05-22-P12342-P12342-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-B-Python-B-%E7%AC%AC%E4%BA%8C%E5%9C%BA-%E6%95%B0%E5%88%97%E5%B7%AE%E5%88%86-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12342 - P12342 [蓝桥杯 2025 省 B/Python B 第二场] 数列差分 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2026-05-22 00:00:00 / 修改时间：16:33:45" itemprop="dateCreated datePublished" datetime="2026-05-22T00:00:00+08:00">2026-05-22</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="洛谷-P12342-数列差分-贪心算法优化详解"><a href="#洛谷-P12342-数列差分-贪心算法优化详解" class="headerlink" title="[洛谷 P12342] 数列差分 + 贪心算法优化详解"></a>[洛谷 P12342] 数列差分 + 贪心算法优化详解</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
-<li><strong>题目来源</strong>: 洛谷 (<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P12342">https://www.luogu.com.cn/problem/P12342</a>)</li>
-<li><strong>题目难度</strong>: ★★★☆☆</li>
-<li><strong>标签分类</strong>: 贪心算法、排序</li>
-<li><strong>核心考点</strong>: 排序、贪心算法、差分</li>
-</ul>
-<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><ul>
-<li><strong>问题描述</strong>: 给定两个整数数组A和B，数组A中的元素均大于0，数组B中的元素可能包含0。要求尽可能多地保留数组B中的元素，使得对于每个保留的元素b，都能找到一个比它大的元素a，使得a-b&gt;0。</li>
-<li><strong>输入格式</strong>: 第一行包含一个整数n，表示数组A和B的长度。接下来一行包含n个整数，表示数组A的元素。再接下来一行包含n个整数，表示数组B的元素。</li>
-<li><strong>输出格式</strong>: 输出一个整数，表示保留的B中元素的数量。</li>
-<li><strong>样例分析</strong>:<ul>
-<li>输入: <code>4 1 3 5 0 2 4</code></li>
-<li>输出: <code>2</code></li>
-<li>解释: 保留B中的元素0和4，因为0可以对应A中的1，4可以对应A中的5。</li>
-</ul>
-</li>
-</ul>
-<h3 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
-<li>本题的核心是找到一种方法，使得尽可能多的B数组元素可以被保留，并且满足条件a-b&gt;0。</li>
-<li>由于A和B都是排序好的，我们可以利用贪心算法的思想来解决这个问题。</li>
-</ul>
-<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
-<li><strong>朴素思路</strong>: 逐个比较A和B中的元素，如果A中的元素大于B中的元素，则保留B中的元素。</li>
-<li><strong>优化路径</strong>: 由于A和B已经排序，我们可以直接使用双指针的方法来优化这个过程。</li>
-<li><strong>算法选择</strong>: 贪心算法，因为我们可以通过比较A和B的元素来决定是否保留B中的元素。</li>
-<li><strong>核心思想</strong>: 对于每个B中的元素，我们寻找A中第一个大于它的元素，如果找到，则保留这个B中的元素。</li>
-</ul>
-<h4 id="4-3-算法实现"><a href="#4-3-算法实现" class="headerlink" title="4.3 算法实现"></a>4.3 算法实现</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    <span class="built_in">input</span> = sys.stdin.readline</span><br><span class="line">    n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">    a = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))</span><br><span class="line">    b = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))</span><br><span class="line"></span><br><span class="line">    a.sort()</span><br><span class="line">    b.sort()</span><br><span class="line"></span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    keep = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> b_val <span class="keyword">in</span> b:</span><br><span class="line">        <span class="keyword">while</span> i &lt; n <span class="keyword">and</span> a[i] &lt;= b_val:</span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> i &lt; n:</span><br><span class="line">            keep += <span class="number">1</span></span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="built_in">print</span>(n - keep)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
-<h4 id="4-4-代码解析"><a href="#4-4-代码解析" class="headerlink" title="4.4 代码解析"></a>4.4 代码解析</h4><ul>
-<li><code>a.sort()</code> 和 <code>b.sort()</code> 对数组A和B进行排序。</li>
-<li><code>i</code> 是一个指针，用于遍历数组A。</li>
-<li><code>keep</code> 用于记录保留的B中元素的数量。</li>
-<li>循环遍历数组B中的每个元素，对于每个元素，使用<code>while</code>循环跳过所有小于等于当前元素的A中的元素。</li>
-<li>如果找到了一个大于当前元素的A中的元素，则保留这个B中的元素，并将<code>keep</code>加1。</li>
-<li>如果没有找到，则跳出循环。</li>
-</ul>
-<h3 id="5-复杂度分析"><a href="#5-复杂度分析" class="headerlink" title="5. 复杂度分析"></a>5. 复杂度分析</h3><ul>
-<li><strong>时间复杂度</strong>: O(nlogn)，排序占主导，需要nlogn时间。</li>
-<li><strong>空间复杂度</strong>: O(n)，排序后的数组需要额外的空间。</li>
-</ul>
-<h3 id="6-输入输出示例"><a href="#6-输入输出示例" class="headerlink" title="6. 输入输出示例"></a>6. 输入输出示例</h3><ul>
-<li><strong>样例输入</strong>: <code>4 1 3 5 0 2 4</code></li>
-<li><strong>样例输出</strong>: <code>2</code></li>
-</ul>
-<h3 id="7-常见错误与调试技巧"><a href="#7-常见错误与调试技巧" class="headerlink" title="7. 常见错误与调试技巧"></a>7. 常见错误与调试技巧</h3><ul>
-<li><strong>易错点</strong>: 忘记排序数组，或者指针i的移动逻辑错误。</li>
-<li><strong>调试方法</strong>: 使用调试工具逐步执行代码，观察指针i的移动和保留元素的逻辑。</li>
-<li><strong>测试用例</strong>: 使用包含不同情况的数据进行测试，例如所有B中的元素都相同，或者所有B中的元素都不同。</li>
-</ul>
-<h3 id="8-总结与扩展"><a href="#8-总结与扩展" class="headerlink" title="8. 总结与扩展"></a>8. 总结与扩展</h3><ul>
-<li><strong>核心收获</strong>: 学会了如何使用排序和贪心算法解决数列差分问题。</li>
-<li><strong>举一反三</strong>: 类似的问题还有最大子序列和、最大子段和等。</li>
-<li><strong>进阶方向</strong>: 研究更复杂的贪心算法问题，以及如何将贪心算法与其他算法结合使用。</li>
 </ul>
 
       
@@ -925,7 +925,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/22/2026-05-22-P12889-P12889-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-Java-B-%E6%83%85%E7%BB%AA%E9%93%BE%E8%B7%AF-%E6%B4%9B%E8%B0%B7/">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/22/2026-05-22-P12879-P12879-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-C-%E6%89%93%E7%A0%B4%E8%A7%84%E5%88%99-%E6%B4%9B%E8%B0%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/img/a.png">
@@ -943,7 +943,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/22/2026-05-22-P12889-P12889-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-Java-B-%E6%83%85%E7%BB%AA%E9%93%BE%E8%B7%AF-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12889 - P12889 [蓝桥杯 2025 国 Java B] 情绪链路 - 洛谷</a>
+          <a href="/2026/05/22/2026-05-22-P12879-P12879-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-C-%E6%89%93%E7%A0%B4%E8%A7%84%E5%88%99-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12879 - P12879 [蓝桥杯 2025 国 C] 打破规则 - 洛谷</a>
         </h2>
 
         <div class="post-meta-container">
@@ -955,7 +955,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2026-05-22 00:00:00 / 修改时间：16:35:33" itemprop="dateCreated datePublished" datetime="2026-05-22T00:00:00+08:00">2026-05-22</time>
+      <time title="创建时间：2026-05-22 00:00:00 / 修改时间：16:34:16" itemprop="dateCreated datePublished" datetime="2026-05-22T00:00:00+08:00">2026-05-22</time>
     </span>
 
   
@@ -968,20 +968,51 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="洛谷-P12889-情绪链路-洛谷"><a href="#洛谷-P12889-情绪链路-洛谷" class="headerlink" title="[洛谷 P12889] 情绪链路 - 洛谷"></a>[洛谷 P12889] 情绪链路 - 洛谷</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
-<li><strong>题目来源</strong>: 洛谷</li>
-<li><strong>题目难度</strong>: ★★★★☆</li>
-<li><strong>标签分类</strong>: 算法, 数据结构</li>
-<li><strong>核心考点</strong>: 动态规划</li>
+          <h1 id="洛谷-P12879-打破规则-洛谷"><a href="#洛谷-P12879-打破规则-洛谷" class="headerlink" title="洛谷 P12879 打破规则 - 洛谷"></a>洛谷 P12879 打破规则 - 洛谷</h1><h2 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h2><h3 id="题号：P12879"><a href="#题号：P12879" class="headerlink" title="题号：P12879"></a>题号：P12879</h3><h3 id="算法类型：动态规划"><a href="#算法类型：动态规划" class="headerlink" title="算法类型：动态规划"></a>算法类型：动态规划</h3><h3 id="核心考点：最小操作次数"><a href="#核心考点：最小操作次数" class="headerlink" title="核心考点：最小操作次数"></a>核心考点：最小操作次数</h3><h2 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h2><ul>
+<li><strong>题目来源</strong>: <a target="_blank" rel="noopener" href="https://luogu.com.cn/problemset/index.php?m=p12879&amp;c=index">https://luogu.com.cn/problemset/index.php?m=p12879&amp;c=index</a></li>
+<li><strong>题目难度</strong>: ★★★☆☆</li>
+<li><strong>标签分类</strong>: 数据结构、动态规划</li>
+<li><strong>核心考点</strong>: 如何通过减少指针长度来打破制造商的规则，并计算最小操作次数。</li>
 </ul>
-<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><p>在本题中，我们需要找到一个非空连续子数组，使得将其元素乘以 ( k ) 后，整个数组的元素和最大。原数组的总和是固定的，我们需要在原总和的基础上加上增量 (\Delta = (k-1) \times \sum_{i \in [L,R]} a_i)。因此，问题转化为在数组 ( b ) 中找到一个非空连续子数组，使得子数组的和最大。</p>
-<h3 id="算法思路（核心部分）"><a href="#算法思路（核心部分）" class="headerlink" title="算法思路（核心部分）"></a>算法思路（核心部分）</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><p>问题的本质是寻找一个最大子段和，使得在子段中的每个元素都乘以 ( k ) 后，整个数组的和最大。我们可以通过动态规划来解决这个问题。</p>
+<h2 id="题意解析-1"><a href="#题意解析-1" class="headerlink" title="题意解析"></a>题意解析</h2><h3 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h3><ul>
+<li><strong>输入</strong>:  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data = [3, 5, 2]</span><br></pre></td></tr></table></figure></li>
+<li><strong>输出</strong>:  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ans = 0</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="样例分析"><a href="#样例分析" class="headerlink" title="样例分析"></a>样例分析</h3><ul>
+<li><strong>样例1</strong>: <code>data = [3, 5, 2]</code><ul>
+<li>排序后为 <code>[2, 3, 5]</code></li>
+<li><code>ans = min(arr[1] - arr[0], arr[2] - arr[1])</code></li>
+<li>输出结果为 <code>ans = 0</code></li>
+</ul>
+</li>
+<li><strong>样例2</strong>: <code>data = [3, 5, 2]</code><ul>
+<li>排序后为 <code>[2, 3, 5]</code></li>
+<li><code>ans = min(|a-b|, |a-c|, |b-c|)</code></li>
+<li>输出结果为 <code>ans = 0</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="算法思路（核心部分）"><a href="#算法思路（核心部分）" class="headerlink" title="算法思路（核心部分）"></a>算法思路（核心部分）</h2><h3 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h3><ul>
+<li><strong>问题的本质</strong>: 通过减少指针长度来打破制造商的规则，并计算最小操作次数。</li>
+<li><strong>关键观察点</strong>: 三个数两两差值的最小值。</li>
+<li><strong>数据范围</strong>: 无限制。</li>
+</ul>
+<h3 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
+<li><strong>朴素思路</strong>: 直接让任意两根针相等。</li>
+<li><strong>优化路径</strong>: 通过减少指针长度来打破规则。</li>
+<li><strong>算法选择</strong>: 动态规划。</li>
+</ul>
 <h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
-<li><strong>朴素思路</strong>: 最直观的解法是暴力枚举所有可能的子数组，然后计算其和，最后找出最大的和。这种方法的时间复杂度是 ( O(n^2) )，空间复杂度是 ( O(1) )。</li>
-<li><strong>优化路径</strong>: 我们可以使用动态规划的思想，通过维护一个数组 ( f ) 来记录以每个元素结尾的最大子段和。状态转移方程为 ( f[i] = \max(f[i-1] + b_i, b_i) )，其中 ( b_i = a_i \times (k-1) )。</li>
+<li><strong>动态规划</strong>: 使用前缀和数组存储中间值，避免重复计算。</li>
+<li><strong>核心思想</strong>: 通过减少指针长度来打破规则，并计算最小操作次数。</li>
 </ul>
-<h4 id="4-3-数学推导（如适用）"><a href="#4-3-数学推导（如适用）" class="headerlink" title="4.3 数学推导（如适用）"></a>4.3 数学推导（如适用）</h4><p>我们可以通过数学推导来验证动态规划的思路。假设 ( f[i] ) 表示以第 ( i ) 个元素结尾的最大子段和，则有：<br>[ f[i] = \max(f[i-1] + b_i, b_i) ]<br>其中 ( b_i = a_i \times (k-1) )。</p>
-<h4 id="4-4-多种解法对比（如适用）"><a href="#4-4-多种解法对比（如适用）" class="headerlink" title="4.4 多种解法对比（如适用）"></a>4.4 多种解法对比（如适用）</h4><div class="table-container">
+<h3 id="数学推导（如适用）"><a href="#数学推导（如适用）" class="headerlink" title="数学推导（如适用）"></a>数学推导（如适用）</h3><h4 id="4-3-数学推导"><a href="#4-3-数学推导" class="headerlink" title="4.3 数学推导"></a>4.3 数学推导</h4><ul>
+<li><strong>关键公式</strong>: <code>ans = min(|a-b|, |a-c|, |b-c|)</code></li>
+<li><strong>正确性证明</strong>: 通过计算相邻差的最小值来得到答案。</li>
+<li><strong>复杂度分析</strong>: O(n)。</li>
+</ul>
+<h3 id="多种解法对比（如适用）"><a href="#多种解法对比（如适用）" class="headerlink" title="多种解法对比（如适用）"></a>多种解法对比（如适用）</h3><div class="table-container">
 <table>
 <thead>
 <tr>
@@ -994,57 +1025,42 @@
 </thead>
 <tbody>
 <tr>
-<td>暴力枚举</td>
-<td>( O(n^2) )</td>
-<td>( O(1) )</td>
+<td>解法1</td>
+<td>O(n)</td>
+<td>O(n)</td>
 <td>小规模数据</td>
 <td>简单</td>
 </tr>
 <tr>
-<td>动态规划</td>
-<td>( O(n) )</td>
-<td>( O(1) )</td>
+<td>解法2</td>
+<td>O(n log n)</td>
+<td>O(n)</td>
 <td>中等规模</td>
 <td>中等</td>
 </tr>
 </tbody>
 </table>
 </div>
-<h3 id="代码详解"><a href="#代码详解" class="headerlink" title="代码详解"></a>代码详解</h3><h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">n, k = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">a = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))</span><br><span class="line"></span><br><span class="line">total = <span class="built_in">sum</span>(a)</span><br><span class="line"></span><br><span class="line">max_ending_here = a[<span class="number">0</span>]</span><br><span class="line">max_so_far = a[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> a[<span class="number">1</span>:]:</span><br><span class="line">    max_ending_here = <span class="built_in">max</span>(x, max_ending_here + x)</span><br><span class="line">    max_so_far = <span class="built_in">max</span>(max_so_far, max_ending_here)</span><br><span class="line"></span><br><span class="line">ans = total + (k - <span class="number">1</span>) * max_so_far</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br></pre></td></tr></table></figure>
-<h4 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h4><ul>
-<li><code>n, k = map(int, input().split())</code>: 读取输入的整数 ( n ) 和 ( k )。</li>
-<li><code>a = list(map(int, input().split()))</code>: 读取输入的整数数组 ( a )。</li>
-<li><code>total = sum(a)</code>: 计算数组 ( a ) 的总和。</li>
-<li><code>max_ending_here = a[0]</code>: 初始化当前子段和为第一个元素。</li>
-<li><code>max_so_far = a[0]</code>: 初始化全局最大子段和为第一个元素。</li>
-<li><code>for x in a[1:]:</code>: 遍历数组 ( a ) 中的每个元素（从第二个元素开始）。</li>
-<li><code>max_ending_here = max(x, max_ending_here + x)</code>: 更新当前子段和，取当前元素和当前元素加上前一个子段和的较大值。</li>
-<li><code>max_so_far = max(max_so_far, max_ending_here)</code>: 更新全局最大子段和。</li>
-<li><code>ans = total + (k - 1) * max_so_far</code>: 计算最终答案，即在原总和基础上加上增量 ((k-1) \times \max_so_far)。</li>
-<li><code>print(ans)</code>: 输出最终答案。</li>
+<h2 id="代码详解"><a href="#代码详解" class="headerlink" title="代码详解"></a>代码详解</h2><h3 id="核心代码段"><a href="#核心代码段" class="headerlink" title="核心代码段"></a>核心代码段</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>():</span><br><span class="line">    data = [<span class="number">3</span>, <span class="number">5</span>, <span class="number">2</span>]</span><br><span class="line">    ans = <span class="built_in">min</span>(<span class="built_in">abs</span>(a - b), <span class="built_in">abs</span>(a - c), <span class="built_in">abs</span>(b - c))</span><br><span class="line">    <span class="keyword">return</span> ans</span><br></pre></td></tr></table></figure>
+<h3 id="逐行解析"><a href="#逐行解析" class="headerlink" title="逐行解析"></a>逐行解析</h3><ul>
+<li><strong>关键变量的含义和作用</strong>: <code>data</code> 表示输入数据，<code>ans</code> 表示最小操作次数。</li>
+<li><strong>核心逻辑的设计意图</strong>: 通过计算相邻差的最小值来得到答案。</li>
+<li><strong>边界条件的处理</strong>: 无。</li>
+<li><strong>易错点的规避</strong>: 无。</li>
 </ul>
-<h4 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h4><ul>
-<li><strong>空间优化</strong>: 由于 ( f[i] ) 只依赖于 ( f[i-1] )，我们可以使用一个变量 <code>cur</code> 代替数组，空间复杂度为 ( O(1) )。</li>
-<li><strong>时间优化</strong>: 预处理和剪枝可以进一步提高效率，但在这个问题中已经足够简单，不需要进一步优化。</li>
+<h3 id="优化技巧"><a href="#优化技巧" class="headerlink" title="优化技巧"></a>优化技巧</h3><ul>
+<li><strong>空间优化</strong>: 原地修改，无需额外空间。</li>
+<li><strong>时间优化</strong>: 预处理，减少重复计算。</li>
+<li><strong>代码优化</strong>: 可读性、可维护性改进。</li>
 </ul>
-<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
-<li><strong>时间复杂度</strong>: ( O(n) )</li>
-<li><strong>空间复杂度</strong>: ( O(1) )</li>
+<h2 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h2><h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><ul>
+<li><strong>时间复杂度</strong>: O(n)。</li>
 </ul>
-<h3 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h3><ul>
-<li><strong>样例输入</strong>:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">5 3</span><br><span class="line">1 2 3 4 5</span><br></pre></td></tr></table></figure></li>
-<li><strong>样例输出</strong>:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">33</span><br></pre></td></tr></table></figure>
-</li>
+<h3 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h3><ul>
+<li><strong>空间复杂度</strong>: O(n)。</li>
 </ul>
-<h3 id="常见错误与调试技巧"><a href="#常见错误与调试技巧" class="headerlink" title="常见错误与调试技巧"></a>常见错误与调试技巧</h3><ul>
-<li><strong>易错点</strong>: 1. 忽略了状态转移方程的正确性。</li>
-<li><strong>调试方法</strong>: 可以通过打印中间变量来验证每一步的计算是否正确。</li>
-<li><strong>测试用例</strong>: 可以尝试不同的输入数据，特别是边界情况，如 ( k = 1 ) 或数组中所有元素都为负数的情况。</li>
-</ul>
-<h3 id="总结与扩展"><a href="#总结与扩展" class="headerlink" title="总结与扩展"></a>总结与扩展</h3><ul>
-<li><strong>核心收获</strong>: 通过动态规划解决最大子段和问题，并理解其背后的数学原理。</li>
-<li><strong>举一反三</strong>: 可以将类似的问题，如最大子数组和、最大子序列和等，应用到其他场景中。</li>
-<li><strong>进阶方向</strong>: 可以研究更复杂的动态规划问题，如最长递增子序列、最短路径等问题。</li>
+<h3 id="复杂度对比"><a href="#复杂度对比" class="headerlink" title="复杂度对比"></a>复杂度对比</h3><ul>
+<li><strong>复杂度对比</strong>: 与简单算法相比，具有更高的效率。</li>
 </ul>
 
       
@@ -1203,7 +1219,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/22/2026-05-22-P12879-P12879-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-C-%E6%89%93%E7%A0%B4%E8%A7%84%E5%88%99-%E6%B4%9B%E8%B0%B7/">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/22/2026-05-22-P12889-P12889-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-Java-B-%E6%83%85%E7%BB%AA%E9%93%BE%E8%B7%AF-%E6%B4%9B%E8%B0%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/img/a.png">
@@ -1221,7 +1237,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/22/2026-05-22-P12879-P12879-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-C-%E6%89%93%E7%A0%B4%E8%A7%84%E5%88%99-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12879 - P12879 [蓝桥杯 2025 国 C] 打破规则 - 洛谷</a>
+          <a href="/2026/05/22/2026-05-22-P12889-P12889-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-Java-B-%E6%83%85%E7%BB%AA%E9%93%BE%E8%B7%AF-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12889 - P12889 [蓝桥杯 2025 国 Java B] 情绪链路 - 洛谷</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1233,7 +1249,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2026-05-22 00:00:00 / 修改时间：16:34:16" itemprop="dateCreated datePublished" datetime="2026-05-22T00:00:00+08:00">2026-05-22</time>
+      <time title="创建时间：2026-05-22 00:00:00 / 修改时间：16:35:33" itemprop="dateCreated datePublished" datetime="2026-05-22T00:00:00+08:00">2026-05-22</time>
     </span>
 
   
@@ -1246,51 +1262,20 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="洛谷-P12879-打破规则-洛谷"><a href="#洛谷-P12879-打破规则-洛谷" class="headerlink" title="洛谷 P12879 打破规则 - 洛谷"></a>洛谷 P12879 打破规则 - 洛谷</h1><h2 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h2><h3 id="题号：P12879"><a href="#题号：P12879" class="headerlink" title="题号：P12879"></a>题号：P12879</h3><h3 id="算法类型：动态规划"><a href="#算法类型：动态规划" class="headerlink" title="算法类型：动态规划"></a>算法类型：动态规划</h3><h3 id="核心考点：最小操作次数"><a href="#核心考点：最小操作次数" class="headerlink" title="核心考点：最小操作次数"></a>核心考点：最小操作次数</h3><h2 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h2><ul>
-<li><strong>题目来源</strong>: <a target="_blank" rel="noopener" href="https://luogu.com.cn/problemset/index.php?m=p12879&amp;c=index">https://luogu.com.cn/problemset/index.php?m=p12879&amp;c=index</a></li>
-<li><strong>题目难度</strong>: ★★★☆☆</li>
-<li><strong>标签分类</strong>: 数据结构、动态规划</li>
-<li><strong>核心考点</strong>: 如何通过减少指针长度来打破制造商的规则，并计算最小操作次数。</li>
+          <h2 id="洛谷-P12889-情绪链路-洛谷"><a href="#洛谷-P12889-情绪链路-洛谷" class="headerlink" title="[洛谷 P12889] 情绪链路 - 洛谷"></a>[洛谷 P12889] 情绪链路 - 洛谷</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
+<li><strong>题目来源</strong>: 洛谷</li>
+<li><strong>题目难度</strong>: ★★★★☆</li>
+<li><strong>标签分类</strong>: 算法, 数据结构</li>
+<li><strong>核心考点</strong>: 动态规划</li>
 </ul>
-<h2 id="题意解析-1"><a href="#题意解析-1" class="headerlink" title="题意解析"></a>题意解析</h2><h3 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h3><ul>
-<li><strong>输入</strong>:  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data = [3, 5, 2]</span><br></pre></td></tr></table></figure></li>
-<li><strong>输出</strong>:  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ans = 0</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="样例分析"><a href="#样例分析" class="headerlink" title="样例分析"></a>样例分析</h3><ul>
-<li><strong>样例1</strong>: <code>data = [3, 5, 2]</code><ul>
-<li>排序后为 <code>[2, 3, 5]</code></li>
-<li><code>ans = min(arr[1] - arr[0], arr[2] - arr[1])</code></li>
-<li>输出结果为 <code>ans = 0</code></li>
-</ul>
-</li>
-<li><strong>样例2</strong>: <code>data = [3, 5, 2]</code><ul>
-<li>排序后为 <code>[2, 3, 5]</code></li>
-<li><code>ans = min(|a-b|, |a-c|, |b-c|)</code></li>
-<li>输出结果为 <code>ans = 0</code></li>
-</ul>
-</li>
-</ul>
-<h2 id="算法思路（核心部分）"><a href="#算法思路（核心部分）" class="headerlink" title="算法思路（核心部分）"></a>算法思路（核心部分）</h2><h3 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h3><ul>
-<li><strong>问题的本质</strong>: 通过减少指针长度来打破制造商的规则，并计算最小操作次数。</li>
-<li><strong>关键观察点</strong>: 三个数两两差值的最小值。</li>
-<li><strong>数据范围</strong>: 无限制。</li>
-</ul>
-<h3 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
-<li><strong>朴素思路</strong>: 直接让任意两根针相等。</li>
-<li><strong>优化路径</strong>: 通过减少指针长度来打破规则。</li>
-<li><strong>算法选择</strong>: 动态规划。</li>
-</ul>
+<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><p>在本题中，我们需要找到一个非空连续子数组，使得将其元素乘以 ( k ) 后，整个数组的元素和最大。原数组的总和是固定的，我们需要在原总和的基础上加上增量 (\Delta = (k-1) \times \sum_{i \in [L,R]} a_i)。因此，问题转化为在数组 ( b ) 中找到一个非空连续子数组，使得子数组的和最大。</p>
+<h3 id="算法思路（核心部分）"><a href="#算法思路（核心部分）" class="headerlink" title="算法思路（核心部分）"></a>算法思路（核心部分）</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><p>问题的本质是寻找一个最大子段和，使得在子段中的每个元素都乘以 ( k ) 后，整个数组的和最大。我们可以通过动态规划来解决这个问题。</p>
 <h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
-<li><strong>动态规划</strong>: 使用前缀和数组存储中间值，避免重复计算。</li>
-<li><strong>核心思想</strong>: 通过减少指针长度来打破规则，并计算最小操作次数。</li>
+<li><strong>朴素思路</strong>: 最直观的解法是暴力枚举所有可能的子数组，然后计算其和，最后找出最大的和。这种方法的时间复杂度是 ( O(n^2) )，空间复杂度是 ( O(1) )。</li>
+<li><strong>优化路径</strong>: 我们可以使用动态规划的思想，通过维护一个数组 ( f ) 来记录以每个元素结尾的最大子段和。状态转移方程为 ( f[i] = \max(f[i-1] + b_i, b_i) )，其中 ( b_i = a_i \times (k-1) )。</li>
 </ul>
-<h3 id="数学推导（如适用）"><a href="#数学推导（如适用）" class="headerlink" title="数学推导（如适用）"></a>数学推导（如适用）</h3><h4 id="4-3-数学推导"><a href="#4-3-数学推导" class="headerlink" title="4.3 数学推导"></a>4.3 数学推导</h4><ul>
-<li><strong>关键公式</strong>: <code>ans = min(|a-b|, |a-c|, |b-c|)</code></li>
-<li><strong>正确性证明</strong>: 通过计算相邻差的最小值来得到答案。</li>
-<li><strong>复杂度分析</strong>: O(n)。</li>
-</ul>
-<h3 id="多种解法对比（如适用）"><a href="#多种解法对比（如适用）" class="headerlink" title="多种解法对比（如适用）"></a>多种解法对比（如适用）</h3><div class="table-container">
+<h4 id="4-3-数学推导（如适用）"><a href="#4-3-数学推导（如适用）" class="headerlink" title="4.3 数学推导（如适用）"></a>4.3 数学推导（如适用）</h4><p>我们可以通过数学推导来验证动态规划的思路。假设 ( f[i] ) 表示以第 ( i ) 个元素结尾的最大子段和，则有：<br>[ f[i] = \max(f[i-1] + b_i, b_i) ]<br>其中 ( b_i = a_i \times (k-1) )。</p>
+<h4 id="4-4-多种解法对比（如适用）"><a href="#4-4-多种解法对比（如适用）" class="headerlink" title="4.4 多种解法对比（如适用）"></a>4.4 多种解法对比（如适用）</h4><div class="table-container">
 <table>
 <thead>
 <tr>
@@ -1303,42 +1288,57 @@
 </thead>
 <tbody>
 <tr>
-<td>解法1</td>
-<td>O(n)</td>
-<td>O(n)</td>
+<td>暴力枚举</td>
+<td>( O(n^2) )</td>
+<td>( O(1) )</td>
 <td>小规模数据</td>
 <td>简单</td>
 </tr>
 <tr>
-<td>解法2</td>
-<td>O(n log n)</td>
-<td>O(n)</td>
+<td>动态规划</td>
+<td>( O(n) )</td>
+<td>( O(1) )</td>
 <td>中等规模</td>
 <td>中等</td>
 </tr>
 </tbody>
 </table>
 </div>
-<h2 id="代码详解"><a href="#代码详解" class="headerlink" title="代码详解"></a>代码详解</h2><h3 id="核心代码段"><a href="#核心代码段" class="headerlink" title="核心代码段"></a>核心代码段</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>():</span><br><span class="line">    data = [<span class="number">3</span>, <span class="number">5</span>, <span class="number">2</span>]</span><br><span class="line">    ans = <span class="built_in">min</span>(<span class="built_in">abs</span>(a - b), <span class="built_in">abs</span>(a - c), <span class="built_in">abs</span>(b - c))</span><br><span class="line">    <span class="keyword">return</span> ans</span><br></pre></td></tr></table></figure>
-<h3 id="逐行解析"><a href="#逐行解析" class="headerlink" title="逐行解析"></a>逐行解析</h3><ul>
-<li><strong>关键变量的含义和作用</strong>: <code>data</code> 表示输入数据，<code>ans</code> 表示最小操作次数。</li>
-<li><strong>核心逻辑的设计意图</strong>: 通过计算相邻差的最小值来得到答案。</li>
-<li><strong>边界条件的处理</strong>: 无。</li>
-<li><strong>易错点的规避</strong>: 无。</li>
+<h3 id="代码详解"><a href="#代码详解" class="headerlink" title="代码详解"></a>代码详解</h3><h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">n, k = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">a = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))</span><br><span class="line"></span><br><span class="line">total = <span class="built_in">sum</span>(a)</span><br><span class="line"></span><br><span class="line">max_ending_here = a[<span class="number">0</span>]</span><br><span class="line">max_so_far = a[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> a[<span class="number">1</span>:]:</span><br><span class="line">    max_ending_here = <span class="built_in">max</span>(x, max_ending_here + x)</span><br><span class="line">    max_so_far = <span class="built_in">max</span>(max_so_far, max_ending_here)</span><br><span class="line"></span><br><span class="line">ans = total + (k - <span class="number">1</span>) * max_so_far</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br></pre></td></tr></table></figure>
+<h4 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h4><ul>
+<li><code>n, k = map(int, input().split())</code>: 读取输入的整数 ( n ) 和 ( k )。</li>
+<li><code>a = list(map(int, input().split()))</code>: 读取输入的整数数组 ( a )。</li>
+<li><code>total = sum(a)</code>: 计算数组 ( a ) 的总和。</li>
+<li><code>max_ending_here = a[0]</code>: 初始化当前子段和为第一个元素。</li>
+<li><code>max_so_far = a[0]</code>: 初始化全局最大子段和为第一个元素。</li>
+<li><code>for x in a[1:]:</code>: 遍历数组 ( a ) 中的每个元素（从第二个元素开始）。</li>
+<li><code>max_ending_here = max(x, max_ending_here + x)</code>: 更新当前子段和，取当前元素和当前元素加上前一个子段和的较大值。</li>
+<li><code>max_so_far = max(max_so_far, max_ending_here)</code>: 更新全局最大子段和。</li>
+<li><code>ans = total + (k - 1) * max_so_far</code>: 计算最终答案，即在原总和基础上加上增量 ((k-1) \times \max_so_far)。</li>
+<li><code>print(ans)</code>: 输出最终答案。</li>
 </ul>
-<h3 id="优化技巧"><a href="#优化技巧" class="headerlink" title="优化技巧"></a>优化技巧</h3><ul>
-<li><strong>空间优化</strong>: 原地修改，无需额外空间。</li>
-<li><strong>时间优化</strong>: 预处理，减少重复计算。</li>
-<li><strong>代码优化</strong>: 可读性、可维护性改进。</li>
+<h4 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h4><ul>
+<li><strong>空间优化</strong>: 由于 ( f[i] ) 只依赖于 ( f[i-1] )，我们可以使用一个变量 <code>cur</code> 代替数组，空间复杂度为 ( O(1) )。</li>
+<li><strong>时间优化</strong>: 预处理和剪枝可以进一步提高效率，但在这个问题中已经足够简单，不需要进一步优化。</li>
 </ul>
-<h2 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h2><h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><ul>
-<li><strong>时间复杂度</strong>: O(n)。</li>
+<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
+<li><strong>时间复杂度</strong>: ( O(n) )</li>
+<li><strong>空间复杂度</strong>: ( O(1) )</li>
 </ul>
-<h3 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h3><ul>
-<li><strong>空间复杂度</strong>: O(n)。</li>
+<h3 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h3><ul>
+<li><strong>样例输入</strong>:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">5 3</span><br><span class="line">1 2 3 4 5</span><br></pre></td></tr></table></figure></li>
+<li><strong>样例输出</strong>:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">33</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<h3 id="复杂度对比"><a href="#复杂度对比" class="headerlink" title="复杂度对比"></a>复杂度对比</h3><ul>
-<li><strong>复杂度对比</strong>: 与简单算法相比，具有更高的效率。</li>
+<h3 id="常见错误与调试技巧"><a href="#常见错误与调试技巧" class="headerlink" title="常见错误与调试技巧"></a>常见错误与调试技巧</h3><ul>
+<li><strong>易错点</strong>: 1. 忽略了状态转移方程的正确性。</li>
+<li><strong>调试方法</strong>: 可以通过打印中间变量来验证每一步的计算是否正确。</li>
+<li><strong>测试用例</strong>: 可以尝试不同的输入数据，特别是边界情况，如 ( k = 1 ) 或数组中所有元素都为负数的情况。</li>
+</ul>
+<h3 id="总结与扩展"><a href="#总结与扩展" class="headerlink" title="总结与扩展"></a>总结与扩展</h3><ul>
+<li><strong>核心收获</strong>: 通过动态规划解决最大子段和问题，并理解其背后的数学原理。</li>
+<li><strong>举一反三</strong>: 可以将类似的问题，如最大子数组和、最大子序列和等，应用到其他场景中。</li>
+<li><strong>进阶方向</strong>: 可以研究更复杂的动态规划问题，如最长递增子序列、最短路径等问题。</li>
 </ul>
 
       
