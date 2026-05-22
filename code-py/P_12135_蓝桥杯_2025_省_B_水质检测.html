@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ianwusb.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="P12135蓝桥杯2025省B水质检测1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939495">
+<meta property="og:type" content="website">
+<meta property="og:title" content="P_12135_蓝桥杯_2025_省_B_水质检测">
+<meta property="og:url" content="https://ianwusb.github.io/code-py/P_12135_%E8%93%9D%E6%A1%A5%E6%9D%AF_2025_%E7%9C%81_B_%E6%B0%B4%E8%B4%A8%E6%A3%80%E6%B5%8B.html">
+<meta property="og:site_name" content="Ianwusb-CPCode">
+<meta property="og:description" content="P12135蓝桥杯2025省B水质检测1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939495">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-05-21T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-05-22T13:28:42.168Z">
+<meta property="article:author" content="Ianwusb">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="代码">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ianwusb.github.io/code-py/P_12135_%E8%93%9D%E6%A1%A5%E6%9D%AF_2025_%E7%9C%81_B_%E6%B0%B4%E8%B4%A8%E6%A3%80%E6%B5%8B">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":true,"permalink":"https://ianwusb.github.io/code-py/P_12135_%E8%93%9D%E6%A1%A5%E6%9D%AF_2025_%E7%9C%81_B_%E6%B0%B4%E8%B4%A8%E6%A3%80%E6%B5%8B.html","path":"code-py/P_12135_蓝桥杯_2025_省_B_水质检测.html","title":"P_12135_蓝桥杯_2025_省_B_水质检测"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>P_12135_蓝桥杯_2025_省_B_水质检测 | Ianwusb-CPCode
+</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.1/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ianwusb-CPCode</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Ianwusb-CPCode</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-some-skills"><a href="/some-skills/" rel="section"><i class="fa fa-code fa-fw"></i>some-skills</a></li><li class="menu-item menu-item-贪心"><a href="/%E8%B4%AA%E5%BF%83/" rel="section"><i class="fa fa-code-branch fa-fw"></i>贪心</a></li><li class="menu-item menu-item-王道数据结构与算法详细笔记"><a href="/%E7%8E%8B%E9%81%93%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E8%AF%A6%E7%BB%86%E7%AC%94%E8%AE%B0/" rel="section"><i class="fa fa-book fa-fw"></i>王道数据结构与算法详细笔记</a></li><li class="menu-item menu-item-源代码"><a href="/code-py/" rel="section"><i class="fa fa-code-branch fa-fw"></i>源代码</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#P12135%E8%93%9D%E6%A1%A5%E6%9D%AF2025%E7%9C%81B%E6%B0%B4%E8%B4%A8%E6%A3%80%E6%B5%8B"><span class="nav-number">1.</span> <span class="nav-text">P12135蓝桥杯2025省B水质检测</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ianwusb"
+      src="/img/a.png">
+  <p class="site-author-name" itemprop="name">Ianwusb</p>
+  <div class="site-description" itemprop="description">Ianwusb-CPCode</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">226</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">53</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">160</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Swcmb" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Swcmb" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:fastjackcost880@gmail.com" title="E-Mail → mailto:fastjackcost880@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner page posts-expand">
+
+
+    
+    
+    
+    <div class="post-block" lang="zh-CN"><header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">P_12135_蓝桥杯_2025_省_B_水质检测
+</h1>
+
+<div class="post-meta-container">
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+          <h1 id="P12135蓝桥杯2025省B水质检测"><a href="#P12135蓝桥杯2025省B水质检测" class="headerlink" title="P12135蓝桥杯2025省B水质检测"></a>P<em>12135</em>蓝桥杯<em>2025</em>省<em>B</em>水质检测</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ## 闫氏DP分析法 —— 水质检测</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ### 一、问题本质分析</span></span><br><span class="line"><span class="comment"># 这是一个典型的 **有限集合上的最优化问题**：</span></span><br><span class="line"><span class="comment"># - 有一个 \(2 \times n\) 的网格，某些位置已经有检测器 `#`，其余为空 ` . `。</span></span><br><span class="line"><span class="comment"># - 我们可以在任意空位上放置检测器，**但不能拆除已有的检测器**。</span></span><br><span class="line"><span class="comment"># - 目标：用最少的额外检测器，使所有检测器互相连通（上下、左右相邻即可连通，连通具有传递性）。</span></span><br><span class="line"><span class="comment"># - 集合中方案总数巨大（每个 ` . ` 可以填或不填，指数级），暴力枚举不可行，因此考虑 DP 或贪心。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ### 二、状态表示（化零为整）</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设 \(l\) 为第一个出现 `#` 的列，\(r\) 为最后一个出现 `#` 的列。最终答案只需考虑区间 \([l, r]\)，区间外的列完全不需要操作。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 每一列最终只会呈现以下三种状态（第 0 种“全空”在 \([l,r]\) 内不合法，否则不连通）：</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># | 状态编号 \(j\) | 含义 |</span></span><br><span class="line"><span class="comment"># |---------------|------|</span></span><br><span class="line"><span class="comment"># | 1 | 上一行为 `#`，下一行为 `.` |</span></span><br><span class="line"><span class="comment"># | 2 | 上一行为 `.`，下一行为 `#` |</span></span><br><span class="line"><span class="comment"># | 3 | 上下两行都是 `#` |</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># **状态定义**  </span></span><br><span class="line"><span class="comment"># \(dp[i][j]\) 表示：**所有只考虑前 \(i\) 列，且第 \(i\) 列被建设成状态 \(j\)（必须包含该列原有的 `#`），并且前 \(i\) 列已经互相连通的方案** 的集合。  </span></span><br><span class="line"></span><br><span class="line"><span class="comment"># **属性**：最小值（最少新增检测器数量）。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ### 三、状态计算（化整为零）</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># #### 3.1 找最后一个不同点</span></span><br><span class="line"><span class="comment"># 最后一个不同点是 **第 \(i-1\) 列的状态**（即前一列是状态 1、2 还是 3）。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># #### 3.2 划分子集</span></span><br><span class="line"><span class="comment"># 要保证第 \(i-1\) 列与第 \(i\) 列连通，必须存在至少一对相邻的 `#`（左右同行，或上下同列）。  </span></span><br><span class="line"><span class="comment"># 分析可得：**只有状态 1 与状态 2 不能直接相邻**（因为一个只有上，一个只有下，左右不对齐，又没有同列的另一个 `#`）。其余组合均合法。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 因此：</span></span><br><span class="line"><span class="comment"># - 若当前列要变成状态 1，只能从上一列的 **状态 1 或 状态 3** 转移；</span></span><br><span class="line"><span class="comment"># - 若当前列要变成状态 2，只能从上一列的 **状态 2 或 状态 3** 转移；</span></span><br><span class="line"><span class="comment"># - 若当前列要变成状态 3，可以从上一列的 **任意有效状态（1、2、3）** 转移。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># #### 3.3 子集的花费计算</span></span><br><span class="line"><span class="comment"># 定义 \(cost(i, j)\) 为：把第 \(i\) 列原有的样子变成状态 \(j\) **需要新增的检测器数量**（若原有 `#` 无法被状态 \(j\) 包含，则为非法，花费记 \(\infty\)）。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># | 第 \(i\) 列原有样式 | cost(i,1) | cost(i,2) | cost(i,3) |</span></span><br><span class="line"><span class="comment"># |------------------|-----------|-----------|-----------|</span></span><br><span class="line"><span class="comment"># | `..` | 1 | 1 | 2 |</span></span><br><span class="line"><span class="comment"># | `#.` | 0 | \(\infty\) | 1 |</span></span><br><span class="line"><span class="comment"># | `.#` | \(\infty\) | 0 | 1 |</span></span><br><span class="line"><span class="comment"># | `##` | \(\infty\) | \(\infty\) | 0 |</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># #### 3.4 状态转移方程</span></span><br><span class="line"><span class="comment"># \[</span></span><br><span class="line"><span class="comment"># \begin&#123;aligned&#125;</span></span><br><span class="line"><span class="comment"># dp[i][1] &amp;= cost(i,1) + \min(dp[i-1][1],\; dp[i-1][3]) \\</span></span><br><span class="line"><span class="comment"># dp[i][2] &amp;= cost(i,2) + \min(dp[i-1][2],\; dp[i-1][3]) \\</span></span><br><span class="line"><span class="comment"># dp[i][3] &amp;= cost(i,3) + \min(dp[i-1][1],\; dp[i-1][2],\; dp[i-1][3])</span></span><br><span class="line"><span class="comment"># \end&#123;aligned&#125;</span></span><br><span class="line"><span class="comment"># \]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># （非法情况用 \(\infty\) 表示，在代码中用一个大数代替）</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ### 四、边界条件</span></span><br><span class="line"><span class="comment"># - 若整张图中完全没有 `#`，答案为 \(0\)。</span></span><br><span class="line"><span class="comment"># - 找到第一个有 `#` 的列 \(l\)。在 \(l\) 列处初始化：</span></span><br><span class="line"><span class="comment">#   \[</span></span><br><span class="line"><span class="comment">#   dp[l][j] = cost(l, j) \quad (\text&#123;若 &#125; cost(l,j) \neq \infty)</span></span><br><span class="line"><span class="comment">#   \]</span></span><br><span class="line"><span class="comment"># - 从 \(l+1\) 循环到 \(r\)，按上述方程递推。</span></span><br><span class="line"><span class="comment"># - 最终答案为 \(\min(dp[r][1], dp[r][2], dp[r][3])\)。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ### 五、代码实现（Python）</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ```python</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>() -&gt; <span class="literal">None</span>:</span><br><span class="line">    data = sys.stdin.read().splitlines()</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> data:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    row1 = data[<span class="number">0</span>].strip()</span><br><span class="line">    row2 = data[<span class="number">1</span>].strip()</span><br><span class="line">    n = <span class="built_in">len</span>(row1)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 寻找第一个和最后一个 &#x27;#&#x27;</span></span><br><span class="line">    l, r = n, -<span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        <span class="keyword">if</span> row1[i] == <span class="string">&#x27;#&#x27;</span> <span class="keyword">or</span> row2[i] == <span class="string">&#x27;#&#x27;</span>:</span><br><span class="line">            l = <span class="built_in">min</span>(l, i)</span><br><span class="line">            r = <span class="built_in">max</span>(r, i)</span><br><span class="line">    <span class="keyword">if</span> l == n:          <span class="comment"># 没有 &#x27;#&#x27;</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">    INF = <span class="number">10</span> ** <span class="number">9</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 计算某一列的原始情况 -&gt; (cost1, cost2, cost3)</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get_costs</span>(<span class="params">col: <span class="built_in">int</span></span>):</span><br><span class="line">        a = row1[col]</span><br><span class="line">        b = row2[col]</span><br><span class="line">        <span class="keyword">if</span> a == <span class="string">&#x27;.&#x27;</span> <span class="keyword">and</span> b == <span class="string">&#x27;.&#x27;</span>:</span><br><span class="line">            <span class="keyword">return</span> (<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">        <span class="keyword">if</span> a == <span class="string">&#x27;#&#x27;</span> <span class="keyword">and</span> b == <span class="string">&#x27;.&#x27;</span>:</span><br><span class="line">            <span class="keyword">return</span> (<span class="number">0</span>, INF, <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">if</span> a == <span class="string">&#x27;.&#x27;</span> <span class="keyword">and</span> b == <span class="string">&#x27;#&#x27;</span>:</span><br><span class="line">            <span class="keyword">return</span> (INF, <span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line">        <span class="comment"># a == &#x27;#&#x27; and b == &#x27;#&#x27;</span></span><br><span class="line">        <span class="keyword">return</span> (INF, INF, <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 初始化第 l 列</span></span><br><span class="line">    c1, c2, c3 = get_costs(l)</span><br><span class="line">    dp1 = c1</span><br><span class="line">    dp2 = c2</span><br><span class="line">    dp3 = c3</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 从 l+1 滚动到 r</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(l + <span class="number">1</span>, r + <span class="number">1</span>):</span><br><span class="line">        c1, c2, c3 = get_costs(i)</span><br><span class="line">        new1 = c1 + <span class="built_in">min</span>(dp1, dp3)</span><br><span class="line">        new2 = c2 + <span class="built_in">min</span>(dp2, dp3)</span><br><span class="line">        new3 = c3 + <span class="built_in">min</span>(dp1, dp2, dp3)</span><br><span class="line">        dp1, dp2, dp3 = new1, new2, new3</span><br><span class="line"></span><br><span class="line">    ans = <span class="built_in">min</span>(dp1, dp2, dp3)</span><br><span class="line">    <span class="built_in">print</span>(ans)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    solve()</span><br><span class="line"><span class="comment"># ```</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ### 六、思路总结：怎么想到用 DP 的？</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 1. **观察数据范围**：\(n \le 10^6\)，必须设计 \(O(n)\) 算法，强烈的“线性递推”暗示。</span></span><br><span class="line"><span class="comment"># 2. **局部决策与无后效性**：从左往右处理，当前列需要变成什么样，只与前一列的状态和当前列的原始模样有关，过去的历史可以完全浓缩到“前一列的连通状态”中——这就是典型的 **无后效性**，适合 DP。</span></span><br><span class="line"><span class="comment"># 3. **状态空间极小**：每一列在最终方案中只有“上#下.”、“上.下#”、“上下#”三种连通形态（全空只会出现在首尾忽略段），所以状态数只有 3，转移也非常清晰。</span></span><br><span class="line"><span class="comment"># 4. **化零为整**：把所有“前 i 列且最后一列是某状态”的方案归为一类，用一个 \(dp\) 值表示其最小花费，自然得到上述状态定义。</span></span><br><span class="line"><span class="comment"># 5. **结合已有检测器不可拆**：转换为每一列的建设成本 \(cost\)，DP 只需在合法状态间取 min，最终答案即为到达最后一列的三种状态的最小值。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 这种“列状态 + 线性 DP”的思考方式，在网格状连通性问题上非常普遍，只要能抽象出有限的列状态，就能把复杂的连通问题转化为简单的递推。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 你的问题非常棒，说明你在认真推敲每一步。下面我逐条解释，尽量用最直观的方式讲清楚。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ---</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ## 一、为什么状态转移有这样的限制？</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 我们要保证**第 i-1 列与第 i 列的检测器是连通的**。连通的方式只有三种：</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># - **左右相邻**：同一行的两个格子都是 `#`。</span></span><br><span class="line"><span class="comment"># - **上下相邻**：同一列的两个格子都是 `#`。</span></span><br><span class="line"><span class="comment"># - **传递连通**：只要有一处相邻，就算两块连上了。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 我们的状态是：</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># - **状态1**：`#` 在上，`.` 在下  </span></span><br><span class="line"><span class="comment"># - **状态2**：`.` 在上，`#` 在下  </span></span><br><span class="line"><span class="comment"># - **状态3**：`#` 在上，`#` 在下  </span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 现在来检查“前一列状态 → 当前列状态”是否能让两列之间有**至少一处相邻的 `#`**。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ### 1. 当前列是状态1（`#.`）</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 我们需要保证前一列的 `#` 与当前列的 `#` 接上。  </span></span><br><span class="line"><span class="comment"># 当前列只有上面有 `#`，所以前一列必须在**上面**或**本列下面**提供一个能与它相邻的 `#`：</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># - 如果前一列是**状态1**（`#.`），那么上一行两个 `#` 左右相邻 ✅  </span></span><br><span class="line"><span class="comment"># - 如果前一列是**状态2**（`.#`），它只有下面有 `#`，而当前列上面有 `#` —— **左右不同行，上下不同列**，完全没挨上 ❌  </span></span><br><span class="line"><span class="comment"># - 如果前一列是**状态3**（`##`），上一行的 `#` 与当前列上面的 `#` 左右相邻 ✅  </span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 所以：**状态1 ← 状态1 或 状态3**</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ### 2. 当前列是状态2（`.#`）</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 对称推理：</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># - 前一列状态2（`.#`）：下一行两个 `#` 左右相邻 ✅  </span></span><br><span class="line"><span class="comment"># - 前一列状态1（`#.`）：下面没有 `#`，挨不上 ❌  </span></span><br><span class="line"><span class="comment"># - 前一列状态3（`##`）：下一行的 `#` 与当前列下面的 `#` 左右相邻 ✅  </span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 所以：**状态2 ← 状态2 或 状态3**</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ### 3. 当前列是状态3（`##`）</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 此时当前列上下都有 `#`，**无论前一列是什么状态，总能找到一种相邻方式**：</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># - 前一列状态1（`#.`）：当前列上面的 `#` 与前一列上面的 `#` 左右相邻 ✅  </span></span><br><span class="line"><span class="comment"># - 前一列状态2（`.#`）：当前列下面的 `#` 与前一列下面的 `#` 左右相邻 ✅  </span></span><br><span class="line"><span class="comment"># - 前一列状态3（`##`）：随便连 ✅  </span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 所以：**状态3 ← 任意状态（1、2、3）**</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 这就是转移限制的完整来源。它完全由“两列之间必须有至少一对 `#` 相邻”这一连通条件导出。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ---</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ## 二、cost(i, j) 是怎么算出来的？</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># `cost(i, j)` 表示：**只改变第 i 列的空格，使这一列变成状态 j，最少要放几个新检测器。**  </span></span><br><span class="line"><span class="comment"># 注意：**已有的 `#` 不能拆除**，所以如果目标状态要求某个位置是 `.` 而原位置是 `#`，就不可行（花费为 ∞）。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 我们用 ✅ 表示可以变成，❌ 表示不可能。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ### 列原有 `..`（全空）</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># - 变状态1 (`#.`)：需放1个在上面 → 花费 1  </span></span><br><span class="line"><span class="comment"># - 变状态2 (`.#`)：需放1个在下面 → 花费 1  </span></span><br><span class="line"><span class="comment"># - 变状态3 (`##`)：需放2个，上下都放 → 花费 2  </span></span><br><span class="line"></span><br><span class="line"><span class="comment"># | 原样式 | cost(i,1) | cost(i,2) | cost(i,3) |</span></span><br><span class="line"><span class="comment"># |--------|-----------|-----------|-----------|</span></span><br><span class="line"><span class="comment"># | `..`   | 1         | 1         | 2         |</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ### 列原有 `#.`（上边有检测器）</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># - 变状态1 (`#.`)：已经是了，不用放 → 花费 0  </span></span><br><span class="line"><span class="comment"># - 变状态2 (`.#`)：要求上面是 `.`，可原本上面是 `#` 又不能拆 → ❌ ∞  </span></span><br><span class="line"><span class="comment"># - 变状态3 (`##`)：只需在下面补1个 → 花费 1  </span></span><br><span class="line"></span><br><span class="line"><span class="comment"># | `#.` | 0 | ∞ | 1 |</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ### 列原有 `.#`（下边有检测器）</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 对称：</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># - 变状态1 (`#.`)：要求下面是 `.`，原本有 `#` 不能拆 → ❌ ∞  </span></span><br><span class="line"><span class="comment"># - 变状态2 (`.#`)：已是，花费 0  </span></span><br><span class="line"><span class="comment"># - 变状态3 (`##`)：只需在上面补1个 → 花费 1  </span></span><br><span class="line"></span><br><span class="line"><span class="comment"># | `.#` | ∞ | 0 | 1 |</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ### 列原有 `##`（上下都有）</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># - 变状态1或2都需要拆掉一个 `#`，不可能 → ❌ ∞  </span></span><br><span class="line"><span class="comment"># - 变状态3：已满足，花费 0  </span></span><br><span class="line"></span><br><span class="line"><span class="comment"># | `##` | ∞ | ∞ | 0 |</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 这就是 cost 表的完整推理过程。它只是忠实地反映了“不能拆已有检测器，只能填空白”的规则。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ---</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ## 三、为什么边界条件这样设定？</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ### 1. 完全没有 `#` 时，答案为 0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 题目说“使得所有的检测器都互相连通”。  </span></span><br><span class="line"><span class="comment"># 如果本来就没有检测器，那根本不需要放任何东西，已经“所有检测器连通”（空集连通）。  </span></span><br><span class="line"><span class="comment"># 所以直接输出 0。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ### 2. 找到第一个 `#` 的列 l，只在 [l, r] 范围内 DP</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 因为 l 左边的列全是 `..`，没有任何检测器，也完全不需要放任何东西，它们不会影响连通块，所以可以安全忽略。  </span></span><br><span class="line"><span class="comment"># 同理，r 右边的列也全是 `..`，忽略。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ### 3. 第 l 列的初始化</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 在 l 列，**它是整个连通块的最左端**。  </span></span><br><span class="line"><span class="comment"># 它不需要和左边连通（左边没东西），只需要把自己建设成某个合法状态即可。  </span></span><br><span class="line"><span class="comment"># 所以 `dp[l][j] = cost(l, j)`（只要不是 ∞）。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 例如 l 列原样是 `#.`，则：</span></span><br><span class="line"><span class="comment"># - `dp[l][1] = 0`</span></span><br><span class="line"><span class="comment"># - `dp[l][2] = ∞`（无效）</span></span><br><span class="line"><span class="comment"># - `dp[l][3] = 1`</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 这样初始化恰好表示“在第 l 列，以状态 j 作为起点，所需的最小新增数量”。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ### 4. 最终答案取 `min(dp[r][1], dp[r][2], dp[r][3])`</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 最后一列 r 也必须是某个合法状态（状态1/2/3），并且它代表了整个 [l, r] 区间已经完全连通。  </span></span><br><span class="line"><span class="comment"># 我们只需从三种结束状态里挑一个总花费最小的即可。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ---</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 这样，整个 DP 框架的每一处“为什么”都落在了**连通性约束**和**不可拆除已有检测器**这两条简单规则上，没有任何玄学成分。</span></span><br></pre></td></tr></table></figure>
+
+      </div>
+      
+      
+      
+    </div>
+
+    
+    
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ianwusb</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<div id="chatbot-toggle" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999;">
+  <button id="toggle-chat" style="
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #fff;
+    color: #333;
+    border: 1px solid #ddd;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: transform 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  ">
+    🤖
+  </button>
+</div>
+
+<div id="chatbot-window" style="display: none; position: fixed; bottom: 80px; right: 20px; width: 340px; height: 480px; background: #fff; border: 1px solid #e0e0e0; z-index: 9999; box-shadow: 0 4px 8px rgba(0,0,0,0.1); border-radius: 12px; overflow: hidden; flex-direction: column;">
+  <div style="background: #fff; color: #333; padding: 12px 16px; font-size: 16px; font-weight: bold; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e0e0e0;">
+    Hexo AI 助手
+    <button id="close-chat" style="background: none; border: none; color: #333; font-size: 20px; cursor: pointer;">×</button>
+  </div>
+  <div id="chat-log" style="flex-grow: 1; padding: 12px; overflow-y: auto; font-size: 14px; background: #fafafa;"></div>
+  <div style="padding: 10px 16px; display: flex; background: #fff; border-top: 1px solid #e0e0e0;">
+    <input type="text" id="chat-input" placeholder="输入你的问题..." style="flex: 1; padding: 8px 10px; border-radius: 6px; border: 1px solid #ccc; font-size: 14px; outline: none;">
+    <button id="send-chat" style="margin-left: 8px; padding: 8px 12px; border-radius: 6px; border: none; background: #f0f0f0; color: #333; font-size: 14px; cursor: pointer;">发送</button>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<style>
+  #chat-log p, #chat-log li, #chat-log ul, #chat-log ol {
+    margin: 2px 0 !important;
+    line-height: 1.5;
+    font-size: 13px;
+  }
+  #chat-log a {
+    color: #2b6cb0;
+    text-decoration: underline;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+  #chat-log a:hover {
+    color: #1a4f8a;
+    background-color: #eef3f9;
+  }
+  #chat-log pre {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    padding: 6px 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+    font-size: 12.5px;
+    font-family: Consolas, monospace;
+    white-space: pre-wrap;
+    word-break: break-word;
+    margin: 6px 0;
+  }
+  #chat-log code {
+    background-color: #f0f0f0;
+    padding: 1px 4px;
+    border-radius: 3px;
+    font-family: Consolas, monospace;
+  }
+  #chat-log code[class*="language-"]::before {
+    content: '';
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const postContent = document.querySelector('.post-body');
+    if (postContent) {
+      const paragraphs = postContent.querySelectorAll('p, h1, h2, h3, h4, h5, h6, li, blockquote');
+      
+      paragraphs.forEach((el, index) => {
+        el.classList.add('lazy-text');
+        el.setAttribute('data-lazy-index', index);
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        el.style.transitionDelay = `${Math.min(index * 50, 500)}ms`;
+      });
+
+      const textObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            if (!el.classList.contains('text-processed')) {
+              el.classList.add('text-processed');
+              el.style.opacity = '1';
+              el.style.transform = 'translateY(0)';
+            }
+            textObserver.unobserve(el);
+          }
+        });
+      }, {
+        rootMargin: '150px',
+        threshold: 0.05
+      });
+
+      document.querySelectorAll('.lazy-text').forEach(el => {
+        textObserver.observe(el);
+      });
+    }
+
+    const codeBlocks = document.querySelectorAll('pre code');
+    
+    codeBlocks.forEach((codeBlock, index) => {
+      const pre = codeBlock.parentElement;
+      pre.classList.add('lazy-code');
+      pre.setAttribute('data-index', index);
+      pre.style.opacity = '0.3';
+      pre.style.transition = 'opacity 0.3s ease';
+    });
+
+    const codeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const pre = entry.target;
+          const code = pre.querySelector('code');
+          
+          if (code && !code.classList.contains('highlight-processed')) {
+            code.classList.add('highlight-processed');
+            pre.style.opacity = '1';
+            
+            if (window.hljs) {
+              hljs.highlightElement(code);
+            }
+          }
+          
+          codeObserver.unobserve(pre);
+        }
+      });
+    }, {
+      rootMargin: '100px',
+      threshold: 0.1
+    });
+
+    document.querySelectorAll('pre.lazy-code').forEach(pre => {
+      codeObserver.observe(pre);
+    });
+  });
+
+  const toggleBtn = document.getElementById('toggle-chat');
+  const closeBtn = document.getElementById('close-chat');
+  const chatWindow = document.getElementById('chatbot-window');
+  const chatLog = document.getElementById('chat-log');
+  const chatInput = document.getElementById('chat-input');
+  const sendBtn = document.getElementById('send-chat');
+
+  let isChatVisible = false;
+
+  window.addEventListener("DOMContentLoaded", () => {
+    chatWindow.style.display = "none";
+  });
+
+  toggleBtn.onclick = () => {
+    isChatVisible = !isChatVisible;
+    chatWindow.style.display = isChatVisible ? 'flex' : 'none';
+  };
+
+  closeBtn.onclick = () => {
+    isChatVisible = false;
+    chatWindow.style.display = 'none';
+  };
+
+  function cleanMarkdown(md) {
+    return md.replace(/\n{3,}/g, '\n\n').replace(/^\s+|\s+$/g, '').trim();
+  }
+
+  function appendMessage(role, rawContent) {
+    const content = cleanMarkdown(rawContent);
+    const msg = document.createElement('div');
+    msg.style.marginBottom = '6px';
+    msg.style.display = 'flex';
+    msg.style.alignItems = 'flex-start';
+
+    const avatar = document.createElement('div');
+    avatar.style.fontSize = '18px';
+    avatar.style.marginRight = '5px';
+    avatar.textContent = role === 'user' ? '🙂' : '🤖';
+
+    const bubble = document.createElement('div');
+    bubble.style.padding = '6px 10px';
+    bubble.style.borderRadius = '10px';
+    bubble.style.maxWidth = '220px';
+    bubble.style.background = role === 'user' ? '#e2e2e2' : '#f0f0f0';
+    bubble.style.lineHeight = '1.5';
+    bubble.style.fontSize = '13px';
+    bubble.style.wordBreak = 'break-word';
+
+    bubble.innerHTML = role === 'user'
+      ? marked.parseInline(content)
+      : marked.parse(content);
+
+    msg.style.justifyContent = role === 'user' ? 'flex-end' : 'flex-start';
+    msg.appendChild(role === 'user' ? bubble : avatar);
+    msg.appendChild(role === 'user' ? avatar : bubble);
+    chatLog.appendChild(msg);
+    chatLog.scrollTop = chatLog.scrollHeight;
+  }
+
+  async function sendMessage() {
+    const query = chatInput.value.trim();
+    if (!query) return;
+    appendMessage('user', query);
+    chatInput.value = '';
+
+    const response = await fetch('https://hexo-ai-assistant.3216243013.workers.dev/ask', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({ query })
+    });
+
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder();
+    let buffer = '';
+
+    const aiMsg = document.createElement('div');
+    aiMsg.style.marginBottom = '6px';
+    aiMsg.style.display = 'flex';
+    aiMsg.style.alignItems = 'flex-start';
+
+    const avatarAI = document.createElement('div');
+    avatarAI.style.fontSize = '18px';
+    avatarAI.style.marginRight = '5px';
+    avatarAI.textContent = '🤖';
+
+    const bubble = document.createElement('div');
+    bubble.style.padding = '6px 10px';
+    bubble.style.borderRadius = '10px';
+    bubble.style.maxWidth = '220px';
+    bubble.style.background = '#f0f0f0';
+    bubble.style.lineHeight = '1.5';
+    bubble.style.fontSize = '13px';
+    bubble.style.wordBreak = 'break-word';
+
+    aiMsg.appendChild(avatarAI);
+    aiMsg.appendChild(bubble);
+    chatLog.appendChild(aiMsg);
+    chatLog.scrollTop = chatLog.scrollHeight;
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      buffer += decoder.decode(value, { stream: true });
+      bubble.innerHTML = marked.parse(cleanMarkdown(buffer));
+      chatLog.scrollTop = chatLog.scrollHeight;
+    }
+
+    bubble.innerHTML = marked.parse(cleanMarkdown(buffer));
+  }
+
+  sendBtn.onclick = sendMessage;
+  chatInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") sendMessage();
+  });
+
+  window.addEventListener("click", (e) => {
+    if (
+      isChatVisible &&
+      !chatWindow.contains(e.target) &&
+      !toggleBtn.contains(e.target)
+    ) {
+      isChatVisible = false;
+      chatWindow.style.display = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>

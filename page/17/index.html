@@ -118,7 +118,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-some-skills"><a href="/some-skills/" rel="section"><i class="fa fa-code fa-fw"></i>some-skills</a></li><li class="menu-item menu-item-王道数据结构与算法详细笔记"><a href="/%E7%8E%8B%E9%81%93%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E8%AF%A6%E7%BB%86%E7%AC%94%E8%AE%B0/" rel="section"><i class="fa fa-book fa-fw"></i>王道数据结构与算法详细笔记</a></li><li class="menu-item menu-item-源代码"><a href="/code-py/" rel="section"><i class="fa fa-code-branch fa-fw"></i>源代码</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-some-skills"><a href="/some-skills/" rel="section"><i class="fa fa-code fa-fw"></i>some-skills</a></li><li class="menu-item menu-item-贪心"><a href="/%E8%B4%AA%E5%BF%83/" rel="section"><i class="fa fa-code-branch fa-fw"></i>贪心</a></li><li class="menu-item menu-item-王道数据结构与算法详细笔记"><a href="/%E7%8E%8B%E9%81%93%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E8%AF%A6%E7%BB%86%E7%AC%94%E8%AE%B0/" rel="section"><i class="fa fa-book fa-fw"></i>王道数据结构与算法详细笔记</a></li><li class="menu-item menu-item-源代码"><a href="/code-py/" rel="section"><i class="fa fa-code-branch fa-fw"></i>源代码</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">220</span>
+          <span class="site-state-item-count">226</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -194,7 +194,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">154</span>
+        <span class="site-state-item-count">160</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -219,6 +219,783 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/07/26/2024-07-26-urllib_get%E8%AF%B7%E6%B1%82%E8%B1%86%E7%93%A3%E7%94%B5%E5%BD%B1%E5%89%8D%E5%8D%81%E9%A1%B5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/07/26/2024-07-26-urllib_get%E8%AF%B7%E6%B1%82%E8%B1%86%E7%93%A3%E7%94%B5%E5%BD%B1%E5%89%8D%E5%8D%81%E9%A1%B5/" class="post-title-link" itemprop="url">Python爬虫实战：利用urllib获取豆瓣电影Top榜单数据</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-07-26 12:49:51" itemprop="dateCreated datePublished" datetime="2024-07-26T12:49:51+08:00">2024-07-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 13:56:56" itemprop="dateModified" datetime="2026-05-14T13:56:56+08:00">2026-05-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AE%9E%E6%88%98/" itemprop="url" rel="index"><span itemprop="name">技术实战</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>本文详细讲解如何使用Python标准库urllib获取豆瓣电影榜单数据，涵盖UA伪装、分页逻辑分析及数据持久化存储的完整流程。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/07/26/2024-07-26-urllib_get%E8%AF%B7%E6%B1%82%E8%B1%86%E7%93%A3%E7%94%B5%E5%BD%B1%E5%89%8D%E5%8D%81%E9%A1%B5/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/07/26/2024-07-26-urllib_handler%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/07/26/2024-07-26-urllib_handler%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">Python爬虫：urllib中Handler与Opener的基本使用</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-07-26 12:49:51" itemprop="dateCreated datePublished" datetime="2024-07-26T12:49:51+08:00">2024-07-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 13:56:56" itemprop="dateModified" datetime="2026-05-14T13:56:56+08:00">2026-05-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python%E7%88%AC%E8%99%AB/" itemprop="url" rel="index"><span itemprop="name">Python爬虫</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在 Python 爬虫开发中，<code>urllib</code> 是内置的标准库。虽然我们经常使用 <code>urllib.request.urlopen()</code> 来发送请求，但在处理更复杂的场景（如 Cookie 处理、代理设置、HTTPS 认证）时，仅仅使用 <code>urlopen</code> 往往不够灵活。</p>
+<p>这就需要引入更底层的处理器对象和自定义打开器。本文将以访问百度首页为例，详细讲解 <code>Handler</code> 和 <code>Opener</code> 的基本使用方法。</p>
+<h2 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h2><p>在代码实操之前，我们需要理解两个核心概念：</p>
+<ol>
+<li><strong>Handlers（处理器）</strong>：<code>Handler</code> 是 <code>urllib</code> 中处理特定协议（如 HTTP、HTTPS、FTP）或功能（如代理、Cookie、重定向）的对象。通过不同的 Handler，我们可以定制 URL 打开的行为。</li>
+<li><strong>Opener（打开器）</strong>：<code>Opener</code> 是通过 <code>build_opener()</code> 方法将多个 Handler 组装在一起形成的对象。它相当于一个自定义的浏览器客户端，拥有 <code>open()</code> 方法来发送请求。</li>
+</ol>
+<h2 id="代码实操"><a href="#代码实操" class="headerlink" title="代码实操"></a>代码实操</h2><p>下面的代码演示了如何构建一个带有浏览器标识的请求头，通过 <code>HTTPHandler</code> 和自定义 <code>Opener</code> 来获取百度首页的源码。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入 urllib.request 模块</span></span><br><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line"><span class="comment"># 1. 定义目标 URL</span></span><br><span class="line">url = <span class="string">&quot;http://www.baidu.com&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 构建请求头，模拟浏览器访问</span></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 创建 Request 对象，封装 URL 和 Headers</span></span><br><span class="line">request = urllib.request.Request(url=url, headers=headers)</span><br><span class="line"></span><br><span class="line"><span class="comment"># --- Handler 与 Opener 核心步骤 ---</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. 获取 HTTPHandler 对象</span></span><br><span class="line"><span class="comment"># HTTPHandler 专门用于处理 HTTP 请求</span></span><br><span class="line">handler = urllib.request.HTTPHandler()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 5. 获取 Opener 对象</span></span><br><span class="line"><span class="comment"># 使用 build_opener 将 handler 传入，构建自定义的 opener</span></span><br><span class="line">opener = urllib.request.build_opener(handler)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 6. 调用 open 方法发送请求</span></span><br><span class="line"><span class="comment"># 使用自定义 opener 发送请求，获取响应对象</span></span><br><span class="line">response = opener.<span class="built_in">open</span>(request)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 7. 读取并解码响应内容</span></span><br><span class="line">content = response.read().decode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打印结果</span></span><br><span class="line"><span class="built_in">print</span>(content)</span><br><span class="line"><span class="comment">## 步骤详解</span></span><br><span class="line"></span><br><span class="line"><span class="number">1.</span>  **构建请求头**：</span><br><span class="line">    百度等搜索引擎通常会检测请求头中的 `User-Agent`。如果不设置，Python 默认的 UA 为 `Python-urllib/x.x`，极易被反爬机制拦截。因此，我们需要构造字典模拟 Chrome 浏览器访问。</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span>  **创建 Request 对象**：</span><br><span class="line">    `urllib.request.Request` 类允许我们将 URL、Headers、Data 等参数封装成一个独立的请求对象，便于管理。</span><br><span class="line"></span><br><span class="line"><span class="number">3.</span>  **实例化 Handler**：</span><br><span class="line">    `handler = urllib.request.HTTPHandler()` 创建了一个处理 HTTP 协议的处理器。这也是 `urlopen` 默认使用的处理器，显式写出是为了方便后续扩展（例如替换为支持代理的 `ProxyHandler`）。</span><br><span class="line"></span><br><span class="line"><span class="number">4.</span>  **构建 Opener**：</span><br><span class="line">    `opener = urllib.request.build_opener(handler)` 将处理器组装成打开器。这就好比我们将引擎装到了汽车上。</span><br><span class="line"></span><br><span class="line"><span class="number">5.</span>  **发送请求**：</span><br><span class="line">    `opener.<span class="built_in">open</span>(request)` 最终执行请求，返回结果与 `urlopen` 一致，是一个类文件对象，可以使用 `read()` 方法读取数据。</span><br><span class="line"></span><br><span class="line"><span class="comment">## 总结</span></span><br><span class="line"></span><br><span class="line">虽然本例中使用 `HTTPHandler` 看起来比直接使用 `urlopen` 代码量更多，但这套流程是进阶爬虫的基础。当你需要使用 IP 代理池或自动管理 Cookie 时，只需将 `HTTPHandler` 替换为 `ProxyHandler` 或 `HTTPCookieProcessor`，并同样构建 `Opener` 即可，具有很强的扩展性。</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/07/26/2024-07-26-urllib_jsonpath%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/07/26/2024-07-26-urllib_jsonpath%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">Python爬虫基础：urllib请求与JSONP数据处理详解</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-07-26 12:49:51" itemprop="dateCreated datePublished" datetime="2024-07-26T12:49:51+08:00">2024-07-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 13:56:56" itemprop="dateModified" datetime="2026-05-14T13:56:56+08:00">2026-05-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python%E7%88%AC%E8%99%AB/" itemprop="url" rel="index"><span itemprop="name">Python爬虫</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>本文详细讲解如何使用 Python 标准库 urllib 发送带复杂请求头的网络请求，并针对淘宝电影接口返回的 JSONP 数据格式进行清洗和存储，为后续使用 JsonPath 解析数据打下基础。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/07/26/2024-07-26-urllib_jsonpath%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/07/26/2024-07-26-urllib_bs4%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/07/26/2024-07-26-urllib_bs4%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">Python爬虫基础：urllib与BeautifulSoup4实战指南</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-07-26 12:49:51" itemprop="dateCreated datePublished" datetime="2024-07-26T12:49:51+08:00">2024-07-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 13:56:56" itemprop="dateModified" datetime="2026-05-14T13:56:56+08:00">2026-05-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%88%AC%E8%99%AB%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">爬虫技术</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>本文详细讲解Python内置库urllib与第三方库BeautifulSoup4的基础用法，通过实战代码演示如何发送请求、解析HTML文档及提取数据，适合爬虫初学者入门。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/07/26/2024-07-26-urllib_bs4%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/07/26/2024-07-26-urllib_post%E8%AF%B7%E6%B1%82%E7%99%BE%E5%BA%A6%E7%BF%BB%E8%AF%91%E8%AF%A6%E7%BB%86%E7%BF%BB%E8%AF%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/07/26/2024-07-26-urllib_post%E8%AF%B7%E6%B1%82%E7%99%BE%E5%BA%A6%E7%BF%BB%E8%AF%91%E8%AF%A6%E7%BB%86%E7%BF%BB%E8%AF%91/" class="post-title-link" itemprop="url">Python爬虫实战：urllib实现百度翻译POST请求详解</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-07-26 12:49:51" itemprop="dateCreated datePublished" datetime="2024-07-26T12:49:51+08:00">2024-07-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 13:56:56" itemprop="dateModified" datetime="2026-05-14T13:56:56+08:00">2026-05-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AE%9E%E6%88%98/" itemprop="url" rel="index"><span itemprop="name">技术实战</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>本文详细讲解如何使用Python标准库urllib向百度翻译接口发送POST请求，涵盖请求头构造、参数编码及响应处理的全过程。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/07/26/2024-07-26-urllib_post%E8%AF%B7%E6%B1%82%E7%99%BE%E5%BA%A6%E7%BF%BB%E8%AF%91%E8%AF%A6%E7%BB%86%E7%BF%BB%E8%AF%91/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/07/26/2024-07-26-urllib_xpath%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/07/26/2024-07-26-urllib_xpath%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">Python爬虫实战：urllib结合XPath与lxml的基础用法</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-07-26 12:49:51" itemprop="dateCreated datePublished" datetime="2024-07-26T12:49:51+08:00">2024-07-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 13:56:56" itemprop="dateModified" datetime="2026-05-14T13:56:56+08:00">2026-05-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%88%AC%E8%99%AB%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">爬虫技术</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>本文详细介绍如何在Python爬虫中使用lxml库的etree模块结合XPath语法进行数据解析，涵盖本地文件解析与服务器响应数据解析的实战代码示例。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/07/26/2024-07-26-urllib_xpath%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/07/26/2024-07-26-urllib_%E4%BB%A3%E7%90%86%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/07/26/2024-07-26-urllib_%E4%BB%A3%E7%90%86%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">Python爬虫基础：urllib代理的基本使用</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-07-26 12:49:51" itemprop="dateCreated datePublished" datetime="2024-07-26T12:49:51+08:00">2024-07-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 13:56:56" itemprop="dateModified" datetime="2026-05-14T13:56:56+08:00">2026-05-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Python%E7%88%AC%E8%99%AB/" itemprop="url" rel="index"><span itemprop="name">Python爬虫</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在网络爬虫开发中，频繁请求同一网站往往会触发反爬机制，导致IP被封禁。为了解决这一问题，使用<strong>代理IP</strong>是常见的反反爬策略之一。本文将详细介绍如何利用 Python 标准库 <code>urllib</code> 设置代理，实现隐藏真实 IP 的请求。</p>
+<h2 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h2><p>在 <code>urllib</code> 中使用代理，主要涉及以下三个核心对象：</p>
+<ol>
+<li><strong><code>ProxyHandler</code></strong>：代理处理器，用于设置代理IP信息。</li>
+<li><strong><code>build_opener</code></strong>：构建自定义的 opener 对象，它会将代理处理器加载进去。</li>
+<li><strong><code>opener.open()</code></strong>：使用构建好的 opener 发送请求，此时请求将通过代理服务器转发。</li>
+</ol>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><p>下面是一个完整的示例，演示如何通过代理访问百度搜索“ip”，并将结果保存到本地。</p>
+<p>```python<br>import urllib.request</p>
+<h1 id="1-设置目标URL和请求头"><a href="#1-设置目标URL和请求头" class="headerlink" title="1. 设置目标URL和请求头"></a>1. 设置目标URL和请求头</h1><p>url = ‘<a target="_blank" rel="noopener" href="http://www.baidu.com/s?wd=ip">http://www.baidu.com/s?wd=ip</a>‘<br>headers = {<br>    ‘User-Agent’: ‘Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36’<br>}</p>
+<h1 id="2-创建-Request-对象"><a href="#2-创建-Request-对象" class="headerlink" title="2. 创建 Request 对象"></a>2. 创建 Request 对象</h1><p>req = urllib.request.Request(url=url, headers=headers)</p>
+<h1 id="3-设置代理IP"><a href="#3-设置代理IP" class="headerlink" title="3. 设置代理IP"></a>3. 设置代理IP</h1><h1 id="注意：此处使用的代理IP为示例，实际使用时请替换为有效的代理IP"><a href="#注意：此处使用的代理IP为示例，实际使用时请替换为有效的代理IP" class="headerlink" title="注意：此处使用的代理IP为示例，实际使用时请替换为有效的代理IP"></a>注意：此处使用的代理IP为示例，实际使用时请替换为有效的代理IP</h1><h1 id="格式：-‘协议类型’-‘IP地址-端口号’"><a href="#格式：-‘协议类型’-‘IP地址-端口号’" class="headerlink" title="格式：{‘协议类型’: ‘IP地址:端口号’}"></a>格式：{‘协议类型’: ‘IP地址:端口号’}</h1><p>proxies = {<br>    ‘http’: ‘125.77.25.177:8090’<br>}</p>
+<h1 id="4-创建-ProxyHandler-处理器"><a href="#4-创建-ProxyHandler-处理器" class="headerlink" title="4. 创建 ProxyHandler 处理器"></a>4. 创建 ProxyHandler 处理器</h1><p>handler = urllib.request.ProxyHandler(proxies=proxies)</p>
+<h1 id="5-创建自定义-opener-对象"><a href="#5-创建自定义-opener-对象" class="headerlink" title="5. 创建自定义 opener 对象"></a>5. 创建自定义 opener 对象</h1><p>opener = urllib.request.build_opener(handler)</p>
+<h1 id="6-发送请求"><a href="#6-发送请求" class="headerlink" title="6. 发送请求"></a>6. 发送请求</h1><h1 id="此时不再使用-urllib-request-urlopen-req-，而是使用-opener-open-req"><a href="#此时不再使用-urllib-request-urlopen-req-，而是使用-opener-open-req" class="headerlink" title="此时不再使用 urllib.request.urlopen(req)，而是使用 opener.open(req)"></a>此时不再使用 urllib.request.urlopen(req)，而是使用 opener.open(req)</h1><p>try:<br>    res = opener.open(req, timeout=5)</p>
+<pre><code># 7. 获取响应内容
+content = res.read().decode(&#39;utf-8&#39;)
+
+# 8. 持久化存储
+with open(&#39;daili.html&#39;, &#39;w&#39;, encoding=&#39;utf-8&#39;) as f:
+    f.write(content)
+
+print(&quot;页面抓取成功，已保存为 daili.html&quot;)
+</code></pre><p>except Exception as e:<br>    print(f”请求失败，原因：{e}”)</p>
+<h2 id="步骤详解"><a href="#步骤详解" class="headerlink" title="步骤详解"></a>步骤详解</h2><h3 id="1-构建请求对象"><a href="#1-构建请求对象" class="headerlink" title="1. 构建请求对象"></a>1. 构建请求对象</h3><p>首先，我们需要定义目标 URL 和 User-Agent。将 User-Agent 封装进 <code>Request</code> 对象，可以伪装成浏览器访问，避免被简单的反爬拦截。</p>
+<h3 id="2-定义代理字典"><a href="#2-定义代理字典" class="headerlink" title="2. 定义代理字典"></a>2. 定义代理字典</h3><p><code>proxies</code> 字典定义了代理服务器的协议和地址。</p>
+<ul>
+<li>如果是 HTTP 代理，键名为 <code>&#39;http&#39;</code>。</li>
+<li>如果是 HTTPS 代理，键名为 <code>&#39;https&#39;</code>。</li>
+<li>值的格式必须为 <code>IP:端口</code>。</li>
+</ul>
+<h3 id="3-创建-Handler-和-Opener"><a href="#3-创建-Handler-和-Opener" class="headerlink" title="3. 创建 Handler 和 Opener"></a>3. 创建 Handler 和 Opener</h3><p>这是最关键的一步。<code>urllib</code> 默认的 <code>urlopen</code> 方法不支持直接传入代理。我们需要：</p>
+<ol>
+<li>使用 <code>ProxyHandler</code> 传入代理字典，生成一个处理器 <code>handler</code>。</li>
+<li>使用 <code>build_opener(handler)</code> 构建一个自定义的 opener。这个 opener 此时已经具备了使用指定代理的能力。</li>
+</ol>
+<h3 id="4-发送请求与保存"><a href="#4-发送请求与保存" class="headerlink" title="4. 发送请求与保存"></a>4. 发送请求与保存</h3><p>使用 <code>opener.open(req)</code> 发送请求。请求成功后，读取响应数据并将其写入 <code>daili.html</code> 文件。打开该文件，如果代理设置正确且有效，你应该能看到百度搜索“ip”的结果页面，且显示的 IP 地址应为代理 IP，而非你的真实 IP。</p>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
+<li><strong>代理有效性</strong>：代码中示例的代理 IP 可能已失效，请务必替换为你自己的可用代理。建议购买付费代理或搭建自用代理池。</li>
+<li><strong>超时处理</strong>：使用代理请求通常比直连慢，且容易连接失败。建议在 <code>opener.open()</code> 中添加 <code>timeout</code> 参数，并使用 <code>try-except</code> 捕获异常。</li>
+<li><strong>协议匹配</strong>：确保代理协议（http/https）与目标 URL 协议一致，或者配置支持两种协议的代理。</li>
+</ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><h2 id="通过-ProxyHandler-和-build-opener，我们可以灵活地在-urllib-中实现代理请求。这是爬虫进阶的重要一步，理解-Handler-和-Opener-的关系，对于后续学习-Cookie-处理、异常处理等高级功能至关重要。"><a href="#通过-ProxyHandler-和-build-opener，我们可以灵活地在-urllib-中实现代理请求。这是爬虫进阶的重要一步，理解-Handler-和-Opener-的关系，对于后续学习-Cookie-处理、异常处理等高级功能至关重要。" class="headerlink" title="通过 ProxyHandler 和 build_opener，我们可以灵活地在 urllib 中实现代理请求。这是爬虫进阶的重要一步，理解 Handler 和 Opener 的关系，对于后续学习 Cookie 处理、异常处理等高级功能至关重要。"></a>通过 <code>ProxyHandler</code> 和 <code>build_opener</code>，我们可以灵活地在 <code>urllib</code> 中实现代理请求。这是爬虫进阶的重要一步，理解 Handler 和 Opener 的关系，对于后续学习 Cookie 处理、异常处理等高级功能至关重要。</h2><h3 id="优化要点说明："><a href="#优化要点说明：" class="headerlink" title="优化要点说明："></a>优化要点说明：</h3><ol>
+<li><strong>修复格式错误</strong>：原内容中的代码存在 HTML 实体编码（如 <code>&amp;#x27;</code> 代表单引号），导致无法直接运行。我已将其还原为标准的 Python 代码。</li>
+<li><strong>完善 YAML Front Matter</strong>：修正了 <code>tags</code> 的格式（从字符串改为列表），增加了 <code>categories</code>，并优化了标题，使其更具吸引力。</li>
+<li><strong>结构化内容</strong>：将纯代码扩展为“前言 -&gt; 核心概念 -&gt; 代码实现 -&gt; 步骤详解 -&gt; 注意事项”的完整技术文章结构。</li>
+<li><strong>增加注释与异常处理</strong>：在代码中添加了详细的中文注释，并引入了 <code>try-except</code> 块来处理代理常见的超时问题，提升了代码的健壮性。</li>
+<li><strong>专业排版</strong>：使用了 Markdown 标准语法，包括代码高亮块、加粗重点词汇、有序列表等，符合 Hexo 博客的渲染规范。</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/07/26/2024-07-26-urllib_%E5%BE%AE%E5%8D%9Acookie%E7%99%BB%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/07/26/2024-07-26-urllib_%E5%BE%AE%E5%8D%9Acookie%E7%99%BB%E5%BD%95/" class="post-title-link" itemprop="url">Python爬虫实战：利用Urllib与Cookie绕过微博登录</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-07-26 12:49:51" itemprop="dateCreated datePublished" datetime="2024-07-26T12:49:51+08:00">2024-07-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 13:58:18" itemprop="dateModified" datetime="2026-05-14T13:58:18+08:00">2026-05-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">技术开发</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>本文详细讲解如何使用Python标准库urllib，通过携带Cookie信息绕过微博登录验证，实现个人信息页面的数据采集，并深入分析编码错误的常见原因与解决方案。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/07/26/2024-07-26-urllib_%E5%BE%AE%E5%8D%9Acookie%E7%99%BB%E5%BD%95/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -366,98 +1143,6 @@ response = urllib.request.urlopen(url)</code>urlopen<code>是</code>urllib.reque
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/07/26/2024-07-26-urllib_%E5%BE%AE%E5%8D%9Acookie%E7%99%BB%E5%BD%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/26/2024-07-26-urllib_%E5%BE%AE%E5%8D%9Acookie%E7%99%BB%E5%BD%95/" class="post-title-link" itemprop="url">Python爬虫实战：利用Urllib与Cookie绕过微博登录</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-07-26 12:49:51" itemprop="dateCreated datePublished" datetime="2024-07-26T12:49:51+08:00">2024-07-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-05-14 13:58:18" itemprop="dateModified" datetime="2026-05-14T13:58:18+08:00">2026-05-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%8A%80%E6%9C%AF%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">技术开发</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>本文详细讲解如何使用Python标准库urllib，通过携带Cookie信息绕过微博登录验证，实现个人信息页面的数据采集，并深入分析编码错误的常见原因与解决方案。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/07/26/2024-07-26-urllib_%E5%BE%AE%E5%8D%9Acookie%E7%99%BB%E5%BD%95/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/07/26/2024-07-26-urllib_%E7%AB%99%E9%95%BF%E7%B4%A0%E6%9D%90/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -546,697 +1231,8 @@ response = urllib.request.urlopen(url)</code>urlopen<code>是</code>urllib.reque
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/07/26/2024-07-26-urllib_%E7%99%BE%E5%BA%A6%E7%9A%84%E7%99%BE%E5%BA%A6%E4%B8%80%E4%B8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/26/2024-07-26-urllib_%E7%99%BE%E5%BA%A6%E7%9A%84%E7%99%BE%E5%BA%A6%E4%B8%80%E4%B8%8B/" class="post-title-link" itemprop="url">Python爬虫实战：使用urllib与XPath解析百度搜索按钮</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-07-26 12:49:51" itemprop="dateCreated datePublished" datetime="2024-07-26T12:49:51+08:00">2024-07-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-05-14 13:56:56" itemprop="dateModified" datetime="2026-05-14T13:56:56+08:00">2026-05-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AE%9E%E6%88%98/" itemprop="url" rel="index"><span itemprop="name">技术实战</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在 Python 爬虫开发的入门阶段，学会如何发送请求并解析数据是核心技能。本文将介绍如何利用 Python 内置库 <code>urllib</code> 发送带伪装头的请求，并结合 <code>lxml</code> 库使用 XPath 语法，精准提取百度首页“百度一下”按钮的文本内容。</p>
-<h2 id="核心思路"><a href="#核心思路" class="headerlink" title="核心思路"></a>核心思路</h2><ol>
-<li><strong>发送请求</strong>：构建带有 <code>User-Agent</code> 的请求头，模拟浏览器访问，避免被服务器拒绝。</li>
-<li><strong>获取数据</strong>：使用 <code>urlopen</code> 获取响应，并解码为 UTF-8 格式的字符串。</li>
-<li><strong>解析数据</strong>：利用 <code>lxml.etree</code> 将 HTML 文本转换为可解析的对象，通过 XPath 路径表达式定位目标元素。</li>
-</ol>
-<h2 id="完整代码实现"><a href="#完整代码实现" class="headerlink" title="完整代码实现"></a>完整代码实现</h2><p>以下是本次实战的完整代码：</p>
-<p>```python</p>
-<h1 id="导入所需模块"><a href="#导入所需模块" class="headerlink" title="导入所需模块"></a>导入所需模块</h1><p>import urllib.request<br>from lxml import etree</p>
-<h1 id="1-定义目标URL"><a href="#1-定义目标URL" class="headerlink" title="1. 定义目标URL"></a>1. 定义目标URL</h1><p>url = ‘<a target="_blank" rel="noopener" href="https://www.baidu.com">https://www.baidu.com</a>‘</p>
-<h1 id="2-构建请求头-伪装浏览器"><a href="#2-构建请求头-伪装浏览器" class="headerlink" title="2. 构建请求头 (伪装浏览器)"></a>2. 构建请求头 (伪装浏览器)</h1><h1 id="这里的-User-Agent-模拟了-Edge-浏览器"><a href="#这里的-User-Agent-模拟了-Edge-浏览器" class="headerlink" title="这里的 User-Agent 模拟了 Edge 浏览器"></a>这里的 User-Agent 模拟了 Edge 浏览器</h1><p>headers = {<br>    ‘User-Agent’: ‘Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 Edge/16.16299’<br>}</p>
-<h1 id="3-创建请求对象并添加头部信息"><a href="#3-创建请求对象并添加头部信息" class="headerlink" title="3. 创建请求对象并添加头部信息"></a>3. 创建请求对象并添加头部信息</h1><p>request = urllib.request.Request(url=url, headers=headers)</p>
-<h1 id="4-发送请求并获取响应"><a href="#4-发送请求并获取响应" class="headerlink" title="4. 发送请求并获取响应"></a>4. 发送请求并获取响应</h1><p>response = urllib.request.urlopen(request)</p>
-<h1 id="5-读取响应内容并解码"><a href="#5-读取响应内容并解码" class="headerlink" title="5. 读取响应内容并解码"></a>5. 读取响应内容并解码</h1><h1 id="百度网页通常使用-UTF-8-编码"><a href="#百度网页通常使用-UTF-8-编码" class="headerlink" title="百度网页通常使用 UTF-8 编码"></a>百度网页通常使用 UTF-8 编码</h1><p>content = response.read().decode(‘utf-8’)</p>
-<h1 id="6-解析网页源码"><a href="#6-解析网页源码" class="headerlink" title="6. 解析网页源码"></a>6. 解析网页源码</h1><p>html = etree.HTML(content)</p>
-<h1 id="7-使用-XPath-提取数据"><a href="#7-使用-XPath-提取数据" class="headerlink" title="7. 使用 XPath 提取数据"></a>7. 使用 XPath 提取数据</h1><h1 id="逻辑：查找所有-id-”su”-的-input-标签，并获取其-value-属性值"><a href="#逻辑：查找所有-id-”su”-的-input-标签，并获取其-value-属性值" class="headerlink" title="逻辑：查找所有 id=”su” 的 input 标签，并获取其 value 属性值"></a>逻辑：查找所有 id=”su” 的 input 标签，并获取其 value 属性值</h1><h1 id="xpath-返回的是一个列表，通过-0-取出第一个元素"><a href="#xpath-返回的是一个列表，通过-0-取出第一个元素" class="headerlink" title="xpath 返回的是一个列表，通过 [0] 取出第一个元素"></a>xpath 返回的是一个列表，通过 [0] 取出第一个元素</h1><p>result = html.xpath(‘//input[@id=”su”]/@value’)[0]</p>
-<h1 id="8-打印结果"><a href="#8-打印结果" class="headerlink" title="8. 打印结果"></a>8. 打印结果</h1><p>print(result)</p>
-<h2 id="代码详解"><a href="#代码详解" class="headerlink" title="代码详解"></a>代码详解</h2><h3 id="1-为什么要设置-Headers？"><a href="#1-为什么要设置-Headers？" class="headerlink" title="1. 为什么要设置 Headers？"></a>1. 为什么要设置 Headers？</h3><p>直接使用 <code>urllib</code> 访问百度时，Python 会发送默认的 User-Agent（通常包含 <code>Python-urllib</code> 字样）。百度服务器识别到这是爬虫请求，可能会拒绝服务或返回不完整的数据。因此，我们需要在请求头中添加 <code>User-Agent</code>，伪装成正常的浏览器访问。</p>
-<h3 id="2-XPath-解析逻辑"><a href="#2-XPath-解析逻辑" class="headerlink" title="2. XPath 解析逻辑"></a>2. XPath 解析逻辑</h3><p>代码中的核心解析语句是：<br>```python<br>result = html.xpath(‘//input[@id=”su”]/@value’)[0]</p>
-<ul>
-<li><code>//input</code>：在整个文档中查找 <code>input</code> 标签。</li>
-<li><code>[@id=&quot;su&quot;]</code>：筛选条件，找到 <code>id</code> 属性为 <code>&quot;su&quot;</code> 的节点。在百度首页，这正好对应搜索框右侧的“百度一下”按钮。</li>
-<li><code>/@value</code>：获取该节点的 <code>value</code> 属性值。</li>
-</ul>
-<p>运行程序后，控制台将输出：<br>百度一下</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本案例展示了最基础的爬虫流程。虽然 <code>urllib</code> 是 Python 内置库，但在实际开发中，我们通常会使用更加人性化的第三方库（如 <code>requests</code>）来处理请求。不过，理解 <code>urllib</code> 的底层逻辑对于掌握 Python 网络编程大有裨益。</p>
-<hr>
-<h3 id="优化说明："><a href="#优化说明：" class="headerlink" title="优化说明："></a>优化说明：</h3><ol>
-<li><strong>修复了编码问题</strong>：原文中的 <code>&amp;#x27;</code>（单引号）和 <code>&amp;quot;</code>（双引号）已被还原为正常的 Python 语法符号，确保代码可以直接复制运行。</li>
-<li><strong>结构重组</strong>：增加了“前言”、“核心思路”、“代码详解”等章节，使文章逻辑层层递进，符合技术博客的阅读习惯。</li>
-<li><strong>规范 YAML Front Matter</strong>：<ul>
-<li>优化了 <code>title</code>，使其更具吸引力和描述性。</li>
-<li>规范了 <code>tags</code> 格式，修正了原文中字符串格式的小瑕疵，改为标准的 YAML 列表格式。</li>
-</ul>
-</li>
-<li><strong>代码可读性提升</strong>：<ul>
-<li>将 <code>import</code> 语句统一置于文件顶部，符合 PEP8 规范。</li>
-<li>添加了详细的注释，解释了每一步操作的含义（如伪装浏览器、解码、XPath 语法解释）。</li>
-</ul>
-</li>
-<li><strong>内容补全</strong>：解释了为什么要使用 User-Agent 以及 XPath 具体的匹配逻辑，增加了文章的技术深度。</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/07/26/2024-07-26-urllib_%E8%AF%B7%E6%B1%82%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%AE%9A%E5%88%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/26/2024-07-26-urllib_%E8%AF%B7%E6%B1%82%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%AE%9A%E5%88%B6/" class="post-title-link" itemprop="url">Python爬虫进阶：urllib请求对象定制与UA伪装</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-07-26 12:49:51" itemprop="dateCreated datePublished" datetime="2024-07-26T12:49:51+08:00">2024-07-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python%E7%88%AC%E8%99%AB/" itemprop="url" rel="index"><span itemprop="name">Python爬虫</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在使用 Python 进行网络爬虫开发时，<code>urllib</code> 库是我们最常接触的基础库。很多初学者在使用 <code>urllib.request.urlopen</code> 时会发现：直接请求往往无法获取网页数据，或者被服务器重定向到登录页/错误页。</p>
-<p>这通常是因为我们忽略了 <strong>请求头</strong> 的设置。本文将深入讲解如何通过 <code>urllib</code> 定制请求对象，实现 UA 伪装，以及如何处理 URL 中的中文编码问题。</p>
-<h2 id="一、基础知识：URL-的组成与端口"><a href="#一、基础知识：URL-的组成与端口" class="headerlink" title="一、基础知识：URL 的组成与端口"></a>一、基础知识：URL 的组成与端口</h2><p>在深入代码之前，我们需要理解 URL 的基本构成。一个完整的 URL 包含协议、主机、端口号、路径、参数和锚点。</p>
-<p>在爬虫请求中，<strong>端口号</strong> 往往决定了协议类型：</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:left">协议类型</th>
-<th style="text-align:left">默认端口</th>
-<th style="text-align:left">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><strong>HTTP</strong></td>
-<td style="text-align:left">80</td>
-<td style="text-align:left">超文本传输协议</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>HTTPS</strong></td>
-<td style="text-align:left">443</td>
-<td style="text-align:left">安全套接字层超文本传输协议</td>
-</tr>
-<tr>
-<td style="text-align:left">MySQL</td>
-<td style="text-align:left">3306</td>
-<td style="text-align:left">数据库服务端口</td>
-</tr>
-<tr>
-<td style="text-align:left">Redis</td>
-<td style="text-align:left">6379</td>
-<td style="text-align:left">缓存服务端口</td>
-</tr>
-<tr>
-<td style="text-align:left">MongoDB</td>
-<td style="text-align:left">27017</td>
-<td style="text-align:left">数据库服务端口</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>我们在代码中指定的 <code>https://www.baidu.com</code>，浏览器实际上默认连接的是 <code>443</code> 端口。</p>
-<h2 id="二、痛点：为什么需要请求对象定制？"><a href="#二、痛点：为什么需要请求对象定制？" class="headerlink" title="二、痛点：为什么需要请求对象定制？"></a>二、痛点：为什么需要请求对象定制？</h2><p><code>urlopen</code> 方法虽然简单，但它只接受 URL 字符串或特定的 Request 对象。</p>
-<p>如果我们直接发起请求，<code>urllib</code> 发送的请求头中的 <code>User-Agent</code> 默认是 <code>Python-urllib/x.x</code>。绝大多数网站会识别出这是一个脚本请求，从而通过反爬机制直接拒绝访问。</p>
-<p><strong>核心问题</strong>：<code>urlopen</code> 方法本身不支持直接传递 <code>headers</code> 字典参数。</p>
-<p><strong>解决方案</strong>：使用 <code>urllib.request.Request</code> 类定制请求对象，将 URL 和 Headers 封装在一起。</p>
-<h2 id="三、实战演练"><a href="#三、实战演练" class="headerlink" title="三、实战演练"></a>三、实战演练</h2><h3 id="1-基础案例：添加-User-Agent-伪装"><a href="#1-基础案例：添加-User-Agent-伪装" class="headerlink" title="1. 基础案例：添加 User-Agent 伪装"></a>1. 基础案例：添加 User-Agent 伪装</h3><p>下面的代码展示了如何创建一个包含自定义 Headers 的请求对象，成功访问百度首页。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line"><span class="comment"># 目标 URL</span></span><br><span class="line">url = <span class="string">&#x27;https://www.baidu.com&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 请求头</span></span><br><span class="line"><span class="comment"># 这是一个标准的浏览器 User-Agent，用于伪装成 Chrome 浏览器</span></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 Edge/16.16299&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 请求对象的定制</span></span><br><span class="line"><span class="comment"># 因为 urlopen 不支持直接传 headers 字典，所以需要先构建 Request 对象</span></span><br><span class="line"><span class="comment"># 关键词传参：将 url 和 headers 封装进 request 对象</span></span><br><span class="line">request = urllib.request.Request(url=url, headers=headers)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 发送请求</span></span><br><span class="line">response = urllib.request.urlopen(request)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取并解码响应内容</span></span><br><span class="line">content = response.read().decode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(content)</span><br><span class="line">**代码解析**：</span><br><span class="line"><span class="number">1.</span>  **headers 构建**：我们从浏览器开发者工具中复制真实的 User-Agent 字符串。</span><br><span class="line"><span class="number">2.</span>  **Request 对象**：通过 `urllib.request.Request` 将 URL 和 Headers 绑定。</span><br><span class="line"><span class="number">3.</span>  **发送请求**：`urlopen` 接收的是定制好的 `request` 对象，而非单纯的 URL 字符串。</span><br><span class="line"></span><br><span class="line"><span class="comment">### 2. 进阶案例：URL 参数编码</span></span><br><span class="line"></span><br><span class="line">在实际爬虫中，我们经常需要搜索特定关键词（如中文）。URL 中如果包含中文或其他特殊字符，必须进行编码（Percent-encoding），否则会抛出错误或乱码。</span><br><span class="line"></span><br><span class="line">`urllib.parse.quote` 方法可以将字符串转换为 URL 兼容的编码格式。</span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"><span class="keyword">import</span> urllib.parse</span><br><span class="line"></span><br><span class="line"><span class="comment"># 基础 URL，注意 &#x27;wd&#x27; 是百度的查询参数</span></span><br><span class="line">base_url = <span class="string">&#x27;https://www.baidu.com/s?wd=&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 需要查询的关键词</span></span><br><span class="line">keyword = <span class="string">&quot;你好&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># URL 编码转换</span></span><br><span class="line"><span class="comment"># 将中文 &quot;你好&quot; 转换为 Unicode 编码格式 (例如: %E4%BD%A0%E5%A5%BD)</span></span><br><span class="line">name = urllib.parse.quote(keyword)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;编码后的关键词: <span class="subst">&#123;name&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 拼接完整的 URL</span></span><br><span class="line">full_url = base_url + name</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定制请求对象 (复用之前的 headers)</span></span><br><span class="line">request = urllib.request.Request(url=full_url, headers=headers)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 发送请求并获取响应</span></span><br><span class="line">response = urllib.request.urlopen(request)</span><br><span class="line">content = response.read().decode(<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(content)</span><br><span class="line">**关键点说明**：</span><br><span class="line">- `urllib.parse.quote(<span class="string">&quot;你好&quot;</span>)`：将中文字符转换为 `%xx` 形式，这是 HTTP 协议传输的标准要求。</span><br><span class="line">- `full_url` 拼接：在爬虫开发中，构建带参数的 URL 是最常见的操作之一。</span><br><span class="line"></span><br><span class="line"><span class="comment">## 总结</span></span><br><span class="line"></span><br><span class="line">本文介绍了 `urllib` 库中请求对象定制的关键技术：</span><br><span class="line"><span class="number">1.</span>  使用 `urllib.request.Request` 封装 URL 和 Headers，解决 `urlopen` 无法携带请求头的问题。</span><br><span class="line"><span class="number">2.</span>  通过设置 `User-Agent` 实现浏览器伪装，绕过基础的反爬检测。</span><br><span class="line"><span class="number">3.</span>  使用 `urllib.parse.quote` 对 URL 参数进行编码，解决中文参数传输问题。</span><br><span class="line"></span><br><span class="line">掌握这三点，即可应对绝大多数简单的网页爬取需求。</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/07/26/2024-07-26-urllib%E2%80%94%E2%80%94ajax%E7%9A%84get%E8%AF%B7%E6%B1%82%E8%B1%86%E7%93%A3%E7%94%B5%E5%BD%B1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/26/2024-07-26-urllib%E2%80%94%E2%80%94ajax%E7%9A%84get%E8%AF%B7%E6%B1%82%E8%B1%86%E7%93%A3%E7%94%B5%E5%BD%B1/" class="post-title-link" itemprop="url">urllib实战：Ajax GET请求抓取豆瓣电影数据</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-07-26 12:49:51" itemprop="dateCreated datePublished" datetime="2024-07-26T12:49:51+08:00">2024-07-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-05-14 13:56:56" itemprop="dateModified" datetime="2026-05-14T13:56:56+08:00">2026-05-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Python%E7%88%AC%E8%99%AB/" itemprop="url" rel="index"><span itemprop="name">Python爬虫</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>本文详细讲解如何使用Python标准库urllib处理Ajax GET请求，通过模拟浏览器Header抓取豆瓣电影排行榜数据，并进行本地JSON存储。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/07/26/2024-07-26-urllib%E2%80%94%E2%80%94ajax%E7%9A%84get%E8%AF%B7%E6%B1%82%E8%B1%86%E7%93%A3%E7%94%B5%E5%BD%B1/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/07/26/2024-07-26-requests_post%E8%AF%B7%E6%B1%82/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/26/2024-07-26-requests_post%E8%AF%B7%E6%B1%82/" class="post-title-link" itemprop="url">Python爬虫实战：详解Requests库发送POST请求</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-07-26 12:49:51" itemprop="dateCreated datePublished" datetime="2024-07-26T12:49:51+08:00">2024-07-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-05-14 13:56:56" itemprop="dateModified" datetime="2026-05-14T13:56:56+08:00">2026-05-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%8A%80%E6%9C%AF%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">技术开发</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%8A%80%E6%9C%AF%E5%BC%80%E5%8F%91/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在网络爬虫开发中，除了常见的 GET 请求，POST 请求同样至关重要。POST 请求通常用于提交表单数据、上传文件或调用 API 接口。本文将以百度翻译 API 为例，详细讲解如何使用 Python 的 <code>requests</code> 库构造并发送 POST 请求。</p>
-<h2 id="场景分析"><a href="#场景分析" class="headerlink" title="场景分析"></a>场景分析</h2><p>目标接口为百度翻译的 <code>v2transapi</code>，这是一个典型的动态加载接口。通过浏览器开发者工具（F12）抓包分析，我们发现该接口需要携带特定的请求头和表单数据才能正常响应。</p>
-<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><p>以下是完整的 Python 代码示例。为了防止请求被拦截，我们需要在 Headers 中伪装浏览器，并携带有效的 Cookie 进行身份验证。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"><span class="comment"># 1. 定义目标接口 URL</span></span><br><span class="line">url = <span class="string">&#x27;https://fanyi.baidu.com/v2transapi?from=en&amp;to=zh&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 构造请求头</span></span><br><span class="line"><span class="comment"># 注意：Cookie 和 Token 具有时效性，以下数值仅为示例，实际使用时需从浏览器实时获取</span></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="comment"># 模拟浏览器身份，防止因缺少UA被拒绝</span></span><br><span class="line">    <span class="string">&#x27;User-Agent&#x27;</span>: <span class="string">&#x27;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36&#x27;</span>,</span><br><span class="line">    <span class="comment"># Cookie 用于维持会话状态，包含用户的登录信息</span></span><br><span class="line">    <span class="string">&#x27;Cookie&#x27;</span>: <span class="string">&#x27;BIDUPSID=4051DD61A35ADB02F6DBB9362C65230B; PSTM=1691472145; BAIDUID=4051DD61A35ADB02E71B03D86B63E5F3:FG=1; REALTIME_TRANS_SWITCH=1; FANYI_WORD_SWITCH=1; HISTORY_SWITCH=1; SOUND_SPD_SWITCH=1; SOUND_PREFER_SWITCH=1; APPGUIDE_10_7_2=1; smallFlowVersion=old; BDUSS=25reVZxN3puRTlZRmVkYkNpQ2REYkx1TFRyYk8wd3d-ei1ON3RGMjdwUnFyRzVtRUFBQUFBJCQAAAAAAQAAAAEAAABEqXCBU3djbWIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGofR2ZqH0dmd; BDUSS_BFESS=25reVZxN3puRTlZRmVkYkNpQ2REYkx1TFRyYk8wd3d-ei1ON3RGMjdwUnFyRzVtRUFBQUFBJCQAAAAAAQAAAAEAAABEqXCBU3djbWIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGofR2ZqH0dmd; APPGUIDE_10_7_8=1; APPGUIDE_10_7_1=1; MCITY=-286%3A; H_PS_PSSID=60277_60361; H_WISE_SIDS=60277_60361; H_WISE_SIDS_BFESS=60277_60361; BDORZ=FAE1F8CFA4E8841CC28A015FEAEE495D; BA_HECTOR=21ah200120840584ak05050h0s6f6o1j975q01v; ZFY=6TGjMTdRv2Hm2U6qBurH:ANpw:BH01zqfPCmxsI4SsNxs:C; BAIDUID_BFESS=4051DD61A35ADB02E71B03D86B63E5F3:FG=1; BDRCVFR[feWj1Vr5u3D]=I67x6TjHwwYf0; PSINO=2; delPer=0; ab_sr=1.0.1_YjllYzZiNGZmMGQ3Y2MzYTA3ZGZiN2U4YzJhMDRlNzI1MjM2Nzk4ZmI3ZDI3NzQ0N2Y3MmQ5NzdmYTJlYjlhNzgwZjMxY2IyMjg3NmMzZjI5MTljN2U2ZDRmMmU2N2NmMmUxMDZhZjI0NTFmM2RhNTgxMjVmNTU4ZDM4Y2IxNzY2MDczODkyNzU3YWM2NDI3ZjIwNzgwOTVhNmJmNmVjNDM3ZWJlY2U2MjM2Nzg3MjcyZTM3ZWM4MjI0MzYxNzEx&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 构造表单数据</span></span><br><span class="line"><span class="comment"># 这是 POST 请求的核心部分，对应接口所需的参数</span></span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="string">&#x27;from&#x27;</span>: <span class="string">&#x27;en&#x27;</span>,           <span class="comment"># 源语言：英语</span></span><br><span class="line">    <span class="string">&#x27;to&#x27;</span>: <span class="string">&#x27;zh&#x27;</span>,             <span class="comment"># 目标语言：中文</span></span><br><span class="line">    <span class="string">&#x27;query&#x27;</span>: <span class="string">&#x27;eye&#x27;</span>,         <span class="comment"># 待翻译的单词</span></span><br><span class="line">    <span class="string">&#x27;transtype&#x27;</span>: <span class="string">&#x27;realtime&#x27;</span>,<span class="comment"># 翻译类型</span></span><br><span class="line">    <span class="string">&#x27;simple_means_flag&#x27;</span>: <span class="string">&#x27;3&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;sign&#x27;</span>: <span class="string">&#x27;198772.518981&#x27;</span>, <span class="comment"># 关键签名参数，由前端JS动态生成</span></span><br><span class="line">    <span class="string">&#x27;token&#x27;</span>: <span class="string">&#x27;e4649cb1ca39571638fbe20768a03def&#x27;</span>, <span class="comment"># 身份令牌</span></span><br><span class="line">    <span class="string">&#x27;domain&#x27;</span>: <span class="string">&#x27;common&#x27;</span>      <span class="comment"># 领域设置</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. 发送 POST 请求</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    response = requests.post(url, headers=headers, data=data)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 5. 处理响应结果</span></span><br><span class="line">    <span class="keyword">if</span> response.status_code == <span class="number">200</span>:</span><br><span class="line">        <span class="comment"># 以 JSON 格式输出返回内容</span></span><br><span class="line">        <span class="built_in">print</span>(response.json())</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;请求失败，状态码: <span class="subst">&#123;response.status_code&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">except</span> requests.exceptions.RequestException <span class="keyword">as</span> e:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;请求发生异常: <span class="subst">&#123;e&#125;</span>&quot;</span>)</span><br><span class="line"><span class="comment">## 核心参数解析</span></span><br><span class="line"></span><br><span class="line">在构造 POST 请求时，有几个关键点需要注意：</span><br><span class="line"></span><br><span class="line"><span class="number">1.</span>  **URL 参数**：`?<span class="keyword">from</span>=en&amp;to=zh` 指明了翻译的方向，通常也可以放在 `data` 表单中，具体视接口定义而定。</span><br><span class="line"><span class="number">2.</span>  **Headers (请求头)**：</span><br><span class="line">    *   **User-Agent**：必填项，用于伪装成浏览器访问，避免被防火墙直接拦截。</span><br><span class="line">    *   **Cookie**：用于维持登录状态。许多接口（如百度翻译）在频繁访问或使用高级功能时需要登录态。</span><br><span class="line"><span class="number">3.</span>  **Data (请求体)**：</span><br><span class="line">    *   **sign &amp; token**：这是反爬虫的核心。大多数现代网站的 API 接口会通过 JavaScript 动态生成 `sign`（签名）和 `token`。如果这些参数过期或错误，服务器将返回错误代码（如 <span class="number">998</span>、<span class="number">999</span> 等）。在实际爬虫开发中，通常需要逆向分析前端 JS 代码来找到生成算法。</span><br><span class="line"></span><br><span class="line"><span class="comment">## 总结</span></span><br><span class="line"></span><br><span class="line">使用 `requests` 发送 POST 请求并不复杂，难点在于分析接口所需的参数格式和反爬策略。建议在实际开发中，优先使用浏览器开发者工具对比请求参数，确保 `headers` 和 `data` 字段的完整性与准确性。</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/07/26/2024-07-26-spider/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/26/2024-07-26-spider/" class="post-title-link" itemprop="url">Python 网络爬虫实战：从零构建高效数据采集系统</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2024-07-26 11:52:42 / 修改时间：14:30:00" itemprop="dateCreated datePublished" datetime="2024-07-26T11:52:42+08:00">2024-07-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">技术笔记</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>本文详细介绍了 Python 网络爬虫的开发流程，从基础的环境配置到使用 requests 与 BeautifulSoup 进行数据抓取，并涵盖反爬虫策略与数据持久化存储的最佳实践。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/07/26/2024-07-26-spider/">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/07/21/2024-07-21-%E6%95%B0%E5%AD%97%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80%E9%87%8D%E7%82%B9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/21/2024-07-21-%E6%95%B0%E5%AD%97%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80%E9%87%8D%E7%82%B9/" class="post-title-link" itemprop="url">数字电子技术基础重点知识全梳理</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-07-21 08:56:36" itemprop="dateCreated datePublished" datetime="2024-07-21T08:56:36+08:00">2024-07-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">电子技术</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          本文系统梳理了数字电子技术的核心考点，涵盖数制转换、逻辑代数化简、组合逻辑电路分析与设计、触发器特性及时序逻辑电路等关键章节，助你快速构建知识体系。
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2024/07/21/2024-07-21-%E6%95%B0%E5%AD%97%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80%E9%87%8D%E7%82%B9/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/07/21/2024-07-21-%E5%B0%86Python%E4%BB%A3%E7%A0%81%E6%96%87%E4%BB%B6%E5%B0%81%E8%A3%85%E6%88%90%E5%BA%93%E7%9A%84%E6%AD%A5%E9%AA%A4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/21/2024-07-21-%E5%B0%86Python%E4%BB%A3%E7%A0%81%E6%96%87%E4%BB%B6%E5%B0%81%E8%A3%85%E6%88%90%E5%BA%93%E7%9A%84%E6%AD%A5%E9%AA%A4/" class="post-title-link" itemprop="url">Python实战：将代码文件封装为可复用库的完整指南</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-07-21 08:49:49" itemprop="dateCreated datePublished" datetime="2024-07-21T08:49:49+08:00">2024-07-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">编程开发</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%BC%96%E7%A8%8B%E5%BC%80%E5%8F%91/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在日常的 Python 开发中，我们经常会编写一些通用的功能模块。为了提高代码的复用性，避免重复造轮子，将这些代码封装成标准的 Python 库是一个最佳实践。本文将详细介绍如何从零开始，将一个普通的 <code>.py</code> 文件封装成可以通过 <code>pip</code> 安装的标准库。</p>
-<h3 id="1-规划项目目录结构"><a href="#1-规划项目目录结构" class="headerlink" title="1. 规划项目目录结构"></a>1. 规划项目目录结构</h3><p>一个标准的 Python 库项目需要遵循特定的目录规范。首先，我们需要创建一个清晰的项目结构，以便于管理和打包。</p>
-<p>请在本地创建如下目录结构：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line">my_library/                 # 项目根目录</span><br><span class="line">    ├── my_module/          # 实际的Python包目录</span><br><span class="line">    │   ├── __init__.py     # 包初始化文件</span><br><span class="line">    │   └── my_code.py      # 你的核心代码文件</span><br><span class="line">    └── setup.py            # 项目配置与打包脚本</span><br><span class="line">**关键文件说明：**</span><br><span class="line">*   **`my_module/`**: 这是你的功能模块目录，也就是最终被导入的包名。</span><br><span class="line">*   **`__init__.py`**: 这是一个标识文件，用于告诉 Python 该目录是一个合法的包。它可以是空文件，也可以用于初始化包级别的逻辑。</span><br><span class="line">*   **`setup.py`**: 这是 setuptools 的构建脚本，定义了库的名称、版本、依赖等元信息。</span><br><span class="line"></span><br><span class="line">### 2. 编写核心代码</span><br><span class="line"></span><br><span class="line">在 `my_module/my_code.py` 文件中编写你的业务逻辑代码。为了演示，我们定义一个简单的 `greet` 函数。</span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line"># my_module/my_code.py</span><br><span class="line"></span><br><span class="line">def greet(name):</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    返回问候语</span><br><span class="line">    :param name: 用户名</span><br><span class="line">    :return: 格式化的问候字符串</span><br><span class="line">    &quot;&quot;&quot;</span><br><span class="line">    return f&quot;Hello, &#123;name&#125;!&quot;</span><br><span class="line">### 3. 创建打包配置文件</span><br><span class="line"></span><br><span class="line">`setup.py` 是库封装的核心。它包含了库的所有元数据。我们在项目根目录下创建该文件：</span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line">from setuptools import setup, find_packages</span><br><span class="line"></span><br><span class="line">setup(</span><br><span class="line">    name=&#x27;my_library&#x27;,           # 库的名称，pip install 时使用</span><br><span class="line">    version=&#x27;0.1&#x27;,                # 版本号，遵循语义化版本规范</span><br><span class="line">    packages=find_packages(),     # 自动查找包含 __init__.py 的目录</span><br><span class="line">    author=&#x27;Your Name&#x27;,          # (可选) 作者信息</span><br><span class="line">    author_email=&#x27;email@example.com&#x27;, # (可选) 邮箱</span><br><span class="line">    description=&#x27;A simple example library&#x27;, # (可选) 简短描述</span><br><span class="line">)</span><br><span class="line">&gt; **专家提示**：`find_packages()` 可以自动扫描项目中的 Python 包，相比手动指定，它更加灵活且不易出错。</span><br><span class="line"></span><br><span class="line">### 4. 构建并安装库</span><br><span class="line"></span><br><span class="line">配置完成后，我们就可以通过命令行将代码打包并安装到本地 Python 环境中。</span><br><span class="line"></span><br><span class="line">**第一步：构建源码包**</span><br><span class="line">在项目根目录下运行以下命令，这将在 `dist/` 目录下生成 `.tar.gz` 压缩包。</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">python setup.py sdist</span><br><span class="line">**第二步：安装到本地环境**</span><br><span class="line">使用 `pip` 安装刚才生成的压缩包：</span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">pip install dist/my_library-0.1.tar.gz</span><br><span class="line">安装成功后，你可以在任意目录下通过 Python 解释器导入该库，而无需再关心源码文件的具体位置。</span><br><span class="line"></span><br><span class="line">### 5. 验证与使用</span><br><span class="line"></span><br><span class="line">为了验证库是否安装成功，我们可以打开一个新的 Python 交互式环境进行测试：</span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line">from my_module.my_code import greet</span><br><span class="line"></span><br><span class="line"># 调用封装好的函数</span><br><span class="line">message = greet(&quot;Alice&quot;)</span><br><span class="line">print(message)</span><br><span class="line">**预期输出：**</span><br><span class="line"></span><br><span class="line">```text</span><br><span class="line">Hello, Alice!</span><br><span class="line">### 总结</span><br><span class="line"></span><br><span class="line">通过以上五个步骤，我们完成了一个 Python 库从目录构建、代码编写、元数据配置到最终打包安装的全过程。这种方式不仅让代码更加规范，也极大地提升了代码在团队间分享和跨项目复用的效率。</span><br><span class="line"></span><br><span class="line">建议在实际开发中，还可以添加 `README.md` 文件和 `LICENSE` 文件，使你的开源库更加专业。</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/16/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><span class="page-number current">17</span><a class="page-number" href="/page/18/">18</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/18/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/16/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><span class="page-number current">17</span><a class="page-number" href="/page/18/">18</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/18/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>
