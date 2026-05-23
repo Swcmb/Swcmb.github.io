@@ -228,6 +228,225 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/13/2026-05-13-P13876-P13876-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E7%9C%81-Java-Python-A-%E7%89%B9%E6%AE%8A%E6%97%A5%E6%9C%9F-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/13/2026-05-13-P13876-P13876-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E7%9C%81-Java-Python-A-%E7%89%B9%E6%AE%8A%E6%97%A5%E6%9C%9F-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P13876 - P13876 [蓝桥杯 2023 省 Java/Python A] 特殊日期 - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-13 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-13T00:00:00+08:00">2026-05-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>&lt;博客&gt;</p>
+<h2 id="洛谷-P13876-特殊日期-位运算优化详解"><a href="#洛谷-P13876-特殊日期-位运算优化详解" class="headerlink" title="[洛谷 P13876] 特殊日期 + 位运算优化详解"></a>[洛谷 P13876] 特殊日期 + 位运算优化详解</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
+<li><strong>题目来源</strong>: 洛谷 (<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P13876">https://www.luogu.com.cn/problem/P13876</a>)</li>
+<li><strong>题目难度</strong>: ★★★☆☆</li>
+<li><strong>标签分类</strong>: 位运算、数学</li>
+<li><strong>核心考点</strong>: 位运算的应用，特殊日期的判断</li>
+</ul>
+<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><p><strong>问题描述</strong>: 给定一个年份，求出这个年份中所有日期中，能同时被该年月日整除的日期总数。</p>
+<p><strong>输入格式</strong>: 一个整数年份。</p>
+<p><strong>输出格式</strong>: 一个整数，表示满足条件的日期总数。</p>
+<p><strong>样例分析</strong>:</p>
+<ul>
+<li>输入：2020</li>
+<li>输出：35813063</li>
+<li>解释：2020年是闰年，所以2月有29天。我们需要找出所有能同时被2020年、月份和日期整除的日期。</li>
+</ul>
+<h3 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
+<li>本题的关键在于判断一个日期是否满足条件，即该日期能同时被年、月、日整除。</li>
+<li>需要考虑闰年和非闰年的情况，闰年的2月有29天，非闰年有28天。</li>
+</ul>
+<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
+<li><strong>朴素思路</strong>: 遍历所有日期，检查是否满足条件。这种方法的时间复杂度为O(n^3)，其中n为年份的天数。</li>
+<li><strong>优化路径</strong>: 使用位运算来优化日期的判断过程，减少不必要的计算。</li>
+</ul>
+<h4 id="4-3-位运算优化"><a href="#4-3-位运算优化" class="headerlink" title="4.3 位运算优化"></a>4.3 位运算优化</h4><ul>
+<li>利用位运算，我们可以快速判断一个数是否能被另一个数整除。</li>
+<li>对于闰年，我们可以将年份与日期进行位与运算，如果结果为0，则说明日期能被年份整除。</li>
+</ul>
+<h4 id="4-4-算法选择"><a href="#4-4-算法选择" class="headerlink" title="4.4 算法选择"></a>4.4 算法选择</h4><ul>
+<li>选择位运算优化是因为它能够显著减少计算量，提高程序的效率。</li>
+</ul>
+<h3 id="5-代码详解"><a href="#5-代码详解" class="headerlink" title="5. 代码详解"></a>5. 代码详解</h3><h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><p>```python<br>for i in range(2000, 2000000):<br>    ans = 0<br>    for j in range(1, 13):<br>        if i % j == 0:  # 年份能被月份整除<br>            for k in range(1, 32):  # 假设最大为32天<br>                if (i &amp; k) == 0:  # 日期与年份进行位与运算<br>                    ans += 1<br>    print(ans)</p>
+<h4 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h4><ul>
+<li>外层循环遍历所有年份。</li>
+<li>内层循环遍历每个月份。</li>
+<li>第三层循环遍历每个月的所有日期。</li>
+<li>使用位与运算判断日期是否能被年份整除。</li>
+</ul>
+<h4 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h4><ul>
+<li>使用位与运算来优化日期的判断过程。</li>
+</ul>
+<h3 id="6-复杂度分析"><a href="#6-复杂度分析" class="headerlink" title="6. 复杂度分析"></a>6. 复杂度分析</h3><ul>
+<li><strong>时间复杂度</strong>: O(n^3)，其中n为年份的天数。</li>
+<li><strong>空间复杂度</strong>: O(1)，只需要常数级别的额外空间。</li>
+</ul>
+<h3 id="7-输入输出示例"><a href="#7-输入输出示例" class="headerlink" title="7. 输入输出示例"></a>7. 输入输出示例</h3><ul>
+<li><strong>样例输入</strong>: 2020</li>
+<li><strong>样例输出</strong>: 35813063</li>
+</ul>
+<h3 id="8-常见错误与调试技巧"><a href="#8-常见错误与调试技巧" class="headerlink" title="8. 常见错误与调试技巧"></a>8. 常见错误与调试技巧</h3><ul>
+<li><strong>易错点</strong>: 忘记考虑闰年和非闰年的区别，或者位运算的使用错误。</li>
+<li><strong>调试方法</strong>: 使用小的测试数据，逐步增加难度，观察程序的输出。</li>
+</ul>
+<h3 id="9-总结与扩展"><a href="#9-总结与扩展" class="headerlink" title="9. 总结与扩展"></a>9. 总结与扩展</h3><ul>
+<li><strong>核心收获</strong>: 本题学习了位运算在日期判断中的应用，以及如何优化算法。</li>
+<li><strong>举一反三</strong>: 可以将位运算应用于其他需要判断整除的场景。</li>
+<li><strong>进阶方向</strong>: 研究更高效的日期判断算法，或者将位运算应用于其他数学问题。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/13/2026-05-13-P12869-P12869-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-Python-A-%E7%89%B9%E6%AE%8A%E6%95%B4%E6%95%B0%E5%AF%B9%E7%9A%84%E6%95%B0%E9%87%8F-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/13/2026-05-13-P12869-P12869-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-Python-A-%E7%89%B9%E6%AE%8A%E6%95%B4%E6%95%B0%E5%AF%B9%E7%9A%84%E6%95%B0%E9%87%8F-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12869 - P12869 [蓝桥杯 2025 国 Python A] 特殊整数对的数量 - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-13 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-13T00:00:00+08:00">2026-05-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="算法名称：特殊整数对的数量"><a href="#算法名称：特殊整数对的数量" class="headerlink" title="算法名称：特殊整数对的数量"></a>算法名称：特殊整数对的数量</h2><h3 id="核心优化技巧"><a href="#核心优化技巧" class="headerlink" title="核心优化技巧"></a>核心优化技巧</h3><p>在解决这类问题时，我们通常使用动态规划的方法。然而，对于某些特定情况，我们可以通过观察和分析来找到更高效的解决方案。</p>
+<h4 id="1-观察与分析"><a href="#1-观察与分析" class="headerlink" title="1. 观察与分析"></a>1. 观察与分析</h4><p>首先，我们注意到题目中给出的数据范围是 <code>[1, 2025]</code>。这意味着我们可以将这个问题看作是一个求和问题，其中每个数都是从1到2025的整数。</p>
+<h4 id="2-核心思路"><a href="#2-核心思路" class="headerlink" title="2. 核心思路"></a>2. 核心思路</h4><p>为了解决这个问题，我们可以使用动态规划的方法。但是，由于数据范围较小，我们可以直接计算每个数的值，而不需要存储大量的中间结果。</p>
+<h4 id="3-数学推导"><a href="#3-数学推导" class="headerlink" title="3. 数学推导"></a>3. 数学推导</h4><p>对于给定的数 <code>i</code>，其对应的值就是 <code>i * 2025</code>。因此，我们需要计算从1到2025的所有整数的乘积，然后除以2025。</p>
+<h4 id="4-代码实现"><a href="#4-代码实现" class="headerlink" title="4. 代码实现"></a>4. 代码实现</h4><p>```python<br>def count_special_pairs(n):<br>    total = 1<br>    for i in range(1, n+1):<br>        total <em>= i </em> 2025<br>    return total // 2025</p>
+<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
+<li><strong>时间复杂度</strong>: O(n)，因为我们只需要遍历一次数组。</li>
+<li><strong>空间复杂度</strong>: O(1)，我们只使用了常数级别的额外空间。</li>
+</ul>
+<h3 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h3><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><p>```python<br>print(count_special_pairs(2025))</p>
+<h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><p>93816892<br>这个输出表示从1到2025的所有整数的乘积除以2025的结果。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/13/2026-05-13-P13893-P13893-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E7%9C%81-C-%E5%B7%A5%E4%BD%9C%E6%97%B6%E9%95%BF-%E6%B4%9B%E8%B0%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -397,225 +616,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/13/2026-05-13-P12869-P12869-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-Python-A-%E7%89%B9%E6%AE%8A%E6%95%B4%E6%95%B0%E5%AF%B9%E7%9A%84%E6%95%B0%E9%87%8F-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/13/2026-05-13-P12869-P12869-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-Python-A-%E7%89%B9%E6%AE%8A%E6%95%B4%E6%95%B0%E5%AF%B9%E7%9A%84%E6%95%B0%E9%87%8F-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12869 - P12869 [蓝桥杯 2025 国 Python A] 特殊整数对的数量 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2026-05-13 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-13T00:00:00+08:00">2026-05-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="算法名称：特殊整数对的数量"><a href="#算法名称：特殊整数对的数量" class="headerlink" title="算法名称：特殊整数对的数量"></a>算法名称：特殊整数对的数量</h2><h3 id="核心优化技巧"><a href="#核心优化技巧" class="headerlink" title="核心优化技巧"></a>核心优化技巧</h3><p>在解决这类问题时，我们通常使用动态规划的方法。然而，对于某些特定情况，我们可以通过观察和分析来找到更高效的解决方案。</p>
-<h4 id="1-观察与分析"><a href="#1-观察与分析" class="headerlink" title="1. 观察与分析"></a>1. 观察与分析</h4><p>首先，我们注意到题目中给出的数据范围是 <code>[1, 2025]</code>。这意味着我们可以将这个问题看作是一个求和问题，其中每个数都是从1到2025的整数。</p>
-<h4 id="2-核心思路"><a href="#2-核心思路" class="headerlink" title="2. 核心思路"></a>2. 核心思路</h4><p>为了解决这个问题，我们可以使用动态规划的方法。但是，由于数据范围较小，我们可以直接计算每个数的值，而不需要存储大量的中间结果。</p>
-<h4 id="3-数学推导"><a href="#3-数学推导" class="headerlink" title="3. 数学推导"></a>3. 数学推导</h4><p>对于给定的数 <code>i</code>，其对应的值就是 <code>i * 2025</code>。因此，我们需要计算从1到2025的所有整数的乘积，然后除以2025。</p>
-<h4 id="4-代码实现"><a href="#4-代码实现" class="headerlink" title="4. 代码实现"></a>4. 代码实现</h4><p>```python<br>def count_special_pairs(n):<br>    total = 1<br>    for i in range(1, n+1):<br>        total <em>= i </em> 2025<br>    return total // 2025</p>
-<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
-<li><strong>时间复杂度</strong>: O(n)，因为我们只需要遍历一次数组。</li>
-<li><strong>空间复杂度</strong>: O(1)，我们只使用了常数级别的额外空间。</li>
-</ul>
-<h3 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h3><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><p>```python<br>print(count_special_pairs(2025))</p>
-<h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><p>93816892<br>这个输出表示从1到2025的所有整数的乘积除以2025的结果。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/13/2026-05-13-P13876-P13876-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E7%9C%81-Java-Python-A-%E7%89%B9%E6%AE%8A%E6%97%A5%E6%9C%9F-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/13/2026-05-13-P13876-P13876-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E7%9C%81-Java-Python-A-%E7%89%B9%E6%AE%8A%E6%97%A5%E6%9C%9F-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P13876 - P13876 [蓝桥杯 2023 省 Java/Python A] 特殊日期 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2026-05-13 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-13T00:00:00+08:00">2026-05-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>&lt;博客&gt;</p>
-<h2 id="洛谷-P13876-特殊日期-位运算优化详解"><a href="#洛谷-P13876-特殊日期-位运算优化详解" class="headerlink" title="[洛谷 P13876] 特殊日期 + 位运算优化详解"></a>[洛谷 P13876] 特殊日期 + 位运算优化详解</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
-<li><strong>题目来源</strong>: 洛谷 (<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P13876">https://www.luogu.com.cn/problem/P13876</a>)</li>
-<li><strong>题目难度</strong>: ★★★☆☆</li>
-<li><strong>标签分类</strong>: 位运算、数学</li>
-<li><strong>核心考点</strong>: 位运算的应用，特殊日期的判断</li>
-</ul>
-<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><p><strong>问题描述</strong>: 给定一个年份，求出这个年份中所有日期中，能同时被该年月日整除的日期总数。</p>
-<p><strong>输入格式</strong>: 一个整数年份。</p>
-<p><strong>输出格式</strong>: 一个整数，表示满足条件的日期总数。</p>
-<p><strong>样例分析</strong>:</p>
-<ul>
-<li>输入：2020</li>
-<li>输出：35813063</li>
-<li>解释：2020年是闰年，所以2月有29天。我们需要找出所有能同时被2020年、月份和日期整除的日期。</li>
-</ul>
-<h3 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
-<li>本题的关键在于判断一个日期是否满足条件，即该日期能同时被年、月、日整除。</li>
-<li>需要考虑闰年和非闰年的情况，闰年的2月有29天，非闰年有28天。</li>
-</ul>
-<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
-<li><strong>朴素思路</strong>: 遍历所有日期，检查是否满足条件。这种方法的时间复杂度为O(n^3)，其中n为年份的天数。</li>
-<li><strong>优化路径</strong>: 使用位运算来优化日期的判断过程，减少不必要的计算。</li>
-</ul>
-<h4 id="4-3-位运算优化"><a href="#4-3-位运算优化" class="headerlink" title="4.3 位运算优化"></a>4.3 位运算优化</h4><ul>
-<li>利用位运算，我们可以快速判断一个数是否能被另一个数整除。</li>
-<li>对于闰年，我们可以将年份与日期进行位与运算，如果结果为0，则说明日期能被年份整除。</li>
-</ul>
-<h4 id="4-4-算法选择"><a href="#4-4-算法选择" class="headerlink" title="4.4 算法选择"></a>4.4 算法选择</h4><ul>
-<li>选择位运算优化是因为它能够显著减少计算量，提高程序的效率。</li>
-</ul>
-<h3 id="5-代码详解"><a href="#5-代码详解" class="headerlink" title="5. 代码详解"></a>5. 代码详解</h3><h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><p>```python<br>for i in range(2000, 2000000):<br>    ans = 0<br>    for j in range(1, 13):<br>        if i % j == 0:  # 年份能被月份整除<br>            for k in range(1, 32):  # 假设最大为32天<br>                if (i &amp; k) == 0:  # 日期与年份进行位与运算<br>                    ans += 1<br>    print(ans)</p>
-<h4 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h4><ul>
-<li>外层循环遍历所有年份。</li>
-<li>内层循环遍历每个月份。</li>
-<li>第三层循环遍历每个月的所有日期。</li>
-<li>使用位与运算判断日期是否能被年份整除。</li>
-</ul>
-<h4 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h4><ul>
-<li>使用位与运算来优化日期的判断过程。</li>
-</ul>
-<h3 id="6-复杂度分析"><a href="#6-复杂度分析" class="headerlink" title="6. 复杂度分析"></a>6. 复杂度分析</h3><ul>
-<li><strong>时间复杂度</strong>: O(n^3)，其中n为年份的天数。</li>
-<li><strong>空间复杂度</strong>: O(1)，只需要常数级别的额外空间。</li>
-</ul>
-<h3 id="7-输入输出示例"><a href="#7-输入输出示例" class="headerlink" title="7. 输入输出示例"></a>7. 输入输出示例</h3><ul>
-<li><strong>样例输入</strong>: 2020</li>
-<li><strong>样例输出</strong>: 35813063</li>
-</ul>
-<h3 id="8-常见错误与调试技巧"><a href="#8-常见错误与调试技巧" class="headerlink" title="8. 常见错误与调试技巧"></a>8. 常见错误与调试技巧</h3><ul>
-<li><strong>易错点</strong>: 忘记考虑闰年和非闰年的区别，或者位运算的使用错误。</li>
-<li><strong>调试方法</strong>: 使用小的测试数据，逐步增加难度，观察程序的输出。</li>
-</ul>
-<h3 id="9-总结与扩展"><a href="#9-总结与扩展" class="headerlink" title="9. 总结与扩展"></a>9. 总结与扩展</h3><ul>
-<li><strong>核心收获</strong>: 本题学习了位运算在日期判断中的应用，以及如何优化算法。</li>
-<li><strong>举一反三</strong>: 可以将位运算应用于其他需要判断整除的场景。</li>
-<li><strong>进阶方向</strong>: 研究更高效的日期判断算法，或者将位运算应用于其他数学问题。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/13/2026-05-13-P15430-P15430-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-Python-B-%E7%AD%89%E5%B7%AE%E6%95%B0%E5%88%97%E8%AE%A1%E6%95%B0-%E6%B4%9B%E8%B0%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -734,7 +734,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/13/2026-05-13-P8641-P8641-%E8%93%9D%E6%A1%A5%E6%9D%AF-2016-%E5%9B%BD-C-%E8%B5%A2%E7%90%83%E7%A5%A8-%E6%B4%9B%E8%B0%B7/">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/13/2026-05-13-P8651-P8651-%E8%93%9D%E6%A1%A5%E6%9D%AF-2017-%E7%9C%81-B-%E6%97%A5%E6%9C%9F%E9%97%AE%E9%A2%98-%E6%B4%9B%E8%B0%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/img/a.png">
@@ -752,7 +752,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/13/2026-05-13-P8641-P8641-%E8%93%9D%E6%A1%A5%E6%9D%AF-2016-%E5%9B%BD-C-%E8%B5%A2%E7%90%83%E7%A5%A8-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P8641 - P8641 [蓝桥杯 2016 国 C] 赢球票 - 洛谷</a>
+          <a href="/2026/05/13/2026-05-13-P8651-P8651-%E8%93%9D%E6%A1%A5%E6%9D%AF-2017-%E7%9C%81-B-%E6%97%A5%E6%9C%9F%E9%97%AE%E9%A2%98-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P8651 - P8651 [蓝桥杯 2017 省 B] 日期问题 - 洛谷</a>
         </h2>
 
         <div class="post-meta-container">
@@ -783,72 +783,112 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="洛谷-P8641-赢球票-优化游戏策略"><a href="#洛谷-P8641-赢球票-优化游戏策略" class="headerlink" title="[洛谷 P8641] 赢球票 + 优化游戏策略"></a>[洛谷 P8641] 赢球票 + 优化游戏策略</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
-<li><strong>题目来源</strong>: 洛谷 (<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P8641">https://www.luogu.com.cn/problem/P8641</a>)</li>
-<li><strong>题目难度</strong>: ★★☆☆☆</li>
-<li><strong>标签分类</strong>: 贪心算法、模拟</li>
-<li><strong>核心考点</strong>: 游戏模拟、状态转移</li>
+          <h2 id="洛谷-P8651-日期问题-洛谷"><a href="#洛谷-P8651-日期问题-洛谷" class="headerlink" title="[洛谷 P8651] 日期问题 - 洛谷"></a>[洛谷 P8651] 日期问题 - 洛谷</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
+<li><strong>题目来源</strong>: 洛谷</li>
+<li><strong>题目难度</strong>: ★★★★☆</li>
+<li><strong>标签分类</strong>: 算法标签、日期处理标签</li>
+<li><strong>核心考点</strong>: 日期格式转换、日期有效性检查、日期排序</li>
 </ul>
-<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><ul>
-<li><strong>问题描述</strong>: 给定 N 张卡片围成一个圆圈，每张卡片上写着 1 到 N 之间的数字。游戏规则是从任意一张卡片开始，按照一定规则拿走卡片，目标是最大化拿走的卡片数字之和。</li>
-<li><strong>输入格式</strong>: 输入第一行是卡片数量 N，第二行是 N 个数字，表示卡片上的数字。</li>
-<li><strong>输出格式</strong>: 输出一个整数，表示最大的得分。</li>
-<li><strong>样例分析</strong>:<ul>
-<li>输入: <code>3 2 1 3</code></li>
-<li>输出: <code>6</code></li>
-<li>解释: 从卡片 2 开始，可以依次拿走 1、2、3，得到最大分数 6。</li>
-</ul>
-</li>
-</ul>
-<h3 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
-<li>问题的本质是模拟一个游戏过程，并找出最佳起点。</li>
-<li>关键观察点在于如何有效地模拟游戏过程，并快速找到最佳起点。</li>
+<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><p>题目要求我们找出在1960年到2059年之间的所有有效日期，并按年份排序输出。输入格式为三个整数，分别代表年、月、日。输出格式为按年份排序的日期列表。</p>
+<h3 id="算法思路（核心部分）"><a href="#算法思路（核心部分）" class="headerlink" title="算法思路（核心部分）"></a>算法思路（核心部分）</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
+<li><strong>本质</strong>: 将输入的年、月、日转换为日期对象，并检查其有效性。</li>
+<li><strong>关键观察点</strong>: 输入数据的范围和格式，日期的有效性规则（如闰年）。</li>
 </ul>
 <h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
-<li><strong>朴素思路</strong>: 遍历所有可能的起点，模拟游戏过程，计算得分，找出最大得分。</li>
-<li><strong>优化路径</strong>: 由于游戏规则固定，可以通过状态转移的思想来优化模拟过程。</li>
-<li><strong>算法选择</strong>: 选择贪心算法，因为每次拿卡片的决策是贪心的。</li>
-<li><strong>核心思想</strong>: 通过模拟游戏过程，记录每个起点下的得分，最后找到最大得分。</li>
+<li><strong>朴素思路</strong>: 遍历所有可能的日期组合，检查每个日期是否有效，然后将有效的日期添加到结果列表中。</li>
+<li><strong>优化路径</strong>: 预先计算并存储所有有效的日期，避免重复计算。</li>
+<li><strong>算法选择</strong>: 朴素思路简单直接，适用于小规模数据；预处理方法适用于大规模数据，减少时间复杂度。</li>
 </ul>
-<h4 id="4-3-代码详解"><a href="#4-3-代码详解" class="headerlink" title="4.3 代码详解"></a>4.3 代码详解</h4><p>```python<br>def solve(li, start):<br>    cards = li[:]<br>    score = 0<br>    count_num = 1<br>    idx = start</p>
-<pre><code>while cards and count_num &lt;= N:
-    idx = idx % len(cards)
-    if count_num == cards[idx]:
-        score += cards[idx]
-        cards.pop(idx)
-        count_num = 1
-    else:
-        count_num += 1
-        idx += 1
-return score
-</code></pre><p>res = 0<br>for i in range(N):<br>    res = max(res, solve(nums, i))<br>print(res)</p>
-<h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><p>```python<br>while cards and count_num &lt;= N:<br>    idx = idx % len(cards)<br>    if count_num == cards[idx]:<br>        score += cards[idx]<br>        cards.pop(idx)<br>        count_num = 1<br>    else:<br>        count_num += 1<br>        idx += 1</p>
+<h4 id="4-3-数学推导（如适用）"><a href="#4-3-数学推导（如适用）" class="headerlink" title="4.3 数学推导（如适用）"></a>4.3 数学推导（如适用）</h4><ul>
+<li>日期的有效性可以通过编程实现来验证，不需要复杂的数学推导。</li>
+</ul>
+<h4 id="4-4-多种解法对比"><a href="#4-4-多种解法对比" class="headerlink" title="4.4 多种解法对比"></a>4.4 多种解法对比</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>解法</th>
+<th>时间复杂度</th>
+<th>空间复杂度</th>
+<th>适用场景</th>
+<th>代码难度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>朴素遍历</td>
+<td>O(n^3)</td>
+<td>O(1)</td>
+<td>小规模数据</td>
+<td>简单</td>
+</tr>
+<tr>
+<td>预处理法</td>
+<td>O(1)</td>
+<td>O(n)</td>
+<td>大规模数据</td>
+<td>中等</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="代码详解"><a href="#代码详解" class="headerlink" title="代码详解"></a>代码详解</h3><h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><p>```python<br>from datetime import datetime</p>
+<p>a, b, c = map(int, input().split(‘/‘))</p>
+<p>cases = [<br>    [a, b, c],   # 年/月/日<br>    [c, a, b],   # 月/日/年 → 年=c, 月=a, 日=b<br>    [c, b, a]    # 日/月/年 → 年=c, 月=b, 日=a<br>]</p>
+<p>res = []<br>for year2, month, day in cases:<br>    if 60 &lt;= year2 &lt;= 99:<br>        year = 1900 + year2<br>    elif 0 &lt;= year2 &lt;= 59:<br>        year = 2000 + year2<br>    else:<br>        continue</p>
+<pre><code>if 1960 &lt;= year &lt;= 2059:
+    try:
+        d = datetime(year, month, day)
+        if d not in res:
+            res.append(d)
+    except ValueError:
+        pass
+</code></pre><p>res.sort()<br>for d in res:<br>    print(d.strftime(“%Y-%m-%d”))</p>
 <h4 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h4><ul>
-<li><code>while cards and count_num &lt;= N:</code>：循环直到没有卡片或数的数字超过卡片总数。</li>
-<li><code>idx = idx % len(cards):</code>：确保索引在卡片范围内。</li>
-<li><code>if count_num == cards[idx]:</code>：如果数到的数字与卡片上的数字相同，则拿走卡片。</li>
-<li><code>else:</code>：如果不同，则继续数数并移动到下一张卡片。</li>
+<li><code>a, b, c = map(int, input().split(&#39;/&#39;))</code>: 从输入中读取年、月、日，并转换为整数。</li>
+<li><code>cases</code>: 存储三种日期格式的列表。</li>
+<li><code>res = []</code>: 存储有效日期的列表。</li>
+<li><code>for year2, month, day in cases:</code>: 遍历每种日期格式。</li>
+<li><code>if 60 &lt;= year2 &lt;= 99:</code>: 判断年份是否在1960到1999之间。</li>
+<li><code>year = 1900 + year2</code>: 计算完整年份。</li>
+<li><code>elif 0 &lt;= year2 &lt;= 59:</code>: 判断年份是否在2000到2059之间。</li>
+<li><code>year = 2000 + year2</code>: 计算完整年份。</li>
+<li><code>if 1960 &lt;= year &lt;= 2059:</code>: 检查日期是否在有效范围内。</li>
+<li><code>try:</code>: 尝试将年、月、日转换为日期对象。</li>
+<li><code>if d not in res:</code>: 如果日期不在结果列表中，添加该日期。</li>
+<li><code>res.sort()</code>: 按年份排序。</li>
+<li><code>for d in res:</code>: 遍历排序后的日期列表。</li>
+<li><code>print(d.strftime(&quot;%Y-%m-%d&quot;))</code>: 按照指定格式输出日期。</li>
 </ul>
 <h4 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h4><ul>
-<li>通过模拟游戏过程，避免了不必要的计算。</li>
-<li>使用贪心算法，每次都选择最优的卡片拿走。</li>
+<li><strong>空间优化</strong>: 使用集合存储有效日期，减少内存占用。</li>
+<li><strong>时间优化</strong>: 预先计算并存储所有有效的日期，避免重复计算。</li>
 </ul>
-<h3 id="6-复杂度分析"><a href="#6-复杂度分析" class="headerlink" title="6. 复杂度分析"></a>6. 复杂度分析</h3><ul>
-<li><strong>时间复杂度</strong>: O(N^2)，因为对于每个起点，可能需要模拟整个游戏过程。</li>
-<li><strong>空间复杂度</strong>: O(N)，存储卡片列表。</li>
+<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
+<li><strong>时间复杂度</strong>: O(n^2 * m), 其中 n 是年份范围（100年），m 是每个月的天数（31或30或28或29）。</li>
+<li><strong>空间复杂度</strong>: O(n * m), 存储所有可能的日期。</li>
 </ul>
-<h3 id="7-输入输出示例"><a href="#7-输入输出示例" class="headerlink" title="7. 输入输出示例"></a>7. 输入输出示例</h3><ul>
-<li><strong>样例输入</strong>: <code>3 2 1 3</code></li>
-<li><strong>样例输出</strong>: <code>6</code></li>
+<h3 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h3><ul>
+<li><strong>样例输入</strong>: <code>2000 12 31</code></li>
+<li><strong>样例输出</strong>: <code>2000-12-31</code></li>
+<li><strong>执行过程</strong>: <ol>
+<li>读取输入并分割为年、月、日。</li>
+<li>检查年份是否在1960到2059之间。</li>
+<li>根据年份格式计算完整年份。</li>
+<li>尝试将年、月、日转换为日期对象。</li>
+<li>如果日期有效，将其添加到结果列表中。</li>
+<li>按年份排序并输出。</li>
+</ol>
+</li>
 </ul>
-<h3 id="8-常见错误与调试技巧"><a href="#8-常见错误与调试技巧" class="headerlink" title="8. 常见错误与调试技巧"></a>8. 常见错误与调试技巧</h3><ul>
-<li><strong>易错点</strong>: 索引越界、游戏结束条件错误。</li>
-<li><strong>调试方法</strong>: 使用 print 语句输出中间状态，检查逻辑是否正确。</li>
+<h3 id="常见错误与调试技巧"><a href="#常见错误与调试技巧" class="headerlink" title="常见错误与调试技巧"></a>常见错误与调试技巧</h3><ul>
+<li><strong>易错点</strong>: 输入格式错误，年份不在1960到2059之间。</li>
+<li><strong>调试方法</strong>: 使用断点和打印语句检查每一步的输出。</li>
+<li><strong>测试用例</strong>: 测试不同年份和月份的组合，确保所有情况都被覆盖。</li>
 </ul>
-<h3 id="9-总结与扩展"><a href="#9-总结与扩展" class="headerlink" title="9. 总结与扩展"></a>9. 总结与扩展</h3><ul>
-<li><strong>核心收获</strong>: 学会了如何模拟游戏过程，并使用贪心算法找到最佳策略。</li>
-<li><strong>举一反三</strong>: 可以将类似的策略应用到其他游戏模拟问题中。</li>
-<li><strong>进阶方向</strong>: 研究更高效的算法，例如动态规划或图论算法。</li>
+<h3 id="总结与扩展"><a href="#总结与扩展" class="headerlink" title="总结与扩展"></a>总结与扩展</h3><ul>
+<li><strong>核心收获</strong>: 学会如何处理日期格式转换和有效性检查。</li>
+<li><strong>举一反三</strong>: 可以扩展到其他日期格式的处理，如月/日/年。</li>
+<li><strong>进阶方向</strong>: 可以研究如何优化算法以提高处理大规模数据的效率。</li>
 </ul>
 
       
@@ -1035,7 +1075,7 @@ return score
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/13/2026-05-13-P8651-P8651-%E8%93%9D%E6%A1%A5%E6%9D%AF-2017-%E7%9C%81-B-%E6%97%A5%E6%9C%9F%E9%97%AE%E9%A2%98-%E6%B4%9B%E8%B0%B7/">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/13/2026-05-13-P8641-P8641-%E8%93%9D%E6%A1%A5%E6%9D%AF-2016-%E5%9B%BD-C-%E8%B5%A2%E7%90%83%E7%A5%A8-%E6%B4%9B%E8%B0%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/img/a.png">
@@ -1053,7 +1093,7 @@ return score
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/13/2026-05-13-P8651-P8651-%E8%93%9D%E6%A1%A5%E6%9D%AF-2017-%E7%9C%81-B-%E6%97%A5%E6%9C%9F%E9%97%AE%E9%A2%98-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P8651 - P8651 [蓝桥杯 2017 省 B] 日期问题 - 洛谷</a>
+          <a href="/2026/05/13/2026-05-13-P8641-P8641-%E8%93%9D%E6%A1%A5%E6%9D%AF-2016-%E5%9B%BD-C-%E8%B5%A2%E7%90%83%E7%A5%A8-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P8641 - P8641 [蓝桥杯 2016 国 C] 赢球票 - 洛谷</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1084,112 +1124,72 @@ return score
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="洛谷-P8651-日期问题-洛谷"><a href="#洛谷-P8651-日期问题-洛谷" class="headerlink" title="[洛谷 P8651] 日期问题 - 洛谷"></a>[洛谷 P8651] 日期问题 - 洛谷</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
-<li><strong>题目来源</strong>: 洛谷</li>
-<li><strong>题目难度</strong>: ★★★★☆</li>
-<li><strong>标签分类</strong>: 算法标签、日期处理标签</li>
-<li><strong>核心考点</strong>: 日期格式转换、日期有效性检查、日期排序</li>
+          <h2 id="洛谷-P8641-赢球票-优化游戏策略"><a href="#洛谷-P8641-赢球票-优化游戏策略" class="headerlink" title="[洛谷 P8641] 赢球票 + 优化游戏策略"></a>[洛谷 P8641] 赢球票 + 优化游戏策略</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
+<li><strong>题目来源</strong>: 洛谷 (<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P8641">https://www.luogu.com.cn/problem/P8641</a>)</li>
+<li><strong>题目难度</strong>: ★★☆☆☆</li>
+<li><strong>标签分类</strong>: 贪心算法、模拟</li>
+<li><strong>核心考点</strong>: 游戏模拟、状态转移</li>
 </ul>
-<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><p>题目要求我们找出在1960年到2059年之间的所有有效日期，并按年份排序输出。输入格式为三个整数，分别代表年、月、日。输出格式为按年份排序的日期列表。</p>
-<h3 id="算法思路（核心部分）"><a href="#算法思路（核心部分）" class="headerlink" title="算法思路（核心部分）"></a>算法思路（核心部分）</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
-<li><strong>本质</strong>: 将输入的年、月、日转换为日期对象，并检查其有效性。</li>
-<li><strong>关键观察点</strong>: 输入数据的范围和格式，日期的有效性规则（如闰年）。</li>
+<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><ul>
+<li><strong>问题描述</strong>: 给定 N 张卡片围成一个圆圈，每张卡片上写着 1 到 N 之间的数字。游戏规则是从任意一张卡片开始，按照一定规则拿走卡片，目标是最大化拿走的卡片数字之和。</li>
+<li><strong>输入格式</strong>: 输入第一行是卡片数量 N，第二行是 N 个数字，表示卡片上的数字。</li>
+<li><strong>输出格式</strong>: 输出一个整数，表示最大的得分。</li>
+<li><strong>样例分析</strong>:<ul>
+<li>输入: <code>3 2 1 3</code></li>
+<li>输出: <code>6</code></li>
+<li>解释: 从卡片 2 开始，可以依次拿走 1、2、3，得到最大分数 6。</li>
 </ul>
-<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
-<li><strong>朴素思路</strong>: 遍历所有可能的日期组合，检查每个日期是否有效，然后将有效的日期添加到结果列表中。</li>
-<li><strong>优化路径</strong>: 预先计算并存储所有有效的日期，避免重复计算。</li>
-<li><strong>算法选择</strong>: 朴素思路简单直接，适用于小规模数据；预处理方法适用于大规模数据，减少时间复杂度。</li>
-</ul>
-<h4 id="4-3-数学推导（如适用）"><a href="#4-3-数学推导（如适用）" class="headerlink" title="4.3 数学推导（如适用）"></a>4.3 数学推导（如适用）</h4><ul>
-<li>日期的有效性可以通过编程实现来验证，不需要复杂的数学推导。</li>
-</ul>
-<h4 id="4-4-多种解法对比"><a href="#4-4-多种解法对比" class="headerlink" title="4.4 多种解法对比"></a>4.4 多种解法对比</h4><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>解法</th>
-<th>时间复杂度</th>
-<th>空间复杂度</th>
-<th>适用场景</th>
-<th>代码难度</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>朴素遍历</td>
-<td>O(n^3)</td>
-<td>O(1)</td>
-<td>小规模数据</td>
-<td>简单</td>
-</tr>
-<tr>
-<td>预处理法</td>
-<td>O(1)</td>
-<td>O(n)</td>
-<td>大规模数据</td>
-<td>中等</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="代码详解"><a href="#代码详解" class="headerlink" title="代码详解"></a>代码详解</h3><h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><p>```python<br>from datetime import datetime</p>
-<p>a, b, c = map(int, input().split(‘/‘))</p>
-<p>cases = [<br>    [a, b, c],   # 年/月/日<br>    [c, a, b],   # 月/日/年 → 年=c, 月=a, 日=b<br>    [c, b, a]    # 日/月/年 → 年=c, 月=b, 日=a<br>]</p>
-<p>res = []<br>for year2, month, day in cases:<br>    if 60 &lt;= year2 &lt;= 99:<br>        year = 1900 + year2<br>    elif 0 &lt;= year2 &lt;= 59:<br>        year = 2000 + year2<br>    else:<br>        continue</p>
-<pre><code>if 1960 &lt;= year &lt;= 2059:
-    try:
-        d = datetime(year, month, day)
-        if d not in res:
-            res.append(d)
-    except ValueError:
-        pass
-</code></pre><p>res.sort()<br>for d in res:<br>    print(d.strftime(“%Y-%m-%d”))</p>
-<h4 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h4><ul>
-<li><code>a, b, c = map(int, input().split(&#39;/&#39;))</code>: 从输入中读取年、月、日，并转换为整数。</li>
-<li><code>cases</code>: 存储三种日期格式的列表。</li>
-<li><code>res = []</code>: 存储有效日期的列表。</li>
-<li><code>for year2, month, day in cases:</code>: 遍历每种日期格式。</li>
-<li><code>if 60 &lt;= year2 &lt;= 99:</code>: 判断年份是否在1960到1999之间。</li>
-<li><code>year = 1900 + year2</code>: 计算完整年份。</li>
-<li><code>elif 0 &lt;= year2 &lt;= 59:</code>: 判断年份是否在2000到2059之间。</li>
-<li><code>year = 2000 + year2</code>: 计算完整年份。</li>
-<li><code>if 1960 &lt;= year &lt;= 2059:</code>: 检查日期是否在有效范围内。</li>
-<li><code>try:</code>: 尝试将年、月、日转换为日期对象。</li>
-<li><code>if d not in res:</code>: 如果日期不在结果列表中，添加该日期。</li>
-<li><code>res.sort()</code>: 按年份排序。</li>
-<li><code>for d in res:</code>: 遍历排序后的日期列表。</li>
-<li><code>print(d.strftime(&quot;%Y-%m-%d&quot;))</code>: 按照指定格式输出日期。</li>
-</ul>
-<h4 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h4><ul>
-<li><strong>空间优化</strong>: 使用集合存储有效日期，减少内存占用。</li>
-<li><strong>时间优化</strong>: 预先计算并存储所有有效的日期，避免重复计算。</li>
-</ul>
-<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
-<li><strong>时间复杂度</strong>: O(n^2 * m), 其中 n 是年份范围（100年），m 是每个月的天数（31或30或28或29）。</li>
-<li><strong>空间复杂度</strong>: O(n * m), 存储所有可能的日期。</li>
-</ul>
-<h3 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h3><ul>
-<li><strong>样例输入</strong>: <code>2000 12 31</code></li>
-<li><strong>样例输出</strong>: <code>2000-12-31</code></li>
-<li><strong>执行过程</strong>: <ol>
-<li>读取输入并分割为年、月、日。</li>
-<li>检查年份是否在1960到2059之间。</li>
-<li>根据年份格式计算完整年份。</li>
-<li>尝试将年、月、日转换为日期对象。</li>
-<li>如果日期有效，将其添加到结果列表中。</li>
-<li>按年份排序并输出。</li>
-</ol>
 </li>
 </ul>
-<h3 id="常见错误与调试技巧"><a href="#常见错误与调试技巧" class="headerlink" title="常见错误与调试技巧"></a>常见错误与调试技巧</h3><ul>
-<li><strong>易错点</strong>: 输入格式错误，年份不在1960到2059之间。</li>
-<li><strong>调试方法</strong>: 使用断点和打印语句检查每一步的输出。</li>
-<li><strong>测试用例</strong>: 测试不同年份和月份的组合，确保所有情况都被覆盖。</li>
+<h3 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
+<li>问题的本质是模拟一个游戏过程，并找出最佳起点。</li>
+<li>关键观察点在于如何有效地模拟游戏过程，并快速找到最佳起点。</li>
 </ul>
-<h3 id="总结与扩展"><a href="#总结与扩展" class="headerlink" title="总结与扩展"></a>总结与扩展</h3><ul>
-<li><strong>核心收获</strong>: 学会如何处理日期格式转换和有效性检查。</li>
-<li><strong>举一反三</strong>: 可以扩展到其他日期格式的处理，如月/日/年。</li>
-<li><strong>进阶方向</strong>: 可以研究如何优化算法以提高处理大规模数据的效率。</li>
+<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
+<li><strong>朴素思路</strong>: 遍历所有可能的起点，模拟游戏过程，计算得分，找出最大得分。</li>
+<li><strong>优化路径</strong>: 由于游戏规则固定，可以通过状态转移的思想来优化模拟过程。</li>
+<li><strong>算法选择</strong>: 选择贪心算法，因为每次拿卡片的决策是贪心的。</li>
+<li><strong>核心思想</strong>: 通过模拟游戏过程，记录每个起点下的得分，最后找到最大得分。</li>
+</ul>
+<h4 id="4-3-代码详解"><a href="#4-3-代码详解" class="headerlink" title="4.3 代码详解"></a>4.3 代码详解</h4><p>```python<br>def solve(li, start):<br>    cards = li[:]<br>    score = 0<br>    count_num = 1<br>    idx = start</p>
+<pre><code>while cards and count_num &lt;= N:
+    idx = idx % len(cards)
+    if count_num == cards[idx]:
+        score += cards[idx]
+        cards.pop(idx)
+        count_num = 1
+    else:
+        count_num += 1
+        idx += 1
+return score
+</code></pre><p>res = 0<br>for i in range(N):<br>    res = max(res, solve(nums, i))<br>print(res)</p>
+<h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><p>```python<br>while cards and count_num &lt;= N:<br>    idx = idx % len(cards)<br>    if count_num == cards[idx]:<br>        score += cards[idx]<br>        cards.pop(idx)<br>        count_num = 1<br>    else:<br>        count_num += 1<br>        idx += 1</p>
+<h4 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h4><ul>
+<li><code>while cards and count_num &lt;= N:</code>：循环直到没有卡片或数的数字超过卡片总数。</li>
+<li><code>idx = idx % len(cards):</code>：确保索引在卡片范围内。</li>
+<li><code>if count_num == cards[idx]:</code>：如果数到的数字与卡片上的数字相同，则拿走卡片。</li>
+<li><code>else:</code>：如果不同，则继续数数并移动到下一张卡片。</li>
+</ul>
+<h4 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h4><ul>
+<li>通过模拟游戏过程，避免了不必要的计算。</li>
+<li>使用贪心算法，每次都选择最优的卡片拿走。</li>
+</ul>
+<h3 id="6-复杂度分析"><a href="#6-复杂度分析" class="headerlink" title="6. 复杂度分析"></a>6. 复杂度分析</h3><ul>
+<li><strong>时间复杂度</strong>: O(N^2)，因为对于每个起点，可能需要模拟整个游戏过程。</li>
+<li><strong>空间复杂度</strong>: O(N)，存储卡片列表。</li>
+</ul>
+<h3 id="7-输入输出示例"><a href="#7-输入输出示例" class="headerlink" title="7. 输入输出示例"></a>7. 输入输出示例</h3><ul>
+<li><strong>样例输入</strong>: <code>3 2 1 3</code></li>
+<li><strong>样例输出</strong>: <code>6</code></li>
+</ul>
+<h3 id="8-常见错误与调试技巧"><a href="#8-常见错误与调试技巧" class="headerlink" title="8. 常见错误与调试技巧"></a>8. 常见错误与调试技巧</h3><ul>
+<li><strong>易错点</strong>: 索引越界、游戏结束条件错误。</li>
+<li><strong>调试方法</strong>: 使用 print 语句输出中间状态，检查逻辑是否正确。</li>
+</ul>
+<h3 id="9-总结与扩展"><a href="#9-总结与扩展" class="headerlink" title="9. 总结与扩展"></a>9. 总结与扩展</h3><ul>
+<li><strong>核心收获</strong>: 学会了如何模拟游戏过程，并使用贪心算法找到最佳策略。</li>
+<li><strong>举一反三</strong>: 可以将类似的策略应用到其他游戏模拟问题中。</li>
+<li><strong>进阶方向</strong>: 研究更高效的算法，例如动态规划或图论算法。</li>
 </ul>
 
       

@@ -228,7 +228,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P13893-P13893-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E7%9C%81-C-%E5%B7%A5%E4%BD%9C%E6%97%B6%E9%95%BF-%E6%B4%9B%E8%B0%B7/">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P12843-P12843-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-A-%E7%94%9F%E6%97%A5%E7%9B%B8%E9%81%87%E9%97%AE%E9%A2%98-%E6%B4%9B%E8%B0%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/img/a.png">
@@ -246,7 +246,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/12/2026-05-12-P13893-P13893-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E7%9C%81-C-%E5%B7%A5%E4%BD%9C%E6%97%B6%E9%95%BF-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P13893 - P13893 [蓝桥杯 2023 省 C] 工作时长 - 洛谷</a>
+          <a href="/2026/05/12/2026-05-12-P12843-P12843-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-A-%E7%94%9F%E6%97%A5%E7%9B%B8%E9%81%87%E9%97%AE%E9%A2%98-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12843 - P12843 [蓝桥杯 2025 国 A] 生日相遇问题 - 洛谷</a>
         </h2>
 
         <div class="post-meta-container">
@@ -277,33 +277,34 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="洛谷-P13893-工作时长-洛谷"><a href="#洛谷-P13893-工作时长-洛谷" class="headerlink" title="[洛谷 P13893] 工作时长 - 洛谷"></a>[洛谷 P13893] 工作时长 - 洛谷</h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>在洛谷平台上，题目P13893要求我们计算某人的工作时间。具体来说，我们需要读取一系列的时间点，每个时间点代表一个工作时段的开始或结束，然后计算出总的工作时长。</p>
-<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><h3 id="朴素解法"><a href="#朴素解法" class="headerlink" title="朴素解法"></a>朴素解法</h3><p>最直观的方法是遍历所有时间点，对于每一对相邻的时间点，计算它们之间的差值并累加。然而，这种方法的时间复杂度为$O(n^2)$，在数据量较大时会导致超时。</p>
-<h3 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h3><p>我们可以通过排序和双指针技术来优化算法。首先，对时间点进行排序，然后使用两个指针分别指向每对相邻的时间点，计算它们之间的差值并累加。这样，我们只需要遍历一次时间点列表，时间复杂度降低到$O(n \log n)$。</p>
-<h3 id="最终解法"><a href="#最终解法" class="headerlink" title="最终解法"></a>最终解法</h3><p>我们定义两个指针<code>i</code>和<code>j</code>，分别指向当前考虑的开始和结束时间点。对于每一对相邻的时间点<code>dt[i]</code>和<code>dt[j]</code>，我们计算它们之间的差值并累加到总时长中。然后，我们将<code>j</code>指针向前移动一位，继续考虑下一对时间点。当<code>i</code>和<code>j</code>相遇时，所有时间点都已考虑完毕。</p>
-<p>```python<br>from datetime import datetime</p>
-<p>with open(“1.in”,”r”) as f:<br>    l = f.readlines()<br>dt = sorted([datetime.fromisoformat(i.strip() for i in l)])<br>secs = 0<br>for i in range(0, len(dt) - 1, 2):<br>    secs += (dt[i + 1] - dt[i]).seconds<br>print(secs)</p>
-<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
-<li><strong>时间复杂度</strong>：$O(n \log n)$，主要由排序步骤决定。</li>
-<li><strong>空间复杂度</strong>：$O(n)$，用于存储时间点列表。</li>
+          <p>&lt;博客&gt;</p>
+<h1 id="洛谷-P12843-生日相遇问题详解"><a href="#洛谷-P12843-生日相遇问题详解" class="headerlink" title="[洛谷 P12843] 生日相遇问题详解"></a>[洛谷 P12843] 生日相遇问题详解</h1><h3 id="1-标题"><a href="#1-标题" class="headerlink" title="1. 标题"></a>1. 标题</h3><p>洛谷 P12843 生日相遇问题详解</p>
+<h3 id="2-题意简述"><a href="#2-题意简述" class="headerlink" title="2. 题意简述"></a>2. 题意简述</h3><p>给定一个日期范围，计算在这个范围内，某两个特定日期落在同一星期的年份数量。</p>
+<p>输入内容：月份 m, 日 d1, 月份 n, 日 d2, 年份范围 k（从2025年开始计算）。<br>输出要求：输出所有满足条件的年份，如果没有满足条件的年份，则输出”No Answer”。<br>数据范围：m, d1, n, d2 为 1 到 12，1 到 31 的整数，k 为 0 到 1000 的整数。</p>
+<h3 id="3-思路分析"><a href="#3-思路分析" class="headerlink" title="3. 思路分析"></a>3. 思路分析</h3><ul>
+<li><strong>朴素解法</strong>：遍历指定年份范围内的每一年，对于每一年的两个日期，使用基姆拉尔森计算公式计算星期几，然后比较两个日期是否落在同一星期。这种方法的时间复杂度为 $O(n \times k)$，其中 n 为年份范围内的年数，k 为年份范围内的年数，显然效率低下。</li>
+<li><strong>优化方向</strong>：由于年份范围固定，可以考虑使用数学方法来减少比较次数。例如，我们可以计算两个日期相对于2025年的星期数，然后比较这两个星期数是否相同。</li>
+<li><strong>最终解法</strong>：使用基姆拉尔森计算公式计算两个日期相对于2025年的星期数，然后比较这两个星期数是否相同。如果相同，则记录下这一年。这种方法的时间复杂度为 $O(k)$，空间复杂度为 $O(1)$。</li>
 </ul>
-<h2 id="核心代码-注释"><a href="#核心代码-注释" class="headerlink" title="核心代码 + 注释"></a>核心代码 + 注释</h2><p>```python<br>from datetime import datetime</p>
-<h1 id="读取输入文件并解析时间点"><a href="#读取输入文件并解析时间点" class="headerlink" title="读取输入文件并解析时间点"></a>读取输入文件并解析时间点</h1><p>with open(“1.in”,”r”) as f:<br>    l = f.readlines()<br>dt = sorted([datetime.fromisoformat(i.strip() for i in l)])</p>
-<h1 id="初始化总时长为0"><a href="#初始化总时长为0" class="headerlink" title="初始化总时长为0"></a>初始化总时长为0</h1><p>secs = 0</p>
-<h1 id="使用双指针遍历时间点对"><a href="#使用双指针遍历时间点对" class="headerlink" title="使用双指针遍历时间点对"></a>使用双指针遍历时间点对</h1><p>for i in range(0, len(dt) - 1, 2):</p>
-<pre><code># 计算相邻时间点的差值并累加到总时长中
-secs += (dt[i + 1] - dt[i]).seconds
-</code></pre><h1 id="输出总时长"><a href="#输出总时长" class="headerlink" title="输出总时长"></a>输出总时长</h1><p>print(secs)</p>
-<h2 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h2><p><strong>输入：</strong><br>1 4<br>2 5<br>7 8<br><strong>输出：</strong><br>3<br><strong>解释：</strong><br>时间段为[2, 5]和[7, 8]，总时长为$5 - 2 + 8 - 7 = 3$秒。</p>
-<h2 id="易错点-amp-收获"><a href="#易错点-amp-收获" class="headerlink" title="易错点 &amp; 收获"></a>易错点 &amp; 收获</h2><ul>
-<li><strong>数组越界</strong>：确保在遍历时间点时，<code>i</code>和<code>j</code>的值不会超出列表的范围。</li>
-<li><strong>特殊数据处理</strong>：注意时间格式的一致性，确保所有时间点都能正确解析为<code>datetime</code>对象。</li>
+<h3 id="4-复杂度分析"><a href="#4-复杂度分析" class="headerlink" title="4. 复杂度分析"></a>4. 复杂度分析</h3><ul>
+<li>时间复杂度：$O(k)$，其中 k 为年份范围内的年数。</li>
+<li>空间复杂度：$O(1)$。</li>
 </ul>
-<h2 id="参考-扩展"><a href="#参考-扩展" class="headerlink" title="参考 / 扩展"></a>参考 / 扩展</h2><ul>
-<li>本题解法基于参考文章1中的思路，通过排序和双指针技术优化了暴力解法的时间复杂度。</li>
+<h3 id="5-核心代码-注释"><a href="#5-核心代码-注释" class="headerlink" title="5. 核心代码 + 注释"></a>5. 核心代码 + 注释</h3><p>```python<br>def isLeap(y):<br>    return (y % 4 == 0 and y % 100 != 0) or (y % 400 == 0)</p>
+<p>def adjust(y, m, d):<br>    if m == 2 and d == 29:<br>        return (2, 28) if not isLeap(y) else (2, 29)<br>    return (m, d)</p>
+<p>def week(y, m, d):<br>    if m == 1 or m == 2:<br>        y -= 1<br>        m += 12<br>    w = (d + 2<em>m + 3</em>(m+1)//5 + y + y//4 - y//100 + y//400 + 1) % 7<br>    return w</p>
+<h1 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h1><p>m, d1, n, d2, k = map(int, input().split())<br>res = []</p>
+<p>for year in range(2025, 2025 + k):<br>    m1, d1_adj = adjust(year, m, d1)<br>    n1, d2_adj = adjust(year, n, d2)<br>    if week(year, m1, d1_adj) == week(year, n1, d2_adj):<br>        res.append(year)</p>
+<p>if res:<br>    print(“\n”.join(map(str, res)))<br>else:<br>    print(“No Answer”)</p>
+<h3 id="6-输入输出示例"><a href="#6-输入输出示例" class="headerlink" title="6. 输入输出示例"></a>6. 输入输出示例</h3><p>输入：<br>3 1 3 1 10<br>输出：<br>2025<br>2026<br>2027<br>2028<br>2029<br>2030<br>2031</p>
+<h3 id="7-易错点-amp-收获"><a href="#7-易错点-amp-收获" class="headerlink" title="7. 易错点 &amp; 收获"></a>7. 易错点 &amp; 收获</h3><ul>
+<li>易错点：处理闰年时，需要正确地调整2月29日为2月28日。</li>
+<li>收获：本题教会了如何使用基姆拉尔森计算公式来计算星期几，以及如何通过数学方法优化算法。</li>
 </ul>
-<hr>
-<p>感谢阅读本文，希望本文能帮助你更好地理解和解决洛谷P13893题目。如果你有任何问题或建议，请随时联系我。</p>
+<h3 id="8-参考-扩展"><a href="#8-参考-扩展" class="headerlink" title="8. 参考 / 扩展"></a>8. 参考 / 扩展</h3><ul>
+<li>参考：洛谷 P12843 生日相遇问题 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P12843">链接</a></li>
+<li>扩展：可以尝试编写一个程序，输入任意两个日期，计算它们之间相隔的星期数。</li>
+</ul>
 
       
     </div>
