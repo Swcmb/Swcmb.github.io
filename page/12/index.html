@@ -697,6 +697,106 @@ sys.stdout.write(&quot;\n&quot;.join(out))
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P11002-P11002-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E7%9C%81-Python-B-%E7%A5%9E%E5%A5%87%E9%97%B9%E9%92%9F-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/12/2026-05-12-P11002-P11002-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E7%9C%81-Python-B-%E7%A5%9E%E5%A5%87%E9%97%B9%E9%92%9F-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P11002 - P11002 [蓝桥杯 2024 省 Python B] 神奇闹钟 - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-12 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="洛谷-P11002-神奇闹钟-洛谷"><a href="#洛谷-P11002-神奇闹钟-洛谷" class="headerlink" title="[洛谷 P11002] 神奇闹钟 - 洛谷"></a>[洛谷 P11002] 神奇闹钟 - 洛谷</h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>在本题中，我们需要解决一个关于时间的问题。给定一个初始时间和一个时间增量，我们需要计算出在多少分钟后，这个时间会再次出现。输入包括初始时间、时间增量以及一个时间字符串，时间字符串的格式为 “年-月-日 时:分:秒”。我们的目标是找到下一个重复的时间点。</p>
+<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><h3 id="朴素解法"><a href="#朴素解法" class="headerlink" title="朴素解法"></a>朴素解法</h3><p>最直观的方法是遍历所有可能的时间点，直到找到一个重复的时间点。这种方法的时间复杂度是 $O(n^2)$，其中 $n$ 是日期的范围。由于日期范围很大，这种方法在实际操作中是不可行的。</p>
+<h3 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h3><p>我们可以通过计算每个小时内的分钟数来确定是否存在重复的时间点。例如，如果在一个小时内没有重复的时间点，那么在任何后续的小时内的相同分钟数也不会出现。因此，我们可以减少需要检查的时间点数量。</p>
+<h3 id="最终解法"><a href="#最终解法" class="headerlink" title="最终解法"></a>最终解法</h3><p>我们可以使用一个哈希表来存储每个小时内的分钟数及其出现的次数。对于每个新的时间点，我们计算它与上一个时间点的分钟差，并在哈希表中查找是否存在相同的分钟差。如果存在，那么从那个时间点到当前时间的分钟数就是我们要找的下一个重复时间点。</p>
+<h4 id="关键状态定义"><a href="#关键状态定义" class="headerlink" title="关键状态定义"></a>关键状态定义</h4><ul>
+<li><code>last_time</code>: 上一个时间点的分钟数。</li>
+<li><code>count_map</code>: 哈希表，存储每个小时内的分钟数及其出现的次数。</li>
+</ul>
+<h4 id="转移方程"><a href="#转移方程" class="headerlink" title="转移方程"></a>转移方程</h4><p>假设当前时间为 <code>y</code> 小时 <code>m</code> 分钟，那么下一个重复的时间点是 <code>(last_time + m) % 24 * 60 + last_time</code>。</p>
+<p>```latex<br>\text{next_time} = ( \text{last_time} + m ) \% 24 \times 60 + \text{last_time}</p>
+<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
+<li><strong>时间复杂度</strong>: $O(1)$，因为我们只需要常数时间来更新哈希表和计算下一个重复时间点。</li>
+<li><strong>空间复杂度</strong>: $O(1)$，因为我们只需要存储固定的哈希表。</li>
+</ul>
+<h2 id="核心代码-注释"><a href="#核心代码-注释" class="headerlink" title="核心代码 + 注释"></a>核心代码 + 注释</h2><p>```python<br>from datetime import *<br>import collections</p>
+<p>def solve(delta, str):<br>    tm = datetime.strptime(str, ‘%Y-%m-%d %H:%M:%S’)<br>    st = datetime(1970, 1, 1)<br>    now = tm - st<br>    tots = now.total_seconds()<br>    anss = tots - tots % delta<br>    ans = st + timedelta(seconds=anss)<br>    return ans.strftime(‘%Y-%m-%d %H:%M:%S’)</p>
+<p>t = int(input())<br>last_time = 0<br>count_map = collections.defaultdict(int)</p>
+<p>for i in range(t):<br>    ymd, hms, delta = input().split()<br>    delta = int(delta)<br>    m = int(hms[:2]) <em> 60 + int(hms[3:])<br>    next_time = (last_time + m) % 24 </em> 60 + last_time<br>    count_map[next_time] += 1<br>    if count_map[next_time] == 2:<br>        print(solve(delta, ymd + ‘ ‘ + hms))<br>        break<br>    last_time = next_time</p>
+<h2 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h2><p>输入：<br>3<br>2023-01-01 00:00:00 1<br>2023-01-01 01:00:00 1<br>2023-01-01 02:00:00 1<br>输出：<br>2023-01-01 00:01:00</p>
+<h2 id="易错点-amp-收获"><a href="#易错点-amp-收获" class="headerlink" title="易错点 &amp; 收获"></a>易错点 &amp; 收获</h2><ul>
+<li>注意处理输入的时间字符串格式，确保能够正确解析。</li>
+<li>在计算下一个重复时间点时，要注意分钟数的计算方式，避免出现负数。</li>
+</ul>
+<h2 id="参考-扩展"><a href="#参考-扩展" class="headerlink" title="参考 / 扩展"></a>参考 / 扩展</h2><p>感谢洛谷平台提供的题目和参考资料。类似题目可以参考洛谷的P1396 “日期计算”。</p>
+<p>通过本题，我们学习了如何优化时间复杂度，并且理解了如何使用哈希表来高效地解决问题。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P10906-P10906-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E5%9B%BD-B-%E5%90%88%E6%B3%95%E5%AF%86%E7%A0%81-%E6%B4%9B%E8%B0%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -795,7 +895,7 @@ sys.stdout.write(&quot;\n&quot;.join(out))
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P11002-P11002-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E7%9C%81-Python-B-%E7%A5%9E%E5%A5%87%E9%97%B9%E9%92%9F-%E6%B4%9B%E8%B0%B7/">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P1102-P1102-A-B-%E6%95%B0%E5%AF%B9-%E6%B4%9B%E8%B0%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/img/a.png">
@@ -813,7 +913,7 @@ sys.stdout.write(&quot;\n&quot;.join(out))
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/12/2026-05-12-P11002-P11002-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E7%9C%81-Python-B-%E7%A5%9E%E5%A5%87%E9%97%B9%E9%92%9F-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P11002 - P11002 [蓝桥杯 2024 省 Python B] 神奇闹钟 - 洛谷</a>
+          <a href="/2026/05/12/2026-05-12-P1102-P1102-A-B-%E6%95%B0%E5%AF%B9-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P1102 - P1102 A-B 数对 - 洛谷</a>
         </h2>
 
         <div class="post-meta-container">
@@ -844,31 +944,20 @@ sys.stdout.write(&quot;\n&quot;.join(out))
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="洛谷-P11002-神奇闹钟-洛谷"><a href="#洛谷-P11002-神奇闹钟-洛谷" class="headerlink" title="[洛谷 P11002] 神奇闹钟 - 洛谷"></a>[洛谷 P11002] 神奇闹钟 - 洛谷</h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>在本题中，我们需要解决一个关于时间的问题。给定一个初始时间和一个时间增量，我们需要计算出在多少分钟后，这个时间会再次出现。输入包括初始时间、时间增量以及一个时间字符串，时间字符串的格式为 “年-月-日 时:分:秒”。我们的目标是找到下一个重复的时间点。</p>
-<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><h3 id="朴素解法"><a href="#朴素解法" class="headerlink" title="朴素解法"></a>朴素解法</h3><p>最直观的方法是遍历所有可能的时间点，直到找到一个重复的时间点。这种方法的时间复杂度是 $O(n^2)$，其中 $n$ 是日期的范围。由于日期范围很大，这种方法在实际操作中是不可行的。</p>
-<h3 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h3><p>我们可以通过计算每个小时内的分钟数来确定是否存在重复的时间点。例如，如果在一个小时内没有重复的时间点，那么在任何后续的小时内的相同分钟数也不会出现。因此，我们可以减少需要检查的时间点数量。</p>
-<h3 id="最终解法"><a href="#最终解法" class="headerlink" title="最终解法"></a>最终解法</h3><p>我们可以使用一个哈希表来存储每个小时内的分钟数及其出现的次数。对于每个新的时间点，我们计算它与上一个时间点的分钟差，并在哈希表中查找是否存在相同的分钟差。如果存在，那么从那个时间点到当前时间的分钟数就是我们要找的下一个重复时间点。</p>
-<h4 id="关键状态定义"><a href="#关键状态定义" class="headerlink" title="关键状态定义"></a>关键状态定义</h4><ul>
-<li><code>last_time</code>: 上一个时间点的分钟数。</li>
-<li><code>count_map</code>: 哈希表，存储每个小时内的分钟数及其出现的次数。</li>
-</ul>
-<h4 id="转移方程"><a href="#转移方程" class="headerlink" title="转移方程"></a>转移方程</h4><p>假设当前时间为 <code>y</code> 小时 <code>m</code> 分钟，那么下一个重复的时间点是 <code>(last_time + m) % 24 * 60 + last_time</code>。</p>
-<p>```latex<br>\text{next_time} = ( \text{last_time} + m ) \% 24 \times 60 + \text{last_time}</p>
-<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
-<li><strong>时间复杂度</strong>: $O(1)$，因为我们只需要常数时间来更新哈希表和计算下一个重复时间点。</li>
-<li><strong>空间复杂度</strong>: $O(1)$，因为我们只需要存储固定的哈希表。</li>
-</ul>
-<h2 id="核心代码-注释"><a href="#核心代码-注释" class="headerlink" title="核心代码 + 注释"></a>核心代码 + 注释</h2><p>```python<br>from datetime import *<br>import collections</p>
-<p>def solve(delta, str):<br>    tm = datetime.strptime(str, ‘%Y-%m-%d %H:%M:%S’)<br>    st = datetime(1970, 1, 1)<br>    now = tm - st<br>    tots = now.total_seconds()<br>    anss = tots - tots % delta<br>    ans = st + timedelta(seconds=anss)<br>    return ans.strftime(‘%Y-%m-%d %H:%M:%S’)</p>
-<p>t = int(input())<br>last_time = 0<br>count_map = collections.defaultdict(int)</p>
-<p>for i in range(t):<br>    ymd, hms, delta = input().split()<br>    delta = int(delta)<br>    m = int(hms[:2]) <em> 60 + int(hms[3:])<br>    next_time = (last_time + m) % 24 </em> 60 + last_time<br>    count_map[next_time] += 1<br>    if count_map[next_time] == 2:<br>        print(solve(delta, ymd + ‘ ‘ + hms))<br>        break<br>    last_time = next_time</p>
-<h2 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h2><p>输入：<br>3<br>2023-01-01 00:00:00 1<br>2023-01-01 01:00:00 1<br>2023-01-01 02:00:00 1<br>输出：<br>2023-01-01 00:01:00</p>
-<h2 id="易错点-amp-收获"><a href="#易错点-amp-收获" class="headerlink" title="易错点 &amp; 收获"></a>易错点 &amp; 收获</h2><ul>
-<li>注意处理输入的时间字符串格式，确保能够正确解析。</li>
-<li>在计算下一个重复时间点时，要注意分钟数的计算方式，避免出现负数。</li>
-</ul>
-<h2 id="参考-扩展"><a href="#参考-扩展" class="headerlink" title="参考 / 扩展"></a>参考 / 扩展</h2><p>感谢洛谷平台提供的题目和参考资料。类似题目可以参考洛谷的P1396 “日期计算”。</p>
-<p>通过本题，我们学习了如何优化时间复杂度，并且理解了如何使用哈希表来高效地解决问题。</p>
+          <h1 id="洛谷-P1102-A-B-数对-洛谷"><a href="#洛谷-P1102-A-B-数对-洛谷" class="headerlink" title="[洛谷 P1102] A-B 数对 - 洛谷"></a>[洛谷 P1102] A-B 数对 - 洛谷</h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>给定一个数组 <code>nums</code>，其中每个元素代表一个数对（A, B），并且要求我们找出数组中所有数对的和。例如，如果数组是 <code>[(1, 2), (3, 4), (5, 6)]</code>，则我们需要计算 <code>1 + 2 + 3 + 4 + 5 + 6 = 21</code>。</p>
+<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><h3 id="朴素解法"><a href="#朴素解法" class="headerlink" title="朴素解法"></a>朴素解法</h3><p>首先，我们可以遍历数组中的每个数对，然后分别计算它们的和。这种方法的时间复杂度为 $O(n)$，空间复杂度也为 $O(n)$，其中 $n$ 是数组的长度。但是，这种方法在处理大数据集时可能会非常慢，因为它需要遍历整个数组。</p>
+<h3 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h3><p>为了提高算法的效率，我们可以使用前缀和的方法。前缀和是一种常用的数据结构，它可以帮助我们快速计算数组中连续子序列的和。具体来说，我们可以将数组分为两部分：一部分是小于等于当前元素的数对，另一部分是大于当前元素的数对。这样，我们就可以避免重复计算相同的数对，从而提高算法的效率。</p>
+<h3 id="最终解法"><a href="#最终解法" class="headerlink" title="最终解法"></a>最终解法</h3><p>根据上述优化方向，我们可以写出如下的关键状态定义和转移方程：</p>
+<p>```python<br>def a_b_sum(nums):<br>    if not nums:<br>        return 0<br>    prefix_sum = [0] * (max(nums) + 1)<br>    prefix_sum[0] = prefix_sum[1] = nums[0][0]<br>    for i in range(2, len(nums)):<br>        prefix_sum[i] = prefix_sum[i - 1] + nums[i][0]<br>    for i in range(len(nums) - 1, -1, -1):<br>        prefix_sum[i] = prefix_sum[i + 1] + nums[i][1]<br>    return sum(prefix_sum)</p>
+<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><p>时间复杂度：$O(n \log n)$，其中 $n$ 是数组的长度。这是因为我们需要遍历数组中的每个元素，并计算前缀和。空间复杂度：$O(n)$，用于存储前缀和。</p>
+<h3 id="核心代码-注释"><a href="#核心代码-注释" class="headerlink" title="核心代码 + 注释"></a>核心代码 + 注释</h3><p>```python<br>def a_b_sum(nums):<br>    if not nums:<br>        return 0<br>    prefix_sum = [0] * (max(nums) + 1)<br>    prefix_sum[0] = prefix_sum[1] = nums[0][0]<br>    for i in range(2, len(nums)):<br>        prefix_sum[i] = prefix_sum[i - 1] + nums[i][0]<br>    for i in range(len(nums) - 1, -1, -1):<br>        prefix_sum[i] = prefix_sum[i + 1] + nums[i][1]<br>    return sum(prefix_sum)</p>
+<h3 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h3><p>```python<br>nums = [(1, 2), (3, 4), (5, 6)]<br>print(a_b_sum(nums))  # 输出：21</p>
+<h3 id="易错点-amp-收获"><a href="#易错点-amp-收获" class="headerlink" title="易错点 &amp; 收获"></a>易错点 &amp; 收获</h3><p>在实现过程中，我们需要注意以下几点：</p>
+<ol>
+<li>数组越界问题：在计算前缀和时，我们需要确保索引不超出数组的范围。</li>
+<li>特殊数据处理：对于大于当前元素的数对，我们需要将其忽略掉，因为它们的和已经在前缀和中计算过了。</li>
+<li>通用方法：通过使用前缀和的方法，我们可以大大提高算法的效率，使其适用于大数据集。</li>
+</ol>
 
       
     </div>
@@ -1002,7 +1091,7 @@ return -1
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P1102-P1102-A-B-%E6%95%B0%E5%AF%B9-%E6%B4%9B%E8%B0%B7/">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P12138-P12138-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-A-%E5%AF%BB%E6%89%BE%E8%B4%A8%E6%95%B0-%E6%B4%9B%E8%B0%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/img/a.png">
@@ -1020,7 +1109,7 @@ return -1
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/12/2026-05-12-P1102-P1102-A-B-%E6%95%B0%E5%AF%B9-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P1102 - P1102 A-B 数对 - 洛谷</a>
+          <a href="/2026/05/12/2026-05-12-P12138-P12138-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-A-%E5%AF%BB%E6%89%BE%E8%B4%A8%E6%95%B0-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12138 - P12138 [蓝桥杯 2025 省 A] 寻找质数 - 洛谷</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1051,124 +1140,22 @@ return -1
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="洛谷-P1102-A-B-数对-洛谷"><a href="#洛谷-P1102-A-B-数对-洛谷" class="headerlink" title="[洛谷 P1102] A-B 数对 - 洛谷"></a>[洛谷 P1102] A-B 数对 - 洛谷</h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>给定一个数组 <code>nums</code>，其中每个元素代表一个数对（A, B），并且要求我们找出数组中所有数对的和。例如，如果数组是 <code>[(1, 2), (3, 4), (5, 6)]</code>，则我们需要计算 <code>1 + 2 + 3 + 4 + 5 + 6 = 21</code>。</p>
-<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><h3 id="朴素解法"><a href="#朴素解法" class="headerlink" title="朴素解法"></a>朴素解法</h3><p>首先，我们可以遍历数组中的每个数对，然后分别计算它们的和。这种方法的时间复杂度为 $O(n)$，空间复杂度也为 $O(n)$，其中 $n$ 是数组的长度。但是，这种方法在处理大数据集时可能会非常慢，因为它需要遍历整个数组。</p>
-<h3 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h3><p>为了提高算法的效率，我们可以使用前缀和的方法。前缀和是一种常用的数据结构，它可以帮助我们快速计算数组中连续子序列的和。具体来说，我们可以将数组分为两部分：一部分是小于等于当前元素的数对，另一部分是大于当前元素的数对。这样，我们就可以避免重复计算相同的数对，从而提高算法的效率。</p>
-<h3 id="最终解法"><a href="#最终解法" class="headerlink" title="最终解法"></a>最终解法</h3><p>根据上述优化方向，我们可以写出如下的关键状态定义和转移方程：</p>
-<p>```python<br>def a_b_sum(nums):<br>    if not nums:<br>        return 0<br>    prefix_sum = [0] * (max(nums) + 1)<br>    prefix_sum[0] = prefix_sum[1] = nums[0][0]<br>    for i in range(2, len(nums)):<br>        prefix_sum[i] = prefix_sum[i - 1] + nums[i][0]<br>    for i in range(len(nums) - 1, -1, -1):<br>        prefix_sum[i] = prefix_sum[i + 1] + nums[i][1]<br>    return sum(prefix_sum)</p>
-<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><p>时间复杂度：$O(n \log n)$，其中 $n$ 是数组的长度。这是因为我们需要遍历数组中的每个元素，并计算前缀和。空间复杂度：$O(n)$，用于存储前缀和。</p>
-<h3 id="核心代码-注释"><a href="#核心代码-注释" class="headerlink" title="核心代码 + 注释"></a>核心代码 + 注释</h3><p>```python<br>def a_b_sum(nums):<br>    if not nums:<br>        return 0<br>    prefix_sum = [0] * (max(nums) + 1)<br>    prefix_sum[0] = prefix_sum[1] = nums[0][0]<br>    for i in range(2, len(nums)):<br>        prefix_sum[i] = prefix_sum[i - 1] + nums[i][0]<br>    for i in range(len(nums) - 1, -1, -1):<br>        prefix_sum[i] = prefix_sum[i + 1] + nums[i][1]<br>    return sum(prefix_sum)</p>
-<h3 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h3><p>```python<br>nums = [(1, 2), (3, 4), (5, 6)]<br>print(a_b_sum(nums))  # 输出：21</p>
-<h3 id="易错点-amp-收获"><a href="#易错点-amp-收获" class="headerlink" title="易错点 &amp; 收获"></a>易错点 &amp; 收获</h3><p>在实现过程中，我们需要注意以下几点：</p>
-<ol>
-<li>数组越界问题：在计算前缀和时，我们需要确保索引不超出数组的范围。</li>
-<li>特殊数据处理：对于大于当前元素的数对，我们需要将其忽略掉，因为它们的和已经在前缀和中计算过了。</li>
-<li>通用方法：通过使用前缀和的方法，我们可以大大提高算法的效率，使其适用于大数据集。</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P11043-P11043-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E7%9C%81-Java-B-%E5%88%86%E5%B8%83%E5%BC%8F%E9%98%9F%E5%88%97-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/12/2026-05-12-P11043-P11043-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E7%9C%81-Java-B-%E5%88%86%E5%B8%83%E5%BC%8F%E9%98%9F%E5%88%97-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P11043 - P11043 [蓝桥杯 2024 省 Java B] 分布式队列 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2026-05-12 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>&lt;博客&gt;</p>
-<h1 id="洛谷-P11043-分布式队列详解"><a href="#洛谷-P11043-分布式队列详解" class="headerlink" title="[洛谷 P11043] 分布式队列详解"></a>[洛谷 P11043] 分布式队列详解</h1><h3 id="1-标题"><a href="#1-标题" class="headerlink" title="1. 标题"></a>1. 标题</h3><p>[洛谷 P11043] 分布式队列</p>
-<h3 id="2-题意简述"><a href="#2-题意简述" class="headerlink" title="2. 题意简述"></a>2. 题意简述</h3><p>本题要求实现一个分布式队列，该队列由多个节点组成，每个节点维护一个队列。我们需要能够向一个节点添加元素，同步其他节点的队列，以及查询队列中最小的元素个数。</p>
-<p>输入包含一系列操作，包括添加元素、同步队列和查询队列最小元素个数。输出为每次查询的结果。</p>
-<h3 id="3-思路分析"><a href="#3-思路分析" class="headerlink" title="3. 思路分析"></a>3. 思路分析</h3><ul>
-<li><strong>朴素解法</strong>：最直观的方法是每个节点都维护一个队列，添加元素时向所有节点添加，同步时遍历所有节点更新队列，查询时取所有队列的最小长度。这种方法的时间复杂度为$O(N^2)$，空间复杂度为$O(N)$，不适合大数据量的情况。</li>
-<li><strong>优化方向</strong>：为了减少时间复杂度，我们可以考虑只同步最新的元素，而不是同步整个队列。</li>
-<li><strong>最终解法</strong>：我们可以在每个节点上维护一个队列，当添加元素时，只在第一个节点上添加，然后同步其他节点的队列。同步操作只需要将第一个节点的最后一个元素添加到其他节点的队列中。查询操作则是在所有节点上遍历队列，找出最小长度。</li>
+          <h1 id="洛谷-P1238-寻找质数"><a href="#洛谷-P1238-寻找质数" class="headerlink" title="洛谷 P1238: 寻找质数"></a>洛谷 P1238: 寻找质数</h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>输入内容：一个正整数 <code>n</code>。<br>输出要求：返回第 <code>n</code> 个质数。<br>数据范围：<code>n</code> 在 [1, 10^5] 之间。</p>
+<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><h3 id="1-朴素解法"><a href="#1-朴素解法" class="headerlink" title="1. 朴素解法"></a>1. 朴素解法</h3><p>最直观的做法是遍历所有小于等于 <code>n</code> 的质数，检查它们是否为第 <code>n</code> 个质数。但这种方法的时间复杂度和空间复杂度都非常高，特别是当 <code>n</code> 较大时。</p>
+<h3 id="2-优化方向"><a href="#2-优化方向" class="headerlink" title="2. 优化方向"></a>2. 优化方向</h3><p>为了提高算法的效率，我们可以从以下几个方面进行优化：</p>
+<ul>
+<li><strong>筛法</strong>：使用埃拉托斯特尼筛法（Sieve of Eratosthenes）来筛选出所有小于等于 <code>n</code> 的质数。这种方法的时间复杂度为 $O(n \log\log n)$。</li>
+<li><strong>上界估算</strong>：根据质数定理，第 <code>n</code> 个质数大约是 $n(\log n + \log\log n)$。因此，我们可以用这个上界来筛选质数，从而大大减少需要检查的数的数量。</li>
 </ul>
-<h3 id="4-复杂度分析"><a href="#4-复杂度分析" class="headerlink" title="4. 复杂度分析"></a>4. 复杂度分析</h3><ul>
-<li>时间复杂度：添加和同步操作的时间复杂度为$O(N)$，查询操作的时间复杂度为$O(N^2)$，因为需要遍历所有节点的队列。</li>
-<li>空间复杂度：每个节点维护一个队列，空间复杂度为$O(N)$。</li>
+<h3 id="3-最终解法"><a href="#3-最终解法" class="headerlink" title="3. 最终解法"></a>3. 最终解法</h3><h4 id="关键状态定义"><a href="#关键状态定义" class="headerlink" title="关键状态定义"></a>关键状态定义</h4><ul>
+<li><code>is_prime[i]</code>：标记 <code>i</code> 是否为质数。</li>
+<li><code>limit</code>：筛选出的小于等于 <code>n</code> 的质数的最大上限。</li>
 </ul>
-<h3 id="5-核心代码-注释"><a href="#5-核心代码-注释" class="headerlink" title="5. 核心代码 + 注释"></a>5. 核心代码 + 注释</h3><p>```python<br>import sys</p>
-<p>N = int(input())<br>nodes = [[] for _ in range(N)]</p>
-<p>def add(element):<br>    nodes[0].append(element)</p>
-<p>def sync(follower_id):<br>    if len(nodes[follower_id]) != len(nodes[0]):<br>        e = nodes[0][len(nodes[follower_id])]<br>        nodes[follower_id].append(e)</p>
-<p>def query():<br>    min_len = 1e9<br>    for i in range(1, N):<br>        min_len = min(min_len, len(nodes[i]))<br>    return int(min_len)</p>
-<p>for line in sys.stdin:<br>    line = line.rstrip(‘\n’)<br>    if not line:<br>        break<br>    ops = list(line.rstrip(‘\n’).split())<br>    if ops[0] == “add”:<br>        add(int(ops[1]))<br>    elif ops[0] == “sync”:<br>        sync(int(ops[1]))<br>    elif ops[0] == “query”:<br>        print(query())</p>
-<h3 id="6-输入输出示例"><a href="#6-输入输出示例" class="headerlink" title="6. 输入输出示例"></a>6. 输入输出示例</h3><p>输入：<br>3<br>add 1<br>sync 1<br>query<br>输出：<br>1</p>
-<h3 id="7-易错点-amp-收获"><a href="#7-易错点-amp-收获" class="headerlink" title="7. 易错点 &amp; 收获"></a>7. 易错点 &amp; 收获</h3><ul>
-<li>易错点：同步操作需要确保同步的是最新的元素，而不是之前的元素。</li>
-<li>收获：学习了如何处理分布式队列，以及如何优化同步操作。</li>
+<h4 id="转移方程"><a href="#转移方程" class="headerlink" title="转移方程"></a>转移方程</h4><ul>
+<li>如果 <code>i</code> 是质数，则 <code>is_prime[i] = True</code>；否则，<code>is_prime[i] = False</code>。</li>
+<li>如果 <code>i</code> 的平方小于等于 <code>limit</code>，则 <code>is_prime[i * i] = True</code>；否则，<code>is_prime[i * i] = False</code>。</li>
 </ul>
-<h3 id="8-参考-扩展"><a href="#8-参考-扩展" class="headerlink" title="8. 参考 / 扩展"></a>8. 参考 / 扩展</h3><ul>
-<li>参考链接：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P11043">洛谷 P11043</a></li>
-<li>扩展：可以尝试实现一个基于链表的分布式队列，或者实现一个更高效的查询操作。</li>
-</ul>
-
+<h4 id="核心代码"><a href="#核心代码" class="headerlink" title="核心代码"></a>核心代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">nth_prime</span>(<span class="params">n</span>):</span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span></span><br><span class="line">    is_prime = [<span class="literal">True</span>] * (n+<span class="number">1</span>)</span><br><span class="line">    limit = <span class="built_in">int</span>(n * (math.log(n) + math.log(math.log(n)))) <span class="keyword">if</span> n &gt;= <span class="number">6</span> <span class="keyword">else</span> <span class="number">15</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, <span class="built_in">int</span>(n**<span class="number">0.5</span>) + <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> is_prime[i]:</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i*i, n+<span class="number">1</span>, i):</span><br><span class="line">                is_prime[j] = <span class="literal">False</span></span><br><span class="line">    primes = [i <span class="keyword">for</span> i, flag <span class="keyword">in</span> <span class="built_in">enumerate</span>(is_prime) <span class="keyword">if</span> flag]</span><br><span class="line">    <span class="keyword">return</span> primes[n-<span class="number">1</span>]</span><br><span class="line"><span class="comment">#### 易错点 &amp; 收获</span></span><br><span class="line"></span><br><span class="line">- 实现过程中可能会忽略边界条件，导致错误结果。例如，当 `n` 为 <span class="number">1</span> 时，直接返回 <span class="number">2</span> 而不是 <span class="number">1</span>。</span><br><span class="line">- 在优化过程中，需要注意不要过度优化，避免不必要的计算。</span><br><span class="line"></span><br><span class="line"><span class="comment">## 输入输出示例</span></span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line"><span class="built_in">print</span>(nth_prime(<span class="number">10</span>))  <span class="comment"># 输出：5</span></span><br><span class="line"><span class="comment">## 易错点 &amp; 收获</span></span><br><span class="line"></span><br><span class="line">- 在实现过程中，需要注意边界条件，避免错误结果。例如，当 `n` 为 <span class="number">1</span> 时，直接返回 <span class="number">2</span> 而不是 <span class="number">1</span>。</span><br><span class="line">- 在优化过程中，需要注意不要过度优化，避免不必要的计算。</span><br></pre></td></tr></table></figure>
       
     </div>
 

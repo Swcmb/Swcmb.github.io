@@ -361,92 +361,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/13/2026-05-13-P12869-P12869-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-Python-A-%E7%89%B9%E6%AE%8A%E6%95%B4%E6%95%B0%E5%AF%B9%E7%9A%84%E6%95%B0%E9%87%8F-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/13/2026-05-13-P12869-P12869-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-Python-A-%E7%89%B9%E6%AE%8A%E6%95%B4%E6%95%B0%E5%AF%B9%E7%9A%84%E6%95%B0%E9%87%8F-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12869 - P12869 [蓝桥杯 2025 国 Python A] 特殊整数对的数量 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2026-05-13 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-13T00:00:00+08:00">2026-05-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="算法名称：特殊整数对的数量"><a href="#算法名称：特殊整数对的数量" class="headerlink" title="算法名称：特殊整数对的数量"></a>算法名称：特殊整数对的数量</h2><h3 id="核心优化技巧"><a href="#核心优化技巧" class="headerlink" title="核心优化技巧"></a>核心优化技巧</h3><p>在解决这类问题时，我们通常使用动态规划的方法。然而，对于某些特定情况，我们可以通过观察和分析来找到更高效的解决方案。</p>
-<h4 id="1-观察与分析"><a href="#1-观察与分析" class="headerlink" title="1. 观察与分析"></a>1. 观察与分析</h4><p>首先，我们注意到题目中给出的数据范围是 <code>[1, 2025]</code>。这意味着我们可以将这个问题看作是一个求和问题，其中每个数都是从1到2025的整数。</p>
-<h4 id="2-核心思路"><a href="#2-核心思路" class="headerlink" title="2. 核心思路"></a>2. 核心思路</h4><p>为了解决这个问题，我们可以使用动态规划的方法。但是，由于数据范围较小，我们可以直接计算每个数的值，而不需要存储大量的中间结果。</p>
-<h4 id="3-数学推导"><a href="#3-数学推导" class="headerlink" title="3. 数学推导"></a>3. 数学推导</h4><p>对于给定的数 <code>i</code>，其对应的值就是 <code>i * 2025</code>。因此，我们需要计算从1到2025的所有整数的乘积，然后除以2025。</p>
-<h4 id="4-代码实现"><a href="#4-代码实现" class="headerlink" title="4. 代码实现"></a>4. 代码实现</h4><p>```python<br>def count_special_pairs(n):<br>    total = 1<br>    for i in range(1, n+1):<br>        total <em>= i </em> 2025<br>    return total // 2025</p>
-<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
-<li><strong>时间复杂度</strong>: O(n)，因为我们只需要遍历一次数组。</li>
-<li><strong>空间复杂度</strong>: O(1)，我们只使用了常数级别的额外空间。</li>
-</ul>
-<h3 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h3><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><p>```python<br>print(count_special_pairs(2025))</p>
-<h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><p>93816892<br>这个输出表示从1到2025的所有整数的乘积除以2025的结果。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/13/2026-05-13-P13893-P13893-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E7%9C%81-C-%E5%B7%A5%E4%BD%9C%E6%97%B6%E9%95%BF-%E6%B4%9B%E8%B0%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -616,6 +530,92 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/13/2026-05-13-P12869-P12869-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-Python-A-%E7%89%B9%E6%AE%8A%E6%95%B4%E6%95%B0%E5%AF%B9%E7%9A%84%E6%95%B0%E9%87%8F-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/13/2026-05-13-P12869-P12869-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-Python-A-%E7%89%B9%E6%AE%8A%E6%95%B4%E6%95%B0%E5%AF%B9%E7%9A%84%E6%95%B0%E9%87%8F-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12869 - P12869 [蓝桥杯 2025 国 Python A] 特殊整数对的数量 - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-13 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-13T00:00:00+08:00">2026-05-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="算法名称：特殊整数对的数量"><a href="#算法名称：特殊整数对的数量" class="headerlink" title="算法名称：特殊整数对的数量"></a>算法名称：特殊整数对的数量</h2><h3 id="核心优化技巧"><a href="#核心优化技巧" class="headerlink" title="核心优化技巧"></a>核心优化技巧</h3><p>在解决这类问题时，我们通常使用动态规划的方法。然而，对于某些特定情况，我们可以通过观察和分析来找到更高效的解决方案。</p>
+<h4 id="1-观察与分析"><a href="#1-观察与分析" class="headerlink" title="1. 观察与分析"></a>1. 观察与分析</h4><p>首先，我们注意到题目中给出的数据范围是 <code>[1, 2025]</code>。这意味着我们可以将这个问题看作是一个求和问题，其中每个数都是从1到2025的整数。</p>
+<h4 id="2-核心思路"><a href="#2-核心思路" class="headerlink" title="2. 核心思路"></a>2. 核心思路</h4><p>为了解决这个问题，我们可以使用动态规划的方法。但是，由于数据范围较小，我们可以直接计算每个数的值，而不需要存储大量的中间结果。</p>
+<h4 id="3-数学推导"><a href="#3-数学推导" class="headerlink" title="3. 数学推导"></a>3. 数学推导</h4><p>对于给定的数 <code>i</code>，其对应的值就是 <code>i * 2025</code>。因此，我们需要计算从1到2025的所有整数的乘积，然后除以2025。</p>
+<h4 id="4-代码实现"><a href="#4-代码实现" class="headerlink" title="4. 代码实现"></a>4. 代码实现</h4><p>```python<br>def count_special_pairs(n):<br>    total = 1<br>    for i in range(1, n+1):<br>        total <em>= i </em> 2025<br>    return total // 2025</p>
+<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
+<li><strong>时间复杂度</strong>: O(n)，因为我们只需要遍历一次数组。</li>
+<li><strong>空间复杂度</strong>: O(1)，我们只使用了常数级别的额外空间。</li>
+</ul>
+<h3 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h3><h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><p>```python<br>print(count_special_pairs(2025))</p>
+<h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><p>93816892<br>这个输出表示从1到2025的所有整数的乘积除以2025的结果。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/13/2026-05-13-P15430-P15430-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-Python-B-%E7%AD%89%E5%B7%AE%E6%95%B0%E5%88%97%E8%AE%A1%E6%95%B0-%E6%B4%9B%E8%B0%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -708,6 +708,307 @@
 </ul>
 <hr>
 <h2 id="总结与扩展"><a href="#总结与扩展" class="headerlink" title="总结与扩展"></a>总结与扩展</h2><p>通过上述两种方法，我们得到了相同的结果：2048288种可能的递增序列。这展示了在解决此类问题时，从不同角度进行思考的重要性。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/13/2026-05-13-P8641-P8641-%E8%93%9D%E6%A1%A5%E6%9D%AF-2016-%E5%9B%BD-C-%E8%B5%A2%E7%90%83%E7%A5%A8-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/13/2026-05-13-P8641-P8641-%E8%93%9D%E6%A1%A5%E6%9D%AF-2016-%E5%9B%BD-C-%E8%B5%A2%E7%90%83%E7%A5%A8-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P8641 - P8641 [蓝桥杯 2016 国 C] 赢球票 - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-13 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-13T00:00:00+08:00">2026-05-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="洛谷-P8641-赢球票-优化游戏策略"><a href="#洛谷-P8641-赢球票-优化游戏策略" class="headerlink" title="[洛谷 P8641] 赢球票 + 优化游戏策略"></a>[洛谷 P8641] 赢球票 + 优化游戏策略</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
+<li><strong>题目来源</strong>: 洛谷 (<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P8641">https://www.luogu.com.cn/problem/P8641</a>)</li>
+<li><strong>题目难度</strong>: ★★☆☆☆</li>
+<li><strong>标签分类</strong>: 贪心算法、模拟</li>
+<li><strong>核心考点</strong>: 游戏模拟、状态转移</li>
+</ul>
+<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><ul>
+<li><strong>问题描述</strong>: 给定 N 张卡片围成一个圆圈，每张卡片上写着 1 到 N 之间的数字。游戏规则是从任意一张卡片开始，按照一定规则拿走卡片，目标是最大化拿走的卡片数字之和。</li>
+<li><strong>输入格式</strong>: 输入第一行是卡片数量 N，第二行是 N 个数字，表示卡片上的数字。</li>
+<li><strong>输出格式</strong>: 输出一个整数，表示最大的得分。</li>
+<li><strong>样例分析</strong>:<ul>
+<li>输入: <code>3 2 1 3</code></li>
+<li>输出: <code>6</code></li>
+<li>解释: 从卡片 2 开始，可以依次拿走 1、2、3，得到最大分数 6。</li>
+</ul>
+</li>
+</ul>
+<h3 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
+<li>问题的本质是模拟一个游戏过程，并找出最佳起点。</li>
+<li>关键观察点在于如何有效地模拟游戏过程，并快速找到最佳起点。</li>
+</ul>
+<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
+<li><strong>朴素思路</strong>: 遍历所有可能的起点，模拟游戏过程，计算得分，找出最大得分。</li>
+<li><strong>优化路径</strong>: 由于游戏规则固定，可以通过状态转移的思想来优化模拟过程。</li>
+<li><strong>算法选择</strong>: 选择贪心算法，因为每次拿卡片的决策是贪心的。</li>
+<li><strong>核心思想</strong>: 通过模拟游戏过程，记录每个起点下的得分，最后找到最大得分。</li>
+</ul>
+<h4 id="4-3-代码详解"><a href="#4-3-代码详解" class="headerlink" title="4.3 代码详解"></a>4.3 代码详解</h4><p>```python<br>def solve(li, start):<br>    cards = li[:]<br>    score = 0<br>    count_num = 1<br>    idx = start</p>
+<pre><code>while cards and count_num &lt;= N:
+    idx = idx % len(cards)
+    if count_num == cards[idx]:
+        score += cards[idx]
+        cards.pop(idx)
+        count_num = 1
+    else:
+        count_num += 1
+        idx += 1
+return score
+</code></pre><p>res = 0<br>for i in range(N):<br>    res = max(res, solve(nums, i))<br>print(res)</p>
+<h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><p>```python<br>while cards and count_num &lt;= N:<br>    idx = idx % len(cards)<br>    if count_num == cards[idx]:<br>        score += cards[idx]<br>        cards.pop(idx)<br>        count_num = 1<br>    else:<br>        count_num += 1<br>        idx += 1</p>
+<h4 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h4><ul>
+<li><code>while cards and count_num &lt;= N:</code>：循环直到没有卡片或数的数字超过卡片总数。</li>
+<li><code>idx = idx % len(cards):</code>：确保索引在卡片范围内。</li>
+<li><code>if count_num == cards[idx]:</code>：如果数到的数字与卡片上的数字相同，则拿走卡片。</li>
+<li><code>else:</code>：如果不同，则继续数数并移动到下一张卡片。</li>
+</ul>
+<h4 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h4><ul>
+<li>通过模拟游戏过程，避免了不必要的计算。</li>
+<li>使用贪心算法，每次都选择最优的卡片拿走。</li>
+</ul>
+<h3 id="6-复杂度分析"><a href="#6-复杂度分析" class="headerlink" title="6. 复杂度分析"></a>6. 复杂度分析</h3><ul>
+<li><strong>时间复杂度</strong>: O(N^2)，因为对于每个起点，可能需要模拟整个游戏过程。</li>
+<li><strong>空间复杂度</strong>: O(N)，存储卡片列表。</li>
+</ul>
+<h3 id="7-输入输出示例"><a href="#7-输入输出示例" class="headerlink" title="7. 输入输出示例"></a>7. 输入输出示例</h3><ul>
+<li><strong>样例输入</strong>: <code>3 2 1 3</code></li>
+<li><strong>样例输出</strong>: <code>6</code></li>
+</ul>
+<h3 id="8-常见错误与调试技巧"><a href="#8-常见错误与调试技巧" class="headerlink" title="8. 常见错误与调试技巧"></a>8. 常见错误与调试技巧</h3><ul>
+<li><strong>易错点</strong>: 索引越界、游戏结束条件错误。</li>
+<li><strong>调试方法</strong>: 使用 print 语句输出中间状态，检查逻辑是否正确。</li>
+</ul>
+<h3 id="9-总结与扩展"><a href="#9-总结与扩展" class="headerlink" title="9. 总结与扩展"></a>9. 总结与扩展</h3><ul>
+<li><strong>核心收获</strong>: 学会了如何模拟游戏过程，并使用贪心算法找到最佳策略。</li>
+<li><strong>举一反三</strong>: 可以将类似的策略应用到其他游戏模拟问题中。</li>
+<li><strong>进阶方向</strong>: 研究更高效的算法，例如动态规划或图论算法。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/13/2026-05-13-P8680-P8680-%E8%93%9D%E6%A1%A5%E6%9D%AF-2019-%E7%9C%81-B-%E7%89%B9%E5%88%AB%E6%95%B0%E7%9A%84%E5%92%8C-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/13/2026-05-13-P8680-P8680-%E8%93%9D%E6%A1%A5%E6%9D%AF-2019-%E7%9C%81-B-%E7%89%B9%E5%88%AB%E6%95%B0%E7%9A%84%E5%92%8C-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P8680 - P8680 [蓝桥杯 2019 省 B] 特别数的和 - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-13 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-13T00:00:00+08:00">2026-05-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="算法题解：P8680-蓝桥杯-2019-省-B-特别数的和"><a href="#算法题解：P8680-蓝桥杯-2019-省-B-特别数的和" class="headerlink" title="算法题解：P8680 [蓝桥杯 2019 省 B] 特别数的和"></a>算法题解：P8680 [蓝桥杯 2019 省 B] 特别数的和</h2><h3 id="1-标题"><a href="#1-标题" class="headerlink" title="1. 标题"></a>1. 标题</h3><h4 id="P8680-特别数的和"><a href="#P8680-特别数的和" class="headerlink" title="P8680 特别数的和"></a>P8680 特别数的和</h4><h3 id="2-题目概览"><a href="#2-题目概览" class="headerlink" title="2. 题目概览"></a>2. 题目概览</h3><h4 id="题目来源"><a href="#题目来源" class="headerlink" title="题目来源"></a>题目来源</h4><ul>
+<li>题目链接：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P8680">https://www.luogu.com.cn/problem/P8680</a></li>
+<li>题目难度：★★★☆☆</li>
+<li>标签分类：算法、数据结构</li>
+<li>核心考点：数字处理与计算</li>
+</ul>
+<h3 id="3-题意解析"><a href="#3-题意解析" class="headerlink" title="3. 题意解析"></a>3. 题意解析</h3><h4 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h4><ul>
+<li><strong>输入</strong>: 一个整数数组，每个元素表示一个数字。</li>
+<li><strong>输出</strong>: 所有数字的和。</li>
+<li><strong>样例分析</strong>: 给定样例输入[4, 5, 6]，输出为15。</li>
+</ul>
+<h3 id="4-算法思路（核心部分）"><a href="#4-算法思路（核心部分）" class="headerlink" title="4. 算法思路（核心部分）"></a>4. 算法思路（核心部分）</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
+<li><strong>本质</strong>: 求所有数字的和。</li>
+<li><strong>关键观察点</strong>: 数字是否为0或1。</li>
+<li><strong>数据范围</strong>: 整数数组。</li>
+</ul>
+<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
+<li><strong>朴素思路</strong>: 遍历数组，累加所有元素。</li>
+<li><strong>优化路径</strong>: 使用前缀和优化。</li>
+<li><strong>算法选择</strong>: 前缀和优化，时间复杂度O(n)。</li>
+</ul>
+<h4 id="4-3-数学推导"><a href="#4-3-数学推导" class="headerlink" title="4.3 数学推导"></a>4.3 数学推导</h4><ul>
+<li><strong>公式</strong>: (S = a_1 + a_2 + … + a_n)</li>
+<li><strong>正确性证明</strong>: 累加过程中，每个数字只被计算一次。</li>
+<li><strong>复杂度分析</strong>: O(n)。</li>
+</ul>
+<h4 id="4-4-多种解法对比"><a href="#4-4-多种解法对比" class="headerlink" title="4.4 多种解法对比"></a>4.4 多种解法对比</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>解法</th>
+<th>时间复杂度</th>
+<th>空间复杂度</th>
+<th>适用场景</th>
+<th>代码难度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>解法1</td>
+<td>O(n)</td>
+<td>O(1)</td>
+<td>小规模数据</td>
+<td>简单</td>
+</tr>
+<tr>
+<td>解法2</td>
+<td>O(n log n)</td>
+<td>O(n)</td>
+<td>中等规模</td>
+<td>中等</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="5-代码详解"><a href="#5-代码详解" class="headerlink" title="5. 代码详解"></a>5. 代码详解</h3><h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><p>```python<br>def sum_of_special_numbers(nums):<br>    total = 0<br>    for num in nums:<br>        if num == 0 or num == 1:<br>            continue<br>        total += num<br>    return total</p>
+<h4 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h4><ul>
+<li><code>total = 0</code>: 初始化总和为0。</li>
+<li><code>for num in nums:</code>: 遍历数组中的每个数字。</li>
+<li><code>if num == 0 or num == 1:</code>: 如果数字是0或1，跳过本次循环。</li>
+<li><code>total += num</code>: 将当前数字累加到总和中。</li>
+<li><code>return total</code>: 返回总和。</li>
+</ul>
+<h4 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h4><ul>
+<li><strong>空间优化</strong>: 不需要额外的存储空间。</li>
+<li><strong>时间优化</strong>: 无需额外操作，直接累加即可。</li>
+</ul>
+<h3 id="6-复杂度分析"><a href="#6-复杂度分析" class="headerlink" title="6. 复杂度分析"></a>6. 复杂度分析</h3><ul>
+<li><strong>时间复杂度</strong>: O(n)。</li>
+<li><strong>空间复杂度</strong>: O(1)。</li>
+<li><strong>复杂度对比</strong>: 与朴素方法相比，时间复杂度降低，空间复杂度不变。</li>
+</ul>
+<h3 id="7-输入输出示例"><a href="#7-输入输出示例" class="headerlink" title="7. 输入输出示例"></a>7. 输入输出示例</h3><h4 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h4><p>```python<br>print(sum_of_special_numbers([4, 5, 6])) # 输出15</p>
+<h4 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h4><p>```plaintext<br>15</p>
+<h3 id="8-常见错误与调试技巧"><a href="#8-常见错误与调试技巧" class="headerlink" title="8. 常见错误与调试技巧"></a>8. 常见错误与调试技巧</h3><ul>
+<li><strong>易错点</strong>: 遗漏对0或1的处理。</li>
+<li><strong>调试方法</strong>: 检查代码逻辑，确认是否跳过了正确的数字。</li>
+<li><strong>测试用例</strong>: 测试各种边界情况，如空数组、全0数组等。</li>
+</ul>
+<h3 id="9-总结与扩展"><a href="#9-总结与扩展" class="headerlink" title="9. 总结与扩展"></a>9. 总结与扩展</h3><ul>
+<li><strong>核心收获</strong>: 理解并应用前缀和优化技术。</li>
+<li><strong>举一反三</strong>: 类似问题可应用于其他需要累加的场景。</li>
+<li><strong>进阶方向</strong>: 学习更多关于前缀和的应用，如动态规划等。</li>
+</ul>
 
       
     </div>
@@ -916,307 +1217,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/13/2026-05-13-P8680-P8680-%E8%93%9D%E6%A1%A5%E6%9D%AF-2019-%E7%9C%81-B-%E7%89%B9%E5%88%AB%E6%95%B0%E7%9A%84%E5%92%8C-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/13/2026-05-13-P8680-P8680-%E8%93%9D%E6%A1%A5%E6%9D%AF-2019-%E7%9C%81-B-%E7%89%B9%E5%88%AB%E6%95%B0%E7%9A%84%E5%92%8C-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P8680 - P8680 [蓝桥杯 2019 省 B] 特别数的和 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2026-05-13 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-13T00:00:00+08:00">2026-05-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="算法题解：P8680-蓝桥杯-2019-省-B-特别数的和"><a href="#算法题解：P8680-蓝桥杯-2019-省-B-特别数的和" class="headerlink" title="算法题解：P8680 [蓝桥杯 2019 省 B] 特别数的和"></a>算法题解：P8680 [蓝桥杯 2019 省 B] 特别数的和</h2><h3 id="1-标题"><a href="#1-标题" class="headerlink" title="1. 标题"></a>1. 标题</h3><h4 id="P8680-特别数的和"><a href="#P8680-特别数的和" class="headerlink" title="P8680 特别数的和"></a>P8680 特别数的和</h4><h3 id="2-题目概览"><a href="#2-题目概览" class="headerlink" title="2. 题目概览"></a>2. 题目概览</h3><h4 id="题目来源"><a href="#题目来源" class="headerlink" title="题目来源"></a>题目来源</h4><ul>
-<li>题目链接：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P8680">https://www.luogu.com.cn/problem/P8680</a></li>
-<li>题目难度：★★★☆☆</li>
-<li>标签分类：算法、数据结构</li>
-<li>核心考点：数字处理与计算</li>
-</ul>
-<h3 id="3-题意解析"><a href="#3-题意解析" class="headerlink" title="3. 题意解析"></a>3. 题意解析</h3><h4 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h4><ul>
-<li><strong>输入</strong>: 一个整数数组，每个元素表示一个数字。</li>
-<li><strong>输出</strong>: 所有数字的和。</li>
-<li><strong>样例分析</strong>: 给定样例输入[4, 5, 6]，输出为15。</li>
-</ul>
-<h3 id="4-算法思路（核心部分）"><a href="#4-算法思路（核心部分）" class="headerlink" title="4. 算法思路（核心部分）"></a>4. 算法思路（核心部分）</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
-<li><strong>本质</strong>: 求所有数字的和。</li>
-<li><strong>关键观察点</strong>: 数字是否为0或1。</li>
-<li><strong>数据范围</strong>: 整数数组。</li>
-</ul>
-<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
-<li><strong>朴素思路</strong>: 遍历数组，累加所有元素。</li>
-<li><strong>优化路径</strong>: 使用前缀和优化。</li>
-<li><strong>算法选择</strong>: 前缀和优化，时间复杂度O(n)。</li>
-</ul>
-<h4 id="4-3-数学推导"><a href="#4-3-数学推导" class="headerlink" title="4.3 数学推导"></a>4.3 数学推导</h4><ul>
-<li><strong>公式</strong>: (S = a_1 + a_2 + … + a_n)</li>
-<li><strong>正确性证明</strong>: 累加过程中，每个数字只被计算一次。</li>
-<li><strong>复杂度分析</strong>: O(n)。</li>
-</ul>
-<h4 id="4-4-多种解法对比"><a href="#4-4-多种解法对比" class="headerlink" title="4.4 多种解法对比"></a>4.4 多种解法对比</h4><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>解法</th>
-<th>时间复杂度</th>
-<th>空间复杂度</th>
-<th>适用场景</th>
-<th>代码难度</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>解法1</td>
-<td>O(n)</td>
-<td>O(1)</td>
-<td>小规模数据</td>
-<td>简单</td>
-</tr>
-<tr>
-<td>解法2</td>
-<td>O(n log n)</td>
-<td>O(n)</td>
-<td>中等规模</td>
-<td>中等</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="5-代码详解"><a href="#5-代码详解" class="headerlink" title="5. 代码详解"></a>5. 代码详解</h3><h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><p>```python<br>def sum_of_special_numbers(nums):<br>    total = 0<br>    for num in nums:<br>        if num == 0 or num == 1:<br>            continue<br>        total += num<br>    return total</p>
-<h4 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h4><ul>
-<li><code>total = 0</code>: 初始化总和为0。</li>
-<li><code>for num in nums:</code>: 遍历数组中的每个数字。</li>
-<li><code>if num == 0 or num == 1:</code>: 如果数字是0或1，跳过本次循环。</li>
-<li><code>total += num</code>: 将当前数字累加到总和中。</li>
-<li><code>return total</code>: 返回总和。</li>
-</ul>
-<h4 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h4><ul>
-<li><strong>空间优化</strong>: 不需要额外的存储空间。</li>
-<li><strong>时间优化</strong>: 无需额外操作，直接累加即可。</li>
-</ul>
-<h3 id="6-复杂度分析"><a href="#6-复杂度分析" class="headerlink" title="6. 复杂度分析"></a>6. 复杂度分析</h3><ul>
-<li><strong>时间复杂度</strong>: O(n)。</li>
-<li><strong>空间复杂度</strong>: O(1)。</li>
-<li><strong>复杂度对比</strong>: 与朴素方法相比，时间复杂度降低，空间复杂度不变。</li>
-</ul>
-<h3 id="7-输入输出示例"><a href="#7-输入输出示例" class="headerlink" title="7. 输入输出示例"></a>7. 输入输出示例</h3><h4 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h4><p>```python<br>print(sum_of_special_numbers([4, 5, 6])) # 输出15</p>
-<h4 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h4><p>```plaintext<br>15</p>
-<h3 id="8-常见错误与调试技巧"><a href="#8-常见错误与调试技巧" class="headerlink" title="8. 常见错误与调试技巧"></a>8. 常见错误与调试技巧</h3><ul>
-<li><strong>易错点</strong>: 遗漏对0或1的处理。</li>
-<li><strong>调试方法</strong>: 检查代码逻辑，确认是否跳过了正确的数字。</li>
-<li><strong>测试用例</strong>: 测试各种边界情况，如空数组、全0数组等。</li>
-</ul>
-<h3 id="9-总结与扩展"><a href="#9-总结与扩展" class="headerlink" title="9. 总结与扩展"></a>9. 总结与扩展</h3><ul>
-<li><strong>核心收获</strong>: 理解并应用前缀和优化技术。</li>
-<li><strong>举一反三</strong>: 类似问题可应用于其他需要累加的场景。</li>
-<li><strong>进阶方向</strong>: 学习更多关于前缀和的应用，如动态规划等。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/13/2026-05-13-P8641-P8641-%E8%93%9D%E6%A1%A5%E6%9D%AF-2016-%E5%9B%BD-C-%E8%B5%A2%E7%90%83%E7%A5%A8-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/13/2026-05-13-P8641-P8641-%E8%93%9D%E6%A1%A5%E6%9D%AF-2016-%E5%9B%BD-C-%E8%B5%A2%E7%90%83%E7%A5%A8-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P8641 - P8641 [蓝桥杯 2016 国 C] 赢球票 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2026-05-13 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-13T00:00:00+08:00">2026-05-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="洛谷-P8641-赢球票-优化游戏策略"><a href="#洛谷-P8641-赢球票-优化游戏策略" class="headerlink" title="[洛谷 P8641] 赢球票 + 优化游戏策略"></a>[洛谷 P8641] 赢球票 + 优化游戏策略</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
-<li><strong>题目来源</strong>: 洛谷 (<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P8641">https://www.luogu.com.cn/problem/P8641</a>)</li>
-<li><strong>题目难度</strong>: ★★☆☆☆</li>
-<li><strong>标签分类</strong>: 贪心算法、模拟</li>
-<li><strong>核心考点</strong>: 游戏模拟、状态转移</li>
-</ul>
-<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><ul>
-<li><strong>问题描述</strong>: 给定 N 张卡片围成一个圆圈，每张卡片上写着 1 到 N 之间的数字。游戏规则是从任意一张卡片开始，按照一定规则拿走卡片，目标是最大化拿走的卡片数字之和。</li>
-<li><strong>输入格式</strong>: 输入第一行是卡片数量 N，第二行是 N 个数字，表示卡片上的数字。</li>
-<li><strong>输出格式</strong>: 输出一个整数，表示最大的得分。</li>
-<li><strong>样例分析</strong>:<ul>
-<li>输入: <code>3 2 1 3</code></li>
-<li>输出: <code>6</code></li>
-<li>解释: 从卡片 2 开始，可以依次拿走 1、2、3，得到最大分数 6。</li>
-</ul>
-</li>
-</ul>
-<h3 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
-<li>问题的本质是模拟一个游戏过程，并找出最佳起点。</li>
-<li>关键观察点在于如何有效地模拟游戏过程，并快速找到最佳起点。</li>
-</ul>
-<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
-<li><strong>朴素思路</strong>: 遍历所有可能的起点，模拟游戏过程，计算得分，找出最大得分。</li>
-<li><strong>优化路径</strong>: 由于游戏规则固定，可以通过状态转移的思想来优化模拟过程。</li>
-<li><strong>算法选择</strong>: 选择贪心算法，因为每次拿卡片的决策是贪心的。</li>
-<li><strong>核心思想</strong>: 通过模拟游戏过程，记录每个起点下的得分，最后找到最大得分。</li>
-</ul>
-<h4 id="4-3-代码详解"><a href="#4-3-代码详解" class="headerlink" title="4.3 代码详解"></a>4.3 代码详解</h4><p>```python<br>def solve(li, start):<br>    cards = li[:]<br>    score = 0<br>    count_num = 1<br>    idx = start</p>
-<pre><code>while cards and count_num &lt;= N:
-    idx = idx % len(cards)
-    if count_num == cards[idx]:
-        score += cards[idx]
-        cards.pop(idx)
-        count_num = 1
-    else:
-        count_num += 1
-        idx += 1
-return score
-</code></pre><p>res = 0<br>for i in range(N):<br>    res = max(res, solve(nums, i))<br>print(res)</p>
-<h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><p>```python<br>while cards and count_num &lt;= N:<br>    idx = idx % len(cards)<br>    if count_num == cards[idx]:<br>        score += cards[idx]<br>        cards.pop(idx)<br>        count_num = 1<br>    else:<br>        count_num += 1<br>        idx += 1</p>
-<h4 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h4><ul>
-<li><code>while cards and count_num &lt;= N:</code>：循环直到没有卡片或数的数字超过卡片总数。</li>
-<li><code>idx = idx % len(cards):</code>：确保索引在卡片范围内。</li>
-<li><code>if count_num == cards[idx]:</code>：如果数到的数字与卡片上的数字相同，则拿走卡片。</li>
-<li><code>else:</code>：如果不同，则继续数数并移动到下一张卡片。</li>
-</ul>
-<h4 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h4><ul>
-<li>通过模拟游戏过程，避免了不必要的计算。</li>
-<li>使用贪心算法，每次都选择最优的卡片拿走。</li>
-</ul>
-<h3 id="6-复杂度分析"><a href="#6-复杂度分析" class="headerlink" title="6. 复杂度分析"></a>6. 复杂度分析</h3><ul>
-<li><strong>时间复杂度</strong>: O(N^2)，因为对于每个起点，可能需要模拟整个游戏过程。</li>
-<li><strong>空间复杂度</strong>: O(N)，存储卡片列表。</li>
-</ul>
-<h3 id="7-输入输出示例"><a href="#7-输入输出示例" class="headerlink" title="7. 输入输出示例"></a>7. 输入输出示例</h3><ul>
-<li><strong>样例输入</strong>: <code>3 2 1 3</code></li>
-<li><strong>样例输出</strong>: <code>6</code></li>
-</ul>
-<h3 id="8-常见错误与调试技巧"><a href="#8-常见错误与调试技巧" class="headerlink" title="8. 常见错误与调试技巧"></a>8. 常见错误与调试技巧</h3><ul>
-<li><strong>易错点</strong>: 索引越界、游戏结束条件错误。</li>
-<li><strong>调试方法</strong>: 使用 print 语句输出中间状态，检查逻辑是否正确。</li>
-</ul>
-<h3 id="9-总结与扩展"><a href="#9-总结与扩展" class="headerlink" title="9. 总结与扩展"></a>9. 总结与扩展</h3><ul>
-<li><strong>核心收获</strong>: 学会了如何模拟游戏过程，并使用贪心算法找到最佳策略。</li>
-<li><strong>举一反三</strong>: 可以将类似的策略应用到其他游戏模拟问题中。</li>
-<li><strong>进阶方向</strong>: 研究更高效的算法，例如动态规划或图论算法。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/13/2026-05-13-P9244-P9244-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E7%9C%81-B-%E5%AD%90%E4%B8%B2%E7%AE%80%E5%86%99-%E6%B4%9B%E8%B0%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1327,6 +1327,148 @@ return score
 <li>本题通过双指针技术解决了子串匹配问题，是一种常见的字符串处理技巧。</li>
 <li>可以尝试将此问题扩展到更复杂的情况，例如寻找所有包含特定字符序列的子串。</li>
 <li>对于更大的数据集，可能需要考虑更高效的算法，如KMP算法或Boyer-Moore算法。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/13/2026-05-13-P9421-P9421-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E5%9B%BD-B-%E7%8F%AD%E7%BA%A7%E6%B4%BB%E5%8A%A8-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/13/2026-05-13-P9421-P9421-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E5%9B%BD-B-%E7%8F%AD%E7%BA%A7%E6%B4%BB%E5%8A%A8-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P9421 - P9421 [蓝桥杯 2023 国 B] 班级活动 - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-13 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-13T00:00:00+08:00">2026-05-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="洛谷-P9421-班级活动-洛谷"><a href="#洛谷-P9421-班级活动-洛谷" class="headerlink" title="[洛谷 P9421] 班级活动 - 洛谷"></a>[洛谷 P9421] 班级活动 - 洛谷</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
+<li><strong>题目来源</strong>: <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P9421">洛谷</a></li>
+<li><strong>题目难度</strong>: ★★★☆☆</li>
+<li><strong>标签分类</strong>: 算法标签、数据结构标签</li>
+<li><strong>核心考点</strong>: 本题考查的是对集合操作的理解和数学计算能力。</li>
+</ul>
+<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><p>题目要求计算在一个班级活动中，需要移动的学生数量。班级总人数为 ( n )，其中有 ( a_1, a_2, \ldots, a_n ) 个学生在不同的位置。每次移动两个学生需要消耗 2 单位时间。我们需要计算将所有学生移动到一起所需的最少时间。</p>
+<p>输入格式为：</p>
+<ul>
+<li>第一行：班级总人数 ( n )</li>
+<li>第二行：( n ) 个学生的位置，用空格分隔</li>
+</ul>
+<p>输出格式为：</p>
+<ul>
+<li>输出一个整数，表示最少需要的时间。</li>
+</ul>
+<p>样例分析：<br>假设输入为：<br>5<br>1 2 3 4 5<br>输出应为：<br>6<br>解释：将学生从位置 1 移动到位置 5 需要 4 次移动，每次移动两个学生消耗 2 单位时间，总共需要 6 单位时间。</p>
+<h3 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><p>问题的本质是计算将所有学生移动到一起所需的最少时间。关键观察点在于每次移动两个学生需要消耗 2 单位时间。</p>
+<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
+<li><strong>朴素思路</strong>: 直接遍历所有学生的位置，计算每个学生与其他学生之间的距离，累加这些距离并除以 2。</li>
+<li><strong>优化路径</strong>: 通过观察发现，实际上只需要考虑每个学生与其相邻学生的距离，因为每次移动两个学生需要消耗 2 单位时间。</li>
+<li><strong>算法选择</strong>: 选择这种贪心算法，因为它简单且高效。</li>
+</ul>
+<h4 id="4-3-数学推导（如适用）"><a href="#4-3-数学推导（如适用）" class="headerlink" title="4.3 数学推导（如适用）"></a>4.3 数学推导（如适用）</h4><p>不需要复杂的数学推导，只需进行简单的算术运算。</p>
+<h4 id="4-4-多种解法对比"><a href="#4-4-多种解法对比" class="headerlink" title="4.4 多种解法对比"></a>4.4 多种解法对比</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>解法</th>
+<th>时间复杂度</th>
+<th>空间复杂度</th>
+<th>适用场景</th>
+<th>代码难度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>每次移动两个学生</td>
+<td>O(n)</td>
+<td>O(1)</td>
+<td>小规模数据</td>
+<td>简单</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="代码详解"><a href="#代码详解" class="headerlink" title="代码详解"></a>代码详解</h3><h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">a = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))</span><br><span class="line"></span><br><span class="line">temp = <span class="built_in">set</span>(a)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算每个学生与其相邻学生的距离</span></span><br><span class="line">distances = [(<span class="built_in">abs</span>(a[i] - a[(i + <span class="number">1</span>) % n]), i) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n)]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 按距离排序</span></span><br><span class="line">distances.sort()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算总距离</span></span><br><span class="line">total_distance = <span class="built_in">sum</span>(d[<span class="number">0</span>] <span class="keyword">for</span> d <span class="keyword">in</span> distances) * <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(total_distance // <span class="number">2</span>)</span><br><span class="line"><span class="comment">#### 5.2 逐行解析</span></span><br><span class="line">- `n = <span class="built_in">int</span>(<span class="built_in">input</span>())`: 读取班级总人数。</span><br><span class="line">- `a = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))`: 读取学生的位置并转换为整数列表。</span><br><span class="line">- `temp = <span class="built_in">set</span>(a)`: 创建一个集合存储所有学生的位置，以便快速查找。</span><br><span class="line">- `distances = [(<span class="built_in">abs</span>(a[i] - a[(i + <span class="number">1</span>) % n]), i) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n)]`: 计算每个学生与其相邻学生的距离，并存储在列表中。</span><br><span class="line">- `distances.sort()`: 按距离从小到大排序。</span><br><span class="line">- `total_distance = <span class="built_in">sum</span>(d[<span class="number">0</span>] <span class="keyword">for</span> d <span class="keyword">in</span> distances) * <span class="number">2</span>`: 计算总距离，并乘以 <span class="number">2</span> 因为每次移动两个学生消耗 <span class="number">2</span> 单位时间。</span><br><span class="line">- `<span class="built_in">print</span>(total_distance // <span class="number">2</span>)`: 输出最少需要的时间。</span><br><span class="line"></span><br><span class="line"><span class="comment">#### 5.3 优化技巧</span></span><br><span class="line">- **空间优化**: 使用集合存储学生位置，节省空间。</span><br><span class="line">- **时间优化**: 通过排序和累加计算总距离，减少不必要的循环。</span><br><span class="line"></span><br><span class="line"><span class="comment">### 复杂度分析</span></span><br><span class="line">- **时间复杂度**: O(n log n)，主要是排序的时间复杂度。</span><br><span class="line">- **空间复杂度**: O(n)，用于存储学生位置和距离列表。</span><br><span class="line"></span><br><span class="line"><span class="comment">### 输入输出示例</span></span><br><span class="line">- **样例输入**:</span><br></pre></td></tr></table></figure>
+<p>  5<br>  1 2 3 4 5<br>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- **样例输出**:</span><br></pre></td></tr></table></figure><br>  6<br>  ```</p>
+<ul>
+<li><strong>执行过程</strong>:<ol>
+<li>读取输入并转换为整数列表。</li>
+<li>创建集合存储学生位置。</li>
+<li>计算每个学生与其相邻学生的距离并排序。</li>
+<li>计算总距离并输出结果。</li>
+</ol>
+</li>
+</ul>
+<h3 id="常见错误与调试技巧"><a href="#常见错误与调试技巧" class="headerlink" title="常见错误与调试技巧"></a>常见错误与调试技巧</h3><ul>
+<li><strong>易错点</strong>: 忽略负数位置的处理，导致计算错误。</li>
+<li><strong>调试方法</strong>: 使用打印语句逐步检查每一步的计算结果。</li>
+<li><strong>测试用例</strong>: 使用不同规模和位置的数据进行测试。</li>
+</ul>
+<h3 id="总结与扩展"><a href="#总结与扩展" class="headerlink" title="总结与扩展"></a>总结与扩展</h3><ul>
+<li><strong>核心收获</strong>: 掌握了如何计算移动学生的最少时间，理解了贪心算法的应用。</li>
+<li><strong>举一反三</strong>: 可以扩展到其他类似问题，如计算最短路径等。</li>
+<li><strong>进阶方向</strong>: 可以研究更高效的算法，如分治法或动态规划。</li>
 </ul>
 
       
@@ -1497,148 +1639,6 @@ return score
 <li><strong>核心收获</strong>: 掌握动态规划和前缀和的结合应用。</li>
 <li><strong>举一反三</strong>: 可以扩展到更复杂的子数组和问题，如计算所有子数组的最大和、最小和等。</li>
 <li><strong>进阶方向</strong>: 学习更高级的前缀和技巧，如线段树、树状数组等。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/13/2026-05-13-P9421-P9421-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E5%9B%BD-B-%E7%8F%AD%E7%BA%A7%E6%B4%BB%E5%8A%A8-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/13/2026-05-13-P9421-P9421-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E5%9B%BD-B-%E7%8F%AD%E7%BA%A7%E6%B4%BB%E5%8A%A8-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P9421 - P9421 [蓝桥杯 2023 国 B] 班级活动 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2026-05-13 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-13T00:00:00+08:00">2026-05-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="洛谷-P9421-班级活动-洛谷"><a href="#洛谷-P9421-班级活动-洛谷" class="headerlink" title="[洛谷 P9421] 班级活动 - 洛谷"></a>[洛谷 P9421] 班级活动 - 洛谷</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
-<li><strong>题目来源</strong>: <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P9421">洛谷</a></li>
-<li><strong>题目难度</strong>: ★★★☆☆</li>
-<li><strong>标签分类</strong>: 算法标签、数据结构标签</li>
-<li><strong>核心考点</strong>: 本题考查的是对集合操作的理解和数学计算能力。</li>
-</ul>
-<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><p>题目要求计算在一个班级活动中，需要移动的学生数量。班级总人数为 ( n )，其中有 ( a_1, a_2, \ldots, a_n ) 个学生在不同的位置。每次移动两个学生需要消耗 2 单位时间。我们需要计算将所有学生移动到一起所需的最少时间。</p>
-<p>输入格式为：</p>
-<ul>
-<li>第一行：班级总人数 ( n )</li>
-<li>第二行：( n ) 个学生的位置，用空格分隔</li>
-</ul>
-<p>输出格式为：</p>
-<ul>
-<li>输出一个整数，表示最少需要的时间。</li>
-</ul>
-<p>样例分析：<br>假设输入为：<br>5<br>1 2 3 4 5<br>输出应为：<br>6<br>解释：将学生从位置 1 移动到位置 5 需要 4 次移动，每次移动两个学生消耗 2 单位时间，总共需要 6 单位时间。</p>
-<h3 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><p>问题的本质是计算将所有学生移动到一起所需的最少时间。关键观察点在于每次移动两个学生需要消耗 2 单位时间。</p>
-<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
-<li><strong>朴素思路</strong>: 直接遍历所有学生的位置，计算每个学生与其他学生之间的距离，累加这些距离并除以 2。</li>
-<li><strong>优化路径</strong>: 通过观察发现，实际上只需要考虑每个学生与其相邻学生的距离，因为每次移动两个学生需要消耗 2 单位时间。</li>
-<li><strong>算法选择</strong>: 选择这种贪心算法，因为它简单且高效。</li>
-</ul>
-<h4 id="4-3-数学推导（如适用）"><a href="#4-3-数学推导（如适用）" class="headerlink" title="4.3 数学推导（如适用）"></a>4.3 数学推导（如适用）</h4><p>不需要复杂的数学推导，只需进行简单的算术运算。</p>
-<h4 id="4-4-多种解法对比"><a href="#4-4-多种解法对比" class="headerlink" title="4.4 多种解法对比"></a>4.4 多种解法对比</h4><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>解法</th>
-<th>时间复杂度</th>
-<th>空间复杂度</th>
-<th>适用场景</th>
-<th>代码难度</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>每次移动两个学生</td>
-<td>O(n)</td>
-<td>O(1)</td>
-<td>小规模数据</td>
-<td>简单</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="代码详解"><a href="#代码详解" class="headerlink" title="代码详解"></a>代码详解</h3><h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">a = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))</span><br><span class="line"></span><br><span class="line">temp = <span class="built_in">set</span>(a)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算每个学生与其相邻学生的距离</span></span><br><span class="line">distances = [(<span class="built_in">abs</span>(a[i] - a[(i + <span class="number">1</span>) % n]), i) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n)]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 按距离排序</span></span><br><span class="line">distances.sort()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算总距离</span></span><br><span class="line">total_distance = <span class="built_in">sum</span>(d[<span class="number">0</span>] <span class="keyword">for</span> d <span class="keyword">in</span> distances) * <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(total_distance // <span class="number">2</span>)</span><br><span class="line"><span class="comment">#### 5.2 逐行解析</span></span><br><span class="line">- `n = <span class="built_in">int</span>(<span class="built_in">input</span>())`: 读取班级总人数。</span><br><span class="line">- `a = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))`: 读取学生的位置并转换为整数列表。</span><br><span class="line">- `temp = <span class="built_in">set</span>(a)`: 创建一个集合存储所有学生的位置，以便快速查找。</span><br><span class="line">- `distances = [(<span class="built_in">abs</span>(a[i] - a[(i + <span class="number">1</span>) % n]), i) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n)]`: 计算每个学生与其相邻学生的距离，并存储在列表中。</span><br><span class="line">- `distances.sort()`: 按距离从小到大排序。</span><br><span class="line">- `total_distance = <span class="built_in">sum</span>(d[<span class="number">0</span>] <span class="keyword">for</span> d <span class="keyword">in</span> distances) * <span class="number">2</span>`: 计算总距离，并乘以 <span class="number">2</span> 因为每次移动两个学生消耗 <span class="number">2</span> 单位时间。</span><br><span class="line">- `<span class="built_in">print</span>(total_distance // <span class="number">2</span>)`: 输出最少需要的时间。</span><br><span class="line"></span><br><span class="line"><span class="comment">#### 5.3 优化技巧</span></span><br><span class="line">- **空间优化**: 使用集合存储学生位置，节省空间。</span><br><span class="line">- **时间优化**: 通过排序和累加计算总距离，减少不必要的循环。</span><br><span class="line"></span><br><span class="line"><span class="comment">### 复杂度分析</span></span><br><span class="line">- **时间复杂度**: O(n log n)，主要是排序的时间复杂度。</span><br><span class="line">- **空间复杂度**: O(n)，用于存储学生位置和距离列表。</span><br><span class="line"></span><br><span class="line"><span class="comment">### 输入输出示例</span></span><br><span class="line">- **样例输入**:</span><br></pre></td></tr></table></figure>
-<p>  5<br>  1 2 3 4 5<br>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- **样例输出**:</span><br></pre></td></tr></table></figure><br>  6<br>  ```</p>
-<ul>
-<li><strong>执行过程</strong>:<ol>
-<li>读取输入并转换为整数列表。</li>
-<li>创建集合存储学生位置。</li>
-<li>计算每个学生与其相邻学生的距离并排序。</li>
-<li>计算总距离并输出结果。</li>
-</ol>
-</li>
-</ul>
-<h3 id="常见错误与调试技巧"><a href="#常见错误与调试技巧" class="headerlink" title="常见错误与调试技巧"></a>常见错误与调试技巧</h3><ul>
-<li><strong>易错点</strong>: 忽略负数位置的处理，导致计算错误。</li>
-<li><strong>调试方法</strong>: 使用打印语句逐步检查每一步的计算结果。</li>
-<li><strong>测试用例</strong>: 使用不同规模和位置的数据进行测试。</li>
-</ul>
-<h3 id="总结与扩展"><a href="#总结与扩展" class="headerlink" title="总结与扩展"></a>总结与扩展</h3><ul>
-<li><strong>核心收获</strong>: 掌握了如何计算移动学生的最少时间，理解了贪心算法的应用。</li>
-<li><strong>举一反三</strong>: 可以扩展到其他类似问题，如计算最短路径等。</li>
-<li><strong>进阶方向</strong>: 可以研究更高效的算法，如分治法或动态规划。</li>
 </ul>
 
       
