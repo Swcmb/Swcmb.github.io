@@ -909,145 +909,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/22/2026-05-22-P12341-P12341-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-A-Python-B-%E7%AC%AC%E4%BA%8C%E5%9C%BA-%E6%B6%88%E6%B6%88%E4%B9%90-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/22/2026-05-22-P12341-P12341-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-A-Python-B-%E7%AC%AC%E4%BA%8C%E5%9C%BA-%E6%B6%88%E6%B6%88%E4%B9%90-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12341 - P12341 [蓝桥杯 2025 省 A/Python B 第二场] 消消乐 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2026-05-22 00:00:00 / 修改时间：16:32:51" itemprop="dateCreated datePublished" datetime="2026-05-22T00:00:00+08:00">2026-05-22</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="算法名称"><a href="#算法名称" class="headerlink" title="算法名称"></a>算法名称</h2><p>P12341</p>
-<h2 id="核心优化技巧"><a href="#核心优化技巧" class="headerlink" title="核心优化技巧"></a>核心优化技巧</h2><p><strong>贪心策略</strong>：在寻找一对可以消除的字符时，优先选择最左边的 <code>A</code> 和最右边的 <code>B</code> 进行匹配。这样能最大化剩余字符数，因为中间的 <code>B</code> 会被前面的 <code>A</code> 消耗掉，而最左边的 <code>A</code> 则不会被后面的 <code>B</code> 消耗。</p>
-<h2 id="解题代码"><a href="#解题代码" class="headerlink" title="解题代码"></a>解题代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="built_in">list</span>(<span class="built_in">input</span>())</span><br><span class="line">l = <span class="number">0</span></span><br><span class="line">r = <span class="built_in">len</span>(s) - <span class="number">1</span></span><br><span class="line">removed = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> l &lt; r:</span><br><span class="line">    <span class="keyword">while</span> l &lt; r <span class="keyword">and</span> s[l] != <span class="string">&#x27;A&#x27;</span>:</span><br><span class="line">        l += <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> l &lt; r <span class="keyword">and</span> s[r] != <span class="string">&#x27;B&#x27;</span>:</span><br><span class="line">        r -= <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> l &lt; r:          <span class="comment"># 找到一对可以消除</span></span><br><span class="line">        l += <span class="number">1</span></span><br><span class="line">        r -= <span class="number">1</span></span><br><span class="line">        removed += <span class="number">2</span>   <span class="comment"># 消除了两个字符</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">len</span>(s) - removed)</span><br></pre></td></tr></table></figure>
-<h2 id="输出结构"><a href="#输出结构" class="headerlink" title="输出结构"></a>输出结构</h2><h3 id="1-标题"><a href="#1-标题" class="headerlink" title="1. 标题"></a>1. 标题</h3><ul>
-<li><strong>题目来源</strong>: <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/">洛谷</a></li>
-<li><strong>题号</strong>: P12341</li>
-<li><strong>算法类型</strong>: 动态规划 + 贪心策略</li>
-<li><strong>核心考点</strong>: 贪心策略的应用</li>
-</ul>
-<h3 id="2-题意解析"><a href="#2-题意解析" class="headerlink" title="2. 题意解析"></a>2. 题意解析</h3><ul>
-<li><strong>题目来源</strong>: 洛谷平台，题面简述为一个字符串，其中包含一些字母 <code>A</code> 和 <code>B</code>。</li>
-<li><strong>难度等级</strong>: ★★★☆☆</li>
-<li><strong>标签分类</strong>: 算法, 数据结构</li>
-<li><strong>核心考点</strong>: 核心在于如何通过贪心策略最大化剩余字符数。</li>
-</ul>
-<h3 id="3-题意解析"><a href="#3-题意解析" class="headerlink" title="3. 题意解析"></a>3. 题意解析</h3><ul>
-<li><strong>问题描述</strong>: 给定一个由 <code>A</code> 和 <code>B</code> 组成的字符串，要求通过贪心策略最大化剩余字符数。</li>
-<li><strong>输入格式</strong>: 字符串，长度为 n。</li>
-<li><strong>输出格式</strong>: 输出剩余字符数。</li>
-<li><strong>样例分析</strong>: 例如输入 “ABBAAB”，输出结果为 4，因为通过贪心策略，我们优先选择了最左边的 <code>A</code> 和最右边的 <code>B</code> 进行匹配，最终剩下 “BBAA”。</li>
-</ul>
-<h3 id="4-算法思路（核心部分）"><a href="#4-算法思路（核心部分）" class="headerlink" title="4. 算法思路（核心部分）"></a>4. 算法思路（核心部分）</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
-<li>核心在于找到一个最优的贪心策略，使得剩余字符数最大化。</li>
-<li>需要保证每次选择都是最优的，即尽可能多地消耗 <code>A</code>，同时保留最多的 <code>B</code>。</li>
-</ul>
-<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
-<li><strong>朴素思路</strong>: 逐个遍历字符串，尝试匹配所有可能的 <code>A</code> 和 <code>B</code>。</li>
-<li><strong>优化路径</strong>: 使用贪心策略，优先选择最左边的 <code>A</code> 和最右边的 <code>B</code> 进行匹配，然后逐步缩小搜索范围。</li>
-<li><strong>算法选择</strong>: 贪心算法，因为它可以在每一步都做出当前看来最优的选择。</li>
-</ul>
-<h4 id="4-3-数学推导（如适用）"><a href="#4-3-数学推导（如适用）" class="headerlink" title="4.3 数学推导（如适用）"></a>4.3 数学推导（如适用）</h4><ul>
-<li><strong>关键公式</strong>: 假设总字符数为 n，最大剩余字符数为 m。</li>
-<li><strong>正确性证明</strong>: 根据贪心策略，每次选择都是最优的，因此剩余字符数最多为 m。</li>
-<li><strong>复杂度分析</strong>: O(n)，因为每个字符只处理一次。</li>
-</ul>
-<h4 id="4-4-多种解法对比（如适用）"><a href="#4-4-多种解法对比（如适用）" class="headerlink" title="4.4 多种解法对比（如适用）"></a>4.4 多种解法对比（如适用）</h4><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>解法</th>
-<th>时间复杂度</th>
-<th>空间复杂度</th>
-<th>适用场景</th>
-<th>代码难度</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>解法1</td>
-<td>O(n^2)</td>
-<td>O(n)</td>
-<td>小规模数据</td>
-<td>简单</td>
-</tr>
-<tr>
-<td>解法2</td>
-<td>O(n log n)</td>
-<td>O(n)</td>
-<td>中等规模</td>
-<td>中等</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="5-代码详解"><a href="#5-代码详解" class="headerlink" title="5. 代码详解"></a>5. 代码详解</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="built_in">list</span>(<span class="built_in">input</span>())</span><br><span class="line">l = <span class="number">0</span></span><br><span class="line">r = <span class="built_in">len</span>(s) - <span class="number">1</span></span><br><span class="line">removed = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> l &lt; r:</span><br><span class="line">    <span class="keyword">while</span> l &lt; r <span class="keyword">and</span> s[l] != <span class="string">&#x27;A&#x27;</span>:</span><br><span class="line">        l += <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> l &lt; r <span class="keyword">and</span> s[r] != <span class="string">&#x27;B&#x27;</span>:</span><br><span class="line">        r -= <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> l &lt; r:          <span class="comment"># 找到一对可以消除的</span></span><br><span class="line">        l += <span class="number">1</span></span><br><span class="line">        r -= <span class="number">1</span></span><br><span class="line">        removed += <span class="number">2</span>   <span class="comment"># 消除了两个字符</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">len</span>(s) - removed)</span><br></pre></td></tr></table></figure>
-<h3 id="6-复杂度分析"><a href="#6-复杂度分析" class="headerlink" title="6. 复杂度分析"></a>6. 复杂度分析</h3><ul>
-<li><strong>时间复杂度</strong>: O(n)，因为每个字符只处理一次。</li>
-<li><strong>空间复杂度</strong>: O(n)，用于存储字符串和变量。</li>
-<li><strong>复杂度对比</strong>: 与简单的暴力解法相比，本解法的时间和空间效率更高。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/22/2026-05-22-P12342-P12342-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-B-Python-B-%E7%AC%AC%E4%BA%8C%E5%9C%BA-%E6%95%B0%E5%88%97%E5%B7%AE%E5%88%86-%E6%B4%9B%E8%B0%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1171,7 +1032,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/22/2026-05-22-P12834-P12834-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-B-%E9%A1%B9%E9%93%BE%E6%8E%92%E5%88%97-%E6%B4%9B%E8%B0%B7/">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/22/2026-05-22-P12341-P12341-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-A-Python-B-%E7%AC%AC%E4%BA%8C%E5%9C%BA-%E6%B6%88%E6%B6%88%E4%B9%90-%E6%B4%9B%E8%B0%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/img/a.png">
@@ -1189,7 +1050,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/22/2026-05-22-P12834-P12834-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-B-%E9%A1%B9%E9%93%BE%E6%8E%92%E5%88%97-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12834 - P12834 [蓝桥杯 2025 国 B] 项链排列 - 洛谷</a>
+          <a href="/2026/05/22/2026-05-22-P12341-P12341-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-A-Python-B-%E7%AC%AC%E4%BA%8C%E5%9C%BA-%E6%B6%88%E6%B6%88%E4%B9%90-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12341 - P12341 [蓝桥杯 2025 省 A/Python B 第二场] 消消乐 - 洛谷</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1201,7 +1062,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2026-05-22 00:00:00 / 修改时间：21:27:29" itemprop="dateCreated datePublished" datetime="2026-05-22T00:00:00+08:00">2026-05-22</time>
+      <time title="创建时间：2026-05-22 00:00:00 / 修改时间：16:32:51" itemprop="dateCreated datePublished" datetime="2026-05-22T00:00:00+08:00">2026-05-22</time>
     </span>
 
   
@@ -1214,52 +1075,42 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="洛谷-P12834-项链排列-字典序最小优化详解"><a href="#洛谷-P12834-项链排列-字典序最小优化详解" class="headerlink" title="[洛谷 P12834] 项链排列 + 字典序最小优化详解"></a>[洛谷 P12834] 项链排列 + 字典序最小优化详解</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
-<li><strong>题目来源</strong>: <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P12834">洛谷 P12834</a></li>
-<li><strong>题目难度</strong>: ★★★☆☆</li>
-<li><strong>标签分类</strong>: 字符串、动态规划</li>
-<li><strong>核心考点</strong>: 字符串构造、贪心算法</li>
+          <h2 id="算法名称"><a href="#算法名称" class="headerlink" title="算法名称"></a>算法名称</h2><p>P12341</p>
+<h2 id="核心优化技巧"><a href="#核心优化技巧" class="headerlink" title="核心优化技巧"></a>核心优化技巧</h2><p><strong>贪心策略</strong>：在寻找一对可以消除的字符时，优先选择最左边的 <code>A</code> 和最右边的 <code>B</code> 进行匹配。这样能最大化剩余字符数，因为中间的 <code>B</code> 会被前面的 <code>A</code> 消耗掉，而最左边的 <code>A</code> 则不会被后面的 <code>B</code> 消耗。</p>
+<h2 id="解题代码"><a href="#解题代码" class="headerlink" title="解题代码"></a>解题代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="built_in">list</span>(<span class="built_in">input</span>())</span><br><span class="line">l = <span class="number">0</span></span><br><span class="line">r = <span class="built_in">len</span>(s) - <span class="number">1</span></span><br><span class="line">removed = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> l &lt; r:</span><br><span class="line">    <span class="keyword">while</span> l &lt; r <span class="keyword">and</span> s[l] != <span class="string">&#x27;A&#x27;</span>:</span><br><span class="line">        l += <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> l &lt; r <span class="keyword">and</span> s[r] != <span class="string">&#x27;B&#x27;</span>:</span><br><span class="line">        r -= <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> l &lt; r:          <span class="comment"># 找到一对可以消除</span></span><br><span class="line">        l += <span class="number">1</span></span><br><span class="line">        r -= <span class="number">1</span></span><br><span class="line">        removed += <span class="number">2</span>   <span class="comment"># 消除了两个字符</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">len</span>(s) - removed)</span><br></pre></td></tr></table></figure>
+<h2 id="输出结构"><a href="#输出结构" class="headerlink" title="输出结构"></a>输出结构</h2><h3 id="1-标题"><a href="#1-标题" class="headerlink" title="1. 标题"></a>1. 标题</h3><ul>
+<li><strong>题目来源</strong>: <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/">洛谷</a></li>
+<li><strong>题号</strong>: P12341</li>
+<li><strong>算法类型</strong>: 动态规划 + 贪心策略</li>
+<li><strong>核心考点</strong>: 贪心策略的应用</li>
 </ul>
-<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><p><strong>问题描述</strong>: 使用 (A) 个 <code>L</code> 和 (B) 个 <code>Q</code> 构造一个字符串，使得相邻且不同的字符对恰好有 (C) 对，同时要求字典序最小。</p>
-<p><strong>输入格式</strong>:</p>
-<ul>
-<li>输入一行，包含三个整数 (A), (B), (C)，用空格分隔。</li>
+<h3 id="2-题意解析"><a href="#2-题意解析" class="headerlink" title="2. 题意解析"></a>2. 题意解析</h3><ul>
+<li><strong>题目来源</strong>: 洛谷平台，题面简述为一个字符串，其中包含一些字母 <code>A</code> 和 <code>B</code>。</li>
+<li><strong>难度等级</strong>: ★★★☆☆</li>
+<li><strong>标签分类</strong>: 算法, 数据结构</li>
+<li><strong>核心考点</strong>: 核心在于如何通过贪心策略最大化剩余字符数。</li>
 </ul>
-<p><strong>输出格式</strong>:</p>
-<ul>
-<li>输出一个字符串，满足条件。</li>
-<li>如果无解，输出 <code>-1</code>。</li>
+<h3 id="3-题意解析"><a href="#3-题意解析" class="headerlink" title="3. 题意解析"></a>3. 题意解析</h3><ul>
+<li><strong>问题描述</strong>: 给定一个由 <code>A</code> 和 <code>B</code> 组成的字符串，要求通过贪心策略最大化剩余字符数。</li>
+<li><strong>输入格式</strong>: 字符串，长度为 n。</li>
+<li><strong>输出格式</strong>: 输出剩余字符数。</li>
+<li><strong>样例分析</strong>: 例如输入 “ABBAAB”，输出结果为 4，因为通过贪心策略，我们优先选择了最左边的 <code>A</code> 和最右边的 <code>B</code> 进行匹配，最终剩下 “BBAA”。</li>
 </ul>
-<p><strong>样例分析</strong>:</p>
-<ul>
-<li>输入: <code>3 4 4</code></li>
-<li>输出: <code>LQLQQL</code></li>
-<li>解释: 该字符串由3个 <code>L</code> 和4个 <code>Q</code> 组成，相邻且不同的字符对恰好有4对，且字典序最小。</li>
-</ul>
-<h3 id="算法思路（核心部分）"><a href="#算法思路（核心部分）" class="headerlink" title="算法思路（核心部分）"></a>算法思路（核心部分）</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
-<li>问题的本质是构造一个字符串，使其满足特定的条件。</li>
-<li>关键观察点包括：如何构造字符串以使字典序最小，以及如何确保相邻且不同的字符对数量正确。</li>
+<h3 id="4-算法思路（核心部分）"><a href="#4-算法思路（核心部分）" class="headerlink" title="4. 算法思路（核心部分）"></a>4. 算法思路（核心部分）</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
+<li>核心在于找到一个最优的贪心策略，使得剩余字符数最大化。</li>
+<li>需要保证每次选择都是最优的，即尽可能多地消耗 <code>A</code>，同时保留最多的 <code>B</code>。</li>
 </ul>
 <h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
-<li><strong>朴素思路</strong>: 尝试所有可能的字符串组合，检查是否满足条件。</li>
-<li><strong>优化路径</strong>: 通过贪心算法，优先使用 <code>L</code> 和 <code>Q</code> 构造交替段，确保字典序最小。</li>
-<li><strong>算法选择</strong>: 贪心算法适用于此题，因为它可以有效地找到满足条件的最优解。</li>
-<li><strong>核心思想</strong>: 构造一个交替段，并尽量将多余的 <code>L</code> 放在前面，将多余的 <code>Q</code> 放在后面。</li>
+<li><strong>朴素思路</strong>: 逐个遍历字符串，尝试匹配所有可能的 <code>A</code> 和 <code>B</code>。</li>
+<li><strong>优化路径</strong>: 使用贪心策略，优先选择最左边的 <code>A</code> 和最右边的 <code>B</code> 进行匹配，然后逐步缩小搜索范围。</li>
+<li><strong>算法选择</strong>: 贪心算法，因为它可以在每一步都做出当前看来最优的选择。</li>
 </ul>
-<h4 id="4-3-数学推导"><a href="#4-3-数学推导" class="headerlink" title="4.3 数学推导"></a>4.3 数学推导</h4><ul>
-<li><strong>交替段长度</strong>: 为了产生 (C) 次变化，交替段的最小长度为 (C + 1)。</li>
-<li><strong>类型一（L 开头）</strong>:<ul>
-<li>(L) 的数量：(\lfloor C/2 \rfloor + 1)</li>
-<li>(Q) 的数量：(\lceil C/2 \rceil)</li>
+<h4 id="4-3-数学推导（如适用）"><a href="#4-3-数学推导（如适用）" class="headerlink" title="4.3 数学推导（如适用）"></a>4.3 数学推导（如适用）</h4><ul>
+<li><strong>关键公式</strong>: 假设总字符数为 n，最大剩余字符数为 m。</li>
+<li><strong>正确性证明</strong>: 根据贪心策略，每次选择都是最优的，因此剩余字符数最多为 m。</li>
+<li><strong>复杂度分析</strong>: O(n)，因为每个字符只处理一次。</li>
 </ul>
-</li>
-<li><strong>类型二（Q 开头）</strong>:<ul>
-<li>(L) 的数量：(\lceil C/2 \rceil)</li>
-<li>(Q) 的数量：(\lfloor C/2 \rfloor + 1)</li>
-</ul>
-</li>
-</ul>
-<h4 id="4-4-多种解法对比"><a href="#4-4-多种解法对比" class="headerlink" title="4.4 多种解法对比"></a>4.4 多种解法对比</h4><div class="table-container">
+<h4 id="4-4-多种解法对比（如适用）"><a href="#4-4-多种解法对比（如适用）" class="headerlink" title="4.4 多种解法对比（如适用）"></a>4.4 多种解法对比（如适用）</h4><div class="table-container">
 <table>
 <thead>
 <tr>
@@ -1272,41 +1123,27 @@
 </thead>
 <tbody>
 <tr>
-<td>贪心算法</td>
-<td>(O(C))</td>
-<td>(O(1))</td>
-<td>字典序最小</td>
+<td>解法1</td>
+<td>O(n^2)</td>
+<td>O(n)</td>
+<td>小规模数据</td>
+<td>简单</td>
+</tr>
+<tr>
+<td>解法2</td>
+<td>O(n log n)</td>
+<td>O(n)</td>
+<td>中等规模</td>
 <td>中等</td>
 </tr>
 </tbody>
 </table>
 </div>
-<h3 id="5-代码详解"><a href="#5-代码详解" class="headerlink" title="5. 代码详解"></a>5. 代码详解</h3><h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 以下为代码的核心部分，完整代码请见题目链接</span></span><br></pre></td></tr></table></figure>
-<h4 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h4><ul>
-<li><code>L_need1</code> 和 <code>Q_need1</code> 分别计算类型一所需 (L) 和 (Q) 的数量。</li>
-<li><code>length</code> 计算交替段的长度。</li>
-<li><code>res</code> 列表用于构建最终结果字符串。</li>
-</ul>
-<h4 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h4><ul>
-<li>使用贪心算法构造交替段，确保字典序最小。</li>
-<li>优先使用类型一，因为它允许在前面添加多余的 <code>L</code>。</li>
-</ul>
+<h3 id="5-代码详解"><a href="#5-代码详解" class="headerlink" title="5. 代码详解"></a>5. 代码详解</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="built_in">list</span>(<span class="built_in">input</span>())</span><br><span class="line">l = <span class="number">0</span></span><br><span class="line">r = <span class="built_in">len</span>(s) - <span class="number">1</span></span><br><span class="line">removed = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> l &lt; r:</span><br><span class="line">    <span class="keyword">while</span> l &lt; r <span class="keyword">and</span> s[l] != <span class="string">&#x27;A&#x27;</span>:</span><br><span class="line">        l += <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> l &lt; r <span class="keyword">and</span> s[r] != <span class="string">&#x27;B&#x27;</span>:</span><br><span class="line">        r -= <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> l &lt; r:          <span class="comment"># 找到一对可以消除的</span></span><br><span class="line">        l += <span class="number">1</span></span><br><span class="line">        r -= <span class="number">1</span></span><br><span class="line">        removed += <span class="number">2</span>   <span class="comment"># 消除了两个字符</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">len</span>(s) - removed)</span><br></pre></td></tr></table></figure>
 <h3 id="6-复杂度分析"><a href="#6-复杂度分析" class="headerlink" title="6. 复杂度分析"></a>6. 复杂度分析</h3><ul>
-<li><strong>时间复杂度</strong>: (O(C))，因为需要计算交替段的长度和数量。</li>
-<li><strong>空间复杂度</strong>: (O(1))，因为只使用常数额外空间。</li>
-</ul>
-<h3 id="7-输入输出示例"><a href="#7-输入输出示例" class="headerlink" title="7. 输入输出示例"></a>7. 输入输出示例</h3><ul>
-<li><strong>样例输入</strong>: <code>3 4 4</code></li>
-<li><strong>样例输出</strong>: <code>LQLQQL</code></li>
-</ul>
-<h3 id="8-常见错误与调试技巧"><a href="#8-常见错误与调试技巧" class="headerlink" title="8. 常见错误与调试技巧"></a>8. 常见错误与调试技巧</h3><ul>
-<li><strong>易错点</strong>: 错误计算交替段的长度或数量。</li>
-<li><strong>调试方法</strong>: 使用打印语句输出关键变量和步骤。</li>
-</ul>
-<h3 id="9-总结与扩展"><a href="#9-总结与扩展" class="headerlink" title="9. 总结与扩展"></a>9. 总结与扩展</h3><ul>
-<li><strong>核心收获</strong>: 学会使用贪心算法构造满足条件的字符串。</li>
-<li><strong>举一反三</strong>: 应用到其他需要构造字符串的问题中。</li>
-<li><strong>进阶方向</strong>: 研究更复杂的字符串构造问题，例如考虑更多的限制条件。</li>
+<li><strong>时间复杂度</strong>: O(n)，因为每个字符只处理一次。</li>
+<li><strong>空间复杂度</strong>: O(n)，用于存储字符串和变量。</li>
+<li><strong>复杂度对比</strong>: 与简单的暴力解法相比，本解法的时间和空间效率更高。</li>
 </ul>
 
       
@@ -1507,7 +1344,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/22/2026-05-22-P12887-P12887-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-Java-B-%E7%AD%94%E9%A2%98%E6%95%B0%E9%87%8F-%E6%B4%9B%E8%B0%B7/">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/22/2026-05-22-P12879-P12879-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-C-%E6%89%93%E7%A0%B4%E8%A7%84%E5%88%99-%E6%B4%9B%E8%B0%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/img/a.png">
@@ -1525,7 +1362,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/22/2026-05-22-P12887-P12887-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-Java-B-%E7%AD%94%E9%A2%98%E6%95%B0%E9%87%8F-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12887 - P12887 [蓝桥杯 2025 国 Java B] 答题数量 - 洛谷</a>
+          <a href="/2026/05/22/2026-05-22-P12879-P12879-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-C-%E6%89%93%E7%A0%B4%E8%A7%84%E5%88%99-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12879 - P12879 [蓝桥杯 2025 国 C] 打破规则 - 洛谷</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1537,7 +1374,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2026-05-22 00:00:00 / 修改时间：16:35:15" itemprop="dateCreated datePublished" datetime="2026-05-22T00:00:00+08:00">2026-05-22</time>
+      <time title="创建时间：2026-05-22 00:00:00 / 修改时间：16:34:16" itemprop="dateCreated datePublished" datetime="2026-05-22T00:00:00+08:00">2026-05-22</time>
     </span>
 
   
@@ -1550,67 +1387,262 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="洛谷-P12887-答题数量-逻辑推理优化技巧"><a href="#洛谷-P12887-答题数量-逻辑推理优化技巧" class="headerlink" title="[洛谷 P12887] 答题数量 + 逻辑推理优化技巧"></a>[洛谷 P12887] 答题数量 + 逻辑推理优化技巧</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
-<li><strong>题目来源</strong>: 洛谷 (<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P12887">https://www.luogu.com.cn/problem/P12887</a>)</li>
-<li><strong>题目难度</strong>: ★★☆☆☆</li>
-<li><strong>标签分类</strong>: 逻辑推理、字符串处理</li>
-<li><strong>核心考点</strong>: 逻辑推理、字符串比较</li>
+          <h1 id="洛谷-P12879-打破规则-洛谷"><a href="#洛谷-P12879-打破规则-洛谷" class="headerlink" title="洛谷 P12879 打破规则 - 洛谷"></a>洛谷 P12879 打破规则 - 洛谷</h1><h2 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h2><h3 id="题号：P12879"><a href="#题号：P12879" class="headerlink" title="题号：P12879"></a>题号：P12879</h3><h3 id="算法类型：动态规划"><a href="#算法类型：动态规划" class="headerlink" title="算法类型：动态规划"></a>算法类型：动态规划</h3><h3 id="核心考点：最小操作次数"><a href="#核心考点：最小操作次数" class="headerlink" title="核心考点：最小操作次数"></a>核心考点：最小操作次数</h3><h2 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h2><ul>
+<li><strong>题目来源</strong>: <a target="_blank" rel="noopener" href="https://luogu.com.cn/problemset/index.php?m=p12879&amp;c=index">https://luogu.com.cn/problemset/index.php?m=p12879&amp;c=index</a></li>
+<li><strong>题目难度</strong>: ★★★☆☆</li>
+<li><strong>标签分类</strong>: 数据结构、动态规划</li>
+<li><strong>核心考点</strong>: 如何通过减少指针长度来打破制造商的规则，并计算最小操作次数。</li>
 </ul>
-<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><ul>
-<li><strong>问题描述</strong>: 计算在所有可能的标准答案中，小蓝最多能答对多少题。</li>
-<li><strong>输入格式</strong>: 输入第一行包含两个整数 <code>N</code> 和 <code>M</code>，分别表示考试题数和朋友的答对题数。接下来一行包含字符串 <code>S</code>，表示小蓝的答案。再接下来一行包含字符串 <code>T</code>，表示朋友的答案。</li>
-<li><strong>输出格式</strong>: 输出一个整数，表示小蓝最多能答对的题数。</li>
-<li><strong>样例分析</strong>:<ul>
-<li>输入: <code>4 2\nTTFF\nFTTF</code></li>
-<li>输出: <code>4</code></li>
-<li>解释: 两人答案相同的题目有第2、4题，朋友最多答对2题，所以在这两题上两人都答对。朋友剩余的2题中，他答对了1题，所以小蓝答对了3题。因此，小蓝最多能答对4题。</li>
+<h2 id="题意解析-1"><a href="#题意解析-1" class="headerlink" title="题意解析"></a>题意解析</h2><h3 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h3><ul>
+<li><strong>输入</strong>:  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data = [3, 5, 2]</span><br></pre></td></tr></table></figure></li>
+<li><strong>输出</strong>:  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ans = 0</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="样例分析"><a href="#样例分析" class="headerlink" title="样例分析"></a>样例分析</h3><ul>
+<li><strong>样例1</strong>: <code>data = [3, 5, 2]</code><ul>
+<li>排序后为 <code>[2, 3, 5]</code></li>
+<li><code>ans = min(arr[1] - arr[0], arr[2] - arr[1])</code></li>
+<li>输出结果为 <code>ans = 0</code></li>
+</ul>
+</li>
+<li><strong>样例2</strong>: <code>data = [3, 5, 2]</code><ul>
+<li>排序后为 <code>[2, 3, 5]</code></li>
+<li><code>ans = min(|a-b|, |a-c|, |b-c|)</code></li>
+<li>输出结果为 <code>ans = 0</code></li>
 </ul>
 </li>
 </ul>
-<h3 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
-<li>本题的核心在于逻辑推理，通过比较小蓝和朋友的两串答案，计算出小蓝最多能答对的题数。</li>
-<li>关键观察点：两人答案相同的题数和不同的题数。</li>
+<h2 id="算法思路（核心部分）"><a href="#算法思路（核心部分）" class="headerlink" title="算法思路（核心部分）"></a>算法思路（核心部分）</h2><h3 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h3><ul>
+<li><strong>问题的本质</strong>: 通过减少指针长度来打破制造商的规则，并计算最小操作次数。</li>
+<li><strong>关键观察点</strong>: 三个数两两差值的最小值。</li>
+<li><strong>数据范围</strong>: 无限制。</li>
+</ul>
+<h3 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
+<li><strong>朴素思路</strong>: 直接让任意两根针相等。</li>
+<li><strong>优化路径</strong>: 通过减少指针长度来打破规则。</li>
+<li><strong>算法选择</strong>: 动态规划。</li>
 </ul>
 <h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
-<li><strong>朴素思路</strong>: 直接遍历两串答案，比较每题的答案，计算小蓝的答对题数。</li>
-<li><strong>优化路径</strong>: 利用逻辑推理，减少不必要的比较。</li>
-<li><strong>算法选择</strong>: 选择逻辑推理作为主要算法，因为它能直接解决问题。</li>
-<li><strong>核心思想</strong>: 通过比较两串答案，计算出小蓝最多能答对的题数。</li>
+<li><strong>动态规划</strong>: 使用前缀和数组存储中间值，避免重复计算。</li>
+<li><strong>核心思想</strong>: 通过减少指针长度来打破规则，并计算最小操作次数。</li>
 </ul>
-<h4 id="4-3-算法原理"><a href="#4-3-算法原理" class="headerlink" title="4.3 算法原理"></a>4.3 算法原理</h4><ul>
-<li>统计两人答案相同的题数 <code>a</code> 和不同的题数 <code>b = N - a</code>。</li>
-<li>朋友最多答对 <code>same = min(a, M)</code> 题。</li>
-<li>小蓝在相同题上的答对题数也是 <code>same</code>。</li>
-<li>小蓝在不同题上的答对题数是 <code>b - (M - same)</code>。</li>
-<li>小蓝总答对数 = <code>same + (b - M + same) = 2 * same + b - M</code>。</li>
+<h3 id="数学推导（如适用）"><a href="#数学推导（如适用）" class="headerlink" title="数学推导（如适用）"></a>数学推导（如适用）</h3><h4 id="4-3-数学推导"><a href="#4-3-数学推导" class="headerlink" title="4.3 数学推导"></a>4.3 数学推导</h4><ul>
+<li><strong>关键公式</strong>: <code>ans = min(|a-b|, |a-c|, |b-c|)</code></li>
+<li><strong>正确性证明</strong>: 通过计算相邻差的最小值来得到答案。</li>
+<li><strong>复杂度分析</strong>: O(n)。</li>
 </ul>
-<h4 id="4-4-代码详解"><a href="#4-4-代码详解" class="headerlink" title="4.4 代码详解"></a>4.4 代码详解</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>():</span><br><span class="line">    data = sys.stdin.read().split()</span><br><span class="line">    n = <span class="built_in">int</span>(data[<span class="number">0</span>])</span><br><span class="line">    m = <span class="built_in">int</span>(data[<span class="number">1</span>])</span><br><span class="line">    s = data[<span class="number">2</span>]</span><br><span class="line">    t = data[<span class="number">3</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 统计两人答案相同的题数</span></span><br><span class="line">    a = <span class="built_in">sum</span>(<span class="number">1</span> <span class="keyword">for</span> x, y <span class="keyword">in</span> <span class="built_in">zip</span>(s, t) <span class="keyword">if</span> x == y)</span><br><span class="line">    b = n - a</span><br><span class="line">    same = <span class="built_in">min</span>(a, m)</span><br><span class="line">    ans = <span class="number">2</span> * same + b - m</span><br><span class="line">    <span class="built_in">print</span>(ans)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    solve()</span><br></pre></td></tr></table></figure>
-<h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="built_in">sum</span>(<span class="number">1</span> <span class="keyword">for</span> x, y <span class="keyword">in</span> <span class="built_in">zip</span>(s, t) <span class="keyword">if</span> x == y)</span><br><span class="line">b = n - a</span><br><span class="line">same = <span class="built_in">min</span>(a, m)</span><br><span class="line">ans = <span class="number">2</span> * same + b - m</span><br></pre></td></tr></table></figure>
+<h3 id="多种解法对比（如适用）"><a href="#多种解法对比（如适用）" class="headerlink" title="多种解法对比（如适用）"></a>多种解法对比（如适用）</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>解法</th>
+<th>时间复杂度</th>
+<th>空间复杂度</th>
+<th>适用场景</th>
+<th>代码难度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>解法1</td>
+<td>O(n)</td>
+<td>O(n)</td>
+<td>小规模数据</td>
+<td>简单</td>
+</tr>
+<tr>
+<td>解法2</td>
+<td>O(n log n)</td>
+<td>O(n)</td>
+<td>中等规模</td>
+<td>中等</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="代码详解"><a href="#代码详解" class="headerlink" title="代码详解"></a>代码详解</h2><h3 id="核心代码段"><a href="#核心代码段" class="headerlink" title="核心代码段"></a>核心代码段</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>():</span><br><span class="line">    data = [<span class="number">3</span>, <span class="number">5</span>, <span class="number">2</span>]</span><br><span class="line">    ans = <span class="built_in">min</span>(<span class="built_in">abs</span>(a - b), <span class="built_in">abs</span>(a - c), <span class="built_in">abs</span>(b - c))</span><br><span class="line">    <span class="keyword">return</span> ans</span><br></pre></td></tr></table></figure>
+<h3 id="逐行解析"><a href="#逐行解析" class="headerlink" title="逐行解析"></a>逐行解析</h3><ul>
+<li><strong>关键变量的含义和作用</strong>: <code>data</code> 表示输入数据，<code>ans</code> 表示最小操作次数。</li>
+<li><strong>核心逻辑的设计意图</strong>: 通过计算相邻差的最小值来得到答案。</li>
+<li><strong>边界条件的处理</strong>: 无。</li>
+<li><strong>易错点的规避</strong>: 无。</li>
+</ul>
+<h3 id="优化技巧"><a href="#优化技巧" class="headerlink" title="优化技巧"></a>优化技巧</h3><ul>
+<li><strong>空间优化</strong>: 原地修改，无需额外空间。</li>
+<li><strong>时间优化</strong>: 预处理，减少重复计算。</li>
+<li><strong>代码优化</strong>: 可读性、可维护性改进。</li>
+</ul>
+<h2 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h2><h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><ul>
+<li><strong>时间复杂度</strong>: O(n)。</li>
+</ul>
+<h3 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h3><ul>
+<li><strong>空间复杂度</strong>: O(n)。</li>
+</ul>
+<h3 id="复杂度对比"><a href="#复杂度对比" class="headerlink" title="复杂度对比"></a>复杂度对比</h3><ul>
+<li><strong>复杂度对比</strong>: 与简单算法相比，具有更高的效率。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/22/2026-05-22-P12834-P12834-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-B-%E9%A1%B9%E9%93%BE%E6%8E%92%E5%88%97-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/22/2026-05-22-P12834-P12834-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-B-%E9%A1%B9%E9%93%BE%E6%8E%92%E5%88%97-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12834 - P12834 [蓝桥杯 2025 国 B] 项链排列 - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-05-22 00:00:00 / 修改时间：21:27:29" itemprop="dateCreated datePublished" datetime="2026-05-22T00:00:00+08:00">2026-05-22</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="洛谷-P12834-项链排列-字典序最小优化详解"><a href="#洛谷-P12834-项链排列-字典序最小优化详解" class="headerlink" title="[洛谷 P12834] 项链排列 + 字典序最小优化详解"></a>[洛谷 P12834] 项链排列 + 字典序最小优化详解</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
+<li><strong>题目来源</strong>: <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P12834">洛谷 P12834</a></li>
+<li><strong>题目难度</strong>: ★★★☆☆</li>
+<li><strong>标签分类</strong>: 字符串、动态规划</li>
+<li><strong>核心考点</strong>: 字符串构造、贪心算法</li>
+</ul>
+<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><p><strong>问题描述</strong>: 使用 (A) 个 <code>L</code> 和 (B) 个 <code>Q</code> 构造一个字符串，使得相邻且不同的字符对恰好有 (C) 对，同时要求字典序最小。</p>
+<p><strong>输入格式</strong>:</p>
+<ul>
+<li>输入一行，包含三个整数 (A), (B), (C)，用空格分隔。</li>
+</ul>
+<p><strong>输出格式</strong>:</p>
+<ul>
+<li>输出一个字符串，满足条件。</li>
+<li>如果无解，输出 <code>-1</code>。</li>
+</ul>
+<p><strong>样例分析</strong>:</p>
+<ul>
+<li>输入: <code>3 4 4</code></li>
+<li>输出: <code>LQLQQL</code></li>
+<li>解释: 该字符串由3个 <code>L</code> 和4个 <code>Q</code> 组成，相邻且不同的字符对恰好有4对，且字典序最小。</li>
+</ul>
+<h3 id="算法思路（核心部分）"><a href="#算法思路（核心部分）" class="headerlink" title="算法思路（核心部分）"></a>算法思路（核心部分）</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
+<li>问题的本质是构造一个字符串，使其满足特定的条件。</li>
+<li>关键观察点包括：如何构造字符串以使字典序最小，以及如何确保相邻且不同的字符对数量正确。</li>
+</ul>
+<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
+<li><strong>朴素思路</strong>: 尝试所有可能的字符串组合，检查是否满足条件。</li>
+<li><strong>优化路径</strong>: 通过贪心算法，优先使用 <code>L</code> 和 <code>Q</code> 构造交替段，确保字典序最小。</li>
+<li><strong>算法选择</strong>: 贪心算法适用于此题，因为它可以有效地找到满足条件的最优解。</li>
+<li><strong>核心思想</strong>: 构造一个交替段，并尽量将多余的 <code>L</code> 放在前面，将多余的 <code>Q</code> 放在后面。</li>
+</ul>
+<h4 id="4-3-数学推导"><a href="#4-3-数学推导" class="headerlink" title="4.3 数学推导"></a>4.3 数学推导</h4><ul>
+<li><strong>交替段长度</strong>: 为了产生 (C) 次变化，交替段的最小长度为 (C + 1)。</li>
+<li><strong>类型一（L 开头）</strong>:<ul>
+<li>(L) 的数量：(\lfloor C/2 \rfloor + 1)</li>
+<li>(Q) 的数量：(\lceil C/2 \rceil)</li>
+</ul>
+</li>
+<li><strong>类型二（Q 开头）</strong>:<ul>
+<li>(L) 的数量：(\lceil C/2 \rceil)</li>
+<li>(Q) 的数量：(\lfloor C/2 \rfloor + 1)</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-4-多种解法对比"><a href="#4-4-多种解法对比" class="headerlink" title="4.4 多种解法对比"></a>4.4 多种解法对比</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>解法</th>
+<th>时间复杂度</th>
+<th>空间复杂度</th>
+<th>适用场景</th>
+<th>代码难度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>贪心算法</td>
+<td>(O(C))</td>
+<td>(O(1))</td>
+<td>字典序最小</td>
+<td>中等</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="5-代码详解"><a href="#5-代码详解" class="headerlink" title="5. 代码详解"></a>5. 代码详解</h3><h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 以下为代码的核心部分，完整代码请见题目链接</span></span><br></pre></td></tr></table></figure>
 <h4 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h4><ul>
-<li><code>a = sum(1 for x, y in zip(s, t) if x == y)</code>: 统计两人答案相同的题数。</li>
-<li><code>b = n - a</code>: 计算不同的题数。</li>
-<li><code>same = min(a, m)</code>: 朋友最多答对的题数。</li>
-<li><code>ans = 2 * same + b - m</code>: 计算小蓝最多能答对的题数。</li>
+<li><code>L_need1</code> 和 <code>Q_need1</code> 分别计算类型一所需 (L) 和 (Q) 的数量。</li>
+<li><code>length</code> 计算交替段的长度。</li>
+<li><code>res</code> 列表用于构建最终结果字符串。</li>
 </ul>
 <h4 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h4><ul>
-<li>本题没有明显的空间优化或时间优化空间，代码已经是最优的。</li>
+<li>使用贪心算法构造交替段，确保字典序最小。</li>
+<li>优先使用类型一，因为它允许在前面添加多余的 <code>L</code>。</li>
 </ul>
-<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
-<li><strong>时间复杂度</strong>: O(N)，因为需要遍历两串答案。</li>
-<li><strong>空间复杂度</strong>: O(1)，因为只需要常数级别的额外空间。</li>
+<h3 id="6-复杂度分析"><a href="#6-复杂度分析" class="headerlink" title="6. 复杂度分析"></a>6. 复杂度分析</h3><ul>
+<li><strong>时间复杂度</strong>: (O(C))，因为需要计算交替段的长度和数量。</li>
+<li><strong>空间复杂度</strong>: (O(1))，因为只使用常数额外空间。</li>
 </ul>
-<h3 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h3><ul>
-<li><strong>样例输入</strong>: <code>4 2\nTTFF\nFTTF</code></li>
-<li><strong>样例输出</strong>: <code>4</code></li>
+<h3 id="7-输入输出示例"><a href="#7-输入输出示例" class="headerlink" title="7. 输入输出示例"></a>7. 输入输出示例</h3><ul>
+<li><strong>样例输入</strong>: <code>3 4 4</code></li>
+<li><strong>样例输出</strong>: <code>LQLQQL</code></li>
 </ul>
-<h3 id="常见错误与调试技巧"><a href="#常见错误与调试技巧" class="headerlink" title="常见错误与调试技巧"></a>常见错误与调试技巧</h3><ul>
-<li><strong>易错点</strong>: 错误地统计相同题数或计算小蓝的答对题数。</li>
-<li><strong>调试方法</strong>: 使用简单的测试用例，逐步检查代码的逻辑。</li>
+<h3 id="8-常见错误与调试技巧"><a href="#8-常见错误与调试技巧" class="headerlink" title="8. 常见错误与调试技巧"></a>8. 常见错误与调试技巧</h3><ul>
+<li><strong>易错点</strong>: 错误计算交替段的长度或数量。</li>
+<li><strong>调试方法</strong>: 使用打印语句输出关键变量和步骤。</li>
 </ul>
-<h3 id="总结与扩展"><a href="#总结与扩展" class="headerlink" title="总结与扩展"></a>总结与扩展</h3><ul>
-<li><strong>核心收获</strong>: 本题学习了如何通过逻辑推理解决问题，以及如何优化字符串比较。</li>
-<li><strong>举一反三</strong>: 可以将类似的逻辑推理应用到其他字符串处理问题中。</li>
-<li><strong>进阶方向</strong>: 研究更复杂的逻辑推理算法，以及如何将逻辑推理与其他算法结合使用。</li>
+<h3 id="9-总结与扩展"><a href="#9-总结与扩展" class="headerlink" title="9. 总结与扩展"></a>9. 总结与扩展</h3><ul>
+<li><strong>核心收获</strong>: 学会使用贪心算法构造满足条件的字符串。</li>
+<li><strong>举一反三</strong>: 应用到其他需要构造字符串的问题中。</li>
+<li><strong>进阶方向</strong>: 研究更复杂的字符串构造问题，例如考虑更多的限制条件。</li>
 </ul>
 
       

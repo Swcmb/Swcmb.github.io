@@ -728,126 +728,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/20/2026-05-20-P9244-P9244-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E7%9C%81-B-%E5%AD%90%E4%B8%B2%E7%AE%80%E5%86%99-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/20/2026-05-20-P9244-P9244-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E7%9C%81-B-%E5%AD%90%E4%B8%B2%E7%AE%80%E5%86%99-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P9244 - P9244 [蓝桥杯 2023 省 B] 子串简写 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2026-05-20 00:00:00 / 修改时间：11:01:17" itemprop="dateCreated datePublished" datetime="2026-05-20T00:00:00+08:00">2026-05-20</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="洛谷-P9244-子串简写-子串匹配优化详解"><a href="#洛谷-P9244-子串简写-子串匹配优化详解" class="headerlink" title="[洛谷 P9244] 子串简写 + 子串匹配优化详解"></a>[洛谷 P9244] 子串简写 + 子串匹配优化详解</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
-<li><strong>题目来源</strong>: 洛谷 (<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P9244">https://www.luogu.com.cn/problem/P9244</a>)</li>
-<li><strong>题目难度</strong>: ★★☆☆☆</li>
-<li><strong>标签分类</strong>: 字符串处理、枚举</li>
-<li><strong>核心考点</strong>: 子串匹配、枚举优化</li>
-</ul>
-<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><ul>
-<li><strong>问题描述</strong>: 给定一个字符串 <code>s</code> 和两个字符 <code>c1</code>、<code>c2</code>，找出所有以 <code>c1</code> 开头，以 <code>c2</code> 结尾的子串，并输出这些子串的数量。</li>
-<li><strong>输入格式</strong>: 第一行输入一个整数 <code>k</code>，表示子串长度；第二行输入字符串 <code>s</code>，第三行输入两个字符 <code>c1</code> 和 <code>c2</code>。</li>
-<li><strong>输出格式</strong>: 输出一个整数，表示满足条件的子串数量。</li>
-<li><strong>样例分析</strong>:<ul>
-<li>输入: <code>3 abcabcabc a c</code></li>
-<li>输出: <code>3</code></li>
-<li>解释: 子串 “abc”, “bca”, “cab” 满足条件。</li>
-</ul>
-</li>
-</ul>
-<h3 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
-<li>问题的本质是寻找特定模式的子串。</li>
-<li>关键观察点：子串长度固定，且以特定字符开头和结尾。</li>
-<li>数据范围对算法选择的影响：字符串长度和子串长度可能较大，但子串数量相对较少。</li>
-</ul>
-<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
-<li><strong>朴素思路</strong>: 遍历所有可能的子串，检查是否满足条件。时间复杂度为 O(n^2)。</li>
-<li><strong>优化路径</strong>: 通过枚举的方式，直接定位到以 <code>c1</code> 开头，以 <code>c2</code> 结尾的子串，避免不必要的检查。</li>
-<li><strong>算法选择</strong>: 枚举法，因为子串数量较少，枚举是可行的。</li>
-<li><strong>核心思想</strong>: 通过固定子串的长度，直接检查每个可能的子串是否符合条件。</li>
-</ul>
-<h4 id="4-3-算法实现"><a href="#4-3-算法实现" class="headerlink" title="4.3 算法实现"></a>4.3 算法实现</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">res = <span class="number">0</span></span><br><span class="line">k = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">s, c1, c2 = <span class="built_in">map</span>(<span class="built_in">str</span>, <span class="built_in">input</span>().split())</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(s) - k + <span class="number">1</span>):</span><br><span class="line">    <span class="keyword">if</span> s[i:i+k] == c1 + c2:</span><br><span class="line">        res += <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(res)</span><br></pre></td></tr></table></figure>
-<h4 id="4-4-代码详解"><a href="#4-4-代码详解" class="headerlink" title="4.4 代码详解"></a>4.4 代码详解</h4><ul>
-<li><strong>核心代码段</strong>: <code>for i in range(len(s) - k + 1): if s[i:i+k] == c1 + c2: res += 1</code></li>
-<li><strong>逐行解析</strong>: 遍历所有可能的子串起始位置，检查子串是否以 <code>c1</code> 开头，以 <code>c2</code> 结尾。</li>
-<li><strong>优化技巧</strong>: 无需额外空间，直接在原字符串上操作。</li>
-</ul>
-<h3 id="5-复杂度分析"><a href="#5-复杂度分析" class="headerlink" title="5. 复杂度分析"></a>5. 复杂度分析</h3><ul>
-<li><strong>时间复杂度</strong>: O(n)，其中 n 是字符串 <code>s</code> 的长度。</li>
-<li><strong>空间复杂度</strong>: O(1)，不需要额外空间。</li>
-</ul>
-<h3 id="6-输入输出示例"><a href="#6-输入输出示例" class="headerlink" title="6. 输入输出示例"></a>6. 输入输出示例</h3><ul>
-<li><strong>样例输入</strong>: <code>3 abcabcabc a c</code></li>
-<li><strong>样例输出</strong>: <code>3</code></li>
-</ul>
-<h3 id="7-常见错误与调试技巧"><a href="#7-常见错误与调试技巧" class="headerlink" title="7. 常见错误与调试技巧"></a>7. 常见错误与调试技巧</h3><ul>
-<li><strong>易错点</strong>: 忘记检查子串长度是否超过字符串长度。</li>
-<li><strong>调试方法</strong>: 使用简单的测试用例，逐步增加复杂度，观察程序输出。</li>
-</ul>
-<h3 id="8-总结与扩展"><a href="#8-总结与扩展" class="headerlink" title="8. 总结与扩展"></a>8. 总结与扩展</h3><ul>
-<li><strong>核心收获</strong>: 学会了如何通过枚举的方式解决子串匹配问题。</li>
-<li><strong>举一反三</strong>: 可以将此方法应用于其他需要匹配特定模式的字符串问题。</li>
-<li><strong>进阶方向</strong>: 研究更高效的字符串匹配算法，如 KMP 算法、Boyer-Moore 算法等。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/20/2026-05-20-P9421-P9421-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E5%9B%BD-B-%E7%8F%AD%E7%BA%A7%E6%B4%BB%E5%8A%A8-%E6%B4%9B%E8%B0%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -975,6 +855,250 @@
 <li><strong>核心收获</strong>: 学会使用差分数组优化算法，降低时间复杂度。</li>
 <li><strong>举一反三</strong>: 可以将差分数组的思想应用于其他需要统计累加和的场景。</li>
 <li><strong>进阶方向</strong>: 进一步研究更高效的算法和数据结构，如线段树等。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/20/2026-05-20-else/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/20/2026-05-20-else/" class="post-title-link" itemprop="url">else</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-05-20 00:00:00 / 修改时间：10:36:03" itemprop="dateCreated datePublished" datetime="2026-05-20T00:00:00+08:00">2026-05-20</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="洛谷-P1234-同步节点信息-节点同步方法详解"><a href="#洛谷-P1234-同步节点信息-节点同步方法详解" class="headerlink" title="[洛谷 P1234] 同步节点信息 + 节点同步方法详解"></a>[洛谷 P1234] 同步节点信息 + 节点同步方法详解</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
+<li><strong>题目来源</strong>: 洛谷在线编程平台</li>
+<li><strong>题目难度</strong>: ★★☆☆☆</li>
+<li><strong>标签分类</strong>: 数据结构、算法</li>
+<li><strong>核心考点</strong>: 链表操作、节点同步</li>
+</ul>
+<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><ul>
+<li><strong>问题描述</strong>: 给定一个节点列表，其中每个节点包含两个属性：节点ID和连接的节点列表。要求实现一个同步函数，该函数可以将一个节点的连接信息同步到其所有连接的节点上。</li>
+<li><strong>输入格式</strong>: 第一行输入节点数量N，接下来N行每行输入一个节点的ID和连接的节点列表。</li>
+<li><strong>输出格式</strong>: 输出同步后的节点连接信息。</li>
+<li><strong>样例分析</strong>:<ul>
+<li>输入:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">1 2</span><br><span class="line">1 2</span><br></pre></td></tr></table></figure></li>
+<li>输出:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1 2</span><br><span class="line">1 2</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
+<li>问题的本质是节点间信息的同步。</li>
+<li>关键观察点是节点间的连接关系。</li>
+<li>数据范围对算法选择的影响不大，因为节点数量有限。</li>
+</ul>
+<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
+<li><strong>朴素思路</strong>: 遍历每个节点，将其连接信息同步到所有连接的节点上。</li>
+<li><strong>优化路径</strong>: 使用递归或迭代方法，避免重复同步。</li>
+<li><strong>算法选择</strong>: 使用递归方法，因为它可以直观地表示节点同步的过程。</li>
+<li><strong>核心思想</strong>: 通过递归调用同步函数，将连接信息传播到所有相关节点。</li>
+</ul>
+<h4 id="4-3-代码详解"><a href="#4-3-代码详解" class="headerlink" title="4.3 代码详解"></a>4.3 代码详解</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">N = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">nodes = [[<span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">2</span>]]</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">add</span>(<span class="params">element</span>):</span><br><span class="line">    nodes[<span class="number">0</span>].append(element)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sync</span>(<span class="params">follower_id</span>):</span><br><span class="line">    <span class="built_in">print</span>(nodes[<span class="number">0</span>][:<span class="built_in">len</span>(nodes[follower_id])], nodes[<span class="number">0</span>][<span class="built_in">len</span>(nodes[follower_id:])])</span><br><span class="line"></span><br><span class="line">sync(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">sync</span>(<span class="params">follower_id</span>):</span><br><span class="line">    <span class="built_in">print</span>(nodes[<span class="number">0</span>][:<span class="built_in">len</span>(nodes[follower_id])], nodes[<span class="number">0</span>][<span class="built_in">len</span>(nodes[follower_id:])])</span><br></pre></td></tr></table></figure>
+<h4 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h4><ul>
+<li><code>print(nodes[0][:len(nodes[follower_id])], nodes[0][len(nodes[follower_id:])])</code>: 打印当前节点ID及其连接的节点列表。</li>
+</ul>
+<h4 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h4><ul>
+<li>由于题目简单，这里没有特别的优化技巧。</li>
+</ul>
+<h3 id="6-复杂度分析"><a href="#6-复杂度分析" class="headerlink" title="6. 复杂度分析"></a>6. 复杂度分析</h3><ul>
+<li><strong>时间复杂度</strong>: O(N)，每个节点最多被访问一次。</li>
+<li><strong>空间复杂度</strong>: O(N)，存储节点信息。</li>
+</ul>
+<h3 id="7-输入输出示例"><a href="#7-输入输出示例" class="headerlink" title="7. 输入输出示例"></a>7. 输入输出示例</h3><ul>
+<li><strong>样例输入</strong>:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">1 2</span><br><span class="line">1 2</span><br></pre></td></tr></table></figure></li>
+<li><strong>样例输出</strong>:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1 2</span><br><span class="line">1 2</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="8-常见错误与调试技巧"><a href="#8-常见错误与调试技巧" class="headerlink" title="8. 常见错误与调试技巧"></a>8. 常见错误与调试技巧</h3><ul>
+<li><strong>易错点</strong>: 忘记同步所有连接的节点。</li>
+<li><strong>调试方法</strong>: 使用print语句输出中间结果，检查节点同步是否正确。</li>
+<li><strong>测试用例</strong>: 尝试不同的节点数量和连接关系，确保算法正确性。</li>
+</ul>
+<h3 id="9-总结与扩展"><a href="#9-总结与扩展" class="headerlink" title="9. 总结与扩展"></a>9. 总结与扩展</h3><ul>
+<li><strong>核心收获</strong>: 学会了如何实现节点同步。</li>
+<li><strong>举一反三</strong>: 类似的问题可以通过递归或迭代方法解决。</li>
+<li><strong>进阶方向</strong>: 研究更复杂的数据结构和同步算法。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/20/2026-05-20-P9244-P9244-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E7%9C%81-B-%E5%AD%90%E4%B8%B2%E7%AE%80%E5%86%99-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/20/2026-05-20-P9244-P9244-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E7%9C%81-B-%E5%AD%90%E4%B8%B2%E7%AE%80%E5%86%99-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P9244 - P9244 [蓝桥杯 2023 省 B] 子串简写 - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-05-20 00:00:00 / 修改时间：11:01:17" itemprop="dateCreated datePublished" datetime="2026-05-20T00:00:00+08:00">2026-05-20</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="洛谷-P9244-子串简写-子串匹配优化详解"><a href="#洛谷-P9244-子串简写-子串匹配优化详解" class="headerlink" title="[洛谷 P9244] 子串简写 + 子串匹配优化详解"></a>[洛谷 P9244] 子串简写 + 子串匹配优化详解</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
+<li><strong>题目来源</strong>: 洛谷 (<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P9244">https://www.luogu.com.cn/problem/P9244</a>)</li>
+<li><strong>题目难度</strong>: ★★☆☆☆</li>
+<li><strong>标签分类</strong>: 字符串处理、枚举</li>
+<li><strong>核心考点</strong>: 子串匹配、枚举优化</li>
+</ul>
+<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><ul>
+<li><strong>问题描述</strong>: 给定一个字符串 <code>s</code> 和两个字符 <code>c1</code>、<code>c2</code>，找出所有以 <code>c1</code> 开头，以 <code>c2</code> 结尾的子串，并输出这些子串的数量。</li>
+<li><strong>输入格式</strong>: 第一行输入一个整数 <code>k</code>，表示子串长度；第二行输入字符串 <code>s</code>，第三行输入两个字符 <code>c1</code> 和 <code>c2</code>。</li>
+<li><strong>输出格式</strong>: 输出一个整数，表示满足条件的子串数量。</li>
+<li><strong>样例分析</strong>:<ul>
+<li>输入: <code>3 abcabcabc a c</code></li>
+<li>输出: <code>3</code></li>
+<li>解释: 子串 “abc”, “bca”, “cab” 满足条件。</li>
+</ul>
+</li>
+</ul>
+<h3 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
+<li>问题的本质是寻找特定模式的子串。</li>
+<li>关键观察点：子串长度固定，且以特定字符开头和结尾。</li>
+<li>数据范围对算法选择的影响：字符串长度和子串长度可能较大，但子串数量相对较少。</li>
+</ul>
+<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
+<li><strong>朴素思路</strong>: 遍历所有可能的子串，检查是否满足条件。时间复杂度为 O(n^2)。</li>
+<li><strong>优化路径</strong>: 通过枚举的方式，直接定位到以 <code>c1</code> 开头，以 <code>c2</code> 结尾的子串，避免不必要的检查。</li>
+<li><strong>算法选择</strong>: 枚举法，因为子串数量较少，枚举是可行的。</li>
+<li><strong>核心思想</strong>: 通过固定子串的长度，直接检查每个可能的子串是否符合条件。</li>
+</ul>
+<h4 id="4-3-算法实现"><a href="#4-3-算法实现" class="headerlink" title="4.3 算法实现"></a>4.3 算法实现</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">res = <span class="number">0</span></span><br><span class="line">k = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">s, c1, c2 = <span class="built_in">map</span>(<span class="built_in">str</span>, <span class="built_in">input</span>().split())</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(s) - k + <span class="number">1</span>):</span><br><span class="line">    <span class="keyword">if</span> s[i:i+k] == c1 + c2:</span><br><span class="line">        res += <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(res)</span><br></pre></td></tr></table></figure>
+<h4 id="4-4-代码详解"><a href="#4-4-代码详解" class="headerlink" title="4.4 代码详解"></a>4.4 代码详解</h4><ul>
+<li><strong>核心代码段</strong>: <code>for i in range(len(s) - k + 1): if s[i:i+k] == c1 + c2: res += 1</code></li>
+<li><strong>逐行解析</strong>: 遍历所有可能的子串起始位置，检查子串是否以 <code>c1</code> 开头，以 <code>c2</code> 结尾。</li>
+<li><strong>优化技巧</strong>: 无需额外空间，直接在原字符串上操作。</li>
+</ul>
+<h3 id="5-复杂度分析"><a href="#5-复杂度分析" class="headerlink" title="5. 复杂度分析"></a>5. 复杂度分析</h3><ul>
+<li><strong>时间复杂度</strong>: O(n)，其中 n 是字符串 <code>s</code> 的长度。</li>
+<li><strong>空间复杂度</strong>: O(1)，不需要额外空间。</li>
+</ul>
+<h3 id="6-输入输出示例"><a href="#6-输入输出示例" class="headerlink" title="6. 输入输出示例"></a>6. 输入输出示例</h3><ul>
+<li><strong>样例输入</strong>: <code>3 abcabcabc a c</code></li>
+<li><strong>样例输出</strong>: <code>3</code></li>
+</ul>
+<h3 id="7-常见错误与调试技巧"><a href="#7-常见错误与调试技巧" class="headerlink" title="7. 常见错误与调试技巧"></a>7. 常见错误与调试技巧</h3><ul>
+<li><strong>易错点</strong>: 忘记检查子串长度是否超过字符串长度。</li>
+<li><strong>调试方法</strong>: 使用简单的测试用例，逐步增加复杂度，观察程序输出。</li>
+</ul>
+<h3 id="8-总结与扩展"><a href="#8-总结与扩展" class="headerlink" title="8. 总结与扩展"></a>8. 总结与扩展</h3><ul>
+<li><strong>核心收获</strong>: 学会了如何通过枚举的方式解决子串匹配问题。</li>
+<li><strong>举一反三</strong>: 可以将此方法应用于其他需要匹配特定模式的字符串问题。</li>
+<li><strong>进阶方向</strong>: 研究更高效的字符串匹配算法，如 KMP 算法、Boyer-Moore 算法等。</li>
 </ul>
 
       
@@ -1138,130 +1262,6 @@
 <li><strong>核心收获</strong>：本题主要考察了动态规划和前缀和的应用。通过本题，我们学会了如何利用前缀和的性质来解决实际问题，并掌握了动态规划的基本思想和方法。</li>
 <li><strong>类似题目</strong>：类似题目包括动态规划中的其他问题，如最长公共子序列、最短路径等。这些题目都需要我们利用前缀和的性质来解决问题，并且需要掌握动态规划的基本思想和方法。</li>
 <li><strong>进阶方向</strong>：为了进一步提升自己的能力，我们可以学习更多关于动态规划和前缀和的高级话题，如递归、分治策略等。同时，也可以尝试解决一些更具挑战性的算法问题，以拓宽自己的视野和提升自己的能力。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/20/2026-05-20-else/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/20/2026-05-20-else/" class="post-title-link" itemprop="url">else</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2026-05-20 00:00:00 / 修改时间：10:36:03" itemprop="dateCreated datePublished" datetime="2026-05-20T00:00:00+08:00">2026-05-20</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="洛谷-P1234-同步节点信息-节点同步方法详解"><a href="#洛谷-P1234-同步节点信息-节点同步方法详解" class="headerlink" title="[洛谷 P1234] 同步节点信息 + 节点同步方法详解"></a>[洛谷 P1234] 同步节点信息 + 节点同步方法详解</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
-<li><strong>题目来源</strong>: 洛谷在线编程平台</li>
-<li><strong>题目难度</strong>: ★★☆☆☆</li>
-<li><strong>标签分类</strong>: 数据结构、算法</li>
-<li><strong>核心考点</strong>: 链表操作、节点同步</li>
-</ul>
-<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><ul>
-<li><strong>问题描述</strong>: 给定一个节点列表，其中每个节点包含两个属性：节点ID和连接的节点列表。要求实现一个同步函数，该函数可以将一个节点的连接信息同步到其所有连接的节点上。</li>
-<li><strong>输入格式</strong>: 第一行输入节点数量N，接下来N行每行输入一个节点的ID和连接的节点列表。</li>
-<li><strong>输出格式</strong>: 输出同步后的节点连接信息。</li>
-<li><strong>样例分析</strong>:<ul>
-<li>输入:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">1 2</span><br><span class="line">1 2</span><br></pre></td></tr></table></figure></li>
-<li>输出:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1 2</span><br><span class="line">1 2</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
-<li>问题的本质是节点间信息的同步。</li>
-<li>关键观察点是节点间的连接关系。</li>
-<li>数据范围对算法选择的影响不大，因为节点数量有限。</li>
-</ul>
-<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
-<li><strong>朴素思路</strong>: 遍历每个节点，将其连接信息同步到所有连接的节点上。</li>
-<li><strong>优化路径</strong>: 使用递归或迭代方法，避免重复同步。</li>
-<li><strong>算法选择</strong>: 使用递归方法，因为它可以直观地表示节点同步的过程。</li>
-<li><strong>核心思想</strong>: 通过递归调用同步函数，将连接信息传播到所有相关节点。</li>
-</ul>
-<h4 id="4-3-代码详解"><a href="#4-3-代码详解" class="headerlink" title="4.3 代码详解"></a>4.3 代码详解</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">N = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">nodes = [[<span class="number">1</span>, <span class="number">2</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">2</span>]]</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">add</span>(<span class="params">element</span>):</span><br><span class="line">    nodes[<span class="number">0</span>].append(element)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sync</span>(<span class="params">follower_id</span>):</span><br><span class="line">    <span class="built_in">print</span>(nodes[<span class="number">0</span>][:<span class="built_in">len</span>(nodes[follower_id])], nodes[<span class="number">0</span>][<span class="built_in">len</span>(nodes[follower_id:])])</span><br><span class="line"></span><br><span class="line">sync(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-<h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">sync</span>(<span class="params">follower_id</span>):</span><br><span class="line">    <span class="built_in">print</span>(nodes[<span class="number">0</span>][:<span class="built_in">len</span>(nodes[follower_id])], nodes[<span class="number">0</span>][<span class="built_in">len</span>(nodes[follower_id:])])</span><br></pre></td></tr></table></figure>
-<h4 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h4><ul>
-<li><code>print(nodes[0][:len(nodes[follower_id])], nodes[0][len(nodes[follower_id:])])</code>: 打印当前节点ID及其连接的节点列表。</li>
-</ul>
-<h4 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h4><ul>
-<li>由于题目简单，这里没有特别的优化技巧。</li>
-</ul>
-<h3 id="6-复杂度分析"><a href="#6-复杂度分析" class="headerlink" title="6. 复杂度分析"></a>6. 复杂度分析</h3><ul>
-<li><strong>时间复杂度</strong>: O(N)，每个节点最多被访问一次。</li>
-<li><strong>空间复杂度</strong>: O(N)，存储节点信息。</li>
-</ul>
-<h3 id="7-输入输出示例"><a href="#7-输入输出示例" class="headerlink" title="7. 输入输出示例"></a>7. 输入输出示例</h3><ul>
-<li><strong>样例输入</strong>:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">1 2</span><br><span class="line">1 2</span><br></pre></td></tr></table></figure></li>
-<li><strong>样例输出</strong>:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1 2</span><br><span class="line">1 2</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="8-常见错误与调试技巧"><a href="#8-常见错误与调试技巧" class="headerlink" title="8. 常见错误与调试技巧"></a>8. 常见错误与调试技巧</h3><ul>
-<li><strong>易错点</strong>: 忘记同步所有连接的节点。</li>
-<li><strong>调试方法</strong>: 使用print语句输出中间结果，检查节点同步是否正确。</li>
-<li><strong>测试用例</strong>: 尝试不同的节点数量和连接关系，确保算法正确性。</li>
-</ul>
-<h3 id="9-总结与扩展"><a href="#9-总结与扩展" class="headerlink" title="9. 总结与扩展"></a>9. 总结与扩展</h3><ul>
-<li><strong>核心收获</strong>: 学会了如何实现节点同步。</li>
-<li><strong>举一反三</strong>: 类似的问题可以通过递归或迭代方法解决。</li>
-<li><strong>进阶方向</strong>: 研究更复杂的数据结构和同步算法。</li>
 </ul>
 
       
