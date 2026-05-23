@@ -228,6 +228,115 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/22/2026-05-22-P1115-P1115-%E6%9C%80%E5%A4%A7%E5%AD%90%E6%AE%B5%E5%92%8C-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/22/2026-05-22-P1115-P1115-%E6%9C%80%E5%A4%A7%E5%AD%90%E6%AE%B5%E5%92%8C-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P1115 - P1115 最大子段和 - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-05-22 00:00:00 / 修改时间：16:32:21" itemprop="dateCreated datePublished" datetime="2026-05-22T00:00:00+08:00">2026-05-22</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="洛谷-P1115-最大子段和-Kadane-算法详解"><a href="#洛谷-P1115-最大子段和-Kadane-算法详解" class="headerlink" title="[洛谷 P1115] 最大子段和 + Kadane 算法详解"></a>[洛谷 P1115] 最大子段和 + Kadane 算法详解</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
+<li><strong>题目来源</strong>: 洛谷 (<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1115">https://www.luogu.com.cn/problem/P1115</a>)</li>
+<li><strong>题目难度</strong>: ★★★☆☆</li>
+<li><strong>标签分类</strong>: 动态规划、数组</li>
+<li><strong>核心考点</strong>: Kadane 算法、最大子段和问题</li>
+</ul>
+<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><ul>
+<li><strong>问题描述</strong>: 给出一个长度为 $n$ 的序列 $a$，选出其中连续且非空的一段使得这段和最大。</li>
+<li><strong>输入格式</strong>: 第一行是一个整数 $n$，表示序列的长度。第二行有 $n$ 个整数，第 $i$ 个整数表示序列的第 $i$ 个数字 $a_i$。</li>
+<li><strong>输出格式</strong>: 输出一个整数表示答案，即最大子段和。</li>
+<li><strong>样例分析</strong>: 输入 <code>7</code> 和 <code>-2 1 -3 4 -1 2 1 -5 4</code>，输出 <code>6</code>。最大子段和为 <code>[4, -1, 2, 1]</code>。</li>
+</ul>
+<h3 id="算法思路（核心部分）"><a href="#算法思路（核心部分）" class="headerlink" title="算法思路（核心部分）"></a>算法思路（核心部分）</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><p>最大子段和问题是一个经典的动态规划问题。问题的本质是找到一个连续的子数组，使得其和最大。关键观察点是，任何以某个元素结尾的子数组的和，要么是它自己，要么是它加上以该元素前一个元素结尾的最大子数组的和。</p>
+<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><p>Kadane 算法是一种解决最大子段和问题的有效算法。其核心思想是遍历数组，维护两个变量：<code>max_ending_here</code> 和 <code>max_so_far</code>。<code>max_ending_here</code> 表示以当前元素结尾的最大子段和，<code>max_so_far</code> 表示遍历过程中遇到的最大子段和。</p>
+<h4 id="4-3-算法选择"><a href="#4-3-算法选择" class="headerlink" title="4.3 算法选择"></a>4.3 算法选择</h4><p>Kadane 算法之所以被选择，是因为它的时间复杂度是 O(n)，空间复杂度是 O(1)，非常适合解决此类问题。</p>
+<h4 id="4-4-代码实现"><a href="#4-4-代码实现" class="headerlink" title="4.4 代码实现"></a>4.4 代码实现</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">max_subarray_kadane</span>(<span class="params">arr</span>):</span><br><span class="line">    max_ending_here = max_so_far = arr[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> arr[<span class="number">1</span>:]:</span><br><span class="line">        max_ending_here = <span class="built_in">max</span>(x, max_ending_here + x)</span><br><span class="line">        max_so_far = <span class="built_in">max</span>(max_so_far, max_ending_here)</span><br><span class="line">    <span class="keyword">return</span> max_so_far</span><br></pre></td></tr></table></figure>
+<h3 id="5-代码详解"><a href="#5-代码详解" class="headerlink" title="5. 代码详解"></a>5. 代码详解</h3><h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">max_ending_here = <span class="built_in">max</span>(x, max_ending_here + x)</span><br><span class="line">max_so_far = <span class="built_in">max</span>(max_so_far, max_ending_here)</span><br></pre></td></tr></table></figure>
+<p>这两行代码是 Kadane 算法的核心，它们分别更新了 <code>max_ending_here</code> 和 <code>max_so_far</code>。</p>
+<h4 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h4><ul>
+<li><code>max_ending_here = max(x, max_ending_here + x)</code>：这一行代码决定当前元素是单独作为一个子段，还是作为前一个子段的延续。</li>
+<li><code>max_so_far = max(max_so_far, max_ending_here)</code>：这一行代码确保了 <code>max_so_far</code> 总是存储遍历过程中遇到的最大子段和。</li>
+</ul>
+<h4 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h4><p>Kadane 算法已经是一种时间复杂度和空间复杂度都很优的算法，不需要额外的优化。</p>
+<h3 id="6-复杂度分析"><a href="#6-复杂度分析" class="headerlink" title="6. 复杂度分析"></a>6. 复杂度分析</h3><ul>
+<li><strong>时间复杂度</strong>: O(n)，因为只需要遍历一次数组。</li>
+<li><strong>空间复杂度</strong>: O(1)，只需要常数级别的额外空间。</li>
+</ul>
+<h3 id="7-输入输出示例"><a href="#7-输入输出示例" class="headerlink" title="7. 输入输出示例"></a>7. 输入输出示例</h3><ul>
+<li><strong>样例输入</strong>: <code>7 -2 1 -3 4 -1 2 1 -5 4</code></li>
+<li><strong>样例输出</strong>: <code>6</code></li>
+</ul>
+<h3 id="8-常见错误与调试技巧"><a href="#8-常见错误与调试技巧" class="headerlink" title="8. 常见错误与调试技巧"></a>8. 常见错误与调试技巧</h3><ul>
+<li><strong>易错点</strong>: 错误地初始化 <code>max_ending_here</code> 和 <code>max_so_far</code>，或者错误地更新它们。</li>
+<li><strong>调试方法</strong>: 使用简单的测试用例，逐步检查算法的中间状态。</li>
+</ul>
+<h3 id="9-总结与扩展"><a href="#9-总结与扩展" class="headerlink" title="9. 总结与扩展"></a>9. 总结与扩展</h3><ul>
+<li><strong>核心收获</strong>: 学会了 Kadane 算法，这是一种解决最大子段和问题的有效方法。</li>
+<li><strong>举一反三</strong>: 类似的问题还有最小子段和、最大连续和子数组等。</li>
+<li><strong>进阶方向</strong>: 可以研究更复杂的动态规划问题，或者尝试使用其他算法解决最大子段和问题。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/22/2026-05-22-P11006-P11006-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E7%9C%81-Python-B-%E7%BA%AF%E8%81%8C%E4%B8%9A%E5%B0%8F%E7%BB%84-%E6%B4%9B%E8%B0%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -359,184 +468,6 @@
 <li><strong>进阶方向</strong>: 研究更复杂的组合数学问题，例如背包问题和图论问题。</li>
 </ul>
 
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/22/2026-05-22-P1115-P1115-%E6%9C%80%E5%A4%A7%E5%AD%90%E6%AE%B5%E5%92%8C-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/22/2026-05-22-P1115-P1115-%E6%9C%80%E5%A4%A7%E5%AD%90%E6%AE%B5%E5%92%8C-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P1115 - P1115 最大子段和 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2026-05-22 00:00:00 / 修改时间：16:32:21" itemprop="dateCreated datePublished" datetime="2026-05-22T00:00:00+08:00">2026-05-22</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="洛谷-P1115-最大子段和-Kadane-算法详解"><a href="#洛谷-P1115-最大子段和-Kadane-算法详解" class="headerlink" title="[洛谷 P1115] 最大子段和 + Kadane 算法详解"></a>[洛谷 P1115] 最大子段和 + Kadane 算法详解</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
-<li><strong>题目来源</strong>: 洛谷 (<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1115">https://www.luogu.com.cn/problem/P1115</a>)</li>
-<li><strong>题目难度</strong>: ★★★☆☆</li>
-<li><strong>标签分类</strong>: 动态规划、数组</li>
-<li><strong>核心考点</strong>: Kadane 算法、最大子段和问题</li>
-</ul>
-<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><ul>
-<li><strong>问题描述</strong>: 给出一个长度为 $n$ 的序列 $a$，选出其中连续且非空的一段使得这段和最大。</li>
-<li><strong>输入格式</strong>: 第一行是一个整数 $n$，表示序列的长度。第二行有 $n$ 个整数，第 $i$ 个整数表示序列的第 $i$ 个数字 $a_i$。</li>
-<li><strong>输出格式</strong>: 输出一个整数表示答案，即最大子段和。</li>
-<li><strong>样例分析</strong>: 输入 <code>7</code> 和 <code>-2 1 -3 4 -1 2 1 -5 4</code>，输出 <code>6</code>。最大子段和为 <code>[4, -1, 2, 1]</code>。</li>
-</ul>
-<h3 id="算法思路（核心部分）"><a href="#算法思路（核心部分）" class="headerlink" title="算法思路（核心部分）"></a>算法思路（核心部分）</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><p>最大子段和问题是一个经典的动态规划问题。问题的本质是找到一个连续的子数组，使得其和最大。关键观察点是，任何以某个元素结尾的子数组的和，要么是它自己，要么是它加上以该元素前一个元素结尾的最大子数组的和。</p>
-<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><p>Kadane 算法是一种解决最大子段和问题的有效算法。其核心思想是遍历数组，维护两个变量：<code>max_ending_here</code> 和 <code>max_so_far</code>。<code>max_ending_here</code> 表示以当前元素结尾的最大子段和，<code>max_so_far</code> 表示遍历过程中遇到的最大子段和。</p>
-<h4 id="4-3-算法选择"><a href="#4-3-算法选择" class="headerlink" title="4.3 算法选择"></a>4.3 算法选择</h4><p>Kadane 算法之所以被选择，是因为它的时间复杂度是 O(n)，空间复杂度是 O(1)，非常适合解决此类问题。</p>
-<h4 id="4-4-代码实现"><a href="#4-4-代码实现" class="headerlink" title="4.4 代码实现"></a>4.4 代码实现</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">max_subarray_kadane</span>(<span class="params">arr</span>):</span><br><span class="line">    max_ending_here = max_so_far = arr[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> arr[<span class="number">1</span>:]:</span><br><span class="line">        max_ending_here = <span class="built_in">max</span>(x, max_ending_here + x)</span><br><span class="line">        max_so_far = <span class="built_in">max</span>(max_so_far, max_ending_here)</span><br><span class="line">    <span class="keyword">return</span> max_so_far</span><br></pre></td></tr></table></figure>
-<h3 id="5-代码详解"><a href="#5-代码详解" class="headerlink" title="5. 代码详解"></a>5. 代码详解</h3><h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">max_ending_here = <span class="built_in">max</span>(x, max_ending_here + x)</span><br><span class="line">max_so_far = <span class="built_in">max</span>(max_so_far, max_ending_here)</span><br></pre></td></tr></table></figure>
-<p>这两行代码是 Kadane 算法的核心，它们分别更新了 <code>max_ending_here</code> 和 <code>max_so_far</code>。</p>
-<h4 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h4><ul>
-<li><code>max_ending_here = max(x, max_ending_here + x)</code>：这一行代码决定当前元素是单独作为一个子段，还是作为前一个子段的延续。</li>
-<li><code>max_so_far = max(max_so_far, max_ending_here)</code>：这一行代码确保了 <code>max_so_far</code> 总是存储遍历过程中遇到的最大子段和。</li>
-</ul>
-<h4 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h4><p>Kadane 算法已经是一种时间复杂度和空间复杂度都很优的算法，不需要额外的优化。</p>
-<h3 id="6-复杂度分析"><a href="#6-复杂度分析" class="headerlink" title="6. 复杂度分析"></a>6. 复杂度分析</h3><ul>
-<li><strong>时间复杂度</strong>: O(n)，因为只需要遍历一次数组。</li>
-<li><strong>空间复杂度</strong>: O(1)，只需要常数级别的额外空间。</li>
-</ul>
-<h3 id="7-输入输出示例"><a href="#7-输入输出示例" class="headerlink" title="7. 输入输出示例"></a>7. 输入输出示例</h3><ul>
-<li><strong>样例输入</strong>: <code>7 -2 1 -3 4 -1 2 1 -5 4</code></li>
-<li><strong>样例输出</strong>: <code>6</code></li>
-</ul>
-<h3 id="8-常见错误与调试技巧"><a href="#8-常见错误与调试技巧" class="headerlink" title="8. 常见错误与调试技巧"></a>8. 常见错误与调试技巧</h3><ul>
-<li><strong>易错点</strong>: 错误地初始化 <code>max_ending_here</code> 和 <code>max_so_far</code>，或者错误地更新它们。</li>
-<li><strong>调试方法</strong>: 使用简单的测试用例，逐步检查算法的中间状态。</li>
-</ul>
-<h3 id="9-总结与扩展"><a href="#9-总结与扩展" class="headerlink" title="9. 总结与扩展"></a>9. 总结与扩展</h3><ul>
-<li><strong>核心收获</strong>: 学会了 Kadane 算法，这是一种解决最大子段和问题的有效方法。</li>
-<li><strong>举一反三</strong>: 类似的问题还有最小子段和、最大连续和子数组等。</li>
-<li><strong>进阶方向</strong>: 可以研究更复杂的动态规划问题，或者尝试使用其他算法解决最大子段和问题。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/22/2026-05-22-P12161-P12161-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-Java-B-%E7%A0%94%E5%8F%91%E8%B5%84%E6%BA%90%E5%88%86%E9%85%8D-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/22/2026-05-22-P12161-P12161-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-Java-B-%E7%A0%94%E5%8F%91%E8%B5%84%E6%BA%90%E5%88%86%E9%85%8D-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12161 - P12161 [蓝桥杯 2025 省 Java B] 研发资源分配 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2026-05-22 00:00:00 / 修改时间：21:26:35" itemprop="dateCreated datePublished" datetime="2026-05-22T00:00:00+08:00">2026-05-22</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>(<span class="params">N, B</span>):</span><br><span class="line">    <span class="comment"># 日期序列</span></span><br><span class="line">    a = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, N+<span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> i % <span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">            a.append(i)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            a.append(i + <span class="number">5</span>)</span><br><span class="line">    <span class="comment"># 计算总和</span></span><br><span class="line">    s = <span class="built_in">sum</span>(a)</span><br><span class="line">    <span class="comment"># 差值公式</span></span><br><span class="line">    diff = [<span class="built_in">sum</span>(d) - s <span class="keyword">for</span> d <span class="keyword">in</span> a]</span><br><span class="line">    <span class="comment"># 最优解</span></span><br><span class="line">    max_diff = <span class="built_in">max</span>(diff)</span><br><span class="line">    <span class="keyword">return</span> max_diff</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -756,6 +687,75 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/22/2026-05-22-P12161-P12161-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-Java-B-%E7%A0%94%E5%8F%91%E8%B5%84%E6%BA%90%E5%88%86%E9%85%8D-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/22/2026-05-22-P12161-P12161-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-Java-B-%E7%A0%94%E5%8F%91%E8%B5%84%E6%BA%90%E5%88%86%E9%85%8D-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12161 - P12161 [蓝桥杯 2025 省 Java B] 研发资源分配 - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-05-22 00:00:00 / 修改时间：21:26:35" itemprop="dateCreated datePublished" datetime="2026-05-22T00:00:00+08:00">2026-05-22</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>(<span class="params">N, B</span>):</span><br><span class="line">    <span class="comment"># 日期序列</span></span><br><span class="line">    a = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, N+<span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> i % <span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">            a.append(i)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            a.append(i + <span class="number">5</span>)</span><br><span class="line">    <span class="comment"># 计算总和</span></span><br><span class="line">    s = <span class="built_in">sum</span>(a)</span><br><span class="line">    <span class="comment"># 差值公式</span></span><br><span class="line">    diff = [<span class="built_in">sum</span>(d) - s <span class="keyword">for</span> d <span class="keyword">in</span> a]</span><br><span class="line">    <span class="comment"># 最优解</span></span><br><span class="line">    max_diff = <span class="built_in">max</span>(diff)</span><br><span class="line">    <span class="keyword">return</span> max_diff</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/22/2026-05-22-P12277-P12277-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E5%9B%BD-Python-A-%E5%BA%8A%E5%BA%95%E5%8F%96%E7%89%8C-%E6%B4%9B%E8%B0%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -883,179 +883,6 @@
 <li><strong>举一反三</strong>: 可以将贪心算法应用于其他类似问题，如“活动选择问题”。</li>
 <li><strong>进阶方向</strong>: 可以研究动态规划在其他特定问题中的应用，如最长递增子序列等。</li>
 </ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/22/2026-05-22-P12344-P12344-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-B-Python-B-%E7%AC%AC%E4%BA%8C%E5%9C%BA-%E7%A0%B4%E8%A7%A3%E4%BF%A1%E6%81%AF-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/22/2026-05-22-P12344-P12344-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-B-Python-B-%E7%AC%AC%E4%BA%8C%E5%9C%BA-%E7%A0%B4%E8%A7%A3%E4%BF%A1%E6%81%AF-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12344 - P12344 [蓝桥杯 2025 省 B/Python B 第二场] 破解信息 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2026-05-22 00:00:00 / 修改时间：16:34:00" itemprop="dateCreated datePublished" datetime="2026-05-22T00:00:00+08:00">2026-05-22</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="洛谷-P12344-字符串中的最大回文子序列-核心优化技巧"><a href="#洛谷-P12344-字符串中的最大回文子序列-核心优化技巧" class="headerlink" title="[洛谷 P12344] 字符串中的最大回文子序列 + 核心优化技巧"></a>[洛谷 P12344] 字符串中的最大回文子序列 + 核心优化技巧</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><p><strong>题目来源</strong>: <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P12344">洛谷</a></p>
-<p><strong>题目难度</strong>: ★★★☆☆</p>
-<p><strong>标签分类</strong>: 算法标签、字符串处理标签</p>
-<p><strong>核心考点</strong>: 字符串处理、回文子序列、字典序最大</p>
-<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><p>给定一个仅包含小写字母的字符串 ( S )，我们需要找出其<strong>字典序最大的回文子序列</strong>。子序列可以不连续，但要保持原顺序；回文指正读反读相同；字典序比较时先看第一个不同字符的大小，若前缀相同则更长的字符串更大。</p>
-<p><strong>输入格式</strong>: 输入一个字符串 ( S )，长度不超过 10^5。</p>
-<p><strong>输出格式</strong>: 输出一个字符串，表示字典序最大的回文子序列。</p>
-<p><strong>样例分析</strong>:</p>
-<ul>
-<li><p>输入: <code>abab</code></p>
-<ul>
-<li>最大字符是 <code>&#39;b&#39;</code>，出现 2 次。</li>
-<li>输出: <code>bb</code></li>
-</ul>
-</li>
-<li><p>输入: <code>abcd</code></p>
-<ul>
-<li>最大字符 <code>&#39;d&#39;</code>，出现 1 次。</li>
-<li>输出: <code>d</code></li>
-</ul>
-</li>
-</ul>
-<h3 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><p>问题的本质是找到字符串 ( S ) 中字典序最大的回文子序列。关键观察点包括：</p>
-<ul>
-<li>字符串中字符的ASCII码大小。</li>
-<li>字符串中字符出现的次数。</li>
-</ul>
-<p>数据范围对算法选择的影响主要体现在处理大规模数据时的时间复杂度。</p>
-<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><p><strong>朴素思路</strong>: 直接构造回文子序列，时间复杂度为 ( O(n^2) )，空间复杂度为 ( O(1) )。</p>
-<p><strong>优化路径</strong>: 通过统计字符出现次数，直接构造字典序最大的回文子序列，时间复杂度为 ( O(n) )，空间复杂度为 ( O(1) ) 或 ( O(n) ) 用于存储输入。</p>
-<p><strong>算法选择</strong>: 选择统计字符出现次数的方法，因为它避免了构造所有可能的回文子序列，从而大大提高了效率。</p>
-<p><strong>核心思想</strong>: 通过统计字符出现次数，直接构造字典序最大的回文子序列。具体来说，找到字符串中ASCII码最大的字符，统计其在字符串中出现的次数，然后输出相应数量的该字符。</p>
-<h4 id="4-3-数学推导"><a href="#4-3-数学推导" class="headerlink" title="4.3 数学推导"></a>4.3 数学推导</h4><p>由于问题本身是基于字符串处理的，不涉及复杂的数学公式推导。我们主要通过逻辑推理来证明算法的正确性。</p>
-<h4 id="4-4-多种解法对比"><a href="#4-4-多种解法对比" class="headerlink" title="4.4 多种解法对比"></a>4.4 多种解法对比</h4><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>解法</th>
-<th>时间复杂度</th>
-<th>空间复杂度</th>
-<th>适用场景</th>
-<th>代码难度</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>解法1</td>
-<td>O(n)</td>
-<td>O(1)</td>
-<td>小规模数据</td>
-<td>简单</td>
-</tr>
-<tr>
-<td>解法2</td>
-<td>O(n log n)</td>
-<td>O(n)</td>
-<td>中等规模</td>
-<td>中等</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="代码详解"><a href="#代码详解" class="headerlink" title="代码详解"></a>代码详解</h3><h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>():</span><br><span class="line">    s = <span class="built_in">input</span>().strip()</span><br><span class="line">    <span class="comment"># 找到最大字符</span></span><br><span class="line">    max_char = <span class="built_in">max</span>(s)</span><br><span class="line">    <span class="comment"># 统计最大字符的出现次数</span></span><br><span class="line">    cnt = s.count(max_char)</span><br><span class="line">    <span class="comment"># 输出 cnt 个最大字符</span></span><br><span class="line">    <span class="built_in">print</span>(max_char * cnt)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    solve()</span><br></pre></td></tr></table></figure>
-<h4 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h4><ul>
-<li><code>s = input().strip()</code>: 读取输入字符串并去除两端空白字符。</li>
-<li><code>max_char = max(s)</code>: 找到字符串中的最大字符。</li>
-<li><code>cnt = s.count(max_char)</code>: 统计最大字符在字符串中出现的次数。</li>
-<li><code>print(max_char * cnt)</code>: 输出字典序最大的回文子序列。</li>
-</ul>
-<h4 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h4><ul>
-<li>空间优化：由于我们只需要存储最大字符和其出现次数，不需要额外的空间来存储子序列，因此空间复杂度为 ( O(1) )。</li>
-<li>时间优化：通过一次遍历找到最大字符并统计其出现次数，时间复杂度为 ( O(n) )。</li>
-</ul>
-<h3 id="6-复杂度分析"><a href="#6-复杂度分析" class="headerlink" title="6. 复杂度分析"></a>6. 复杂度分析</h3><p><strong>时间复杂度</strong>: ( O(n) )，其中 ( n = |S| )。</p>
-<p><strong>空间复杂度</strong>: ( O(1) ) 或 ( O(n) )，取决于是否需要额外存储输入字符串。</p>
-<h3 id="7-输入输出示例"><a href="#7-输入输出示例" class="headerlink" title="7. 输入输出示例"></a>7. 输入输出示例</h3><h4 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">abab</span><br></pre></td></tr></table></figure>
-<h4 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bb</span><br></pre></td></tr></table></figure>
-<h4 id="执行过程"><a href="#执行过程" class="headerlink" title="执行过程"></a>执行过程</h4><ol>
-<li>读取输入字符串 <code>abab</code>。</li>
-<li>找到最大字符 <code>&#39;b&#39;</code>。</li>
-<li>统计字符 <code>&#39;b&#39;</code> 在字符串中出现的次数，结果为 2。</li>
-<li>输出字典序最大的回文子序列 <code>&quot;bb&quot;</code>。</li>
-</ol>
-<h3 id="8-常见错误与调试技巧"><a href="#8-常见错误与调试技巧" class="headerlink" title="8. 常见错误与调试技巧"></a>8. 常见错误与调试技巧</h3><h4 id="易错点"><a href="#易错点" class="headerlink" title="易错点"></a>易错点</h4><ul>
-<li>忽视输入字符串的长度限制。</li>
-<li>错误地计算字符出现次数。</li>
-</ul>
-<h4 id="调试方法"><a href="#调试方法" class="headerlink" title="调试方法"></a>调试方法</h4><ul>
-<li>使用打印语句输出中间结果，检查每一步的计算是否正确。</li>
-<li>逐步调试代码，确保每一步都按预期执行。</li>
-</ul>
-<h4 id="测试用例"><a href="#测试用例" class="headerlink" title="测试用例"></a>测试用例</h4><ul>
-<li>输入: <code>aabbcc</code><ul>
-<li>预期输出: <code>ccc</code></li>
-</ul>
-</li>
-<li>输入: <code>xyzzyx</code><ul>
-<li>预期输出: <code>zyx</code></li>
-</ul>
-</li>
-</ul>
-<h3 id="9-总结与扩展"><a href="#9-总结与扩展" class="headerlink" title="9. 总结与扩展"></a>9. 总结与扩展</h3><p><strong>核心收获</strong>: 通过统计字符出现次数，可以高效地构造字典序最大的回文子序列。</p>
-<p><strong>举一反三</strong>: 类似题目如 “最长回文子串” 可以通过类似的方法解决。</p>
-<p><strong>进阶方向</strong>: 可以进一步研究字符串压缩算法和回文子序列的动态规划解法。</p>
 
       
     </div>
@@ -1318,6 +1145,179 @@
 <li><strong>举一反三</strong>: 类似的问题还有最大子序列和、最大子段和等。</li>
 <li><strong>进阶方向</strong>: 研究更复杂的贪心算法问题，以及如何将贪心算法与其他算法结合使用。</li>
 </ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/22/2026-05-22-P12344-P12344-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-B-Python-B-%E7%AC%AC%E4%BA%8C%E5%9C%BA-%E7%A0%B4%E8%A7%A3%E4%BF%A1%E6%81%AF-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/22/2026-05-22-P12344-P12344-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-B-Python-B-%E7%AC%AC%E4%BA%8C%E5%9C%BA-%E7%A0%B4%E8%A7%A3%E4%BF%A1%E6%81%AF-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12344 - P12344 [蓝桥杯 2025 省 B/Python B 第二场] 破解信息 - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-05-22 00:00:00 / 修改时间：16:34:00" itemprop="dateCreated datePublished" datetime="2026-05-22T00:00:00+08:00">2026-05-22</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="洛谷-P12344-字符串中的最大回文子序列-核心优化技巧"><a href="#洛谷-P12344-字符串中的最大回文子序列-核心优化技巧" class="headerlink" title="[洛谷 P12344] 字符串中的最大回文子序列 + 核心优化技巧"></a>[洛谷 P12344] 字符串中的最大回文子序列 + 核心优化技巧</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><p><strong>题目来源</strong>: <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P12344">洛谷</a></p>
+<p><strong>题目难度</strong>: ★★★☆☆</p>
+<p><strong>标签分类</strong>: 算法标签、字符串处理标签</p>
+<p><strong>核心考点</strong>: 字符串处理、回文子序列、字典序最大</p>
+<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><p>给定一个仅包含小写字母的字符串 ( S )，我们需要找出其<strong>字典序最大的回文子序列</strong>。子序列可以不连续，但要保持原顺序；回文指正读反读相同；字典序比较时先看第一个不同字符的大小，若前缀相同则更长的字符串更大。</p>
+<p><strong>输入格式</strong>: 输入一个字符串 ( S )，长度不超过 10^5。</p>
+<p><strong>输出格式</strong>: 输出一个字符串，表示字典序最大的回文子序列。</p>
+<p><strong>样例分析</strong>:</p>
+<ul>
+<li><p>输入: <code>abab</code></p>
+<ul>
+<li>最大字符是 <code>&#39;b&#39;</code>，出现 2 次。</li>
+<li>输出: <code>bb</code></li>
+</ul>
+</li>
+<li><p>输入: <code>abcd</code></p>
+<ul>
+<li>最大字符 <code>&#39;d&#39;</code>，出现 1 次。</li>
+<li>输出: <code>d</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><p>问题的本质是找到字符串 ( S ) 中字典序最大的回文子序列。关键观察点包括：</p>
+<ul>
+<li>字符串中字符的ASCII码大小。</li>
+<li>字符串中字符出现的次数。</li>
+</ul>
+<p>数据范围对算法选择的影响主要体现在处理大规模数据时的时间复杂度。</p>
+<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><p><strong>朴素思路</strong>: 直接构造回文子序列，时间复杂度为 ( O(n^2) )，空间复杂度为 ( O(1) )。</p>
+<p><strong>优化路径</strong>: 通过统计字符出现次数，直接构造字典序最大的回文子序列，时间复杂度为 ( O(n) )，空间复杂度为 ( O(1) ) 或 ( O(n) ) 用于存储输入。</p>
+<p><strong>算法选择</strong>: 选择统计字符出现次数的方法，因为它避免了构造所有可能的回文子序列，从而大大提高了效率。</p>
+<p><strong>核心思想</strong>: 通过统计字符出现次数，直接构造字典序最大的回文子序列。具体来说，找到字符串中ASCII码最大的字符，统计其在字符串中出现的次数，然后输出相应数量的该字符。</p>
+<h4 id="4-3-数学推导"><a href="#4-3-数学推导" class="headerlink" title="4.3 数学推导"></a>4.3 数学推导</h4><p>由于问题本身是基于字符串处理的，不涉及复杂的数学公式推导。我们主要通过逻辑推理来证明算法的正确性。</p>
+<h4 id="4-4-多种解法对比"><a href="#4-4-多种解法对比" class="headerlink" title="4.4 多种解法对比"></a>4.4 多种解法对比</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>解法</th>
+<th>时间复杂度</th>
+<th>空间复杂度</th>
+<th>适用场景</th>
+<th>代码难度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>解法1</td>
+<td>O(n)</td>
+<td>O(1)</td>
+<td>小规模数据</td>
+<td>简单</td>
+</tr>
+<tr>
+<td>解法2</td>
+<td>O(n log n)</td>
+<td>O(n)</td>
+<td>中等规模</td>
+<td>中等</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="代码详解"><a href="#代码详解" class="headerlink" title="代码详解"></a>代码详解</h3><h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>():</span><br><span class="line">    s = <span class="built_in">input</span>().strip()</span><br><span class="line">    <span class="comment"># 找到最大字符</span></span><br><span class="line">    max_char = <span class="built_in">max</span>(s)</span><br><span class="line">    <span class="comment"># 统计最大字符的出现次数</span></span><br><span class="line">    cnt = s.count(max_char)</span><br><span class="line">    <span class="comment"># 输出 cnt 个最大字符</span></span><br><span class="line">    <span class="built_in">print</span>(max_char * cnt)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    solve()</span><br></pre></td></tr></table></figure>
+<h4 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h4><ul>
+<li><code>s = input().strip()</code>: 读取输入字符串并去除两端空白字符。</li>
+<li><code>max_char = max(s)</code>: 找到字符串中的最大字符。</li>
+<li><code>cnt = s.count(max_char)</code>: 统计最大字符在字符串中出现的次数。</li>
+<li><code>print(max_char * cnt)</code>: 输出字典序最大的回文子序列。</li>
+</ul>
+<h4 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h4><ul>
+<li>空间优化：由于我们只需要存储最大字符和其出现次数，不需要额外的空间来存储子序列，因此空间复杂度为 ( O(1) )。</li>
+<li>时间优化：通过一次遍历找到最大字符并统计其出现次数，时间复杂度为 ( O(n) )。</li>
+</ul>
+<h3 id="6-复杂度分析"><a href="#6-复杂度分析" class="headerlink" title="6. 复杂度分析"></a>6. 复杂度分析</h3><p><strong>时间复杂度</strong>: ( O(n) )，其中 ( n = |S| )。</p>
+<p><strong>空间复杂度</strong>: ( O(1) ) 或 ( O(n) )，取决于是否需要额外存储输入字符串。</p>
+<h3 id="7-输入输出示例"><a href="#7-输入输出示例" class="headerlink" title="7. 输入输出示例"></a>7. 输入输出示例</h3><h4 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">abab</span><br></pre></td></tr></table></figure>
+<h4 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bb</span><br></pre></td></tr></table></figure>
+<h4 id="执行过程"><a href="#执行过程" class="headerlink" title="执行过程"></a>执行过程</h4><ol>
+<li>读取输入字符串 <code>abab</code>。</li>
+<li>找到最大字符 <code>&#39;b&#39;</code>。</li>
+<li>统计字符 <code>&#39;b&#39;</code> 在字符串中出现的次数，结果为 2。</li>
+<li>输出字典序最大的回文子序列 <code>&quot;bb&quot;</code>。</li>
+</ol>
+<h3 id="8-常见错误与调试技巧"><a href="#8-常见错误与调试技巧" class="headerlink" title="8. 常见错误与调试技巧"></a>8. 常见错误与调试技巧</h3><h4 id="易错点"><a href="#易错点" class="headerlink" title="易错点"></a>易错点</h4><ul>
+<li>忽视输入字符串的长度限制。</li>
+<li>错误地计算字符出现次数。</li>
+</ul>
+<h4 id="调试方法"><a href="#调试方法" class="headerlink" title="调试方法"></a>调试方法</h4><ul>
+<li>使用打印语句输出中间结果，检查每一步的计算是否正确。</li>
+<li>逐步调试代码，确保每一步都按预期执行。</li>
+</ul>
+<h4 id="测试用例"><a href="#测试用例" class="headerlink" title="测试用例"></a>测试用例</h4><ul>
+<li>输入: <code>aabbcc</code><ul>
+<li>预期输出: <code>ccc</code></li>
+</ul>
+</li>
+<li>输入: <code>xyzzyx</code><ul>
+<li>预期输出: <code>zyx</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="9-总结与扩展"><a href="#9-总结与扩展" class="headerlink" title="9. 总结与扩展"></a>9. 总结与扩展</h3><p><strong>核心收获</strong>: 通过统计字符出现次数，可以高效地构造字典序最大的回文子序列。</p>
+<p><strong>举一反三</strong>: 类似题目如 “最长回文子串” 可以通过类似的方法解决。</p>
+<p><strong>进阶方向</strong>: 可以进一步研究字符串压缩算法和回文子序列的动态规划解法。</p>
 
       
     </div>

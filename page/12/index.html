@@ -697,6 +697,104 @@ sys.stdout.write(&quot;\n&quot;.join(out))
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P10906-P10906-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E5%9B%BD-B-%E5%90%88%E6%B3%95%E5%AF%86%E7%A0%81-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/12/2026-05-12-P10906-P10906-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E5%9B%BD-B-%E5%90%88%E6%B3%95%E5%AF%86%E7%A0%81-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P10906 - P10906 [蓝桥杯 2024 国 B] 合法密码 - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-12 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="洛谷-P10906-蓝桥杯-2024-国-B-合法密码-洛谷"><a href="#洛谷-P10906-蓝桥杯-2024-国-B-合法密码-洛谷" class="headerlink" title="洛谷 P10906 [蓝桥杯 2024 国 B] 合法密码 - 洛谷"></a>洛谷 P10906 [蓝桥杯 2024 国 B] 合法密码 - 洛谷</h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>给定一个字符串 <code>s</code>，其中包含大小写字母和数字。我们需要找出字符串中所有合法的密码组合，这些密码组合由不同的字符组成，且每个字符只能使用一次。例如，对于字符串 <code>&quot;a1b2c3d4e5&quot;</code>，合法的密码组合有 <code>&quot;abcde&quot;</code>、<code>&quot;ab1cd&quot;</code>、<code>&quot;a1bcde&quot;</code> 等。</p>
+<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><h3 id="朴素解法"><a href="#朴素解法" class="headerlink" title="朴素解法"></a>朴素解法</h3><p>首先，我们可以遍历字符串中的每个字符，然后尝试将每个字符添加到当前密码组合的末尾，以生成新的密码组合。这种方法的时间复杂度为 $O(n^2)$，空间复杂度也为 $O(n^2)$，其中 $n$ 是字符串的长度。由于时间复杂度过高，这种方法在处理大数据集时效率较低。</p>
+<h3 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h3><p>为了提高算法的效率，我们可以从暴力方法转向更高效的搜索策略。一种可能的策略是使用前缀和数组来存储每个子串的前缀和，这样我们就可以在 O(1) 时间内检查一个子串是否是合法的密码组合。然而，这种方法的空间复杂度较高，因为我们需要存储所有可能的子串的前缀和。</p>
+<h3 id="最终解法"><a href="#最终解法" class="headerlink" title="最终解法"></a>最终解法</h3><p>为了结合前缀和数组的优点和朴素解法的效率，我们可以使用以下策略：</p>
+<ol>
+<li>初始化一个布尔数组 <code>isValid</code>，用于标记每个字符是否已经出现过。</li>
+<li>遍历字符串中的每个字符，如果该字符不在 <code>isValid</code> 数组中，则将其添加到当前密码组合的末尾。</li>
+<li>如果添加新字符后的新密码组合仍然合法，则继续添加下一个字符；否则，跳过该字符。</li>
+</ol>
+<p>通过这种方法，我们可以在 O(n) 时间内找到所有合法的密码组合，同时避免了使用前缀和数组带来的高空间复杂度问题。</p>
+<h2 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h2><ul>
+<li><strong>时间复杂度</strong>：O(n)，其中 $n$ 是字符串的长度。这是因为我们只需要遍历一次字符串即可找到所有合法的密码组合。</li>
+<li><strong>空间复杂度</strong>：O(n)，用于存储布尔数组 <code>isValid</code>。这是因为我们需要为每个字符分配一个位置来存储其是否出现过的信息。</li>
+</ul>
+<h2 id="核心代码-注释"><a href="#核心代码-注释" class="headerlink" title="核心代码 + 注释"></a>核心代码 + 注释</h2><p>```python<br>def find_valid_passwords(s):<br>    n = len(s)<br>    isValid = [False] * n<br>    for i in range(n):<br>        if not isValid[i]:<br>            isValid[i] = True<br>    result = []<br>    for i in range(n):<br>        for j in range(i+1, n):<br>            if isValid[i] and isValid[j]:<br>                result.append(s[i:j])<br>    return result</p>
+<h2 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h2><p>假设输入字符串为 <code>&quot;a1b2c3d4e5&quot;</code>，输出结果为 <code>[&quot;abcde&quot;, &quot;ab1cd&quot;, &quot;a1bcde&quot;]</code>。</p>
+<h2 id="易错点-amp-收获"><a href="#易错点-amp-收获" class="headerlink" title="易错点 &amp; 收获"></a>易错点 &amp; 收获</h2><p>在实现过程中，需要注意以下几点：</p>
+<ul>
+<li>避免数组越界错误：在遍历字符串时，需要确保索引值不超过字符串的长度。</li>
+<li>注意特殊字符的处理：在判断字符是否合法时，需要考虑大小写字母和数字的区别。</li>
+<li>优化算法效率：通过使用前缀和数组和朴素解法的结合，可以提高算法的效率。</li>
+</ul>
+<p>本题主要学习了如何使用前缀和数组来高效地查找字符串中的合法密码组合，同时也学会了如何优化算法以提高效率。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P11002-P11002-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E7%9C%81-Python-B-%E7%A5%9E%E5%A5%87%E9%97%B9%E9%92%9F-%E6%B4%9B%E8%B0%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -797,7 +895,7 @@ sys.stdout.write(&quot;\n&quot;.join(out))
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P10906-P10906-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E5%9B%BD-B-%E5%90%88%E6%B3%95%E5%AF%86%E7%A0%81-%E6%B4%9B%E8%B0%B7/">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P11043-P11043-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E7%9C%81-Java-B-%E5%88%86%E5%B8%83%E5%BC%8F%E9%98%9F%E5%88%97-%E6%B4%9B%E8%B0%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/img/a.png">
@@ -815,7 +913,7 @@ sys.stdout.write(&quot;\n&quot;.join(out))
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/12/2026-05-12-P10906-P10906-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E5%9B%BD-B-%E5%90%88%E6%B3%95%E5%AF%86%E7%A0%81-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P10906 - P10906 [蓝桥杯 2024 国 B] 合法密码 - 洛谷</a>
+          <a href="/2026/05/12/2026-05-12-P11043-P11043-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E7%9C%81-Java-B-%E5%88%86%E5%B8%83%E5%BC%8F%E9%98%9F%E5%88%97-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P11043 - P11043 [蓝桥杯 2024 省 Java B] 分布式队列 - 洛谷</a>
         </h2>
 
         <div class="post-meta-container">
@@ -846,118 +944,34 @@ sys.stdout.write(&quot;\n&quot;.join(out))
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="洛谷-P10906-蓝桥杯-2024-国-B-合法密码-洛谷"><a href="#洛谷-P10906-蓝桥杯-2024-国-B-合法密码-洛谷" class="headerlink" title="洛谷 P10906 [蓝桥杯 2024 国 B] 合法密码 - 洛谷"></a>洛谷 P10906 [蓝桥杯 2024 国 B] 合法密码 - 洛谷</h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>给定一个字符串 <code>s</code>，其中包含大小写字母和数字。我们需要找出字符串中所有合法的密码组合，这些密码组合由不同的字符组成，且每个字符只能使用一次。例如，对于字符串 <code>&quot;a1b2c3d4e5&quot;</code>，合法的密码组合有 <code>&quot;abcde&quot;</code>、<code>&quot;ab1cd&quot;</code>、<code>&quot;a1bcde&quot;</code> 等。</p>
-<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><h3 id="朴素解法"><a href="#朴素解法" class="headerlink" title="朴素解法"></a>朴素解法</h3><p>首先，我们可以遍历字符串中的每个字符，然后尝试将每个字符添加到当前密码组合的末尾，以生成新的密码组合。这种方法的时间复杂度为 $O(n^2)$，空间复杂度也为 $O(n^2)$，其中 $n$ 是字符串的长度。由于时间复杂度过高，这种方法在处理大数据集时效率较低。</p>
-<h3 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h3><p>为了提高算法的效率，我们可以从暴力方法转向更高效的搜索策略。一种可能的策略是使用前缀和数组来存储每个子串的前缀和，这样我们就可以在 O(1) 时间内检查一个子串是否是合法的密码组合。然而，这种方法的空间复杂度较高，因为我们需要存储所有可能的子串的前缀和。</p>
-<h3 id="最终解法"><a href="#最终解法" class="headerlink" title="最终解法"></a>最终解法</h3><p>为了结合前缀和数组的优点和朴素解法的效率，我们可以使用以下策略：</p>
-<ol>
-<li>初始化一个布尔数组 <code>isValid</code>，用于标记每个字符是否已经出现过。</li>
-<li>遍历字符串中的每个字符，如果该字符不在 <code>isValid</code> 数组中，则将其添加到当前密码组合的末尾。</li>
-<li>如果添加新字符后的新密码组合仍然合法，则继续添加下一个字符；否则，跳过该字符。</li>
-</ol>
-<p>通过这种方法，我们可以在 O(n) 时间内找到所有合法的密码组合，同时避免了使用前缀和数组带来的高空间复杂度问题。</p>
-<h2 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h2><ul>
-<li><strong>时间复杂度</strong>：O(n)，其中 $n$ 是字符串的长度。这是因为我们只需要遍历一次字符串即可找到所有合法的密码组合。</li>
-<li><strong>空间复杂度</strong>：O(n)，用于存储布尔数组 <code>isValid</code>。这是因为我们需要为每个字符分配一个位置来存储其是否出现过的信息。</li>
+          <p>&lt;博客&gt;</p>
+<h1 id="洛谷-P11043-分布式队列详解"><a href="#洛谷-P11043-分布式队列详解" class="headerlink" title="[洛谷 P11043] 分布式队列详解"></a>[洛谷 P11043] 分布式队列详解</h1><h3 id="1-标题"><a href="#1-标题" class="headerlink" title="1. 标题"></a>1. 标题</h3><p>[洛谷 P11043] 分布式队列</p>
+<h3 id="2-题意简述"><a href="#2-题意简述" class="headerlink" title="2. 题意简述"></a>2. 题意简述</h3><p>本题要求实现一个分布式队列，该队列由多个节点组成，每个节点维护一个队列。我们需要能够向一个节点添加元素，同步其他节点的队列，以及查询队列中最小的元素个数。</p>
+<p>输入包含一系列操作，包括添加元素、同步队列和查询队列最小元素个数。输出为每次查询的结果。</p>
+<h3 id="3-思路分析"><a href="#3-思路分析" class="headerlink" title="3. 思路分析"></a>3. 思路分析</h3><ul>
+<li><strong>朴素解法</strong>：最直观的方法是每个节点都维护一个队列，添加元素时向所有节点添加，同步时遍历所有节点更新队列，查询时取所有队列的最小长度。这种方法的时间复杂度为$O(N^2)$，空间复杂度为$O(N)$，不适合大数据量的情况。</li>
+<li><strong>优化方向</strong>：为了减少时间复杂度，我们可以考虑只同步最新的元素，而不是同步整个队列。</li>
+<li><strong>最终解法</strong>：我们可以在每个节点上维护一个队列，当添加元素时，只在第一个节点上添加，然后同步其他节点的队列。同步操作只需要将第一个节点的最后一个元素添加到其他节点的队列中。查询操作则是在所有节点上遍历队列，找出最小长度。</li>
 </ul>
-<h2 id="核心代码-注释"><a href="#核心代码-注释" class="headerlink" title="核心代码 + 注释"></a>核心代码 + 注释</h2><p>```python<br>def find_valid_passwords(s):<br>    n = len(s)<br>    isValid = [False] * n<br>    for i in range(n):<br>        if not isValid[i]:<br>            isValid[i] = True<br>    result = []<br>    for i in range(n):<br>        for j in range(i+1, n):<br>            if isValid[i] and isValid[j]:<br>                result.append(s[i:j])<br>    return result</p>
-<h2 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h2><p>假设输入字符串为 <code>&quot;a1b2c3d4e5&quot;</code>，输出结果为 <code>[&quot;abcde&quot;, &quot;ab1cd&quot;, &quot;a1bcde&quot;]</code>。</p>
-<h2 id="易错点-amp-收获"><a href="#易错点-amp-收获" class="headerlink" title="易错点 &amp; 收获"></a>易错点 &amp; 收获</h2><p>在实现过程中，需要注意以下几点：</p>
-<ul>
-<li>避免数组越界错误：在遍历字符串时，需要确保索引值不超过字符串的长度。</li>
-<li>注意特殊字符的处理：在判断字符是否合法时，需要考虑大小写字母和数字的区别。</li>
-<li>优化算法效率：通过使用前缀和数组和朴素解法的结合，可以提高算法的效率。</li>
+<h3 id="4-复杂度分析"><a href="#4-复杂度分析" class="headerlink" title="4. 复杂度分析"></a>4. 复杂度分析</h3><ul>
+<li>时间复杂度：添加和同步操作的时间复杂度为$O(N)$，查询操作的时间复杂度为$O(N^2)$，因为需要遍历所有节点的队列。</li>
+<li>空间复杂度：每个节点维护一个队列，空间复杂度为$O(N)$。</li>
 </ul>
-<p>本题主要学习了如何使用前缀和数组来高效地查找字符串中的合法密码组合，同时也学会了如何优化算法以提高效率。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P1102-P1102-A-B-%E6%95%B0%E5%AF%B9-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/12/2026-05-12-P1102-P1102-A-B-%E6%95%B0%E5%AF%B9-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P1102 - P1102 A-B 数对 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2026-05-12 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="洛谷-P1102-A-B-数对-洛谷"><a href="#洛谷-P1102-A-B-数对-洛谷" class="headerlink" title="[洛谷 P1102] A-B 数对 - 洛谷"></a>[洛谷 P1102] A-B 数对 - 洛谷</h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>给定一个数组 <code>nums</code>，其中每个元素代表一个数对（A, B），并且要求我们找出数组中所有数对的和。例如，如果数组是 <code>[(1, 2), (3, 4), (5, 6)]</code>，则我们需要计算 <code>1 + 2 + 3 + 4 + 5 + 6 = 21</code>。</p>
-<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><h3 id="朴素解法"><a href="#朴素解法" class="headerlink" title="朴素解法"></a>朴素解法</h3><p>首先，我们可以遍历数组中的每个数对，然后分别计算它们的和。这种方法的时间复杂度为 $O(n)$，空间复杂度也为 $O(n)$，其中 $n$ 是数组的长度。但是，这种方法在处理大数据集时可能会非常慢，因为它需要遍历整个数组。</p>
-<h3 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h3><p>为了提高算法的效率，我们可以使用前缀和的方法。前缀和是一种常用的数据结构，它可以帮助我们快速计算数组中连续子序列的和。具体来说，我们可以将数组分为两部分：一部分是小于等于当前元素的数对，另一部分是大于当前元素的数对。这样，我们就可以避免重复计算相同的数对，从而提高算法的效率。</p>
-<h3 id="最终解法"><a href="#最终解法" class="headerlink" title="最终解法"></a>最终解法</h3><p>根据上述优化方向，我们可以写出如下的关键状态定义和转移方程：</p>
-<p>```python<br>def a_b_sum(nums):<br>    if not nums:<br>        return 0<br>    prefix_sum = [0] * (max(nums) + 1)<br>    prefix_sum[0] = prefix_sum[1] = nums[0][0]<br>    for i in range(2, len(nums)):<br>        prefix_sum[i] = prefix_sum[i - 1] + nums[i][0]<br>    for i in range(len(nums) - 1, -1, -1):<br>        prefix_sum[i] = prefix_sum[i + 1] + nums[i][1]<br>    return sum(prefix_sum)</p>
-<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><p>时间复杂度：$O(n \log n)$，其中 $n$ 是数组的长度。这是因为我们需要遍历数组中的每个元素，并计算前缀和。空间复杂度：$O(n)$，用于存储前缀和。</p>
-<h3 id="核心代码-注释"><a href="#核心代码-注释" class="headerlink" title="核心代码 + 注释"></a>核心代码 + 注释</h3><p>```python<br>def a_b_sum(nums):<br>    if not nums:<br>        return 0<br>    prefix_sum = [0] * (max(nums) + 1)<br>    prefix_sum[0] = prefix_sum[1] = nums[0][0]<br>    for i in range(2, len(nums)):<br>        prefix_sum[i] = prefix_sum[i - 1] + nums[i][0]<br>    for i in range(len(nums) - 1, -1, -1):<br>        prefix_sum[i] = prefix_sum[i + 1] + nums[i][1]<br>    return sum(prefix_sum)</p>
-<h3 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h3><p>```python<br>nums = [(1, 2), (3, 4), (5, 6)]<br>print(a_b_sum(nums))  # 输出：21</p>
-<h3 id="易错点-amp-收获"><a href="#易错点-amp-收获" class="headerlink" title="易错点 &amp; 收获"></a>易错点 &amp; 收获</h3><p>在实现过程中，我们需要注意以下几点：</p>
-<ol>
-<li>数组越界问题：在计算前缀和时，我们需要确保索引不超出数组的范围。</li>
-<li>特殊数据处理：对于大于当前元素的数对，我们需要将其忽略掉，因为它们的和已经在前缀和中计算过了。</li>
-<li>通用方法：通过使用前缀和的方法，我们可以大大提高算法的效率，使其适用于大数据集。</li>
-</ol>
+<h3 id="5-核心代码-注释"><a href="#5-核心代码-注释" class="headerlink" title="5. 核心代码 + 注释"></a>5. 核心代码 + 注释</h3><p>```python<br>import sys</p>
+<p>N = int(input())<br>nodes = [[] for _ in range(N)]</p>
+<p>def add(element):<br>    nodes[0].append(element)</p>
+<p>def sync(follower_id):<br>    if len(nodes[follower_id]) != len(nodes[0]):<br>        e = nodes[0][len(nodes[follower_id])]<br>        nodes[follower_id].append(e)</p>
+<p>def query():<br>    min_len = 1e9<br>    for i in range(1, N):<br>        min_len = min(min_len, len(nodes[i]))<br>    return int(min_len)</p>
+<p>for line in sys.stdin:<br>    line = line.rstrip(‘\n’)<br>    if not line:<br>        break<br>    ops = list(line.rstrip(‘\n’).split())<br>    if ops[0] == “add”:<br>        add(int(ops[1]))<br>    elif ops[0] == “sync”:<br>        sync(int(ops[1]))<br>    elif ops[0] == “query”:<br>        print(query())</p>
+<h3 id="6-输入输出示例"><a href="#6-输入输出示例" class="headerlink" title="6. 输入输出示例"></a>6. 输入输出示例</h3><p>输入：<br>3<br>add 1<br>sync 1<br>query<br>输出：<br>1</p>
+<h3 id="7-易错点-amp-收获"><a href="#7-易错点-amp-收获" class="headerlink" title="7. 易错点 &amp; 收获"></a>7. 易错点 &amp; 收获</h3><ul>
+<li>易错点：同步操作需要确保同步的是最新的元素，而不是之前的元素。</li>
+<li>收获：学习了如何处理分布式队列，以及如何优化同步操作。</li>
+</ul>
+<h3 id="8-参考-扩展"><a href="#8-参考-扩展" class="headerlink" title="8. 参考 / 扩展"></a>8. 参考 / 扩展</h3><ul>
+<li>参考链接：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P11043">洛谷 P11043</a></li>
+<li>扩展：可以尝试实现一个基于链表的分布式队列，或者实现一个更高效的查询操作。</li>
+</ul>
 
       
     </div>
@@ -1091,6 +1105,95 @@ return -1
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P1102-P1102-A-B-%E6%95%B0%E5%AF%B9-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/12/2026-05-12-P1102-P1102-A-B-%E6%95%B0%E5%AF%B9-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P1102 - P1102 A-B 数对 - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-12 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="洛谷-P1102-A-B-数对-洛谷"><a href="#洛谷-P1102-A-B-数对-洛谷" class="headerlink" title="[洛谷 P1102] A-B 数对 - 洛谷"></a>[洛谷 P1102] A-B 数对 - 洛谷</h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>给定一个数组 <code>nums</code>，其中每个元素代表一个数对（A, B），并且要求我们找出数组中所有数对的和。例如，如果数组是 <code>[(1, 2), (3, 4), (5, 6)]</code>，则我们需要计算 <code>1 + 2 + 3 + 4 + 5 + 6 = 21</code>。</p>
+<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><h3 id="朴素解法"><a href="#朴素解法" class="headerlink" title="朴素解法"></a>朴素解法</h3><p>首先，我们可以遍历数组中的每个数对，然后分别计算它们的和。这种方法的时间复杂度为 $O(n)$，空间复杂度也为 $O(n)$，其中 $n$ 是数组的长度。但是，这种方法在处理大数据集时可能会非常慢，因为它需要遍历整个数组。</p>
+<h3 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h3><p>为了提高算法的效率，我们可以使用前缀和的方法。前缀和是一种常用的数据结构，它可以帮助我们快速计算数组中连续子序列的和。具体来说，我们可以将数组分为两部分：一部分是小于等于当前元素的数对，另一部分是大于当前元素的数对。这样，我们就可以避免重复计算相同的数对，从而提高算法的效率。</p>
+<h3 id="最终解法"><a href="#最终解法" class="headerlink" title="最终解法"></a>最终解法</h3><p>根据上述优化方向，我们可以写出如下的关键状态定义和转移方程：</p>
+<p>```python<br>def a_b_sum(nums):<br>    if not nums:<br>        return 0<br>    prefix_sum = [0] * (max(nums) + 1)<br>    prefix_sum[0] = prefix_sum[1] = nums[0][0]<br>    for i in range(2, len(nums)):<br>        prefix_sum[i] = prefix_sum[i - 1] + nums[i][0]<br>    for i in range(len(nums) - 1, -1, -1):<br>        prefix_sum[i] = prefix_sum[i + 1] + nums[i][1]<br>    return sum(prefix_sum)</p>
+<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><p>时间复杂度：$O(n \log n)$，其中 $n$ 是数组的长度。这是因为我们需要遍历数组中的每个元素，并计算前缀和。空间复杂度：$O(n)$，用于存储前缀和。</p>
+<h3 id="核心代码-注释"><a href="#核心代码-注释" class="headerlink" title="核心代码 + 注释"></a>核心代码 + 注释</h3><p>```python<br>def a_b_sum(nums):<br>    if not nums:<br>        return 0<br>    prefix_sum = [0] * (max(nums) + 1)<br>    prefix_sum[0] = prefix_sum[1] = nums[0][0]<br>    for i in range(2, len(nums)):<br>        prefix_sum[i] = prefix_sum[i - 1] + nums[i][0]<br>    for i in range(len(nums) - 1, -1, -1):<br>        prefix_sum[i] = prefix_sum[i + 1] + nums[i][1]<br>    return sum(prefix_sum)</p>
+<h3 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h3><p>```python<br>nums = [(1, 2), (3, 4), (5, 6)]<br>print(a_b_sum(nums))  # 输出：21</p>
+<h3 id="易错点-amp-收获"><a href="#易错点-amp-收获" class="headerlink" title="易错点 &amp; 收获"></a>易错点 &amp; 收获</h3><p>在实现过程中，我们需要注意以下几点：</p>
+<ol>
+<li>数组越界问题：在计算前缀和时，我们需要确保索引不超出数组的范围。</li>
+<li>特殊数据处理：对于大于当前元素的数对，我们需要将其忽略掉，因为它们的和已经在前缀和中计算过了。</li>
+<li>通用方法：通过使用前缀和的方法，我们可以大大提高算法的效率，使其适用于大数据集。</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P12138-P12138-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-A-%E5%AF%BB%E6%89%BE%E8%B4%A8%E6%95%B0-%E6%B4%9B%E8%B0%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1156,111 +1259,6 @@ return -1
 <li>如果 <code>i</code> 的平方小于等于 <code>limit</code>，则 <code>is_prime[i * i] = True</code>；否则，<code>is_prime[i * i] = False</code>。</li>
 </ul>
 <h4 id="核心代码"><a href="#核心代码" class="headerlink" title="核心代码"></a>核心代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">nth_prime</span>(<span class="params">n</span>):</span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span></span><br><span class="line">    is_prime = [<span class="literal">True</span>] * (n+<span class="number">1</span>)</span><br><span class="line">    limit = <span class="built_in">int</span>(n * (math.log(n) + math.log(math.log(n)))) <span class="keyword">if</span> n &gt;= <span class="number">6</span> <span class="keyword">else</span> <span class="number">15</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, <span class="built_in">int</span>(n**<span class="number">0.5</span>) + <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> is_prime[i]:</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i*i, n+<span class="number">1</span>, i):</span><br><span class="line">                is_prime[j] = <span class="literal">False</span></span><br><span class="line">    primes = [i <span class="keyword">for</span> i, flag <span class="keyword">in</span> <span class="built_in">enumerate</span>(is_prime) <span class="keyword">if</span> flag]</span><br><span class="line">    <span class="keyword">return</span> primes[n-<span class="number">1</span>]</span><br><span class="line"><span class="comment">#### 易错点 &amp; 收获</span></span><br><span class="line"></span><br><span class="line">- 实现过程中可能会忽略边界条件，导致错误结果。例如，当 `n` 为 <span class="number">1</span> 时，直接返回 <span class="number">2</span> 而不是 <span class="number">1</span>。</span><br><span class="line">- 在优化过程中，需要注意不要过度优化，避免不必要的计算。</span><br><span class="line"></span><br><span class="line"><span class="comment">## 输入输出示例</span></span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line"><span class="built_in">print</span>(nth_prime(<span class="number">10</span>))  <span class="comment"># 输出：5</span></span><br><span class="line"><span class="comment">## 易错点 &amp; 收获</span></span><br><span class="line"></span><br><span class="line">- 在实现过程中，需要注意边界条件，避免错误结果。例如，当 `n` 为 <span class="number">1</span> 时，直接返回 <span class="number">2</span> 而不是 <span class="number">1</span>。</span><br><span class="line">- 在优化过程中，需要注意不要过度优化，避免不必要的计算。</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P12154-P12154-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-Java-B-%E9%80%83%E7%A6%BB%E9%AB%98%E5%A1%94-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/12/2026-05-12-P12154-P12154-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-Java-B-%E9%80%83%E7%A6%BB%E9%AB%98%E5%A1%94-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12154 - P12154 [蓝桥杯 2025 省 Java B] 逃离高塔 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2026-05-12 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="洛谷-P12154-逃离高塔-思路分析与代码实现"><a href="#洛谷-P12154-逃离高塔-思路分析与代码实现" class="headerlink" title="[洛谷 P12154] 逃离高塔 - 思路分析与代码实现"></a>[洛谷 P12154] 逃离高塔 - 思路分析与代码实现</h1><h3 id="1-题意简述"><a href="#1-题意简述" class="headerlink" title="1. 题意简述"></a>1. 题意简述</h3><p>本题要求我们计算在2025年之前，有多少个正整数的立方以3结尾。也就是说，我们需要找出所有满足条件 (a^3 \mod 10 = 3) 的正整数 (a)。</p>
-<h3 id="2-思路分析"><a href="#2-思路分析" class="headerlink" title="2. 思路分析"></a>2. 思路分析</h3><ul>
-<li><strong>朴素解法</strong>：我们可以逐个检查从1到2024的每个数，计算其立方，并检查立方是否以3结尾。这种方法直观但效率低下，因为它需要大量的计算。</li>
-<li><strong>优化方向</strong>：观察到立方以3结尾的性质，我们可以推断出立方数的个位数只能是0, 1, 2, 3, 4, 5, 6, 7, 8, 9。由于只有3和9的立方以3结尾，我们只需要检查这两个数的立方即可。</li>
-<li><strong>最终解法</strong>：我们可以直接计算3和9的立方，即 (3^3 = 27) 和 (9^3 = 729)，然后检查它们的个位数是否为3。由于题目要求是2025年之前，我们只需要考虑3的立方，因为9的立方超出了题目范围。</li>
-</ul>
-<h3 id="3-复杂度分析"><a href="#3-复杂度分析" class="headerlink" title="3. 复杂度分析"></a>3. 复杂度分析</h3><ul>
-<li><strong>时间复杂度</strong>：(O(1))，因为我们的算法只需要计算两个数的立方，然后检查个位数。</li>
-<li><strong>空间复杂度</strong>：(O(1))，因为我们不需要额外的空间来存储数据。</li>
-</ul>
-<h3 id="4-核心代码-注释"><a href="#4-核心代码-注释" class="headerlink" title="4. 核心代码 + 注释"></a>4. 核心代码 + 注释</h3><p>```python<br>res = 0<br>a = 3<br>a_cubed = a ** 3<br>if a_cubed % 10 == 3:<br>    res += 1<br>print(res)</p>
-<ul>
-<li>变量 <code>res</code> 用于存储满足条件的数的数量。</li>
-<li>变量 <code>a</code> 设置为3，因为我们只需要检查3的立方。</li>
-<li>变量 <code>a_cubed</code> 存储了3的立方。</li>
-<li>我们检查 <code>a_cubed % 10</code> 是否等于3，如果是，则将 <code>res</code> 加1。</li>
-</ul>
-<h3 id="5-输入输出示例"><a href="#5-输入输出示例" class="headerlink" title="5. 输入输出示例"></a>5. 输入输出示例</h3><ul>
-<li>输入：无</li>
-<li>输出：1</li>
-<li>解释：只有3的立方以3结尾。</li>
-</ul>
-<h3 id="6-易错点-amp-收获"><a href="#6-易错点-amp-收获" class="headerlink" title="6. 易错点 &amp; 收获"></a>6. 易错点 &amp; 收获</h3><ul>
-<li>易错点：可能忘记检查个位数是否为3。</li>
-<li>收获：本题教会了我们如何利用数的性质来简化问题，以及如何高效地解决问题。</li>
-</ul>
-<h3 id="7-参考-扩展"><a href="#7-参考-扩展" class="headerlink" title="7. 参考 / 扩展"></a>7. 参考 / 扩展</h3><ul>
-<li>本题没有复杂的算法，因此没有特别的参考。</li>
-<li>推荐类似题目：[洛谷 P1001] 一组数字的立方和 - 洛谷</li>
-</ul>
-
       
     </div>
 

@@ -559,131 +559,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/20/2026-05-20-P13893-P13893-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E7%9C%81-C-%E5%B7%A5%E4%BD%9C%E6%97%B6%E9%95%BF-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/20/2026-05-20-P13893-P13893-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E7%9C%81-C-%E5%B7%A5%E4%BD%9C%E6%97%B6%E9%95%BF-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P13893 - P13893 [蓝桥杯 2023 省 C] 工作时长 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2026-05-20 00:00:00 / 修改时间：10:55:08" itemprop="dateCreated datePublished" datetime="2026-05-20T00:00:00+08:00">2026-05-20</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="洛谷-P13893-工作时长-时间处理优化详解"><a href="#洛谷-P13893-工作时长-时间处理优化详解" class="headerlink" title="[洛谷 P13893] 工作时长 + 时间处理优化详解"></a>[洛谷 P13893] 工作时长 + 时间处理优化详解</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
-<li><strong>题目来源</strong>: 洛谷 (<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P13893">https://www.luogu.com.cn/problem/P13893</a>)</li>
-<li><strong>题目难度</strong>: ★★☆☆☆</li>
-<li><strong>标签分类</strong>: 数据处理、时间计算</li>
-<li><strong>核心考点</strong>: 时间格式转换、排序、时间差计算</li>
-</ul>
-<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><ul>
-<li><strong>问题描述</strong>: 给定一系列时间点，要求计算这些时间点之间的工作时长总和。</li>
-<li><strong>输入格式</strong>: 输入文件包含多行，每行一个时间点，格式为“YYYY-MM-DDTHH:MM:SS”。</li>
-<li><strong>输出格式</strong>: 输出一个整数，表示总的工作时长（单位：秒）。</li>
-<li><strong>样例分析</strong>:<ul>
-<li>输入:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">2023-01-01T09:00:00</span><br><span class="line">2023-01-01T17:00:00</span><br><span class="line">2023-01-02T08:00:00</span><br><span class="line">2023-01-02T16:00:00</span><br></pre></td></tr></table></figure></li>
-<li>输出: 86400（一天的总秒数）</li>
-</ul>
-</li>
-</ul>
-<h3 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
-<li>问题的本质是计算一系列时间点之间的时间差。</li>
-<li>关键观察点：时间点的格式、时间差的计算。</li>
-<li>数据范围对算法选择的影响：时间点数量可能较多，但通常不会非常大。</li>
-</ul>
-<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
-<li><strong>朴素思路</strong>: 将每个时间点转换为时间戳，然后计算相邻时间戳的差值。</li>
-<li><strong>优化路径</strong>: 利用 Python 的 <code>datetime</code> 模块直接计算时间差，避免手动转换时间戳。</li>
-<li><strong>算法选择</strong>: 选择 <code>datetime</code> 模块是因为它提供了直接的时间格式转换和差值计算功能。</li>
-<li><strong>核心思想</strong>: 通过时间格式转换和差值计算，快速得到总的工作时长。</li>
-</ul>
-<h4 id="4-3-代码详解"><a href="#4-3-代码详解" class="headerlink" title="4.3 代码详解"></a>4.3 代码详解</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;1.in&quot;</span>, <span class="string">&quot;r&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    l = f.readlines()</span><br><span class="line">dt = <span class="built_in">sorted</span>([datetime.fromisoformat(i.strip()) <span class="keyword">for</span> i <span class="keyword">in</span> l])</span><br><span class="line">secs = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(dt), <span class="number">2</span>):</span><br><span class="line">    secs += (dt[i+<span class="number">1</span>] - dt[i]).total_seconds()</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(secs)</span><br></pre></td></tr></table></figure>
-<h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dt = <span class="built_in">sorted</span>([datetime.fromisoformat(i.strip()) <span class="keyword">for</span> i <span class="keyword">in</span> l])</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(dt), <span class="number">2</span>):</span><br><span class="line">    secs += (dt[i+<span class="number">1</span>] - dt[i]).total_seconds()</span><br></pre></td></tr></table></figure>
-<h4 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h4><ul>
-<li><code>dt = sorted([datetime.fromisoformat(i.strip()) for i in l])</code>: 读取输入文件，将每行时间点转换为 <code>datetime</code> 对象并排序。</li>
-<li><code>for i in range(0, len(dt), 2)</code>: 遍历时间点列表，每次处理两个相邻的时间点。</li>
-<li><code>(dt[i+1] - dt[i]).total_seconds()</code>: 计算两个相邻时间点之间的时间差（秒）。</li>
-<li><code>secs += (dt[i+1] - dt[i]).total_seconds()</code>: 将每次计算的时间差累加到 <code>secs</code> 变量中。</li>
-</ul>
-<h4 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h4><ul>
-<li>使用 <code>datetime.fromisoformat()</code> 直接解析 ISO 8601 格式的时间字符串，避免了手动解析格式的复杂度。</li>
-<li>通过排序确保时间点是按照顺序处理的，简化了时间差的计算。</li>
-</ul>
-<h3 id="6-复杂度分析"><a href="#6-复杂度分析" class="headerlink" title="6. 复杂度分析"></a>6. 复杂度分析</h3><ul>
-<li><strong>时间复杂度</strong>: O(n log n)，主要来自排序操作。</li>
-<li><strong>空间复杂度</strong>: O(n)，存储时间点的列表。</li>
-</ul>
-<h3 id="7-输入输出示例"><a href="#7-输入输出示例" class="headerlink" title="7. 输入输出示例"></a>7. 输入输出示例</h3><ul>
-<li><strong>样例输入</strong>:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">2023-01-01T09:00:00</span><br><span class="line">2023-01-01T17:00:00</span><br><span class="line">2023-01-02T08:00:00</span><br><span class="line">2023-01-02T16:00:00</span><br></pre></td></tr></table></figure></li>
-<li><strong>样例输出</strong>: 86400</li>
-</ul>
-<h3 id="8-常见错误与调试技巧"><a href="#8-常见错误与调试技巧" class="headerlink" title="8. 常见错误与调试技巧"></a>8. 常见错误与调试技巧</h3><ul>
-<li><strong>易错点</strong>: 时间格式错误、排序错误、时间差计算错误。</li>
-<li><strong>调试方法</strong>: 使用打印语句检查中间变量的值，确保每个步骤都正确执行。</li>
-</ul>
-<h3 id="9-总结与扩展"><a href="#9-总结与扩展" class="headerlink" title="9. 总结与扩展"></a>9. 总结与扩展</h3><ul>
-<li><strong>核心收获</strong>: 学会使用 Python 的 <code>datetime</code> 模块处理时间格式和计算时间差。</li>
-<li><strong>举一反三</strong>: 类似的问题，如计算两个时间点之间的最短路径，也可以使用时间处理的方法。</li>
-<li><strong>进阶方向</strong>: 研究更复杂的时间处理问题，如时区转换、夏令时调整等。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/20/2026-05-20-P15430-P15430-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-Python-B-%E7%AD%89%E5%B7%AE%E6%95%B0%E5%88%97%E8%AE%A1%E6%95%B0-%E6%B4%9B%E8%B0%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -968,6 +843,131 @@
 </ul>
 <h2 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(maxSubArraySum([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>])) <span class="comment"># 输出：6</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(maxSubArraySum([<span class="number">1</span>, -<span class="number">2</span>, -<span class="number">3</span>, <span class="number">4</span>, -<span class="number">5</span>])) <span class="comment"># 输出：-6</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/20/2026-05-20-P13893-P13893-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E7%9C%81-C-%E5%B7%A5%E4%BD%9C%E6%97%B6%E9%95%BF-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/20/2026-05-20-P13893-P13893-%E8%93%9D%E6%A1%A5%E6%9D%AF-2023-%E7%9C%81-C-%E5%B7%A5%E4%BD%9C%E6%97%B6%E9%95%BF-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P13893 - P13893 [蓝桥杯 2023 省 C] 工作时长 - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-05-20 00:00:00 / 修改时间：10:55:08" itemprop="dateCreated datePublished" datetime="2026-05-20T00:00:00+08:00">2026-05-20</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="洛谷-P13893-工作时长-时间处理优化详解"><a href="#洛谷-P13893-工作时长-时间处理优化详解" class="headerlink" title="[洛谷 P13893] 工作时长 + 时间处理优化详解"></a>[洛谷 P13893] 工作时长 + 时间处理优化详解</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
+<li><strong>题目来源</strong>: 洛谷 (<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P13893">https://www.luogu.com.cn/problem/P13893</a>)</li>
+<li><strong>题目难度</strong>: ★★☆☆☆</li>
+<li><strong>标签分类</strong>: 数据处理、时间计算</li>
+<li><strong>核心考点</strong>: 时间格式转换、排序、时间差计算</li>
+</ul>
+<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><ul>
+<li><strong>问题描述</strong>: 给定一系列时间点，要求计算这些时间点之间的工作时长总和。</li>
+<li><strong>输入格式</strong>: 输入文件包含多行，每行一个时间点，格式为“YYYY-MM-DDTHH:MM:SS”。</li>
+<li><strong>输出格式</strong>: 输出一个整数，表示总的工作时长（单位：秒）。</li>
+<li><strong>样例分析</strong>:<ul>
+<li>输入:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">2023-01-01T09:00:00</span><br><span class="line">2023-01-01T17:00:00</span><br><span class="line">2023-01-02T08:00:00</span><br><span class="line">2023-01-02T16:00:00</span><br></pre></td></tr></table></figure></li>
+<li>输出: 86400（一天的总秒数）</li>
+</ul>
+</li>
+</ul>
+<h3 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
+<li>问题的本质是计算一系列时间点之间的时间差。</li>
+<li>关键观察点：时间点的格式、时间差的计算。</li>
+<li>数据范围对算法选择的影响：时间点数量可能较多，但通常不会非常大。</li>
+</ul>
+<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
+<li><strong>朴素思路</strong>: 将每个时间点转换为时间戳，然后计算相邻时间戳的差值。</li>
+<li><strong>优化路径</strong>: 利用 Python 的 <code>datetime</code> 模块直接计算时间差，避免手动转换时间戳。</li>
+<li><strong>算法选择</strong>: 选择 <code>datetime</code> 模块是因为它提供了直接的时间格式转换和差值计算功能。</li>
+<li><strong>核心思想</strong>: 通过时间格式转换和差值计算，快速得到总的工作时长。</li>
+</ul>
+<h4 id="4-3-代码详解"><a href="#4-3-代码详解" class="headerlink" title="4.3 代码详解"></a>4.3 代码详解</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;1.in&quot;</span>, <span class="string">&quot;r&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    l = f.readlines()</span><br><span class="line">dt = <span class="built_in">sorted</span>([datetime.fromisoformat(i.strip()) <span class="keyword">for</span> i <span class="keyword">in</span> l])</span><br><span class="line">secs = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(dt), <span class="number">2</span>):</span><br><span class="line">    secs += (dt[i+<span class="number">1</span>] - dt[i]).total_seconds()</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(secs)</span><br></pre></td></tr></table></figure>
+<h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dt = <span class="built_in">sorted</span>([datetime.fromisoformat(i.strip()) <span class="keyword">for</span> i <span class="keyword">in</span> l])</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(dt), <span class="number">2</span>):</span><br><span class="line">    secs += (dt[i+<span class="number">1</span>] - dt[i]).total_seconds()</span><br></pre></td></tr></table></figure>
+<h4 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h4><ul>
+<li><code>dt = sorted([datetime.fromisoformat(i.strip()) for i in l])</code>: 读取输入文件，将每行时间点转换为 <code>datetime</code> 对象并排序。</li>
+<li><code>for i in range(0, len(dt), 2)</code>: 遍历时间点列表，每次处理两个相邻的时间点。</li>
+<li><code>(dt[i+1] - dt[i]).total_seconds()</code>: 计算两个相邻时间点之间的时间差（秒）。</li>
+<li><code>secs += (dt[i+1] - dt[i]).total_seconds()</code>: 将每次计算的时间差累加到 <code>secs</code> 变量中。</li>
+</ul>
+<h4 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h4><ul>
+<li>使用 <code>datetime.fromisoformat()</code> 直接解析 ISO 8601 格式的时间字符串，避免了手动解析格式的复杂度。</li>
+<li>通过排序确保时间点是按照顺序处理的，简化了时间差的计算。</li>
+</ul>
+<h3 id="6-复杂度分析"><a href="#6-复杂度分析" class="headerlink" title="6. 复杂度分析"></a>6. 复杂度分析</h3><ul>
+<li><strong>时间复杂度</strong>: O(n log n)，主要来自排序操作。</li>
+<li><strong>空间复杂度</strong>: O(n)，存储时间点的列表。</li>
+</ul>
+<h3 id="7-输入输出示例"><a href="#7-输入输出示例" class="headerlink" title="7. 输入输出示例"></a>7. 输入输出示例</h3><ul>
+<li><strong>样例输入</strong>:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">2023-01-01T09:00:00</span><br><span class="line">2023-01-01T17:00:00</span><br><span class="line">2023-01-02T08:00:00</span><br><span class="line">2023-01-02T16:00:00</span><br></pre></td></tr></table></figure></li>
+<li><strong>样例输出</strong>: 86400</li>
+</ul>
+<h3 id="8-常见错误与调试技巧"><a href="#8-常见错误与调试技巧" class="headerlink" title="8. 常见错误与调试技巧"></a>8. 常见错误与调试技巧</h3><ul>
+<li><strong>易错点</strong>: 时间格式错误、排序错误、时间差计算错误。</li>
+<li><strong>调试方法</strong>: 使用打印语句检查中间变量的值，确保每个步骤都正确执行。</li>
+</ul>
+<h3 id="9-总结与扩展"><a href="#9-总结与扩展" class="headerlink" title="9. 总结与扩展"></a>9. 总结与扩展</h3><ul>
+<li><strong>核心收获</strong>: 学会使用 Python 的 <code>datetime</code> 模块处理时间格式和计算时间差。</li>
+<li><strong>举一反三</strong>: 类似的问题，如计算两个时间点之间的最短路径，也可以使用时间处理的方法。</li>
+<li><strong>进阶方向</strong>: 研究更复杂的时间处理问题，如时区转换、夏令时调整等。</li>
+</ul>
+
       
     </div>
 
