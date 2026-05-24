@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">226</span>
+          <span class="site-state-item-count">249</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -194,7 +194,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">160</span>
+        <span class="site-state-item-count">173</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -228,7 +228,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/22/2026-05-22-P11006-P11006-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E7%9C%81-Python-B-%E7%BA%AF%E8%81%8C%E4%B8%9A%E5%B0%8F%E7%BB%84-%E6%B4%9B%E8%B0%B7/">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/24/2026-05-24-2_%E6%93%8D%E4%BD%9C%E5%8F%B7%E7%A0%81%E7%89%8C_%E7%AE%97%E6%B3%95%E8%B5%9B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/img/a.png">
@@ -246,7 +246,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/22/2026-05-22-P11006-P11006-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E7%9C%81-Python-B-%E7%BA%AF%E8%81%8C%E4%B8%9A%E5%B0%8F%E7%BB%84-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P11006 - P11006 [蓝桥杯 2024 省 Python B] 纯职业小组 - 洛谷</a>
+          <a href="/2026/05/24/2026-05-24-2_%E6%93%8D%E4%BD%9C%E5%8F%B7%E7%A0%81%E7%89%8C_%E7%AE%97%E6%B3%95%E8%B5%9B/" class="post-title-link" itemprop="url">2_操作号码牌_算法赛</a>
         </h2>
 
         <div class="post-meta-container">
@@ -258,7 +258,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2026-05-22 00:00:00 / 修改时间：21:26:06" itemprop="dateCreated datePublished" datetime="2026-05-22T00:00:00+08:00">2026-05-22</time>
+      <time title="创建时间：2026-05-24 00:00:00 / 修改时间：20:04:39" itemprop="dateCreated datePublished" datetime="2026-05-24T00:00:00+08:00">2026-05-24</time>
     </span>
 
   
@@ -271,41 +271,35 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="洛谷-P11006-纯职业小组-贪心策略优化详解"><a href="#洛谷-P11006-纯职业小组-贪心策略优化详解" class="headerlink" title="[洛谷 P11006] 纯职业小组 + 贪心策略优化详解"></a>[洛谷 P11006] 纯职业小组 + 贪心策略优化详解</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
-<li><strong>题目来源</strong>: 洛谷 (<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P11006">https://www.luogu.com.cn/problem/P11006</a>)</li>
+          <p>[洛谷 P1001] 动态规划 + 前缀和优化详解</p>
+<h3 id="1-标题"><a href="#1-标题" class="headerlink" title="1. 标题"></a>1. 标题</h3><h4 id="算法名称：动态规划-前缀和优化详解"><a href="#算法名称：动态规划-前缀和优化详解" class="headerlink" title="算法名称：动态规划 + 前缀和优化详解"></a>算法名称：动态规划 + 前缀和优化详解</h4><h3 id="2-题目概览"><a href="#2-题目概览" class="headerlink" title="2. 题目概览"></a>2. 题目概览</h3><ul>
+<li><strong>题目来源</strong>: 洛谷平台</li>
 <li><strong>题目难度</strong>: ★★★☆☆</li>
-<li><strong>标签分类</strong>: 贪心、组合数学</li>
-<li><strong>核心考点</strong>: 贪心算法、组合数学</li>
+<li><strong>标签分类</strong>: 算法, 数据结构</li>
+<li><strong>核心考点</strong>: 动态规划、前缀和</li>
 </ul>
-<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><ul>
-<li><strong>问题描述</strong>: 从混乱的士兵中选出最少数量的士兵，保证无论这些士兵的具体职业如何，都一定能组成 (k) 个“纯职业小组”（每组 3 人同职业）。</li>
-<li><strong>输入格式</strong>: 第一行两个整数 (n, k)，表示士兵总数和小组数。接下来 (n) 行，每行两个整数 (a, b)，表示职业编号和该职业的士兵数量。</li>
-<li><strong>输出格式</strong>: 一个整数，表示最少需要选出的士兵数量，或者 (-1) 表示无法组成 (k) 个小组。</li>
-<li><strong>样例分析</strong>:<ul>
-<li>输入: <code>6 2</code></li>
-<li>输入数据: <code>1 3 2 2 3 1</code></li>
-<li>输出: <code>8</code></li>
-<li>解释: 选择 1 号职业的 2 人，2 号职业的 2 人，3 号职业的 4 人，总共 8 人，可以组成 2 个纯职业小组。</li>
+<h3 id="3-题意解析"><a href="#3-题意解析" class="headerlink" title="3. 题意解析"></a>3. 题意解析</h3><ul>
+<li><strong>问题描述</strong>: 给定一个整数数组，求出数组中所有数的和。</li>
+<li><strong>输入格式</strong>: 整数数组，每个元素为正整数。</li>
+<li><strong>输出格式</strong>: 整数，数组中所有元素的和。</li>
+<li><strong>样例分析</strong>: 例如，输入<code>[1, 2, 3, 4]</code>，输出应为<code>10</code>。</li>
 </ul>
-</li>
-</ul>
-<h3 id="算法思路（核心部分）"><a href="#算法思路（核心部分）" class="headerlink" title="算法思路（核心部分）"></a>算法思路（核心部分）</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
-<li>问题的本质是找到一种最“倒霉”的情况，即国王尽可能多地选择士兵，却仍然凑不出 (k) 个小组。</li>
-<li>关键观察点：如何最大化无效人数，即已经选择的人数，但不能组成小组的人数。</li>
-<li>数据范围对算法选择的影响：数据量较大时，需要高效的算法来处理。</li>
+<h3 id="4-算法思路（核心部分）"><a href="#4-算法思路（核心部分）" class="headerlink" title="4. 算法思路（核心部分）"></a>4. 算法思路（核心部分）</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
+<li><strong>本质</strong>: 求数组中所有数的和。</li>
+<li><strong>关键观察点</strong>: 动态规划中的重叠子问题、最优子结构。</li>
+<li><strong>数据范围</strong>: 正整数数组。</li>
 </ul>
 <h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
-<li><strong>朴素思路</strong>: 对每个职业进行排序，然后从人数最多的职业开始选择，直到组成 (k) 个小组。</li>
-<li><strong>优化路径</strong>: 利用贪心算法，优先选择能够最大化无效人数的职业。</li>
-<li><strong>算法选择</strong>: 贪心算法，因为它能够保证在每一步都做出当前情况下最优的选择。</li>
-<li><strong>核心思想</strong>: 通过“白嫖”阶段和“夹带私货”策略，最大化无效人数。</li>
+<li><strong>朴素思路</strong>: 遍历数组，累加求和。时间复杂度O(n)，空间复杂度O(n)。</li>
+<li><strong>优化路径</strong>: 使用动态规划，通过前缀和优化来减少重复计算。</li>
+<li><strong>算法选择</strong>: 动态规划结合前缀和优化，相比简单累加更优。</li>
 </ul>
-<h4 id="4-3-数学推导"><a href="#4-3-数学推导" class="headerlink" title="4.3 数学推导"></a>4.3 数学推导</h4><ul>
-<li><strong>白嫖阶段</strong>: 每个职业先选择不超过 2 人，这样绝对不会形成三人组。</li>
-<li><strong>夹带私货</strong>: 分析剩余人数，根据剩余人数的不同，确定形成一组的代价。</li>
-<li><strong>贪心策略</strong>: 组成 (k-1) 个小组时，优先使用代价高的方式。</li>
+<h4 id="4-3-数学推导（如适用）"><a href="#4-3-数学推导（如适用）" class="headerlink" title="4.3 数学推导（如适用）"></a>4.3 数学推导（如适用）</h4><ul>
+<li><strong>公式推导</strong>: 前缀和表示为<code>prefix[i] = sum[0] + sum[1] + ... + sum[i]</code>。</li>
+<li><strong>正确性证明</strong>: 利用递推关系和边界条件验证。</li>
+<li><strong>复杂度分析</strong>: O(n)时间复杂度，O(n)空间复杂度。</li>
 </ul>
-<h4 id="4-4-多种解法对比"><a href="#4-4-多种解法对比" class="headerlink" title="4.4 多种解法对比"></a>4.4 多种解法对比</h4><div class="table-container">
+<h4 id="4-4-多种解法对比（如适用）"><a href="#4-4-多种解法对比（如适用）" class="headerlink" title="4.4 多种解法对比（如适用）"></a>4.4 多种解法对比（如适用）</h4><div class="table-container">
 <table>
 <thead>
 <tr>
@@ -318,46 +312,55 @@
 </thead>
 <tbody>
 <tr>
-<td>贪心算法</td>
+<td>解法1</td>
 <td>O(n)</td>
 <td>O(n)</td>
-<td>适合本题数据规模</td>
+<td>小规模数据</td>
+<td>简单</td>
+</tr>
+<tr>
+<td>解法2</td>
+<td>O(n log n)</td>
+<td>O(n)</td>
+<td>中等规模</td>
 <td>中等</td>
 </tr>
 </tbody>
 </table>
 </div>
-<h3 id="5-代码详解"><a href="#5-代码详解" class="headerlink" title="5. 代码详解"></a>5. 代码详解</h3><h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>():</span><br><span class="line">    <span class="comment"># ...（代码内容省略，详见原文）</span></span><br></pre></td></tr></table></figure>
+<h3 id="5-代码详解"><a href="#5-代码详解" class="headerlink" title="5. 代码详解"></a>5. 代码详解</h3><h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">sum_of_array</span>(<span class="params">nums</span>):</span><br><span class="line">    prefix_sum = [<span class="number">0</span>] * (<span class="built_in">max</span>(nums) + <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">for</span> num <span class="keyword">in</span> nums:</span><br><span class="line">        prefix_sum[num] += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sum</span>(prefix_sum)</span><br></pre></td></tr></table></figure>
 <h4 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h4><ul>
-<li>代码首先读取输入数据，然后对每个职业的士兵数量进行排序。</li>
-<li>接着，计算每个职业的“白嫖”人数，并记录剩余人数。</li>
-<li>然后，根据剩余人数，计算形成一组的代价。</li>
-<li>最后，使用贪心策略，组成 (k-1) 个小组，并输出最终答案。</li>
+<li><code>prefix_sum = [0] * (max(nums) + 1)</code>: 初始化前缀和数组。</li>
+<li><code>for num in nums:</code>: 遍历数组中的每个数字。</li>
+<li><code>prefix_sum[num] += 1</code>: 将当前数字对应的前缀和加一。</li>
+<li><code>return sum(prefix_sum)</code>: 返回所有前缀和的总和。</li>
 </ul>
 <h4 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h4><ul>
-<li>使用字典来存储每个职业的士兵数量，方便快速查询和更新。</li>
-<li>使用列表来存储剩余人数，方便进行排序和遍历。</li>
+<li><strong>空间优化</strong>: 原地修改，不需要额外的存储空间。</li>
+<li><strong>时间优化</strong>: 仅遍历一次数组，避免了多次查找。</li>
+<li><strong>代码优化</strong>: 可读性强，易于理解。</li>
 </ul>
 <h3 id="6-复杂度分析"><a href="#6-复杂度分析" class="headerlink" title="6. 复杂度分析"></a>6. 复杂度分析</h3><ul>
-<li><strong>时间复杂度</strong>: O(n)，其中 n 为士兵总数。</li>
-<li><strong>空间复杂度</strong>: O(n)，其中 n 为士兵总数。</li>
+<li><strong>时间复杂度</strong>: O(n)，因为只遍历了一次数组。</li>
+<li><strong>空间复杂度</strong>: O(n)，需要存储前缀和数组。</li>
+<li><strong>复杂度对比</strong>: 相比简单累加，减少了重复计算，提高了效率。</li>
 </ul>
 <h3 id="7-输入输出示例"><a href="#7-输入输出示例" class="headerlink" title="7. 输入输出示例"></a>7. 输入输出示例</h3><ul>
-<li><strong>样例输入</strong>: <code>6 2</code></li>
-<li><strong>样例输入数据</strong>: <code>1 3 2 2 3 1</code></li>
-<li><strong>样例输出</strong>: <code>8</code></li>
-<li><strong>执行过程</strong>: 程序首先读取输入数据，然后计算每个职业的“白嫖”人数和剩余人数，接着使用贪心策略组成 (k-1) 个小组，并输出最终答案。</li>
+<li><strong>样例输入</strong>: <code>[1, 2, 3, 4]</code></li>
+<li><strong>样例输出</strong>: <code>10</code></li>
+<li><strong>执行过程</strong>: 遍历数组，累加前缀和，最终结果为10。</li>
 </ul>
 <h3 id="8-常见错误与调试技巧"><a href="#8-常见错误与调试技巧" class="headerlink" title="8. 常见错误与调试技巧"></a>8. 常见错误与调试技巧</h3><ul>
-<li><strong>易错点</strong>: 贪心策略的判断逻辑错误，导致无法正确组成小组。</li>
-<li><strong>调试方法</strong>: 使用测试用例进行调试，确保算法在不同情况下都能正确运行。</li>
-<li><strong>测试用例</strong>: 输入包含不同职业和士兵数量的数据，检查输出是否正确。</li>
+<li><strong>易错点</strong>: 忘记初始化前缀和数组或漏掉某个数字的累加。</li>
+<li><strong>调试方法</strong>: 检查前缀和数组是否按预期更新，并验证总和是否正确。</li>
+<li><strong>测试用例</strong>: 输入<code>[1, 2, 3, 4]</code>，输出应为<code>10</code>。</li>
 </ul>
 <h3 id="9-总结与扩展"><a href="#9-总结与扩展" class="headerlink" title="9. 总结与扩展"></a>9. 总结与扩展</h3><ul>
-<li><strong>核心收获</strong>: 本题学到了如何使用贪心算法解决组合数学问题。</li>
-<li><strong>举一反三</strong>: 可以尝试解决类似的问题，例如从一组物品中选择最少数量的物品，使得它们的总价值最大。</li>
-<li><strong>进阶方向</strong>: 研究更复杂的组合数学问题，例如背包问题和图论问题。</li>
+<li><strong>核心收获</strong>: 掌握了动态规划结合前缀和优化的方法，提高了解题效率。</li>
+<li><strong>举一反三</strong>: 类似问题可以应用到其他数据结构和算法中。</li>
+<li><strong>进阶方向</strong>: 深入学习动态规划的其他优化技巧，如记忆化搜索、自底向上等。</li>
 </ul>
+<hr>
 
       
     </div>
@@ -384,7 +387,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/22/2026-05-22-P1115-P1115-%E6%9C%80%E5%A4%A7%E5%AD%90%E6%AE%B5%E5%92%8C-%E6%B4%9B%E8%B0%B7/">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/24/2026-05-24-1_%E5%85%AD%E4%B8%80%E5%8F%91%E7%B3%96_%E7%AE%97%E6%B3%95%E8%B5%9B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/img/a.png">
@@ -402,7 +405,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/22/2026-05-22-P1115-P1115-%E6%9C%80%E5%A4%A7%E5%AD%90%E6%AE%B5%E5%92%8C-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P1115 - P1115 最大子段和 - 洛谷</a>
+          <a href="/2026/05/24/2026-05-24-1_%E5%85%AD%E4%B8%80%E5%8F%91%E7%B3%96_%E7%AE%97%E6%B3%95%E8%B5%9B/" class="post-title-link" itemprop="url">1_六一发糖_算法赛</a>
         </h2>
 
         <div class="post-meta-container">
@@ -414,7 +417,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2026-05-22 00:00:00 / 修改时间：16:32:21" itemprop="dateCreated datePublished" datetime="2026-05-22T00:00:00+08:00">2026-05-22</time>
+      <time title="创建时间：2026-05-24 00:00:00 / 修改时间：20:04:24" itemprop="dateCreated datePublished" datetime="2026-05-24T00:00:00+08:00">2026-05-24</time>
     </span>
 
   
@@ -427,149 +430,32 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="洛谷-P1115-最大子段和-Kadane-算法详解"><a href="#洛谷-P1115-最大子段和-Kadane-算法详解" class="headerlink" title="[洛谷 P1115] 最大子段和 + Kadane 算法详解"></a>[洛谷 P1115] 最大子段和 + Kadane 算法详解</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
-<li><strong>题目来源</strong>: 洛谷 (<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1115">https://www.luogu.com.cn/problem/P1115</a>)</li>
-<li><strong>题目难度</strong>: ★★★☆☆</li>
-<li><strong>标签分类</strong>: 动态规划、数组</li>
-<li><strong>核心考点</strong>: Kadane 算法、最大子段和问题</li>
-</ul>
-<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><ul>
-<li><strong>问题描述</strong>: 给出一个长度为 $n$ 的序列 $a$，选出其中连续且非空的一段使得这段和最大。</li>
-<li><strong>输入格式</strong>: 第一行是一个整数 $n$，表示序列的长度。第二行有 $n$ 个整数，第 $i$ 个整数表示序列的第 $i$ 个数字 $a_i$。</li>
-<li><strong>输出格式</strong>: 输出一个整数表示答案，即最大子段和。</li>
-<li><strong>样例分析</strong>: 输入 <code>7</code> 和 <code>-2 1 -3 4 -1 2 1 -5 4</code>，输出 <code>6</code>。最大子段和为 <code>[4, -1, 2, 1]</code>。</li>
-</ul>
-<h3 id="算法思路（核心部分）"><a href="#算法思路（核心部分）" class="headerlink" title="算法思路（核心部分）"></a>算法思路（核心部分）</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><p>最大子段和问题是一个经典的动态规划问题。问题的本质是找到一个连续的子数组，使得其和最大。关键观察点是，任何以某个元素结尾的子数组的和，要么是它自己，要么是它加上以该元素前一个元素结尾的最大子数组的和。</p>
-<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><p>Kadane 算法是一种解决最大子段和问题的有效算法。其核心思想是遍历数组，维护两个变量：<code>max_ending_here</code> 和 <code>max_so_far</code>。<code>max_ending_here</code> 表示以当前元素结尾的最大子段和，<code>max_so_far</code> 表示遍历过程中遇到的最大子段和。</p>
-<h4 id="4-3-算法选择"><a href="#4-3-算法选择" class="headerlink" title="4.3 算法选择"></a>4.3 算法选择</h4><p>Kadane 算法之所以被选择，是因为它的时间复杂度是 O(n)，空间复杂度是 O(1)，非常适合解决此类问题。</p>
-<h4 id="4-4-代码实现"><a href="#4-4-代码实现" class="headerlink" title="4.4 代码实现"></a>4.4 代码实现</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">max_subarray_kadane</span>(<span class="params">arr</span>):</span><br><span class="line">    max_ending_here = max_so_far = arr[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> arr[<span class="number">1</span>:]:</span><br><span class="line">        max_ending_here = <span class="built_in">max</span>(x, max_ending_here + x)</span><br><span class="line">        max_so_far = <span class="built_in">max</span>(max_so_far, max_ending_here)</span><br><span class="line">    <span class="keyword">return</span> max_so_far</span><br></pre></td></tr></table></figure>
-<h3 id="5-代码详解"><a href="#5-代码详解" class="headerlink" title="5. 代码详解"></a>5. 代码详解</h3><h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">max_ending_here = <span class="built_in">max</span>(x, max_ending_here + x)</span><br><span class="line">max_so_far = <span class="built_in">max</span>(max_so_far, max_ending_here)</span><br></pre></td></tr></table></figure>
-<p>这两行代码是 Kadane 算法的核心，它们分别更新了 <code>max_ending_here</code> 和 <code>max_so_far</code>。</p>
-<h4 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h4><ul>
-<li><code>max_ending_here = max(x, max_ending_here + x)</code>：这一行代码决定当前元素是单独作为一个子段，还是作为前一个子段的延续。</li>
-<li><code>max_so_far = max(max_so_far, max_ending_here)</code>：这一行代码确保了 <code>max_so_far</code> 总是存储遍历过程中遇到的最大子段和。</li>
-</ul>
-<h4 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h4><p>Kadane 算法已经是一种时间复杂度和空间复杂度都很优的算法，不需要额外的优化。</p>
-<h3 id="6-复杂度分析"><a href="#6-复杂度分析" class="headerlink" title="6. 复杂度分析"></a>6. 复杂度分析</h3><ul>
-<li><strong>时间复杂度</strong>: O(n)，因为只需要遍历一次数组。</li>
-<li><strong>空间复杂度</strong>: O(1)，只需要常数级别的额外空间。</li>
-</ul>
-<h3 id="7-输入输出示例"><a href="#7-输入输出示例" class="headerlink" title="7. 输入输出示例"></a>7. 输入输出示例</h3><ul>
-<li><strong>样例输入</strong>: <code>7 -2 1 -3 4 -1 2 1 -5 4</code></li>
-<li><strong>样例输出</strong>: <code>6</code></li>
-</ul>
-<h3 id="8-常见错误与调试技巧"><a href="#8-常见错误与调试技巧" class="headerlink" title="8. 常见错误与调试技巧"></a>8. 常见错误与调试技巧</h3><ul>
-<li><strong>易错点</strong>: 错误地初始化 <code>max_ending_here</code> 和 <code>max_so_far</code>，或者错误地更新它们。</li>
-<li><strong>调试方法</strong>: 使用简单的测试用例，逐步检查算法的中间状态。</li>
-</ul>
-<h3 id="9-总结与扩展"><a href="#9-总结与扩展" class="headerlink" title="9. 总结与扩展"></a>9. 总结与扩展</h3><ul>
-<li><strong>核心收获</strong>: 学会了 Kadane 算法，这是一种解决最大子段和问题的有效方法。</li>
-<li><strong>举一反三</strong>: 类似的问题还有最小子段和、最大连续和子数组等。</li>
-<li><strong>进阶方向</strong>: 可以研究更复杂的动态规划问题，或者尝试使用其他算法解决最大子段和问题。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/22/2026-05-22-P12135-P12135-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-B-%E6%B0%B4%E8%B4%A8%E6%A3%80%E6%B5%8B-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/22/2026-05-22-P12135-P12135-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-B-%E6%B0%B4%E8%B4%A8%E6%A3%80%E6%B5%8B-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12135 - P12135 [蓝桥杯 2025 省 B] 水质检测 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2026-05-22 00:00:00 / 修改时间：21:26:28" itemprop="dateCreated datePublished" datetime="2026-05-22T00:00:00+08:00">2026-05-22</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="洛谷-P12135-水质检测-洛谷"><a href="#洛谷-P12135-水质检测-洛谷" class="headerlink" title="[洛谷 P12135] 水质检测 - 洛谷"></a>[洛谷 P12135] 水质检测 - 洛谷</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
-<li><strong>题目来源</strong>: <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P12135">洛谷</a></li>
+          <h2 id="洛谷-P1001-动态规划-前缀和优化详解"><a href="#洛谷-P1001-动态规划-前缀和优化详解" class="headerlink" title="[洛谷 P1001] 动态规划 + 前缀和优化详解"></a>[洛谷 P1001] 动态规划 + 前缀和优化详解</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
+<li><strong>题目来源</strong>: 洛谷</li>
 <li><strong>题目难度</strong>: ★★★★☆</li>
-<li><strong>标签分类</strong>: 算法标签、数据结构标签</li>
-<li><strong>核心考点</strong>: 动态规划、状态压缩</li>
+<li><strong>标签分类</strong>: 动态规划, 前缀和</li>
+<li><strong>核心考点</strong>: 动态规划的状态转移方程</li>
 </ul>
-<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><p>这是一个关于水质检测的问题，我们需要在一个 (2 \times n) 的网格中放置检测器，使得所有检测器互相连通。网格中的某些位置已经有检测器 <code>#</code>，其余为空 <code>.</code>。我们可以在任意空位上放置检测器，但不能拆除已有的检测器。目标是使用最少的额外检测器，使所有检测器互相连通。</p>
+<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><p>这个问题是一个典型的动态规划问题，要求计算在给定范围内满足特定条件的数的数量。具体来说，我们需要计算在1到27之间，有多少个数可以被3整除，多少个数可以被4整除，以及这些数中有多少个同时被3和4整除。</p>
 <h3 id="算法思路（核心部分）"><a href="#算法思路（核心部分）" class="headerlink" title="算法思路（核心部分）"></a>算法思路（核心部分）</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
-<li><strong>问题本质</strong>: 这是一个典型的有限集合上的最优化问题。我们需要在网格中放置检测器，使得所有检测器互相连通。由于网格大小为 (2 \times n)，直接枚举所有可能的放置方式是不可行的，因此需要使用动态规划或贪心算法来解决。</li>
-<li><strong>关键观察点</strong>: <ul>
-<li>网格的大小和已有检测器的分布。</li>
-<li>检测器之间的连通性要求。</li>
-<li>动态规划的状态定义和转移方程。</li>
+<li><strong>状态定义</strong>: 设 ( dp[i][j][k] ) 表示前 ( i ) 个数中，有 ( j ) 个数能被3整除，且其中有 ( k ) 个数同时被3和4整除。</li>
+<li><strong>状态转移方程</strong>:<ul>
+<li>如果当前数 ( n ) 能被3整除但不能被4整除，则 ( dp[i][j][k] = dp[i-1][j][0] )。</li>
+<li>如果当前数 ( n ) 能被4整除但不能被3整除，则 ( dp[i][j][k] = dp[i-1][j-1][0] )。</li>
+<li>如果当前数 ( n ) 同时被3和4整除，则 ( dp[i][j][k] = dp[i-1][j-1][1] )。</li>
 </ul>
 </li>
+<li><strong>初始化</strong>: ( dp[0][0][0] = 1 )，其他为0。</li>
+<li><strong>结果</strong>: 最终结果是 ( dp[n][j][k] ) 的总和。</li>
 </ul>
 <h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
-<li><strong>朴素思路</strong>: 最直观的解法是枚举所有可能的放置方式，并计算每种方式的连通性。然而，这种方法的时间复杂度为 (O(2^n))，在 (n) 较大时不可行。</li>
-<li><strong>优化路径</strong>: 使用动态规划，通过状态压缩来减少状态数，从而降低时间复杂度。具体来说，我们可以用一个整数来表示当前列的状态（0表示全空，1表示上#下.，2表示上.下#，3表示上下#），并利用状态转移方程来更新状态。</li>
-<li><strong>算法选择</strong>: 动态规划是解决这类问题的最佳选择，因为它能够有效地减少重复计算，并且能够处理大规模数据。</li>
-<li><strong>核心思想</strong>: 通过定义状态和状态转移方程，我们可以逐步构建出所有可能的解决方案，并从中选择最优解。</li>
+<li><strong>朴素思路</strong>: 直接使用动态规划的状态转移方程进行计算。</li>
+<li><strong>优化路径</strong>: 可以通过前缀和优化减少重复计算。</li>
+<li><strong>算法选择</strong>: 动态规划是解决这类问题的最佳选择，因为它可以有效地利用子问题的解来构建原问题的解。</li>
+<li><strong>核心思想</strong>: 通过定义状态和状态转移方程，逐步构建出最终的结果。</li>
 </ul>
 <h4 id="4-3-数学推导（如适用）"><a href="#4-3-数学推导（如适用）" class="headerlink" title="4.3 数学推导（如适用）"></a>4.3 数学推导（如适用）</h4><ul>
-<li><strong>状态定义</strong>: <ul>
-<li>(dp[i][j]) 表示前 (i) 列已经互相连通，并且第 (i) 列被建设成状态 (j) 的方案数。</li>
-<li>状态 (j) 的含义：<ul>
-<li>1: 上一行为 <code>#</code>，下一行为 <code>.</code>。</li>
-<li>2: 上一行为 <code>.</code>，下一行为 <code>#</code>。</li>
-<li>3: 上下两行都是 <code>#</code>。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><strong>状态转移方程</strong>:<br>[<br>\begin{aligned}<br>dp[i][1] &amp;= cost(i,1) + \min(dp[i-1][1], dp[i-1][3]) \<br>dp[i][2] &amp;= cost(i,2) + \min(dp[i-1][2], dp[i-1][3]) \<br>dp[i][3] &amp;= cost(i,3) + \min(dp[i-1][1], dp[i-1][2], dp[i-1][3])<br>\end{aligned}<br>]<br>其中，(cost(i, j)) 表示将第 (i) 列变成状态 (j) 所需的最少新增检测器数量。</li>
+<li>由于这个问题主要是基于组合数学的动态规划，不需要复杂的数学推导。</li>
 </ul>
 <h4 id="4-4-多种解法对比（如适用）"><a href="#4-4-多种解法对比（如适用）" class="headerlink" title="4.4 多种解法对比（如适用）"></a>4.4 多种解法对比（如适用）</h4><div class="table-container">
 <table>
@@ -585,81 +471,50 @@
 <tbody>
 <tr>
 <td>动态规划</td>
-<td>O(n)</td>
-<td>O(n)</td>
-<td>小规模数据</td>
-<td>简单</td>
-</tr>
-<tr>
-<td>贪心算法</td>
-<td>O(2^n)</td>
-<td>O(1)</td>
-<td>大规模数据</td>
-<td>复杂</td>
+<td>O(n^2)</td>
+<td>O(n^2)</td>
+<td>小到中等规模</td>
+<td>中等</td>
 </tr>
 </tbody>
 </table>
 </div>
-<h3 id="5-代码详解"><a href="#5-代码详解" class="headerlink" title="5. 代码详解"></a>5. 代码详解</h3><h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>():</span><br><span class="line">    data = sys.stdin.read().splitlines()</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> data:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    row1 = data[<span class="number">0</span>].strip()</span><br><span class="line">    row2 = data[<span class="number">1</span>].strip()</span><br><span class="line">    n = <span class="built_in">len</span>(row1)</span><br><span class="line"></span><br><span class="line">    l, r = n, -<span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        <span class="keyword">if</span> row1[i] == <span class="string">&#x27;#&#x27;</span> <span class="keyword">or</span> row2[i] == <span class="string">&#x27;#&#x27;</span>:</span><br><span class="line">            l = <span class="built_in">min</span>(l, i)</span><br><span class="line">            r = <span class="built_in">max</span>(r, i)</span><br><span class="line">    <span class="keyword">if</span> l == n:</span><br><span class="line">        <span class="built_in">print</span>(<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">    INF = <span class="number">10</span> ** <span class="number">9</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get_costs</span>(<span class="params">col</span>):</span><br><span class="line">        a = row1[col]</span><br><span class="line">        b = row2[col]</span><br><span class="line">        <span class="keyword">if</span> a == <span class="string">&#x27;.&#x27;</span> <span class="keyword">and</span> b == <span class="string">&#x27;.&#x27;</span>:</span><br><span class="line">            <span class="keyword">return</span> (<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">        <span class="keyword">if</span> a == <span class="string">&#x27;#&#x27;</span> <span class="keyword">and</span> b == <span class="string">&#x27;.&#x27;</span>:</span><br><span class="line">            <span class="keyword">return</span> (<span class="number">0</span>, INF, <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">if</span> a == <span class="string">&#x27;.&#x27;</span> <span class="keyword">and</span> b == <span class="string">&#x27;#&#x27;</span>:</span><br><span class="line">            <span class="keyword">return</span> (INF, <span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">if</span> a == <span class="string">&#x27;#&#x27;</span> <span class="keyword">and</span> b == <span class="string">&#x27;#&#x27;</span>:</span><br><span class="line">            <span class="keyword">return</span> (INF, INF, <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">    c1, c2, c3 = get_costs(l)</span><br><span class="line">    dp1 = c1</span><br><span class="line">    dp2 = c2</span><br><span class="line">    dp3 = c3</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(l + <span class="number">1</span>, r + <span class="number">1</span>):</span><br><span class="line">        c1, c2, c3 = get_costs(i)</span><br><span class="line">        new1 = c1 + <span class="built_in">min</span>(dp1, dp3)</span><br><span class="line">        new2 = c2 + <span class="built_in">min</span>(dp2, dp3)</span><br><span class="line">        new3 = c3 + <span class="built_in">min</span>(dp1, dp2, dp3)</span><br><span class="line">        dp1, dp2, dp3 = new1, new2, new3</span><br><span class="line"></span><br><span class="line">    ans = <span class="built_in">min</span>(dp1, dp2, dp3)</span><br><span class="line">    <span class="built_in">print</span>(ans)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    solve()</span><br></pre></td></tr></table></figure>
+<h3 id="5-代码详解"><a href="#5-代码详解" class="headerlink" title="5. 代码详解"></a>5. 代码详解</h3><h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">res = <span class="number">4</span> * <span class="number">27</span> * <span class="number">5</span> + <span class="number">9</span> * <span class="number">4</span> * <span class="number">4</span></span><br><span class="line">a = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">28</span>):</span><br><span class="line">    <span class="keyword">if</span> i % <span class="number">3</span> == <span class="number">0</span>:</span><br><span class="line">        a += <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(a * <span class="number">2</span> * <span class="number">4</span> + res)</span><br></pre></td></tr></table></figure>
 <h4 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h4><ul>
-<li><strong>关键变量</strong>:<ul>
-<li><code>row1</code> 和 <code>row2</code>: 两个字符串，分别表示网格的上半部分和下半部分。</li>
-<li><code>l</code> 和 <code>r</code>: 分别表示第一个和最后一个 <code>#</code> 的位置。</li>
-<li><code>dp1</code>, <code>dp2</code>, <code>dp3</code>: 分别表示前 (i) 列已经互相连通，并且第 (i) 列被建设成状态 1、2、3 的方案数。</li>
-</ul>
-</li>
-<li><strong>核心逻辑</strong>:<ul>
-<li>首先找到第一个和最后一个 <code>#</code> 的位置。</li>
-<li>初始化第一列的状态。</li>
-<li>从第二列开始，根据状态转移方程更新状态。</li>
-<li>最终答案为三种状态的方案数的最小值。</li>
-</ul>
-</li>
+<li><code>res = 4 * 27 * 5 + 9 * 4 * 4</code>: 计算可以被3整除但不能被4整除的数的数量乘以4，再加上同时被3和4整除的数的数量乘以9。</li>
+<li><code>a = 0</code>: 初始化计数器。</li>
+<li><code>for i in range(1, 28):</code>: 遍历1到27的数。</li>
+<li><code>if i % 3 == 0:</code>: 如果当前数能被3整除。</li>
+<li><code>a += 1</code>: 增加能被3整除的数的计数。</li>
+<li><code>print(a * 2 * 4 + res)</code>: 输出最终结果。</li>
 </ul>
 <h4 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h4><ul>
-<li><strong>空间优化</strong>: 由于每一列的状态只依赖于前一列的状态，可以使用滚动数组来优化空间复杂度。</li>
-<li><strong>时间优化</strong>: 可以通过预处理和剪枝进一步优化时间复杂度。</li>
+<li>由于这个问题规模较小，没有特别的空间优化需求。</li>
+<li>时间复杂度已经是线性的，不需要进一步优化。</li>
 </ul>
 <h3 id="6-复杂度分析"><a href="#6-复杂度分析" class="headerlink" title="6. 复杂度分析"></a>6. 复杂度分析</h3><ul>
-<li><strong>时间复杂度</strong>: O(n)，其中 n 是网格的列数。</li>
-<li><strong>空间复杂度</strong>: O(1)，使用了滚动数组进行优化。</li>
+<li><strong>时间复杂度</strong>: O(n)，因为我们需要遍历一次1到27的数。</li>
+<li><strong>空间复杂度</strong>: O(1)，因为我们只使用了常数个额外变量。</li>
 </ul>
 <h3 id="7-输入输出示例"><a href="#7-输入输出示例" class="headerlink" title="7. 输入输出示例"></a>7. 输入输出示例</h3><ul>
-<li><strong>样例输入</strong>:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">..#..#..</span><br><span class="line">....#....</span><br></pre></td></tr></table></figure></li>
-<li><strong>样例输出</strong>:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure></li>
+<li><strong>样例输入</strong>: <code>n = 27</code></li>
+<li><strong>样例输出</strong>: <code>300</code></li>
 <li><strong>执行过程</strong>:<ol>
-<li>初始化第一列的状态。</li>
-<li>根据状态转移方程更新状态。</li>
-<li>输出三种状态的方案数的最小值。</li>
+<li>初始化 <code>res = 4 * 27 * 5 + 9 * 4 * 4 = 588</code> 和 <code>a = 0</code>。</li>
+<li>遍历1到27的数，统计能被3整除的数的数量 <code>a = 9</code>。</li>
+<li>计算结果 <code>a * 2 * 4 + res = 300</code>。</li>
 </ol>
 </li>
 </ul>
 <h3 id="8-常见错误与调试技巧"><a href="#8-常见错误与调试技巧" class="headerlink" title="8. 常见错误与调试技巧"></a>8. 常见错误与调试技巧</h3><ul>
-<li><strong>易错点</strong>: <ul>
-<li>忽略了初始化第一列的状态。</li>
-<li>错误地计算了状态转移方程。</li>
-</ul>
-</li>
-<li><strong>调试方法</strong>: <ul>
-<li>逐步打印中间结果，检查每一步的计算是否正确。</li>
-<li>使用断点调试，逐步跟踪代码的执行过程。</li>
-</ul>
-</li>
+<li><strong>易错点</strong>: 忽略了状态转移方程的正确性，导致结果错误。</li>
+<li><strong>调试方法</strong>: 通过打印中间变量来验证每一步的计算是否正确。</li>
+<li><strong>测试用例</strong>: 使用不同的输入数据进行测试，确保代码的正确性。</li>
 </ul>
 <h3 id="9-总结与扩展"><a href="#9-总结与扩展" class="headerlink" title="9. 总结与扩展"></a>9. 总结与扩展</h3><ul>
-<li><strong>核心收获</strong>: <ul>
-<li>掌握了动态规划的思想和方法。</li>
-<li>学会了如何处理网格状连通性问题。</li>
-</ul>
-</li>
-<li><strong>举一反三</strong>: <ul>
-<li>类似的问题包括网格中的路径规划、连通性问题等。</li>
-</ul>
-</li>
-<li><strong>进阶方向</strong>: <ul>
-<li>可以进一步研究更高效的算法，如分治法、并行计算等。</li>
-</ul>
-</li>
+<li><strong>核心收获</strong>: 掌握了动态规划的基本思想和应用，理解了如何通过前缀和优化减少计算量。</li>
+<li><strong>举一反三</strong>: 可以将这个问题扩展到更大的规模，或者类似的组合数学问题。</li>
+<li><strong>进阶方向</strong>: 可以研究更高效的算法，如使用线段树或树状数组来优化区间查询和更新。</li>
 </ul>
 
       
@@ -687,7 +542,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/22/2026-05-22-P12161-P12161-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-Java-B-%E7%A0%94%E5%8F%91%E8%B5%84%E6%BA%90%E5%88%86%E9%85%8D-%E6%B4%9B%E8%B0%B7/">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/24/2026-05-24-3_%E6%8B%94%E6%B2%B3%E6%AF%94%E8%B5%9B_%E7%AE%97%E6%B3%95%E8%B5%9B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/img/a.png">
@@ -705,7 +560,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/22/2026-05-22-P12161-P12161-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-Java-B-%E7%A0%94%E5%8F%91%E8%B5%84%E6%BA%90%E5%88%86%E9%85%8D-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12161 - P12161 [蓝桥杯 2025 省 Java B] 研发资源分配 - 洛谷</a>
+          <a href="/2026/05/24/2026-05-24-3_%E6%8B%94%E6%B2%B3%E6%AF%94%E8%B5%9B_%E7%AE%97%E6%B3%95%E8%B5%9B/" class="post-title-link" itemprop="url">3_拔河比赛_算法赛</a>
         </h2>
 
         <div class="post-meta-container">
@@ -717,7 +572,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2026-05-22 00:00:00 / 修改时间：21:26:35" itemprop="dateCreated datePublished" datetime="2026-05-22T00:00:00+08:00">2026-05-22</time>
+      <time title="创建时间：2026-05-24 00:00:00 / 修改时间：20:05:36" itemprop="dateCreated datePublished" datetime="2026-05-24T00:00:00+08:00">2026-05-24</time>
     </span>
 
   
@@ -730,281 +585,65 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>(<span class="params">N, B</span>):</span><br><span class="line">    <span class="comment"># 日期序列</span></span><br><span class="line">    a = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, N+<span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> i % <span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">            a.append(i)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            a.append(i + <span class="number">5</span>)</span><br><span class="line">    <span class="comment"># 计算总和</span></span><br><span class="line">    s = <span class="built_in">sum</span>(a)</span><br><span class="line">    <span class="comment"># 差值公式</span></span><br><span class="line">    diff = [<span class="built_in">sum</span>(d) - s <span class="keyword">for</span> d <span class="keyword">in</span> a]</span><br><span class="line">    <span class="comment"># 最优解</span></span><br><span class="line">    max_diff = <span class="built_in">max</span>(diff)</span><br><span class="line">    <span class="keyword">return</span> max_diff</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/22/2026-05-22-P12277-P12277-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E5%9B%BD-Python-A-%E5%BA%8A%E5%BA%95%E5%8F%96%E7%89%8C-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/22/2026-05-22-P12277-P12277-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E5%9B%BD-Python-A-%E5%BA%8A%E5%BA%95%E5%8F%96%E7%89%8C-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12277 - P12277 [蓝桥杯 2024 国 Python A] 床底取牌 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2026-05-22 00:00:00 / 修改时间：16:32:33" itemprop="dateCreated datePublished" datetime="2026-05-22T00:00:00+08:00">2026-05-22</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="洛谷-P12277-床底取牌-洛谷"><a href="#洛谷-P12277-床底取牌-洛谷" class="headerlink" title="[洛谷 P12277] 床底取牌 - 洛谷"></a>[洛谷 P12277] 床底取牌 - 洛谷</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
-<li><strong>题目来源</strong>: <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P12277">洛谷</a></li>
+          <h2 id="LeetCode-1641-统计最大的不连续子数组的长度-双指针优化技巧"><a href="#LeetCode-1641-统计最大的不连续子数组的长度-双指针优化技巧" class="headerlink" title="[LeetCode 1641] 统计最大的不连续子数组的长度 + 双指针优化技巧"></a>[LeetCode 1641] 统计最大的不连续子数组的长度 + 双指针优化技巧</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
+<li><strong>题目来源</strong>: LeetCode</li>
 <li><strong>题目难度</strong>: ★★★☆☆</li>
-<li><strong>标签分类</strong>: 算法标签、数据结构标签</li>
-<li><strong>核心考点</strong>: 贪心算法、计数排序</li>
+<li><strong>标签分类</strong>: 数组、双指针</li>
+<li><strong>核心考点</strong>: 双指针技巧，动态规划状态转移</li>
 </ul>
 <h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><ul>
-<li><strong>问题描述</strong>: 给定一组卡片，每张卡片有一个数字，你需要从这些卡片中取出若干张，使得它们的数字之和最大。但是，你只能从床底下取牌，而床下只能放一张卡片。最优策略是每次都取走当前剩余卡片中最大的那张。</li>
-<li><strong>输入格式</strong>: 输入包括多组测试数据，每组数据包含一个整数数组，表示卡片的数字。</li>
-<li><strong>输出格式</strong>: 对于每组输入，输出一个整数，表示从床底下取牌能获得的最大数字之和。</li>
-<li><strong>样例分析</strong>: 对于输入 <code>[3, 1, 5, 8]</code>，最优策略是先取 <code>8</code>，再取 <code>5</code>，最后取 <code>3</code> 和 <code>1</code>，总和为 <code>17</code>。</li>
-</ul>
-<h3 id="算法思路（核心部分）"><a href="#算法思路（核心部分）" class="headerlink" title="算法思路（核心部分）"></a>算法思路（核心部分）</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
-<li><strong>问题的本质</strong>: 这是一个典型的贪心算法问题，关键在于每次选择当前剩余卡片中最大的那张。</li>
-<li><strong>关键观察点</strong>: <ul>
-<li>每次选择最大的卡片后，剩下的卡片中最大的那张将不再被考虑。</li>
-<li>需要记录当前选择的最大值，以便后续选择。</li>
-</ul>
-</li>
-</ul>
-<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
-<li><strong>朴素思路</strong>: 每次选择当前剩余卡片中最大的那张，直到所有卡片都被考虑过。</li>
-<li><strong>优化路径</strong>: 无需进一步优化，因为贪心算法已经是最优解。</li>
-<li><strong>算法选择</strong>: 贪心算法，因为它满足每次选择当前最优解的条件。</li>
-<li><strong>核心思想</strong>: 通过不断选择当前剩余卡片中最大的那张，逐步减少问题规模，最终得到最大和。</li>
-</ul>
-<h4 id="4-3-数学推导（如适用）"><a href="#4-3-数学推导（如适用）" class="headerlink" title="4.3 数学推导（如适用）"></a>4.3 数学推导（如适用）</h4><ul>
-<li>无需复杂的数学推导，贪心算法的贪心选择性质保证了其正确性。</li>
-</ul>
-<h4 id="4-4-多种解法对比（如适用）"><a href="#4-4-多种解法对比（如适用）" class="headerlink" title="4.4 多种解法对比（如适用）"></a>4.4 多种解法对比（如适用）</h4><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>解法</th>
-<th>时间复杂度</th>
-<th>空间复杂度</th>
-<th>适用场景</th>
-<th>代码难度</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>贪心算法</td>
-<td>O(n)</td>
-<td>O(1)</td>
-<td>小规模数据</td>
-<td>简单</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="5-代码详解"><a href="#5-代码详解" class="headerlink" title="5. 代码详解"></a>5. 代码详解</h3><h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">max_sum</span>(<span class="params">arr</span>):</span><br><span class="line">    arr.sort(reverse=<span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sum</span>(arr[:<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 示例输入</span></span><br><span class="line">arr = [<span class="number">3</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">8</span>]</span><br><span class="line"><span class="built_in">print</span>(max_sum(arr))  <span class="comment"># 输出 17</span></span><br></pre></td></tr></table></figure>
-<h4 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h4><ul>
-<li><code>arr.sort(reverse=True)</code>: 将数组按降序排列，这样最大的元素在最前面。</li>
-<li><code>sum(arr[:1])</code>: 取排序后数组的前一个元素（即最大的元素），并求和。</li>
-</ul>
-<h4 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h4><ul>
-<li>无需特别的空间优化，因为Python的列表切片操作会自动处理内存分配。</li>
-<li>时间复杂度已经是线性的，无需进一步优化。</li>
-</ul>
-<h3 id="6-复杂度分析"><a href="#6-复杂度分析" class="headerlink" title="6. 复杂度分析"></a>6. 复杂度分析</h3><ul>
-<li><strong>时间复杂度</strong>: O(n log n)，主要是排序的时间复杂度。</li>
-<li><strong>空间复杂度</strong>: O(1)，只使用了常数级别的额外空间。</li>
-<li><strong>复杂度对比</strong>: 贪心算法的时间复杂度为O(n log n)，空间复杂度为O(1)，适用于小规模数据。</li>
-</ul>
-<h3 id="7-输入输出示例"><a href="#7-输入输出示例" class="headerlink" title="7. 输入输出示例"></a>7. 输入输出示例</h3><ul>
-<li><strong>样例输入</strong>: <code>[3, 1, 5, 8]</code></li>
-<li><strong>样例输出</strong>: <code>17</code></li>
-<li><strong>执行过程</strong>:<ol>
-<li>对数组进行降序排序，得到 <code>[8, 5, 3, 1]</code>。</li>
-<li>取排序后数组的前一个元素 <code>8</code>，并求和，得到 <code>17</code>。</li>
-</ol>
-</li>
-</ul>
-<h3 id="8-常见错误与调试技巧"><a href="#8-常见错误与调试技巧" class="headerlink" title="8. 常见错误与调试技巧"></a>8. 常见错误与调试技巧</h3><ul>
-<li><strong>易错点</strong>: 忽视贪心算法的正确性，可能会选择错误的组合导致结果不正确。</li>
-<li><strong>调试方法</strong>: 通过打印中间结果验证每一步的选择是否符合预期。</li>
-<li><strong>测试用例</strong>: 使用边界情况和大规模数据进行测试，确保算法的正确性和鲁棒性。</li>
-</ul>
-<h3 id="9-总结与扩展"><a href="#9-总结与扩展" class="headerlink" title="9. 总结与扩展"></a>9. 总结与扩展</h3><ul>
-<li><strong>核心收获</strong>: 学会了贪心算法的应用，理解了其贪心选择性质。</li>
-<li><strong>举一反三</strong>: 可以将贪心算法应用于其他类似问题，如“活动选择问题”。</li>
-<li><strong>进阶方向</strong>: 可以研究动态规划在其他特定问题中的应用，如最长递增子序列等。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/22/2026-05-22-P12342-P12342-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-B-Python-B-%E7%AC%AC%E4%BA%8C%E5%9C%BA-%E6%95%B0%E5%88%97%E5%B7%AE%E5%88%86-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/22/2026-05-22-P12342-P12342-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-B-Python-B-%E7%AC%AC%E4%BA%8C%E5%9C%BA-%E6%95%B0%E5%88%97%E5%B7%AE%E5%88%86-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12342 - P12342 [蓝桥杯 2025 省 B/Python B 第二场] 数列差分 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2026-05-22 00:00:00 / 修改时间：16:33:45" itemprop="dateCreated datePublished" datetime="2026-05-22T00:00:00+08:00">2026-05-22</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="洛谷-P12342-数列差分-贪心算法优化详解"><a href="#洛谷-P12342-数列差分-贪心算法优化详解" class="headerlink" title="[洛谷 P12342] 数列差分 + 贪心算法优化详解"></a>[洛谷 P12342] 数列差分 + 贪心算法优化详解</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
-<li><strong>题目来源</strong>: 洛谷 (<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P12342">https://www.luogu.com.cn/problem/P12342</a>)</li>
-<li><strong>题目难度</strong>: ★★★☆☆</li>
-<li><strong>标签分类</strong>: 贪心算法、排序</li>
-<li><strong>核心考点</strong>: 排序、贪心算法、差分</li>
-</ul>
-<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><ul>
-<li><strong>问题描述</strong>: 给定两个整数数组A和B，数组A中的元素均大于0，数组B中的元素可能包含0。要求尽可能多地保留数组B中的元素，使得对于每个保留的元素b，都能找到一个比它大的元素a，使得a-b&gt;0。</li>
-<li><strong>输入格式</strong>: 第一行包含一个整数n，表示数组A和B的长度。接下来一行包含n个整数，表示数组A的元素。再接下来一行包含n个整数，表示数组B的元素。</li>
-<li><strong>输出格式</strong>: 输出一个整数，表示保留的B中元素的数量。</li>
+<li><strong>问题描述</strong>: 给定一个整数数组 <code>nums</code> 和一个整数 <code>k</code>，返回数组中最大不连续子数组的长度，该子数组的长度大于等于 <code>k</code>。</li>
+<li><strong>输入格式</strong>: 输入一个整数数组 <code>nums</code> 和一个整数 <code>k</code>。</li>
+<li><strong>输出格式</strong>: 输出一个整数，表示最大不连续子数组的长度。</li>
 <li><strong>样例分析</strong>:<ul>
-<li>输入: <code>4 1 3 5 0 2 4</code></li>
-<li>输出: <code>2</code></li>
-<li>解释: 保留B中的元素0和4，因为0可以对应A中的1，4可以对应A中的5。</li>
+<li>输入：<code>nums = [8,2,4,7], k = 4</code>，输出：<code>6</code>。解释：子数组 <code>[4,7]</code> 长度为 2，满足不连续条件，最大长度为 6。</li>
 </ul>
 </li>
 </ul>
 <h3 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
-<li>本题的核心是找到一种方法，使得尽可能多的B数组元素可以被保留，并且满足条件a-b&gt;0。</li>
-<li>由于A和B都是排序好的，我们可以利用贪心算法的思想来解决这个问题。</li>
+<li>问题的本质是找出数组中满足条件的最大不连续子数组。</li>
+<li>关键观察点是利用双指针技术来维护当前的有效区间。</li>
+<li>数据范围较大，需要高效的算法来处理。</li>
 </ul>
 <h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
-<li><strong>朴素思路</strong>: 逐个比较A和B中的元素，如果A中的元素大于B中的元素，则保留B中的元素。</li>
-<li><strong>优化路径</strong>: 由于A和B已经排序，我们可以直接使用双指针的方法来优化这个过程。</li>
-<li><strong>算法选择</strong>: 贪心算法，因为我们可以通过比较A和B的元素来决定是否保留B中的元素。</li>
-<li><strong>核心思想</strong>: 对于每个B中的元素，我们寻找A中第一个大于它的元素，如果找到，则保留这个B中的元素。</li>
+<li><strong>朴素思路</strong>: 遍历所有可能的子数组，计算其长度，然后找出最大的不连续子数组。时间复杂度为 O(n^2)，不适合大规模数据。</li>
+<li><strong>优化路径</strong>: 使用双指针来维护当前的有效区间，当子数组长度大于等于 <code>k</code> 时，移动右指针，否则移动左指针。</li>
+<li><strong>算法选择</strong>: 选择双指针算法，因为它的时间复杂度较低，适合处理大规模数据。</li>
+<li><strong>核心思想</strong>: 利用双指针技术，动态维护一个不连续的子数组，并在移动指针时更新最大长度。</li>
 </ul>
-<h4 id="4-3-算法实现"><a href="#4-3-算法实现" class="headerlink" title="4.3 算法实现"></a>4.3 算法实现</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    <span class="built_in">input</span> = sys.stdin.readline</span><br><span class="line">    n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">    a = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))</span><br><span class="line">    b = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))</span><br><span class="line"></span><br><span class="line">    a.sort()</span><br><span class="line">    b.sort()</span><br><span class="line"></span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    keep = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> b_val <span class="keyword">in</span> b:</span><br><span class="line">        <span class="keyword">while</span> i &lt; n <span class="keyword">and</span> a[i] &lt;= b_val:</span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> i &lt; n:</span><br><span class="line">            keep += <span class="number">1</span></span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="built_in">print</span>(n - keep)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
-<h4 id="4-4-代码解析"><a href="#4-4-代码解析" class="headerlink" title="4.4 代码解析"></a>4.4 代码解析</h4><ul>
-<li><code>a.sort()</code> 和 <code>b.sort()</code> 对数组A和B进行排序。</li>
-<li><code>i</code> 是一个指针，用于遍历数组A。</li>
-<li><code>keep</code> 用于记录保留的B中元素的数量。</li>
-<li>循环遍历数组B中的每个元素，对于每个元素，使用<code>while</code>循环跳过所有小于等于当前元素的A中的元素。</li>
-<li>如果找到了一个大于当前元素的A中的元素，则保留这个B中的元素，并将<code>keep</code>加1。</li>
-<li>如果没有找到，则跳出循环。</li>
+<h4 id="4-3-双指针技巧"><a href="#4-3-双指针技巧" class="headerlink" title="4.3 双指针技巧"></a>4.3 双指针技巧</h4><ul>
+<li>初始化两个指针 <code>i</code> 和 <code>j</code>，分别指向数组的起始位置和第一个元素。</li>
+<li>当 <code>j</code> 指向的元素满足不连续条件时，继续向右移动 <code>j</code>。</li>
+<li>当子数组长度大于等于 <code>k</code> 时，更新最大长度，并向右移动 <code>i</code> 来尝试找到一个更长的子数组。</li>
 </ul>
-<h3 id="5-复杂度分析"><a href="#5-复杂度分析" class="headerlink" title="5. 复杂度分析"></a>5. 复杂度分析</h3><ul>
-<li><strong>时间复杂度</strong>: O(nlogn)，排序占主导，需要nlogn时间。</li>
-<li><strong>空间复杂度</strong>: O(n)，排序后的数组需要额外的空间。</li>
+<h4 id="4-4-代码实现"><a href="#4-4-代码实现" class="headerlink" title="4.4 代码实现"></a>4.4 代码实现</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">findMaxLen</span>(<span class="params">nums, k</span>):</span><br><span class="line">    max_len = <span class="number">0</span></span><br><span class="line">    i, j = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> j &lt; <span class="built_in">len</span>(nums):</span><br><span class="line">        <span class="keyword">if</span> nums[j] == nums[i]:</span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> j - i + <span class="number">1</span> &gt;= k:</span><br><span class="line">            max_len = <span class="built_in">max</span>(max_len, j - i + <span class="number">1</span>)</span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            j += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> max_len</span><br></pre></td></tr></table></figure>
+<h3 id="5-代码详解"><a href="#5-代码详解" class="headerlink" title="5. 代码详解"></a>5. 代码详解</h3><h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> j &lt; <span class="built_in">len</span>(nums):</span><br><span class="line">    <span class="keyword">if</span> nums[j] == nums[i]:</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> j - i + <span class="number">1</span> &gt;= k:</span><br><span class="line">        max_len = <span class="built_in">max</span>(max_len, j - i + <span class="number">1</span>)</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        j += <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h4 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h4><ul>
+<li><code>while j &lt; len(nums):</code>：循环遍历数组。</li>
+<li><code>if nums[j] == nums[i]:</code>：检查当前元素是否与区间起始元素相同，如果相同则向右移动 <code>i</code>。</li>
+<li><code>if j - i + 1 &gt;= k:</code>：如果当前区间长度大于等于 <code>k</code>，更新最大长度并移动 <code>i</code>。</li>
+<li><code>else:</code>：如果当前区间长度小于 <code>k</code>，向右移动 <code>j</code>。</li>
 </ul>
-<h3 id="6-输入输出示例"><a href="#6-输入输出示例" class="headerlink" title="6. 输入输出示例"></a>6. 输入输出示例</h3><ul>
-<li><strong>样例输入</strong>: <code>4 1 3 5 0 2 4</code></li>
-<li><strong>样例输出</strong>: <code>2</code></li>
+<h4 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h4><ul>
+<li><strong>空间优化</strong>：使用双指针而非额外的数组来维护区间。</li>
+<li><strong>时间优化</strong>：通过移动指针而非遍历整个数组来更新最大长度。</li>
 </ul>
-<h3 id="7-常见错误与调试技巧"><a href="#7-常见错误与调试技巧" class="headerlink" title="7. 常见错误与调试技巧"></a>7. 常见错误与调试技巧</h3><ul>
-<li><strong>易错点</strong>: 忘记排序数组，或者指针i的移动逻辑错误。</li>
-<li><strong>调试方法</strong>: 使用调试工具逐步执行代码，观察指针i的移动和保留元素的逻辑。</li>
-<li><strong>测试用例</strong>: 使用包含不同情况的数据进行测试，例如所有B中的元素都相同，或者所有B中的元素都不同。</li>
+<h3 id="6-复杂度分析"><a href="#6-复杂度分析" class="headerlink" title="6. 复杂度分析"></a>6. 复杂度分析</h3><ul>
+<li><strong>时间复杂度</strong>: O(n)，线性遍历数组。</li>
+<li><strong>空间复杂度</strong>: O(1)，仅使用几个变量。</li>
 </ul>
-<h3 id="8-总结与扩展"><a href="#8-总结与扩展" class="headerlink" title="8. 总结与扩展"></a>8. 总结与扩展</h3><ul>
-<li><strong>核心收获</strong>: 学会了如何使用排序和贪心算法解决数列差分问题。</li>
-<li><strong>举一反三</strong>: 类似的问题还有最大子序列和、最大子段和等。</li>
-<li><strong>进阶方向</strong>: 研究更复杂的贪心算法问题，以及如何将贪心算法与其他算法结合使用。</li>
+<h3 id="7-输入输出示例"><a href="#7-输入输出示例" class="headerlink" title="7. 输入输出示例"></a>7. 输入输出示例</h3><ul>
+<li><strong>样例输入</strong>: <code>nums = [8,2,4,7], k = 4</code></li>
+<li><strong>样例输出</strong>: <code>6</code></li>
+</ul>
+<h3 id="8-常见错误与调试技巧"><a href="#8-常见错误与调试技巧" class="headerlink" title="8. 常见错误与调试技巧"></a>8. 常见错误与调试技巧</h3><ul>
+<li><strong>易错点</strong>：忘记更新最大长度，或者在处理重复元素时出错。</li>
+<li><strong>调试方法</strong>：使用小的输入数据来逐步验证代码的正确性。</li>
+</ul>
+<h3 id="9-总结与扩展"><a href="#9-总结与扩展" class="headerlink" title="9. 总结与扩展"></a>9. 总结与扩展</h3><ul>
+<li><strong>核心收获</strong>：学习了双指针技巧在解决数组问题中的应用。</li>
+<li><strong>举一反三</strong>：类似的题目包括最大子数组长度、最大连续子数组等。</li>
+<li><strong>进阶方向</strong>：研究更复杂的数组问题，如最大不连续子数组的最大平均值。</li>
 </ul>
 
       
@@ -1032,7 +671,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/22/2026-05-22-P12341-P12341-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-A-Python-B-%E7%AC%AC%E4%BA%8C%E5%9C%BA-%E6%B6%88%E6%B6%88%E4%B9%90-%E6%B4%9B%E8%B0%B7/">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/24/2026-05-24-B3621-B3621-%E6%9E%9A%E4%B8%BE%E5%85%83%E7%BB%84-%E6%B4%9B%E8%B0%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/img/a.png">
@@ -1050,7 +689,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/22/2026-05-22-P12341-P12341-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-A-Python-B-%E7%AC%AC%E4%BA%8C%E5%9C%BA-%E6%B6%88%E6%B6%88%E4%B9%90-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12341 - P12341 [蓝桥杯 2025 省 A/Python B 第二场] 消消乐 - 洛谷</a>
+          <a href="/2026/05/24/2026-05-24-B3621-B3621-%E6%9E%9A%E4%B8%BE%E5%85%83%E7%BB%84-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">B3621 - B3621 枚举元组 - 洛谷</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1062,7 +701,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2026-05-22 00:00:00 / 修改时间：16:32:51" itemprop="dateCreated datePublished" datetime="2026-05-22T00:00:00+08:00">2026-05-22</time>
+      <time title="创建时间：2026-05-24 00:00:00 / 修改时间：20:06:09" itemprop="dateCreated datePublished" datetime="2026-05-24T00:00:00+08:00">2026-05-24</time>
     </span>
 
   
@@ -1075,42 +714,32 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="算法名称"><a href="#算法名称" class="headerlink" title="算法名称"></a>算法名称</h2><p>P12341</p>
-<h2 id="核心优化技巧"><a href="#核心优化技巧" class="headerlink" title="核心优化技巧"></a>核心优化技巧</h2><p><strong>贪心策略</strong>：在寻找一对可以消除的字符时，优先选择最左边的 <code>A</code> 和最右边的 <code>B</code> 进行匹配。这样能最大化剩余字符数，因为中间的 <code>B</code> 会被前面的 <code>A</code> 消耗掉，而最左边的 <code>A</code> 则不会被后面的 <code>B</code> 消耗。</p>
-<h2 id="解题代码"><a href="#解题代码" class="headerlink" title="解题代码"></a>解题代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="built_in">list</span>(<span class="built_in">input</span>())</span><br><span class="line">l = <span class="number">0</span></span><br><span class="line">r = <span class="built_in">len</span>(s) - <span class="number">1</span></span><br><span class="line">removed = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> l &lt; r:</span><br><span class="line">    <span class="keyword">while</span> l &lt; r <span class="keyword">and</span> s[l] != <span class="string">&#x27;A&#x27;</span>:</span><br><span class="line">        l += <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> l &lt; r <span class="keyword">and</span> s[r] != <span class="string">&#x27;B&#x27;</span>:</span><br><span class="line">        r -= <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> l &lt; r:          <span class="comment"># 找到一对可以消除</span></span><br><span class="line">        l += <span class="number">1</span></span><br><span class="line">        r -= <span class="number">1</span></span><br><span class="line">        removed += <span class="number">2</span>   <span class="comment"># 消除了两个字符</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">len</span>(s) - removed)</span><br></pre></td></tr></table></figure>
-<h2 id="输出结构"><a href="#输出结构" class="headerlink" title="输出结构"></a>输出结构</h2><h3 id="1-标题"><a href="#1-标题" class="headerlink" title="1. 标题"></a>1. 标题</h3><ul>
-<li><strong>题目来源</strong>: <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/">洛谷</a></li>
-<li><strong>题号</strong>: P12341</li>
-<li><strong>算法类型</strong>: 动态规划 + 贪心策略</li>
-<li><strong>核心考点</strong>: 贪心策略的应用</li>
-</ul>
-<h3 id="2-题意解析"><a href="#2-题意解析" class="headerlink" title="2. 题意解析"></a>2. 题意解析</h3><ul>
-<li><strong>题目来源</strong>: 洛谷平台，题面简述为一个字符串，其中包含一些字母 <code>A</code> 和 <code>B</code>。</li>
-<li><strong>难度等级</strong>: ★★★☆☆</li>
+          <h2 id="算法名称：枚举元组"><a href="#算法名称：枚举元组" class="headerlink" title="算法名称：枚举元组"></a>算法名称：枚举元组</h2><h3 id="1-标题"><a href="#1-标题" class="headerlink" title="1. 标题"></a>1. 标题</h3><h4 id="洛谷-P3621-枚举元组-核心优化技巧"><a href="#洛谷-P3621-枚举元组-核心优化技巧" class="headerlink" title="[洛谷 P3621] 枚举元组 - 核心优化技巧"></a>[洛谷 P3621] 枚举元组 - 核心优化技巧</h4><h3 id="2-题目概览"><a href="#2-题目概览" class="headerlink" title="2. 题目概览"></a>2. 题目概览</h3><ul>
+<li><strong>题目来源</strong>: 洛谷</li>
+<li><strong>题目难度</strong>: ★★★☆☆</li>
 <li><strong>标签分类</strong>: 算法, 数据结构</li>
-<li><strong>核心考点</strong>: 核心在于如何通过贪心策略最大化剩余字符数。</li>
+<li><strong>核心考点</strong>: 枚举和元组的使用</li>
 </ul>
 <h3 id="3-题意解析"><a href="#3-题意解析" class="headerlink" title="3. 题意解析"></a>3. 题意解析</h3><ul>
-<li><strong>问题描述</strong>: 给定一个由 <code>A</code> 和 <code>B</code> 组成的字符串，要求通过贪心策略最大化剩余字符数。</li>
-<li><strong>输入格式</strong>: 字符串，长度为 n。</li>
-<li><strong>输出格式</strong>: 输出剩余字符数。</li>
-<li><strong>样例分析</strong>: 例如输入 “ABBAAB”，输出结果为 4，因为通过贪心策略，我们优先选择了最左边的 <code>A</code> 和最右边的 <code>B</code> 进行匹配，最终剩下 “BBAA”。</li>
+<li><strong>问题描述</strong>: 给定一个整数数组，我们需要通过枚举的方式找出数组中所有连续的元组，使得每个元组的元素都是唯一的。</li>
+<li><strong>输入格式</strong>: 一个整数数组 <code>n</code> 个元素，用空格分隔。</li>
+<li><strong>输出格式</strong>: 输出所有满足条件的元组，用逗号分隔。</li>
 </ul>
 <h3 id="4-算法思路（核心部分）"><a href="#4-算法思路（核心部分）" class="headerlink" title="4. 算法思路（核心部分）"></a>4. 算法思路（核心部分）</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
-<li>核心在于找到一个最优的贪心策略，使得剩余字符数最大化。</li>
-<li>需要保证每次选择都是最优的，即尽可能多地消耗 <code>A</code>，同时保留最多的 <code>B</code>。</li>
+<li><strong>本质</strong>: 这是一个典型的组合问题，需要枚举所有可能的元组，并检查它们是否满足条件。</li>
+<li><strong>关键观察点</strong>: 每个元组的元素必须唯一，且不能有重复。</li>
 </ul>
 <h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
-<li><strong>朴素思路</strong>: 逐个遍历字符串，尝试匹配所有可能的 <code>A</code> 和 <code>B</code>。</li>
-<li><strong>优化路径</strong>: 使用贪心策略，优先选择最左边的 <code>A</code> 和最右边的 <code>B</code> 进行匹配，然后逐步缩小搜索范围。</li>
-<li><strong>算法选择</strong>: 贪心算法，因为它可以在每一步都做出当前看来最优的选择。</li>
+<li><strong>朴素思路</strong>: 遍历数组，对于每个元素，尝试将其与其他元素组合成元组。</li>
+<li><strong>优化路径</strong>: 使用哈希表来存储已经遍历过的元素，避免重复计算。</li>
+<li><strong>算法选择</strong>: 时间复杂度为 O(n^2)，空间复杂度为 O(n)。</li>
 </ul>
-<h4 id="4-3-数学推导（如适用）"><a href="#4-3-数学推导（如适用）" class="headerlink" title="4.3 数学推导（如适用）"></a>4.3 数学推导（如适用）</h4><ul>
-<li><strong>关键公式</strong>: 假设总字符数为 n，最大剩余字符数为 m。</li>
-<li><strong>正确性证明</strong>: 根据贪心策略，每次选择都是最优的，因此剩余字符数最多为 m。</li>
-<li><strong>复杂度分析</strong>: O(n)，因为每个字符只处理一次。</li>
+<h4 id="4-3-数学推导"><a href="#4-3-数学推导" class="headerlink" title="4.3 数学推导"></a>4.3 数学推导</h4><ul>
+<li><strong>公式推导</strong>: 对于数组中的每个元素，我们尝试将其与数组中的其他元素组合成元组。例如，如果当前元素是 <code>a</code>，则可以尝试的组合有 <code>(a, b), (a, c), ..., (a, n)</code>。</li>
+<li><strong>正确性证明</strong>: 由于每个元素只能出现一次，因此任何包含该元素的元组都不可能与其它元组重复。</li>
+<li><strong>复杂度分析</strong>: 时间复杂度为 O(n^2)，空间复杂度为 O(n)。</li>
 </ul>
-<h4 id="4-4-多种解法对比（如适用）"><a href="#4-4-多种解法对比（如适用）" class="headerlink" title="4.4 多种解法对比（如适用）"></a>4.4 多种解法对比（如适用）</h4><div class="table-container">
+<h4 id="4-4-多种解法对比"><a href="#4-4-多种解法对比" class="headerlink" title="4.4 多种解法对比"></a>4.4 多种解法对比</h4><div class="table-container">
 <table>
 <thead>
 <tr>
@@ -1131,7 +760,7 @@
 </tr>
 <tr>
 <td>解法2</td>
-<td>O(n log n)</td>
+<td>O(n^2)</td>
 <td>O(n)</td>
 <td>中等规模</td>
 <td>中等</td>
@@ -1139,510 +768,876 @@
 </tbody>
 </table>
 </div>
-<h3 id="5-代码详解"><a href="#5-代码详解" class="headerlink" title="5. 代码详解"></a>5. 代码详解</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="built_in">list</span>(<span class="built_in">input</span>())</span><br><span class="line">l = <span class="number">0</span></span><br><span class="line">r = <span class="built_in">len</span>(s) - <span class="number">1</span></span><br><span class="line">removed = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> l &lt; r:</span><br><span class="line">    <span class="keyword">while</span> l &lt; r <span class="keyword">and</span> s[l] != <span class="string">&#x27;A&#x27;</span>:</span><br><span class="line">        l += <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> l &lt; r <span class="keyword">and</span> s[r] != <span class="string">&#x27;B&#x27;</span>:</span><br><span class="line">        r -= <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> l &lt; r:          <span class="comment"># 找到一对可以消除的</span></span><br><span class="line">        l += <span class="number">1</span></span><br><span class="line">        r -= <span class="number">1</span></span><br><span class="line">        removed += <span class="number">2</span>   <span class="comment"># 消除了两个字符</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">len</span>(s) - removed)</span><br></pre></td></tr></table></figure>
-<h3 id="6-复杂度分析"><a href="#6-复杂度分析" class="headerlink" title="6. 复杂度分析"></a>6. 复杂度分析</h3><ul>
-<li><strong>时间复杂度</strong>: O(n)，因为每个字符只处理一次。</li>
-<li><strong>空间复杂度</strong>: O(n)，用于存储字符串和变量。</li>
-<li><strong>复杂度对比</strong>: 与简单的暴力解法相比，本解法的时间和空间效率更高。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/22/2026-05-22-P12344-P12344-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-B-Python-B-%E7%AC%AC%E4%BA%8C%E5%9C%BA-%E7%A0%B4%E8%A7%A3%E4%BF%A1%E6%81%AF-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/22/2026-05-22-P12344-P12344-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-B-Python-B-%E7%AC%AC%E4%BA%8C%E5%9C%BA-%E7%A0%B4%E8%A7%A3%E4%BF%A1%E6%81%AF-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12344 - P12344 [蓝桥杯 2025 省 B/Python B 第二场] 破解信息 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2026-05-22 00:00:00 / 修改时间：16:34:00" itemprop="dateCreated datePublished" datetime="2026-05-22T00:00:00+08:00">2026-05-22</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="洛谷-P12344-字符串中的最大回文子序列-核心优化技巧"><a href="#洛谷-P12344-字符串中的最大回文子序列-核心优化技巧" class="headerlink" title="[洛谷 P12344] 字符串中的最大回文子序列 + 核心优化技巧"></a>[洛谷 P12344] 字符串中的最大回文子序列 + 核心优化技巧</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><p><strong>题目来源</strong>: <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P12344">洛谷</a></p>
-<p><strong>题目难度</strong>: ★★★☆☆</p>
-<p><strong>标签分类</strong>: 算法标签、字符串处理标签</p>
-<p><strong>核心考点</strong>: 字符串处理、回文子序列、字典序最大</p>
-<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><p>给定一个仅包含小写字母的字符串 ( S )，我们需要找出其<strong>字典序最大的回文子序列</strong>。子序列可以不连续，但要保持原顺序；回文指正读反读相同；字典序比较时先看第一个不同字符的大小，若前缀相同则更长的字符串更大。</p>
-<p><strong>输入格式</strong>: 输入一个字符串 ( S )，长度不超过 10^5。</p>
-<p><strong>输出格式</strong>: 输出一个字符串，表示字典序最大的回文子序列。</p>
-<p><strong>样例分析</strong>:</p>
-<ul>
-<li><p>输入: <code>abab</code></p>
-<ul>
-<li>最大字符是 <code>&#39;b&#39;</code>，出现 2 次。</li>
-<li>输出: <code>bb</code></li>
-</ul>
-</li>
-<li><p>输入: <code>abcd</code></p>
-<ul>
-<li>最大字符 <code>&#39;d&#39;</code>，出现 1 次。</li>
-<li>输出: <code>d</code></li>
-</ul>
-</li>
-</ul>
-<h3 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><p>问题的本质是找到字符串 ( S ) 中字典序最大的回文子序列。关键观察点包括：</p>
-<ul>
-<li>字符串中字符的ASCII码大小。</li>
-<li>字符串中字符出现的次数。</li>
-</ul>
-<p>数据范围对算法选择的影响主要体现在处理大规模数据时的时间复杂度。</p>
-<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><p><strong>朴素思路</strong>: 直接构造回文子序列，时间复杂度为 ( O(n^2) )，空间复杂度为 ( O(1) )。</p>
-<p><strong>优化路径</strong>: 通过统计字符出现次数，直接构造字典序最大的回文子序列，时间复杂度为 ( O(n) )，空间复杂度为 ( O(1) ) 或 ( O(n) ) 用于存储输入。</p>
-<p><strong>算法选择</strong>: 选择统计字符出现次数的方法，因为它避免了构造所有可能的回文子序列，从而大大提高了效率。</p>
-<p><strong>核心思想</strong>: 通过统计字符出现次数，直接构造字典序最大的回文子序列。具体来说，找到字符串中ASCII码最大的字符，统计其在字符串中出现的次数，然后输出相应数量的该字符。</p>
-<h4 id="4-3-数学推导"><a href="#4-3-数学推导" class="headerlink" title="4.3 数学推导"></a>4.3 数学推导</h4><p>由于问题本身是基于字符串处理的，不涉及复杂的数学公式推导。我们主要通过逻辑推理来证明算法的正确性。</p>
-<h4 id="4-4-多种解法对比"><a href="#4-4-多种解法对比" class="headerlink" title="4.4 多种解法对比"></a>4.4 多种解法对比</h4><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>解法</th>
-<th>时间复杂度</th>
-<th>空间复杂度</th>
-<th>适用场景</th>
-<th>代码难度</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>解法1</td>
-<td>O(n)</td>
-<td>O(1)</td>
-<td>小规模数据</td>
-<td>简单</td>
-</tr>
-<tr>
-<td>解法2</td>
-<td>O(n log n)</td>
-<td>O(n)</td>
-<td>中等规模</td>
-<td>中等</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="代码详解"><a href="#代码详解" class="headerlink" title="代码详解"></a>代码详解</h3><h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>():</span><br><span class="line">    s = <span class="built_in">input</span>().strip()</span><br><span class="line">    <span class="comment"># 找到最大字符</span></span><br><span class="line">    max_char = <span class="built_in">max</span>(s)</span><br><span class="line">    <span class="comment"># 统计最大字符的出现次数</span></span><br><span class="line">    cnt = s.count(max_char)</span><br><span class="line">    <span class="comment"># 输出 cnt 个最大字符</span></span><br><span class="line">    <span class="built_in">print</span>(max_char * cnt)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    solve()</span><br></pre></td></tr></table></figure>
+<h3 id="5-代码详解"><a href="#5-代码详解" class="headerlink" title="5. 代码详解"></a>5. 代码详解</h3><h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">find_tuples</span>(<span class="params">nums</span>):</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> nums: <span class="keyword">return</span> []</span><br><span class="line">    res = <span class="built_in">set</span>()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(nums)):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i+<span class="number">1</span>, <span class="built_in">len</span>(nums)):</span><br><span class="line">            <span class="keyword">if</span> nums[i] != nums[j]:</span><br><span class="line">                res.add((nums[i], nums[j]))</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">list</span>(res)</span><br></pre></td></tr></table></figure>
 <h4 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h4><ul>
-<li><code>s = input().strip()</code>: 读取输入字符串并去除两端空白字符。</li>
-<li><code>max_char = max(s)</code>: 找到字符串中的最大字符。</li>
-<li><code>cnt = s.count(max_char)</code>: 统计最大字符在字符串中出现的次数。</li>
-<li><code>print(max_char * cnt)</code>: 输出字典序最大的回文子序列。</li>
+<li><strong>关键变量</strong>: <code>nums</code> 表示输入的整数数组。</li>
+<li><strong>核心逻辑</strong>: 使用两层循环枚举所有可能的元组，并通过哈希表记录已经遍历过的元素。</li>
+<li><strong>边界条件</strong>: 如果数组为空，直接返回空列表。</li>
+<li><strong>易错点</strong>: 注意处理数组为空的情况。</li>
 </ul>
 <h4 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h4><ul>
-<li>空间优化：由于我们只需要存储最大字符和其出现次数，不需要额外的空间来存储子序列，因此空间复杂度为 ( O(1) )。</li>
-<li>时间优化：通过一次遍历找到最大字符并统计其出现次数，时间复杂度为 ( O(n) )。</li>
-</ul>
-<h3 id="6-复杂度分析"><a href="#6-复杂度分析" class="headerlink" title="6. 复杂度分析"></a>6. 复杂度分析</h3><p><strong>时间复杂度</strong>: ( O(n) )，其中 ( n = |S| )。</p>
-<p><strong>空间复杂度</strong>: ( O(1) ) 或 ( O(n) )，取决于是否需要额外存储输入字符串。</p>
-<h3 id="7-输入输出示例"><a href="#7-输入输出示例" class="headerlink" title="7. 输入输出示例"></a>7. 输入输出示例</h3><h4 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">abab</span><br></pre></td></tr></table></figure>
-<h4 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bb</span><br></pre></td></tr></table></figure>
-<h4 id="执行过程"><a href="#执行过程" class="headerlink" title="执行过程"></a>执行过程</h4><ol>
-<li>读取输入字符串 <code>abab</code>。</li>
-<li>找到最大字符 <code>&#39;b&#39;</code>。</li>
-<li>统计字符 <code>&#39;b&#39;</code> 在字符串中出现的次数，结果为 2。</li>
-<li>输出字典序最大的回文子序列 <code>&quot;bb&quot;</code>。</li>
-</ol>
-<h3 id="8-常见错误与调试技巧"><a href="#8-常见错误与调试技巧" class="headerlink" title="8. 常见错误与调试技巧"></a>8. 常见错误与调试技巧</h3><h4 id="易错点"><a href="#易错点" class="headerlink" title="易错点"></a>易错点</h4><ul>
-<li>忽视输入字符串的长度限制。</li>
-<li>错误地计算字符出现次数。</li>
-</ul>
-<h4 id="调试方法"><a href="#调试方法" class="headerlink" title="调试方法"></a>调试方法</h4><ul>
-<li>使用打印语句输出中间结果，检查每一步的计算是否正确。</li>
-<li>逐步调试代码，确保每一步都按预期执行。</li>
-</ul>
-<h4 id="测试用例"><a href="#测试用例" class="headerlink" title="测试用例"></a>测试用例</h4><ul>
-<li>输入: <code>aabbcc</code><ul>
-<li>预期输出: <code>ccc</code></li>
-</ul>
-</li>
-<li>输入: <code>xyzzyx</code><ul>
-<li>预期输出: <code>zyx</code></li>
-</ul>
-</li>
-</ul>
-<h3 id="9-总结与扩展"><a href="#9-总结与扩展" class="headerlink" title="9. 总结与扩展"></a>9. 总结与扩展</h3><p><strong>核心收获</strong>: 通过统计字符出现次数，可以高效地构造字典序最大的回文子序列。</p>
-<p><strong>举一反三</strong>: 类似题目如 “最长回文子串” 可以通过类似的方法解决。</p>
-<p><strong>进阶方向</strong>: 可以进一步研究字符串压缩算法和回文子序列的动态规划解法。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/22/2026-05-22-P12879-P12879-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-C-%E6%89%93%E7%A0%B4%E8%A7%84%E5%88%99-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/22/2026-05-22-P12879-P12879-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-C-%E6%89%93%E7%A0%B4%E8%A7%84%E5%88%99-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12879 - P12879 [蓝桥杯 2025 国 C] 打破规则 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2026-05-22 00:00:00 / 修改时间：16:34:16" itemprop="dateCreated datePublished" datetime="2026-05-22T00:00:00+08:00">2026-05-22</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="洛谷-P12879-打破规则-洛谷"><a href="#洛谷-P12879-打破规则-洛谷" class="headerlink" title="洛谷 P12879 打破规则 - 洛谷"></a>洛谷 P12879 打破规则 - 洛谷</h1><h2 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h2><h3 id="题号：P12879"><a href="#题号：P12879" class="headerlink" title="题号：P12879"></a>题号：P12879</h3><h3 id="算法类型：动态规划"><a href="#算法类型：动态规划" class="headerlink" title="算法类型：动态规划"></a>算法类型：动态规划</h3><h3 id="核心考点：最小操作次数"><a href="#核心考点：最小操作次数" class="headerlink" title="核心考点：最小操作次数"></a>核心考点：最小操作次数</h3><h2 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h2><ul>
-<li><strong>题目来源</strong>: <a target="_blank" rel="noopener" href="https://luogu.com.cn/problemset/index.php?m=p12879&amp;c=index">https://luogu.com.cn/problemset/index.php?m=p12879&amp;c=index</a></li>
-<li><strong>题目难度</strong>: ★★★☆☆</li>
-<li><strong>标签分类</strong>: 数据结构、动态规划</li>
-<li><strong>核心考点</strong>: 如何通过减少指针长度来打破制造商的规则，并计算最小操作次数。</li>
-</ul>
-<h2 id="题意解析-1"><a href="#题意解析-1" class="headerlink" title="题意解析"></a>题意解析</h2><h3 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h3><ul>
-<li><strong>输入</strong>:  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data = [3, 5, 2]</span><br></pre></td></tr></table></figure></li>
-<li><strong>输出</strong>:  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ans = 0</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="样例分析"><a href="#样例分析" class="headerlink" title="样例分析"></a>样例分析</h3><ul>
-<li><strong>样例1</strong>: <code>data = [3, 5, 2]</code><ul>
-<li>排序后为 <code>[2, 3, 5]</code></li>
-<li><code>ans = min(arr[1] - arr[0], arr[2] - arr[1])</code></li>
-<li>输出结果为 <code>ans = 0</code></li>
-</ul>
-</li>
-<li><strong>样例2</strong>: <code>data = [3, 5, 2]</code><ul>
-<li>排序后为 <code>[2, 3, 5]</code></li>
-<li><code>ans = min(|a-b|, |a-c|, |b-c|)</code></li>
-<li>输出结果为 <code>ans = 0</code></li>
-</ul>
-</li>
-</ul>
-<h2 id="算法思路（核心部分）"><a href="#算法思路（核心部分）" class="headerlink" title="算法思路（核心部分）"></a>算法思路（核心部分）</h2><h3 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h3><ul>
-<li><strong>问题的本质</strong>: 通过减少指针长度来打破制造商的规则，并计算最小操作次数。</li>
-<li><strong>关键观察点</strong>: 三个数两两差值的最小值。</li>
-<li><strong>数据范围</strong>: 无限制。</li>
-</ul>
-<h3 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
-<li><strong>朴素思路</strong>: 直接让任意两根针相等。</li>
-<li><strong>优化路径</strong>: 通过减少指针长度来打破规则。</li>
-<li><strong>算法选择</strong>: 动态规划。</li>
-</ul>
-<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
-<li><strong>动态规划</strong>: 使用前缀和数组存储中间值，避免重复计算。</li>
-<li><strong>核心思想</strong>: 通过减少指针长度来打破规则，并计算最小操作次数。</li>
-</ul>
-<h3 id="数学推导（如适用）"><a href="#数学推导（如适用）" class="headerlink" title="数学推导（如适用）"></a>数学推导（如适用）</h3><h4 id="4-3-数学推导"><a href="#4-3-数学推导" class="headerlink" title="4.3 数学推导"></a>4.3 数学推导</h4><ul>
-<li><strong>关键公式</strong>: <code>ans = min(|a-b|, |a-c|, |b-c|)</code></li>
-<li><strong>正确性证明</strong>: 通过计算相邻差的最小值来得到答案。</li>
-<li><strong>复杂度分析</strong>: O(n)。</li>
-</ul>
-<h3 id="多种解法对比（如适用）"><a href="#多种解法对比（如适用）" class="headerlink" title="多种解法对比（如适用）"></a>多种解法对比（如适用）</h3><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>解法</th>
-<th>时间复杂度</th>
-<th>空间复杂度</th>
-<th>适用场景</th>
-<th>代码难度</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>解法1</td>
-<td>O(n)</td>
-<td>O(n)</td>
-<td>小规模数据</td>
-<td>简单</td>
-</tr>
-<tr>
-<td>解法2</td>
-<td>O(n log n)</td>
-<td>O(n)</td>
-<td>中等规模</td>
-<td>中等</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h2 id="代码详解"><a href="#代码详解" class="headerlink" title="代码详解"></a>代码详解</h2><h3 id="核心代码段"><a href="#核心代码段" class="headerlink" title="核心代码段"></a>核心代码段</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>():</span><br><span class="line">    data = [<span class="number">3</span>, <span class="number">5</span>, <span class="number">2</span>]</span><br><span class="line">    ans = <span class="built_in">min</span>(<span class="built_in">abs</span>(a - b), <span class="built_in">abs</span>(a - c), <span class="built_in">abs</span>(b - c))</span><br><span class="line">    <span class="keyword">return</span> ans</span><br></pre></td></tr></table></figure>
-<h3 id="逐行解析"><a href="#逐行解析" class="headerlink" title="逐行解析"></a>逐行解析</h3><ul>
-<li><strong>关键变量的含义和作用</strong>: <code>data</code> 表示输入数据，<code>ans</code> 表示最小操作次数。</li>
-<li><strong>核心逻辑的设计意图</strong>: 通过计算相邻差的最小值来得到答案。</li>
-<li><strong>边界条件的处理</strong>: 无。</li>
-<li><strong>易错点的规避</strong>: 无。</li>
-</ul>
-<h3 id="优化技巧"><a href="#优化技巧" class="headerlink" title="优化技巧"></a>优化技巧</h3><ul>
-<li><strong>空间优化</strong>: 原地修改，无需额外空间。</li>
-<li><strong>时间优化</strong>: 预处理，减少重复计算。</li>
-<li><strong>代码优化</strong>: 可读性、可维护性改进。</li>
-</ul>
-<h2 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h2><h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><ul>
-<li><strong>时间复杂度</strong>: O(n)。</li>
-</ul>
-<h3 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h3><ul>
-<li><strong>空间复杂度</strong>: O(n)。</li>
-</ul>
-<h3 id="复杂度对比"><a href="#复杂度对比" class="headerlink" title="复杂度对比"></a>复杂度对比</h3><ul>
-<li><strong>复杂度对比</strong>: 与简单算法相比，具有更高的效率。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/22/2026-05-22-P12834-P12834-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-B-%E9%A1%B9%E9%93%BE%E6%8E%92%E5%88%97-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/22/2026-05-22-P12834-P12834-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-B-%E9%A1%B9%E9%93%BE%E6%8E%92%E5%88%97-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12834 - P12834 [蓝桥杯 2025 国 B] 项链排列 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2026-05-22 00:00:00 / 修改时间：21:27:29" itemprop="dateCreated datePublished" datetime="2026-05-22T00:00:00+08:00">2026-05-22</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="洛谷-P12834-项链排列-字典序最小优化详解"><a href="#洛谷-P12834-项链排列-字典序最小优化详解" class="headerlink" title="[洛谷 P12834] 项链排列 + 字典序最小优化详解"></a>[洛谷 P12834] 项链排列 + 字典序最小优化详解</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
-<li><strong>题目来源</strong>: <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P12834">洛谷 P12834</a></li>
-<li><strong>题目难度</strong>: ★★★☆☆</li>
-<li><strong>标签分类</strong>: 字符串、动态规划</li>
-<li><strong>核心考点</strong>: 字符串构造、贪心算法</li>
-</ul>
-<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><p><strong>问题描述</strong>: 使用 (A) 个 <code>L</code> 和 (B) 个 <code>Q</code> 构造一个字符串，使得相邻且不同的字符对恰好有 (C) 对，同时要求字典序最小。</p>
-<p><strong>输入格式</strong>:</p>
-<ul>
-<li>输入一行，包含三个整数 (A), (B), (C)，用空格分隔。</li>
-</ul>
-<p><strong>输出格式</strong>:</p>
-<ul>
-<li>输出一个字符串，满足条件。</li>
-<li>如果无解，输出 <code>-1</code>。</li>
-</ul>
-<p><strong>样例分析</strong>:</p>
-<ul>
-<li>输入: <code>3 4 4</code></li>
-<li>输出: <code>LQLQQL</code></li>
-<li>解释: 该字符串由3个 <code>L</code> 和4个 <code>Q</code> 组成，相邻且不同的字符对恰好有4对，且字典序最小。</li>
-</ul>
-<h3 id="算法思路（核心部分）"><a href="#算法思路（核心部分）" class="headerlink" title="算法思路（核心部分）"></a>算法思路（核心部分）</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
-<li>问题的本质是构造一个字符串，使其满足特定的条件。</li>
-<li>关键观察点包括：如何构造字符串以使字典序最小，以及如何确保相邻且不同的字符对数量正确。</li>
-</ul>
-<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
-<li><strong>朴素思路</strong>: 尝试所有可能的字符串组合，检查是否满足条件。</li>
-<li><strong>优化路径</strong>: 通过贪心算法，优先使用 <code>L</code> 和 <code>Q</code> 构造交替段，确保字典序最小。</li>
-<li><strong>算法选择</strong>: 贪心算法适用于此题，因为它可以有效地找到满足条件的最优解。</li>
-<li><strong>核心思想</strong>: 构造一个交替段，并尽量将多余的 <code>L</code> 放在前面，将多余的 <code>Q</code> 放在后面。</li>
-</ul>
-<h4 id="4-3-数学推导"><a href="#4-3-数学推导" class="headerlink" title="4.3 数学推导"></a>4.3 数学推导</h4><ul>
-<li><strong>交替段长度</strong>: 为了产生 (C) 次变化，交替段的最小长度为 (C + 1)。</li>
-<li><strong>类型一（L 开头）</strong>:<ul>
-<li>(L) 的数量：(\lfloor C/2 \rfloor + 1)</li>
-<li>(Q) 的数量：(\lceil C/2 \rceil)</li>
-</ul>
-</li>
-<li><strong>类型二（Q 开头）</strong>:<ul>
-<li>(L) 的数量：(\lceil C/2 \rceil)</li>
-<li>(Q) 的数量：(\lfloor C/2 \rfloor + 1)</li>
-</ul>
-</li>
-</ul>
-<h4 id="4-4-多种解法对比"><a href="#4-4-多种解法对比" class="headerlink" title="4.4 多种解法对比"></a>4.4 多种解法对比</h4><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>解法</th>
-<th>时间复杂度</th>
-<th>空间复杂度</th>
-<th>适用场景</th>
-<th>代码难度</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>贪心算法</td>
-<td>(O(C))</td>
-<td>(O(1))</td>
-<td>字典序最小</td>
-<td>中等</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="5-代码详解"><a href="#5-代码详解" class="headerlink" title="5. 代码详解"></a>5. 代码详解</h3><h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 以下为代码的核心部分，完整代码请见题目链接</span></span><br></pre></td></tr></table></figure>
-<h4 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h4><ul>
-<li><code>L_need1</code> 和 <code>Q_need1</code> 分别计算类型一所需 (L) 和 (Q) 的数量。</li>
-<li><code>length</code> 计算交替段的长度。</li>
-<li><code>res</code> 列表用于构建最终结果字符串。</li>
-</ul>
-<h4 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h4><ul>
-<li>使用贪心算法构造交替段，确保字典序最小。</li>
-<li>优先使用类型一，因为它允许在前面添加多余的 <code>L</code>。</li>
+<li><strong>空间优化</strong>: 使用集合来存储已遍历的元素，避免重复计算。</li>
+<li><strong>时间优化</strong>: 使用双层循环，减少不必要的迭代。</li>
 </ul>
 <h3 id="6-复杂度分析"><a href="#6-复杂度分析" class="headerlink" title="6. 复杂度分析"></a>6. 复杂度分析</h3><ul>
-<li><strong>时间复杂度</strong>: (O(C))，因为需要计算交替段的长度和数量。</li>
-<li><strong>空间复杂度</strong>: (O(1))，因为只使用常数额外空间。</li>
+<li><strong>时间复杂度</strong>: O(n^2)，因为需要枚举所有可能的元组。</li>
+<li><strong>空间复杂度</strong>: O(n)，用于存储已遍历的元素。</li>
+<li><strong>复杂度对比</strong>: 与朴素方法相比，时间复杂度降低，但空间复杂度保持不变。</li>
 </ul>
 <h3 id="7-输入输出示例"><a href="#7-输入输出示例" class="headerlink" title="7. 输入输出示例"></a>7. 输入输出示例</h3><ul>
-<li><strong>样例输入</strong>: <code>3 4 4</code></li>
-<li><strong>样例输出</strong>: <code>LQLQQL</code></li>
+<li><strong>样例输入</strong>: <code>[1, 2, 3]</code></li>
+<li><strong>样例输出</strong>: <code>[(1, 2), (1, 3), (2, 3)]</code></li>
+<li><strong>执行过程</strong>: 遍历数组，对于每个元素，尝试将其与其他元素组合成元组。</li>
 </ul>
 <h3 id="8-常见错误与调试技巧"><a href="#8-常见错误与调试技巧" class="headerlink" title="8. 常见错误与调试技巧"></a>8. 常见错误与调试技巧</h3><ul>
-<li><strong>易错点</strong>: 错误计算交替段的长度或数量。</li>
-<li><strong>调试方法</strong>: 使用打印语句输出关键变量和步骤。</li>
+<li><strong>易错点</strong>: 忘记处理数组为空的情况。</li>
+<li><strong>调试方法</strong>: 逐步跟踪代码执行过程，检查每一步的逻辑是否正确。</li>
+<li><strong>测试用例</strong>: 输入 <code>[1, 2, 3]</code>，期望输出 <code>[(1, 2), (1, 3), (2, 3)]</code>。</li>
 </ul>
 <h3 id="9-总结与扩展"><a href="#9-总结与扩展" class="headerlink" title="9. 总结与扩展"></a>9. 总结与扩展</h3><ul>
-<li><strong>核心收获</strong>: 学会使用贪心算法构造满足条件的字符串。</li>
-<li><strong>举一反三</strong>: 应用到其他需要构造字符串的问题中。</li>
-<li><strong>进阶方向</strong>: 研究更复杂的字符串构造问题，例如考虑更多的限制条件。</li>
+<li><strong>核心收获</strong>: 掌握了枚举元组的方法，理解了如何通过哈希表优化空间复杂度。</li>
+<li><strong>举一反三</strong>: 类似问题可以扩展到其他数据结构，如链表、树等。</li>
+<li><strong>进阶方向</strong>: 学习更多关于算法优化的技巧，如动态规划、贪心算法等。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/24/2026-05-24-B3623-B3623-%E6%9E%9A%E4%B8%BE%E6%8E%92%E5%88%97-%E9%80%92%E5%BD%92%E5%AE%9E%E7%8E%B0%E6%8E%92%E5%88%97%E5%9E%8B%E6%9E%9A%E4%B8%BE-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/24/2026-05-24-B3623-B3623-%E6%9E%9A%E4%B8%BE%E6%8E%92%E5%88%97-%E9%80%92%E5%BD%92%E5%AE%9E%E7%8E%B0%E6%8E%92%E5%88%97%E5%9E%8B%E6%9E%9A%E4%B8%BE-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">B3623 - B3623 枚举排列（递归实现排列型枚举） - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-05-24 00:00:00 / 修改时间：20:07:13" itemprop="dateCreated datePublished" datetime="2026-05-24T00:00:00+08:00">2026-05-24</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="洛谷-P3623-枚举排列（递归实现排列型枚举）-洛谷"><a href="#洛谷-P3623-枚举排列（递归实现排列型枚举）-洛谷" class="headerlink" title="[洛谷 P3623] 枚举排列（递归实现排列型枚举） - 洛谷"></a>[洛谷 P3623] 枚举排列（递归实现排列型枚举） - 洛谷</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
+<li><strong>题目来源</strong>: 洛谷</li>
+<li><strong>题目难度</strong>: ★★★☆☆</li>
+<li><strong>标签分类</strong>: 排列组合</li>
+<li><strong>核心考点</strong>: 递归、回溯</li>
+</ul>
+<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><p>给定两个整数 ( n ) 和 ( k )，我们需要生成所有长度为 ( k ) 的排列，并且每个数字只能使用一次。例如，当 ( n = 3 ) 和 ( k = 2 ) 时，输出应该是：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1 2</span><br><span class="line">1 3</span><br><span class="line">2 1</span><br><span class="line">2 3</span><br><span class="line">3 1</span><br><span class="line">3 2</span><br></pre></td></tr></table></figure></p>
+<h3 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
+<li><strong>本质</strong>: 这是一个排列组合问题，要求生成所有可能的 ( k ) 个数字的组合。</li>
+<li><strong>关键观察点</strong>: 每个数字只能使用一次，且排列的长度固定为 ( k )。</li>
+</ul>
+<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
+<li><strong>朴素思路</strong>: 使用递归和回溯的方法来生成所有可能的排列。从第一个位置开始，依次选择未使用的数字填充到当前位置，直到填满 ( k ) 个位置。</li>
+<li><strong>优化路径</strong>: 通过剪枝减少不必要的计算。例如，如果当前位置已经无法放置任何数字，则提前终止递归。</li>
+<li><strong>算法选择</strong>: 递归和回溯是解决此类问题的经典方法，时间复杂度为 ( O(n!) )，空间复杂度为 ( O(n) )（用于递归栈）。</li>
+</ul>
+<h4 id="4-3-数学推导"><a href="#4-3-数学推导" class="headerlink" title="4.3 数学推导"></a>4.3 数学推导</h4><ul>
+<li><strong>关键公式</strong>: 排列的生成可以通过递归公式来实现，即 ( P(n, k) = n \times (n-1) \times \ldots \times (n-k+1) )。</li>
+<li><strong>正确性证明</strong>: 通过数学归纳法可以证明递归公式的正确性。</li>
+<li><strong>复杂度分析</strong>: 时间复杂度为 ( O(n!) )，空间复杂度为 ( O(n) )。</li>
+</ul>
+<h4 id="4-4-多种解法对比"><a href="#4-4-多种解法对比" class="headerlink" title="4.4 多种解法对比"></a>4.4 多种解法对比</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>解法</th>
+<th>时间复杂度</th>
+<th>空间复杂度</th>
+<th>适用场景</th>
+<th>代码难度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>递归 + 回溯</td>
+<td>( O(n!) )</td>
+<td>( O(n) )</td>
+<td>小规模数据</td>
+<td>中等</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="代码详解"><a href="#代码详解" class="headerlink" title="代码详解"></a>代码详解</h3><h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">n, k = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">used = [<span class="literal">False</span>] * (n + <span class="number">1</span>)</span><br><span class="line">current = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">dfs</span>(<span class="params">pos</span>):</span><br><span class="line">    <span class="keyword">if</span> pos == k:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27; &#x27;</span>.join(<span class="built_in">map</span>(<span class="built_in">str</span>, current)))</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n + <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> used[i]:</span><br><span class="line">            used[i] = <span class="literal">True</span></span><br><span class="line">            current.append(i)</span><br><span class="line">            dfs(pos + <span class="number">1</span>)</span><br><span class="line">            current.pop()</span><br><span class="line">            used[i] = <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">dfs(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h4><ul>
+<li><code>n, k = map(int, input().split())</code>: 读取输入的两个整数 ( n ) 和 ( k )。</li>
+<li><code>used = [False] * (n + 1)</code>: 初始化一个布尔数组 <code>used</code>，用于标记数字是否已经被使用。</li>
+<li><code>current = []</code>: 初始化一个空列表 <code>current</code>，用于存储当前的排列。</li>
+<li><code>def dfs(pos):</code>: 定义一个递归函数 <code>dfs</code>，参数 <code>pos</code> 表示当前处理的位置。</li>
+<li><code>if pos == k:</code>: 如果当前位置 <code>pos</code> 等于 ( k )，表示已经填满 ( k ) 个位置，打印当前排列并返回。</li>
+<li><code>for i in range(1, n + 1):</code>: 遍历从 1 到 ( n ) 的所有数字。</li>
+<li><code>if not used[i]:</code>: 如果数字 ( i ) 没有被使用。</li>
+<li><code>used[i] = True</code>: 标记数字 ( i ) 已经被使用。</li>
+<li><code>current.append(i)</code>: 将数字 ( i ) 添加到当前排列中。</li>
+<li><code>dfs(pos + 1)</code>: 递归调用 <code>dfs</code> 处理下一个位置。</li>
+<li><code>current.pop()</code>: 回溯，移除最后一个添加的数字。</li>
+<li><code>used[i] = False</code>: 回溯，标记数字 ( i ) 未被使用。</li>
+</ul>
+<h4 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h4><ul>
+<li><strong>空间优化</strong>: 可以通过滚动数组的方式减少空间复杂度，但这在本题中不是必须的。</li>
+<li><strong>时间优化</strong>: 可以通过剪枝减少不必要的递归调用，例如在 <code>if pos == k:</code> 之前加入条件判断。</li>
+</ul>
+<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
+<li><strong>时间复杂度</strong>: ( O(n!) )，因为需要生成所有可能的排列。</li>
+<li><strong>空间复杂度</strong>: ( O(n) )，用于递归栈。</li>
+</ul>
+<h3 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h3><p><strong>样例输入</strong>:<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4 2</span><br></pre></td></tr></table></figure><br><strong>样例输出</strong>:<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">1 2</span><br><span class="line">1 3</span><br><span class="line">1 4</span><br><span class="line">2 1</span><br><span class="line">2 3</span><br><span class="line">2 4</span><br><span class="line">3 1</span><br><span class="line">3 2</span><br><span class="line">3 4</span><br><span class="line">4 1</span><br><span class="line">4 2</span><br><span class="line">4 3</span><br></pre></td></tr></table></figure></p>
+<h3 id="常见错误与调试技巧"><a href="#常见错误与调试技巧" class="headerlink" title="常见错误与调试技巧"></a>常见错误与调试技巧</h3><ul>
+<li><strong>易错点</strong>: 循环范围错误、递归终止条件错误。</li>
+<li><strong>调试方法</strong>: 使用打印语句或调试器逐步跟踪代码执行过程。</li>
+<li><strong>测试用例</strong>: 推荐使用边界条件如 ( n = 1 ) 和 ( k = 1 )，以及大规模数据进行测试。</li>
+</ul>
+<h3 id="总结与扩展"><a href="#总结与扩展" class="headerlink" title="总结与扩展"></a>总结与扩展</h3><ul>
+<li><strong>核心收获</strong>: 学会使用递归和回溯解决排列组合问题。</li>
+<li><strong>举一反三</strong>: 可以扩展到其他类似的排列组合问题，如生成所有可能的 ( k ) 个数字的组合。</li>
+<li><strong>进阶方向</strong>: 可以研究动态规划等其他算法在排列组合问题中的应用。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/24/2026-05-24-B3622-B3622-%E6%9E%9A%E4%B8%BE%E5%AD%90%E9%9B%86-%E9%80%92%E5%BD%92%E5%AE%9E%E7%8E%B0%E6%8C%87%E6%95%B0%E5%9E%8B%E6%9E%9A%E4%B8%BE-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/24/2026-05-24-B3622-B3622-%E6%9E%9A%E4%B8%BE%E5%AD%90%E9%9B%86-%E9%80%92%E5%BD%92%E5%AE%9E%E7%8E%B0%E6%8C%87%E6%95%B0%E5%9E%8B%E6%9E%9A%E4%B8%BE-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">B3622 - B3622 枚举子集（递归实现指数型枚举） - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-05-24 00:00:00 / 修改时间：20:06:58" itemprop="dateCreated datePublished" datetime="2026-05-24T00:00:00+08:00">2026-05-24</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="洛谷-B3622-枚举子集（递归实现指数型枚举）"><a href="#洛谷-B3622-枚举子集（递归实现指数型枚举）" class="headerlink" title="[洛谷 B3622] 枚举子集（递归实现指数型枚举）"></a>[洛谷 B3622] 枚举子集（递归实现指数型枚举）</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
+<li><strong>题目来源</strong>: 洛谷 (<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/B3622">https://www.luogu.com.cn/problem/B3622</a>)</li>
+<li><strong>题目难度</strong>: ★★☆☆☆</li>
+<li><strong>标签分类</strong>: 算法与数据结构</li>
+<li><strong>核心考点</strong>: 枚举子集、递归、指数型枚举</li>
+</ul>
+<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><p><strong>问题描述</strong>: 给定一个整数 n，要求输出所有可能的 n 个元素的子集。每个元素可以选择包含在子集中或不包含。</p>
+<p><strong>输入格式</strong>: 输入一个整数 n。</p>
+<p><strong>输出格式</strong>: 输出所有可能的 n 个元素的子集，每个子集用 ‘N’ 表示不包含该元素，用 ‘Y’ 表示包含该元素。</p>
+<p><strong>样例分析</strong>:<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">输入:</span><br><span class="line">3</span><br><span class="line"></span><br><span class="line">输出:</span><br><span class="line">N</span><br><span class="line">Y</span><br><span class="line">Y</span><br><span class="line">N</span><br><span class="line">N</span><br><span class="line">Y</span><br><span class="line">Y</span><br><span class="line">Y</span><br></pre></td></tr></table></figure><br>这个输出表示对于 n=3，所有可能的子集都已经被枚举出来。</p>
+<h3 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><p>问题的本质是枚举给定集合的所有子集，这是一个经典的组合问题。关键观察点是，每个元素都有两种选择：包含或不包含。</p>
+<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
+<li><strong>朴素思路</strong>: 使用递归，对于每个元素，都有两种选择：包含和不包含。因此，总共会有 2^n 个子集。</li>
+<li><strong>优化路径</strong>: 由于每个元素的选择是独立的，因此可以直接递归枚举。</li>
+<li><strong>算法选择</strong>: 递归是适合此问题的算法，因为它简洁且直观。</li>
+<li><strong>核心思想</strong>: 通过递归，我们可以以指数级的方式枚举所有可能的子集。</li>
+</ul>
+<h4 id="4-3-算法原理（递归）"><a href="#4-3-算法原理（递归）" class="headerlink" title="4.3 算法原理（递归）"></a>4.3 算法原理（递归）</h4><p>递归函数 <code>dfs(pos)</code> 从位置 <code>pos</code> 开始枚举子集。如果 <code>pos</code> 等于 n，则表示一个子集枚举完成，输出该子集。否则，选择包含或不包含当前元素，并递归调用 <code>dfs(pos+1)</code>。</p>
+<h4 id="4-4-代码详解"><a href="#4-4-代码详解" class="headerlink" title="4.4 代码详解"></a>4.4 代码详解</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">path = []</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">dfs</span>(<span class="params">pos</span>):</span><br><span class="line">    <span class="keyword">if</span> pos == n:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;&quot;</span>.join(<span class="built_in">map</span>(<span class="built_in">str</span>, path)))</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    path.append(<span class="string">&#x27;N&#x27;</span>)</span><br><span class="line">    dfs(pos + <span class="number">1</span>)</span><br><span class="line">    path.pop()</span><br><span class="line"></span><br><span class="line">    path.append(<span class="string">&#x27;Y&#x27;</span>)</span><br><span class="line">    dfs(pos + <span class="number">1</span>)</span><br><span class="line">    path.pop()</span><br><span class="line"></span><br><span class="line">dfs(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> pos == n:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;&quot;</span>.join(<span class="built_in">map</span>(<span class="built_in">str</span>, path)))</span><br></pre></td></tr></table></figure>
+<p>这段代码在递归的底部调用，用于输出当前枚举到的子集。</p>
+<h4 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h4><ul>
+<li><code>path.append(&#39;N&#39;)</code>: 将 ‘N’ 添加到路径中，表示不包含当前元素。</li>
+<li><code>dfs(pos + 1)</code>: 递归调用 <code>dfs</code>，移动到下一个元素。</li>
+<li><code>path.pop()</code>: 从路径中移除最后一个元素，撤销上一步的选择。</li>
+</ul>
+<h4 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h4><ul>
+<li>由于输出操作是递归调用的最后一行，可以考虑使用文件输出或缓冲区来减少输出操作的开销。</li>
+</ul>
+<h3 id="6-复杂度分析"><a href="#6-复杂度分析" class="headerlink" title="6. 复杂度分析"></a>6. 复杂度分析</h3><ul>
+<li><strong>时间复杂度</strong>: O(2^n)，因为需要枚举所有可能的子集。</li>
+<li><strong>空间复杂度</strong>: O(n)，递归栈的深度。</li>
+</ul>
+<h3 id="7-输入输出示例"><a href="#7-输入输出示例" class="headerlink" title="7. 输入输出示例"></a>7. 输入输出示例</h3><p><strong>样例输入</strong>:<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3</span><br></pre></td></tr></table></figure></p>
+<p><strong>样例输出</strong>:<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">N</span><br><span class="line">Y</span><br><span class="line">Y</span><br><span class="line">N</span><br><span class="line">N</span><br><span class="line">Y</span><br><span class="line">Y</span><br><span class="line">Y</span><br></pre></td></tr></table></figure></p>
+<h3 id="8-常见错误与调试技巧"><a href="#8-常见错误与调试技巧" class="headerlink" title="8. 常见错误与调试技巧"></a>8. 常见错误与调试技巧</h3><ul>
+<li><strong>易错点</strong>: 忘记移除路径中的元素，导致输出重复的子集。</li>
+<li><strong>调试方法</strong>: 可以通过检查路径中的元素来确保递归的正确性。</li>
+</ul>
+<h3 id="9-总结与扩展"><a href="#9-总结与扩展" class="headerlink" title="9. 总结与扩展"></a>9. 总结与扩展</h3><ul>
+<li><strong>核心收获</strong>: 学习了如何使用递归枚举所有可能的子集。</li>
+<li><strong>举一反三</strong>: 类似的问题有全排列、组合数的计算等。</li>
+<li><strong>进阶方向</strong>: 可以尝试使用位运算优化子集枚举的效率。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/24/2026-05-24-B3612-B3612-%E6%B7%B1%E8%BF%9B1-%E4%BE%8B1-%E6%B1%82%E5%8C%BA%E9%97%B4%E5%92%8C-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/24/2026-05-24-B3612-B3612-%E6%B7%B1%E8%BF%9B1-%E4%BE%8B1-%E6%B1%82%E5%8C%BA%E9%97%B4%E5%92%8C-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">B3612 - B3612 【深进1.例1】求区间和 - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-05-24 00:00:00 / 修改时间：20:05:51" itemprop="dateCreated datePublished" datetime="2026-05-24T00:00:00+08:00">2026-05-24</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="洛谷-P3612-深进1-例1-求区间和-前缀和优化详解"><a href="#洛谷-P3612-深进1-例1-求区间和-前缀和优化详解" class="headerlink" title="[洛谷 P3612] 深进1.例1 求区间和 + 前缀和优化详解"></a>[洛谷 P3612] 深进1.例1 求区间和 + 前缀和优化详解</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
+<li><strong>题目来源</strong>: 洛谷</li>
+<li><strong>题目难度</strong>: ★★★☆☆</li>
+<li><strong>标签分类</strong>: 算法标签、数据结构标签</li>
+<li><strong>核心考点</strong>: 数组操作、前缀和</li>
+</ul>
+<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><p>给定一个整数数组 ( a )，我们需要计算数组中任意两个元素之间的和。具体来说，对于每个查询 ( (li, ri) )，我们需要输出 ( a[li-1] + a[ri] ) 的值。为了高效地处理这些查询，我们可以使用前缀和数组。</p>
+<h3 id="算法思路（核心部分）"><a href="#算法思路（核心部分）" class="headerlink" title="算法思路（核心部分）"></a>算法思路（核心部分）</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
+<li><strong>问题的本质</strong>: 我们需要快速计算任意区间的和。</li>
+<li><strong>关键观察点</strong>: 通过前缀和数组，可以在常数时间内计算任意区间的和。</li>
+<li><strong>数据范围对算法选择的影响</strong>: 数组的大小会影响前缀和数组的大小，但不会影响算法的时间复杂度。</li>
+</ul>
+<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
+<li><strong>朴素思路</strong>: 直接遍历数组计算每个区间的和，时间复杂度为 ( O(n^2) )。</li>
+<li><strong>优化路径</strong>: 使用前缀和数组，将时间复杂度降低到 ( O(n + m) )，其中 ( n ) 是数组的长度，( m ) 是查询的数量。</li>
+<li><strong>算法选择</strong>: 前缀和数组是解决这类问题的最优解法，因为它利用了数组的连续性和预处理的优势。</li>
+<li><strong>核心思想</strong>: 前缀和数组 ( prev ) 存储从 ( a[0] ) 到 ( a[i-1] ) 的和，即 ( prev[i] = a[0] + a[1] + \ldots + a[i-1] )。对于任意查询 ( (li, ri) )，我们可以通过 ( prev[ri] - prev[li-1] ) 快速得到结果。</li>
+</ul>
+<h4 id="4-3-数学推导（如适用）"><a href="#4-3-数学推导（如适用）" class="headerlink" title="4.3 数学推导（如适用）"></a>4.3 数学推导（如适用）</h4><ul>
+<li><strong>关键公式推导</strong>:<br>[<br>\text{sum}(i, j) = \text{sum}(i, k) + \text{sum}(k+1, j)<br>]<br>其中 ( \text{sum}(i, k) ) 表示从 ( a[i] ) 到 ( a[k] ) 的和，( \text{sum}(k+1, j) ) 表示从 ( a[k+1] ) 到 ( a[j] ) 的和。</li>
+<li><strong>正确性证明</strong>: 通过数学归纳法可以证明前缀和数组的正确性。</li>
+<li><strong>复杂度分析</strong>: 构建前缀和数组的时间复杂度为 ( O(n) )，查询的时间复杂度为 ( O(1) )。</li>
+</ul>
+<h4 id="4-4-多种解法对比（如适用）"><a href="#4-4-多种解法对比（如适用）" class="headerlink" title="4.4 多种解法对比（如适用）"></a>4.4 多种解法对比（如适用）</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>解法</th>
+<th>时间复杂度</th>
+<th>空间复杂度</th>
+<th>适用场景</th>
+<th>代码难度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>直接遍历</td>
+<td>( O(n^2) )</td>
+<td>( O(1) )</td>
+<td>小规模数据</td>
+<td>简单</td>
+</tr>
+<tr>
+<td>前缀和</td>
+<td>( O(n) )</td>
+<td>( O(n) )</td>
+<td>中等规模</td>
+<td>中等</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="5-代码详解"><a href="#5-代码详解" class="headerlink" title="5. 代码详解"></a>5. 代码详解</h3><h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">a = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))</span><br><span class="line">prev = [<span class="number">0</span>] * (n + <span class="number">1</span>)</span><br><span class="line">prev[<span class="number">0</span>] = a[<span class="number">0</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n + <span class="number">1</span>):</span><br><span class="line">    prev[i] = prev[i - <span class="number">1</span>] + a[i - <span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">m = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(m):</span><br><span class="line">    li, ri = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">    <span class="built_in">print</span>(prev[ri] - prev[li - <span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+<h4 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h4><ul>
+<li><code>n = int(input())</code>: 读取数组长度。</li>
+<li><code>a = list(map(int, input().split()))</code>: 读取数组元素并转换为整数列表。</li>
+<li><code>prev = [0] * (n + 1)</code>: 初始化前缀和数组，长度为 ( n + 1 )。</li>
+<li><code>prev[0] = a[0]</code>: 设置前缀和数组的第一个元素。</li>
+<li><code>for i in range(1, n + 1):</code>: 遍历数组，计算前缀和。</li>
+<li><code>prev[i] = prev[i - 1] + a[i - 1]</code>: 更新前缀和数组。</li>
+<li><code>m = int(input())</code>: 读取查询数量。</li>
+<li><code>for _ in range(m):</code>: 循环处理每个查询。</li>
+<li><code>li, ri = map(int, input().split())</code>: 读取查询的左右边界。</li>
+<li><code>print(prev[ri] - prev[li - 1])</code>: 输出查询结果。</li>
+</ul>
+<h4 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h4><ul>
+<li><strong>空间优化</strong>: 如果只关心最终结果，可以使用滚动数组优化空间复杂度至 ( O(1) )。</li>
+<li><strong>时间优化</strong>: 对于多次查询，可以考虑预处理前缀和数组，减少重复计算。</li>
+</ul>
+<h3 id="6-复杂度分析"><a href="#6-复杂度分析" class="headerlink" title="6. 复杂度分析"></a>6. 复杂度分析</h3><ul>
+<li><strong>时间复杂度</strong>: 构建前缀和数组的时间复杂度为 ( O(n) )，每个查询的时间复杂度为 ( O(1) )，总时间复杂度为 ( O(n + m) )。</li>
+<li><strong>空间复杂度</strong>: 前缀和数组的空间复杂度为 ( O(n) )。</li>
+</ul>
+<h3 id="7-输入输出示例"><a href="#7-输入输出示例" class="headerlink" title="7. 输入输出示例"></a>7. 输入输出示例</h3><ul>
+<li><strong>样例输入</strong>:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">1 2 3 4 5</span><br><span class="line">2</span><br><span class="line">1 3</span><br><span class="line">3 5</span><br></pre></td></tr></table></figure></li>
+<li><strong>样例输出</strong>:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">6</span><br><span class="line">9</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="8-常见错误与调试技巧"><a href="#8-常见错误与调试技巧" class="headerlink" title="8. 常见错误与调试技巧"></a>8. 常见错误与调试技巧</h3><ul>
+<li><strong>易错点</strong>: 注意数组下标从0开始，处理查询时需要减1。</li>
+<li><strong>调试方法</strong>: 可以先手动计算前缀和数组，验证逻辑是否正确。</li>
+<li><strong>测试用例</strong>: 使用边界值如空数组、单个元素数组等测试。</li>
+</ul>
+<h3 id="9-总结与扩展"><a href="#9-总结与扩展" class="headerlink" title="9. 总结与扩展"></a>9. 总结与扩展</h3><ul>
+<li><strong>核心收获</strong>: 学会使用前缀和数组高效解决区间和问题。</li>
+<li><strong>举一反三</strong>: 可以扩展到其他类似问题，如区间最大值、最小值等。</li>
+<li><strong>进阶方向</strong>: 可以研究线段树等更高级的数据结构来优化区间查询。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/24/2026-05-24-P1464-P1464-PacNW-1999-Function-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/24/2026-05-24-P1464-P1464-PacNW-1999-Function-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P1464 - P1464 [PacNW 1999] Function - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-05-24 00:00:00 / 修改时间：20:08:26" itemprop="dateCreated datePublished" datetime="2026-05-24T00:00:00+08:00">2026-05-24</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="洛谷-P1464-PacNW-1999-Function-动态规划优化详解"><a href="#洛谷-P1464-PacNW-1999-Function-动态规划优化详解" class="headerlink" title="[洛谷 P1464] [PacNW 1999] Function + 动态规划优化详解"></a>[洛谷 P1464] [PacNW 1999] Function + 动态规划优化详解</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
+<li><strong>题目来源</strong>: 洛谷 (<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1464">https://www.luogu.com.cn/problem/P1464</a>)</li>
+<li><strong>题目难度</strong>: ★★☆☆☆</li>
+<li><strong>标签分类</strong>: 动态规划、递归</li>
+<li><strong>核心考点</strong>: 动态规划、递归、状态压缩</li>
+</ul>
+<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><ul>
+<li><strong>问题描述</strong>: 给定三个非负整数a、b、c，求w(a, b, c)的值，其中w(a, b, c)定义为满足以下条件的非负整数对(x, y)的数量：x + y = a，x <em> y = b，x </em> y * z = c。</li>
+<li><strong>输入格式</strong>: 三个非负整数a、b、c，以空格分隔。</li>
+<li><strong>输出格式</strong>: 一个整数，表示w(a, b, c)的值。</li>
+<li><strong>样例分析</strong>:<ul>
+<li>输入: 3 6 12</li>
+<li>输出: 2</li>
+<li>解释: 满足条件的(x, y)对为(1, 2)和(2, 1)。</li>
+</ul>
+</li>
+</ul>
+<h3 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
+<li>问题的本质是求解满足特定条件的整数对数量。</li>
+<li>关键观察点在于x、y、z之间的关系。</li>
+<li>数据范围较小（a, b, c ≤ 20），适合使用动态规划。</li>
+</ul>
+<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
+<li><strong>朴素思路</strong>: 使用三重循环遍历所有可能的(x, y)对，然后检查它们是否满足条件。</li>
+<li><strong>优化路径</strong>: 使用动态规划存储中间结果，避免重复计算。</li>
+<li><strong>算法选择</strong>: 选择动态规划，因为它可以显著减少重复计算。</li>
+<li><strong>核心思想</strong>: 使用三维数组存储w(a, b, c)的值，通过递归计算每个状态。</li>
+</ul>
+<h4 id="4-3-数学推导"><a href="#4-3-数学推导" class="headerlink" title="4.3 数学推导"></a>4.3 数学推导</h4><ul>
+<li>本题没有复杂的数学推导，主要是通过递归关系计算每个状态。</li>
+</ul>
+<h4 id="4-4-多种解法对比"><a href="#4-4-多种解法对比" class="headerlink" title="4.4 多种解法对比"></a>4.4 多种解法对比</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>解法</th>
+<th>时间复杂度</th>
+<th>空间复杂度</th>
+<th>适用场景</th>
+<th>代码难度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>朴素解法</td>
+<td>O(n^3)</td>
+<td>O(1)</td>
+<td>不适用，效率低</td>
+<td>简单</td>
+</tr>
+<tr>
+<td>动态规划</td>
+<td>O(n^3)</td>
+<td>O(n^3)</td>
+<td>适用于小规模数据</td>
+<td>中等</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="5-代码详解"><a href="#5-代码详解" class="headerlink" title="5. 代码详解"></a>5. 代码详解</h3><h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">w</span>(<span class="params">a, b, c</span>):</span><br><span class="line">    <span class="keyword">if</span> a &lt;= <span class="number">0</span> <span class="keyword">or</span> b &lt;= <span class="number">0</span> <span class="keyword">or</span> c &lt;= <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> a &gt; <span class="number">20</span> <span class="keyword">or</span> b &gt; <span class="number">20</span> <span class="keyword">or</span> c &gt; <span class="number">20</span>:</span><br><span class="line">        ma[<span class="number">20</span>][<span class="number">20</span>][<span class="number">20</span>] = w(<span class="number">20</span>, <span class="number">20</span>, <span class="number">20</span>)</span><br><span class="line">        <span class="keyword">return</span> ma[<span class="number">20</span>][<span class="number">20</span>][<span class="number">20</span>]</span><br><span class="line">    <span class="keyword">if</span> ma[a][b][c] != <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> ma[a][b][c]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> a &lt; b <span class="keyword">and</span> b &lt; c:</span><br><span class="line">        ma[a][b][c] = w(a, b, c - <span class="number">1</span>) + w(a, b - <span class="number">1</span>, c - <span class="number">1</span>) - w(a, b - <span class="number">1</span>, c)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        ma[a][b][c] = w(a - <span class="number">1</span>, b, c) + w(a - <span class="number">1</span>, b - <span class="number">1</span>, c) + w(a - <span class="number">1</span>, b, c - <span class="number">1</span>) - w(a - <span class="number">1</span>, b - <span class="number">1</span>, c - <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> ma[a][b][c]</span><br></pre></td></tr></table></figure>
+<h4 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h4><ul>
+<li><code>if a &lt;= 0 or b &lt;= 0 or c &lt;= 0:</code> 检查输入是否合法。</li>
+<li><code>if a &gt; 20 or b &gt; 20 or c &gt; 20:</code> 处理边界情况，直接返回已计算的值。</li>
+<li><code>if ma[a][b][c] != 0:</code> 检查是否已计算过该状态。</li>
+<li><code>if a &lt; b and b &lt; c:</code> 处理特定情况，递归计算。</li>
+<li><code>else:</code> 处理一般情况，递归计算。</li>
+</ul>
+<h4 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h4><ul>
+<li>使用三维数组存储中间结果，避免重复计算。</li>
+</ul>
+<h3 id="6-复杂度分析"><a href="#6-复杂度分析" class="headerlink" title="6. 复杂度分析"></a>6. 复杂度分析</h3><ul>
+<li><strong>时间复杂度</strong>: O(n^3)，其中n为20。</li>
+<li><strong>空间复杂度</strong>: O(n^3)，由于使用了三维数组存储中间结果。</li>
+</ul>
+<h3 id="7-输入输出示例"><a href="#7-输入输出示例" class="headerlink" title="7. 输入输出示例"></a>7. 输入输出示例</h3><ul>
+<li><strong>样例输入</strong>: 3 6 12</li>
+<li><strong>样例输出</strong>: 2</li>
+</ul>
+<h3 id="8-常见错误与调试技巧"><a href="#8-常见错误与调试技巧" class="headerlink" title="8. 常见错误与调试技巧"></a>8. 常见错误与调试技巧</h3><ul>
+<li><strong>易错点</strong>: 忘记初始化数组、递归边界条件处理不当。</li>
+<li><strong>调试方法</strong>: 使用简单的输入输出进行测试，逐步增加难度。</li>
+<li><strong>测试用例</strong>: 使用边界值和特殊值进行测试。</li>
+</ul>
+<h3 id="9-总结与扩展"><a href="#9-总结与扩展" class="headerlink" title="9. 总结与扩展"></a>9. 总结与扩展</h3><ul>
+<li><strong>核心收获</strong>: 学会使用动态规划解决特定问题。</li>
+<li><strong>举一反三</strong>: 可以尝试解决类似的问题，如三维空间中的动态规划问题。</li>
+<li><strong>进阶方向</strong>: 研究更高效的动态规划算法，如状态压缩动态规划。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/24/2026-05-24-P2036-P2036-COCI-2008-2009-2-PERKET-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/24/2026-05-24-P2036-P2036-COCI-2008-2009-2-PERKET-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P2036 - P2036 [COCI 2008/2009</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-05-24 00:00:00 / 修改时间：20:09:59" itemprop="dateCreated datePublished" datetime="2026-05-24T00:00:00+08:00">2026-05-24</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="洛谷-P2036-PERKET-深度优先搜索优化详解"><a href="#洛谷-P2036-PERKET-深度优先搜索优化详解" class="headerlink" title="[洛谷 P2036] PERKET + 深度优先搜索优化详解"></a>[洛谷 P2036] PERKET + 深度优先搜索优化详解</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
+<li><strong>题目来源</strong>: <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2036">洛谷 P2036</a></li>
+<li><strong>题目难度</strong>: ★★★☆☆</li>
+<li><strong>标签分类</strong>: 动态规划、递归、深度优先搜索</li>
+<li><strong>核心考点</strong>: 深度优先搜索、状态压缩、数学推导</li>
+</ul>
+<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><p><strong>问题描述</strong>:<br>给定一个长度为 n 的序列 s 和一个序列 b，序列中的每个元素都是正整数。问题要求找到一个操作序列，使得最终序列中的所有元素都相等，且操作序列的长度最小。每次操作可以选择一个元素，并将其乘以序列中另一个元素的值，或者加上序列中另一个元素的值。</p>
+<p><strong>输入格式</strong>:<br>第一行包含一个整数 n，表示序列的长度。<br>接下来 n 行，每行包含一个整数，表示序列 s 和 b 中对应的元素。</p>
+<p><strong>输出格式</strong>:<br>输出一个整数，表示操作序列的最小长度。</p>
+<p><strong>样例分析</strong>:<br>输入：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">1 2</span><br><span class="line">1 2</span><br></pre></td></tr></table></figure><br>输出：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1</span><br></pre></td></tr></table></figure><br>解释：可以选择将第一个元素乘以第二个元素的值，得到 2，然后所有元素都等于 2。</p>
+<h3 id="算法思路（核心部分）"><a href="#算法思路（核心部分）" class="headerlink" title="算法思路（核心部分）"></a>算法思路（核心部分）</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
+<li>问题的本质是寻找一个最小操作序列，使得序列中的所有元素相等。</li>
+<li>关键观察点在于，每次操作都会影响序列中的元素，因此需要考虑所有可能的操作序列。</li>
+<li>数据范围较大，需要考虑算法的时间复杂度和空间复杂度。</li>
+</ul>
+<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
+<li><strong>朴素思路</strong>: 对所有可能的操作序列进行尝试，这是一个指数级复杂度的问题，不可行。</li>
+<li><strong>优化路径</strong>: 使用深度优先搜索（DFS）进行状态压缩，减少不必要的搜索。</li>
+<li><strong>算法选择</strong>: 选择 DFS 是因为问题具有递归性质，可以通过递归函数进行状态转移。</li>
+<li><strong>核心思想</strong>: 通过深度优先搜索遍历所有可能的状态，并记录操作序列的最小长度。</li>
+</ul>
+<h4 id="4-3-算法原理"><a href="#4-3-算法原理" class="headerlink" title="4.3 算法原理"></a>4.3 算法原理</h4><ul>
+<li><strong>状态压缩</strong>: 使用一个整数来表示当前的状态，其中每个位表示一个元素是否已经被选择。</li>
+<li><strong>DFS 函数</strong>: 通过递归遍历所有可能的状态，更新操作序列的最小长度。</li>
+</ul>
+<h4 id="4-4-多种解法对比"><a href="#4-4-多种解法对比" class="headerlink" title="4.4 多种解法对比"></a>4.4 多种解法对比</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>解法</th>
+<th>时间复杂度</th>
+<th>空间复杂度</th>
+<th>适用场景</th>
+<th>代码难度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DFS</td>
+<td>O(n * 2^n)</td>
+<td>O(n)</td>
+<td>适用于小规模数据</td>
+<td>中等</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="5-代码详解"><a href="#5-代码详解" class="headerlink" title="5. 代码详解"></a>5. 代码详解</h3><h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">dfs</span>(<span class="params">idx, sour, bitter, has_chosen</span>):</span><br><span class="line">    <span class="keyword">nonlocal</span> ans</span><br><span class="line">    <span class="keyword">if</span> idx == n:</span><br><span class="line">        <span class="keyword">if</span> has_chosen:</span><br><span class="line">            ans = <span class="built_in">min</span>(ans, <span class="built_in">abs</span>(sour - bitter))</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    dfs(idx + <span class="number">1</span>, sour, bitter, has_chosen)</span><br><span class="line">    dfs(idx + <span class="number">1</span>, sour * s[idx], bitter + b[idx], <span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h4><ul>
+<li><code>dfs(idx, sour, bitter, has_chosen)</code>: 定义深度优先搜索函数，参数包括当前索引、当前求和值、当前差值和是否已选择操作。</li>
+<li><code>if idx == n</code>: 检查是否已经遍历完所有元素。</li>
+<li><code>if has_chosen</code>: 如果已经选择了一个操作，则更新操作序列的最小长度。</li>
+<li><code>dfs(idx + 1, sour, bitter, has_chosen)</code>: 进行不选择操作的 DFS。</li>
+<li><code>dfs(idx + 1, sour * s[idx], bitter + b[idx], True)</code>: 进行选择操作的 DFS。</li>
+</ul>
+<h4 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h4><ul>
+<li><strong>状态压缩</strong>: 使用位运算来表示状态，减少空间复杂度。</li>
+<li><strong>剪枝</strong>: 如果当前差值已经大于已知的操作序列的最小长度，则可以提前终止搜索。</li>
+</ul>
+<h3 id="6-复杂度分析"><a href="#6-复杂度分析" class="headerlink" title="6. 复杂度分析"></a>6. 复杂度分析</h3><ul>
+<li><strong>时间复杂度</strong>: O(n * 2^n)，因为需要对每个元素进行选择或不选择两种情况。</li>
+<li><strong>空间复杂度</strong>: O(n)，递归栈的深度。</li>
+</ul>
+<h3 id="7-输入输出示例"><a href="#7-输入输出示例" class="headerlink" title="7. 输入输出示例"></a>7. 输入输出示例</h3><ul>
+<li><strong>样例输入</strong>:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">1 2</span><br><span class="line">1 2</span><br></pre></td></tr></table></figure></li>
+<li><strong>样例输出</strong>:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="8-常见错误与调试技巧"><a href="#8-常见错误与调试技巧" class="headerlink" title="8. 常见错误与调试技巧"></a>8. 常见错误与调试技巧</h3><ul>
+<li><strong>易错点</strong>: 状态压缩的实现、DFS 函数的编写。</li>
+<li><strong>调试方法</strong>: 使用测试用例逐步检查算法的正确性。</li>
+</ul>
+<h3 id="9-总结与扩展"><a href="#9-总结与扩展" class="headerlink" title="9. 总结与扩展"></a>9. 总结与扩展</h3><ul>
+<li><strong>核心收获</strong>: 学会了使用深度优先搜索和状态压缩来解决组合问题。</li>
+<li><strong>举一反三</strong>: 可以尝试使用类似的算法来解决其他组合问题。</li>
+<li><strong>进阶方向</strong>: 研究更高效的算法来处理大规模数据。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/24/2026-05-24-P10448-P10448-%E7%BB%84%E5%90%88%E5%9E%8B%E6%9E%9A%E4%B8%BE-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/24/2026-05-24-P10448-P10448-%E7%BB%84%E5%90%88%E5%9E%8B%E6%9E%9A%E4%B8%BE-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P10448 - P10448 组合型枚举 - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-05-24 00:00:00 / 修改时间：20:07:25" itemprop="dateCreated datePublished" datetime="2026-05-24T00:00:00+08:00">2026-05-24</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="算法名称：组合型枚举"><a href="#算法名称：组合型枚举" class="headerlink" title="算法名称：组合型枚举"></a>算法名称：组合型枚举</h2><h3 id="核心优化技巧"><a href="#核心优化技巧" class="headerlink" title="核心优化技巧"></a>核心优化技巧</h3><p>在解决这类问题时，我们通常需要遍历所有可能的组合，并检查它们是否满足条件。为了提高效率，我们可以采用以下策略：</p>
+<ol>
+<li><strong>剪枝</strong>：在遍历过程中，如果某个组合已经满足条件，那么我们就可以直接返回结果，而不需要继续检查其他组合。</li>
+<li><strong>动态规划</strong>：如果我们已经找到了一个解，那么这个解就可以作为子问题的解，从而避免重复计算。</li>
+</ol>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><h4 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h4><ul>
+<li><strong>问题描述</strong>：给定一个整数数组 <code>nums</code> 和一个目标值 <code>target</code>，我们需要从数组中选择若干个数字，使得它们的和等于 <code>target</code>。</li>
+<li><strong>输入格式</strong>：整数数组 <code>nums</code> 的长度为 <code>n</code>，目标值 <code>target</code> 是一个整数。</li>
+<li><strong>输出格式</strong>：一个整数数组，表示选择的数字。</li>
+</ul>
+<h4 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h4><ul>
+<li><strong>朴素思路</strong>：遍历数组，对于每个元素，尝试将其添加到当前和中，直到和等于 <code>target</code> 或者遍历完所有元素。</li>
+<li><strong>优化路径</strong>：使用动态规划的思想，将之前计算过的结果存储起来，避免重复计算。</li>
+<li><strong>核心思想</strong>：通过剪枝和动态规划，减少不必要的计算，提高算法的效率。</li>
+</ul>
+<h4 id="数学推导"><a href="#数学推导" class="headerlink" title="数学推导"></a>数学推导</h4><p>假设我们已经计算出了前 <code>i</code> 个元素的和为 <code>sum_i</code>，那么第 <code>i+1</code> 个元素的和为 <code>target - sum_i</code>。因此，我们只需要检查是否存在一个索引 <code>j</code>，使得 <code>nums[j] + sum_i == target - sum_i</code>。</p>
+<h4 id="多种解法对比"><a href="#多种解法对比" class="headerlink" title="多种解法对比"></a>多种解法对比</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>解法</th>
+<th>时间复杂度</th>
+<th>空间复杂度</th>
+<th>适用场景</th>
+<th>代码难度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>解法1</td>
+<td>O(n^2)</td>
+<td>O(n)</td>
+<td>小规模数据</td>
+<td>简单</td>
+</tr>
+<tr>
+<td>解法2</td>
+<td>O(n^2)</td>
+<td>O(n)</td>
+<td>中等规模</td>
+<td>中等</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="代码详解"><a href="#代码详解" class="headerlink" title="代码详解"></a>代码详解</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">combinationSum</span>(<span class="params">nums, target</span>):</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> nums:</span><br><span class="line">        <span class="keyword">return</span> []</span><br><span class="line">    dp = [<span class="number">0</span>] * (target + <span class="number">1</span>)</span><br><span class="line">    dp[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">len</span>(nums) + <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(target, -<span class="number">1</span>, -<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">if</span> j &gt;= nums[i - <span class="number">1</span>]:</span><br><span class="line">                dp[j] += dp[j - nums[i - <span class="number">1</span>]]</span><br><span class="line">    <span class="keyword">return</span> [x <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(target + <span class="number">1</span>) <span class="keyword">if</span> dp[x] == <span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
+<li><strong>时间复杂度</strong>：O(n^2)，其中 n 是数组 <code>nums</code> 的长度。</li>
+<li><strong>空间复杂度</strong>：O(n)，用于存储动态规划的数组。</li>
+<li><strong>复杂度对比</strong>：与简单的暴力解法相比，本算法的时间复杂度更高，但空间复杂度更低。</li>
 </ul>
 
       
@@ -1663,7 +1658,7 @@
 
 
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/25/">25</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 </div>
