@@ -20,20 +20,22 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"ianwusb.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="P1216 数字三角形题目链接洛谷原题 题面 请访问洛谷原题查看完整题面：https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;problem&#x2F;P1216  题目分类基础入门  题目内容由洛谷题目获取脚本自动生成">
+    <meta name="description" content="P1216 [IOI 1994 &#x2F; USACO1.5] 数字三角形 Number Triangles题目描述观察下面的数字金字塔。 写一个程序来查找从最高点到底部任意处结束的路径，使路径经过数字的和最大。每一步可以走到左下方的点也可以到达右下方的点。  在上面的样例中，从 $7 \to 3 \to 8 \to 7 \to 5$ 的路径产生了最大权值。 输入格式第一个行一个正整数 $r$，表示行的数">
 <meta property="og:type" content="website">
 <meta property="og:title" content="P1216 数字三角形">
 <meta property="og:url" content="https://ianwusb.github.io/dp-problems/%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/P1216.html">
 <meta property="og:site_name" content="Ianwusb-CPCode">
-<meta property="og:description" content="P1216 数字三角形题目链接洛谷原题 题面 请访问洛谷原题查看完整题面：https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;problem&#x2F;P1216  题目分类基础入门  题目内容由洛谷题目获取脚本自动生成">
+<meta property="og:description" content="P1216 [IOI 1994 &#x2F; USACO1.5] 数字三角形 Number Triangles题目描述观察下面的数字金字塔。 写一个程序来查找从最高点到底部任意处结束的路径，使路径经过数字的和最大。每一步可以走到左下方的点也可以到达右下方的点。  在上面的样例中，从 $7 \to 3 \to 8 \to 7 \to 5$ 的路径产生了最大权值。 输入格式第一个行一个正整数 $r$，表示行的数">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/95pzs0ne.png">
 <meta property="article:published_time" content="2026-05-22T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-05-23T12:48:03.899Z">
+<meta property="article:modified_time" content="2026-05-24T13:08:27.257Z">
 <meta property="article:author" content="Ianwusb">
 <meta property="article:tag" content="动态规划">
 <meta property="article:tag" content="基础入门">
 <meta property="article:tag" content="洛谷">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.luogu.com.cn/upload/image_hosting/95pzs0ne.png">
 
 
 <link rel="canonical" href="https://ianwusb.github.io/dp-problems/%E5%9F%BA%E7%A1%80%E5%85%A5%E9%97%A8/P1216">
@@ -123,7 +125,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-主页"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>主页</a></li><li class="menu-item menu-item-关于"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-标签"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-分类"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-归档"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-一些提示词"><a href="/some-prompts/" rel="section"><i class="fa fa-code fa-fw"></i>一些提示词</a></li><li class="menu-item menu-item-动态规划"><a href="/dp-problems/" rel="section"><i class="fa fa-code-branch fa-fw"></i>动态规划</a></li><li class="menu-item menu-item-贪心算法分析框架"><a href="/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E6%A1%86%E6%9E%B6/" rel="section"><i class="fa fa-code-branch fa-fw"></i>贪心算法分析框架</a></li><li class="menu-item menu-item-王道数据结构与算法详细笔记"><a href="/%E7%8E%8B%E9%81%93%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E8%AF%A6%E7%BB%86%E7%AC%94%E8%AE%B0/" rel="section"><i class="fa fa-book fa-fw"></i>王道数据结构与算法详细笔记</a></li><li class="menu-item menu-item-源代码"><a href="/code-py/" rel="section"><i class="fa fa-code-branch fa-fw"></i>源代码</a></li><li class="menu-item menu-item-下载"><a href="/downloads/" rel="section"><i class="fa fa-download-branch fa-fw"></i>下载</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-主页"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>主页</a></li><li class="menu-item menu-item-关于"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-标签"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-分类"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-归档"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-一些提示词"><a href="/some-prompts/" rel="section"><i class="fa fa-code fa-fw"></i>一些提示词</a></li><li class="menu-item menu-item-动态规划"><a href="/dp-problems/" rel="section"><i class="fa fa-code-branch fa-fw"></i>动态规划</a></li><li class="menu-item menu-item-dfs算法"><a href="/dfs-problems/" rel="section"><i class="fa fa-code-branch fa-fw"></i>DFS算法</a></li><li class="menu-item menu-item-贪心算法分析框架"><a href="/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E6%A1%86%E6%9E%B6/" rel="section"><i class="fa fa-code-branch fa-fw"></i>贪心算法分析框架</a></li><li class="menu-item menu-item-王道数据结构与算法详细笔记"><a href="/%E7%8E%8B%E9%81%93%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E8%AF%A6%E7%BB%86%E7%AC%94%E8%AE%B0/" rel="section"><i class="fa fa-book fa-fw"></i>王道数据结构与算法详细笔记</a></li><li class="menu-item menu-item-源代码"><a href="/code-py/" rel="section"><i class="fa fa-code-branch fa-fw"></i>源代码</a></li><li class="menu-item menu-item-下载"><a href="/downloads/" rel="section"><i class="fa fa-download-branch fa-fw"></i>下载</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -174,7 +176,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#P1216-%E6%95%B0%E5%AD%97%E4%B8%89%E8%A7%92%E5%BD%A2"><span class="nav-number">1.</span> <span class="nav-text">P1216 数字三角形</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E9%93%BE%E6%8E%A5"><span class="nav-number">1.1.</span> <span class="nav-text">题目链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E9%9D%A2"><span class="nav-number">1.2.</span> <span class="nav-text">题面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E5%88%86%E7%B1%BB"><span class="nav-number">1.3.</span> <span class="nav-text">题目分类</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#P1216-IOI-1994-USACO1-5-%E6%95%B0%E5%AD%97%E4%B8%89%E8%A7%92%E5%BD%A2-Number-Triangles"><span class="nav-number">1.</span> <span class="nav-text">P1216 [IOI 1994 &#x2F; USACO1.5] 数字三角形 Number Triangles</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.2.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.3.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%A0%B7%E4%BE%8B-1"><span class="nav-number">1.4.</span> <span class="nav-text">输入输出样例 #1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5-1"><span class="nav-number">1.4.1.</span> <span class="nav-text">输入 #1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%87%BA-1"><span class="nav-number">1.4.2.</span> <span class="nav-text">输出 #1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B4%E6%98%8E-%E6%8F%90%E7%A4%BA"><span class="nav-number">1.5.</span> <span class="nav-text">说明&#x2F;提示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AB%E6%B0%8FDP%E5%88%86%E6%9E%90%E6%B3%95"><span class="nav-number">1.6.</span> <span class="nav-text">闫氏DP分析法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E9%97%AE%E9%A2%98%E6%9C%AC%E8%B4%A8%E5%88%86%E6%9E%90"><span class="nav-number">1.6.1.</span> <span class="nav-text">一、问题本质分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E7%8A%B6%E6%80%81%E8%A1%A8%E7%A4%BA%EF%BC%88%E5%8C%96%E9%9B%B6%E4%B8%BA%E6%95%B4%EF%BC%89"><span class="nav-number">1.6.2.</span> <span class="nav-text">二、状态表示（化零为整）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-%E9%9B%86%E5%90%88%E5%AE%9A%E4%B9%89"><span class="nav-number">1.6.2.1.</span> <span class="nav-text">2.1 集合定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-%E5%B1%9E%E6%80%A7%E7%A1%AE%E5%AE%9A"><span class="nav-number">1.6.2.2.</span> <span class="nav-text">2.2 属性确定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-%E6%9C%80%E7%BB%88%E7%AD%94%E6%A1%88"><span class="nav-number">1.6.2.3.</span> <span class="nav-text">2.3 最终答案</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E7%8A%B6%E6%80%81%E8%AE%A1%E7%AE%97%EF%BC%88%E5%8C%96%E6%95%B4%E4%B8%BA%E9%9B%B6%EF%BC%89"><span class="nav-number">1.6.3.</span> <span class="nav-text">三、状态计算（化整为零）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-%E5%AF%BB%E6%89%BE%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E4%B8%8D%E5%90%8C%E7%82%B9"><span class="nav-number">1.6.3.1.</span> <span class="nav-text">3.1 寻找最后一个不同点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-%E5%88%92%E5%88%86%E5%AD%90%E9%9B%86"><span class="nav-number">1.6.3.2.</span> <span class="nav-text">3.2 划分子集</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-3-%E8%AE%A1%E7%AE%97%E6%AF%8F%E4%B8%AA%E5%AD%90%E9%9B%86%E7%9A%84%E5%80%BC"><span class="nav-number">1.6.3.3.</span> <span class="nav-text">3.3 计算每个子集的值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-%E5%85%B3%E4%BA%8E%E5%AD%90%E9%9B%86%E7%9A%84%E5%AD%98%E5%9C%A8%E6%80%A7"><span class="nav-number">1.6.3.4.</span> <span class="nav-text">3.4 关于子集的存在性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5-%E7%8A%B6%E6%80%81%E8%BD%AC%E7%A7%BB%E6%96%B9%E7%A8%8B"><span class="nav-number">1.6.3.5.</span> <span class="nav-text">3.5 状态转移方程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E8%BE%B9%E7%95%8C%E6%9D%A1%E4%BB%B6"><span class="nav-number">1.6.4.</span> <span class="nav-text">四、边界条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E5%BE%AA%E7%8E%AF%E9%A1%BA%E5%BA%8F"><span class="nav-number">1.6.5.</span> <span class="nav-text">五、循环顺序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E9%97%AB%E6%B0%8FDP%E5%88%86%E6%9E%90%E5%9B%BE"><span class="nav-number">1.6.6.</span> <span class="nav-text">六、闫氏DP分析图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%83%E3%80%81%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90"><span class="nav-number">1.6.7.</span> <span class="nav-text">七、复杂度分析</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -189,7 +191,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">249</span>
+          <span class="site-state-item-count">250</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -200,7 +202,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">173</span>
+        <span class="site-state-item-count">174</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -249,13 +251,160 @@
       
       
       <div class="post-body">
-          <h1 id="P1216-数字三角形"><a href="#P1216-数字三角形" class="headerlink" title="P1216 数字三角形"></a>P1216 数字三角形</h1><h2 id="题目链接"><a href="#题目链接" class="headerlink" title="题目链接"></a>题目链接</h2><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1216">洛谷原题</a></p>
-<h2 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h2><blockquote>
-<p>请访问洛谷原题查看完整题面：<br><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1216">https://www.luogu.com.cn/problem/P1216</a></p>
-</blockquote>
-<h2 id="题目分类"><a href="#题目分类" class="headerlink" title="题目分类"></a>题目分类</h2><p>基础入门</p>
+          <h1 id="P1216-IOI-1994-USACO1-5-数字三角形-Number-Triangles"><a href="#P1216-IOI-1994-USACO1-5-数字三角形-Number-Triangles" class="headerlink" title="P1216 [IOI 1994 / USACO1.5] 数字三角形 Number Triangles"></a>P1216 [IOI 1994 / USACO1.5] 数字三角形 Number Triangles</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>观察下面的数字金字塔。</p>
+<p>写一个程序来查找从最高点到底部任意处结束的路径，使路径经过数字的和最大。每一步可以走到左下方的点也可以到达右下方的点。</p>
+<p><img data-src="https://cdn.luogu.com.cn/upload/image_hosting/95pzs0ne.png" alt=""></p>
+<p>在上面的样例中，从 $7 \to 3 \to 8 \to 7 \to 5$ 的路径产生了最大权值。</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>第一个行一个正整数 $r$，表示行的数目。</p>
+<p>后面每行为这个数字金字塔特定行包含的整数。</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>单独的一行，包含那个可能得到的最大的和。</p>
+<h2 id="输入输出样例-1"><a href="#输入输出样例-1" class="headerlink" title="输入输出样例 #1"></a>输入输出样例 #1</h2><h3 id="输入-1"><a href="#输入-1" class="headerlink" title="输入 #1"></a>输入 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">7</span><br><span class="line">3 8</span><br><span class="line">8 1 0</span><br><span class="line">2 7 4 4</span><br><span class="line">4 5 2 6 5 </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="输出-1"><a href="#输出-1" class="headerlink" title="输出 #1"></a>输出 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">30</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="说明-提示"><a href="#说明-提示" class="headerlink" title="说明/提示"></a>说明/提示</h2><p>【数据范围】<br>对于 $100\%$ 的数据，$1\le r\le 1000$，所有输入在 $[0,100]$ 范围内。</p>
+<p>题目翻译来自 NOCOW。</p>
+<p>IOI1994 Day1T1 / USACO Training Section 1.5。</p>
 <hr>
-<p><em>题目内容由洛谷题目获取脚本自动生成</em></p>
+<h2 id="闫氏DP分析法"><a href="#闫氏DP分析法" class="headerlink" title="闫氏DP分析法"></a>闫氏DP分析法</h2><blockquote>
+<p>核心口号：<strong>化零为整定状态，化整为零推转移。</strong></p>
+</blockquote>
+<hr>
+<h3 id="一、问题本质分析"><a href="#一、问题本质分析" class="headerlink" title="一、问题本质分析"></a>一、问题本质分析</h3><blockquote>
+<p>确认是有限集合中的最优化问题</p>
+</blockquote>
+<p>给定一个行数为 $r$ 的数字三角形，要求找一条从顶部到底部任意位置的路径，使得路径上所有数字之和最大。每步只能走到左下方或右下方的相邻点。</p>
+<ul>
+<li><strong>方案总数有限</strong>：行数 $r \le 1000$。从第 $1$ 行走到第 $r$ 行，每步有 $2$ 种选择（除了边缘），总路径数是有限的（$\le 2^{r-1}$ 条）。</li>
+<li><strong>目标属性</strong>：求的是 <strong>最大值（max）</strong>，即「所有可能路径数字和中的最大者」。</li>
+<li><strong>结论</strong>：这是一个有限集合上的 <strong>最值型 DP 问题</strong>，属于经典的「数字三角形 / 数塔」模型。</li>
+</ul>
+<hr>
+<h3 id="二、状态表示（化零为整）"><a href="#二、状态表示（化零为整）" class="headerlink" title="二、状态表示（化零为整）"></a>二、状态表示（化零为整）</h3><blockquote>
+<p>把有相似点的方案归为一个子集，用一个状态 $f[\ldots]$ 表示。</p>
+</blockquote>
+<h4 id="2-1-集合定义"><a href="#2-1-集合定义" class="headerlink" title="2.1 集合定义"></a>2.1 集合定义</h4><p><strong>状态</strong>：$f[i][j]$ 表示</p>
+<p><strong>所有满足以下条件的方案的集合</strong>：</p>
+<ol>
+<li>从顶点 $(1, 1)$ 出发，按照「左下方或右下方」的规则走；</li>
+<li>最终落点恰好是第 $i$ 行第 $j$ 列的位置；</li>
+<li>路径上数字之和。</li>
+</ol>
+<blockquote>
+<p>记 $a[i][j]$ 为三角形第 $i$ 行第 $j$ 列位置上的数字。三角形共 $r$ 行，第 $i$ 行有 $i$ 个数字，即列号 $j$ 的取值范围为 $1 \le j \le i$。</p>
+</blockquote>
+<h4 id="2-2-属性确定"><a href="#2-2-属性确定" class="headerlink" title="2.2 属性确定"></a>2.2 属性确定</h4><p>本问题要求的是路径上数字之和的最大值，属性为 <strong>max（最大值）</strong>。</p>
+<p><strong>关于 max 属性的「不重复」要求</strong>：求最大值时，子集可以有重叠——因为 $max(子集A, 子集B)$ 不要求子集互不相交，重复不影响最终结果。关键是要保证 <strong>不遗漏</strong>（所有方案都被覆盖到）。</p>
+<h4 id="2-3-最终答案"><a href="#2-3-最终答案" class="headerlink" title="2.3 最终答案"></a>2.3 最终答案</h4><p>需要到达底部任意位置，因此最终答案为第 $r$ 行所有状态的最大值：</p>
+<script type="math/tex; mode=display">
+\text{answer} = \max_{1 \le j \le r} f[r][j]</script><hr>
+<h3 id="三、状态计算（化整为零）"><a href="#三、状态计算（化整为零）" class="headerlink" title="三、状态计算（化整为零）"></a>三、状态计算（化整为零）</h3><blockquote>
+<p>把 $f[i][j]$ 对应的集合划分为若干子集，分别求值后合并。</p>
+</blockquote>
+<h4 id="3-1-寻找最后一个不同点"><a href="#3-1-寻找最后一个不同点" class="headerlink" title="3.1 寻找最后一个不同点"></a>3.1 寻找最后一个不同点</h4><p>到达位置 $(i, j)$ 的不同路径，其区别在于 <strong>最后一步是从哪个位置走过来的</strong>。根据移动规则（只能走左下方或右下方）：</p>
+<ul>
+<li>到达 $(i, j)$ 的前一个位置只能是 <strong>$(i-1, j-1)$（从左上角走右下）</strong> 或 <strong>$(i-1, j)$（从正上方走左下）</strong>。</li>
+</ul>
+<p>这就是划分集合的「最后一个不同点」。</p>
+<h4 id="3-2-划分子集"><a href="#3-2-划分子集" class="headerlink" title="3.2 划分子集"></a>3.2 划分子集</h4><p>将 $f[i][j]$ 的合法路径集合按最后一步的来源划分为两类：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>子集</th>
+<th>描述</th>
+<th>来源状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>子集①</td>
+<td>最后一步从 $(i-1, j-1)$ 走到 $(i, j)$</td>
+<td>$f[i-1][j-1]$</td>
+</tr>
+<tr>
+<td>子集②</td>
+<td>最后一步从 $(i-1, j)$ 走到 $(i, j)$</td>
+<td>$f[i-1][j]$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="3-3-计算每个子集的值"><a href="#3-3-计算每个子集的值" class="headerlink" title="3.3 计算每个子集的值"></a>3.3 计算每个子集的值</h4><p>对于 <strong>子集①</strong>：</p>
+<ul>
+<li>该子集中的每条路径：先到达 $(i-1, j-1)$，和记为 $S$；再走到 $(i, j)$，加上 $a[i][j]$。</li>
+<li>总路径和 = 到达 $(i-1, j-1)$ 的最大和 $+ a[i][j]$。</li>
+<li>因此子集①中的最大和为 $f[i-1][j-1] + a[i][j]$。</li>
+</ul>
+<p>对于 <strong>子集②</strong>：</p>
+<ul>
+<li>该子集中的每条路径：先到达 $(i-1, j)$，再走到 $(i, j)$，加上 $a[i][j]$。</li>
+<li>因此子集②中的最大和为 $f[i-1][j] + a[i][j]$。</li>
+</ul>
+<h4 id="3-4-关于子集的存在性"><a href="#3-4-关于子集的存在性" class="headerlink" title="3.4 关于子集的存在性"></a>3.4 关于子集的存在性</h4><p>子集①存在的前提是 $(i-1, j-1)$ 是三角形内的合法位置，即 <strong>$j-1 \ge 1$，即 $j \ge 2$</strong>。</p>
+<p>子集②存在的前提是 $(i-1, j)$ 是三角形内的合法位置，即 <strong>$j \le i-1$</strong>。</p>
+<p>换句话说：</p>
+<ul>
+<li>对于每行的最左列（$j=1$），只存在子集②（没有左上来源）；</li>
+<li>对于每行的最右列（$j=i$），只存在子集①（没有正上来源）；</li>
+<li>对于中间列（$2 \le j \le i-1$），两个子集均存在。</li>
+</ul>
+<p>这也是数字三角形中 <strong>边界位置只有一个转移来源</strong> 的原因。</p>
+<h4 id="3-5-状态转移方程"><a href="#3-5-状态转移方程" class="headerlink" title="3.5 状态转移方程"></a>3.5 状态转移方程</h4><p>根据属性 <code>max</code> 的合并规则（各子集取最大值）：</p>
+<script type="math/tex; mode=display">
+f[i][j] =
+\begin{cases}
+f[i-1][j] + a[i][j], & j = 1 \\[6pt]
+f[i-1][j-1] + a[i][j], & j = i \\[6pt]
+\max\big(f[i-1][j-1],\ f[i-1][j]\big) + a[i][j], & 2 \le j \le i-1
+\end{cases}</script><p>统一写法（当子集不存在时，将对应来源的值视为 $-\infty$）：</p>
+<script type="math/tex; mode=display">
+f[i][j] = \max\big(f[i-1][j-1],\ f[i-1][j]\big) + a[i][j]</script><p>其中不存在的 $f[i-1][0]$ 和 $f[i-1][i]$ 视为 $-\infty$。</p>
+<hr>
+<h3 id="四、边界条件"><a href="#四、边界条件" class="headerlink" title="四、边界条件"></a>四、边界条件</h3><p>一切以状态定义为准绳——$f[i][j]$ 表示从顶点走到 $(i,j)$ 的最大和。</p>
+<ul>
+<li>$f[1][1] = a[1][1]$：三角形的顶点，到达它只有「站在起点」这一种方案，路径和就是 $a[1][1]$。</li>
+<li>对于位置 $(i, j)$ 不合法的情况（如 $j &lt; 1$ 或 $j &gt; i$），$f[i][j]$ 视为 $-\infty$（不影响 max 比较）。</li>
+</ul>
+<hr>
+<h3 id="五、循环顺序"><a href="#五、循环顺序" class="headerlink" title="五、循环顺序"></a>五、循环顺序</h3><p>状态 $f[i][j]$ 依赖于 $f[i-1][j-1]$ 和 $f[i-1][j]$，这两个状态都在上一行。因此从第 $1$ 行开始逐行向下计算即可：</p>
+<ul>
+<li>外层循环 $i$ 从 $2$ 到 $r$（行号递增）；</li>
+<li>内层循环 $j$ 从 $1$ 到 $i$（列号按行内顺序）。</li>
+</ul>
+<p>计算 $f[i][j]$ 时，第 $i-1$ 行的所有状态已经计算完毕，依赖关系得到满足。</p>
+<hr>
+<h3 id="六、闫氏DP分析图"><a href="#六、闫氏DP分析图" class="headerlink" title="六、闫氏DP分析图"></a>六、闫氏DP分析图</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">状态表示 f[i][j]</span><br><span class="line">┌──────────────────────────────────────┐</span><br><span class="line">│ 集合：从顶点(1,1)走到(i,j)的所有     │</span><br><span class="line">│       路径的数字和                    │</span><br><span class="line">│ 属性：最大数字和 (max)                │</span><br><span class="line">└──────────────────────────────────────┘</span><br><span class="line">                    │</span><br><span class="line">                    ▼</span><br><span class="line">状态计算 —— 按最后一步来源划分子集</span><br><span class="line">┌──────────────────────────────────────┐</span><br><span class="line">│                                      │</span><br><span class="line">│   f[i-1][j-1] ──↘                    │</span><br><span class="line">│                    f[i][j] + a[i][j] │</span><br><span class="line">│   f[i-1][j]   ──↗                    │</span><br><span class="line">│                                      │</span><br><span class="line">│  f[i][j] = max(f[i-1][j-1],         │</span><br><span class="line">│                f[i-1][j]) + a[i][j]  │</span><br><span class="line">│                                      │</span><br><span class="line">│  (边缘位置只有一个来源)               │</span><br><span class="line">└──────────────────────────────────────┘</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="七、复杂度分析"><a href="#七、复杂度分析" class="headerlink" title="七、复杂度分析"></a>七、复杂度分析</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>数值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>状态数</td>
+<td>$O(r^2)$（三角形共 $\frac{r(r+1)}{2}$ 个位置）</td>
+</tr>
+<tr>
+<td>每状态的转移</td>
+<td>$O(1)$（最多比较两个来源）</td>
+</tr>
+<tr>
+<td>总时间复杂度</td>
+<td>$O(r^2)$</td>
+</tr>
+<tr>
+<td>空间复杂度</td>
+<td>$O(r^2)$（二维数组）</td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<p><strong>空间优化</strong>：由于 $f[i]$ 行只依赖于 $f[i-1]$ 行，可以使用滚动数组将空间优化至 $O(r)$。此外，还可以采用<strong>逆序更新</strong>技巧，用同一个一维数组完成计算（注意内层循环 $j$ 必须从 $i$ 递减到 $1$，以确保使用的是上一行的值）。</p>
+</blockquote>
 
       </div>
       

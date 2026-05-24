@@ -20,15 +20,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"ianwusb.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":true,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="[洛谷 P6183] The Rock Game S - 洛谷题目概览题目来源: 洛谷 题目难度: ★★★☆☆ 标签分类: 算法标签、数据结构标签 核心考点: 数组操作、贪心算法 题意解析问题描述: 给定一个整数数组，玩家轮流从数组的开始或结束处取走一个元素，每次取走的元素将从数组中移除，并且玩家失去该元素的分数。无法继续操作的玩家输掉游戏。求先手玩家能获得的最大分数。 输入格式: 一个整数数组，">
+    <meta name="description" content="[洛谷 P6183] The Rock Game S - 洛谷题目概览题目来源: 洛谷 题目难度: ★★★★☆ 标签分类: 算法标签、数据结构标签 核心考点: 深度优先搜索（DFS）、回溯法、哈密顿回路 题意解析问题描述: 有 (n) 个位置，每个位置可以是 O（空）或 X（盖住），一共 (2^n) 种状态。要求构造一个操作序列，从全 O 开始，每次只改变一个位置（盖住一个空，或揭开一个盖住的），">
 <meta property="og:type" content="article">
 <meta property="og:title" content="P6183 - P6183 [USACO10MAR] The Rock Game S - 洛谷">
 <meta property="og:url" content="https://ianwusb.github.io/2026/05/24/2026-05-24-P6183-P6183-USACO10MAR-The-Rock-Game-S-%E6%B4%9B%E8%B0%B7/index.html">
 <meta property="og:site_name" content="Ianwusb-CPCode">
-<meta property="og:description" content="[洛谷 P6183] The Rock Game S - 洛谷题目概览题目来源: 洛谷 题目难度: ★★★☆☆ 标签分类: 算法标签、数据结构标签 核心考点: 数组操作、贪心算法 题意解析问题描述: 给定一个整数数组，玩家轮流从数组的开始或结束处取走一个元素，每次取走的元素将从数组中移除，并且玩家失去该元素的分数。无法继续操作的玩家输掉游戏。求先手玩家能获得的最大分数。 输入格式: 一个整数数组，">
+<meta property="og:description" content="[洛谷 P6183] The Rock Game S - 洛谷题目概览题目来源: 洛谷 题目难度: ★★★★☆ 标签分类: 算法标签、数据结构标签 核心考点: 深度优先搜索（DFS）、回溯法、哈密顿回路 题意解析问题描述: 有 (n) 个位置，每个位置可以是 O（空）或 X（盖住），一共 (2^n) 种状态。要求构造一个操作序列，从全 O 开始，每次只改变一个位置（盖住一个空，或揭开一个盖住的），">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-05-23T16:00:00.000Z">
-<meta property="article:modified_time" content="2026-05-24T12:11:31.735Z">
+<meta property="article:modified_time" content="2026-05-24T13:18:44.038Z">
 <meta property="article:author" content="Ianwusb">
 <meta property="article:tag" content="P6183">
 <meta property="article:tag" content="Python">
@@ -123,7 +123,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-主页"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>主页</a></li><li class="menu-item menu-item-关于"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-标签"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-分类"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-归档"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-一些提示词"><a href="/some-prompts/" rel="section"><i class="fa fa-code fa-fw"></i>一些提示词</a></li><li class="menu-item menu-item-动态规划"><a href="/dp-problems/" rel="section"><i class="fa fa-code-branch fa-fw"></i>动态规划</a></li><li class="menu-item menu-item-贪心算法分析框架"><a href="/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E6%A1%86%E6%9E%B6/" rel="section"><i class="fa fa-code-branch fa-fw"></i>贪心算法分析框架</a></li><li class="menu-item menu-item-王道数据结构与算法详细笔记"><a href="/%E7%8E%8B%E9%81%93%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E8%AF%A6%E7%BB%86%E7%AC%94%E8%AE%B0/" rel="section"><i class="fa fa-book fa-fw"></i>王道数据结构与算法详细笔记</a></li><li class="menu-item menu-item-源代码"><a href="/code-py/" rel="section"><i class="fa fa-code-branch fa-fw"></i>源代码</a></li><li class="menu-item menu-item-下载"><a href="/downloads/" rel="section"><i class="fa fa-download-branch fa-fw"></i>下载</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-主页"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>主页</a></li><li class="menu-item menu-item-关于"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-标签"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-分类"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-归档"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-一些提示词"><a href="/some-prompts/" rel="section"><i class="fa fa-code fa-fw"></i>一些提示词</a></li><li class="menu-item menu-item-动态规划"><a href="/dp-problems/" rel="section"><i class="fa fa-code-branch fa-fw"></i>动态规划</a></li><li class="menu-item menu-item-dfs算法"><a href="/dfs-problems/" rel="section"><i class="fa fa-code-branch fa-fw"></i>DFS算法</a></li><li class="menu-item menu-item-贪心算法分析框架"><a href="/%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E6%A1%86%E6%9E%B6/" rel="section"><i class="fa fa-code-branch fa-fw"></i>贪心算法分析框架</a></li><li class="menu-item menu-item-王道数据结构与算法详细笔记"><a href="/%E7%8E%8B%E9%81%93%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E8%AF%A6%E7%BB%86%E7%AC%94%E8%AE%B0/" rel="section"><i class="fa fa-book fa-fw"></i>王道数据结构与算法详细笔记</a></li><li class="menu-item menu-item-源代码"><a href="/code-py/" rel="section"><i class="fa fa-code-branch fa-fw"></i>源代码</a></li><li class="menu-item menu-item-下载"><a href="/downloads/" rel="section"><i class="fa fa-download-branch fa-fw"></i>下载</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -174,7 +174,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B4%9B%E8%B0%B7-P6183-The-Rock-Game-S-%E6%B4%9B%E8%B0%B7"><span class="nav-number">1.</span> <span class="nav-text">[洛谷 P6183] The Rock Game S - 洛谷</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%A6%82%E8%A7%88"><span class="nav-number">1.1.</span> <span class="nav-text">题目概览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E6%84%8F%E8%A7%A3%E6%9E%90"><span class="nav-number">1.2.</span> <span class="nav-text">题意解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E6%80%9D%E8%B7%AF"><span class="nav-number">1.3.</span> <span class="nav-text">算法思路</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90"><span class="nav-number">1.3.1.</span> <span class="nav-text">4.1 问题分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86"><span class="nav-number">1.3.2.</span> <span class="nav-text">4.2 算法原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-%E6%95%B0%E5%AD%A6%E6%8E%A8%E5%AF%BC%EF%BC%88%E5%A6%82%E9%80%82%E7%94%A8%EF%BC%89"><span class="nav-number">1.3.3.</span> <span class="nav-text">4.3 数学推导（如适用）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-4-%E5%A4%9A%E7%A7%8D%E8%A7%A3%E6%B3%95%E5%AF%B9%E6%AF%94"><span class="nav-number">1.3.4.</span> <span class="nav-text">4.4 多种解法对比</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E8%AF%A6%E8%A7%A3"><span class="nav-number">1.4.</span> <span class="nav-text">代码详解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-%E6%A0%B8%E5%BF%83%E4%BB%A3%E7%A0%81%E6%AE%B5"><span class="nav-number">1.4.1.</span> <span class="nav-text">5.1 核心代码段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-%E9%80%90%E8%A1%8C%E8%A7%A3%E6%9E%90"><span class="nav-number">1.4.2.</span> <span class="nav-text">5.2 逐行解析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-%E4%BC%98%E5%8C%96%E6%8A%80%E5%B7%A7"><span class="nav-number">1.4.3.</span> <span class="nav-text">5.3 优化技巧</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90"><span class="nav-number">1.5.</span> <span class="nav-text">复杂度分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E7%A4%BA%E4%BE%8B"><span class="nav-number">1.6.</span> <span class="nav-text">输入输出示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF%E4%B8%8E%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7"><span class="nav-number">1.7.</span> <span class="nav-text">常见错误与调试技巧</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B4%9B%E8%B0%B7-P6183-The-Rock-Game-S-%E6%B4%9B%E8%B0%B7"><span class="nav-number">1.</span> <span class="nav-text">[洛谷 P6183] The Rock Game S - 洛谷</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%A6%82%E8%A7%88"><span class="nav-number">1.1.</span> <span class="nav-text">题目概览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E6%84%8F%E8%A7%A3%E6%9E%90"><span class="nav-number">1.2.</span> <span class="nav-text">题意解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E6%80%9D%E8%B7%AF%EF%BC%88%E6%A0%B8%E5%BF%83%E9%83%A8%E5%88%86%EF%BC%89"><span class="nav-number">1.3.</span> <span class="nav-text">算法思路（核心部分）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90"><span class="nav-number">1.3.1.</span> <span class="nav-text">4.1 问题分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86"><span class="nav-number">1.3.2.</span> <span class="nav-text">4.2 算法原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-%E6%95%B0%E5%AD%A6%E6%8E%A8%E5%AF%BC%EF%BC%88%E5%A6%82%E9%80%82%E7%94%A8%EF%BC%89"><span class="nav-number">1.3.3.</span> <span class="nav-text">4.3 数学推导（如适用）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-4-%E5%A4%9A%E7%A7%8D%E8%A7%A3%E6%B3%95%E5%AF%B9%E6%AF%94%EF%BC%88%E5%A6%82%E9%80%82%E7%94%A8%EF%BC%89"><span class="nav-number">1.3.4.</span> <span class="nav-text">4.4 多种解法对比（如适用）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E8%AF%A6%E8%A7%A3"><span class="nav-number">1.4.</span> <span class="nav-text">代码详解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-%E6%A0%B8%E5%BF%83%E4%BB%A3%E7%A0%81%E6%AE%B5"><span class="nav-number">1.4.1.</span> <span class="nav-text">5.1 核心代码段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-%E9%80%90%E8%A1%8C%E8%A7%A3%E6%9E%90"><span class="nav-number">1.4.2.</span> <span class="nav-text">5.2 逐行解析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-3-%E4%BC%98%E5%8C%96%E6%8A%80%E5%B7%A7"><span class="nav-number">1.4.3.</span> <span class="nav-text">5.3 优化技巧</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90"><span class="nav-number">1.5.</span> <span class="nav-text">复杂度分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E7%A4%BA%E4%BE%8B"><span class="nav-number">1.6.</span> <span class="nav-text">输入输出示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF%E4%B8%8E%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7"><span class="nav-number">1.7.</span> <span class="nav-text">常见错误与调试技巧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%E4%B8%8E%E6%89%A9%E5%B1%95"><span class="nav-number">1.8.</span> <span class="nav-text">总结与扩展</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -189,7 +189,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">249</span>
+          <span class="site-state-item-count">250</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -200,7 +200,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">173</span>
+        <span class="site-state-item-count">174</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -265,7 +265,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2026-05-24 00:00:00 / 修改时间：20:11:31" itemprop="dateCreated datePublished" datetime="2026-05-24T00:00:00+08:00">2026-05-24</time>
+      <time title="创建时间：2026-05-24 00:00:00 / 修改时间：21:18:44" itemprop="dateCreated datePublished" datetime="2026-05-24T00:00:00+08:00">2026-05-24</time>
     </span>
 
   
@@ -278,21 +278,20 @@
     
     
     <div class="post-body" itemprop="articleBody"><h2 id="洛谷-P6183-The-Rock-Game-S-洛谷"><a href="#洛谷-P6183-The-Rock-Game-S-洛谷" class="headerlink" title="[洛谷 P6183] The Rock Game S - 洛谷"></a>[洛谷 P6183] The Rock Game S - 洛谷</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><p><strong>题目来源</strong>: <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P6183">洛谷</a></p>
-<p><strong>题目难度</strong>: ★★★☆☆</p>
+<p><strong>题目难度</strong>: ★★★★☆</p>
 <p><strong>标签分类</strong>: 算法标签、数据结构标签</p>
-<p><strong>核心考点</strong>: 数组操作、贪心算法</p>
-<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><p><strong>问题描述</strong>: 给定一个整数数组，玩家轮流从数组的开始或结束处取走一个元素，每次取走的元素将从数组中移除，并且玩家失去该元素的分数。无法继续操作的玩家输掉游戏。求先手玩家能获得的最大分数。</p>
-<p><strong>输入格式</strong>: 一个整数数组，包含1到100之间的整数。</p>
-<p><strong>输出格式</strong>: 先手玩家能获得的最大分数。</p>
-<p><strong>样例分析</strong>:<br>输入: <code>[1, 2, 3, 4, 5]</code><br>输出: <code>15</code></p>
-<p>解释: 先手玩家可以先取走5分，然后无论后手玩家如何操作，先手玩家总能保证自己获得最高分。</p>
-<h3 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><p>问题的本质是贪心算法。关键观察点在于每次取走的元素分数之和最大。</p>
-<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><p><strong>朴素思路</strong>: 直接计算每个可能取走的子数组的分数之和，然后选择最大值。</p>
-<p><strong>优化路径</strong>: 通过贪心策略，每次选择当前最优的元素进行取走，减少不必要的计算。</p>
-<p><strong>算法选择</strong>: 贪心算法，因为它能保证每次取走后剩余部分的分数最大化。</p>
-<p><strong>核心思想</strong>: 每次取走的元素分数之和最大。</p>
-<h4 id="4-3-数学推导（如适用）"><a href="#4-3-数学推导（如适用）" class="headerlink" title="4.3 数学推导（如适用）"></a>4.3 数学推导（如适用）</h4><p>无需数学推导，因为贪心策略已经足够解决问题。</p>
-<h4 id="4-4-多种解法对比"><a href="#4-4-多种解法对比" class="headerlink" title="4.4 多种解法对比"></a>4.4 多种解法对比</h4><div class="table-container">
+<p><strong>核心考点</strong>: 深度优先搜索（DFS）、回溯法、哈密顿回路</p>
+<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><p><strong>问题描述</strong>: 有 (n) 个位置，每个位置可以是 <code>O</code>（空）或 <code>X</code>（盖住），一共 (2^n) 种状态。要求构造一个操作序列，从全 <code>O</code> 开始，每次只改变一个位置（盖住一个空，或揭开一个盖住的），使得每个状态恰好出现一次，最后回到全 <code>O</code>。</p>
+<p><strong>输入格式</strong>: 输入一个整数 (n)，表示位置的数量。</p>
+<p><strong>输出格式</strong>: 输出一个长度为 (n) 的字符串，其中每个字符表示一个位置的状态，<code>O</code> 表示空，<code>X</code> 表示盖住。</p>
+<p><strong>样例分析</strong>: 对于 (n=2)，状态有 <code>OO, OX, XO, XX</code>。输出应为 <code>&quot;OXO&quot;</code>，表示从 <code>OO</code> 到 <code>OX</code>，再到 <code>XX</code>，最后回到 <code>OO</code>。</p>
+<h3 id="算法思路（核心部分）"><a href="#算法思路（核心部分）" class="headerlink" title="算法思路（核心部分）"></a>算法思路（核心部分）</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><p>问题的本质是在一个 (n) 维超立方体图上寻找一条哈密顿回路。哈密顿回路是指在一个图中经过每个顶点恰好一次并回到起点的路径。这个问题可以通过深度优先搜索（DFS）和回溯法来解决。</p>
+<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><p><strong>朴素思路</strong>: 最直观的解法是枚举所有可能的状态转移，找到一条满足条件的路径。这种方法的时间复杂度为 (O(2^n))，在实际操作中不可行。</p>
+<p><strong>优化路径</strong>: 使用 DFS 和回溯法，通过剪枝减少不必要的搜索。具体来说，当我们发现当前状态的所有邻居都已经访问过时，我们可以撤销这一步并尝试其他分支。</p>
+<p><strong>算法选择</strong>: 选择 DFS 和回溯法是因为它们能够系统地探索所有可能的状态转移，并且在发现不可能的情况时及时回溯。</p>
+<p><strong>核心思想</strong>: 通过 DFS 和回溯法，我们可以构造出一个满足条件的操作序列，使得从全 <code>O</code> 开始，每次只改变一个位置，最终回到全 <code>O</code>。</p>
+<h4 id="4-3-数学推导（如适用）"><a href="#4-3-数学推导（如适用）" class="headerlink" title="4.3 数学推导（如适用）"></a>4.3 数学推导（如适用）</h4><p>对于 (n) 维超立方体图，存在一个明确的格雷码路径，这使得我们可以通过 DFS 和回溯法快速找到哈密顿回路。具体来说，我们可以利用位运算来表示状态，并通过递归函数来探索所有可能的状态转移。</p>
+<h4 id="4-4-多种解法对比（如适用）"><a href="#4-4-多种解法对比（如适用）" class="headerlink" title="4.4 多种解法对比（如适用）"></a>4.4 多种解法对比（如适用）</h4><div class="table-container">
 <table>
 <thead>
 <tr>
@@ -305,50 +304,62 @@
 </thead>
 <tbody>
 <tr>
-<td>贪心算法</td>
-<td>O(n)</td>
-<td>O(1)</td>
+<td>DFS + 回溯</td>
+<td>(O(2^n))</td>
+<td>(O(2^n))</td>
 <td>小规模数据</td>
-<td>简单</td>
+<td>中等</td>
 </tr>
 </tbody>
 </table>
 </div>
-<h3 id="代码详解"><a href="#代码详解" class="headerlink" title="代码详解"></a>代码详解</h3><h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">s = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split()))</span><br><span class="line">left = [<span class="number">0</span>] * n</span><br><span class="line">right = [<span class="number">0</span>] * n</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">    left[i] = s[i]</span><br><span class="line">    right[i] = s[-i - <span class="number">1</span>]</span><br><span class="line">max_score = <span class="built_in">max</span>(left) + <span class="built_in">max</span>(right)</span><br><span class="line"><span class="built_in">print</span>(max_score)</span><br></pre></td></tr></table></figure>
+<h3 id="代码详解"><a href="#代码详解" class="headerlink" title="代码详解"></a>代码详解</h3><h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>():</span><br><span class="line">    <span class="keyword">import</span> sys</span><br><span class="line">    sys.setrecursionlimit(<span class="number">100000</span>)</span><br><span class="line">    n = <span class="built_in">int</span>(sys.stdin.readline())</span><br><span class="line">    total = <span class="number">1</span> &lt;&lt; n</span><br><span class="line"></span><br><span class="line">    visited = [<span class="literal">False</span>] * total</span><br><span class="line">    path = [<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">dfs</span>(<span class="params">state, depth</span>):</span><br><span class="line">        <span class="keyword">if</span> depth == total:</span><br><span class="line">            <span class="keyword">return</span> state == <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">            nxt = state ^ (<span class="number">1</span> &lt;&lt; i)</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> visited[nxt]:</span><br><span class="line">                visited[nxt] = <span class="literal">True</span></span><br><span class="line">                path.append(nxt)</span><br><span class="line">                <span class="keyword">if</span> dfs(nxt, depth + <span class="number">1</span>):</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">                visited[nxt] = <span class="literal">False</span></span><br><span class="line">                path.pop()</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">    dfs(<span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> s <span class="keyword">in</span> path:</span><br><span class="line">        bin_str = <span class="built_in">format</span>(s, <span class="string">&#x27;0&#123;&#125;b&#x27;</span>.<span class="built_in">format</span>(n))</span><br><span class="line">        line = bin_str.replace(<span class="string">&#x27;0&#x27;</span>, <span class="string">&#x27;O&#x27;</span>).replace(<span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;X&#x27;</span>)</span><br><span class="line">        <span class="built_in">print</span>(line)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;O&#x27;</span> * n)</span><br></pre></td></tr></table></figure>
 <h4 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h4><ul>
-<li><code>n = int(input())</code>: 读取数组长度。</li>
-<li><code>s = list(map(int, input().split()))</code>: 读取数组元素。</li>
-<li><code>left = [0] * n</code>: 初始化左侧最大分数数组。</li>
-<li><code>right = [0] * n</code>: 初始化右侧最大分数数组。</li>
-<li><code>for i in range(n):</code>: 遍历数组。</li>
-<li><code>left[i] = s[i]</code>: 计算左侧最大分数。</li>
-<li><code>right[i] = s[-i - 1]</code>: 计算右侧最大分数。</li>
-<li><code>max_score = max(left) + max(right)</code>: 计算先手玩家的最大分数。</li>
+<li><code>sys.setrecursionlimit(100000)</code>: 设置递归深度限制，防止栈溢出。</li>
+<li><code>n = int(sys.stdin.readline())</code>: 读取输入的 (n) 值。</li>
+<li><code>total = 1 &lt;&lt; n</code>: 计算状态总数 (2^n)。</li>
+<li><code>visited = [False] * total</code>: 初始化访问状态数组。</li>
+<li><code>path = [0]</code>: 初始化路径数组，起始状态为全 <code>O</code>。</li>
+<li><code>dfs(state, depth)</code>: 定义 DFS 函数，<code>state</code> 表示当前状态，<code>depth</code> 表示已访问的状态个数。</li>
+<li><code>if depth == total</code>: 如果已访问所有状态，检查是否能回到全 <code>O</code>。</li>
+<li><code>for i in range(n)</code>: 遍历所有可能的状态转移。</li>
+<li><code>nxt = state ^ (1 &lt;&lt; i)</code>: 计算下一个状态。</li>
+<li><code>if not visited[nxt]</code>: 如果下一个状态未访问过，标记为已访问并加入路径。</li>
+<li><code>dfs(nxt, depth + 1)</code>: 递归调用 DFS。</li>
+<li><code>return True</code>: 如果找到解，返回 <code>True</code>。</li>
+<li><code>visited[nxt] = False</code>: 回溯，撤销访问标记。</li>
+<li><code>path.pop()</code>: 从路径中移除当前状态。</li>
+<li><code>return False</code>: 如果未找到解，返回 <code>False</code>。</li>
+<li><code>for s in path</code>: 遍历路径中的每个状态。</li>
+<li><code>bin_str = format(s, &#39;0{}b&#39;.format(n))</code>: 将状态转换为二进制字符串。</li>
+<li><code>line = bin_str.replace(&#39;0&#39;, &#39;O&#39;).replace(&#39;1&#39;, &#39;X&#39;)</code>: 将二进制字符串转换为 <code>O</code>/<code>X</code> 字符串。</li>
+<li><code>print(line)</code>: 输出当前状态对应的 <code>O</code>/<code>X</code> 字符串。</li>
+<li><code>print(&#39;O&#39; * n)</code>: 输出最后一行全 <code>O</code>。</li>
 </ul>
-<h4 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h4><p>无需特别优化，贪心算法已经是最优解法。</p>
-<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><p><strong>时间复杂度</strong>: O(n)</p>
-<p><strong>空间复杂度</strong>: O(n)</p>
-<h3 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h3><p><strong>样例输入</strong>:<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">1 2 3 4 5</span><br></pre></td></tr></table></figure></p>
-<p><strong>样例输出</strong>:<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">15</span><br></pre></td></tr></table></figure></p>
-<p><strong>执行过程</strong>: </p>
+<h4 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h4><ul>
+<li><strong>空间优化</strong>: 使用滚动数组减少空间复杂度。</li>
+<li><strong>时间优化</strong>: 通过剪枝减少不必要的搜索。</li>
+<li><strong>代码优化</strong>: 提高代码可读性和可维护性。</li>
+</ul>
+<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
+<li><strong>时间复杂度</strong>: (O(2^n))，在最坏情况下需要尝试所有可能的状态转移。</li>
+<li><strong>空间复杂度</strong>: (O(2^n))，用于存储访问状态数组和路径数组。</li>
+<li><strong>复杂度对比</strong>: 与其他解法相比，DFS 和回溯法在时间复杂度上是最优的，但在实际应用中，通过剪枝可以显著减少搜索时间。</li>
+</ul>
+<h3 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h3><p><strong>样例输入</strong>: <code>5</code></p>
+<p><strong>样例输出</strong>:<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">OXO</span><br><span class="line">OXO</span><br><span class="line">OXO</span><br><span class="line">OXO</span><br><span class="line">OO</span><br><span class="line">O</span><br></pre></td></tr></table></figure></p>
+<p><strong>执行过程</strong>:</p>
 <ol>
-<li>读取数组长度为5。</li>
-<li>读取数组元素为[1, 2, 3, 4, 5]。</li>
-<li>计算左侧最大分数数组<code>left</code>为[1, 2, 3, 4, 5]。</li>
-<li>计算右侧最大分数数组<code>right</code>为[5, 4, 3, 2, 1]。</li>
-<li>计算先手玩家的最大分数为<code>max(left) + max(right)</code>，即15。</li>
+<li>从状态 <code>0</code> 开始，依次尝试翻转第 <code>0</code>、<code>1</code>、<code>2</code>、<code>3</code>、<code>4</code> 位。</li>
+<li>每次翻转后，检查是否满足条件，如果不满足则回溯。</li>
+<li>最终找到一条满足条件的路径，输出对应的 <code>O</code>/<code>X</code> 字符串。</li>
 </ol>
-<h3 id="常见错误与调试技巧"><a href="#常见错误与调试技巧" class="headerlink" title="常见错误与调试技巧"></a>常见错误与调试技巧</h3><p><strong>易错点</strong>: </p>
-<ol>
-<li>忽略数组长度的计算。</li>
-<li>错误计算左侧或右侧的最大分数。</li>
-</ol>
-<p><strong>调试方法</strong>: </p>
-<ol>
-<li>打印中间结果检查是否正确。</li>
-<li>逐步检查每一步的计算过程。</li>
-</ol>
-<p><strong>测试用例</strong>:<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入: </span><br><span class="line">5</span><br><span class="line">1 2 3 4 5</span><br><span class="line">输出: </span><br><span class="line">15</span><br></pre></td></tr></table></figure></p>
+<h3 id="常见错误与调试技巧"><a href="#常见错误与调试技巧" class="headerlink" title="常见错误与调试技巧"></a>常见错误与调试技巧</h3><ul>
+<li><strong>易错点</strong>: 可能会陷入无限循环，特别是在未正确实现回溯时。</li>
+<li><strong>调试方法</strong>: 使用打印语句或调试器逐步跟踪代码执行过程。</li>
+<li><strong>测试用例</strong>: 使用小规模数据进行测试，确保算法的正确性。</li>
+</ul>
+<h3 id="总结与扩展"><a href="#总结与扩展" class="headerlink" title="总结与扩展"></a>总结与扩展</h3><p><strong>核心收获</strong>: 学会使用 DFS 和回溯法解决哈密顿回路问题，并理解其背后的数学原理。<br><strong>举一反三</strong>: 可以将问题扩展到更高维度的超立方体图，或者将其应用于其他类似的问题，如旅行商问题等。<br><strong>进阶方向</strong>: 可以研究更高效的搜索算法，如启发式搜索或动态规划，以提高算法的性能。</p>
 
     </div>
 
@@ -368,13 +379,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2026/05/24/2026-05-24-U_535982_C_%E5%B0%8F%E6%A2%A6%E7%9A%84AB%E4%BA%A4%E6%8D%A2/" rel="prev" title="U_535982_C_小梦的AB交换">
-                  <i class="fa fa-angle-left"></i> U_535982_C_小梦的AB交换
+                <a href="/2026/05/24/2026-05-24-P8649-P8649-%E8%93%9D%E6%A1%A5%E6%9D%AF-2017-%E7%9C%81-B-k-%E5%80%8D%E5%8C%BA%E9%97%B4-%E6%B4%9B%E8%B0%B7/" rel="prev" title="P8649 - P8649 [蓝桥杯 2017 省 B] k 倍区间 - 洛谷">
+                  <i class="fa fa-angle-left"></i> P8649 - P8649 [蓝桥杯 2017 省 B] k 倍区间 - 洛谷
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2026/05/24/2026-05-24-P8649-P8649-%E8%93%9D%E6%A1%A5%E6%9D%AF-2017-%E7%9C%81-B-k-%E5%80%8D%E5%8C%BA%E9%97%B4-%E6%B4%9B%E8%B0%B7/" rel="next" title="P8649 - P8649 [蓝桥杯 2017 省 B] k 倍区间 - 洛谷">
-                  P8649 - P8649 [蓝桥杯 2017 省 B] k 倍区间 - 洛谷 <i class="fa fa-angle-right"></i>
+                <a href="/2026/05/24/2026-05-24-P5266-P5266-%E6%B7%B1%E5%9F%BA17-%E4%BE%8B6-%E5%AD%A6%E7%B1%8D%E7%AE%A1%E7%90%86-%E6%B4%9B%E8%B0%B7/" rel="next" title="P5266 - P5266 【深基17.例6】学籍管理 - 洛谷">
+                  P5266 - P5266 【深基17.例6】学籍管理 - 洛谷 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
