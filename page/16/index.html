@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">286</span>
+          <span class="site-state-item-count">287</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -219,6 +219,128 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/13/2026-05-13-P12184-P12184-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-Python-A-%E5%81%8F%E8%93%9D-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/13/2026-05-13-P12184-P12184-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-Python-A-%E5%81%8F%E8%93%9D-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12184 - P12184 [蓝桥杯 2025 省 Python A] 偏蓝 - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-13 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-13T00:00:00+08:00">2026-05-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="洛谷-P12184-偏蓝-算法与优化技巧"><a href="#洛谷-P12184-偏蓝-算法与优化技巧" class="headerlink" title="[洛谷 P12184] 偏蓝 - 算法与优化技巧"></a>[洛谷 P12184] 偏蓝 - 算法与优化技巧</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
+<li><strong>题目来源</strong>: 洛谷 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P12184">P12184</a></li>
+<li><strong>题目难度</strong>: ★★☆☆☆</li>
+<li><strong>标签分类</strong>: 图算法、深度优先搜索（DFS）、广度优先搜索（BFS）</li>
+<li><strong>核心考点</strong>: 搜索算法的应用和优化</li>
+</ul>
+<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><ul>
+<li><strong>问题描述</strong>: 给定一个图的节点和边，要求找出从起点到终点的路径，路径上的节点颜色必须满足特定条件。</li>
+<li><strong>输入格式</strong>: 输入的第一行包含两个整数，表示节点数和边数。接下来的行描述了边，每行包含两个整数，表示一条边的两个端点。</li>
+<li><strong>输出格式</strong>: 输出一个整数，表示满足条件的路径数。</li>
+<li><strong>样例分析</strong>: 对于样例输入，我们需要找出所有从节点1到节点4的路径，其中路径上的节点颜色满足蓝色节点的条件。</li>
+</ul>
+<h3 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
+<li>问题的本质是图搜索，需要找到从起点到终点的路径。</li>
+<li>关键观察点是路径上的节点颜色必须满足特定条件。</li>
+<li>数据范围对算法选择的影响不大，因为DFS和BFS都适用于小到中等规模的图。</li>
+</ul>
+<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
+<li><strong>朴素思路</strong>: 使用DFS或BFS遍历所有可能的路径，检查路径上的节点颜色是否满足条件。</li>
+<li><strong>优化路径</strong>: 由于颜色条件限制了路径的选择，可以在遍历时剪枝，避免不必要的搜索。</li>
+<li><strong>算法选择</strong>: 选择DFS，因为它可以更早地排除不满足条件的路径。</li>
+<li><strong>核心思想</strong>: 使用DFS进行深度优先搜索，并在遍历时检查颜色条件。</li>
+</ul>
+<h4 id="4-3-代码详解"><a href="#4-3-代码详解" class="headerlink" title="4.3 代码详解"></a>4.3 代码详解</h4><p>```python<br>def p_blue(r, g, b):<br>    return b &gt; r and b &gt; g</p>
+<p>def dfs(node, color):<br>    if node == target:<br>        if p_blue(color[0], color[1], color[2]):<br>            return 1<br>        else:<br>            return 0<br>    path_count = 0<br>    for next_node in graph[node]:<br>        if next_node not in visited:<br>            visited.add(next_node)<br>            path_count += dfs(next_node, colors[next_node])<br>            visited.remove(next_node)<br>    return path_count</p>
+<h1 id="输入处理"><a href="#输入处理" class="headerlink" title="输入处理"></a>输入处理</h1><p>n, m = map(int, input().split())<br>graph = [[] for <em> in range(n)]<br>colors = [None] * n<br>for </em> in range(m):<br>    u, v = map(int, input().split())<br>    graph[u - 1].append(v - 1)<br>    graph[v - 1].append(u - 1)</p>
+<h1 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h1><p>start = 0<br>target = n - 1<br>visited = set()<br>visited.add(start)<br>colors[start] = input().split()  # 假设颜色输入为RGB格式的字符串</p>
+<h1 id="DFS搜索"><a href="#DFS搜索" class="headerlink" title="DFS搜索"></a>DFS搜索</h1><p>print(dfs(start, colors))</p>
+<h4 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h4><ul>
+<li>使用DFS遍历图，避免不必要的搜索。</li>
+<li>在遍历时检查颜色条件，剪枝不满足条件的路径。</li>
+</ul>
+<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
+<li><strong>时间复杂度</strong>: O(V+E)，其中V是节点数，E是边数。</li>
+<li><strong>空间复杂度</strong>: O(V)，用于存储图和颜色信息。</li>
+</ul>
+<h3 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h3><ul>
+<li><strong>样例输入</strong>:<br>4 5<br>1 2<br>1 3<br>2 3<br>3 4<br>4 1<br>(颜色输入省略)</li>
+<li><strong>样例输出</strong>:<br>1<h3 id="常见错误与调试技巧"><a href="#常见错误与调试技巧" class="headerlink" title="常见错误与调试技巧"></a>常见错误与调试技巧</h3></li>
+<li><strong>易错点</strong>: 忘记初始化颜色信息，或者在DFS遍历时没有检查颜色条件。</li>
+<li><strong>调试方法</strong>: 使用简单的图进行调试，逐步添加节点和边，观察程序的行为。</li>
+</ul>
+<h3 id="总结与扩展"><a href="#总结与扩展" class="headerlink" title="总结与扩展"></a>总结与扩展</h3><ul>
+<li><strong>核心收获</strong>: 学会了如何使用DFS进行图搜索，并在遍历时检查颜色条件。</li>
+<li><strong>举一反三</strong>: 可以将类似的搜索问题应用于其他图算法，如A*搜索。</li>
+<li><strong>进阶方向</strong>: 研究更高级的图搜索算法，如IDA*搜索。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -961,6 +1083,138 @@ pass
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/13/2026-05-13-P12281-P12281-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E5%9B%BD-Python-A-Java-A-%E8%AE%B0%E4%BA%8B%E6%9C%AC-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/13/2026-05-13-P12281-P12281-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E5%9B%BD-Python-A-Java-A-%E8%AE%B0%E4%BA%8B%E6%9C%AC-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12281 - P12281 [蓝桥杯 2024 国 Python A/Java A] 记事本 - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-13 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-13T00:00:00+08:00">2026-05-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>&lt;博客&gt;</p>
+<h2 id="洛谷-P12281-记事本-双端队列优化详解"><a href="#洛谷-P12281-记事本-双端队列优化详解" class="headerlink" title="[洛谷 P12281] 记事本 + 双端队列优化详解"></a>[洛谷 P12281] 记事本 + 双端队列优化详解</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
+<li><strong>题目来源</strong>: 洛谷</li>
+<li><strong>题目难度</strong>: ★★★☆☆</li>
+<li><strong>标签分类</strong>: 双端队列、字符串操作</li>
+<li><strong>核心考点</strong>: 双端队列的应用、字符串操作</li>
+</ul>
+<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><ul>
+<li><strong>问题描述</strong>: 模拟一个记事本，支持插入、删除、移动光标等操作。</li>
+<li><strong>输入格式</strong>: 输入T行指令，每行指令格式为<code>i&quot;text&quot;</code>、<code>d[数字]h</code>、<code>d[数字]l</code>或<code>[数字]h/l</code>。</li>
+<li><strong>输出格式</strong>: 输出最终文本。</li>
+<li><strong>样例分析</strong>:<ul>
+<li>输入: <code>i&quot;hello world&quot;</code>、<code>d2h</code>、<code>i&quot;!&quot;</code>、<code>1r</code>、<code>4l</code></li>
+<li>输出: <code>hello world!!</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
+<li>问题的本质是模拟记事本的功能，涉及字符串的插入、删除和移动操作。</li>
+<li>关键观察点：光标位置和文本内容。</li>
+</ul>
+<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
+<li><strong>朴素思路</strong>: 使用字符串进行操作，但效率较低。</li>
+<li><strong>优化路径</strong>: 使用双端队列（deque）来存储文本，实现高效的插入和删除操作。</li>
+<li><strong>算法选择</strong>: 选择双端队列是因为其支持在两端进行高效的插入和删除操作，非常适合模拟记事本。</li>
+<li><strong>核心思想</strong>: 使用双端队列存储文本，通过操作光标位置来实现插入、删除和移动操作。</li>
+</ul>
+<h4 id="4-3-算法原理（详细）"><a href="#4-3-算法原理（详细）" class="headerlink" title="4.3 算法原理（详细）"></a>4.3 算法原理（详细）</h4><ul>
+<li>使用双端队列<code>text</code>存储文本。</li>
+<li>使用变量<code>cursor</code>表示光标位置。</li>
+<li>对于插入操作，将字符插入到光标位置，并将光标右移。</li>
+<li>对于删除操作，根据方向删除光标左/右边的字符。</li>
+<li>对于移动操作，根据方向移动光标。</li>
+</ul>
+<h4 id="4-4-代码详解"><a href="#4-4-代码详解" class="headerlink" title="4.4 代码详解"></a>4.4 代码详解</h4><p>```python<br>from collections import deque</p>
+<p>T = int(input())<br>text = deque()      # 使用双端队列存储字符<br>cursor = 0         # 光标在文本中的位置</p>
+<p>for _ in range(T):<br>    cmd = input()<br>    if cmd.startswith(‘i’):          # 插入文本<br>        content = cmd.split(‘“‘)[1]<br>        for ch in content:<br>            text.insert(cursor, ch)<br>            cursor += 1<br>    elif cmd.startswith(‘d’):        # 删除字符<br>        n = int(cmd[1:-1])<br>        direction = cmd[-1]<br>        if direction == ‘h’:         # 删除左侧<br>            delete_cnt = min(cursor, n)<br>            del text[cursor - delete_cnt : cursor]<br>            cursor -= delete_cnt<br>        else:                        # 删除右侧<br>            delete_cnt = min(len(text) - cursor, n)<br>            del text[cursor : cursor + delete_cnt]<br>    else:                            # 移动光标<br>        n = int(cmd[:-1])<br>        direction = cmd[-1]<br>        if direction == ‘h’:         # 向左移动<br>            cursor = max(0, cursor - n)<br>        else:                        # 向右移动<br>            cursor = min(len(text), cursor + n)</p>
+<p>print(‘’.join(text))</p>
+<h4 id="4-5-优化技巧"><a href="#4-5-优化技巧" class="headerlink" title="4.5 优化技巧"></a>4.5 优化技巧</h4><ul>
+<li>使用双端队列来存储文本，提高插入和删除操作的效率。</li>
+<li>通过调整光标位置，避免不必要的字符串复制。</li>
+</ul>
+<h3 id="5-复杂度分析"><a href="#5-复杂度分析" class="headerlink" title="5. 复杂度分析"></a>5. 复杂度分析</h3><ul>
+<li><strong>时间复杂度</strong>: O(T)，其中T是命令的数量。</li>
+<li><strong>空间复杂度</strong>: O(N)，其中N是文本的长度。</li>
+</ul>
+<h3 id="6-输入输出示例"><a href="#6-输入输出示例" class="headerlink" title="6. 输入输出示例"></a>6. 输入输出示例</h3><ul>
+<li><strong>样例输入</strong>:<br>i”hello world”<br>d2h<br>i”!”<br>1r<br>4l</li>
+<li><strong>样例输出</strong>:<br>hello world!!<h3 id="7-常见错误与调试技巧"><a href="#7-常见错误与调试技巧" class="headerlink" title="7. 常见错误与调试技巧"></a>7. 常见错误与调试技巧</h3></li>
+<li><strong>易错点</strong>: 光标位置的计算和边界条件处理。</li>
+<li><strong>调试方法</strong>: 使用简单的测试用例逐步调试。</li>
+</ul>
+<h3 id="8-总结与扩展"><a href="#8-总结与扩展" class="headerlink" title="8. 总结与扩展"></a>8. 总结与扩展</h3><ul>
+<li><strong>核心收获</strong>: 学习了双端队列的应用和字符串操作。</li>
+<li><strong>举一反三</strong>: 可以将类似问题应用于其他场景，如文本编辑器。</li>
+<li><strong>进阶方向</strong>: 研究更高级的文本编辑算法，如撤销和重做功能。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/13/2026-05-13-P12278-P12278-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E5%9B%BD-Python-A-%E8%AE%BE%E7%BD%AE%E5%AF%86%E7%A0%81-%E6%B4%9B%E8%B0%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1261,138 +1515,6 @@ else:
 <li><strong>进阶方向</strong>: 可以进一步研究字符串匹配和模式识别的算法，如KMP算法、Rabin-Karp算法等。</li>
 </ul>
 <p>通过这篇博客，希望你能够更好地理解题目，并掌握如何通过优化算法来提高效率。继续加油，争取在未来的竞赛中取得更好的成绩！</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/13/2026-05-13-P12281-P12281-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E5%9B%BD-Python-A-Java-A-%E8%AE%B0%E4%BA%8B%E6%9C%AC-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/13/2026-05-13-P12281-P12281-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E5%9B%BD-Python-A-Java-A-%E8%AE%B0%E4%BA%8B%E6%9C%AC-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12281 - P12281 [蓝桥杯 2024 国 Python A/Java A] 记事本 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2026-05-13 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-13T00:00:00+08:00">2026-05-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>&lt;博客&gt;</p>
-<h2 id="洛谷-P12281-记事本-双端队列优化详解"><a href="#洛谷-P12281-记事本-双端队列优化详解" class="headerlink" title="[洛谷 P12281] 记事本 + 双端队列优化详解"></a>[洛谷 P12281] 记事本 + 双端队列优化详解</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
-<li><strong>题目来源</strong>: 洛谷</li>
-<li><strong>题目难度</strong>: ★★★☆☆</li>
-<li><strong>标签分类</strong>: 双端队列、字符串操作</li>
-<li><strong>核心考点</strong>: 双端队列的应用、字符串操作</li>
-</ul>
-<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><ul>
-<li><strong>问题描述</strong>: 模拟一个记事本，支持插入、删除、移动光标等操作。</li>
-<li><strong>输入格式</strong>: 输入T行指令，每行指令格式为<code>i&quot;text&quot;</code>、<code>d[数字]h</code>、<code>d[数字]l</code>或<code>[数字]h/l</code>。</li>
-<li><strong>输出格式</strong>: 输出最终文本。</li>
-<li><strong>样例分析</strong>:<ul>
-<li>输入: <code>i&quot;hello world&quot;</code>、<code>d2h</code>、<code>i&quot;!&quot;</code>、<code>1r</code>、<code>4l</code></li>
-<li>输出: <code>hello world!!</code></li>
-</ul>
-</li>
-</ul>
-<h3 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
-<li>问题的本质是模拟记事本的功能，涉及字符串的插入、删除和移动操作。</li>
-<li>关键观察点：光标位置和文本内容。</li>
-</ul>
-<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
-<li><strong>朴素思路</strong>: 使用字符串进行操作，但效率较低。</li>
-<li><strong>优化路径</strong>: 使用双端队列（deque）来存储文本，实现高效的插入和删除操作。</li>
-<li><strong>算法选择</strong>: 选择双端队列是因为其支持在两端进行高效的插入和删除操作，非常适合模拟记事本。</li>
-<li><strong>核心思想</strong>: 使用双端队列存储文本，通过操作光标位置来实现插入、删除和移动操作。</li>
-</ul>
-<h4 id="4-3-算法原理（详细）"><a href="#4-3-算法原理（详细）" class="headerlink" title="4.3 算法原理（详细）"></a>4.3 算法原理（详细）</h4><ul>
-<li>使用双端队列<code>text</code>存储文本。</li>
-<li>使用变量<code>cursor</code>表示光标位置。</li>
-<li>对于插入操作，将字符插入到光标位置，并将光标右移。</li>
-<li>对于删除操作，根据方向删除光标左/右边的字符。</li>
-<li>对于移动操作，根据方向移动光标。</li>
-</ul>
-<h4 id="4-4-代码详解"><a href="#4-4-代码详解" class="headerlink" title="4.4 代码详解"></a>4.4 代码详解</h4><p>```python<br>from collections import deque</p>
-<p>T = int(input())<br>text = deque()      # 使用双端队列存储字符<br>cursor = 0         # 光标在文本中的位置</p>
-<p>for _ in range(T):<br>    cmd = input()<br>    if cmd.startswith(‘i’):          # 插入文本<br>        content = cmd.split(‘“‘)[1]<br>        for ch in content:<br>            text.insert(cursor, ch)<br>            cursor += 1<br>    elif cmd.startswith(‘d’):        # 删除字符<br>        n = int(cmd[1:-1])<br>        direction = cmd[-1]<br>        if direction == ‘h’:         # 删除左侧<br>            delete_cnt = min(cursor, n)<br>            del text[cursor - delete_cnt : cursor]<br>            cursor -= delete_cnt<br>        else:                        # 删除右侧<br>            delete_cnt = min(len(text) - cursor, n)<br>            del text[cursor : cursor + delete_cnt]<br>    else:                            # 移动光标<br>        n = int(cmd[:-1])<br>        direction = cmd[-1]<br>        if direction == ‘h’:         # 向左移动<br>            cursor = max(0, cursor - n)<br>        else:                        # 向右移动<br>            cursor = min(len(text), cursor + n)</p>
-<p>print(‘’.join(text))</p>
-<h4 id="4-5-优化技巧"><a href="#4-5-优化技巧" class="headerlink" title="4.5 优化技巧"></a>4.5 优化技巧</h4><ul>
-<li>使用双端队列来存储文本，提高插入和删除操作的效率。</li>
-<li>通过调整光标位置，避免不必要的字符串复制。</li>
-</ul>
-<h3 id="5-复杂度分析"><a href="#5-复杂度分析" class="headerlink" title="5. 复杂度分析"></a>5. 复杂度分析</h3><ul>
-<li><strong>时间复杂度</strong>: O(T)，其中T是命令的数量。</li>
-<li><strong>空间复杂度</strong>: O(N)，其中N是文本的长度。</li>
-</ul>
-<h3 id="6-输入输出示例"><a href="#6-输入输出示例" class="headerlink" title="6. 输入输出示例"></a>6. 输入输出示例</h3><ul>
-<li><strong>样例输入</strong>:<br>i”hello world”<br>d2h<br>i”!”<br>1r<br>4l</li>
-<li><strong>样例输出</strong>:<br>hello world!!<h3 id="7-常见错误与调试技巧"><a href="#7-常见错误与调试技巧" class="headerlink" title="7. 常见错误与调试技巧"></a>7. 常见错误与调试技巧</h3></li>
-<li><strong>易错点</strong>: 光标位置的计算和边界条件处理。</li>
-<li><strong>调试方法</strong>: 使用简单的测试用例逐步调试。</li>
-</ul>
-<h3 id="8-总结与扩展"><a href="#8-总结与扩展" class="headerlink" title="8. 总结与扩展"></a>8. 总结与扩展</h3><ul>
-<li><strong>核心收获</strong>: 学习了双端队列的应用和字符串操作。</li>
-<li><strong>举一反三</strong>: 可以将类似问题应用于其他场景，如文本编辑器。</li>
-<li><strong>进阶方向</strong>: 研究更高级的文本编辑算法，如撤销和重做功能。</li>
-</ul>
 
       
     </div>
@@ -1721,161 +1843,6 @@ for num in nums:
 <li><strong>核心收获</strong>: 学会使用滑动窗口技术进行字符串匹配。</li>
 <li><strong>举一反三</strong>: 类似题目如检查一个字符串中是否包含所有子串。</li>
 <li><strong>进阶方向</strong>: 研究更高效的字符串匹配算法，如KMP算法。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/13/2026-05-13-P12843-P12843-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-A-%E7%94%9F%E6%97%A5%E7%9B%B8%E9%81%87%E9%97%AE%E9%A2%98-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/13/2026-05-13-P12843-P12843-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-A-%E7%94%9F%E6%97%A5%E7%9B%B8%E9%81%87%E9%97%AE%E9%A2%98-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12843 - P12843 [蓝桥杯 2025 国 A] 生日相遇问题 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2026-05-13 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-13T00:00:00+08:00">2026-05-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="洛谷-P12843-生日相遇问题-洛谷"><a href="#洛谷-P12843-生日相遇问题-洛谷" class="headerlink" title="[洛谷 P12843] 生日相遇问题 - 洛谷"></a>[洛谷 P12843] 生日相遇问题 - 洛谷</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
-<li><strong>题目来源</strong>: 洛谷</li>
-<li><strong>题目难度</strong>: ★★★★☆</li>
-<li><strong>标签分类</strong>: 算法, 日期计算</li>
-<li><strong>核心考点</strong>: 闰年判断、日期调整、基姆拉尔森计算公式</li>
-</ul>
-<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><p>题目要求找到在给定的年份范围内，两个日期 <code>d1</code> 和 <code>d2</code> 分别属于哪一年的情况，使得这两个日期在同一天。输入包括月份 <code>m</code>、日期 <code>d1</code>、年份范围 <code>k</code> 和另一个月份 <code>n</code>、日期 <code>d2</code>。输出是符合条件的年份列表。</p>
-<h3 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
-<li><strong>本质</strong>: 需要找到两个日期是否在同一天。</li>
-<li><strong>关键观察点</strong>: 闰年的判断，日期的调整。</li>
-</ul>
-<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
-<li><strong>朴素思路</strong>: 对每个年份检查 <code>d1</code> 和 <code>d2</code> 是否在同一天。</li>
-<li><strong>优化路径</strong>: 使用基姆拉尔森计算公式直接得到星期几，避免逐天检查。</li>
-<li><strong>算法选择</strong>: 基姆拉尔森计算公式时间复杂度为 O(1)，空间复杂度为 O(1)。</li>
-</ul>
-<h4 id="4-3-数学推导"><a href="#4-3-数学推导" class="headerlink" title="4.3 数学推导"></a>4.3 数学推导</h4><p>基姆拉尔森计算公式：<br>[ w = (d + 2m + 3(m+1)/5 + y + y/4 - y/100 + y/400 + 1) \mod 7 ]<br>其中：</p>
-<ul>
-<li>( d ) 是日期</li>
-<li>( m ) 是月份（3 表示 3 月，4 表示 4 月，…，15 表示 2 月）</li>
-<li>( y ) 是年份的后两位数（例如，对于 1995 年，( y = 95 )）</li>
-</ul>
-<h4 id="4-4-多种解法对比"><a href="#4-4-多种解法对比" class="headerlink" title="4.4 多种解法对比"></a>4.4 多种解法对比</h4><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>解法</th>
-<th>时间复杂度</th>
-<th>空间复杂度</th>
-<th>适用场景</th>
-<th>代码难度</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>基姆拉尔森计算公式</td>
-<td>O(1)</td>
-<td>O(1)</td>
-<td>小规模数据</td>
-<td>简单</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="代码详解"><a href="#代码详解" class="headerlink" title="代码详解"></a>代码详解</h3><h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><p>```python<br>def isLeap(y):<br>    return (y % 4 == 0 and y % 100 != 0) or (y % 400 == 0)</p>
-<p>def adjust(y, m, d):<br>    if m == 2 and d == 29:<br>        if isLeap(y):<br>            return (2, 29)<br>        else:<br>            return (2, 28)<br>    return (m, d)</p>
-<p>def week(y, m, d):<br>    if m == 1 or m == 2:<br>        y -= 1<br>        m += 12<br>    w = (d + 2<em>m + 3</em>(m+1)//5 + y + y//4 - y//100 + y//400 + 1) % 7<br>    return w</p>
-<p>m, d1, n, d2, k = map(int, input().split())<br>res = []<br>for year in range(2025, 2025 + k):<br>    m1, d1_adj = adjust(year, m, d1)<br>    n1, d2_adj = adjust(year, n, d2)<br>    if week(year, m1, d1_adj) == week(year, n1, d2_adj):<br>        res.append(year)<br>if res:<br>    print(“\n”.join(map(str, res)))<br>else:<br>    print(“No Answer”)</p>
-<h4 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h4><ul>
-<li><code>isLeap(y)</code>: 判断是否为闰年。</li>
-<li><code>adjust(y, m, d)</code>: 调整日期，处理闰年2月29日。</li>
-<li><code>week(y, m, d)</code>: 使用基姆拉尔森计算公式计算星期几。</li>
-<li>循环遍历每个年份，调整日期并计算星期几，如果两个日期在同一天，则加入结果列表。</li>
-<li>最后打印结果列表。</li>
-</ul>
-<h4 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h4><ul>
-<li><strong>空间优化</strong>: 代码中未使用额外空间，空间复杂度为 O(1)。</li>
-<li><strong>时间优化</strong>: 直接使用基姆拉尔森计算公式，避免逐天检查，时间复杂度为 O(1)。</li>
-</ul>
-<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
-<li><strong>时间复杂度</strong>: O(k)，其中 k 是年份范围。</li>
-<li><strong>空间复杂度</strong>: O(1)。</li>
-</ul>
-<h3 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h3><p><strong>样例输入</strong>:<br>5 29 12 1 3<br><strong>样例输出</strong>:<br>2024<br><strong>执行过程</strong>:</p>
-<ol>
-<li>输入年份范围为 2025 到 2027。</li>
-<li>对于每个年份，调整日期并计算星期几。</li>
-<li>如果两个日期在同一天，则加入结果列表。</li>
-<li>最终输出符合条件的年份列表。</li>
-</ol>
-<h3 id="常见错误与调试技巧"><a href="#常见错误与调试技巧" class="headerlink" title="常见错误与调试技巧"></a>常见错误与调试技巧</h3><ul>
-<li><strong>易错点</strong>: 日期调整错误，导致后续年份的日期计算错误。</li>
-<li><strong>调试方法</strong>: 逐步检查日期调整和星期几计算的逻辑。</li>
-<li><strong>测试用例</strong>: 测试不同年份范围的输入，确保算法正确性。</li>
-</ul>
-<h3 id="总结与扩展"><a href="#总结与扩展" class="headerlink" title="总结与扩展"></a>总结与扩展</h3><ul>
-<li><strong>核心收获</strong>: 掌握闰年判断和基姆拉尔森计算公式的应用。</li>
-<li><strong>举一反三</strong>: 可以扩展到其他日期计算问题，如生日悖论等。</li>
-<li><strong>进阶方向</strong>: 进一步研究日期和星期的关系，探索其他日期计算算法。</li>
 </ul>
 
       

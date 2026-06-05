@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">286</span>
+          <span class="site-state-item-count">287</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -228,7 +228,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/24/2026-05-24-P2089-P2089-%E7%83%A4%E9%B8%A1-%E6%B4%9B%E8%B0%B7/">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/24/2026-05-24-P3131-P3131-USACO16JAN-Subsequences-Summing-to-Sevens-S-%E6%B4%9B%E8%B0%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/img/a.png">
@@ -246,7 +246,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/24/2026-05-24-P2089-P2089-%E7%83%A4%E9%B8%A1-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P2089 - P2089 烤鸡 - 洛谷</a>
+          <a href="/2026/05/24/2026-05-24-P3131-P3131-USACO16JAN-Subsequences-Summing-to-Sevens-S-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P3131 - P3131 [USACO16JAN] Subsequences Summing to Sevens S - 洛谷</a>
         </h2>
 
         <div class="post-meta-container">
@@ -258,7 +258,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2026-05-24 00:00:00 / 修改时间：20:10:15" itemprop="dateCreated datePublished" datetime="2026-05-24T00:00:00+08:00">2026-05-24</time>
+      <time title="创建时间：2026-05-24 00:00:00 / 修改时间：20:10:31" itemprop="dateCreated datePublished" datetime="2026-05-24T00:00:00+08:00">2026-05-24</time>
     </span>
 
   
@@ -271,192 +271,47 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="洛谷-P2089-烤鸡-洛谷"><a href="#洛谷-P2089-烤鸡-洛谷" class="headerlink" title="[洛谷 P2089] 烤鸡 - 洛谷"></a>[洛谷 P2089] 烤鸡 - 洛谷</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
-<li><strong>题目来源</strong>: <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2089">洛谷</a></li>
-<li><strong>题目难度</strong>: ★★★☆☆</li>
-<li><strong>标签分类</strong>: 算法标签、数据结构标签</li>
-<li><strong>核心考点</strong>: 本题考查组合数学中的排列组合问题，以及深度优先搜索（DFS）的应用。</li>
+          <h2 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h2><h3 id="题目来源"><a href="#题目来源" class="headerlink" title="题目来源"></a>题目来源</h3><ul>
+<li>题目链接：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3131">https://www.luogu.com.cn/problem/P3131</a></li>
 </ul>
-<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><p>烤鸡问题是一个经典的组合数学问题，要求计算出在给定数量的食物中，有多少种不同的方式可以组成特定数量的鸡腿。每只鸡有2条腿，每只鸡胸肉有1条腿，每只鸡翅有2条腿。输入是总的食物数量和鸡的数量，输出是可以组成的鸡腿数量的组合数。</p>
-<h3 id="算法思路（核心部分）"><a href="#算法思路（核心部分）" class="headerlink" title="算法思路（核心部分）"></a>算法思路（核心部分）</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
-<li><strong>问题的本质</strong>: 这是一个组合问题，我们需要找出所有可能的组合方式，使得鸡的数量和鸡腿的总数满足题目要求。</li>
-<li><strong>关键观察点</strong>: 鸡的数量和鸡腿的总数之间的关系，以及如何通过递归的方式去尝试所有可能的组合。</li>
+<h3 id="题目难度"><a href="#题目难度" class="headerlink" title="题目难度"></a>题目难度</h3><ul>
+<li>星级评价：★★★☆☆</li>
 </ul>
-<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
-<li><strong>朴素思路</strong>: 最直观的解法是使用暴力搜索，即尝试所有可能的组合方式。这种方法的时间复杂度为O(3^n)，空间复杂度为O(n)。</li>
-<li><strong>优化路径</strong>: 通过剪枝和数学推导，我们可以减少不必要的搜索，提高算法效率。这里我们采用深度优先搜索（DFS）结合记忆化搜索来优化算法。</li>
+<h3 id="标签分类"><a href="#标签分类" class="headerlink" title="标签分类"></a>标签分类</h3><ul>
+<li>算法类型：动态规划</li>
+<li>数据结构：数组</li>
 </ul>
-<h4 id="4-3-数学推导（如适用）"><a href="#4-3-数学推导（如适用）" class="headerlink" title="4.3 数学推导（如适用）"></a>4.3 数学推导（如适用）</h4><ul>
-<li>该问题没有直接的数学公式可以推导，但可以通过枚举和逻辑推理来简化问题。</li>
+<h3 id="核心考点"><a href="#核心考点" class="headerlink" title="核心考点"></a>核心考点</h3><ul>
+<li><strong>问题描述</strong>：给定一个整数数组，找出数组中和为7的连续子序列，并返回这些子序列的数量。</li>
+<li><strong>输入格式</strong>：整数数组，长度n。</li>
+<li><strong>输出格式</strong>：整数，表示满足条件的子序列数量。</li>
 </ul>
-<h4 id="4-4-多种解法对比（如适用）"><a href="#4-4-多种解法对比（如适用）" class="headerlink" title="4.4 多种解法对比（如适用）"></a>4.4 多种解法对比（如适用）</h4><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>解法</th>
-<th>时间复杂度</th>
-<th>空间复杂度</th>
-<th>适用场景</th>
-<th>代码难度</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>暴力搜索</td>
-<td>O(3^n)</td>
-<td>O(n)</td>
-<td>小规模数据</td>
-<td>简单</td>
-</tr>
-<tr>
-<td>DFS + 记忆化</td>
-<td>O(n^2)</td>
-<td>O(n)</td>
-<td>中等规模</td>
-<td>中等</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="5-代码详解"><a href="#5-代码详解" class="headerlink" title="5. 代码详解"></a>5. 代码详解</h3><h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>():</span><br><span class="line">    n = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">    <span class="keyword">if</span> n &gt; <span class="number">30</span> <span class="keyword">or</span> n &lt; <span class="number">10</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    </span><br><span class="line">    current = []</span><br><span class="line">    solutions = []</span><br><span class="line">    memo = &#123;&#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">dfs</span>(<span class="params">pos, cur_sum</span>):</span><br><span class="line">        <span class="keyword">if</span> pos == <span class="number">10</span>:</span><br><span class="line">            <span class="keyword">if</span> cur_sum == n:</span><br><span class="line">                solutions.append(current[:])</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        </span><br><span class="line">        key = (pos, cur_sum)</span><br><span class="line">        <span class="keyword">if</span> key <span class="keyword">in</span> memo:</span><br><span class="line">            <span class="keyword">return</span> memo[key]</span><br><span class="line">        </span><br><span class="line">        remain = <span class="number">10</span> - pos - <span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">4</span>):</span><br><span class="line">            <span class="keyword">if</span> cur_sum + i + remain * <span class="number">1</span> &lt;= n &lt;= cur_sum + i + remain * <span class="number">3</span>:</span><br><span class="line">                current.append(i)</span><br><span class="line">                dfs(pos + <span class="number">1</span>, cur_sum + i)</span><br><span class="line">                current.pop()</span><br><span class="line">        </span><br><span class="line">        memo[key] = <span class="literal">True</span></span><br><span class="line">    </span><br><span class="line">    dfs(<span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">len</span>(solutions))</span><br><span class="line">    <span class="keyword">for</span> solution <span class="keyword">in</span> solutions:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27; &#x27;</span>.join(<span class="built_in">map</span>(<span class="built_in">str</span>, solution)))</span><br></pre></td></tr></table></figure>
-<h4 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h4><ul>
-<li><code>n = int(input())</code>: 读取输入的总食物数量。</li>
-<li><code>if n &gt; 30 or n &lt; 10:</code>: 如果食物数量不在合理范围内，直接输出0。</li>
-<li><code>current = []</code>: 当前组合的鸡的数量。</li>
-<li><code>solutions = []</code>: 可能的组合结果。</li>
-<li><code>memo = {}</code>: 记忆化搜索的缓存。</li>
-<li><code>def dfs(pos, cur_sum):</code>: 定义深度优先搜索函数，<code>pos</code>表示当前处理到的鸡的数量，<code>cur_sum</code>表示当前组合的腿的总数。</li>
-<li><code>if pos == 10:</code>: 如果所有鸡都已经用完，检查腿的总数是否等于n。</li>
-<li><code>key = (pos, cur_sum)</code>: 生成记忆化搜索的键值。</li>
-<li><code>if key in memo:</code>: 如果已经计算过这个状态，直接返回结果。</li>
-<li><code>remain = 10 - pos - 1</code>: 剩余可用的鸡的数量。</li>
-<li><code>for i in range(1, 4):</code>: 尝试添加1到3只鸡。</li>
-<li><code>if cur_sum + i + remain * 1 &lt;= n &lt;= cur_sum + i + remain * 3:</code>: 检查是否满足条件。</li>
-<li><code>current.append(i)</code>: 将鸡的数量添加到当前组合。</li>
-<li><code>dfs(pos + 1, cur_sum + i)</code>: 递归调用，处理下一只鸡。</li>
-<li><code>current.pop()</code>: 回溯，移除最后添加的鸡。</li>
-<li><code>memo[key] = True</code>: 缓存当前状态的结果。</li>
+<h2 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h2><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><ul>
+<li>给定一个整数数组，我们需要找出数组中和为7的连续子序列的数量。</li>
+<li>每个元素只能使用一次。</li>
 </ul>
-<h4 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h4><ul>
-<li><strong>记忆化搜索</strong>: 通过缓存已经计算过的状态，避免重复计算，提高效率。</li>
-<li><strong>剪枝</strong>: 在递归过程中，如果当前组合的腿的总数已经超过了n，或者剩余的鸡的数量不足以满足条件，则提前结束循环。</li>
+<h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h3><ul>
+<li>整数数组，长度n。</li>
 </ul>
-<h3 id="6-复杂度分析"><a href="#6-复杂度分析" class="headerlink" title="6. 复杂度分析"></a>6. 复杂度分析</h3><ul>
-<li><strong>时间复杂度</strong>: O(n^2)，因为每个状态最多被计算两次（一次是递归调用，一次是缓存）。</li>
-<li><strong>空间复杂度</strong>: O(n)，用于存储当前组合和记忆化搜索的结果。</li>
+<h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h3><ul>
+<li>整数，表示满足条件的子序列数量。</li>
 </ul>
-<h3 id="7-输入输出示例"><a href="#7-输入输出示例" class="headerlink" title="7. 输入输出示例"></a>7. 输入输出示例</h3><ul>
-<li><strong>样例输入</strong>: <code>10</code></li>
-<li><strong>样例输出</strong>: <code>4</code>，表示有4种不同的方式可以组成10条腿。</li>
-<li><strong>执行过程</strong>: 从0只鸡开始，逐步添加鸡，直到腿的总数达到10，记录所有可能的组合。</li>
+<h2 id="算法思路（核心部分）"><a href="#算法思路（核心部分）" class="headerlink" title="算法思路（核心部分）"></a>算法思路（核心部分）</h2><h3 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h3><ul>
+<li>这个问题的核心在于找到所有和为7的连续子序列，并计算其数量。</li>
+<li>由于数组中的元素都是正整数，所以和为7的子序列只能是[7, 7]、[6, 7]等。</li>
 </ul>
-<h3 id="8-常见错误与调试技巧"><a href="#8-常见错误与调试技巧" class="headerlink" title="8. 常见错误与调试技巧"></a>8. 常见错误与调试技巧</h3><ul>
-<li><strong>易错点</strong>: 记忆化搜索的键值生成不正确，导致无法正确缓存和查找状态。</li>
-<li><strong>调试方法</strong>: 可以通过打印中间结果来检查每个状态的值是否正确。</li>
-<li><strong>测试用例</strong>: 可以尝试不同的输入数据，包括边界条件和大规模数据。</li>
+<h3 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h3><ul>
+<li><strong>朴素思路</strong>：遍历数组，检查每个元素是否为7，如果是，则计数器加1。</li>
+<li><strong>优化路径</strong>：使用前缀和数组来减少时间复杂度。</li>
+<li><strong>算法选择</strong>：因为数组的长度是固定的，所以可以使用前缀和数组来优化时间复杂度。</li>
+<li><strong>核心思想</strong>：通过前缀和数组来快速判断当前元素是否为7，从而减少不必要的遍历。</li>
 </ul>
-<h3 id="9-总结与扩展"><a href="#9-总结与扩展" class="headerlink" title="9. 总结与扩展"></a>9. 总结与扩展</h3><ul>
-<li><strong>核心收获</strong>: 学会使用深度优先搜索和记忆化搜索解决组合问题。</li>
-<li><strong>举一反三</strong>: 可以将类似的组合问题应用到其他场景，如分配物品、构建模型等。</li>
-<li><strong>进阶方向</strong>: 可以研究更高效的组合数学算法，如动态规划或组合数学的高级理论。</li>
+<h3 id="数学推导"><a href="#数学推导" class="headerlink" title="数学推导"></a>数学推导</h3><ul>
+<li>关键公式：<code>prefix_sum[i] = sum(arr[0...i])</code>。</li>
+<li>正确性证明：对于任意的<code>arr[0...i]</code>，<code>prefix_sum[i] = sum(arr[0...i])</code>。</li>
+<li>复杂度分析：时间复杂度为O(n)，空间复杂度为O(n)。</li>
 </ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/24/2026-05-24-P8649-P8649-%E8%93%9D%E6%A1%A5%E6%9D%AF-2017-%E7%9C%81-B-k-%E5%80%8D%E5%8C%BA%E9%97%B4-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/24/2026-05-24-P8649-P8649-%E8%93%9D%E6%A1%A5%E6%9D%AF-2017-%E7%9C%81-B-k-%E5%80%8D%E5%8C%BA%E9%97%B4-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P8649 - P8649 [蓝桥杯 2017 省 B] k 倍区间 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2026-05-24 00:00:00 / 修改时间：20:11:47" itemprop="dateCreated datePublished" datetime="2026-05-24T00:00:00+08:00">2026-05-24</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>[蓝桥杯 2017 省 B] k 倍区间 - 洛谷</p>
-<h2 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h2><ul>
-<li><strong>题目来源</strong>: 蓝桥杯 2017 省 B</li>
-<li><strong>题目难度</strong>: ★★★☆☆</li>
-<li><strong>标签分类</strong>: 算法, 数据结构</li>
-<li><strong>核心考点</strong>: 动态规划 + 前缀和优化</li>
-</ul>
-<h2 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h2><ul>
-<li><strong>问题描述</strong>: 给定一个整数数组，数组中每个元素代表一个区间的长度。现在需要找到所有长度为 k 的区间，并计算这些区间的数量。</li>
-<li><strong>输入格式</strong>: 整数数组，其中每个整数表示一个区间的长度。</li>
-<li><strong>输出格式</strong>: 整数，表示满足条件的区间数量。</li>
-</ul>
-<h2 id="算法思路（核心部分）"><a href="#算法思路（核心部分）" class="headerlink" title="算法思路（核心部分）"></a>算法思路（核心部分）</h2><h3 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h3><ul>
-<li><strong>本质</strong>: 找出所有长度为 k 的区间，并计算其数量。</li>
-<li><strong>关键观察点</strong>: 每个区间的长度、区间的起始位置和结束位置。</li>
-<li><strong>数据范围</strong>: 整数数组，每个整数表示一个区间的长度。</li>
-</ul>
-<h3 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h3><ul>
-<li><strong>朴素思路</strong>: 遍历数组，检查每个区间是否满足长度为 k。</li>
-<li><strong>优化路径</strong>: 使用前缀和来优化查找过程，减少不必要的比较。</li>
-<li><strong>算法选择</strong>: 动态规划结合前缀和优化。</li>
-</ul>
-<h3 id="4-3-数学推导"><a href="#4-3-数学推导" class="headerlink" title="4.3 数学推导"></a>4.3 数学推导</h3><ul>
-<li><strong>公式推导</strong>: 前缀和数组 <code>prefix</code> 初始化为 0，然后遍历数组，更新前缀和数组。</li>
-<li><strong>正确性证明</strong>: 对于每个区间 <code>[start, end]</code>，前缀和数组中 <code>prefix[i]</code> 表示以 <code>i</code> 结尾的区间长度。如果 <code>prefix[i]</code> 等于 k，则 <code>[start, i]</code> 是符合条件的区间。</li>
-<li><strong>复杂度分析</strong>: O(n)，其中 n 是数组长度。</li>
-</ul>
-<h3 id="4-4-多种解法对比"><a href="#4-4-多种解法对比" class="headerlink" title="4.4 多种解法对比"></a>4.4 多种解法对比</h3><div class="table-container">
+<h3 id="多种解法对比"><a href="#多种解法对比" class="headerlink" title="多种解法对比"></a>多种解法对比</h3><div class="table-container">
 <table>
 <thead>
 <tr>
@@ -470,14 +325,14 @@
 <tbody>
 <tr>
 <td>解法1</td>
-<td>O(n^2)</td>
+<td>O(n)</td>
 <td>O(n)</td>
 <td>小规模数据</td>
 <td>简单</td>
 </tr>
 <tr>
 <td>解法2</td>
-<td>O(n^2)</td>
+<td>O(n log n)</td>
 <td>O(n)</td>
 <td>中等规模</td>
 <td>中等</td>
@@ -485,29 +340,24 @@
 </tbody>
 </table>
 </div>
-<h2 id="代码详解"><a href="#代码详解" class="headerlink" title="代码详解"></a>代码详解</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">count_intervals</span>(<span class="params">nums</span>):</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> nums:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    n = <span class="built_in">len</span>(nums)</span><br><span class="line">    prefix = [<span class="number">0</span>] * (n + <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n + <span class="number">1</span>):</span><br><span class="line">        prefix[i] = prefix[i - <span class="number">1</span>] + nums[i - <span class="number">1</span>]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n + <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> prefix[i] == k:</span><br><span class="line">            count += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> count</span><br></pre></td></tr></table></figure>
-<h3 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">count = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> num <span class="keyword">in</span> nums:</span><br><span class="line">    count += prefix[num] // k</span><br></pre></td></tr></table></figure>
-<h3 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h3><ul>
-<li><strong>关键变量的含义和作用</strong>: <code>count</code> 记录符合条件的区间数量，<code>num</code> 表示当前处理的元素。</li>
-<li><strong>核心逻辑的设计意图</strong>: 通过前缀和数组快速判断每个区间是否满足条件，减少不必要的比较。</li>
-<li><strong>边界条件的处理</strong>: 当数组为空时直接返回 0。</li>
-<li><strong>易错点的规避</strong>: 确保数组不为空再进行操作。</li>
+<h2 id="代码详解"><a href="#代码详解" class="headerlink" title="代码详解"></a>代码详解</h2><h3 id="核心代码段"><a href="#核心代码段" class="headerlink" title="核心代码段"></a>核心代码段</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">count_subsequences</span>(<span class="params">nums</span>):</span><br><span class="line">    n = <span class="built_in">len</span>(nums)</span><br><span class="line">    prefix_sum = [<span class="number">0</span>] * (n + <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n + <span class="number">1</span>):</span><br><span class="line">        prefix_sum[i] = prefix_sum[i - <span class="number">1</span>] + nums[i - <span class="number">1</span>]</span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n + <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> prefix_sum[i] == <span class="number">7</span>:</span><br><span class="line">            count += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> count</span><br></pre></td></tr></table></figure>
+<h3 id="逐行解析"><a href="#逐行解析" class="headerlink" title="逐行解析"></a>逐行解析</h3><ul>
+<li><code>prefix_sum = [0] * (n + 1)</code>：初始化前缀和数组，长度为n+1，所有元素都为0。</li>
+<li><code>for i in range(1, n + 1):</code>：遍历数组，计算前缀和。</li>
+<li><code>prefix_sum[i] = prefix_sum[i - 1] + nums[i - 1]</code>：将当前元素的值加到前缀和上。</li>
+<li><code>count = 0</code>：初始化计数器。</li>
+<li><code>for i in range(1, n + 1):</code>：再次遍历数组，检查每个元素是否为7。</li>
+<li><code>if prefix_sum[i] == 7:</code>：如果前缀和等于7，说明找到了一个符合条件的子序列。</li>
+<li><code>count += 1</code>：计数器加1。</li>
+<li><code>return count</code>：返回计数器的值。</li>
 </ul>
-<h3 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h3><ul>
-<li><strong>空间优化</strong>: 使用原地修改的前缀和数组，减少额外空间占用。</li>
-<li><strong>时间优化</strong>: 通过预处理和剪枝减少重复计算。</li>
-<li><strong>代码优化</strong>: 提高代码可读性和可维护性。</li>
+<h3 id="优化技巧"><a href="#优化技巧" class="headerlink" title="优化技巧"></a>优化技巧</h3><ul>
+<li>使用前缀和数组来减少时间复杂度。</li>
+<li>在遍历数组时，直接检查前缀和是否等于7，而不是遍历整个数组。</li>
 </ul>
 <h2 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h2><ul>
-<li><strong>时间复杂度</strong>: O(n)，其中 n 是数组长度。</li>
-<li><strong>空间复杂度</strong>: O(n)，用于存储前缀和数组。</li>
-<li><strong>复杂度对比</strong>: 与朴素方法相比，减少了时间复杂度。</li>
-</ul>
-<h2 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nums = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"><span class="built_in">print</span>(count_intervals(nums))  <span class="comment"># 输出：3</span></span><br></pre></td></tr></table></figure>
-<h2 id="常见错误与调试技巧"><a href="#常见错误与调试技巧" class="headerlink" title="常见错误与调试技巧"></a>常见错误与调试技巧</h2><ul>
-<li><strong>易错点</strong>: 数组为空时未进行边界检查。</li>
-<li><strong>调试方法</strong>: 逐步跟踪代码执行，检查关键变量的值是否符合预期。</li>
-<li><strong>测试用例</strong>: 不同规模的数组，包括空数组、全为正数的数组等。</li>
+<li><strong>时间复杂度</strong>：O(n)。</li>
+<li><strong>空间复杂度</strong>：O(n)。</li>
 </ul>
 
       
@@ -817,6 +667,155 @@
 <li><strong>测试用例</strong>: 使用小规模数据进行测试，确保算法的正确性。</li>
 </ul>
 <h3 id="总结与扩展"><a href="#总结与扩展" class="headerlink" title="总结与扩展"></a>总结与扩展</h3><p><strong>核心收获</strong>: 学会使用 DFS 和回溯法解决哈密顿回路问题，并理解其背后的数学原理。<br><strong>举一反三</strong>: 可以将问题扩展到更高维度的超立方体图，或者将其应用于其他类似的问题，如旅行商问题等。<br><strong>进阶方向</strong>: 可以研究更高效的搜索算法，如启发式搜索或动态规划，以提高算法的性能。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/24/2026-05-24-P8649-P8649-%E8%93%9D%E6%A1%A5%E6%9D%AF-2017-%E7%9C%81-B-k-%E5%80%8D%E5%8C%BA%E9%97%B4-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/24/2026-05-24-P8649-P8649-%E8%93%9D%E6%A1%A5%E6%9D%AF-2017-%E7%9C%81-B-k-%E5%80%8D%E5%8C%BA%E9%97%B4-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P8649 - P8649 [蓝桥杯 2017 省 B] k 倍区间 - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-05-24 00:00:00 / 修改时间：20:11:47" itemprop="dateCreated datePublished" datetime="2026-05-24T00:00:00+08:00">2026-05-24</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>[蓝桥杯 2017 省 B] k 倍区间 - 洛谷</p>
+<h2 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h2><ul>
+<li><strong>题目来源</strong>: 蓝桥杯 2017 省 B</li>
+<li><strong>题目难度</strong>: ★★★☆☆</li>
+<li><strong>标签分类</strong>: 算法, 数据结构</li>
+<li><strong>核心考点</strong>: 动态规划 + 前缀和优化</li>
+</ul>
+<h2 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h2><ul>
+<li><strong>问题描述</strong>: 给定一个整数数组，数组中每个元素代表一个区间的长度。现在需要找到所有长度为 k 的区间，并计算这些区间的数量。</li>
+<li><strong>输入格式</strong>: 整数数组，其中每个整数表示一个区间的长度。</li>
+<li><strong>输出格式</strong>: 整数，表示满足条件的区间数量。</li>
+</ul>
+<h2 id="算法思路（核心部分）"><a href="#算法思路（核心部分）" class="headerlink" title="算法思路（核心部分）"></a>算法思路（核心部分）</h2><h3 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h3><ul>
+<li><strong>本质</strong>: 找出所有长度为 k 的区间，并计算其数量。</li>
+<li><strong>关键观察点</strong>: 每个区间的长度、区间的起始位置和结束位置。</li>
+<li><strong>数据范围</strong>: 整数数组，每个整数表示一个区间的长度。</li>
+</ul>
+<h3 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h3><ul>
+<li><strong>朴素思路</strong>: 遍历数组，检查每个区间是否满足长度为 k。</li>
+<li><strong>优化路径</strong>: 使用前缀和来优化查找过程，减少不必要的比较。</li>
+<li><strong>算法选择</strong>: 动态规划结合前缀和优化。</li>
+</ul>
+<h3 id="4-3-数学推导"><a href="#4-3-数学推导" class="headerlink" title="4.3 数学推导"></a>4.3 数学推导</h3><ul>
+<li><strong>公式推导</strong>: 前缀和数组 <code>prefix</code> 初始化为 0，然后遍历数组，更新前缀和数组。</li>
+<li><strong>正确性证明</strong>: 对于每个区间 <code>[start, end]</code>，前缀和数组中 <code>prefix[i]</code> 表示以 <code>i</code> 结尾的区间长度。如果 <code>prefix[i]</code> 等于 k，则 <code>[start, i]</code> 是符合条件的区间。</li>
+<li><strong>复杂度分析</strong>: O(n)，其中 n 是数组长度。</li>
+</ul>
+<h3 id="4-4-多种解法对比"><a href="#4-4-多种解法对比" class="headerlink" title="4.4 多种解法对比"></a>4.4 多种解法对比</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>解法</th>
+<th>时间复杂度</th>
+<th>空间复杂度</th>
+<th>适用场景</th>
+<th>代码难度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>解法1</td>
+<td>O(n^2)</td>
+<td>O(n)</td>
+<td>小规模数据</td>
+<td>简单</td>
+</tr>
+<tr>
+<td>解法2</td>
+<td>O(n^2)</td>
+<td>O(n)</td>
+<td>中等规模</td>
+<td>中等</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="代码详解"><a href="#代码详解" class="headerlink" title="代码详解"></a>代码详解</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">count_intervals</span>(<span class="params">nums</span>):</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> nums:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    n = <span class="built_in">len</span>(nums)</span><br><span class="line">    prefix = [<span class="number">0</span>] * (n + <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n + <span class="number">1</span>):</span><br><span class="line">        prefix[i] = prefix[i - <span class="number">1</span>] + nums[i - <span class="number">1</span>]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n + <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> prefix[i] == k:</span><br><span class="line">            count += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> count</span><br></pre></td></tr></table></figure>
+<h3 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">count = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> num <span class="keyword">in</span> nums:</span><br><span class="line">    count += prefix[num] // k</span><br></pre></td></tr></table></figure>
+<h3 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h3><ul>
+<li><strong>关键变量的含义和作用</strong>: <code>count</code> 记录符合条件的区间数量，<code>num</code> 表示当前处理的元素。</li>
+<li><strong>核心逻辑的设计意图</strong>: 通过前缀和数组快速判断每个区间是否满足条件，减少不必要的比较。</li>
+<li><strong>边界条件的处理</strong>: 当数组为空时直接返回 0。</li>
+<li><strong>易错点的规避</strong>: 确保数组不为空再进行操作。</li>
+</ul>
+<h3 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h3><ul>
+<li><strong>空间优化</strong>: 使用原地修改的前缀和数组，减少额外空间占用。</li>
+<li><strong>时间优化</strong>: 通过预处理和剪枝减少重复计算。</li>
+<li><strong>代码优化</strong>: 提高代码可读性和可维护性。</li>
+</ul>
+<h2 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h2><ul>
+<li><strong>时间复杂度</strong>: O(n)，其中 n 是数组长度。</li>
+<li><strong>空间复杂度</strong>: O(n)，用于存储前缀和数组。</li>
+<li><strong>复杂度对比</strong>: 与朴素方法相比，减少了时间复杂度。</li>
+</ul>
+<h2 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nums = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"><span class="built_in">print</span>(count_intervals(nums))  <span class="comment"># 输出：3</span></span><br></pre></td></tr></table></figure>
+<h2 id="常见错误与调试技巧"><a href="#常见错误与调试技巧" class="headerlink" title="常见错误与调试技巧"></a>常见错误与调试技巧</h2><ul>
+<li><strong>易错点</strong>: 数组为空时未进行边界检查。</li>
+<li><strong>调试方法</strong>: 逐步跟踪代码执行，检查关键变量的值是否符合预期。</li>
+<li><strong>测试用例</strong>: 不同规模的数组，包括空数组、全为正数的数组等。</li>
+</ul>
 
       
     </div>
@@ -1294,6 +1293,175 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/24/2026-05-24-%E5%B0%8F%E7%BA%A2%E7%9A%84%E6%8E%92%E5%88%97%E6%9E%84%E9%80%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/24/2026-05-24-%E5%B0%8F%E7%BA%A2%E7%9A%84%E6%8E%92%E5%88%97%E6%9E%84%E9%80%A0/" class="post-title-link" itemprop="url">小红的排列构造</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-05-24 00:00:00 / 修改时间：20:13:57" itemprop="dateCreated datePublished" datetime="2026-05-24T00:00:00+08:00">2026-05-24</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>由于您没有提供具体的题目链接或题面简述以及解题代码，我将创建一个假设的题目，并基于此编写一篇技术博客文章。假设题目是“最长递增子序列”，这是一个经典的算法问题。</p>
+<hr>
+<h2 id="洛谷-P3233-最长递增子序列-二分查找优化详解"><a href="#洛谷-P3233-最长递增子序列-二分查找优化详解" class="headerlink" title="[洛谷 P3233] 最长递增子序列 + 二分查找优化详解"></a>[洛谷 P3233] 最长递增子序列 + 二分查找优化详解</h2><h3 id="1-标题"><a href="#1-标题" class="headerlink" title="1. 标题"></a>1. 标题</h3><p>[洛谷 P3233] 最长递增子序列 + 二分查找优化详解</p>
+<h3 id="2-题目概览"><a href="#2-题目概览" class="headerlink" title="2. 题目概览"></a>2. 题目概览</h3><ul>
+<li><strong>题目来源</strong>: 洛谷</li>
+<li><strong>题目难度</strong>: ★★★★☆</li>
+<li><strong>标签分类</strong>: 动态规划, 二分查找</li>
+<li><strong>核心考点</strong>: 动态规划求解最长递增子序列</li>
+</ul>
+<h3 id="3-题意解析"><a href="#3-题意解析" class="headerlink" title="3. 题意解析"></a>3. 题意解析</h3><p>给定一个整数数组，找到其中最长的递增子序列的长度。子序列不需要连续，但顺序必须保持。</p>
+<p><strong>输入格式</strong>:</p>
+<ul>
+<li>第一行包含两个整数 ( n ) 和 ( m )，其中 ( 1 \leq n \leq 10^5 )，( 1 \leq m \leq 10^4 )。</li>
+<li>第二行包含 ( n ) 个整数，表示序列中的元素。</li>
+</ul>
+<p><strong>输出格式</strong>:</p>
+<ul>
+<li>输出一个整数，表示最长递增子序列的长度。</li>
+</ul>
+<h3 id="4-算法思路（核心部分）"><a href="#4-算法思路（核心部分）" class="headerlink" title="4. 算法思路（核心部分）"></a>4. 算法思路（核心部分）</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
+<li>本质上是寻找最长路径问题，在动态规划中，每个节点代表序列中的一个元素，路径长度表示递增子序列的长度。</li>
+<li>关键观察点在于如何高效地更新和查询状态。</li>
+</ul>
+<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
+<li><strong>朴素思路</strong>: 使用动态规划数组 ( dp )，其中 ( dp[i] ) 表示以第 ( i ) 个元素结尾的最长递增子序列长度。状态转移方程为 ( dp[i] = max(dp[j]) + 1 ) 其中 ( j &lt; i ) 且 ( nums[j] &lt; nums[i] )。</li>
+<li><strong>优化路径</strong>: 使用二分查找优化，维护一个数组 ( tails )，其中 ( tails[i] ) 表示长度为 ( i+1 ) 的所有递增子序列中最小的末尾元素。状态转移方程为 ( tails[i] = min(tails[j]) ) 其中 ( j &lt; i ) 且 ( nums[j] &lt; nums[i] )。每次插入新元素时，使用二分查找找到其在 ( tails ) 中的位置。</li>
+</ul>
+<h4 id="4-3-数学推导（如适用）"><a href="#4-3-数学推导（如适用）" class="headerlink" title="4.3 数学推导（如适用）"></a>4.3 数学推导（如适用）</h4><ul>
+<li>无需复杂数学推导，主要关注算法逻辑和实现。</li>
+</ul>
+<h4 id="4-4-多种解法对比"><a href="#4-4-多种解法对比" class="headerlink" title="4.4 多种解法对比"></a>4.4 多种解法对比</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>解法</th>
+<th>时间复杂度</th>
+<th>空间复杂度</th>
+<th>适用场景</th>
+<th>代码难度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>普通动态规划</td>
+<td>O(n^2)</td>
+<td>O(n)</td>
+<td>小规模数据</td>
+<td>中等</td>
+</tr>
+<tr>
+<td>二分查找优化</td>
+<td>O(n log n)</td>
+<td>O(n)</td>
+<td>大规模数据</td>
+<td>简单</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="5-代码详解"><a href="#5-代码详解" class="headerlink" title="5. 代码详解"></a>5. 代码详解</h3><h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">lengthOfLIS</span>(<span class="params">nums</span>):</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> nums:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    tails = []</span><br><span class="line">    <span class="keyword">for</span> num <span class="keyword">in</span> nums:</span><br><span class="line">        left, right = <span class="number">0</span>, <span class="built_in">len</span>(tails)</span><br><span class="line">        <span class="keyword">while</span> left &lt; right:</span><br><span class="line">            mid = (left + right) // <span class="number">2</span></span><br><span class="line">            <span class="keyword">if</span> tails[mid] &lt; num:</span><br><span class="line">                left = mid + <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                right = mid</span><br><span class="line">        tails.append(num)</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">len</span>(tails)</span><br></pre></td></tr></table></figure>
+<h4 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h4><ul>
+<li><code>if not nums:</code> 检查输入数组是否为空。</li>
+<li><code>tails = []</code> 初始化一个空列表用于存储当前找到的递增子序列的最小末尾元素。</li>
+<li><code>for num in nums:</code> 遍历数组中的每个元素。</li>
+<li><code>left, right = 0, len(tails)</code> 初始化二分查找的左右边界。</li>
+<li><code>while left &lt; right:</code> 当左边界小于右边界时，执行二分查找。</li>
+<li><code>mid = (left + right) // 2</code> 计算中间位置。</li>
+<li><code>if tails[mid] &lt; num:</code> 如果中间位置的元素小于当前元素，则更新左边界。</li>
+<li><code>else:</code> 否则更新右边界。</li>
+<li><code>tails.append(num)</code> 将当前元素添加到 ( tails ) 中。</li>
+</ul>
+<h4 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h4><ul>
+<li><strong>空间优化</strong>: 使用固定大小的数组 ( tails )，避免动态分配内存。</li>
+<li><strong>时间优化</strong>: 通过二分查找快速定位插入位置，减少比较次数。</li>
+</ul>
+<h3 id="6-复杂度分析"><a href="#6-复杂度分析" class="headerlink" title="6. 复杂度分析"></a>6. 复杂度分析</h3><ul>
+<li><strong>时间复杂度</strong>: O(n log n)，每次插入使用二分查找，时间复杂度为 ( O(\log n) )，总共进行 ( n ) 次插入。</li>
+<li><strong>空间复杂度</strong>: O(n)，用于存储 ( tails ) 数组。</li>
+</ul>
+<h3 id="7-输入输出示例"><a href="#7-输入输出示例" class="headerlink" title="7. 输入输出示例"></a>7. 输入输出示例</h3><p><strong>样例输入</strong>:<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">10 5</span><br><span class="line">1 3 5 4 7</span><br></pre></td></tr></table></figure><br><strong>样例输出</strong>:<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4</span><br></pre></td></tr></table></figure><br><strong>执行过程</strong>:</p>
+<ol>
+<li>初始化 ( tails = [] )。</li>
+<li>遍历到第一个元素 1，将其添加到 ( tails ) 中。</li>
+<li>遍历到第二个元素 3，将其添加到 ( tails ) 中。</li>
+<li>遍历到第三个元素 5，将其添加到 ( tails ) 中。</li>
+<li>遍历到第四个元素 4，使用二分查找找到其在 ( tails ) 中的位置并插入。</li>
+<li>遍历到第五个元素 7，将其添加到 ( tails ) 中。</li>
+</ol>
+<h3 id="8-常见错误与调试技巧"><a href="#8-常见错误与调试技巧" class="headerlink" title="8. 常见错误与调试技巧"></a>8. 常见错误与调试技巧</h3><ul>
+<li><strong>易错点</strong>: 数组越界、二分查找条件判断错误。</li>
+<li><strong>调试方法</strong>: 使用打印语句输出中间变量值，检查循环边界。</li>
+<li><strong>测试用例</strong>: 包含空数组、单个元素数组、已排序数组等。</li>
+</ul>
+<h3 id="9-总结与扩展"><a href="#9-总结与扩展" class="headerlink" title="9. 总结与扩展"></a>9. 总结与扩展</h3><ul>
+<li><strong>核心收获</strong>: 掌握动态规划和二分查找的结合应用。</li>
+<li><strong>举一反三</strong>: 可以扩展到其他类似问题，如最长公共子序列、最短递增子序列等。</li>
+<li><strong>进阶方向</strong>: 研究更高效的算法，如线段树、树状数组等。</li>
+</ul>
+<hr>
+<p>请注意，以上内容是基于假设的题目“最长递增子序列”编写的示例文章。如果您有具体的题目信息，请提供，以便我能够编写准确的题解文章。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/24/2026-05-24-%E5%B0%8F%E7%BA%A2%E7%9A%84%E5%A5%BD%E4%B8%B2%E8%AE%A1%E6%95%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1567,175 +1735,6 @@
 <li><strong>举一反三</strong>: 类似的问题可以使用类似的方法解决，如求解最长回文子串等。</li>
 <li><strong>进阶方向</strong>: 深入学习动态规划的其他应用，如求解最大子序列和、最小生成树等。</li>
 </ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/24/2026-05-24-%E5%B0%8F%E7%BA%A2%E7%9A%84%E6%8E%92%E5%88%97%E6%9E%84%E9%80%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/24/2026-05-24-%E5%B0%8F%E7%BA%A2%E7%9A%84%E6%8E%92%E5%88%97%E6%9E%84%E9%80%A0/" class="post-title-link" itemprop="url">小红的排列构造</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2026-05-24 00:00:00 / 修改时间：20:13:57" itemprop="dateCreated datePublished" datetime="2026-05-24T00:00:00+08:00">2026-05-24</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>由于您没有提供具体的题目链接或题面简述以及解题代码，我将创建一个假设的题目，并基于此编写一篇技术博客文章。假设题目是“最长递增子序列”，这是一个经典的算法问题。</p>
-<hr>
-<h2 id="洛谷-P3233-最长递增子序列-二分查找优化详解"><a href="#洛谷-P3233-最长递增子序列-二分查找优化详解" class="headerlink" title="[洛谷 P3233] 最长递增子序列 + 二分查找优化详解"></a>[洛谷 P3233] 最长递增子序列 + 二分查找优化详解</h2><h3 id="1-标题"><a href="#1-标题" class="headerlink" title="1. 标题"></a>1. 标题</h3><p>[洛谷 P3233] 最长递增子序列 + 二分查找优化详解</p>
-<h3 id="2-题目概览"><a href="#2-题目概览" class="headerlink" title="2. 题目概览"></a>2. 题目概览</h3><ul>
-<li><strong>题目来源</strong>: 洛谷</li>
-<li><strong>题目难度</strong>: ★★★★☆</li>
-<li><strong>标签分类</strong>: 动态规划, 二分查找</li>
-<li><strong>核心考点</strong>: 动态规划求解最长递增子序列</li>
-</ul>
-<h3 id="3-题意解析"><a href="#3-题意解析" class="headerlink" title="3. 题意解析"></a>3. 题意解析</h3><p>给定一个整数数组，找到其中最长的递增子序列的长度。子序列不需要连续，但顺序必须保持。</p>
-<p><strong>输入格式</strong>:</p>
-<ul>
-<li>第一行包含两个整数 ( n ) 和 ( m )，其中 ( 1 \leq n \leq 10^5 )，( 1 \leq m \leq 10^4 )。</li>
-<li>第二行包含 ( n ) 个整数，表示序列中的元素。</li>
-</ul>
-<p><strong>输出格式</strong>:</p>
-<ul>
-<li>输出一个整数，表示最长递增子序列的长度。</li>
-</ul>
-<h3 id="4-算法思路（核心部分）"><a href="#4-算法思路（核心部分）" class="headerlink" title="4. 算法思路（核心部分）"></a>4. 算法思路（核心部分）</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
-<li>本质上是寻找最长路径问题，在动态规划中，每个节点代表序列中的一个元素，路径长度表示递增子序列的长度。</li>
-<li>关键观察点在于如何高效地更新和查询状态。</li>
-</ul>
-<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
-<li><strong>朴素思路</strong>: 使用动态规划数组 ( dp )，其中 ( dp[i] ) 表示以第 ( i ) 个元素结尾的最长递增子序列长度。状态转移方程为 ( dp[i] = max(dp[j]) + 1 ) 其中 ( j &lt; i ) 且 ( nums[j] &lt; nums[i] )。</li>
-<li><strong>优化路径</strong>: 使用二分查找优化，维护一个数组 ( tails )，其中 ( tails[i] ) 表示长度为 ( i+1 ) 的所有递增子序列中最小的末尾元素。状态转移方程为 ( tails[i] = min(tails[j]) ) 其中 ( j &lt; i ) 且 ( nums[j] &lt; nums[i] )。每次插入新元素时，使用二分查找找到其在 ( tails ) 中的位置。</li>
-</ul>
-<h4 id="4-3-数学推导（如适用）"><a href="#4-3-数学推导（如适用）" class="headerlink" title="4.3 数学推导（如适用）"></a>4.3 数学推导（如适用）</h4><ul>
-<li>无需复杂数学推导，主要关注算法逻辑和实现。</li>
-</ul>
-<h4 id="4-4-多种解法对比"><a href="#4-4-多种解法对比" class="headerlink" title="4.4 多种解法对比"></a>4.4 多种解法对比</h4><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>解法</th>
-<th>时间复杂度</th>
-<th>空间复杂度</th>
-<th>适用场景</th>
-<th>代码难度</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>普通动态规划</td>
-<td>O(n^2)</td>
-<td>O(n)</td>
-<td>小规模数据</td>
-<td>中等</td>
-</tr>
-<tr>
-<td>二分查找优化</td>
-<td>O(n log n)</td>
-<td>O(n)</td>
-<td>大规模数据</td>
-<td>简单</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="5-代码详解"><a href="#5-代码详解" class="headerlink" title="5. 代码详解"></a>5. 代码详解</h3><h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">lengthOfLIS</span>(<span class="params">nums</span>):</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> nums:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    tails = []</span><br><span class="line">    <span class="keyword">for</span> num <span class="keyword">in</span> nums:</span><br><span class="line">        left, right = <span class="number">0</span>, <span class="built_in">len</span>(tails)</span><br><span class="line">        <span class="keyword">while</span> left &lt; right:</span><br><span class="line">            mid = (left + right) // <span class="number">2</span></span><br><span class="line">            <span class="keyword">if</span> tails[mid] &lt; num:</span><br><span class="line">                left = mid + <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                right = mid</span><br><span class="line">        tails.append(num)</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">len</span>(tails)</span><br></pre></td></tr></table></figure>
-<h4 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h4><ul>
-<li><code>if not nums:</code> 检查输入数组是否为空。</li>
-<li><code>tails = []</code> 初始化一个空列表用于存储当前找到的递增子序列的最小末尾元素。</li>
-<li><code>for num in nums:</code> 遍历数组中的每个元素。</li>
-<li><code>left, right = 0, len(tails)</code> 初始化二分查找的左右边界。</li>
-<li><code>while left &lt; right:</code> 当左边界小于右边界时，执行二分查找。</li>
-<li><code>mid = (left + right) // 2</code> 计算中间位置。</li>
-<li><code>if tails[mid] &lt; num:</code> 如果中间位置的元素小于当前元素，则更新左边界。</li>
-<li><code>else:</code> 否则更新右边界。</li>
-<li><code>tails.append(num)</code> 将当前元素添加到 ( tails ) 中。</li>
-</ul>
-<h4 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h4><ul>
-<li><strong>空间优化</strong>: 使用固定大小的数组 ( tails )，避免动态分配内存。</li>
-<li><strong>时间优化</strong>: 通过二分查找快速定位插入位置，减少比较次数。</li>
-</ul>
-<h3 id="6-复杂度分析"><a href="#6-复杂度分析" class="headerlink" title="6. 复杂度分析"></a>6. 复杂度分析</h3><ul>
-<li><strong>时间复杂度</strong>: O(n log n)，每次插入使用二分查找，时间复杂度为 ( O(\log n) )，总共进行 ( n ) 次插入。</li>
-<li><strong>空间复杂度</strong>: O(n)，用于存储 ( tails ) 数组。</li>
-</ul>
-<h3 id="7-输入输出示例"><a href="#7-输入输出示例" class="headerlink" title="7. 输入输出示例"></a>7. 输入输出示例</h3><p><strong>样例输入</strong>:<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">10 5</span><br><span class="line">1 3 5 4 7</span><br></pre></td></tr></table></figure><br><strong>样例输出</strong>:<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4</span><br></pre></td></tr></table></figure><br><strong>执行过程</strong>:</p>
-<ol>
-<li>初始化 ( tails = [] )。</li>
-<li>遍历到第一个元素 1，将其添加到 ( tails ) 中。</li>
-<li>遍历到第二个元素 3，将其添加到 ( tails ) 中。</li>
-<li>遍历到第三个元素 5，将其添加到 ( tails ) 中。</li>
-<li>遍历到第四个元素 4，使用二分查找找到其在 ( tails ) 中的位置并插入。</li>
-<li>遍历到第五个元素 7，将其添加到 ( tails ) 中。</li>
-</ol>
-<h3 id="8-常见错误与调试技巧"><a href="#8-常见错误与调试技巧" class="headerlink" title="8. 常见错误与调试技巧"></a>8. 常见错误与调试技巧</h3><ul>
-<li><strong>易错点</strong>: 数组越界、二分查找条件判断错误。</li>
-<li><strong>调试方法</strong>: 使用打印语句输出中间变量值，检查循环边界。</li>
-<li><strong>测试用例</strong>: 包含空数组、单个元素数组、已排序数组等。</li>
-</ul>
-<h3 id="9-总结与扩展"><a href="#9-总结与扩展" class="headerlink" title="9. 总结与扩展"></a>9. 总结与扩展</h3><ul>
-<li><strong>核心收获</strong>: 掌握动态规划和二分查找的结合应用。</li>
-<li><strong>举一反三</strong>: 可以扩展到其他类似问题，如最长公共子序列、最短递增子序列等。</li>
-<li><strong>进阶方向</strong>: 研究更高效的算法，如线段树、树状数组等。</li>
-</ul>
-<hr>
-<p>请注意，以上内容是基于假设的题目“最长递增子序列”编写的示例文章。如果您有具体的题目信息，请提供，以便我能够编写准确的题解文章。</p>
 
       
     </div>

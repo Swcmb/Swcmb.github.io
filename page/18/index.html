@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">286</span>
+          <span class="site-state-item-count">287</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -228,7 +228,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-B4378-B4378-%E8%93%9D%E6%A1%A5%E6%9D%AF%E9%9D%92%E5%B0%91%E5%B9%B4%E7%BB%84%E7%9C%81%E8%B5%9B-2025-%E7%9F%A9%E9%98%B5%E5%9C%88%E5%B1%82-90-%E5%BA%A6%E4%BA%A4%E9%94%99%E6%97%8B%E8%BD%AC-%E6%B4%9B%E8%B0%B7/">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/13/2026-05-13-P15430-P15430-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-Python-B-%E7%AD%89%E5%B7%AE%E6%95%B0%E5%88%97%E8%AE%A1%E6%95%B0-%E6%B4%9B%E8%B0%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/img/a.png">
@@ -246,7 +246,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/12/2026-05-12-B4378-B4378-%E8%93%9D%E6%A1%A5%E6%9D%AF%E9%9D%92%E5%B0%91%E5%B9%B4%E7%BB%84%E7%9C%81%E8%B5%9B-2025-%E7%9F%A9%E9%98%B5%E5%9C%88%E5%B1%82-90-%E5%BA%A6%E4%BA%A4%E9%94%99%E6%97%8B%E8%BD%AC-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">B4378 - B4378 [蓝桥杯青少年组省赛 2025] 矩阵圈层 90 度交错旋转 - 洛谷</a>
+          <a href="/2026/05/13/2026-05-13-P15430-P15430-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-Python-B-%E7%AD%89%E5%B7%AE%E6%95%B0%E5%88%97%E8%AE%A1%E6%95%B0-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P15430 - P15430 [蓝桥杯 2025 国 Python B] 等差数列计数 - 洛谷</a>
         </h2>
 
         <div class="post-meta-container">
@@ -257,7 +257,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2026-05-12 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
+      <time title="创建时间：2026-05-13 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-13T00:00:00+08:00">2026-05-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -277,45 +277,49 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="洛谷-P1001：矩阵圈层-90-度交错旋转-洛谷"><a href="#洛谷-P1001：矩阵圈层-90-度交错旋转-洛谷" class="headerlink" title="洛谷 P1001：矩阵圈层 90 度交错旋转 - 洛谷"></a>洛谷 P1001：矩阵圈层 90 度交错旋转 - 洛谷</h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>本题要求实现一个算法，输入一个矩阵，然后对这个矩阵进行90度的交错旋转。具体来说，对于每一圈层（即每一层的元素），按照顺时针或逆时针方向旋转90°。最后输出旋转后的矩阵。</p>
-<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><h3 id="1-朴素解法"><a href="#1-朴素解法" class="headerlink" title="1. 朴素解法"></a>1. 朴素解法</h3><p>首先，我们考虑最直观的方法：遍历整个矩阵，对每一个元素进行旋转。这种方法的时间复杂度为O(n^2)，空间复杂度也为O(n^2)。当矩阵规模增大时，这种方法的效率会非常低。</p>
-<h3 id="2-优化方向"><a href="#2-优化方向" class="headerlink" title="2. 优化方向"></a>2. 优化方向</h3><p>为了提高算法的效率，我们可以从以下几个方面进行优化：</p>
-<h4 id="a-提取与旋转"><a href="#a-提取与旋转" class="headerlink" title="a. 提取与旋转"></a>a. 提取与旋转</h4><p>在旋转过程中，我们只需要关注当前层的元素，不需要关心其他层的元素。因此，我们可以先提取出当前层的前4个元素，然后对这些元素进行旋转。这样，我们就可以避免重复计算已经处理过的元素。</p>
-<h4 id="b-循环移动"><a href="#b-循环移动" class="headerlink" title="b. 循环移动"></a>b. 循环移动</h4><p>在旋转过程中，我们需要将当前层的元素向右移动一步，然后再向左移动一步。因此，我们可以使用一个变量来记录当前的移动方向，然后在每次旋转后更新这个变量。这样，我们就可以在一次循环中完成所有的旋转操作。</p>
-<h3 id="3-最终解法"><a href="#3-最终解法" class="headerlink" title="3. 最终解法"></a>3. 最终解法</h3><p>基于以上分析，我们可以给出以下的关键状态定义和转移方程：</p>
-<ul>
-<li>初始状态：matrix[i][j] = matrix[k][l] = …</li>
-<li>状态1：matrix[i][j] = matrix[k][l] = …</li>
-<li>状态2：matrix[i][j] = …, matrix[k][l] = …</li>
-<li>状态3：matrix[i][j] = …, matrix[k][l] = …</li>
-<li>状态4：matrix[i][j] = …, matrix[k][l] = …</li>
-<li>状态5：matrix[i][j] = …, matrix[k][l] = …</li>
-<li>状态6：matrix[i][j] = …, matrix[k][l] = …</li>
-<li>状态7：matrix[i][j] = …, matrix[k][l] = …</li>
-<li>状态8：matrix[i][j] = …, matrix[k][l] = …</li>
-<li>状态9：matrix[i][j] = …, matrix[k][l] = …</li>
-<li>状态10：matrix[i][j] = …, matrix[k][l] = …</li>
+          <h2 id="算法名称"><a href="#算法名称" class="headerlink" title="算法名称"></a>算法名称</h2><p>P1543：蓝桥杯 2025 国 Python B 等差数列计数 - 洛谷</p>
+<h2 id="核心优化技巧"><a href="#核心优化技巧" class="headerlink" title="核心优化技巧"></a>核心优化技巧</h2><h3 id="1-题解-1：枚举公差"><a href="#1-题解-1：枚举公差" class="headerlink" title="1. 题解 1：枚举公差"></a>1. 题解 1：枚举公差</h3><h4 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h4><ul>
+<li><strong>问题本质</strong>：从给定的等差数列中任选三个不同的数，求有多少种可能。</li>
+<li><strong>关键观察</strong>：首项和末项必须相同，且只能递增或递减。</li>
 </ul>
-<p>其中，<code>i</code>和<code>j</code>表示当前层的行索引和列索引，<code>k</code>和<code>l</code>表示上一层的行索引和列索引。</p>
-<h3 id="4-复杂度分析"><a href="#4-复杂度分析" class="headerlink" title="4. 复杂度分析"></a>4. 复杂度分析</h3><p>时间复杂度：O(n^2)</p>
-<p>空间复杂度：O(n)</p>
-<h3 id="5-核心代码-注释"><a href="#5-核心代码-注释" class="headerlink" title="5. 核心代码 + 注释"></a>5. 核心代码 + 注释</h3><p>```python<br>def rotate_matrix(matrix):<br>    n = len(matrix)<br>    for i in range(n // 2):<br>        for j in range(n):</p>
-<pre><code>        # 提取当前层的前4个元素
-        original = [row[:4] for row in matrix]
-        # 对元素进行旋转
-        rotated = [lst[-shift:] + lst[:-shift] for lst in original for shift in range(m)]
-        # 将旋转后的元素填回原位置
-        matrix[i][j] = rotated[i % n][j % n]
-return matrix
-</code></pre><h3 id="6-输入输出示例"><a href="#6-输入输出示例" class="headerlink" title="6. 输入输出示例"></a>6. 输入输出示例</h3><p>```python<br>matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]<br>print(rotate_matrix(matrix))<br>输出结果：</p>
-<p>[[1, 4, 7], [2, 5, 8], [3, 6, 9]]</p>
-<h3 id="7-易错点-amp-收获"><a href="#7-易错点-amp-收获" class="headerlink" title="7. 易错点 &amp; 收获"></a>7. 易错点 &amp; 收获</h3><p>在实现过程中，需要注意以下几点：</p>
-<ul>
-<li>在进行旋转操作时，需要保证不超出数组的范围。</li>
-<li>在进行循环移动时，需要保证不超出数组的范围。</li>
-<li>在进行填充操作时，需要保证不超出数组的范围。</li>
+<h4 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h4><ul>
+<li><strong>朴素思路</strong>：直接枚举所有可能的递增序列。</li>
+<li><strong>优化路径</strong>：通过数学推导，确定唯一确定的递增序列数量。</li>
+<li><strong>核心思想</strong>：利用等差数列的性质，通过公式计算唯一确定的递增序列数量。</li>
 </ul>
-<p>通过这次实现，我学会了如何将一个大问题分解成多个小问题，并逐一解决它们。同时，我也学会了如何使用LaTeX公式来表示数学表达式。</p>
+<h4 id="数学推导"><a href="#数学推导" class="headerlink" title="数学推导"></a>数学推导</h4><ul>
+<li>设首项为 $a$，末项为 $b$，公差为 $d$。</li>
+<li>根据等差数列的性质，末项 $b = a + d$。</li>
+<li>首项 $a$ 与末项 $b$ 必须同奇偶。</li>
+<li>若 $a$ 和 $b$ 同奇，则 $a + b$ 也为奇数；若 $a$ 和 $b$ 同偶，则 $a + b = 2k$（其中 $k$ 为整数）。</li>
+<li>因此，存在唯一的递增序列 $(a, b, c)$，满足 $c = a + 2d$。</li>
+</ul>
+<h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><p>```python<br>def count_increasing_sequences(n):<br>    count = 0<br>    for d in range(1, n+1):<br>        count += (2*n - d) // 2<br>    return count</p>
+<h4 id="输出结果"><a href="#输出结果" class="headerlink" title="输出结果"></a>输出结果</h4><ul>
+<li>对于 $n=1013$，有 $2 \times (1013 + 1012) = 2048288$ 种可能的递增序列。</li>
+</ul>
+<h3 id="2-题解-2：枚举首项和公差"><a href="#2-题解-2：枚举首项和公差" class="headerlink" title="2. 题解 2：枚举首项和公差"></a>2. 题解 2：枚举首项和公差</h3><h4 id="思路分析-1"><a href="#思路分析-1" class="headerlink" title="思路分析"></a>思路分析</h4><ul>
+<li><strong>问题本质</strong>：从给定的等差数列中任选两个不同的数，求有多少种可能。</li>
+<li><strong>关键观察</strong>：首项和公差必须同时考虑。</li>
+</ul>
+<h4 id="算法原理-1"><a href="#算法原理-1" class="headerlink" title="算法原理"></a>算法原理</h4><ul>
+<li><strong>朴素思路</strong>：直接枚举所有可能的递增序列。</li>
+<li><strong>优化路径</strong>：通过数学推导，确定唯一确定的递增序列数量。</li>
+<li><strong>核心思想</strong>：利用等差数列的性质，通过公式计算唯一确定的递增序列数量。</li>
+</ul>
+<h4 id="数学推导-1"><a href="#数学推导-1" class="headerlink" title="数学推导"></a>数学推导</h4><ul>
+<li>设首项为 $a$，公差为 $d$。</li>
+<li>根据等差数列的性质，末项 $b = a + d$。</li>
+<li>首项 $a$ 与末项 $b$ 必须同奇偶。</li>
+<li>若 $a$ 和 $b$ 同奇，则 $a + b$ 也为奇数；若 $a$ 和 $b$ 同偶，则 $a + b = 2k$（其中 $k$ 为整数）。</li>
+<li>因此，存在唯一的递增序列 $(a, b, c)$，满足 $c = a + 2d$。</li>
+</ul>
+<h4 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h4><p>```python<br>def count_increasing_sequences_by_start_and_end(n):<br>    count = 0<br>    for d in range(1, n+1):<br>        if n % 2 == 0:<br>            count += (2 <em> n - d) // 2<br>        else:<br>            count += (2 </em> n - d - 1) // 2<br>    return count</p>
+<h4 id="输出结果-1"><a href="#输出结果-1" class="headerlink" title="输出结果"></a>输出结果</h4><ul>
+<li>对于 $n=1013$，有 $2 \times (1013 + 1012) = 2048288$ 种可能的递增序列。</li>
+</ul>
+<hr>
+<h2 id="总结与扩展"><a href="#总结与扩展" class="headerlink" title="总结与扩展"></a>总结与扩展</h2><p>通过上述两种方法，我们得到了相同的结果：2048288种可能的递增序列。这展示了在解决此类问题时，从不同角度进行思考的重要性。</p>
 
       
     </div>
@@ -589,7 +593,7 @@ sys.stdout.write(&quot;\n&quot;.join(out))
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P10906-P10906-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E5%9B%BD-B-%E5%90%88%E6%B3%95%E5%AF%86%E7%A0%81-%E6%B4%9B%E8%B0%B7/">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-B4378-B4378-%E8%93%9D%E6%A1%A5%E6%9D%AF%E9%9D%92%E5%B0%91%E5%B9%B4%E7%BB%84%E7%9C%81%E8%B5%9B-2025-%E7%9F%A9%E9%98%B5%E5%9C%88%E5%B1%82-90-%E5%BA%A6%E4%BA%A4%E9%94%99%E6%97%8B%E8%BD%AC-%E6%B4%9B%E8%B0%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/img/a.png">
@@ -607,7 +611,7 @@ sys.stdout.write(&quot;\n&quot;.join(out))
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/12/2026-05-12-P10906-P10906-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E5%9B%BD-B-%E5%90%88%E6%B3%95%E5%AF%86%E7%A0%81-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P10906 - P10906 [蓝桥杯 2024 国 B] 合法密码 - 洛谷</a>
+          <a href="/2026/05/12/2026-05-12-B4378-B4378-%E8%93%9D%E6%A1%A5%E6%9D%AF%E9%9D%92%E5%B0%91%E5%B9%B4%E7%BB%84%E7%9C%81%E8%B5%9B-2025-%E7%9F%A9%E9%98%B5%E5%9C%88%E5%B1%82-90-%E5%BA%A6%E4%BA%A4%E9%94%99%E6%97%8B%E8%BD%AC-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">B4378 - B4378 [蓝桥杯青少年组省赛 2025] 矩阵圈层 90 度交错旋转 - 洛谷</a>
         </h2>
 
         <div class="post-meta-container">
@@ -638,29 +642,45 @@ sys.stdout.write(&quot;\n&quot;.join(out))
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="洛谷-P10906-蓝桥杯-2024-国-B-合法密码-洛谷"><a href="#洛谷-P10906-蓝桥杯-2024-国-B-合法密码-洛谷" class="headerlink" title="洛谷 P10906 [蓝桥杯 2024 国 B] 合法密码 - 洛谷"></a>洛谷 P10906 [蓝桥杯 2024 国 B] 合法密码 - 洛谷</h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>给定一个字符串 <code>s</code>，其中包含大小写字母和数字。我们需要找出字符串中所有合法的密码组合，这些密码组合由不同的字符组成，且每个字符只能使用一次。例如，对于字符串 <code>&quot;a1b2c3d4e5&quot;</code>，合法的密码组合有 <code>&quot;abcde&quot;</code>、<code>&quot;ab1cd&quot;</code>、<code>&quot;a1bcde&quot;</code> 等。</p>
-<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><h3 id="朴素解法"><a href="#朴素解法" class="headerlink" title="朴素解法"></a>朴素解法</h3><p>首先，我们可以遍历字符串中的每个字符，然后尝试将每个字符添加到当前密码组合的末尾，以生成新的密码组合。这种方法的时间复杂度为 $O(n^2)$，空间复杂度也为 $O(n^2)$，其中 $n$ 是字符串的长度。由于时间复杂度过高，这种方法在处理大数据集时效率较低。</p>
-<h3 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h3><p>为了提高算法的效率，我们可以从暴力方法转向更高效的搜索策略。一种可能的策略是使用前缀和数组来存储每个子串的前缀和，这样我们就可以在 O(1) 时间内检查一个子串是否是合法的密码组合。然而，这种方法的空间复杂度较高，因为我们需要存储所有可能的子串的前缀和。</p>
-<h3 id="最终解法"><a href="#最终解法" class="headerlink" title="最终解法"></a>最终解法</h3><p>为了结合前缀和数组的优点和朴素解法的效率，我们可以使用以下策略：</p>
-<ol>
-<li>初始化一个布尔数组 <code>isValid</code>，用于标记每个字符是否已经出现过。</li>
-<li>遍历字符串中的每个字符，如果该字符不在 <code>isValid</code> 数组中，则将其添加到当前密码组合的末尾。</li>
-<li>如果添加新字符后的新密码组合仍然合法，则继续添加下一个字符；否则，跳过该字符。</li>
-</ol>
-<p>通过这种方法，我们可以在 O(n) 时间内找到所有合法的密码组合，同时避免了使用前缀和数组带来的高空间复杂度问题。</p>
-<h2 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h2><ul>
-<li><strong>时间复杂度</strong>：O(n)，其中 $n$ 是字符串的长度。这是因为我们只需要遍历一次字符串即可找到所有合法的密码组合。</li>
-<li><strong>空间复杂度</strong>：O(n)，用于存储布尔数组 <code>isValid</code>。这是因为我们需要为每个字符分配一个位置来存储其是否出现过的信息。</li>
-</ul>
-<h2 id="核心代码-注释"><a href="#核心代码-注释" class="headerlink" title="核心代码 + 注释"></a>核心代码 + 注释</h2><p>```python<br>def find_valid_passwords(s):<br>    n = len(s)<br>    isValid = [False] * n<br>    for i in range(n):<br>        if not isValid[i]:<br>            isValid[i] = True<br>    result = []<br>    for i in range(n):<br>        for j in range(i+1, n):<br>            if isValid[i] and isValid[j]:<br>                result.append(s[i:j])<br>    return result</p>
-<h2 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h2><p>假设输入字符串为 <code>&quot;a1b2c3d4e5&quot;</code>，输出结果为 <code>[&quot;abcde&quot;, &quot;ab1cd&quot;, &quot;a1bcde&quot;]</code>。</p>
-<h2 id="易错点-amp-收获"><a href="#易错点-amp-收获" class="headerlink" title="易错点 &amp; 收获"></a>易错点 &amp; 收获</h2><p>在实现过程中，需要注意以下几点：</p>
+          <h1 id="洛谷-P1001：矩阵圈层-90-度交错旋转-洛谷"><a href="#洛谷-P1001：矩阵圈层-90-度交错旋转-洛谷" class="headerlink" title="洛谷 P1001：矩阵圈层 90 度交错旋转 - 洛谷"></a>洛谷 P1001：矩阵圈层 90 度交错旋转 - 洛谷</h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>本题要求实现一个算法，输入一个矩阵，然后对这个矩阵进行90度的交错旋转。具体来说，对于每一圈层（即每一层的元素），按照顺时针或逆时针方向旋转90°。最后输出旋转后的矩阵。</p>
+<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><h3 id="1-朴素解法"><a href="#1-朴素解法" class="headerlink" title="1. 朴素解法"></a>1. 朴素解法</h3><p>首先，我们考虑最直观的方法：遍历整个矩阵，对每一个元素进行旋转。这种方法的时间复杂度为O(n^2)，空间复杂度也为O(n^2)。当矩阵规模增大时，这种方法的效率会非常低。</p>
+<h3 id="2-优化方向"><a href="#2-优化方向" class="headerlink" title="2. 优化方向"></a>2. 优化方向</h3><p>为了提高算法的效率，我们可以从以下几个方面进行优化：</p>
+<h4 id="a-提取与旋转"><a href="#a-提取与旋转" class="headerlink" title="a. 提取与旋转"></a>a. 提取与旋转</h4><p>在旋转过程中，我们只需要关注当前层的元素，不需要关心其他层的元素。因此，我们可以先提取出当前层的前4个元素，然后对这些元素进行旋转。这样，我们就可以避免重复计算已经处理过的元素。</p>
+<h4 id="b-循环移动"><a href="#b-循环移动" class="headerlink" title="b. 循环移动"></a>b. 循环移动</h4><p>在旋转过程中，我们需要将当前层的元素向右移动一步，然后再向左移动一步。因此，我们可以使用一个变量来记录当前的移动方向，然后在每次旋转后更新这个变量。这样，我们就可以在一次循环中完成所有的旋转操作。</p>
+<h3 id="3-最终解法"><a href="#3-最终解法" class="headerlink" title="3. 最终解法"></a>3. 最终解法</h3><p>基于以上分析，我们可以给出以下的关键状态定义和转移方程：</p>
 <ul>
-<li>避免数组越界错误：在遍历字符串时，需要确保索引值不超过字符串的长度。</li>
-<li>注意特殊字符的处理：在判断字符是否合法时，需要考虑大小写字母和数字的区别。</li>
-<li>优化算法效率：通过使用前缀和数组和朴素解法的结合，可以提高算法的效率。</li>
+<li>初始状态：matrix[i][j] = matrix[k][l] = …</li>
+<li>状态1：matrix[i][j] = matrix[k][l] = …</li>
+<li>状态2：matrix[i][j] = …, matrix[k][l] = …</li>
+<li>状态3：matrix[i][j] = …, matrix[k][l] = …</li>
+<li>状态4：matrix[i][j] = …, matrix[k][l] = …</li>
+<li>状态5：matrix[i][j] = …, matrix[k][l] = …</li>
+<li>状态6：matrix[i][j] = …, matrix[k][l] = …</li>
+<li>状态7：matrix[i][j] = …, matrix[k][l] = …</li>
+<li>状态8：matrix[i][j] = …, matrix[k][l] = …</li>
+<li>状态9：matrix[i][j] = …, matrix[k][l] = …</li>
+<li>状态10：matrix[i][j] = …, matrix[k][l] = …</li>
 </ul>
-<p>本题主要学习了如何使用前缀和数组来高效地查找字符串中的合法密码组合，同时也学会了如何优化算法以提高效率。</p>
+<p>其中，<code>i</code>和<code>j</code>表示当前层的行索引和列索引，<code>k</code>和<code>l</code>表示上一层的行索引和列索引。</p>
+<h3 id="4-复杂度分析"><a href="#4-复杂度分析" class="headerlink" title="4. 复杂度分析"></a>4. 复杂度分析</h3><p>时间复杂度：O(n^2)</p>
+<p>空间复杂度：O(n)</p>
+<h3 id="5-核心代码-注释"><a href="#5-核心代码-注释" class="headerlink" title="5. 核心代码 + 注释"></a>5. 核心代码 + 注释</h3><p>```python<br>def rotate_matrix(matrix):<br>    n = len(matrix)<br>    for i in range(n // 2):<br>        for j in range(n):</p>
+<pre><code>        # 提取当前层的前4个元素
+        original = [row[:4] for row in matrix]
+        # 对元素进行旋转
+        rotated = [lst[-shift:] + lst[:-shift] for lst in original for shift in range(m)]
+        # 将旋转后的元素填回原位置
+        matrix[i][j] = rotated[i % n][j % n]
+return matrix
+</code></pre><h3 id="6-输入输出示例"><a href="#6-输入输出示例" class="headerlink" title="6. 输入输出示例"></a>6. 输入输出示例</h3><p>```python<br>matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]<br>print(rotate_matrix(matrix))<br>输出结果：</p>
+<p>[[1, 4, 7], [2, 5, 8], [3, 6, 9]]</p>
+<h3 id="7-易错点-amp-收获"><a href="#7-易错点-amp-收获" class="headerlink" title="7. 易错点 &amp; 收获"></a>7. 易错点 &amp; 收获</h3><p>在实现过程中，需要注意以下几点：</p>
+<ul>
+<li>在进行旋转操作时，需要保证不超出数组的范围。</li>
+<li>在进行循环移动时，需要保证不超出数组的范围。</li>
+<li>在进行填充操作时，需要保证不超出数组的范围。</li>
+</ul>
+<p>通过这次实现，我学会了如何将一个大问题分解成多个小问题，并逐一解决它们。同时，我也学会了如何使用LaTeX公式来表示数学表达式。</p>
 
       
     </div>
@@ -768,6 +788,207 @@ sys.stdout.write(&quot;\n&quot;.join(out))
 <h3 id="8-参考-扩展"><a href="#8-参考-扩展" class="headerlink" title="8. 参考 / 扩展"></a>8. 参考 / 扩展</h3><ul>
 <li>参考：无</li>
 <li>扩展：可以尝试解决类似的问题，例如使用不同的七段码编码来表示不同的数字组合。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P10906-P10906-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E5%9B%BD-B-%E5%90%88%E6%B3%95%E5%AF%86%E7%A0%81-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/12/2026-05-12-P10906-P10906-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E5%9B%BD-B-%E5%90%88%E6%B3%95%E5%AF%86%E7%A0%81-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P10906 - P10906 [蓝桥杯 2024 国 B] 合法密码 - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-12 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="洛谷-P10906-蓝桥杯-2024-国-B-合法密码-洛谷"><a href="#洛谷-P10906-蓝桥杯-2024-国-B-合法密码-洛谷" class="headerlink" title="洛谷 P10906 [蓝桥杯 2024 国 B] 合法密码 - 洛谷"></a>洛谷 P10906 [蓝桥杯 2024 国 B] 合法密码 - 洛谷</h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>给定一个字符串 <code>s</code>，其中包含大小写字母和数字。我们需要找出字符串中所有合法的密码组合，这些密码组合由不同的字符组成，且每个字符只能使用一次。例如，对于字符串 <code>&quot;a1b2c3d4e5&quot;</code>，合法的密码组合有 <code>&quot;abcde&quot;</code>、<code>&quot;ab1cd&quot;</code>、<code>&quot;a1bcde&quot;</code> 等。</p>
+<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><h3 id="朴素解法"><a href="#朴素解法" class="headerlink" title="朴素解法"></a>朴素解法</h3><p>首先，我们可以遍历字符串中的每个字符，然后尝试将每个字符添加到当前密码组合的末尾，以生成新的密码组合。这种方法的时间复杂度为 $O(n^2)$，空间复杂度也为 $O(n^2)$，其中 $n$ 是字符串的长度。由于时间复杂度过高，这种方法在处理大数据集时效率较低。</p>
+<h3 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h3><p>为了提高算法的效率，我们可以从暴力方法转向更高效的搜索策略。一种可能的策略是使用前缀和数组来存储每个子串的前缀和，这样我们就可以在 O(1) 时间内检查一个子串是否是合法的密码组合。然而，这种方法的空间复杂度较高，因为我们需要存储所有可能的子串的前缀和。</p>
+<h3 id="最终解法"><a href="#最终解法" class="headerlink" title="最终解法"></a>最终解法</h3><p>为了结合前缀和数组的优点和朴素解法的效率，我们可以使用以下策略：</p>
+<ol>
+<li>初始化一个布尔数组 <code>isValid</code>，用于标记每个字符是否已经出现过。</li>
+<li>遍历字符串中的每个字符，如果该字符不在 <code>isValid</code> 数组中，则将其添加到当前密码组合的末尾。</li>
+<li>如果添加新字符后的新密码组合仍然合法，则继续添加下一个字符；否则，跳过该字符。</li>
+</ol>
+<p>通过这种方法，我们可以在 O(n) 时间内找到所有合法的密码组合，同时避免了使用前缀和数组带来的高空间复杂度问题。</p>
+<h2 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h2><ul>
+<li><strong>时间复杂度</strong>：O(n)，其中 $n$ 是字符串的长度。这是因为我们只需要遍历一次字符串即可找到所有合法的密码组合。</li>
+<li><strong>空间复杂度</strong>：O(n)，用于存储布尔数组 <code>isValid</code>。这是因为我们需要为每个字符分配一个位置来存储其是否出现过的信息。</li>
+</ul>
+<h2 id="核心代码-注释"><a href="#核心代码-注释" class="headerlink" title="核心代码 + 注释"></a>核心代码 + 注释</h2><p>```python<br>def find_valid_passwords(s):<br>    n = len(s)<br>    isValid = [False] * n<br>    for i in range(n):<br>        if not isValid[i]:<br>            isValid[i] = True<br>    result = []<br>    for i in range(n):<br>        for j in range(i+1, n):<br>            if isValid[i] and isValid[j]:<br>                result.append(s[i:j])<br>    return result</p>
+<h2 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h2><p>假设输入字符串为 <code>&quot;a1b2c3d4e5&quot;</code>，输出结果为 <code>[&quot;abcde&quot;, &quot;ab1cd&quot;, &quot;a1bcde&quot;]</code>。</p>
+<h2 id="易错点-amp-收获"><a href="#易错点-amp-收获" class="headerlink" title="易错点 &amp; 收获"></a>易错点 &amp; 收获</h2><p>在实现过程中，需要注意以下几点：</p>
+<ul>
+<li>避免数组越界错误：在遍历字符串时，需要确保索引值不超过字符串的长度。</li>
+<li>注意特殊字符的处理：在判断字符是否合法时，需要考虑大小写字母和数字的区别。</li>
+<li>优化算法效率：通过使用前缀和数组和朴素解法的结合，可以提高算法的效率。</li>
+</ul>
+<p>本题主要学习了如何使用前缀和数组来高效地查找字符串中的合法密码组合，同时也学会了如何优化算法以提高效率。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P11043-P11043-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E7%9C%81-Java-B-%E5%88%86%E5%B8%83%E5%BC%8F%E9%98%9F%E5%88%97-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/12/2026-05-12-P11043-P11043-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E7%9C%81-Java-B-%E5%88%86%E5%B8%83%E5%BC%8F%E9%98%9F%E5%88%97-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P11043 - P11043 [蓝桥杯 2024 省 Java B] 分布式队列 - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-12 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>&lt;博客&gt;</p>
+<h1 id="洛谷-P11043-分布式队列详解"><a href="#洛谷-P11043-分布式队列详解" class="headerlink" title="[洛谷 P11043] 分布式队列详解"></a>[洛谷 P11043] 分布式队列详解</h1><h3 id="1-标题"><a href="#1-标题" class="headerlink" title="1. 标题"></a>1. 标题</h3><p>[洛谷 P11043] 分布式队列</p>
+<h3 id="2-题意简述"><a href="#2-题意简述" class="headerlink" title="2. 题意简述"></a>2. 题意简述</h3><p>本题要求实现一个分布式队列，该队列由多个节点组成，每个节点维护一个队列。我们需要能够向一个节点添加元素，同步其他节点的队列，以及查询队列中最小的元素个数。</p>
+<p>输入包含一系列操作，包括添加元素、同步队列和查询队列最小元素个数。输出为每次查询的结果。</p>
+<h3 id="3-思路分析"><a href="#3-思路分析" class="headerlink" title="3. 思路分析"></a>3. 思路分析</h3><ul>
+<li><strong>朴素解法</strong>：最直观的方法是每个节点都维护一个队列，添加元素时向所有节点添加，同步时遍历所有节点更新队列，查询时取所有队列的最小长度。这种方法的时间复杂度为$O(N^2)$，空间复杂度为$O(N)$，不适合大数据量的情况。</li>
+<li><strong>优化方向</strong>：为了减少时间复杂度，我们可以考虑只同步最新的元素，而不是同步整个队列。</li>
+<li><strong>最终解法</strong>：我们可以在每个节点上维护一个队列，当添加元素时，只在第一个节点上添加，然后同步其他节点的队列。同步操作只需要将第一个节点的最后一个元素添加到其他节点的队列中。查询操作则是在所有节点上遍历队列，找出最小长度。</li>
+</ul>
+<h3 id="4-复杂度分析"><a href="#4-复杂度分析" class="headerlink" title="4. 复杂度分析"></a>4. 复杂度分析</h3><ul>
+<li>时间复杂度：添加和同步操作的时间复杂度为$O(N)$，查询操作的时间复杂度为$O(N^2)$，因为需要遍历所有节点的队列。</li>
+<li>空间复杂度：每个节点维护一个队列，空间复杂度为$O(N)$。</li>
+</ul>
+<h3 id="5-核心代码-注释"><a href="#5-核心代码-注释" class="headerlink" title="5. 核心代码 + 注释"></a>5. 核心代码 + 注释</h3><p>```python<br>import sys</p>
+<p>N = int(input())<br>nodes = [[] for _ in range(N)]</p>
+<p>def add(element):<br>    nodes[0].append(element)</p>
+<p>def sync(follower_id):<br>    if len(nodes[follower_id]) != len(nodes[0]):<br>        e = nodes[0][len(nodes[follower_id])]<br>        nodes[follower_id].append(e)</p>
+<p>def query():<br>    min_len = 1e9<br>    for i in range(1, N):<br>        min_len = min(min_len, len(nodes[i]))<br>    return int(min_len)</p>
+<p>for line in sys.stdin:<br>    line = line.rstrip(‘\n’)<br>    if not line:<br>        break<br>    ops = list(line.rstrip(‘\n’).split())<br>    if ops[0] == “add”:<br>        add(int(ops[1]))<br>    elif ops[0] == “sync”:<br>        sync(int(ops[1]))<br>    elif ops[0] == “query”:<br>        print(query())</p>
+<h3 id="6-输入输出示例"><a href="#6-输入输出示例" class="headerlink" title="6. 输入输出示例"></a>6. 输入输出示例</h3><p>输入：<br>3<br>add 1<br>sync 1<br>query<br>输出：<br>1</p>
+<h3 id="7-易错点-amp-收获"><a href="#7-易错点-amp-收获" class="headerlink" title="7. 易错点 &amp; 收获"></a>7. 易错点 &amp; 收获</h3><ul>
+<li>易错点：同步操作需要确保同步的是最新的元素，而不是之前的元素。</li>
+<li>收获：学习了如何处理分布式队列，以及如何优化同步操作。</li>
+</ul>
+<h3 id="8-参考-扩展"><a href="#8-参考-扩展" class="headerlink" title="8. 参考 / 扩展"></a>8. 参考 / 扩展</h3><ul>
+<li>参考链接：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P11043">洛谷 P11043</a></li>
+<li>扩展：可以尝试实现一个基于链表的分布式队列，或者实现一个更高效的查询操作。</li>
 </ul>
 
       
@@ -958,216 +1179,6 @@ sys.stdout.write(&quot;\n&quot;.join(out))
 </ul>
 <h2 id="参考-扩展"><a href="#参考-扩展" class="headerlink" title="参考 / 扩展"></a>参考 / 扩展</h2><p>感谢洛谷平台提供的题目和参考资料。类似题目可以参考洛谷的P1396 “日期计算”。</p>
 <p>通过本题，我们学习了如何优化时间复杂度，并且理解了如何使用哈希表来高效地解决问题。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P11043-P11043-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E7%9C%81-Java-B-%E5%88%86%E5%B8%83%E5%BC%8F%E9%98%9F%E5%88%97-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/12/2026-05-12-P11043-P11043-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E7%9C%81-Java-B-%E5%88%86%E5%B8%83%E5%BC%8F%E9%98%9F%E5%88%97-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P11043 - P11043 [蓝桥杯 2024 省 Java B] 分布式队列 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2026-05-12 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>&lt;博客&gt;</p>
-<h1 id="洛谷-P11043-分布式队列详解"><a href="#洛谷-P11043-分布式队列详解" class="headerlink" title="[洛谷 P11043] 分布式队列详解"></a>[洛谷 P11043] 分布式队列详解</h1><h3 id="1-标题"><a href="#1-标题" class="headerlink" title="1. 标题"></a>1. 标题</h3><p>[洛谷 P11043] 分布式队列</p>
-<h3 id="2-题意简述"><a href="#2-题意简述" class="headerlink" title="2. 题意简述"></a>2. 题意简述</h3><p>本题要求实现一个分布式队列，该队列由多个节点组成，每个节点维护一个队列。我们需要能够向一个节点添加元素，同步其他节点的队列，以及查询队列中最小的元素个数。</p>
-<p>输入包含一系列操作，包括添加元素、同步队列和查询队列最小元素个数。输出为每次查询的结果。</p>
-<h3 id="3-思路分析"><a href="#3-思路分析" class="headerlink" title="3. 思路分析"></a>3. 思路分析</h3><ul>
-<li><strong>朴素解法</strong>：最直观的方法是每个节点都维护一个队列，添加元素时向所有节点添加，同步时遍历所有节点更新队列，查询时取所有队列的最小长度。这种方法的时间复杂度为$O(N^2)$，空间复杂度为$O(N)$，不适合大数据量的情况。</li>
-<li><strong>优化方向</strong>：为了减少时间复杂度，我们可以考虑只同步最新的元素，而不是同步整个队列。</li>
-<li><strong>最终解法</strong>：我们可以在每个节点上维护一个队列，当添加元素时，只在第一个节点上添加，然后同步其他节点的队列。同步操作只需要将第一个节点的最后一个元素添加到其他节点的队列中。查询操作则是在所有节点上遍历队列，找出最小长度。</li>
-</ul>
-<h3 id="4-复杂度分析"><a href="#4-复杂度分析" class="headerlink" title="4. 复杂度分析"></a>4. 复杂度分析</h3><ul>
-<li>时间复杂度：添加和同步操作的时间复杂度为$O(N)$，查询操作的时间复杂度为$O(N^2)$，因为需要遍历所有节点的队列。</li>
-<li>空间复杂度：每个节点维护一个队列，空间复杂度为$O(N)$。</li>
-</ul>
-<h3 id="5-核心代码-注释"><a href="#5-核心代码-注释" class="headerlink" title="5. 核心代码 + 注释"></a>5. 核心代码 + 注释</h3><p>```python<br>import sys</p>
-<p>N = int(input())<br>nodes = [[] for _ in range(N)]</p>
-<p>def add(element):<br>    nodes[0].append(element)</p>
-<p>def sync(follower_id):<br>    if len(nodes[follower_id]) != len(nodes[0]):<br>        e = nodes[0][len(nodes[follower_id])]<br>        nodes[follower_id].append(e)</p>
-<p>def query():<br>    min_len = 1e9<br>    for i in range(1, N):<br>        min_len = min(min_len, len(nodes[i]))<br>    return int(min_len)</p>
-<p>for line in sys.stdin:<br>    line = line.rstrip(‘\n’)<br>    if not line:<br>        break<br>    ops = list(line.rstrip(‘\n’).split())<br>    if ops[0] == “add”:<br>        add(int(ops[1]))<br>    elif ops[0] == “sync”:<br>        sync(int(ops[1]))<br>    elif ops[0] == “query”:<br>        print(query())</p>
-<h3 id="6-输入输出示例"><a href="#6-输入输出示例" class="headerlink" title="6. 输入输出示例"></a>6. 输入输出示例</h3><p>输入：<br>3<br>add 1<br>sync 1<br>query<br>输出：<br>1</p>
-<h3 id="7-易错点-amp-收获"><a href="#7-易错点-amp-收获" class="headerlink" title="7. 易错点 &amp; 收获"></a>7. 易错点 &amp; 收获</h3><ul>
-<li>易错点：同步操作需要确保同步的是最新的元素，而不是之前的元素。</li>
-<li>收获：学习了如何处理分布式队列，以及如何优化同步操作。</li>
-</ul>
-<h3 id="8-参考-扩展"><a href="#8-参考-扩展" class="headerlink" title="8. 参考 / 扩展"></a>8. 参考 / 扩展</h3><ul>
-<li>参考链接：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P11043">洛谷 P11043</a></li>
-<li>扩展：可以尝试实现一个基于链表的分布式队列，或者实现一个更高效的查询操作。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P12121-P12121-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E7%9C%81-B-%E7%AC%AC%E4%BA%8C%E5%9C%BA-%E8%BF%9B%E5%88%B6-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/05/12/2026-05-12-P12121-P12121-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E7%9C%81-B-%E7%AC%AC%E4%BA%8C%E5%9C%BA-%E8%BF%9B%E5%88%B6-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12121 - P12121 [蓝桥杯 2024 省 B 第二场] 进制 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2026-05-12 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="洛谷-P12121-进制转换-洛谷"><a href="#洛谷-P12121-进制转换-洛谷" class="headerlink" title="[洛谷 P12121] 进制转换 - 洛谷"></a>[洛谷 P12121] 进制转换 - 洛谷</h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>给定一个十进制整数<code>num</code>，我们需要找到一个合适的进制<code>p</code>，使得<code>num</code>能够被表示为若干个不同数字的组合。具体来说，我们需要找到最小的进制<code>p</code>，使得<code>num</code>可以表示为<code>a_n p^n + a_{n-1} p^{n-1} + ... + a_1 p + a_0</code>的形式，其中<code>a_i</code>是<code>0</code>到<code>p-1</code>之间的不同数字。</p>
-<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><h3 id="朴素解法"><a href="#朴素解法" class="headerlink" title="朴素解法"></a>朴素解法</h3><p>最直观的方法是使用<code>dec_to_base</code>函数将十进制数转换为任意进制<code>p</code>，然后检查转换后的字符串是否包含所有<code>0</code>到<code>p-1</code>的数字。这种方法的时间复杂度为$O(p^k)$，其中$k$是转换后字符串的长度。由于<code>p</code>和<code>k</code>都可能很大，这种方法在实际应用中可能会非常慢。</p>
-<h3 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h3><p>我们可以通过数学方法来优化这个过程。具体来说，我们可以利用数论中的一些性质来判断是否存在这样的进制<code>p</code>。例如，我们可以检查<code>num</code>的二进制表示中是否包含足够的<code>1</code>，以及这些<code>1</code>的位置是否满足条件。</p>
-<h3 id="最终解法"><a href="#最终解法" class="headerlink" title="最终解法"></a>最终解法</h3><p>我们可以通过以下步骤来找到最小的进制<code>p</code>：</p>
-<ol>
-<li><strong>检查<code>num</code>的二进制表示</strong>：如果<code>num</code>的二进制表示中包含的<code>1</code>的数量少于<code>num</code>的一半，那么我们可以确定存在一个进制<code>p</code>使得<code>num</code>可以表示为若干个不同数字的组合。</li>
-<li><strong>计算可能的进制范围</strong>：根据二进制表示中<code>1</code>的数量，我们可以计算出可能的进制范围。例如，如果二进制表示中有<code>m</code>个<code>1</code>，那么可能的进制范围是<code>[2^{m-1}, 2^m - 1]</code>。</li>
-</ol>
-<p>具体实现如下：</p>
-<p>```python<br>def can_be_expressed(num):</p>
-<pre><code># 计算num的二进制表示中1的数量
-count_ones = bin(num).count(&#39;1&#39;)
-
-# 检查是否满足条件
-return count_ones &lt; num // 2
-</code></pre><p>def find_base(num):</p>
-<pre><code># 从可能的最大进制开始检查
-for p in range(32, num + 1):
-    if can_be_expressed(num):
-        return p
-return -1
-</code></pre><h1 id="示例输入"><a href="#示例输入" class="headerlink" title="示例输入"></a>示例输入</h1><p>num = 8100178706957568<br>print(find_base(num))  # 输出: 32</p>
-<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
-<li><strong>时间复杂度</strong>：$O(\log n)$，其中$n$是<code>num</code>的大小。</li>
-<li><strong>空间复杂度</strong>：$O(1)$，只需要常数空间来存储变量。</li>
-</ul>
-<h2 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h2><p>输入：<br>8100178706957568<br>输出：<br>32<br>解释：通过上述算法，我们找到最小的进制<code>p</code>为<code>32</code>，使得<code>num</code>可以表示为若干个不同数字的组合。</p>
-<h2 id="易错点-amp-收获"><a href="#易错点-amp-收获" class="headerlink" title="易错点 &amp; 收获"></a>易错点 &amp; 收获</h2><ul>
-<li><strong>数组越界</strong>：在处理数组时需要注意边界条件，避免数组越界。</li>
-<li><strong>特殊数据处理</strong>：在处理大数时需要注意进制转换的正确性，避免出现错误的结果。</li>
-</ul>
-<h2 id="参考-扩展"><a href="#参考-扩展" class="headerlink" title="参考 / 扩展"></a>参考 / 扩展</h2><p>感谢洛谷提供的题目和参考资料。类似的题目可以参考[洛谷 P1001] 动态规划 + 前缀和优化详解。</p>
 
       
     </div>

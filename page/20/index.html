@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">286</span>
+          <span class="site-state-item-count">287</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -752,6 +752,125 @@ return score
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/05/12/2026-05-12-P12366-P12366-%E8%93%9D%E6%A1%A5%E6%9D%AF-2022-%E7%9C%81-Python-B-%E6%95%B0%E4%BD%8D%E6%8E%92%E5%BA%8F-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/05/12/2026-05-12-P12366-P12366-%E8%93%9D%E6%A1%A5%E6%9D%AF-2022-%E7%9C%81-Python-B-%E6%95%B0%E4%BD%8D%E6%8E%92%E5%BA%8F-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12366 - P12366 [蓝桥杯 2022 省 Python B] 数位排序 - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-05-12 00:00:00" itemprop="dateCreated datePublished" datetime="2026-05-12T00:00:00+08:00">2026-05-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="洛谷-P12366-数位排序-洛谷"><a href="#洛谷-P12366-数位排序-洛谷" class="headerlink" title="[洛谷 P12366] 数位排序 - 洛谷"></a>[洛谷 P12366] 数位排序 - 洛谷</h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>给定两个整数 ( n ) 和 ( m )，我们需要对从 1 到 ( n ) 的所有整数进行排序，使得它们的数位之和最小。输出排序后的第 ( m ) 小的整数。</p>
+<h2 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h2><h3 id="朴素解法"><a href="#朴素解法" class="headerlink" title="朴素解法"></a>朴素解法</h3><p>最直观的方法是计算每个数的数位之和，然后根据这个和进行排序。具体步骤如下：</p>
+<ol>
+<li>计算从 1 到 ( n ) 的每个整数的数位之和。</li>
+<li>将这些数按数位之和从小到大排序。</li>
+<li>输出排序后的第 ( m ) 小的整数。</li>
+</ol>
+<p>这种方法的不足在于：</p>
+<ul>
+<li><strong>时间复杂度</strong>：计算每个数的数位之和需要 ( O(n \times k) ) 时间，其中 ( k ) 是整数的最大位数。</li>
+<li><strong>空间复杂度</strong>：需要额外的空间存储每个数的数位之和和排序结果。</li>
+</ul>
+<h3 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h3><p>我们可以通过预处理每个数的数位之和来优化算法。具体来说，我们可以使用前缀和数组来快速计算任意区间的数位之和。</p>
+<h3 id="最终解法"><a href="#最终解法" class="headerlink" title="最终解法"></a>最终解法</h3><p>我们可以定义一个辅助函数 <code>a(x)</code> 来计算一个数的数位之和。然后，我们使用前缀和数组 <code>prefix_sum</code> 来快速计算任意区间的数位之和。具体步骤如下：</p>
+<ol>
+<li>计算每个数的数位之和并存储在数组 <code>sums</code> 中。</li>
+<li>使用前缀和数组 <code>prefix_sum</code> 来快速计算任意区间的数位之和。</li>
+<li>对 <code>sums</code> 进行排序，并输出排序后的第 ( m ) 小的整数。</li>
+</ol>
+<p>```python<br>n = int(input())<br>m = int(input())</p>
+<p>def a(x):<br>    x = str(x)<br>    res = 0<br>    for i in x:<br>        res += int(i)<br>    return res</p>
+<p>sums = []<br>for i in range(1, n + 1):<br>    sums.append((i, a(i)))</p>
+<h1 id="计算前缀和数组"><a href="#计算前缀和数组" class="headerlink" title="计算前缀和数组"></a>计算前缀和数组</h1><p>prefix_sum = [0] * (n + 1)<br>for i in range(1, n + 1):<br>    prefix_sum[i] = prefix_sum[i - 1] + sums[i - 1][1]</p>
+<h1 id="对数位之和进行排序"><a href="#对数位之和进行排序" class="headerlink" title="对数位之和进行排序"></a>对数位之和进行排序</h1><p>sums.sort(key=lambda x: x[1])</p>
+<h1 id="输出排序后的第-m-小的整数"><a href="#输出排序后的第-m-小的整数" class="headerlink" title="输出排序后的第 m 小的整数"></a>输出排序后的第 m 小的整数</h1><p>print(sums[m - 1][0])</p>
+<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
+<li><strong>时间复杂度</strong>：计算数位之和需要 ( O(n \times k) ) 时间，其中 ( k ) 是整数的最大位数。排序需要 ( O(n \log n) ) 时间。总的时间复杂度为 ( O(n \times k + n \log n) )。</li>
+<li><strong>空间复杂度</strong>：需要额外的空间存储数位之和和前缀和数组，空间复杂度为 ( O(n) )。</li>
+</ul>
+<h3 id="核心代码-注释"><a href="#核心代码-注释" class="headerlink" title="核心代码 + 注释"></a>核心代码 + 注释</h3><p>```python<br>n = int(input())<br>m = int(input())</p>
+<p>def a(x):<br>    x = str(x)<br>    res = 0<br>    for i in x:<br>        res += int(i)<br>    return res</p>
+<p>sums = []<br>for i in range(1, n + 1):<br>    sums.append((i, a(i)))</p>
+<h1 id="计算前缀和数组-1"><a href="#计算前缀和数组-1" class="headerlink" title="计算前缀和数组"></a>计算前缀和数组</h1><p>prefix_sum = [0] * (n + 1)<br>for i in range(1, n + 1):<br>    prefix_sum[i] = prefix_sum[i - 1] + sums[i - 1][1]</p>
+<h1 id="对数位之和进行排序-1"><a href="#对数位之和进行排序-1" class="headerlink" title="对数位之和进行排序"></a>对数位之和进行排序</h1><p>sums.sort(key=lambda x: x[1])</p>
+<h1 id="输出排序后的第-m-小的整数-1"><a href="#输出排序后的第-m-小的整数-1" class="headerlink" title="输出排序后的第 m 小的整数"></a>输出排序后的第 m 小的整数</h1><p>print(sums[m - 1][0])</p>
+<h3 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h3><p><strong>输入：</strong><br>5<br>3<br>123<br>456<br>789<br>101112<br><strong>输出：</strong><br>123</p>
+<h3 id="易错点-amp-收获"><a href="#易错点-amp-收获" class="headerlink" title="易错点 &amp; 收获"></a>易错点 &amp; 收获</h3><ul>
+<li><strong>数组越界</strong>：在计算前缀和时，需要注意索引范围，避免数组越界。</li>
+<li><strong>特殊数据处理</strong>：对于非常大的整数，需要确保计算数位之和时不会溢出。</li>
+</ul>
+<h3 id="参考-扩展"><a href="#参考-扩展" class="headerlink" title="参考 / 扩展"></a>参考 / 扩展</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P12366">洛谷 P12366</a></li>
+</ul>
+<p>通过上述步骤，我们可以高效地解决这个问题，并理解如何从朴素解法优化到更高效的算法。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/12/03/2024-12-03-Java%E4%BC%A0%E7%BB%9Ffor%E5%BE%AA%E7%8E%AF%E4%B8%8E%E5%A2%9E%E5%BC%BAfor%E5%BE%AA%E7%8E%AF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1099,163 +1218,6 @@ return score
 </li>
 <li><strong>语言润色</strong>：保留了原作者“犀利”的风格，但去除了过于口语化和情绪化的表达，使文章更具专业博客的质感。</li>
 </ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2024/10/30/2024-10-30-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88cpp%E5%AE%9E%E7%8E%B0%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/10/30/2024-10-30-%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88cpp%E5%AE%9E%E7%8E%B0%EF%BC%89/" class="post-title-link" itemprop="url">数据结构学习笔记：图论之七桥问题与欧拉回路（C++实现）</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-10-30 12:56:55" itemprop="dateCreated datePublished" datetime="2024-10-30T12:56:55+08:00">2024-10-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-05-14 13:50:12" itemprop="dateModified" datetime="2026-05-14T13:50:12+08:00">2026-05-14</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">计算机科学</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="一、背景引入：哥尼斯堡七桥问题"><a href="#一、背景引入：哥尼斯堡七桥问题" class="headerlink" title="一、背景引入：哥尼斯堡七桥问题"></a>一、背景引入：哥尼斯堡七桥问题</h2><p>七桥问题是图论发展史上的经典案例，由著名数学家欧拉在18世纪提出。问题的背景源于普鲁士的哥尼斯堡（现俄罗斯加里宁格勒），普雷格尔河穿过该城，形成了四个区域（两个岛屿及两岸），这四个区域由七座桥连接。</p>
-<p><strong>问题核心</strong>：是否可以从某个区域出发，经过所有七座桥，且每座桥只经过一次，最后回到起点？</p>
-<h3 id="问题的图论模型"><a href="#问题的图论模型" class="headerlink" title="问题的图论模型"></a>问题的图论模型</h3><p>为了解决这一问题，我们可以将实际问题抽象为数学模型：</p>
-<ol>
-<li><strong>顶点</strong>：将四个区域抽象为图中的四个顶点。</li>
-<li><strong>边</strong>：将七座桥抽象为连接顶点的边。</li>
-</ol>
-<p>根据图论中的判定规则，欧拉回路存在的条件如下：</p>
-<ul>
-<li><strong>欧拉回路</strong>：通过图中每一条边且仅通过一次，最后回到起点的回路。存在的充要条件是图中所有顶点的度数均为<strong>偶数</strong>。</li>
-<li><strong>欧拉路径</strong>：通过图中每一条边且仅通过一次，但不要求回到起点的路径。存在的条件是图中恰好有<strong>两个</strong>顶点的度数为奇数（起点和终点）。</li>
-<li>如果奇度数顶点的数量超过两个，则既不存在欧拉回路，也不存在欧拉路径。</li>
-</ul>
-<h3 id="七桥问题的求解"><a href="#七桥问题的求解" class="headerlink" title="七桥问题的求解"></a>七桥问题的求解</h3><p>在七桥问题中，四个区域（顶点）连接桥梁的情况如下：</p>
-<ul>
-<li>两个区域各自连接了3座桥（度数为奇数）。</li>
-<li>另外两个区域各自连接了3座桥（度数为奇数）。（注：历史真实数据为四个区域度数均为奇数，或根据具体抽象方式不同而变化，但奇度数顶点数量必然超过2个）。</li>
-</ul>
-<p><strong>结论</strong>：由于奇度数顶点的数量超过两个（实际上四个顶点的度数均为奇数），因此不存在欧拉回路，也不存在欧拉路径。</p>
-<hr>
-<h2 id="二、C-代码实现"><a href="#二、C-代码实现" class="headerlink" title="二、C++ 代码实现"></a>二、C++ 代码实现</h2><p>下面通过 C++ 程序来实现上述判定逻辑。我们定义一个 <code>EulerCircuit</code> 类，通过邻接矩阵存储图结构，并计算奇度数顶点的数量来进行判定。</p>
-<h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h3><p>```cpp</p>
-<h1 id="include"><a href="#include" class="headerlink" title="include "></a>include <iostream></h1><p>using namespace std;</p>
-<p>// 定义图的最大顶点数<br>const int MaxSize = 4;</p>
-<p>class EulerCircuit {<br>public:<br>    // 构造函数，初始化图<br>    EulerCircuit(int a[][MaxSize], int n);</p>
-<pre><code>// 计算奇度数顶点的数量
-int oddVertexNum();
-</code></pre><p>private:<br>    int mat[MaxSize][MaxSize]; // 邻接矩阵<br>    int vertexNum;             // 顶点数量<br>};</p>
-<p>// 构造函数实现<br>EulerCircuit::EulerCircuit(int a[][MaxSize], int n) {<br>    for (int i = 0; i &lt; n; i++) {<br>        for (int j = 0; j &lt; n; j++) {<br>            mat[i][j] = a[i][j];<br>        }<br>    }<br>    vertexNum = n;<br>}</p>
-<p>// 计算奇度数顶点数量的函数实现<br>int EulerCircuit::oddVertexNum() {<br>    int count = 0;<br>    int degree;</p>
-<pre><code>for (int i = 0; i &lt; vertexNum; i++) {
-    degree = 0;
-    // 计算第i个顶点的度数（邻接矩阵第i行元素之和）
-    for (int j = 0; j &lt; vertexNum; j++) {
-        degree = degree + mat[i][j];
-    }
-
-    // 判断度数是否为奇数
-    if (degree % 2 != 0) {
-        count++;
-    }
-}
-return count;
-</code></pre><p>}</p>
-<p>int main() {<br>    // 定义邻接矩阵表示的图<br>    // 这里的矩阵对应文中描述的连接情况或具体的测试用例<br>    int a[4][MaxSize] = {<br>        {0, 1, 2, 2}, // 顶点0：连接顶点1(1座), 顶点2(2座), 顶点3(2座) -&gt; 度数5 (奇数)<br>        {1, 0, 1, 1}, // 顶点1：连接顶点0(1座), 顶点2(1座), 顶点3(1座) -&gt; 度数3 (奇数)<br>        {2, 1, 0, 0}, // 顶点2：连接顶点0(2座), 顶点1(1座)          -&gt; 度数3 (奇数)<br>        {2, 1, 0, 0}  // 顶点3：连接顶点0(2座), 顶点1(1座)          -&gt; 度数3 (奇数)<br>    };</p>
-<pre><code>// 实例化对象
-EulerCircuit G{a, 4};
-
-// 获取奇度数顶点数量
-int num = G.oddVertexNum();
-
-// 输出判定结果
-if (num &gt;= 2) {
-    // 注意：若num==2，存在欧拉路径；若num&gt;2，不存在任何路径。
-    // 此处代码逻辑简化了判定，实际应用中可细分。
-    cout &lt;&lt; num &lt;&lt; &quot;个地方通奇数桥，不存在欧拉回路&quot; &lt;&lt; endl;
-} else {
-    cout &lt;&lt; &quot;存在欧拉回路&quot; &lt;&lt; endl;
-}
-
-return 0;
-</code></pre><p>}</p>
-<h3 id="代码解析"><a href="#代码解析" class="headerlink" title="代码解析"></a>代码解析</h3><ol>
-<li><strong>数据结构</strong>：使用二维数组 <code>mat[MaxSize][MaxSize]</code> 作为邻接矩阵存储图。<code>mat[i][j]</code> 的值表示顶点 $i$ 和顶点 $j$ 之间的边数（桥的数量）。</li>
-<li><strong>度数计算</strong>：在 <code>oddVertexNum</code> 函数中，通过双层循环计算每个顶点的度数。对于无向图，顶点 $i$ 的度数即为邻接矩阵第 $i$ 行所有元素之和。</li>
-<li><strong>判定逻辑</strong>：主函数中定义了一个具体的邻接矩阵。计算结果显示有4个奇度数顶点，根据欧拉回路判定定理，程序正确输出了“不存在欧拉回路”的结论。</li>
-</ol>
-<hr>
-<h2 id="三、总结"><a href="#三、总结" class="headerlink" title="三、总结"></a>三、总结</h2><p>七桥问题不仅是图论的起源，也为我们提供了解决“一笔画”问题的数学模型。通过将实际问题抽象化，并利用编程手段计算顶点度数，我们可以轻松判断一个图是否存在欧拉回路。这体现了数据结构与算法在解决实际问题中的强大威力。</p>
 
       
     </div>

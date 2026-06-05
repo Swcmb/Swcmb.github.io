@@ -183,7 +183,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">286</span>
+          <span class="site-state-item-count">287</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -586,141 +586,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/06/05/2026-06-05-P12267-P12267-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E5%9B%BD-Python-B-%E5%84%BF%E7%AB%A5%E6%95%B0-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/06/05/2026-06-05-P12267-P12267-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E5%9B%BD-Python-B-%E5%84%BF%E7%AB%A5%E6%95%B0-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12267 - P12267 [蓝桥杯 2024 国 Python B] 儿童数 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2026-06-05 00:00:00 / 修改时间：16:42:19" itemprop="dateCreated datePublished" datetime="2026-06-05T00:00:00+08:00">2026-06-05</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="洛谷-P12267-儿童数-快速幂优化详解"><a href="#洛谷-P12267-儿童数-快速幂优化详解" class="headerlink" title="[洛谷 P12267] 儿童数 + 快速幂优化详解"></a>[洛谷 P12267] 儿童数 + 快速幂优化详解</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
-<li><strong>题目来源</strong>: 洛谷</li>
-<li><strong>题目难度</strong>: ★★☆☆☆</li>
-<li><strong>标签分类</strong>: 数论、算法</li>
-<li><strong>核心考点</strong>: 快速幂算法、数论应用</li>
-</ul>
-<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><ul>
-<li><strong>问题描述</strong>: 题目要求计算从1到2024的连乘积，再对这个连乘积进行快速幂运算，最后输出结果对1000000007取模的结果。</li>
-<li><strong>输入格式</strong>: 无</li>
-<li><strong>输出格式</strong>: 一个整数，即最终计算结果对1000000007取模的结果。</li>
-<li><strong>样例分析</strong>:<ul>
-<li>输入: 无</li>
-<li>输出: 912581599</li>
-</ul>
-</li>
-</ul>
-<h3 id="算法思路（核心部分）"><a href="#算法思路（核心部分）" class="headerlink" title="算法思路（核心部分）"></a>算法思路（核心部分）</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
-<li>问题的本质是计算一个大数的幂，并且需要对其进行取模操作。</li>
-<li>关键观察点包括：连乘积的结果非常大，直接计算会超出整数范围；需要使用快速幂算法来优化计算过程。</li>
-</ul>
-<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
-<li><strong>朴素思路</strong>: 直接计算连乘积，然后进行幂运算和取模，但这种方法会因数值过大而溢出。</li>
-<li><strong>优化路径</strong>: 使用快速幂算法来减少幂运算的次数，同时使用模运算来防止溢出。</li>
-<li><strong>算法选择</strong>: 选择快速幂算法，因为它可以将幂运算的时间复杂度从O(n)降低到O(log n)。</li>
-<li><strong>核心思想</strong>: 快速幂算法通过二分幂的思想，将幂运算分解为多个小幂运算的组合，从而提高效率。</li>
-</ul>
-<h4 id="4-3-快速幂算法"><a href="#4-3-快速幂算法" class="headerlink" title="4.3 快速幂算法"></a>4.3 快速幂算法</h4><p>快速幂算法的基本思想是将指数分解为二进制形式，然后分别计算每个位的幂次，最后将它们相乘。具体步骤如下：</p>
-<ol>
-<li>将指数n转换为二进制形式。</li>
-<li>对于二进制表示中的每一位，如果该位为1，则将当前的基数乘以当前基数自身。</li>
-<li>每次迭代后，基数都乘以自身，并将指数减半。</li>
-<li>最终得到的结果即为基数n的幂次。</li>
-</ol>
-<h4 id="4-4-代码实现"><a href="#4-4-代码实现" class="headerlink" title="4.4 代码实现"></a>4.4 代码实现</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">quick_pow</span>(<span class="params">base, exponent, mod</span>):</span><br><span class="line">    result = <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> exponent &gt; <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">if</span> exponent % <span class="number">2</span> == <span class="number">1</span>:</span><br><span class="line">            result = (result * base) % mod</span><br><span class="line">        base = (base * base) % mod</span><br><span class="line">        exponent //= <span class="number">2</span></span><br><span class="line">    <span class="keyword">return</span> result</span><br></pre></td></tr></table></figure>
-<h4 id="4-5-数学推导（如适用）"><a href="#4-5-数学推导（如适用）" class="headerlink" title="4.5 数学推导（如适用）"></a>4.5 数学推导（如适用）</h4><ul>
-<li>快速幂算法的正确性可以通过数学归纳法进行证明。</li>
-<li>复杂度分析：时间复杂度为O(log n)，空间复杂度为O(1)。</li>
-</ul>
-<h3 id="5-代码详解"><a href="#5-代码详解" class="headerlink" title="5. 代码详解"></a>5. 代码详解</h3><h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">2024</span> + <span class="number">1</span>):</span><br><span class="line">    a *= i</span><br><span class="line"><span class="built_in">print</span>(quick_pow(a, <span class="built_in">int</span>(<span class="number">1e9</span>), <span class="number">1000000007</span>))</span><br></pre></td></tr></table></figure>
-<h4 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h4><ul>
-<li><code>a = 1</code>: 初始化连乘积的值为1。</li>
-<li><code>for i in range(1, 2024 + 1)</code>: 循环从1到2024，将每个数乘到a上。</li>
-<li><code>print(quick_pow(a, int(1e9), 1000000007))</code>: 调用快速幂函数计算结果并输出。</li>
-</ul>
-<h4 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h4><ul>
-<li>使用模运算来防止整数溢出。</li>
-<li>使用快速幂算法来优化幂运算。</li>
-</ul>
-<h3 id="6-复杂度分析"><a href="#6-复杂度分析" class="headerlink" title="6. 复杂度分析"></a>6. 复杂度分析</h3><ul>
-<li><strong>时间复杂度</strong>: O(log n)，其中n是指数的大小。</li>
-<li><strong>空间复杂度</strong>: O(1)。</li>
-</ul>
-<h3 id="7-输入输出示例"><a href="#7-输入输出示例" class="headerlink" title="7. 输入输出示例"></a>7. 输入输出示例</h3><ul>
-<li><strong>样例输入</strong>: 无</li>
-<li><strong>样例输出</strong>: 912581599</li>
-</ul>
-<h3 id="8-常见错误与调试技巧"><a href="#8-常见错误与调试技巧" class="headerlink" title="8. 常见错误与调试技巧"></a>8. 常见错误与调试技巧</h3><ul>
-<li><strong>易错点</strong>: 指数转换为二进制时出错，或者快速幂算法实现错误。</li>
-<li><strong>调试方法</strong>: 使用调试工具逐步执行代码，检查中间结果。</li>
-<li><strong>测试用例</strong>: 可以使用较小的指数进行测试，例如1e3，来检查算法的正确性。</li>
-</ul>
-<h3 id="9-总结与扩展"><a href="#9-总结与扩展" class="headerlink" title="9. 总结与扩展"></a>9. 总结与扩展</h3><ul>
-<li><strong>核心收获</strong>: 学习了快速幂算法的应用，以及如何在处理大数运算时使用模运算来防止溢出。</li>
-<li><strong>举一反三</strong>: 类似的问题可以应用快速幂算法，例如计算大数的幂模运算。</li>
-<li><strong>进阶方向</strong>: 研究更高级的数论算法，如费马小定理和欧拉定理，以及它们在密码学中的应用。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/06/05/2026-06-05-P12139-P12139-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-A-%E9%BB%91%E7%99%BD%E6%A3%8B-%E6%B4%9B%E8%B0%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -846,6 +711,141 @@
 <p><strong>进阶方向</strong>: </p>
 <ul>
 <li>可以进一步研究更高效的算法，如基于博弈论的策略分析。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/06/05/2026-06-05-P12267-P12267-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E5%9B%BD-Python-B-%E5%84%BF%E7%AB%A5%E6%95%B0-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/06/05/2026-06-05-P12267-P12267-%E8%93%9D%E6%A1%A5%E6%9D%AF-2024-%E5%9B%BD-Python-B-%E5%84%BF%E7%AB%A5%E6%95%B0-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12267 - P12267 [蓝桥杯 2024 国 Python B] 儿童数 - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-06-05 00:00:00 / 修改时间：16:42:19" itemprop="dateCreated datePublished" datetime="2026-06-05T00:00:00+08:00">2026-06-05</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="洛谷-P12267-儿童数-快速幂优化详解"><a href="#洛谷-P12267-儿童数-快速幂优化详解" class="headerlink" title="[洛谷 P12267] 儿童数 + 快速幂优化详解"></a>[洛谷 P12267] 儿童数 + 快速幂优化详解</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
+<li><strong>题目来源</strong>: 洛谷</li>
+<li><strong>题目难度</strong>: ★★☆☆☆</li>
+<li><strong>标签分类</strong>: 数论、算法</li>
+<li><strong>核心考点</strong>: 快速幂算法、数论应用</li>
+</ul>
+<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><ul>
+<li><strong>问题描述</strong>: 题目要求计算从1到2024的连乘积，再对这个连乘积进行快速幂运算，最后输出结果对1000000007取模的结果。</li>
+<li><strong>输入格式</strong>: 无</li>
+<li><strong>输出格式</strong>: 一个整数，即最终计算结果对1000000007取模的结果。</li>
+<li><strong>样例分析</strong>:<ul>
+<li>输入: 无</li>
+<li>输出: 912581599</li>
+</ul>
+</li>
+</ul>
+<h3 id="算法思路（核心部分）"><a href="#算法思路（核心部分）" class="headerlink" title="算法思路（核心部分）"></a>算法思路（核心部分）</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
+<li>问题的本质是计算一个大数的幂，并且需要对其进行取模操作。</li>
+<li>关键观察点包括：连乘积的结果非常大，直接计算会超出整数范围；需要使用快速幂算法来优化计算过程。</li>
+</ul>
+<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
+<li><strong>朴素思路</strong>: 直接计算连乘积，然后进行幂运算和取模，但这种方法会因数值过大而溢出。</li>
+<li><strong>优化路径</strong>: 使用快速幂算法来减少幂运算的次数，同时使用模运算来防止溢出。</li>
+<li><strong>算法选择</strong>: 选择快速幂算法，因为它可以将幂运算的时间复杂度从O(n)降低到O(log n)。</li>
+<li><strong>核心思想</strong>: 快速幂算法通过二分幂的思想，将幂运算分解为多个小幂运算的组合，从而提高效率。</li>
+</ul>
+<h4 id="4-3-快速幂算法"><a href="#4-3-快速幂算法" class="headerlink" title="4.3 快速幂算法"></a>4.3 快速幂算法</h4><p>快速幂算法的基本思想是将指数分解为二进制形式，然后分别计算每个位的幂次，最后将它们相乘。具体步骤如下：</p>
+<ol>
+<li>将指数n转换为二进制形式。</li>
+<li>对于二进制表示中的每一位，如果该位为1，则将当前的基数乘以当前基数自身。</li>
+<li>每次迭代后，基数都乘以自身，并将指数减半。</li>
+<li>最终得到的结果即为基数n的幂次。</li>
+</ol>
+<h4 id="4-4-代码实现"><a href="#4-4-代码实现" class="headerlink" title="4.4 代码实现"></a>4.4 代码实现</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">quick_pow</span>(<span class="params">base, exponent, mod</span>):</span><br><span class="line">    result = <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> exponent &gt; <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">if</span> exponent % <span class="number">2</span> == <span class="number">1</span>:</span><br><span class="line">            result = (result * base) % mod</span><br><span class="line">        base = (base * base) % mod</span><br><span class="line">        exponent //= <span class="number">2</span></span><br><span class="line">    <span class="keyword">return</span> result</span><br></pre></td></tr></table></figure>
+<h4 id="4-5-数学推导（如适用）"><a href="#4-5-数学推导（如适用）" class="headerlink" title="4.5 数学推导（如适用）"></a>4.5 数学推导（如适用）</h4><ul>
+<li>快速幂算法的正确性可以通过数学归纳法进行证明。</li>
+<li>复杂度分析：时间复杂度为O(log n)，空间复杂度为O(1)。</li>
+</ul>
+<h3 id="5-代码详解"><a href="#5-代码详解" class="headerlink" title="5. 代码详解"></a>5. 代码详解</h3><h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">2024</span> + <span class="number">1</span>):</span><br><span class="line">    a *= i</span><br><span class="line"><span class="built_in">print</span>(quick_pow(a, <span class="built_in">int</span>(<span class="number">1e9</span>), <span class="number">1000000007</span>))</span><br></pre></td></tr></table></figure>
+<h4 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h4><ul>
+<li><code>a = 1</code>: 初始化连乘积的值为1。</li>
+<li><code>for i in range(1, 2024 + 1)</code>: 循环从1到2024，将每个数乘到a上。</li>
+<li><code>print(quick_pow(a, int(1e9), 1000000007))</code>: 调用快速幂函数计算结果并输出。</li>
+</ul>
+<h4 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h4><ul>
+<li>使用模运算来防止整数溢出。</li>
+<li>使用快速幂算法来优化幂运算。</li>
+</ul>
+<h3 id="6-复杂度分析"><a href="#6-复杂度分析" class="headerlink" title="6. 复杂度分析"></a>6. 复杂度分析</h3><ul>
+<li><strong>时间复杂度</strong>: O(log n)，其中n是指数的大小。</li>
+<li><strong>空间复杂度</strong>: O(1)。</li>
+</ul>
+<h3 id="7-输入输出示例"><a href="#7-输入输出示例" class="headerlink" title="7. 输入输出示例"></a>7. 输入输出示例</h3><ul>
+<li><strong>样例输入</strong>: 无</li>
+<li><strong>样例输出</strong>: 912581599</li>
+</ul>
+<h3 id="8-常见错误与调试技巧"><a href="#8-常见错误与调试技巧" class="headerlink" title="8. 常见错误与调试技巧"></a>8. 常见错误与调试技巧</h3><ul>
+<li><strong>易错点</strong>: 指数转换为二进制时出错，或者快速幂算法实现错误。</li>
+<li><strong>调试方法</strong>: 使用调试工具逐步执行代码，检查中间结果。</li>
+<li><strong>测试用例</strong>: 可以使用较小的指数进行测试，例如1e3，来检查算法的正确性。</li>
+</ul>
+<h3 id="9-总结与扩展"><a href="#9-总结与扩展" class="headerlink" title="9. 总结与扩展"></a>9. 总结与扩展</h3><ul>
+<li><strong>核心收获</strong>: 学习了快速幂算法的应用，以及如何在处理大数运算时使用模运算来防止溢出。</li>
+<li><strong>举一反三</strong>: 类似的问题可以应用快速幂算法，例如计算大数的幂模运算。</li>
+<li><strong>进阶方向</strong>: 研究更高级的数论算法，如费马小定理和欧拉定理，以及它们在密码学中的应用。</li>
 </ul>
 
       
@@ -1167,6 +1167,148 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/06/05/2026-06-05-P12349-P12349-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-B-%E7%AC%AC%E4%BA%8C%E5%9C%BA-%E7%BF%BB%E8%BD%AC%E7%A1%AC%E5%B8%81-%E6%B4%9B%E8%B0%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/a.png">
+      <meta itemprop="name" content="Ianwusb">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ianwusb-CPCode">
+      <meta itemprop="description" content="Ianwusb-CPCode">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Ianwusb-CPCode">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/06/05/2026-06-05-P12349-P12349-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-B-%E7%AC%AC%E4%BA%8C%E5%9C%BA-%E7%BF%BB%E8%BD%AC%E7%A1%AC%E5%B8%81-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12349 - P12349 [蓝桥杯 2025 省 B 第二场] 翻转硬币 - 洛谷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-06-05 00:00:00 / 修改时间：16:42:53" itemprop="dateCreated datePublished" datetime="2026-06-05T00:00:00+08:00">2026-06-05</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="算法名称：翻转硬币"><a href="#算法名称：翻转硬币" class="headerlink" title="算法名称：翻转硬币"></a>算法名称：翻转硬币</h2><h3 id="1-标题"><a href="#1-标题" class="headerlink" title="1. 标题"></a>1. 标题</h3><h4 id="洛谷-P12349-翻转硬币-核心优化技巧"><a href="#洛谷-P12349-翻转硬币-核心优化技巧" class="headerlink" title="[洛谷 P12349] 翻转硬币 - 核心优化技巧"></a>[洛谷 P12349] 翻转硬币 - 核心优化技巧</h4><h3 id="2-题目概览"><a href="#2-题目概览" class="headerlink" title="2. 题目概览"></a>2. 题目概览</h3><ul>
+<li><strong>题目来源</strong>: 洛谷</li>
+<li><strong>题目难度</strong>: ★★★☆☆</li>
+<li><strong>标签分类</strong>: 算法、数据结构</li>
+<li><strong>核心考点</strong>: 动态规划与状态转移方程</li>
+</ul>
+<h3 id="3-题意解析"><a href="#3-题意解析" class="headerlink" title="3. 题意解析"></a>3. 题意解析</h3><ul>
+<li><strong>问题描述</strong>: 给定一个长度为n的硬币列表，每个硬币可以是正面或反面。目标是翻转所有硬币，使得任意两个相邻硬币要么都是正面，要么都是反面。</li>
+<li><strong>输入格式</strong>: n个整数（0 &lt;= x &lt; 1），表示硬币的面值。</li>
+<li><strong>输出格式</strong>: 无</li>
+<li><strong>样例分析</strong>: 例如，对于输入<code>[1, 2, 3]</code>，输出应为<code>[1, 2, 3]</code>，因为所有硬币都翻转后，它们都是相同的。</li>
+</ul>
+<h3 id="4-算法思路（核心部分）"><a href="#4-算法思路（核心部分）" class="headerlink" title="4. 算法思路（核心部分）"></a>4. 算法思路（核心部分）</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
+<li><strong>本质</strong>: 这是一个典型的动态规划问题，需要找到最优解。</li>
+<li><strong>关键观察点</strong>: 相邻硬币的状态和总和。</li>
+<li><strong>数据范围</strong>: 0到1之间的整数。</li>
+</ul>
+<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
+<li><strong>朴素思路</strong>: 遍历所有硬币，检查是否满足条件。</li>
+<li><strong>优化路径</strong>: 使用动态规划，通过构建状态转移方程来减少计算量。</li>
+<li><strong>算法选择</strong>: 动态规划是解决此类问题的有效方法。</li>
+</ul>
+<h4 id="4-3-数学推导（如适用）"><a href="#4-3-数学推导（如适用）" class="headerlink" title="4.3 数学推导（如适用）"></a>4.3 数学推导（如适用）</h4><ul>
+<li><strong>状态转移方程</strong>: <code>dp[i] = max(dp[i], dp[i-1] + coins[i])</code></li>
+<li><strong>正确性证明</strong>: 通过递推关系验证。</li>
+<li><strong>复杂度分析</strong>: O(n)。</li>
+</ul>
+<h4 id="4-4-多种解法对比（如适用）"><a href="#4-4-多种解法对比（如适用）" class="headerlink" title="4.4 多种解法对比（如适用）"></a>4.4 多种解法对比（如适用）</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>解法</th>
+<th>时间复杂度</th>
+<th>空间复杂度</th>
+<th>适用场景</th>
+<th>代码难度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>解法1</td>
+<td>O(n^2)</td>
+<td>O(1)</td>
+<td>小规模数据</td>
+<td>简单</td>
+</tr>
+<tr>
+<td>解法2</td>
+<td>O(n^2)</td>
+<td>O(n)</td>
+<td>中等规模</td>
+<td>中等</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="5-代码详解"><a href="#5-代码详解" class="headerlink" title="5. 代码详解"></a>5. 代码详解</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">flipCoins</span>(<span class="params">coins</span>):</span><br><span class="line">    n = <span class="built_in">len</span>(coins)</span><br><span class="line">    dp = [<span class="number">0</span>] * (n + <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n + <span class="number">1</span>):</span><br><span class="line">        dp[i] = <span class="built_in">max</span>(dp[i], dp[i - <span class="number">1</span>] + coins[i - <span class="number">1</span>])</span><br><span class="line">    <span class="keyword">return</span> dp[n]</span><br></pre></td></tr></table></figure>
+<h3 id="6-复杂度分析"><a href="#6-复杂度分析" class="headerlink" title="6. 复杂度分析"></a>6. 复杂度分析</h3><ul>
+<li><strong>时间复杂度</strong>: O(n^2)</li>
+<li><strong>空间复杂度</strong>: O(n)</li>
+<li><strong>复杂度对比</strong>: 与解法1相比，本解法在时间复杂度上有所优化。</li>
+</ul>
+<h3 id="7-输入输出示例"><a href="#7-输入输出示例" class="headerlink" title="7. 输入输出示例"></a>7. 输入输出示例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(flipCoins([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]))  <span class="comment"># 输出: 3</span></span><br></pre></td></tr></table></figure>
+<h3 id="8-常见错误与调试技巧"><a href="#8-常见错误与调试技巧" class="headerlink" title="8. 常见错误与调试技巧"></a>8. 常见错误与调试技巧</h3><ul>
+<li><strong>易错点</strong>: 边界条件处理不当。</li>
+<li><strong>调试方法</strong>: 逐步跟踪dp数组的变化。</li>
+<li><strong>测试用例</strong>: 输入<code>[1, 2, 3]</code>。</li>
+</ul>
+<h3 id="9-总结与扩展"><a href="#9-总结与扩展" class="headerlink" title="9. 总结与扩展"></a>9. 总结与扩展</h3><ul>
+<li><strong>核心收获</strong>: 掌握了动态规划解决此类问题的方法和技巧。</li>
+<li><strong>举一反三</strong>: 类似问题可以推广到其他动态规划问题中。</li>
+<li><strong>进阶方向</strong>: 学习更高级的动态规划技巧和算法。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/06/05/2026-06-05-P14361-P14361-CSP-S-2025-%E7%A4%BE%E5%9B%A2%E6%8B%9B%E6%96%B0-%E6%B4%9B%E8%B0%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1316,7 +1458,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/06/05/2026-06-05-P15432-P15432-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-Python-B-%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81-%E6%B4%9B%E8%B0%B7/">
+    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/06/05/2026-06-05-P15430-P15430-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-Python-B-%E7%AD%89%E5%B7%AE%E6%95%B0%E5%88%97%E8%AE%A1%E6%95%B0-%E6%B4%9B%E8%B0%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/img/a.png">
@@ -1334,7 +1476,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/06/05/2026-06-05-P15432-P15432-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-Python-B-%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P15432 - P15432 [蓝桥杯 2025 国 Python B] 修改密码 - 洛谷</a>
+          <a href="/2026/06/05/2026-06-05-P15430-P15430-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E5%9B%BD-Python-B-%E7%AD%89%E5%B7%AE%E6%95%B0%E5%88%97%E8%AE%A1%E6%95%B0-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P15430 - P15430 [蓝桥杯 2025 国 Python B] 等差数列计数 - 洛谷</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1346,7 +1488,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2026-06-05 00:00:00 / 修改时间：16:45:44" itemprop="dateCreated datePublished" datetime="2026-06-05T00:00:00+08:00">2026-06-05</time>
+      <time title="创建时间：2026-06-05 00:00:00 / 修改时间：16:44:38" itemprop="dateCreated datePublished" datetime="2026-06-05T00:00:00+08:00">2026-06-05</time>
     </span>
 
   
@@ -1359,183 +1501,36 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="洛谷-P15432-修改密码-洛谷"><a href="#洛谷-P15432-修改密码-洛谷" class="headerlink" title="[洛谷 P15432] 修改密码 - 洛谷"></a>[洛谷 P15432] 修改密码 - 洛谷</h2><h3 id="题目概览"><a href="#题目概览" class="headerlink" title="题目概览"></a>题目概览</h3><ul>
-<li><strong>题目来源</strong>: <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P15432">洛谷</a></li>
+          <h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>[洛谷 P15430 等差数列计数 - 算法挑战] 等差数列计数 + 核心优化技巧</p>
+<h3 id="1-题目概览"><a href="#1-题目概览" class="headerlink" title="1. 题目概览"></a>1. 题目概览</h3><ul>
+<li><strong>题目来源</strong>: <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P15430">https://www.luogu.com.cn/problem/P15430</a></li>
 <li><strong>题目难度</strong>: ★★★☆☆</li>
-<li><strong>标签分类</strong>: 算法标签、数据结构标签</li>
-<li><strong>核心考点</strong>: 字符串处理、数组操作</li>
+<li><strong>标签分类</strong>: 算法, 数据结构</li>
+<li><strong>核心考点</strong>: 等差数列计数</li>
 </ul>
-<h3 id="题意解析"><a href="#题意解析" class="headerlink" title="题意解析"></a>题意解析</h3><p><strong>问题描述</strong>: 给定一个字符串，其中包含小写字母和特殊字符。你需要修改字符串中的某些字符，使得所有字符都变成大写字母，并且满足特定的条件。</p>
-<p><strong>输入格式</strong>: 一个字符串，长度在1到1000之间。</p>
-<p><strong>输出格式</strong>: 修改后的字符串。</p>
-<p><strong>样例分析</strong>:<br>输入 “aBc!dEf”，输出 “ABC!DEF”。</p>
-<h3 id="算法思路（核心部分）"><a href="#算法思路（核心部分）" class="headerlink" title="算法思路（核心部分）"></a>算法思路（核心部分）</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
-<li><strong>本质</strong>: 将字符串中的小写字母转换为大写字母，并确保某些条件满足。</li>
-<li><strong>关键观察点</strong>: 需要遍历字符串并逐个字符进行处理。</li>
+<h3 id="2-题意解析"><a href="#2-题意解析" class="headerlink" title="2. 题意解析"></a>2. 题意解析</h3><ul>
+<li><strong>问题描述</strong>: 给定一个等差数列，求该数列中所有元素的和。</li>
+<li><strong>输入格式</strong>: 整数数组 <code>a</code>，范围为 <code>1 &lt;= a[i] &lt;= 1024</code></li>
+<li><strong>输出格式</strong>: 整数，表示数列中所有元素的和。</li>
+<li><strong>样例分析</strong>: 例如，对于输入 <code>[1, 2, 3, 4, 5]</code>，输出应为 <code>15</code>。</li>
 </ul>
-<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
-<li><strong>朴素思路</strong>: 遍历字符串，遇到小写字母时将其转换为大写字母。</li>
-<li><strong>优化路径</strong>: 直接遍历并转换即可，复杂度较低。</li>
+<h3 id="3-算法思路（核心部分）"><a href="#3-算法思路（核心部分）" class="headerlink" title="3. 算法思路（核心部分）"></a>3. 算法思路（核心部分）</h3><h4 id="3-1-问题分析"><a href="#3-1-问题分析" class="headerlink" title="3.1 问题分析"></a>3.1 问题分析</h4><ul>
+<li><strong>本质</strong>: 计算等差数列的和。</li>
+<li><strong>关键观察点</strong>: 等差数列的首项、末项和公差。</li>
+<li><strong>数据范围</strong>: 从 <code>1</code> 到 <code>1024</code>。</li>
 </ul>
-<h4 id="4-3-数学推导（如适用）"><a href="#4-3-数学推导（如适用）" class="headerlink" title="4.3 数学推导（如适用）"></a>4.3 数学推导（如适用）</h4><ul>
-<li>没有复杂的数学公式需要推导。</li>
+<h4 id="3-2-算法原理"><a href="#3-2-算法原理" class="headerlink" title="3.2 算法原理"></a>3.2 算法原理</h4><ul>
+<li><strong>朴素思路</strong>: 直接累加每个元素。</li>
+<li><strong>优化路径</strong>: 使用动态规划或记忆化搜索减少重复计算。</li>
+<li><strong>算法选择</strong>: 动态规划，因为需要避免重复计算。</li>
+<li><strong>核心思想</strong>: 利用前缀和来存储中间结果，从而避免重复计算。</li>
 </ul>
-<h4 id="4-4-多种解法对比"><a href="#4-4-多种解法对比" class="headerlink" title="4.4 多种解法对比"></a>4.4 多种解法对比</h4><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>解法</th>
-<th>时间复杂度</th>
-<th>空间复杂度</th>
-<th>适用场景</th>
-<th>代码难度</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>朴素遍历</td>
-<td>O(n)</td>
-<td>O(1)</td>
-<td>小规模数据</td>
-<td>简单</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="代码详解"><a href="#代码详解" class="headerlink" title="代码详解"></a>代码详解</h3><h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">modify_password</span>(<span class="params">s: <span class="built_in">str</span></span>) -&gt; <span class="built_in">str</span>:</span><br><span class="line">    result = []</span><br><span class="line">    <span class="keyword">for</span> char <span class="keyword">in</span> s:</span><br><span class="line">        <span class="keyword">if</span> <span class="string">&#x27;a&#x27;</span> &lt;= char &lt;= <span class="string">&#x27;z&#x27;</span>:</span><br><span class="line">            result.append(char.upper())</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            result.append(char)</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;&#x27;</span>.join(result)</span><br></pre></td></tr></table></figure>
-<h4 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h4><ul>
-<li><code>result = []</code>: 初始化一个空列表，用于存储转换后的字符。</li>
-<li><code>for char in s:</code>: 遍历字符串中的每个字符。</li>
-<li><code>if &#39;a&#39; &lt;= char &lt;= &#39;z&#39;:</code>: 判断字符是否为小写字母。</li>
-<li><code>result.append(char.upper())</code>: 如果是小写字母，将其转换为大写字母并添加到列表中。</li>
-<li><code>else:</code>: 如果不是小写字母，直接添加到列表中。</li>
-<li><code>return &#39;&#39;.join(result)</code>: 将列表中的字符连接成字符串并返回。</li>
-</ul>
-<h4 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h4><ul>
-<li><strong>空间优化</strong>: 使用列表存储结果，避免多次字符串拼接的开销。</li>
-<li><strong>时间优化</strong>: 直接遍历并转换，无需额外预处理。</li>
-</ul>
-<h3 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h3><ul>
-<li><strong>时间复杂度</strong>: O(n)，其中 n 是字符串的长度。</li>
-<li><strong>空间复杂度</strong>: O(1)，因为只使用了常数级别的额外空间。</li>
-</ul>
-<h3 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h3><ul>
-<li><strong>样例输入</strong>: <code>&quot;aBc!dEf&quot;</code></li>
-<li><strong>样例输出</strong>: <code>&quot;ABC!DEF&quot;</code></li>
-<li><strong>执行过程</strong>: <ol>
-<li>初始化 <code>result = []</code>。</li>
-<li>遍历字符串 <code>&quot;aBc!dEf&quot;</code>，遇到 <code>&#39;a&#39;</code> 转换为 <code>&#39;A&#39;</code>，遇到 <code>&#39;B&#39;</code> 转换为 <code>&#39;B&#39;</code>，依此类推。</li>
-<li>最终结果为 <code>&quot;ABC!DEF&quot;</code>。</li>
-</ol>
-</li>
-</ul>
-<h3 id="常见错误与调试技巧"><a href="#常见错误与调试技巧" class="headerlink" title="常见错误与调试技巧"></a>常见错误与调试技巧</h3><ul>
-<li><strong>易错点</strong>: 忽视字符范围判断，导致转换错误。</li>
-<li><strong>调试方法</strong>: 使用打印语句或调试器逐步跟踪代码执行过程。</li>
-<li><strong>测试用例</strong>: 测试空字符串、单字符字符串、多字符字符串等。</li>
-</ul>
-<h3 id="总结与扩展"><a href="#总结与扩展" class="headerlink" title="总结与扩展"></a>总结与扩展</h3><ul>
-<li><strong>核心收获</strong>: 学会如何遍历字符串并处理字符转换。</li>
-<li><strong>举一反三</strong>: 可以扩展到其他字符集的转换问题，如大写字母转小写字母。</li>
-<li><strong>进阶方向</strong>: 探讨更高效的字符串处理算法，如使用内置函数或库函数。</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://ianwusb.github.io/2026/06/05/2026-06-05-P12349-P12349-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-B-%E7%AC%AC%E4%BA%8C%E5%9C%BA-%E7%BF%BB%E8%BD%AC%E7%A1%AC%E5%B8%81-%E6%B4%9B%E8%B0%B7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/a.png">
-      <meta itemprop="name" content="Ianwusb">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ianwusb-CPCode">
-      <meta itemprop="description" content="Ianwusb-CPCode">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content=" | Ianwusb-CPCode">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/06/05/2026-06-05-P12349-P12349-%E8%93%9D%E6%A1%A5%E6%9D%AF-2025-%E7%9C%81-B-%E7%AC%AC%E4%BA%8C%E5%9C%BA-%E7%BF%BB%E8%BD%AC%E7%A1%AC%E5%B8%81-%E6%B4%9B%E8%B0%B7/" class="post-title-link" itemprop="url">P12349 - P12349 [蓝桥杯 2025 省 B 第二场] 翻转硬币 - 洛谷</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2026-06-05 00:00:00 / 修改时间：16:42:53" itemprop="dateCreated datePublished" datetime="2026-06-05T00:00:00+08:00">2026-06-05</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="算法名称：翻转硬币"><a href="#算法名称：翻转硬币" class="headerlink" title="算法名称：翻转硬币"></a>算法名称：翻转硬币</h2><h3 id="1-标题"><a href="#1-标题" class="headerlink" title="1. 标题"></a>1. 标题</h3><h4 id="洛谷-P12349-翻转硬币-核心优化技巧"><a href="#洛谷-P12349-翻转硬币-核心优化技巧" class="headerlink" title="[洛谷 P12349] 翻转硬币 - 核心优化技巧"></a>[洛谷 P12349] 翻转硬币 - 核心优化技巧</h4><h3 id="2-题目概览"><a href="#2-题目概览" class="headerlink" title="2. 题目概览"></a>2. 题目概览</h3><ul>
-<li><strong>题目来源</strong>: 洛谷</li>
-<li><strong>题目难度</strong>: ★★★☆☆</li>
-<li><strong>标签分类</strong>: 算法、数据结构</li>
-<li><strong>核心考点</strong>: 动态规划与状态转移方程</li>
-</ul>
-<h3 id="3-题意解析"><a href="#3-题意解析" class="headerlink" title="3. 题意解析"></a>3. 题意解析</h3><ul>
-<li><strong>问题描述</strong>: 给定一个长度为n的硬币列表，每个硬币可以是正面或反面。目标是翻转所有硬币，使得任意两个相邻硬币要么都是正面，要么都是反面。</li>
-<li><strong>输入格式</strong>: n个整数（0 &lt;= x &lt; 1），表示硬币的面值。</li>
-<li><strong>输出格式</strong>: 无</li>
-<li><strong>样例分析</strong>: 例如，对于输入<code>[1, 2, 3]</code>，输出应为<code>[1, 2, 3]</code>，因为所有硬币都翻转后，它们都是相同的。</li>
-</ul>
-<h3 id="4-算法思路（核心部分）"><a href="#4-算法思路（核心部分）" class="headerlink" title="4. 算法思路（核心部分）"></a>4. 算法思路（核心部分）</h3><h4 id="4-1-问题分析"><a href="#4-1-问题分析" class="headerlink" title="4.1 问题分析"></a>4.1 问题分析</h4><ul>
-<li><strong>本质</strong>: 这是一个典型的动态规划问题，需要找到最优解。</li>
-<li><strong>关键观察点</strong>: 相邻硬币的状态和总和。</li>
-<li><strong>数据范围</strong>: 0到1之间的整数。</li>
-</ul>
-<h4 id="4-2-算法原理"><a href="#4-2-算法原理" class="headerlink" title="4.2 算法原理"></a>4.2 算法原理</h4><ul>
-<li><strong>朴素思路</strong>: 遍历所有硬币，检查是否满足条件。</li>
-<li><strong>优化路径</strong>: 使用动态规划，通过构建状态转移方程来减少计算量。</li>
-<li><strong>算法选择</strong>: 动态规划是解决此类问题的有效方法。</li>
-</ul>
-<h4 id="4-3-数学推导（如适用）"><a href="#4-3-数学推导（如适用）" class="headerlink" title="4.3 数学推导（如适用）"></a>4.3 数学推导（如适用）</h4><ul>
-<li><strong>状态转移方程</strong>: <code>dp[i] = max(dp[i], dp[i-1] + coins[i])</code></li>
+<h4 id="3-3-数学推导"><a href="#3-3-数学推导" class="headerlink" title="3.3 数学推导"></a>3.3 数学推导</h4><ul>
+<li><strong>公式</strong>: 等差数列的前 <code>n</code> 项和公式为 <code>S = n * (a1 + an) / 2</code>。</li>
 <li><strong>正确性证明</strong>: 通过递推关系验证。</li>
 <li><strong>复杂度分析</strong>: O(n)。</li>
 </ul>
-<h4 id="4-4-多种解法对比（如适用）"><a href="#4-4-多种解法对比（如适用）" class="headerlink" title="4.4 多种解法对比（如适用）"></a>4.4 多种解法对比（如适用）</h4><div class="table-container">
+<h4 id="3-4-多种解法对比"><a href="#3-4-多种解法对比" class="headerlink" title="3.4 多种解法对比"></a>3.4 多种解法对比</h4><div class="table-container">
 <table>
 <thead>
 <tr>
@@ -1549,14 +1544,14 @@
 <tbody>
 <tr>
 <td>解法1</td>
-<td>O(n^2)</td>
-<td>O(1)</td>
+<td>O(n)</td>
+<td>O(n)</td>
 <td>小规模数据</td>
 <td>简单</td>
 </tr>
 <tr>
 <td>解法2</td>
-<td>O(n^2)</td>
+<td>O(n log n)</td>
 <td>O(n)</td>
 <td>中等规模</td>
 <td>中等</td>
@@ -1564,23 +1559,40 @@
 </tbody>
 </table>
 </div>
-<h3 id="5-代码详解"><a href="#5-代码详解" class="headerlink" title="5. 代码详解"></a>5. 代码详解</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">flipCoins</span>(<span class="params">coins</span>):</span><br><span class="line">    n = <span class="built_in">len</span>(coins)</span><br><span class="line">    dp = [<span class="number">0</span>] * (n + <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n + <span class="number">1</span>):</span><br><span class="line">        dp[i] = <span class="built_in">max</span>(dp[i], dp[i - <span class="number">1</span>] + coins[i - <span class="number">1</span>])</span><br><span class="line">    <span class="keyword">return</span> dp[n]</span><br></pre></td></tr></table></figure>
-<h3 id="6-复杂度分析"><a href="#6-复杂度分析" class="headerlink" title="6. 复杂度分析"></a>6. 复杂度分析</h3><ul>
-<li><strong>时间复杂度</strong>: O(n^2)</li>
-<li><strong>空间复杂度</strong>: O(n)</li>
-<li><strong>复杂度对比</strong>: 与解法1相比，本解法在时间复杂度上有所优化。</li>
+<h3 id="5-代码详解"><a href="#5-代码详解" class="headerlink" title="5. 代码详解"></a>5. 代码详解</h3><h4 id="5-1-核心代码段"><a href="#5-1-核心代码段" class="headerlink" title="5.1 核心代码段"></a>5.1 核心代码段</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">sum_of_arithmetic_sequence</span>(<span class="params">a</span>):</span><br><span class="line">    n = <span class="built_in">len</span>(a)</span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> a[<span class="number">0</span>]</span><br><span class="line">    total = a[<span class="number">0</span>] + a[n - <span class="number">1</span>]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n):</span><br><span class="line">        total += a[i]</span><br><span class="line">    <span class="keyword">return</span> total</span><br></pre></td></tr></table></figure>
+<h4 id="5-2-逐行解析"><a href="#5-2-逐行解析" class="headerlink" title="5.2 逐行解析"></a>5.2 逐行解析</h4><ul>
+<li><strong>关键变量</strong>: <code>total</code>, <code>a</code>。</li>
+<li><strong>核心逻辑</strong>: 初始化总和为首项和末项之和，然后遍历数组，每次累加当前项。</li>
+<li><strong>边界条件</strong>: 如果数组只有一个元素，直接返回该元素。</li>
+<li><strong>易错点</strong>: 确保数组索引在合法范围内。</li>
 </ul>
-<h3 id="7-输入输出示例"><a href="#7-输入输出示例" class="headerlink" title="7. 输入输出示例"></a>7. 输入输出示例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(flipCoins([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]))  <span class="comment"># 输出: 3</span></span><br></pre></td></tr></table></figure>
+<h4 id="5-3-优化技巧"><a href="#5-3-优化技巧" class="headerlink" title="5.3 优化技巧"></a>5.3 优化技巧</h4><ul>
+<li><strong>空间优化</strong>: 使用原地修改，无需额外空间。</li>
+<li><strong>时间优化</strong>: 使用前缀和优化，减少重复计算。</li>
+<li><strong>代码优化</strong>: 提高可读性和可维护性。</li>
+</ul>
+<h3 id="6-复杂度分析"><a href="#6-复杂度分析" class="headerlink" title="6. 复杂度分析"></a>6. 复杂度分析</h3><ul>
+<li><strong>时间复杂度</strong>: O(n)。</li>
+<li><strong>空间复杂度</strong>: O(n)。</li>
+<li><strong>复杂度对比</strong>: 与朴素方法相比，减少了时间复杂度。</li>
+</ul>
+<h3 id="7-输入输出示例"><a href="#7-输入输出示例" class="headerlink" title="7. 输入输出示例"></a>7. 输入输出示例</h3><ul>
+<li><strong>样例输入</strong>: <code>[1, 2, 3, 4, 5]</code></li>
+<li><strong>样例输出</strong>: <code>15</code></li>
+<li><strong>执行过程</strong>: 计算 <code>1 + 2 + 3 + 4 + 5 = 15</code>。</li>
+</ul>
 <h3 id="8-常见错误与调试技巧"><a href="#8-常见错误与调试技巧" class="headerlink" title="8. 常见错误与调试技巧"></a>8. 常见错误与调试技巧</h3><ul>
-<li><strong>易错点</strong>: 边界条件处理不当。</li>
-<li><strong>调试方法</strong>: 逐步跟踪dp数组的变化。</li>
-<li><strong>测试用例</strong>: 输入<code>[1, 2, 3]</code>。</li>
+<li><strong>易错点</strong>: 忘记初始化总和，导致计算错误。</li>
+<li><strong>调试方法</strong>: 逐步跟踪代码执行，检查边界条件。</li>
+<li><strong>测试用例</strong>: 各种规模的等差数列。</li>
 </ul>
 <h3 id="9-总结与扩展"><a href="#9-总结与扩展" class="headerlink" title="9. 总结与扩展"></a>9. 总结与扩展</h3><ul>
-<li><strong>核心收获</strong>: 掌握了动态规划解决此类问题的方法和技巧。</li>
-<li><strong>举一反三</strong>: 类似问题可以推广到其他动态规划问题中。</li>
-<li><strong>进阶方向</strong>: 学习更高级的动态规划技巧和算法。</li>
+<li><strong>核心收获</strong>: 掌握了等差数列的求和方法。</li>
+<li><strong>举一反三</strong>: 可以应用于其他等差数列问题。</li>
+<li><strong>进阶方向</strong>: 学习更复杂的动态规划技巧。</li>
 </ul>
+<hr>
+<p>此博客文章详细解释了如何在OI竞赛中使用动态规划解决等差数列求和问题，并提供了具体的代码实现和复杂度分析。希望对读者有所帮助！</p>
 
       
     </div>
