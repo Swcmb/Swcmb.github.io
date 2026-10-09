@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b1020">
+<title>Graph Lab — 图遍历与最短路径算法可视化</title>
+<style>
+:root{color-scheme:dark;--bg:#090e1b;--panel:#111a2c;--panel2:#151f33;--line:#26344e;--text:#edf3ff;--muted:#9baac4;--blue:#75a7ff;--cyan:#55e0d0;--amber:#ffc66d;--red:#ff7c8b;--green:#7ce0a2}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 12% 0%,#182847 0,transparent 34%),radial-gradient(ellipse at 100% 15%,#14253b 0,transparent 28%),var(--bg);color:var(--text);font:15px/1.6 Inter,"Segoe UI","Microsoft YaHei",sans-serif;min-height:100vh}
+button,select{font:inherit}button{cursor:pointer;color:inherit}a{color:var(--cyan);text-decoration:none}.wrap{width:min(1440px,calc(100% - 36px));margin:auto}
+header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:25px 0 19px;border-bottom:1px solid #202c41}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.3px}.brand-mark{width:38px;height:38px;display:grid;place-items:center;border-radius:12px;background:linear-gradient(135deg,#7eb4ff,#55e0d0);color:#07111e;font-size:19px;box-shadow:0 5px 22px #55e0d024}.brand small{display:block;color:var(--muted);font-weight:500;font-size:11px;letter-spacing:1.5px}
+.head-link{font-size:13px;color:#b9c8df;border:1px solid var(--line);border-radius:10px;padding:8px 12px}
+.hero{padding:32px 0 25px;display:grid;grid-template-columns:1fr auto;align-items:end;gap:20px}.eyebrow{color:var(--cyan);font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:800}.hero h1{margin:7px 0 9px;font-size:clamp(29px,4vw,47px);line-height:1.14;letter-spacing:-1.3px}.hero h1 span{color:var(--blue)}.hero p{margin:0;max-width:780px;color:var(--muted);font-size:15px}.hero-stat{display:flex;gap:9px;align-items:center;padding:12px 14px;border:1px solid var(--line);background:#111a2cbb;border-radius:14px;color:var(--muted);font-size:12px}.hero-stat strong{display:block;color:var(--text);font-size:19px;line-height:1.2}
+.section-label{font-size:12px;letter-spacing:1.6px;color:var(--muted);font-weight:800;margin:0 0 12px}
+.principles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:22px}.principle{background:linear-gradient(145deg,#121d31,#0e1728);border:1px solid var(--line);border-radius:15px;padding:15px 16px;min-height:126px}.principle .kicker{font-size:11px;font-weight:800;letter-spacing:1px;color:var(--blue)}.principle h3{font-size:16px;margin:6px 0 5px}.principle p{color:var(--muted);font-size:12px;margin:0;line-height:1.6}.principle .verdict{margin-top:10px;font-weight:800;font-size:12px;color:var(--green)}.principle .verdict.warn{color:var(--amber)}
+.workspace{display:grid;grid-template-columns:minmax(0,1fr) 335px;gap:15px;align-items:stretch}
+.stage,.side-panel,.explain-panel{background:linear-gradient(160deg,#111a2c,#0f1727);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.stage-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 17px;border-bottom:1px solid var(--line);background:#111a2ccf}.stage-title{font-weight:800}.stage-sub{font-size:12px;color:var(--muted)}.tag{border:1px solid #33516a;background:#122c38;color:var(--cyan);border-radius:999px;padding:4px 9px;font-size:11px;white-space:nowrap}
+.toolbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:13px 15px;border-bottom:1px solid var(--line)}.control{display:flex;align-items:center;gap:7px;color:var(--muted);font-size:12px}.control select{background:#0b1220;color:var(--text);border:1px solid #34445e;border-radius:9px;padding:7px 9px;outline:none;max-width:180px}.toolbar-spacer{flex:1}.btn{padding:8px 12px;border:1px solid #34445e;background:#18243a;border-radius:9px;font-size:12px;font-weight:700;transition:background .15s,border .15s}.btn:hover{background:#253650;border-color:#55749d}.btn.primary{background:var(--blue);color:#07111e;border-color:transparent}.btn.primary:hover{background:#9bc0ff}.btn:disabled{opacity:.4;cursor:not-allowed}
+.graph-wrap{position:relative;padding:5px 9px 0;background:radial-gradient(ellipse at 48% 48%,#17263e 0,transparent 67%);min-height:300px}.graph-svg{width:100%;display:block;min-height:300px;max-height:440px;overflow:visible}.graph-svg text{font-family:inherit;user-select:none}.edge{stroke:#52627e;stroke-width:2.2;fill:none;transition:stroke .2s,stroke-width .2s}.edge.traversed{stroke:#75a7ff;stroke-width:3.3}.edge.current-edge{stroke:var(--amber);stroke-width:4}.edge.path-edge{stroke:var(--green);stroke-width:4}.edge.cycle-edge{stroke:var(--red);stroke-width:4}.weight-label{fill:#c8d5eb;font-size:12px;text-anchor:middle;paint-order:stroke;stroke:#10192b;stroke-width:5px;stroke-linejoin:round}.node-ring{fill:#101c30;stroke:#607494;stroke-width:2.2;transition:all .2s}.node.visited .node-ring{fill:#1a3456;stroke:var(--blue)}.node.current .node-ring{fill:#493923;stroke:var(--amber);stroke-width:3.5;filter:drop-shadow(0 0 8px #ffc66d55)}.node.done .node-ring{fill:#153b39;stroke:var(--cyan)}.node.start .node-ring{stroke:var(--cyan)}.node.cycle .node-ring{fill:#49222e;stroke:var(--red);stroke-width:3.5}.node-label{fill:var(--text);font-size:16px;font-weight:800;text-anchor:middle;dominant-baseline:middle}.node-distance{fill:var(--cyan);font-size:10px;text-anchor:middle}
+.legend{display:flex;gap:13px;flex-wrap:wrap;padding:0 17px 14px;color:var(--muted);font-size:11px}.legend span{display:flex;align-items:center;gap:6px}.dot{width:8px;height:8px;border-radius:50%;background:var(--blue)}.dot.now{background:var(--amber)}.dot.done{background:var(--cyan)}.dot.cycle{background:var(--red)}
+.timeline{padding:14px 17px 17px;border-top:1px solid var(--line);background:#0c1423}.timeline-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:9px}.timeline-top strong{font-size:13px}.step-count{color:var(--muted);font-size:11px;font-variant-numeric:tabular-nums}.progress{height:4px;background:#26354e;border-radius:5px;overflow:hidden;margin-bottom:12px}.progress>div{height:100%;width:0;background:linear-gradient(90deg,var(--blue),var(--cyan));transition:width .15s}.event-title{font-weight:800;font-size:15px;margin-bottom:4px}.event-desc{color:#acbad2;font-size:12px;min-height:40px}.state-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:13px}.state-box{border:1px solid #293850;border-radius:10px;padding:9px 10px;min-height:59px;background:#111b2c}.state-box label{display:block;color:var(--muted);font-size:10px;letter-spacing:.5px;margin-bottom:4px}.state-box div{font-size:12px;color:#e0eaff;overflow-wrap:anywhere}
+.side-panel{padding:16px}.side-panel h2{font-size:15px;margin:0 0 12px}.algorithm-list{display:grid;gap:8px}.algo-btn{text-align:left;border:1px solid #293850;background:#101a2a;border-radius:12px;padding:11px 12px;display:grid;grid-template-columns:35px 1fr auto;gap:9px;align-items:center}.algo-btn:hover{border-color:#526d94}.algo-btn[aria-pressed=true]{background:#172740;border-color:#75a7ff;box-shadow:inset 3px 0 var(--blue)}.algo-icon{width:33px;height:33px;display:grid;place-items:center;border-radius:9px;background:#233b5c;color:#a6c8ff;font-weight:900;font-size:12px}.algo-btn strong{display:block;font-size:13px}.algo-btn small{display:block;color:var(--muted);font-size:11px;margin-top:1px}.algo-status{font-size:10px;color:var(--green);white-space:nowrap}.algo-status.no{color:var(--amber)}
+.side-divider{border:0;border-top:1px solid var(--line);margin:18px 0}.mini-heading{font-size:12px;font-weight:800;margin-bottom:9px}.concept-box{padding:12px;border:1px solid #33425c;border-radius:12px;background:#0d1626}.concept-box h3{font-size:13px;margin:0 0 5px}.concept-box p{color:var(--muted);font-size:12px;margin:0}.code-chip{font-family:Consolas,monospace;color:var(--cyan);background:#132b31;padding:2px 5px;border-radius:5px;font-size:11px}
+.explain-panel{margin-top:15px;padding:18px}.explain-head{display:flex;align-items:start;justify-content:space-between;gap:18px}.explain-head h2{font-size:19px;margin:0 0 4px}.explain-head p{color:var(--muted);margin:0;font-size:12px}.complexity{display:flex;gap:7px;flex-wrap:wrap}.complexity span{font-family:Consolas,monospace;border:1px solid #34445e;background:#0b1423;border-radius:7px;padding:5px 8px;font-size:11px;color:#d3e1f8;white-space:nowrap}
+.explain-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:15px}.explain-card{background:#0d1626;border:1px solid #293850;border-radius:12px;padding:13px}.explain-card h3{font-size:13px;margin:0 0 6px}.explain-card p{font-size:12px;color:var(--muted);margin:0;line-height:1.75}.explain-card code{color:var(--cyan);font-family:Consolas,monospace}.table-scroll{overflow:auto;margin-top:15px}table{width:100%;border-collapse:collapse;min-width:640px;font-size:12px}th,td{text-align:left;padding:10px;border-bottom:1px solid #25334a}th{color:#9db1d1;font-weight:700;background:#0d1626}td{color:#dce6f7}td:first-child{font-weight:800}.yes{color:var(--green);font-weight:800}.partial{color:var(--amber);font-weight:800}.nope{color:#c0cada}
+footer{padding:24px 0 34px;color:#7787a2;font-size:11px;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+@media(max-width:980px){.workspace{grid-template-columns:1fr}.side-panel{order:2}.algorithm-list{grid-template-columns:repeat(2,minmax(0,1fr))}.principles{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{grid-template-columns:1fr}.hero-stat{width:max-content}}
+@media(max-width:580px){.wrap{width:calc(100% - 22px)}header{padding-top:16px}.hero{padding-top:25px}.principles{grid-template-columns:1fr 1fr;gap:8px}.principle{padding:12px;min-height:140px}.principle h3{font-size:14px}.principle p{font-size:11px}.algorithm-list{grid-template-columns:1fr}.toolbar{gap:7px}.toolbar-spacer{display:none}.control{flex:1}.control select{max-width:none;width:100%}.toolbar .btn{flex:1}.state-row{grid-template-columns:1fr 1fr}.state-box:last-child{grid-column:1/-1}.explain-grid{grid-template-columns:1fr}.explain-head{display:block}.complexity{margin-top:10px}.graph-wrap{padding:5px 0 0}.graph-svg{min-height:255px}.stage-head{align-items:flex-start}.stage-sub{max-width:170px;text-align:right}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="brand"><div class="brand-mark">G</div><div>GRAPH LAB<small>图论算法可视化实验室</small></div></div>
+  <a class="head-link" href="https://github.com/Swcmb/Swcmb.github.io" target="_blank" rel="noreferrer">查看 GitHub ↗</a>
+</header>
+<section class="hero">
+  <div><div class="eyebrow">ALGORITHM PLAYGROUND · 01</div><h1>让图论算法<span>动起来</span></h1><p>亲眼观察节点如何被访问、队列如何变化、回路如何被发现，以及 Dijkstra 怎样一步步更新最短距离。</p></div>
+  <div class="hero-stat"><div><strong>4</strong>种算法</div><div style="width:1px;height:32px;background:#34445e"></div><div><strong>2</strong>类图结构</div><div style="width:1px;height:32px;background:#34445e"></div><div><strong>逐帧</strong>观察</div></div>
+</section>
+<div class="section-label">先看结论 / THE BIG PICTURE</div>
+<section class="principles">
+  <article class="principle"><div class="kicker">01 · DFS</div><h3>深度优先遍历</h3><p>沿一条路径尽量深入，再回溯。记录递归栈或父节点，就能识别回路。</p><div class="verdict">有向图 ✓　无向图 ✓</div></article>
+  <article class="principle"><div class="kicker">02 · BFS</div><h3>广度优先遍历</h3><p>按层访问邻居。无向图中遇到非父节点的已访问邻居，说明出现回路。</p><div class="verdict">无向图 ✓</div></article>
+  <article class="principle"><div class="kicker">03 · TOPOLOGY</div><h3>拓扑排序</h3><p>反复移除入度为 0 的节点。若最后仍有节点未处理，有向图就存在回路。</p><div class="verdict">有向图 ✓</div></article>
+  <article class="principle"><div class="kicker">04 · DIJKSTRA</div><h3>最短路径</h3><p>反复确定当前距离最小的节点，再松弛相邻边；距离计算并不负责判环。</p><div class="verdict warn">计算距离 ≠ 检测回路</div></article>
+</section>
+<section class="workspace" aria-label="算法交互实验">
+  <div class="stage">
+    <div class="stage-head"><div><div class="stage-title">图结构与执行过程</div><div class="stage-sub" id="graphCaption">有向图 · 含回路</div></div><span class="tag" id="modeTag">DIRECTED GRAPH</span></div>
+    <div class="toolbar">
+      <label class="control">示例图 <select id="exampleSelect" aria-label="选择示例图"><option value="directed-cycle">有向图：含回路</option><option value="directed-dag">有向图：无回路（DAG）</option><option value="undirected-cycle">无向图：含回路</option><option value="undirected-tree">无向图：无回路（树）</option></select></label>
+      <label class="control">起点 <select id="startSelect" aria-label="选择起点"><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option></select></label>
+      <div class="toolbar-spacer"></div>
+      <button class="btn" id="resetBtn">↺ 重置</button>
+    </div>
+    <div class="graph-wrap"><svg class="graph-svg" id="graphSvg" viewBox="0 0 700 410" role="img" aria-label="算法步骤图形动画"><defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L7,3 z" fill="#7185a5"></path></marker><marker id="arrow-blue" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L7,3 z" fill="#75a7ff"></path></marker><marker id="arrow-amber" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L7,3 z" fill="#ffc66d"></path></marker><marker id="arrow-green" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L7,3 z" fill="#7ce0a2"></path></marker></defs><g id="edgesLayer"></g><g id="nodesLayer"></g></svg></div>
+    <div class="legend"><span><i class="dot"></i>已访问</span><span><i class="dot now"></i>当前节点</span><span><i class="dot done"></i>已确定 / 完成</span><span><i class="dot cycle"></i>回路证据</span></div>
+    <div class="timeline">
+      <div class="timeline-top"><strong>执行时间轴</strong><span class="step-count" id="stepCount">第 1 / 1 步</span></div>
+      <div class="progress"><div id="progressFill"></div></div>
+      <div class="event-title" id="eventTitle">准备开始</div><div class="event-desc" id="eventDesc">选择算法并点击播放，观察每一步的状态变化。</div>
+      <div class="state-row"><div class="state-box"><label id="stateLabel1">访问结构</label><div id="state1">—</div></div><div class="state-box"><label id="stateLabel2">已访问节点</label><div id="state2">—</div></div><div class="state-box"><label id="stateLabel3">判定 / 结果</label><div id="state3">等待运行</div></div></div>
+    </div>
+    <div class="toolbar">
+      <button class="btn" id="prevBtn" title="上一步">← 上一步</button><button class="btn primary" id="playBtn">▶ 播放</button><button class="btn" id="nextBtn">下一步 →</button>
+      <div class="toolbar-spacer"></div>
+      <label class="control">速度 <select id="speedSelect" aria-label="播放速度"><option value="1100">慢</option><option value="700" selected>正常</option><option value="300">快</option></select></label>
+    </div>
+  </div>
+  <aside class="side-panel">
+    <h2>选择算法</h2>
+    <div class="algorithm-list" id="algorithmList">
+      <button class="algo-btn" data-algo="dfs" aria-pressed="true"><span class="algo-icon">DFS</span><span><strong>深度优先遍历</strong><small>递归 / 回边检测</small></span><span class="algo-status">可判环</span></button>
+      <button class="algo-btn" data-algo="bfs" aria-pressed="false"><span class="algo-icon">BFS</span><span><strong>广度优先遍历</strong><small>队列 / 层序访问</small></span><span class="algo-status">可判环</span></button>
+      <button class="algo-btn" data-algo="topo" aria-pressed="false"><span class="algo-icon">DAG</span><span><strong>拓扑排序</strong><small>入度 / 删除节点</small></span><span class="algo-status">可判环</span></button>
+      <button class="algo-btn" data-algo="dijkstra" aria-pressed="false"><span class="algo-icon">D</span><span><strong>Dijkstra</strong><small>距离松弛 / 最短路径</small></span><span class="algo-status no">不判环</span></button>
+    </div>
+    <hr class="side-divider">
+    <div class="mini-heading">当前算法要点</div>
+    <div class="concept-box" id="conceptBox"><h3>有向图：检查递归栈</h3><p>灰色节点表示仍在当前递归路径上。如果一条边指向灰色节点，就找到了有向回路。</p></div>
+    <hr class="side-divider">
+    <div class="mini-heading">读图提示</div>
+    <div class="concept-box"><h3>箭头和数字</h3><p>箭头表示边的方向；边上的数字是权重。DFS、BFS、拓扑排序主要看连接关系，Dijkstra 会使用权重计算最短距离。</p></div>
+  </aside>
+</section>
+<section class="explain-panel">
+  <div class="explain-head"><div><h2 id="explainTitle">DFS：沿路径深入，回溯时检查状态</h2><p id="explainSummary">对每个尚未访问的节点启动搜索，确保不遗漏非连通分量。</p></div><div class="complexity"><span id="timeComplexity">时间 O(V + E)</span><span id="spaceComplexity">空间 O(V)</span></div></div>
+  <div class="explain-grid" id="explainGrid">
+    <article class="explain-card"><h3>为什么能判环？</h3><p>有向图中，如果当前节点能到达一个仍在递归栈里的节点，就形成了回到祖先的路径。无向图需要跳过父边，否则每条普通边都会被误认为回路。</p></article>
+    <article class="explain-card"><h3>记住这个区别</h3><p>“访问过”不总等于“回路”。关键要看节点处于哪种状态，以及图是否有方向。实现时区分白、灰、黑三色最清楚。</p></article>
+  </div>
+  <div class="table-scroll"><table><thead><tr><th>算法</th><th>有向图判环</th><th>无向图判环</th><th>主要用途</th></tr></thead><tbody>
+  <tr><td>DFS</td><td class="yes">可以</td><td class="yes">可以</td><td>遍历、连通性、回路检测</td></tr>
+  <tr><td>BFS</td><td class="partial">普通 BFS 不足</td><td class="yes">可以</td><td>分层遍历、无权最短路、无向图判环</td></tr>
+  <tr><td>拓扑排序</td><td class="yes">可以</td><td class="nope">不适用</td><td>依赖顺序、任务调度、DAG 检测</td></tr>
+  <tr><td>Dijkstra</td><td class="nope">不负责判环</td><td class="nope">不负责判环</td><td>非负权图单源最短路径</td></tr>
+  </tbody></table></div>
+</section>
+<footer><span>GRAPH LAB · 图算法交互学习页</span><span>纯 HTML / CSS / JavaScript · 可直接部署到 GitHub Pages</span></footer>
+</div>
+<script>
+(function(){
+"use strict";
+const positions={A:{x:95,y:205},B:{x:250,y:95},C:{x:250,y:315},D:{x:430,y:95},E:{x:430,y:315},F:{x:595,y:205}};
+const labels=["A","B","C","D","E","F"];
+const presets={
+ "directed-cycle":{directed:true,name:"有向图 · 含回路",edges:[["A","B",2],["A","C",4],["B","D",3],["C","D",2],["D","B",1],["D","E",4],["E","F",2]]},
+ "directed-dag":{directed:true,name:"有向图 · 无回路（DAG）",edges:[["A","B",2],["A","C",4],["B","D",3],["C","D",2],["D","E",4],["E","F",2]]},
+ "undirected-cycle":{directed:false,name:"无向图 · 含回路",edges:[["A","B",2],["A","C",4],["B","D",3],["C","E",2],["D","F",4],["E","F",2],["B","C",5]]},
+ "undirected-tree":{directed:false,name:"无向图 · 无回路（树）",edges:[["A","B",2],["A","C",4],["B","D",3],["B","E",2],["E","F",2]]}
+};
+const algoInfo={
+ dfs:{title:"DFS：沿路径深入，回溯时检查状态",summary:"对每个尚未访问的节点启动搜索，确保不遗漏非连通分量。",time:"时间 O(V + E)",space:"空间 O(V)",concept:["有向图：检查递归栈","灰色节点表示仍在当前递归路径上。如果一条边指向灰色节点，就找到了有向回路。"]},
+ bfs:{title:"BFS：使用队列逐层扩展",summary:"先访问起点，再按队列顺序访问邻居；无向图要记录每个节点的父节点。",time:"时间 O(V + E)",space:"空间 O(V)",concept:["无向图：检查非父节点的已访问邻居","访问到父节点只是沿原边返回，不算回路。遇到另一个已访问邻居，才是回路证据。"]},
+ topo:{title:"拓扑排序：不断移除入度为 0 的节点",summary:"Kahn 算法每次取出一个当前入度为 0 的节点，并减少其后继节点的入度。",time:"时间 O(V + E)",space:"空间 O(V)",concept:["有向图：看是否能处理全部节点","如果处理后的节点数小于图中总节点数，剩余部分必然包含有向回路。"]},
+ dijkstra:{title:"Dijkstra：不断确定当前距离最小的节点",summary:"从起点出发，逐条边尝试缩短邻居的已知距离；本演示使用非负权重。",time:"时间 O(V² + E)",space:"空间 O(V)",concept:["单源最短路径：距离松弛","当 dist[u] + w(u,v) 小于 dist[v] 时，就更新 dist[v]。算法本身不输出环检测结论。"]}
+};
+let graph,presetKey="directed-cycle",algo="dfs",frames=[],frameIndex=0,timer=null,graphElements=[],edgeEls={},nodeEls={},selectedStart="A";
+const $=id=>document.getElementById(id);
+function clone(o){return JSON.parse(JSON.stringify(o));}
+function makeAdj(g){const adj={};labels.forEach(v=>adj[v]=[]);g.edges.forEach((e,i)=>{const [a,b,w]=e;adj[a].push({to:b,w,id:i});if(!g.directed)adj[b].push({to:a,w,id:i});});labels.forEach(v=>adj[v].sort((a,b)=>labels.indexOf(a.to)-labels.indexOf(b.to)));return adj;}
+function baseState(){return{visited:[],done:[],current:null,edge:null,traversed:[],cycleEdges:[],pathEdges:[],queue:[],stack:[],order:[],dist:{},parent:{},result:"运行中",focusText:"准备开始"};}
+function addFrame(s,title,desc){const snap=clone(s);snap.title=title;snap.desc=desc;frames.push(snap);}
+function uniquePush(a,x){if(!a.includes(x))a.push(x);}
+function buildDfs(g,start){
+ const adj=makeAdj(g),s=baseState(),color={};labels.forEach(v=>color[v]=0);
+ function walk(u,parent){
+  color[u]=1;uniquePush(s.visited,u);s.current=u;s.stack.push(u);addFrame(s,"访问节点 "+u,"将 "+u+" 标记为正在搜索。DFS 尽可能沿一条路径深入。");
+  for(const e of adj[u]){
+   s.current=u;s.edge=e.id;
+   if(color[e.to]===0){s.traversed.push(e.id);addFrame(s,"检查边 "+u+" → "+e.to,"目标节点尚未访问，沿这条边继续深入。");walk(e.to,u);}
+   else if(g.directed&&color[e.to]===1){
+    s.cycleEdges.push(e.id);s.cycleEdges.push(...pathEdgesBetween(s,e.to,u,g));s.result="发现有向回路";addFrame(s,"发现回边 "+u+" → "+e.to,"这条边指向仍在递归栈中的节点 "+e.to+"，说明存在有向回路。");return true;
+   }else if(!g.directed&&e.to!==parent&&color[e.to]!==0){
+    s.cycleEdges.push(e.id);s.result="发现无向回路";addFrame(s,"发现非父节点边 "+u+" — "+e.to,"目标节点已访问，并且不是当前节点的父节点；两条不同路径连接同一节点，构成回路。");return true;
+   }else{addFrame(s,"跳过已处理边 "+u+(g.directed?" → ":" — ")+e.to,"这条边没有产生新的 DFS 树节点；继续检查其他边。");}
+  }
+  color[u]=2;s.current=u;s.stack=s.stack.filter(v=>v!==u);uniquePush(s.done,u);addFrame(s,"完成节点 "+u,"该节点的邻接边已检查完毕，DFS 开始回溯。");return false;
+ }
+ function pathEdgesBetween(state,from,to,g){const adj=makeAdj(g),prev={};const q=[from];prev[from]=null;while(q.length){const u=q.shift();if(u===to)break;for(const e of adj[u]){if(prev[e.to]===undefined){prev[e.to]=u;q.push(e.to);}}}const result=[];let cur=to;while(prev[cur]!==undefined&&prev[cur]!==null){const p=prev[cur];const found=g.edges.findIndex(x=>(x[0]===p&&x[1]===cur)||(!g.directed&&x[0]===cur&&x[1]===p));if(found>=0)result.push(found);cur=p;}return result;}
+ const order=[start,...labels.filter(v=>v!==start)];let hasCycle=false;
+ for(const v of order){if(color[v]===0){if(walk(v,null)){hasCycle=true;break;}}}
+ s.current=null;s.edge=null;s.result=hasCycle?"存在回路":"不存在回路";s.stack=[];addFrame(s,"DFS 判定完成",hasCycle?"搜索发现了回路。":"所有连通分量均检查完毕，没有发现回路。");return frames;
+}
+function buildBfs(g,start){
+ const adj=makeAdj(g),s=baseState(),seen=new Set(),parent={};let found=false;const roots=[start,...labels.filter(v=>v!==start)];
+ for(const root of roots){if(seen.has(root))continue;const q=[root];seen.add(root);parent[root]=null;addFrame(s,"起点入队："+root,"将未访问分量的起点加入队列；BFS 按先进先出顺序扩展。");
+  while(q.length){const u=q.shift();s.queue=q.slice();s.current=u;uniquePush(s.visited,u);addFrame(s,"队首出队："+u,"取出队首节点 "+u+"，检查它的所有邻居。");
+   for(const e of adj[u]){s.edge=e.id;if(!seen.has(e.to)){seen.add(e.to);parent[e.to]=u;q.push(e.to);s.queue=q.slice();s.traversed.push(e.id);addFrame(s,"发现邻居："+e.to,"节点 "+e.to+" 尚未访问，标记它并加入队列。");}
+   else if(parent[u]!==e.to){s.cycleEdges.push(e.id);s.result="发现无向回路";addFrame(s,"发现回路边："+u+" — "+e.to,"邻居 "+e.to+" 已访问且不是 "+u+" 的父节点，说明存在回路。");found=true;break;}
+   else{addFrame(s,"跳过父节点边","这条边连接当前节点与它的父节点，是遍历时返回的原边，不构成回路。");}}
+   if(found)break;uniquePush(s.done,u);s.queue=q.slice();addFrame(s,"完成节点："+u,"已检查该节点的邻接点；继续处理队列中的节点。");
+  }
+  if(found)break;
+ }
+ s.current=null;s.edge=null;s.queue=[];s.result=found?"存在回路":"不存在回路";addFrame(s,"BFS 判定完成",found?"检测到了无向回路。":"所有连通分量检查结束，未发现无向回路。");return frames;
+}
+function buildTopo(g){
+ const adj=makeAdj(g),s=baseState(),indeg={};labels.forEach(v=>indeg[v]=0);g.edges.forEach(e=>indeg[e[1]]++);
+ const q=labels.filter(v=>indeg[v]===0);s.queue=q.slice();addFrame(s,"初始化入度","统计每个节点的入度，将所有入度为 0 的节点加入队列。");
+ while(q.length){const u=q.shift();s.queue=q.slice();s.current=u;uniquePush(s.visited,u);s.order.push(u);addFrame(s,"移除入度为 0 的节点："+u,"把 "+u+" 加入拓扑序列，接着删除它指向后继节点的边。");
+  for(const e of adj[u]){s.edge=e.id;indeg[e.to]--;addFrame(s,"更新 "+e.to+" 的入度","移除边后，节点 "+e.to+" 的入度变为 "+indeg[e.to]+"。");if(indeg[e.to]===0){q.push(e.to);s.queue=q.slice();addFrame(s,"节点 "+e.to+" 入度归零","节点 "+e.to+" 满足入度为 0，加入待处理队列。");}}
+  uniquePush(s.done,u);
+ }
+ const cycle=s.order.length!==labels.length;s.result=cycle?"存在有向回路":"不存在有向回路";s.current=null;s.edge=null;s.queue=[];addFrame(s,"拓扑排序判定完成",cycle?"处理节点数为 "+s.order.length+" / "+labels.length+"；仍有节点无法移除，因此图中存在有向回路。":"全部 "+labels.length+" 个节点均被处理，图是有向无环图（DAG）。");return frames;
+}
+function buildDijkstra(g,start){
+ const adj=makeAdj(g),s=baseState(),dist={},parent={},settled=new Set();labels.forEach(v=>{dist[v]=Infinity;parent[v]=null;});dist[start]=0;s.dist=clone(dist);addFrame(s,"初始化距离","起点 "+start+" 的距离设为 0，其他节点暂时记为 ∞。");
+ while(settled.size<labels.length){let u=null;labels.forEach(v=>{if(!settled.has(v)&&(u===null||dist[v]<dist[u]))u=v;});if(u===null||dist[u]===Infinity)break;
+  settled.add(u);s.current=u;s.dist=clone(dist);uniquePush(s.visited,u);uniquePush(s.done,u);addFrame(s,"确定节点 "+u+"，距离为 "+dist[u],"当前未确定节点中，"+u+" 的暂定距离最小；在非负权图中，其最短距离已经确定。");
+  for(const e of adj[u]){s.edge=e.id;if(settled.has(e.to)){addFrame(s,"检查边到已确定节点","节点 "+e.to+" 已确定最短距离，无须再次更新。");continue;}
+   const candidate=dist[u]+e.w;if(candidate<dist[e.to]){dist[e.to]=candidate;parent[e.to]=u;s.dist=clone(dist);s.parent=clone(parent);s.traversed.push(e.id);s.pathEdges=pathFromParent(parent,e.to,g);addFrame(s,"松弛边 "+u+" → "+e.to,"候选距离 "+dist[u]+" + "+e.w+" = "+candidate+"，比原距离更短；更新 dist["+e.to+"]。");}
+   else{addFrame(s,"保留原距离","候选距离 "+dist[u]+" + "+e.w+" = "+candidate+"，没有小于 dist["+e.to+"] = "+(dist[e.to]===Infinity?"∞":dist[e.to])+"，所以不更新。");}
+  }
+ }
+ s.dist=clone(dist);s.current=null;s.edge=null;s.pathEdges=[];labels.forEach(v=>{if(parent[v]!==null){const id=g.edges.findIndex(e=>(e[0]===parent[v]&&e[1]===v)||(!g.directed&&e[0]===v&&e[1]===parent[v]));if(id>=0)s.pathEdges.push(id);}});s.result="最短距离已计算";addFrame(s,"Dijkstra 计算完成","起点为 "+start+"；∞ 表示从起点无法到达。此算法给出距离结果，不负责判断图中是否有回路。");return frames;
+}
+function pathFromParent(parent,v,g){const r=[];let cur=v;while(parent[cur]!==null&&parent[cur]!==undefined){const p=parent[cur],i=g.edges.findIndex(e=>(e[0]===p&&e[1]===cur)||(!g.directed&&e[0]===cur&&e[1]===p));if(i>=0)r.push(i);cur=p;}return r;}
+function stop(){if(timer){clearInterval(timer);timer=null;}$("playBtn").textContent="▶ 播放";}
+function drawGraph(){
+ const edgeLayer=$("edgesLayer"),nodeLayer=$("nodesLayer");edgeLayer.innerHTML="";nodeLayer.innerHTML="";edgeEls={};nodeEls={};
+ graph.edges.forEach((e,i)=>{const a=positions[e[0]],b=positions[e[1]],dx=b.x-a.x,dy=b.y-a.y,len=Math.hypot(dx,dy),ux=dx/len,uy=dy/len,r=25;
+  const x1=a.x+ux*r,y1=a.y+uy*r,x2=b.x-ux*r,y2=b.y-uy*r;
+  const line=document.createElementNS("http://www.w3.org/2000/svg","line");line.setAttribute("x1",x1);line.setAttribute("y1",y1);line.setAttribute("x2",x2);line.setAttribute("y2",y2);line.setAttribute("class","edge");line.setAttribute("data-edge",i);if(graph.directed)line.setAttribute("marker-end","url(#arrow)");edgeLayer.appendChild(line);edgeEls[i]=line;
+  const txt=document.createElementNS("http://www.w3.org/2000/svg","text");txt.setAttribute("x",(a.x+b.x)/2-uy*13);txt.setAttribute("y",(a.y+b.y)/2+ux*13);txt.setAttribute("class","weight-label");txt.textContent=e[2];edgeLayer.appendChild(txt);
+ });
+ labels.forEach(v=>{const p=positions[v],g=document.createElementNS("http://www.w3.org/2000/svg","g");g.setAttribute("class","node");g.setAttribute("data-node",v);
+  const c=document.createElementNS("http://www.w3.org/2000/svg","circle");c.setAttribute("cx",p.x);c.setAttribute("cy",p.y);c.setAttribute("r",24);c.setAttribute("class","node-ring");g.appendChild(c);
+  const t=document.createElementNS("http://www.w3.org/2000/svg","text");t.setAttribute("x",p.x);t.setAttribute("y",p.y+1);t.setAttribute("class","node-label");t.textContent=v;g.appendChild(t);
+  const d=document.createElementNS("http://www.w3.org/2000/svg","text");d.setAttribute("x",p.x);d.setAttribute("y",p.y+39);d.setAttribute("class","node-distance");d.setAttribute("data-distance","1");g.appendChild(d);nodeLayer.appendChild(g);nodeEls[v]=g;
+ });
+}
+function renderFrame(){
+ if(!frames.length)return;const f=frames[frameIndex];$("stepCount").textContent="第 "+(frameIndex+1)+" / "+frames.length+" 步";$("progressFill").style.width=((frameIndex+1)/frames.length*100)+"%";$("eventTitle").textContent=f.title||"执行步骤";$("eventDesc").textContent=f.desc||"";$("playBtn").textContent=timer?"❚❚ 暂停":(frameIndex===frames.length-1?"↻ 重播":"▶ 播放");$("prevBtn").disabled=frameIndex===0;$("nextBtn").disabled=frameIndex===frames.length-1;
+ Object.keys(edgeEls).forEach(k=>{const el=edgeEls[k];el.setAttribute("class","edge");if(f.traversed.includes(Number(k)))el.classList.add("traversed");if(f.pathEdges.includes(Number(k)))el.classList.add("path-edge");if(f.cycleEdges.includes(Number(k)))el.classList.add("cycle-edge");if(f.edge===Number(k))el.classList.add("current-edge");el.setAttribute("marker-end",graph.directed?(el.classList.contains("path-edge")?"url(#arrow-green)":el.classList.contains("current-edge")?"url(#arrow-amber)":el.classList.contains("traversed")?"url(#arrow-blue)":"url(#arrow)"):"none");});
+ labels.forEach(v=>{const el=nodeEls[v];el.setAttribute("class","node");if(f.visited.includes(v))el.classList.add("visited");if(f.done.includes(v))el.classList.add("done");if(f.current===v)el.classList.add("current");if(v===selectedStart)el.classList.add("start");if(f.cycleEdges.length&&f.current===v)el.classList.add("cycle");const dist=el.querySelector("[data-distance]");dist.textContent=algo==="dijkstra"&&f.dist&&f.dist[v]!==undefined?"d="+(f.dist[v]===Infinity?"∞":f.dist[v]):"";});
+ if(algo==="dfs"){$("stateLabel1").textContent="递归栈";$("state1").textContent=f.stack.length?f.stack.join(" → "):"空";$("stateLabel2").textContent="已发现";$("state2").textContent=f.visited.join(", ")||"—";$("stateLabel3").textContent="回路判定";$("state3").textContent=f.result;}
+ else if(algo==="bfs"){$("stateLabel1").textContent="队列";$("state1").textContent=f.queue.length?f.queue.join(" → "):"空";$("stateLabel2").textContent="已访问";$("state2").textContent=f.visited.join(", ")||"—";$("stateLabel3").textContent="回路判定";$("state3").textContent=f.result;}
+ else if(algo==="topo"){$("stateLabel1").textContent="待处理队列";$("state1").textContent=f.queue.length?f.queue.join(", "):"空";$("stateLabel2").textContent="拓扑序列";$("state2").textContent=f.order.join(" → ")||"—";$("stateLabel3").textContent="处理数量";$("state3").textContent=f.order.length+" / "+labels.length+" · "+f.result;}
+ else{$("stateLabel1").textContent="已确定最短距离";$("state1").textContent=f.done.join(", ")||"—";$("stateLabel2").textContent="当前距离表";$("state2").textContent=labels.map(v=>v+":"+(f.dist&&f.dist[v]!==undefined?(f.dist[v]===Infinity?"∞":f.dist[v]):"∞")).join("  ");$("stateLabel3").textContent="算法目标";$("state3").textContent=f.result;}
+}
+function setAlgo(next){stop();algo=next;document.querySelectorAll(".algo-btn").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.algo===algo)));const supported=(algo==="bfs"&&!graph.directed)||(algo==="topo"&&graph.directed);const warning=$("modeTag");warning.textContent=graph.directed?"DIRECTED GRAPH":"UNDIRECTED GRAPH";
+ $("conceptBox").querySelector("h3").textContent=algoInfo[algo].concept[0];$("conceptBox").querySelector("p").textContent=algoInfo[algo].concept[1];$("explainTitle").textContent=algoInfo[algo].title;$("explainSummary").textContent=algoInfo[algo].summary;$("timeComplexity").textContent=algoInfo[algo].time;$("spaceComplexity").textContent=algoInfo[algo].space;
+ if(algo==="dfs"){$("explainGrid").innerHTML='<article class="explain-card"><h3>有向图：三色标记</h3><p><code>白色</code>表示未访问，<code>灰色</code>表示仍在递归栈，<code>黑色</code>表示处理完成。边指向灰色节点时，存在有向回路。</p></article><article class="explain-card"><h3>无向图：排除父节点</h3><p>沿树边访问父节点是正常回退。只有发现已访问且不是父节点的邻居，才说明存在另一条路径，构成回路。</p></article>';}
+ if(algo==="bfs"){$("explainGrid").innerHTML='<article class="explain-card"><h3>队列先进先出</h3><p>节点首次发现时入队，之后从队首取出并检查邻居。队列让访问按层推进。</p></article><article class="explain-card"><h3>为什么强调无向图？</h3><p>在有向图中，遇到已访问节点本身不足以证明有回路。要判有向回路，需要结合 DFS 递归栈或拓扑排序等专门逻辑。</p></article>';}
+ if(algo==="topo"){$("explainGrid").innerHTML='<article class="explain-card"><h3>入度为 0 才能先做</h3><p>入度表示有多少条边指向节点。没有前置依赖的节点可先放入队列，再逐个删除它的出边。</p></article><article class="explain-card"><h3>处理不完就是有环</h3><p>有向回路中的节点互相等待，无法通过删除入度为 0 的节点全部清除。因此处理节点数小于 V 即可判环。</p></article>';}
+ if(algo==="dijkstra"){$("explainGrid").innerHTML='<article class="explain-card"><h3>松弛操作</h3><p>比较 <code>dist[u] + w(u,v)</code> 与 <code>dist[v]</code>。更短时更新距离并记录前驱，从而重建最短路径。</p></article><article class="explain-card"><h3>非负权是前提</h3><p>Dijkstra 依赖“当前最小的暂定距离已是最优”。负权边会破坏这个前提；回路是否存在是另一个问题。</p></article>';}
+ document.querySelectorAll(".algo-status").forEach(el=>{if(algo==="dijkstra"){el.textContent="不判环";el.classList.add("no");}else if((el.closest(".algo-btn").dataset.algo==="topo"&&!graph.directed)||(el.closest(".algo-btn").dataset.algo==="bfs"&&graph.directed)){el.textContent="当前图不适用";el.classList.add("no");}else{el.textContent="可判环";el.classList.remove("no");}});
+ frames=[];frameIndex=0;
+ if(algo==="dfs")buildDfs(graph,selectedStart);else if(algo==="bfs"){if(graph.directed){const s=baseState();s.result="不适用";s.title="BFS 判环仅用于无向图";s.desc="普通 BFS 遇到有向图中已访问节点时，不能据此判断存在回路。请切换到无向图，或选择 DFS / 拓扑排序。";frames=[s];}else buildBfs(graph,selectedStart);}else if(algo==="topo"){if(!graph.directed){const s=baseState();s.result="不适用";s.title="拓扑排序只适用于有向无环图";s.desc="拓扑排序依据有向边的入度定义；无向图不能直接套用该判环方法。请切换到有向图。";frames=[s];}else buildTopo(graph);}else buildDijkstra(graph,selectedStart);
+ drawGraph();renderFrame();
+}
+function setGraph(key){stop();presetKey=key;graph=clone(presets[key]);$("graphCaption").textContent=graph.name;$("modeTag").textContent=graph.directed?"DIRECTED GRAPH":"UNDIRECTED GRAPH";$("startSelect").value=selectedStart;setAlgo(algo);}
+$("exampleSelect").addEventListener("change",e=>setGraph(e.target.value));
+$("startSelect").addEventListener("change",e=>{selectedStart=e.target.value;setAlgo(algo);});
+document.querySelectorAll(".algo-btn").forEach(b=>b.addEventListener("click",()=>setAlgo(b.dataset.algo)));
+$("playBtn").addEventListener("click",()=>{if(timer){stop();renderFrame();return;}if(frameIndex===frames.length-1)frameIndex=0;timer=setInterval(()=>{if(frameIndex>=frames.length-1){stop();renderFrame();return;}frameIndex++;renderFrame();},Number($("speedSelect").value));renderFrame();});
+$("prevBtn").addEventListener("click",()=>{stop();frameIndex=Math.max(0,frameIndex-1);renderFrame();});
+$("nextBtn").addEventListener("click",()=>{stop();frameIndex=Math.min(frames.length-1,frameIndex+1);renderFrame();});
+$("resetBtn").addEventListener("click",()=>{stop();frameIndex=0;renderFrame();});
+$("speedSelect").addEventListener("change",()=>{if(timer){stop();$("playBtn").click();}});
+setGraph(presetKey);
+})();
+</script>
+</body>
+</html>
