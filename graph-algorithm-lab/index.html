@@ -135,7 +135,7 @@ function buildDfs(g,start){
    if(color[e.to]===0){s.traversed.push(e.id);addFrame(s,"检查边 "+u+" → "+e.to,"目标节点尚未访问，沿这条边继续深入。");walk(e.to,u);}
    else if(g.directed&&color[e.to]===1){
     s.cycleEdges.push(e.id);s.cycleEdges.push(...pathEdgesBetween(s,e.to,u,g));s.result="发现有向回路";addFrame(s,"发现回边 "+u+" → "+e.to,"这条边指向仍在递归栈中的节点 "+e.to+"，说明存在有向回路。");return true;
-   }else if(!g.directed&&e.to!==parent&&color[e.to]!==0){
+   }else if(!g.directed&&e.to!==parent&&color[e.to]===1){
     s.cycleEdges.push(e.id);s.result="发现无向回路";addFrame(s,"发现非父节点边 "+u+" — "+e.to,"目标节点已访问，并且不是当前节点的父节点；两条不同路径连接同一节点，构成回路。");return true;
    }else{addFrame(s,"跳过已处理边 "+u+(g.directed?" → ":" — ")+e.to,"这条边没有产生新的 DFS 树节点；继续检查其他边。");}
   }
